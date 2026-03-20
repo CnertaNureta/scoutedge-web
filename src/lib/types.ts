@@ -36,6 +36,8 @@ export interface Player {
   sentimentScore: number
   sentimentLabel: string
   seoArticle: string
+  imageUrl?: string
+  cutoutUrl?: string
 }
 
 export interface MatchFixture {

@@ -341,7 +341,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Recovering from knee ligament injury; returned to training",
     "sentimentScore": 70,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Hirving Lozano – Mexico World Cup 2026 Profile</h2><p>Hirving \"Chucky\" Lozano is Mexico's most electric attacking talent. The PSV winger is renowned for his explosive pace, fearless dribbling, and knack for big-game goals—including his unforgettable strike against Germany at the 2018 World Cup.</p><h3>Tournament Outlook</h3><p>A knee ligament injury raised fitness concerns, but Lozano has returned to training and is determined to be fit. If fully healthy, he will be central to Mexico's attacking plans, stretching defences and creating space for teammates. The home crowd factor could elevate his performance to new heights.</p>"
+    "seoArticle": "<h2>Hirving Lozano – Mexico World Cup 2026 Profile</h2><p>Hirving \"Chucky\" Lozano is Mexico's most electric attacking talent. The PSV winger is renowned for his explosive pace, fearless dribbling, and knack for big-game goals—including his unforgettable strike against Germany at the 2018 World Cup.</p><h3>Tournament Outlook</h3><p>A knee ligament injury raised fitness concerns, but Lozano has returned to training and is determined to be fit. If fully healthy, he will be central to Mexico's attacking plans, stretching defences and creating space for teammates. The home crowd factor could elevate his performance to new heights.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/daqozk1544969754.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sumitr1762901593.png"
   },
   {
     "slug": "santiago-gimenez",
@@ -359,7 +361,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit, in excellent form",
     "sentimentScore": 85,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Santiago Giménez – Mexico World Cup 2026 Profile</h2><p>Santiago Giménez has been a revelation for Feyenoord, establishing himself as one of the most lethal strikers in the Eredivisie. His goalscoring record in European competition has drawn interest from top clubs across the continent.</p><h3>Tournament Outlook</h3><p>Giménez is the favourite to lead Mexico's attack at the World Cup. His movement, finishing, and ability to play with his back to goal give Mexico a complete centre-forward. Playing in a home World Cup as the main striker is the opportunity of a lifetime.</p>"
+    "seoArticle": "<h2>Santiago Giménez – Mexico World Cup 2026 Profile</h2><p>Santiago Giménez has been a revelation for Feyenoord, establishing himself as one of the most lethal strikers in the Eredivisie. His goalscoring record in European competition has drawn interest from top clubs across the continent.</p><h3>Tournament Outlook</h3><p>Giménez is the favourite to lead Mexico's attack at the World Cup. His movement, finishing, and ability to play with his back to goal give Mexico a complete centre-forward. Playing in a home World Cup as the main striker is the opportunity of a lifetime.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xs0tpx1679242761.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j63fz01758892529.png"
   },
   {
     "slug": "raul-jimenez",
@@ -377,7 +381,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Managing chronic knee issue; match-fit but workload monitored",
     "sentimentScore": 60,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Raúl Jiménez – Mexico World Cup 2026 Profile</h2><p>Raúl Jiménez is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Fulham, Raúl Jiménez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Raúl Jiménez will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Raúl Jiménez – Mexico World Cup 2026 Profile</h2><p>Raúl Jiménez is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Fulham, Raúl Jiménez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Raúl Jiménez will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hfzefq1772025775.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/w4chsd1757070949.png"
   },
   {
     "slug": "alexis-vega",
@@ -395,7 +401,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Alexis Vega – Mexico World Cup 2026 Profile</h2><p>Alexis Vega is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Toluca, Alexis Vega brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Alexis Vega will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Alexis Vega – Mexico World Cup 2026 Profile</h2><p>Alexis Vega is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Toluca, Alexis Vega brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Alexis Vega will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bhp6641630155739.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6abl1y1630155862.png"
   },
   {
     "slug": "henry-martin",
@@ -413,7 +421,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Henry Martín – Mexico World Cup 2026 Profile</h2><p>Henry Martín is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Club América, Henry Martín brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Henry Martín will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Henry Martín – Mexico World Cup 2026 Profile</h2><p>Henry Martín is a forward who represents Mexico at the 2026 FIFA World Cup. Currently playing for Club América, Henry Martín brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Mexico prepare for the biggest stage in football, Henry Martín will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9zhtgw1630140220.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ijusbr1750329232.png"
   },
   {
     "slug": "ronwen-williams",
@@ -431,7 +441,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 78,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Ronwen Williams – South Africa World Cup 2026 Profile</h2><p>Ronwen Williams is the inspirational captain and goalkeeper of Bafana Bafana. His heroics at the 2024 Africa Cup of Nations, where South Africa reached the semi-finals, elevated him to continental stardom. Named the best goalkeeper at AFCON 2024, Williams brings world-class shot-stopping.</p><h3>Tournament Outlook</h3><p>Williams is the backbone of South Africa's World Cup campaign. His leadership, vocal presence, and ability to produce match-winning saves make him one of the most important players in the squad.</p>"
+    "seoArticle": "<h2>Ronwen Williams – South Africa World Cup 2026 Profile</h2><p>Ronwen Williams is the inspirational captain and goalkeeper of Bafana Bafana. His heroics at the 2024 Africa Cup of Nations, where South Africa reached the semi-finals, elevated him to continental stardom. Named the best goalkeeper at AFCON 2024, Williams brings world-class shot-stopping.</p><h3>Tournament Outlook</h3><p>Williams is the backbone of South Africa's World Cup campaign. His leadership, vocal presence, and ability to produce match-winning saves make him one of the most important players in the squad.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5i9esk1751086301.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kd7edx1750875629.png"
   },
   {
     "slug": "veli-mothwa",
@@ -485,7 +497,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Mothobi Mvala – South Africa World Cup 2026 Profile</h2><p>Mothobi Mvala is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Mothobi Mvala brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Mothobi Mvala will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Mothobi Mvala – South Africa World Cup 2026 Profile</h2><p>Mothobi Mvala is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Mothobi Mvala brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Mothobi Mvala will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/szb2aa1706106238.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lk67781750875686.png"
   },
   {
     "slug": "grant-kekana",
@@ -503,7 +517,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Grant Kekana – South Africa World Cup 2026 Profile</h2><p>Grant Kekana is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Grant Kekana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Grant Kekana will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Grant Kekana – South Africa World Cup 2026 Profile</h2><p>Grant Kekana is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Grant Kekana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Grant Kekana will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/supqt51751086690.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mqao921750875467.png"
   },
   {
     "slug": "khuliso-mudau",
@@ -521,7 +537,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Khuliso Mudau – South Africa World Cup 2026 Profile</h2><p>Khuliso Mudau is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Khuliso Mudau brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Khuliso Mudau will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Khuliso Mudau – South Africa World Cup 2026 Profile</h2><p>Khuliso Mudau is a defender who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Khuliso Mudau brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Khuliso Mudau will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i0cq7o1706105807.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ods0zi1750875546.png"
   },
   {
     "slug": "terrence-mashego",
@@ -611,7 +629,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 80,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Teboho Mokoena – South Africa World Cup 2026 Profile</h2><p>Teboho Mokoena is one of the most talented midfielders in African football. His long-range shooting, passing ability, and box-to-box energy have made him a standout performer for both Sundowns and Bafana Bafana.</p><h3>Tournament Outlook</h3><p>Mokoena is the creative heartbeat of the team. His ability to score from distance and dictate the tempo of matches makes him South Africa's most dangerous midfielder.</p>"
+    "seoArticle": "<h2>Teboho Mokoena – South Africa World Cup 2026 Profile</h2><p>Teboho Mokoena is one of the most talented midfielders in African football. His long-range shooting, passing ability, and box-to-box energy have made him a standout performer for both Sundowns and Bafana Bafana.</p><h3>Tournament Outlook</h3><p>Mokoena is the creative heartbeat of the team. His ability to score from distance and dictate the tempo of matches makes him South Africa's most dangerous midfielder.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4124n61751085355.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3dq0ds1750874921.png"
   },
   {
     "slug": "sipho-mbule",
@@ -629,7 +649,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Sipho Mbule – South Africa World Cup 2026 Profile</h2><p>Sipho Mbule is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Sipho Mbule brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Sipho Mbule will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Sipho Mbule – South Africa World Cup 2026 Profile</h2><p>Sipho Mbule is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Sipho Mbule brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Sipho Mbule will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/abzdob1677851230.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gl1wgk1677851263.png"
   },
   {
     "slug": "themba-zwane",
@@ -647,7 +669,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran managing fatigue",
     "sentimentScore": 68,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Themba Zwane – South Africa World Cup 2026 Profile</h2><p>Themba Zwane is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Themba Zwane brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Themba Zwane will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Themba Zwane – South Africa World Cup 2026 Profile</h2><p>Themba Zwane is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Themba Zwane brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Themba Zwane will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j9i4hk1706095566.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/76q7yr1750875450.png"
   },
   {
     "slug": "monnapule-saleng",
@@ -737,7 +761,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ethan Brooks – South Africa World Cup 2026 Profile</h2><p>Ethan Brooks is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Orlando Pirates, Ethan Brooks brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Ethan Brooks will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ethan Brooks – South Africa World Cup 2026 Profile</h2><p>Ethan Brooks is a midfielder who represents South Africa at the 2026 FIFA World Cup. Currently playing for Orlando Pirates, Ethan Brooks brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Ethan Brooks will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/d8v08t1749977041.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xrq6e11732915089.png"
   },
   {
     "slug": "percy-tau",
@@ -755,7 +781,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Percy Tau – South Africa World Cup 2026 Profile</h2><p>Percy Tau is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Al Ahly, Percy Tau brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Percy Tau will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Percy Tau – South Africa World Cup 2026 Profile</h2><p>Percy Tau is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Al Ahly, Percy Tau brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Percy Tau will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/gl8iij1596628689.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tcm6lq1610579534.png"
   },
   {
     "slug": "evidence-makgopa",
@@ -773,7 +801,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Evidence Makgopa – South Africa World Cup 2026 Profile</h2><p>Evidence Makgopa is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Orlando Pirates, Evidence Makgopa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Evidence Makgopa will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Evidence Makgopa – South Africa World Cup 2026 Profile</h2><p>Evidence Makgopa is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Orlando Pirates, Evidence Makgopa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Evidence Makgopa will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lmp3081705589519.jpg"
   },
   {
     "slug": "lebo-mothiba",
@@ -791,7 +820,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "History of injury issues, currently fit",
     "sentimentScore": 50,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Lebo Mothiba – South Africa World Cup 2026 Profile</h2><p>Lebo Mothiba is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Strasbourg, Lebo Mothiba brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Lebo Mothiba will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Lebo Mothiba – South Africa World Cup 2026 Profile</h2><p>Lebo Mothiba is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Strasbourg, Lebo Mothiba brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Lebo Mothiba will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/efha5w1681488003.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/et0tpz1750875702.png"
   },
   {
     "slug": "iqraam-rayners",
@@ -809,7 +840,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Iqraam Rayners – South Africa World Cup 2026 Profile</h2><p>Iqraam Rayners is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Iqraam Rayners brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Iqraam Rayners will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Iqraam Rayners – South Africa World Cup 2026 Profile</h2><p>Iqraam Rayners is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Mamelodi Sundowns, Iqraam Rayners brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Iqraam Rayners will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oh0gcn1750670299.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/49juqb1750875069.png"
   },
   {
     "slug": "elias-mokwana",
@@ -827,7 +860,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Elias Mokwana – South Africa World Cup 2026 Profile</h2><p>Elias Mokwana is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Esperance, Elias Mokwana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Elias Mokwana will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Elias Mokwana – South Africa World Cup 2026 Profile</h2><p>Elias Mokwana is a forward who represents South Africa at the 2026 FIFA World Cup. Currently playing for Esperance, Elias Mokwana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Africa prepare for the biggest stage in football, Elias Mokwana will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o3izq41750491987.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/parhqr1750492017.png"
   },
   {
     "slug": "son-heung-min",
@@ -845,7 +880,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit, strong season",
     "sentimentScore": 92,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Son Heung-min – South Korea World Cup 2026 Profile</h2><p>Son Heung-min is Asia's greatest footballer and South Korea's talismanic captain. The Tottenham star has established himself among the Premier League's elite over the past decade, combining blistering pace with lethal finishing from either foot.</p><h3>Tournament Outlook</h3><p>At 33, this is likely Son's final World Cup. His ability to produce moments of individual brilliance can single-handedly change matches. South Korea's entire attacking system revolves around his movement and finishing.</p>"
+    "seoArticle": "<h2>Son Heung-min – South Korea World Cup 2026 Profile</h2><p>Son Heung-min is Asia's greatest footballer and South Korea's talismanic captain. The Tottenham star has established himself among the Premier League's elite over the past decade, combining blistering pace with lethal finishing from either foot.</p><h3>Tournament Outlook</h3><p>At 33, this is likely Son's final World Cup. His ability to produce moments of individual brilliance can single-handedly change matches. South Korea's entire attacking system revolves around his movement and finishing.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/12yrco1610289677.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/a5cqf81766425262.png"
   },
   {
     "slug": "kim-min-jae",
@@ -863,7 +900,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 82,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Kim Min-jae – South Korea World Cup 2026 Profile</h2><p>Kim Min-jae is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Kim Min-jae brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Min-jae will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kim Min-jae – South Korea World Cup 2026 Profile</h2><p>Kim Min-jae is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Kim Min-jae brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Min-jae will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/heq7bc1770541689.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/m4uh701756408877.png"
   },
   {
     "slug": "lee-kang-in",
@@ -899,7 +938,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Hwang Hee-chan – South Korea World Cup 2026 Profile</h2><p>Hwang Hee-chan is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, Hwang Hee-chan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Hwang Hee-chan will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Hwang Hee-chan – South Korea World Cup 2026 Profile</h2><p>Hwang Hee-chan is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, Hwang Hee-chan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Hwang Hee-chan will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/izt4b51772032506.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/917hke1756975302.png"
   },
   {
     "slug": "cho-gue-sung",
@@ -917,7 +958,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Cho Gue-sung – South Korea World Cup 2026 Profile</h2><p>Cho Gue-sung is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Midtjylland, Cho Gue-sung brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Cho Gue-sung will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Cho Gue-sung – South Korea World Cup 2026 Profile</h2><p>Cho Gue-sung is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Midtjylland, Cho Gue-sung brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Cho Gue-sung will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6ck89h1668773166.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/32w5vj1765385403.png"
   },
   {
     "slug": "jeong-woo-yeong",
@@ -935,7 +978,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Jeong Woo-yeong – South Korea World Cup 2026 Profile</h2><p>Jeong Woo-yeong is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Freiburg, Jeong Woo-yeong brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Jeong Woo-yeong will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Jeong Woo-yeong – South Korea World Cup 2026 Profile</h2><p>Jeong Woo-yeong is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Freiburg, Jeong Woo-yeong brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Jeong Woo-yeong will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vgfiwh1605452732.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4aw8jx1763641404.png"
   },
   {
     "slug": "hwang-in-beom",
@@ -971,7 +1016,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Lee Jae-sung – South Korea World Cup 2026 Profile</h2><p>Lee Jae-sung is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Mainz, Lee Jae-sung brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Lee Jae-sung will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Lee Jae-sung – South Korea World Cup 2026 Profile</h2><p>Lee Jae-sung is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Mainz, Lee Jae-sung brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Lee Jae-sung will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jesvs51610918616.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/p0i9wg1763554091.png"
   },
   {
     "slug": "jo-hyeon-woo",
@@ -989,7 +1036,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jo Hyeon-woo – South Korea World Cup 2026 Profile</h2><p>Jo Hyeon-woo is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Jo Hyeon-woo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Jo Hyeon-woo will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Jo Hyeon-woo – South Korea World Cup 2026 Profile</h2><p>Jo Hyeon-woo is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Jo Hyeon-woo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Jo Hyeon-woo will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/unbf8w1751085788.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v7na7c1750221952.png"
   },
   {
     "slug": "kim-seung-gyu",
@@ -1007,7 +1056,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kim Seung-gyu – South Korea World Cup 2026 Profile</h2><p>Kim Seung-gyu is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Al Shabab, Kim Seung-gyu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Seung-gyu will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Kim Seung-gyu – South Korea World Cup 2026 Profile</h2><p>Kim Seung-gyu is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Al Shabab, Kim Seung-gyu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Seung-gyu will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l2q5o41668683583.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/32ktx81668684378.png"
   },
   {
     "slug": "song-bum-keun",
@@ -1025,7 +1076,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Song Bum-keun – South Korea World Cup 2026 Profile</h2><p>Song Bum-keun is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Song Bum-keun brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Song Bum-keun will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Song Bum-keun – South Korea World Cup 2026 Profile</h2><p>Song Bum-keun is a goalkeeper who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Song Bum-keun brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Song Bum-keun will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mjiw7k1668289121.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/70o5p21668289243.png"
   },
   {
     "slug": "kim-young-gwon",
@@ -1043,7 +1096,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran managing workload",
     "sentimentScore": 58,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Kim Young-gwon – South Korea World Cup 2026 Profile</h2><p>Kim Young-gwon is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Kim Young-gwon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Young-gwon will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kim Young-gwon – South Korea World Cup 2026 Profile</h2><p>Kim Young-gwon is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Kim Young-gwon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Young-gwon will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v26f8d1668774687.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/q13aof1750221235.png"
   },
   {
     "slug": "jung-seung-hyun",
@@ -1079,7 +1134,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kim Jin-su – South Korea World Cup 2026 Profile</h2><p>Kim Jin-su is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Kim Jin-su brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Jin-su will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kim Jin-su – South Korea World Cup 2026 Profile</h2><p>Kim Jin-su is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Kim Jin-su brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Jin-su will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9o7pyn1624115037.jpg"
   },
   {
     "slug": "lee-ki-je",
@@ -1097,7 +1153,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Lee Ki-je – South Korea World Cup 2026 Profile</h2><p>Lee Ki-je is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Lee Ki-je brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Lee Ki-je will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Lee Ki-je – South Korea World Cup 2026 Profile</h2><p>Lee Ki-je is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Jeonbuk Hyundai, Lee Ki-je brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Lee Ki-je will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4y3ni71515932564.jpg"
   },
   {
     "slug": "hong-chul",
@@ -1115,7 +1172,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Managing fitness carefully",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Hong Chul – South Korea World Cup 2026 Profile</h2><p>Hong Chul is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Daejeon Citizen, Hong Chul brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Hong Chul will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Hong Chul – South Korea World Cup 2026 Profile</h2><p>Hong Chul is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Daejeon Citizen, Hong Chul brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Hong Chul will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8ka93r1668687343.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j0yj3h1668685787.png"
   },
   {
     "slug": "kwon-kyung-won",
@@ -1133,7 +1192,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kwon Kyung-won – South Korea World Cup 2026 Profile</h2><p>Kwon Kyung-won is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Gimcheon Sangmu, Kwon Kyung-won brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kwon Kyung-won will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kwon Kyung-won – South Korea World Cup 2026 Profile</h2><p>Kwon Kyung-won is a defender who represents South Korea at the 2026 FIFA World Cup. Currently playing for Gimcheon Sangmu, Kwon Kyung-won brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kwon Kyung-won will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ybtgq11668774018.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l3t4xd1668773938.png"
   },
   {
     "slug": "kim-do-young",
@@ -1151,7 +1212,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Kim Do-young – South Korea World Cup 2026 Profile</h2><p>Kim Do-young is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Yokohama F. Marinos, Kim Do-young brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Do-young will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Kim Do-young – South Korea World Cup 2026 Profile</h2><p>Kim Do-young is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Yokohama F. Marinos, Kim Do-young brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Kim Do-young will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8ifpqd1674500908.jpg",
+    "cutoutUrl": "https://www.thesportsdb.com/images/media/player/cutout/z9anlm1773141344.png"
   },
   {
     "slug": "park-yong-woo",
@@ -1169,7 +1232,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Park Yong-woo – South Korea World Cup 2026 Profile</h2><p>Park Yong-woo is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Park Yong-woo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Park Yong-woo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Park Yong-woo – South Korea World Cup 2026 Profile</h2><p>Park Yong-woo is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Ulsan HD, Park Yong-woo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Park Yong-woo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j61f9y1740781516.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/y2ohay1750753126.png"
   },
   {
     "slug": "song-min-kyu",
@@ -1205,7 +1270,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Oh Hyeon-gyu – South Korea World Cup 2026 Profile</h2><p>Oh Hyeon-gyu is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Celtic, Oh Hyeon-gyu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Oh Hyeon-gyu will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Oh Hyeon-gyu – South Korea World Cup 2026 Profile</h2><p>Oh Hyeon-gyu is a forward who represents South Korea at the 2026 FIFA World Cup. Currently playing for Celtic, Oh Hyeon-gyu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Oh Hyeon-gyu will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fe6gaa1675929608.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/afjq841767641921.png"
   },
   {
     "slug": "na-sang-ho",
@@ -1241,7 +1308,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Bae Jun-ho – South Korea World Cup 2026 Profile</h2><p>Bae Jun-ho is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Stoke City, Bae Jun-ho brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Bae Jun-ho will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Bae Jun-ho – South Korea World Cup 2026 Profile</h2><p>Bae Jun-ho is a midfielder who represents South Korea at the 2026 FIFA World Cup. Currently playing for Stoke City, Bae Jun-ho brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As South Korea prepare for the biggest stage in football, Bae Jun-ho will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p56j7g1717582870.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gifl4o1631711025.png"
   },
   {
     "slug": "kasper-schmeichel",
@@ -1259,7 +1328,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran managing workload",
     "sentimentScore": 65,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Kasper Schmeichel – Denmark World Cup 2026 Profile</h2><p>Kasper Schmeichel is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Celtic, Kasper Schmeichel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Kasper Schmeichel will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Kasper Schmeichel – Denmark World Cup 2026 Profile</h2><p>Kasper Schmeichel is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Celtic, Kasper Schmeichel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Kasper Schmeichel will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kyitp31730845446.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/egcgc21716408164.png"
   },
   {
     "slug": "mads-hermansen",
@@ -1277,7 +1348,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Mads Hermansen – Denmark World Cup 2026 Profile</h2><p>Mads Hermansen is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Leicester City, Mads Hermansen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Mads Hermansen will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Mads Hermansen – Denmark World Cup 2026 Profile</h2><p>Mads Hermansen is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Leicester City, Mads Hermansen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Mads Hermansen will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/teeix01772133261.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/a55u3k1772134389.png"
   },
   {
     "slug": "frederik-r-nnow",
@@ -1295,7 +1368,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Frederik Rønnow – Denmark World Cup 2026 Profile</h2><p>Frederik Rønnow is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Union Berlin, Frederik Rønnow brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Frederik Rønnow will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Frederik Rønnow – Denmark World Cup 2026 Profile</h2><p>Frederik Rønnow is a goalkeeper who represents Denmark at the 2026 FIFA World Cup. Currently playing for Union Berlin, Frederik Rønnow brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Frederik Rønnow will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fc5cmn1622035091.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j9t7491763641303.png"
   },
   {
     "slug": "andreas-christensen",
@@ -1313,7 +1388,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Andreas Christensen – Denmark World Cup 2026 Profile</h2><p>Andreas Christensen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Barcelona, Andreas Christensen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Andreas Christensen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Andreas Christensen – Denmark World Cup 2026 Profile</h2><p>Andreas Christensen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Barcelona, Andreas Christensen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Andreas Christensen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lg5vvk1771261092.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ynkck21768321682.png"
   },
   {
     "slug": "joachim-andersen",
@@ -1331,7 +1408,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Joachim Andersen – Denmark World Cup 2026 Profile</h2><p>Joachim Andersen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Fulham, Joachim Andersen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Joachim Andersen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Joachim Andersen – Denmark World Cup 2026 Profile</h2><p>Joachim Andersen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Fulham, Joachim Andersen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Joachim Andersen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lxl96o1485605416.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/26u7t11654786787.png"
   },
   {
     "slug": "simon-kj-r",
@@ -1349,7 +1428,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, fitness being managed",
     "sentimentScore": 60,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Simon Kjær – Denmark World Cup 2026 Profile</h2><p>Simon Kjær is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Unattached, Simon Kjær brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Simon Kjær will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Simon Kjær – Denmark World Cup 2026 Profile</h2><p>Simon Kjær is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Unattached, Simon Kjær brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Simon Kjær will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zdwowg1711454040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v9jguw1675183954.png"
   },
   {
     "slug": "joakim-m-hle",
@@ -1367,7 +1448,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Joakim Mæhle – Denmark World Cup 2026 Profile</h2><p>Joakim Mæhle is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Wolfsburg, Joakim Mæhle brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Joakim Mæhle will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Joakim Mæhle – Denmark World Cup 2026 Profile</h2><p>Joakim Mæhle is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Wolfsburg, Joakim Mæhle brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Joakim Mæhle will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3ow5qm1610146051.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xxsayw1763669423.png"
   },
   {
     "slug": "victor-kristiansen",
@@ -1385,7 +1468,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Victor Kristiansen – Denmark World Cup 2026 Profile</h2><p>Victor Kristiansen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Bologna, Victor Kristiansen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Victor Kristiansen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Victor Kristiansen – Denmark World Cup 2026 Profile</h2><p>Victor Kristiansen is a defender who represents Denmark at the 2026 FIFA World Cup. Currently playing for Bologna, Victor Kristiansen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Denmark prepare for the biggest stage in football, Victor Kristiansen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/762pdx1654261519.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/eoe35i1761861579.png"
   },
   {
     "slug": "alexander-bah",
@@ -3329,7 +3414,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 88,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Achraf Hakimi – Morocco World Cup 2026 Profile</h2><p>Achraf Hakimi is one of the best right-backs in world football. The PSG defender combines blistering pace with excellent crossing and an ability to score spectacular goals. His performance at the 2022 World Cup, where Morocco reached the semi-finals, was extraordinary.</p><h3>Tournament Outlook</h3><p>Hakimi will be Morocco's driving force from right-back. His overlapping and underlapping runs create constant danger, and his Panenka penalty mentality shows supreme confidence under pressure.</p>"
+    "seoArticle": "<h2>Achraf Hakimi – Morocco World Cup 2026 Profile</h2><p>Achraf Hakimi is one of the best right-backs in world football. The PSG defender combines blistering pace with excellent crossing and an ability to score spectacular goals. His performance at the 2022 World Cup, where Morocco reached the semi-finals, was extraordinary.</p><h3>Tournament Outlook</h3><p>Hakimi will be Morocco's driving force from right-back. His overlapping and underlapping runs create constant danger, and his Panenka penalty mentality shows supreme confidence under pressure.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lwhwh71770216476.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/oqu69c1766335243.png"
   },
   {
     "slug": "yassine-bounou",
@@ -3743,7 +3830,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 92,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Vinícius Jr. – Brazil World Cup 2026 Profile</h2><p>Vinícius Jr. is the Ballon d'Or holder and the most exciting attacker in world football. The Real Madrid winger combines breathtaking dribbling with devastating pace and an increasing goal return. His ability to produce magic in the biggest moments sets him apart.</p><h3>Tournament Outlook</h3><p>Vinícius is the focal point of Brazil's attack and the player opponents fear most. His ability to beat multiple defenders and score spectacular goals makes him the most dangerous player at the tournament. A strong World Cup would further cement his legacy among Brazil's all-time greats.</p>"
+    "seoArticle": "<h2>Vinícius Jr. – Brazil World Cup 2026 Profile</h2><p>Vinícius Jr. is the Ballon d'Or holder and the most exciting attacker in world football. The Real Madrid winger combines breathtaking dribbling with devastating pace and an increasing goal return. His ability to produce magic in the biggest moments sets him apart.</p><h3>Tournament Outlook</h3><p>Vinícius is the focal point of Brazil's attack and the player opponents fear most. His ability to beat multiple defenders and score spectacular goals makes him the most dangerous player at the tournament. A strong World Cup would further cement his legacy among Brazil's all-time greats.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lxf1he1771264845.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ejuxsh1750271859.png"
   },
   {
     "slug": "rodrygo",
@@ -4013,7 +4102,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Lucas Paquetá – Brazil World Cup 2026 Profile</h2><p>Lucas Paquetá is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for West Ham United, Lucas Paquetá brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Lucas Paquetá will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Lucas Paquetá – Brazil World Cup 2026 Profile</h2><p>Lucas Paquetá is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for West Ham United, Lucas Paquetá brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Lucas Paquetá will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3mg83e1716706150.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wz75kq1770378434.png"
   },
   {
     "slug": "casemiro",
@@ -4031,7 +4122,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, form fluctuating",
     "sentimentScore": 58,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Casemiro – Brazil World Cup 2026 Profile</h2><p>Casemiro is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Manchester United, Casemiro brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Casemiro will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Casemiro – Brazil World Cup 2026 Profile</h2><p>Casemiro is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Manchester United, Casemiro brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Casemiro will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0g0bxh1706525357.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ydr3j41766826524.png"
   },
   {
     "slug": "joao-gomes",
@@ -4049,7 +4142,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>João Gomes – Brazil World Cup 2026 Profile</h2><p>João Gomes is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, João Gomes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, João Gomes will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>João Gomes – Brazil World Cup 2026 Profile</h2><p>João Gomes is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, João Gomes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, João Gomes will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o170sh1772032411.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/u8mcha1756975493.png"
   },
   {
     "slug": "andre",
@@ -4067,7 +4162,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>André – Brazil World Cup 2026 Profile</h2><p>André is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, André brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, André will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>André – Brazil World Cup 2026 Profile</h2><p>André is a midfielder who represents Brazil at the 2026 FIFA World Cup. Currently playing for Wolverhampton Wanderers, André brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, André will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5yzh2j1771665641.jpg"
   },
   {
     "slug": "gabriel-martinelli",
@@ -4085,7 +4181,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Gabriel Martinelli – Brazil World Cup 2026 Profile</h2><p>Gabriel Martinelli is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Arsenal, Gabriel Martinelli brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Gabriel Martinelli will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Gabriel Martinelli – Brazil World Cup 2026 Profile</h2><p>Gabriel Martinelli is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Arsenal, Gabriel Martinelli brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Gabriel Martinelli will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jf2gcn1716705057.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pnwfls1769331152.png"
   },
   {
     "slug": "richarlison",
@@ -4103,7 +4201,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Recovering from minor calf strain",
     "sentimentScore": 62,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Richarlison – Brazil World Cup 2026 Profile</h2><p>Richarlison is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Tottenham Hotspur, Richarlison brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Richarlison will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Richarlison – Brazil World Cup 2026 Profile</h2><p>Richarlison is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Tottenham Hotspur, Richarlison brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Richarlison will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9c6sim1770894215.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qgim7p1757016148.png"
   },
   {
     "slug": "savinho",
@@ -4121,7 +4221,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Savinho – Brazil World Cup 2026 Profile</h2><p>Savinho is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Manchester City, Savinho brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Savinho will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Savinho – Brazil World Cup 2026 Profile</h2><p>Savinho is a forward who represents Brazil at the 2026 FIFA World Cup. Currently playing for Manchester City, Savinho brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Savinho will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3w2avy1716707795.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/khqgy21769183420.png"
   },
   {
     "slug": "yan-couto",
@@ -4139,7 +4241,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Yan Couto – Brazil World Cup 2026 Profile</h2><p>Yan Couto is a defender who represents Brazil at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Yan Couto brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Yan Couto will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Yan Couto – Brazil World Cup 2026 Profile</h2><p>Yan Couto is a defender who represents Brazil at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Yan Couto brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Brazil prepare for the biggest stage in football, Yan Couto will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fg52xa1716706821.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hadu641756326239.png"
   },
   {
     "slug": "angus-gunn",
@@ -4157,7 +4261,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Angus Gunn – Scotland World Cup 2026 Profile</h2><p>Angus Gunn is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Angus Gunn brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Angus Gunn will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Angus Gunn – Scotland World Cup 2026 Profile</h2><p>Angus Gunn is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Angus Gunn brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Angus Gunn will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4r0sby1772393040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/7mdhk31757163014.png"
   },
   {
     "slug": "craig-gordon",
@@ -4175,7 +4281,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, remarkable longevity",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Craig Gordon – Scotland World Cup 2026 Profile</h2><p>Craig Gordon is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Craig Gordon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Craig Gordon will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Craig Gordon – Scotland World Cup 2026 Profile</h2><p>Craig Gordon is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Craig Gordon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Craig Gordon will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hptxnh1513016021.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/npww751722423397.png"
   },
   {
     "slug": "zander-clark",
@@ -4193,7 +4301,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Zander Clark – Scotland World Cup 2026 Profile</h2><p>Zander Clark is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Zander Clark brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Zander Clark will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Zander Clark – Scotland World Cup 2026 Profile</h2><p>Zander Clark is a goalkeeper who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Zander Clark brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Zander Clark will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xnit8s1549981401.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/n65oll1722423451.png"
   },
   {
     "slug": "andrew-robertson",
@@ -4211,7 +4321,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 78,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Andrew Robertson – Scotland World Cup 2026 Profile</h2><p>Andrew Robertson is Scotland's inspirational captain and one of the best left-backs in world football. His tireless runs, pinpoint crossing, and leadership have been vital for both Liverpool and Scotland.</p><h3>Tournament Outlook</h3><p>Robertson will wear the armband and drive Scotland forward. His experience at the highest level of club football and his passion for the national team make him irreplaceable. His delivery from wide areas is Scotland's primary creative weapon.</p>"
+    "seoArticle": "<h2>Andrew Robertson – Scotland World Cup 2026 Profile</h2><p>Andrew Robertson is Scotland's inspirational captain and one of the best left-backs in world football. His tireless runs, pinpoint crossing, and leadership have been vital for both Liverpool and Scotland.</p><h3>Tournament Outlook</h3><p>Robertson will wear the armband and drive Scotland forward. His experience at the highest level of club football and his passion for the national team make him irreplaceable. His delivery from wide areas is Scotland's primary creative weapon.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mvmpbc1710165540.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/t0yil51757088652.png"
   },
   {
     "slug": "kieran-tierney",
@@ -4229,7 +4341,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "History of injuries, currently fit",
     "sentimentScore": 62,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Kieran Tierney – Scotland World Cup 2026 Profile</h2><p>Kieran Tierney is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Kieran Tierney brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Kieran Tierney will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kieran Tierney – Scotland World Cup 2026 Profile</h2><p>Kieran Tierney is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Kieran Tierney brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Kieran Tierney will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vvm2h61678274134.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sx9jwg1725292484.png"
   },
   {
     "slug": "scott-mctominay",
@@ -4247,7 +4361,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Scott McTominay – Scotland World Cup 2026 Profile</h2><p>Scott McTominay has been transformed since his move to Napoli, becoming one of the most prolific midfielders in Serie A. His ability to arrive in the box and score goals from midfield is a crucial weapon for Scotland.</p><h3>Tournament Outlook</h3><p>McTominay will be Scotland's most important outfield player. His goal threat, physicality, and energy in midfield give Scotland a genuine chance of competing at the highest level.</p>"
+    "seoArticle": "<h2>Scott McTominay – Scotland World Cup 2026 Profile</h2><p>Scott McTominay has been transformed since his move to Napoli, becoming one of the most prolific midfielders in Serie A. His ability to arrive in the box and score goals from midfield is a crucial weapon for Scotland.</p><h3>Tournament Outlook</h3><p>McTominay will be Scotland's most important outfield player. His goal threat, physicality, and energy in midfield give Scotland a genuine chance of competing at the highest level.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vjfgf21771246923.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/b7truo1762288079.png"
   },
   {
     "slug": "john-mcginn",
@@ -4265,7 +4381,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>John McGinn – Scotland World Cup 2026 Profile</h2><p>John McGinn is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Aston Villa, John McGinn brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, John McGinn will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>John McGinn – Scotland World Cup 2026 Profile</h2><p>John McGinn is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Aston Villa, John McGinn brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, John McGinn will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/msafxs1770201393.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/keq4991756987159.png"
   },
   {
     "slug": "billy-gilmour",
@@ -4283,7 +4401,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Billy Gilmour – Scotland World Cup 2026 Profile</h2><p>Billy Gilmour is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Napoli, Billy Gilmour brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Billy Gilmour will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Billy Gilmour – Scotland World Cup 2026 Profile</h2><p>Billy Gilmour is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Napoli, Billy Gilmour brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Billy Gilmour will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vc6ads1771246454.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/axk63s1764089469.png"
   },
   {
     "slug": "callum-mcgregor",
@@ -4301,7 +4421,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Callum McGregor – Scotland World Cup 2026 Profile</h2><p>Callum McGregor is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Celtic, Callum McGregor brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Callum McGregor will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Callum McGregor – Scotland World Cup 2026 Profile</h2><p>Callum McGregor is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Celtic, Callum McGregor brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Callum McGregor will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3gdams1513027743.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kmsjdj1701350223.png"
   },
   {
     "slug": "ryan-christie",
@@ -4319,7 +4441,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ryan Christie – Scotland World Cup 2026 Profile</h2><p>Ryan Christie is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Bournemouth, Ryan Christie brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ryan Christie will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ryan Christie – Scotland World Cup 2026 Profile</h2><p>Ryan Christie is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Bournemouth, Ryan Christie brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ryan Christie will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fnbc441771750891.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/r142w81757018147.png"
   },
   {
     "slug": "kenny-mclean",
@@ -4337,7 +4461,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kenny McLean – Scotland World Cup 2026 Profile</h2><p>Kenny McLean is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Kenny McLean brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Kenny McLean will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Kenny McLean – Scotland World Cup 2026 Profile</h2><p>Kenny McLean is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Kenny McLean brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Kenny McLean will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/t30s831550092277.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ijblyx1761737486.png"
   },
   {
     "slug": "grant-hanley",
@@ -4355,7 +4481,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Grant Hanley – Scotland World Cup 2026 Profile</h2><p>Grant Hanley is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Grant Hanley brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Grant Hanley will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Grant Hanley – Scotland World Cup 2026 Profile</h2><p>Grant Hanley is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Norwich City, Grant Hanley brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Grant Hanley will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h7pan41507892657.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2zn65k1695292590.png"
   },
   {
     "slug": "jack-hendry",
@@ -4373,7 +4501,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jack Hendry – Scotland World Cup 2026 Profile</h2><p>Jack Hendry is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Al-Ettifaq, Jack Hendry brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Jack Hendry will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jack Hendry – Scotland World Cup 2026 Profile</h2><p>Jack Hendry is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Al-Ettifaq, Jack Hendry brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Jack Hendry will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sa7efp1616962164.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tnn81g1631793532.png"
   },
   {
     "slug": "anthony-ralston",
@@ -4391,7 +4521,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Anthony Ralston – Scotland World Cup 2026 Profile</h2><p>Anthony Ralston is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Celtic, Anthony Ralston brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Anthony Ralston will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Anthony Ralston – Scotland World Cup 2026 Profile</h2><p>Anthony Ralston is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Celtic, Anthony Ralston brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Anthony Ralston will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r54d3a1513028072.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ehhqyq1701949091.png"
   },
   {
     "slug": "ryan-porteous",
@@ -4409,7 +4541,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ryan Porteous – Scotland World Cup 2026 Profile</h2><p>Ryan Porteous is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Watford, Ryan Porteous brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ryan Porteous will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ryan Porteous – Scotland World Cup 2026 Profile</h2><p>Ryan Porteous is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Watford, Ryan Porteous brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ryan Porteous will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3dcfuj1766739625.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yakkb41759501075.png"
   },
   {
     "slug": "liam-cooper",
@@ -4427,7 +4561,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, managing fitness",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Liam Cooper – Scotland World Cup 2026 Profile</h2><p>Liam Cooper is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Leeds United, Liam Cooper brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Liam Cooper will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Liam Cooper – Scotland World Cup 2026 Profile</h2><p>Liam Cooper is a defender who represents Scotland at the 2026 FIFA World Cup. Currently playing for Leeds United, Liam Cooper brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Liam Cooper will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i8omqd1506935372.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1u3cwi1602515267.png"
   },
   {
     "slug": "che-adams",
@@ -4445,7 +4581,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Che Adams – Scotland World Cup 2026 Profile</h2><p>Che Adams is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Torino, Che Adams brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Che Adams will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Che Adams – Scotland World Cup 2026 Profile</h2><p>Che Adams is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Torino, Che Adams brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Che Adams will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n8t9kv1506025169.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fiwc2j1758813462.png"
   },
   {
     "slug": "lyndon-dykes",
@@ -4463,7 +4601,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Lyndon Dykes – Scotland World Cup 2026 Profile</h2><p>Lyndon Dykes is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for QPR, Lyndon Dykes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lyndon Dykes will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Lyndon Dykes – Scotland World Cup 2026 Profile</h2><p>Lyndon Dykes is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for QPR, Lyndon Dykes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lyndon Dykes will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vmlh3y1607891503.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4wz2941761931213.png"
   },
   {
     "slug": "lawrence-shankland",
@@ -4481,7 +4621,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Lawrence Shankland – Scotland World Cup 2026 Profile</h2><p>Lawrence Shankland is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Lawrence Shankland brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lawrence Shankland will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Lawrence Shankland – Scotland World Cup 2026 Profile</h2><p>Lawrence Shankland is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Hearts, Lawrence Shankland brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lawrence Shankland will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bb98v51512945992.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dxju9b1718014808.png"
   },
   {
     "slug": "ben-doak",
@@ -4499,7 +4641,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Ben Doak – Scotland World Cup 2026 Profile</h2><p>Ben Doak is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Middlesbrough, Ben Doak brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ben Doak will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Ben Doak – Scotland World Cup 2026 Profile</h2><p>Ben Doak is a forward who represents Scotland at the 2026 FIFA World Cup. Currently playing for Middlesbrough, Ben Doak brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Ben Doak will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5vkrus1771751268.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/b5u6q81757018206.png"
   },
   {
     "slug": "lewis-ferguson",
@@ -4517,7 +4661,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Lewis Ferguson – Scotland World Cup 2026 Profile</h2><p>Lewis Ferguson is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Bologna, Lewis Ferguson brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lewis Ferguson will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Lewis Ferguson – Scotland World Cup 2026 Profile</h2><p>Lewis Ferguson is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Bologna, Lewis Ferguson brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Lewis Ferguson will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ul4eck1548781581.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/84eiy01758896812.png"
   },
   {
     "slug": "stuart-armstrong",
@@ -4535,7 +4681,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Managing minor fitness issues",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Stuart Armstrong – Scotland World Cup 2026 Profile</h2><p>Stuart Armstrong is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Southampton, Stuart Armstrong brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Stuart Armstrong will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Stuart Armstrong – Scotland World Cup 2026 Profile</h2><p>Stuart Armstrong is a midfielder who represents Scotland at the 2026 FIFA World Cup. Currently playing for Southampton, Stuart Armstrong brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Scotland prepare for the biggest stage in football, Stuart Armstrong will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lo53461513013190.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/d5set51726774915.png"
   },
   {
     "slug": "tommy-conway",
@@ -4589,7 +4737,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alexandre Pierre – Haiti World Cup 2026 Profile</h2><p>Alexandre Pierre is a goalkeeper who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Alexandre Pierre brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Alexandre Pierre will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Alexandre Pierre – Haiti World Cup 2026 Profile</h2><p>Alexandre Pierre is a goalkeeper who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Alexandre Pierre brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Alexandre Pierre will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/01g3a01509973757.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kdktqx1766152430.png"
   },
   {
     "slug": "gerson-celusma",
@@ -4625,7 +4775,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Carlens Arcus – Haiti World Cup 2026 Profile</h2><p>Carlens Arcus is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Metz, Carlens Arcus brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Carlens Arcus will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Carlens Arcus – Haiti World Cup 2026 Profile</h2><p>Carlens Arcus is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Metz, Carlens Arcus brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Carlens Arcus will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tm8vet1701459658.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2e5idv1765913925.png"
   },
   {
     "slug": "jean-ricner-bellegarde",
@@ -4643,7 +4795,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jean-Ricner Bellegarde – Haiti World Cup 2026 Profile</h2><p>Jean-Ricner Bellegarde is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for IFK Göteborg, Jean-Ricner Bellegarde brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Jean-Ricner Bellegarde will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jean-Ricner Bellegarde – Haiti World Cup 2026 Profile</h2><p>Jean-Ricner Bellegarde is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for IFK Göteborg, Jean-Ricner Bellegarde brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Jean-Ricner Bellegarde will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4raydv1772032154.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i0niw51756975825.png"
   },
   {
     "slug": "ricardo-ade",
@@ -4661,7 +4815,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ricardo Adé – Haiti World Cup 2026 Profile</h2><p>Ricardo Adé is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Toulouse, Ricardo Adé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Ricardo Adé will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ricardo Adé – Haiti World Cup 2026 Profile</h2><p>Ricardo Adé is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Toulouse, Ricardo Adé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Ricardo Adé will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e2pvg41724686010.jpg"
   },
   {
     "slug": "alex-christian",
@@ -4679,7 +4834,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alex Christian – Haiti World Cup 2026 Profile</h2><p>Alex Christian is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Alex Christian brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Alex Christian will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Alex Christian – Haiti World Cup 2026 Profile</h2><p>Alex Christian is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Alex Christian brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Alex Christian will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/nljq4i1510407763.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hw9yf41766431744.png"
   },
   {
     "slug": "steeve-saint-duc",
@@ -4733,7 +4890,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Djimy-Bend Alexis – Haiti World Cup 2026 Profile</h2><p>Djimy-Bend Alexis is Haiti's most experienced midfielder and a key figure in their historic World Cup qualification. His passing range and leadership in central midfield have been instrumental in the team's rise.</p><h3>Tournament Outlook</h3><p>Alexis will orchestrate Haiti's midfield and serve as the link between defence and attack. His composure under pressure will be vital against higher-ranked opponents.</p>"
+    "seoArticle": "<h2>Djimy-Bend Alexis – Haiti World Cup 2026 Profile</h2><p>Djimy-Bend Alexis is Haiti's most experienced midfielder and a key figure in their historic World Cup qualification. His passing range and leadership in central midfield have been instrumental in the team's rise.</p><h3>Tournament Outlook</h3><p>Alexis will orchestrate Haiti's midfield and serve as the link between defence and attack. His composure under pressure will be vital against higher-ranked opponents.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/m05tjc1718343405.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6bj5hk1762860338.png"
   },
   {
     "slug": "derrick-etienne-jr",
@@ -4787,7 +4946,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Danley Jean Jacques – Haiti World Cup 2026 Profile</h2><p>Danley Jean Jacques is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Djurgårdens IF, Danley Jean Jacques brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Danley Jean Jacques will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Danley Jean Jacques – Haiti World Cup 2026 Profile</h2><p>Danley Jean Jacques is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Djurgårdens IF, Danley Jean Jacques brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Danley Jean Jacques will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n9vxgi1506183212.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/t4zkjw1586181349.png"
   },
   {
     "slug": "melchie-dumornay",
@@ -4805,7 +4966,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Melchie Dumornay – Haiti World Cup 2026 Profile</h2><p>Melchie Dumornay is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Caen, Melchie Dumornay brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Melchie Dumornay will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Melchie Dumornay – Haiti World Cup 2026 Profile</h2><p>Melchie Dumornay is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Caen, Melchie Dumornay brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Melchie Dumornay will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r0zjnu1702727745.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8xczfo1702727628.png"
   },
   {
     "slug": "leverton-pierre",
@@ -4823,7 +4986,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Leverton Pierre – Haiti World Cup 2026 Profile</h2><p>Leverton Pierre is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Leverton Pierre brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Leverton Pierre will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Leverton Pierre – Haiti World Cup 2026 Profile</h2><p>Leverton Pierre is a midfielder who represents Haiti at the 2026 FIFA World Cup. Currently playing for Violette AC, Leverton Pierre brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Leverton Pierre will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/01g3a01509973757.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kdktqx1766152430.png"
   },
   {
     "slug": "kevin-lafrance",
@@ -4841,7 +5006,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kevin Lafrance – Haiti World Cup 2026 Profile</h2><p>Kevin Lafrance is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Le Havre, Kevin Lafrance brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Kevin Lafrance will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kevin Lafrance – Haiti World Cup 2026 Profile</h2><p>Kevin Lafrance is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Le Havre, Kevin Lafrance brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Kevin Lafrance will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tqhyco1623631689.jpg"
   },
   {
     "slug": "stephane-lambese",
@@ -4895,7 +5061,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ronaldo Damus – Haiti World Cup 2026 Profile</h2><p>Ronaldo Damus is a forward who represents Haiti at the 2026 FIFA World Cup. Currently playing for Loudoun United, Ronaldo Damus brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Ronaldo Damus will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Ronaldo Damus – Haiti World Cup 2026 Profile</h2><p>Ronaldo Damus is a forward who represents Haiti at the 2026 FIFA World Cup. Currently playing for Loudoun United, Ronaldo Damus brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Ronaldo Damus will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c5pum41683964614.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/srpamx1683964691.png"
   },
   {
     "slug": "mondy-prunier",
@@ -4949,7 +5117,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jung Joël André – Haiti World Cup 2026 Profile</h2><p>Jung Joël André is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Don Bosco FC, Jung Joël André brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Jung Joël André will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jung Joël André – Haiti World Cup 2026 Profile</h2><p>Jung Joël André is a defender who represents Haiti at the 2026 FIFA World Cup. Currently playing for Don Bosco FC, Jung Joël André brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Haiti prepare for the biggest stage in football, Jung Joël André will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5yzh2j1771665641.jpg"
   },
   {
     "slug": "christian-pulisic",
@@ -4967,7 +5136,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 90,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Christian Pulisic – USA World Cup 2026 Profile</h2><p>Christian Pulisic is the captain and talisman of the US Men's National Team. The AC Milan star has proven himself in Serie A, combining technical excellence with fearless dribbling and a keen eye for goal. As the face of American soccer, he carries immense expectations.</p><h3>Tournament Outlook</h3><p>Pulisic will be the driving force of the USA's home World Cup campaign. His ability to produce decisive moments in big games, as seen at the 2022 World Cup, makes him the most important player in the squad. The home crowd will elevate his already impressive performances.</p>"
+    "seoArticle": "<h2>Christian Pulisic – USA World Cup 2026 Profile</h2><p>Christian Pulisic is the captain and talisman of the US Men's National Team. The AC Milan star has proven himself in Serie A, combining technical excellence with fearless dribbling and a keen eye for goal. As the face of American soccer, he carries immense expectations.</p><h3>Tournament Outlook</h3><p>Pulisic will be the driving force of the USA's home World Cup campaign. His ability to produce decisive moments in big games, as seen at the 2022 World Cup, makes him the most important player in the squad. The home crowd will elevate his already impressive performances.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/40pxda1669799830.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qwii9r1758893548.png"
   },
   {
     "slug": "weston-mckennie",
@@ -4985,7 +5156,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Weston McKennie – USA World Cup 2026 Profile</h2><p>Weston McKennie is a midfielder who represents USA at the 2026 FIFA World Cup. Currently playing for Juventus, Weston McKennie brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As USA prepare for the biggest stage in football, Weston McKennie will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Weston McKennie – USA World Cup 2026 Profile</h2><p>Weston McKennie is a midfielder who represents USA at the 2026 FIFA World Cup. Currently playing for Juventus, Weston McKennie brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As USA prepare for the biggest stage in football, Weston McKennie will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/k5lx3p1621545726.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ct34v01759225325.png"
   },
   {
     "slug": "giovanni-reyna",
@@ -6965,7 +7138,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Niclas Füllkrug – Germany World Cup 2026 Profile</h2><p>Niclas Füllkrug is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for West Ham United, Niclas Füllkrug brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Niclas Füllkrug will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Niclas Füllkrug – Germany World Cup 2026 Profile</h2><p>Niclas Füllkrug is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for West Ham United, Niclas Füllkrug brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Niclas Füllkrug will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5uc4371722878196.jpg",
+    "cutoutUrl": "https://www.thesportsdb.com/images/media/player/cutout/mnocti1773919754.png"
   },
   {
     "slug": "deniz-undav",
@@ -6983,7 +7158,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Deniz Undav – Germany World Cup 2026 Profile</h2><p>Deniz Undav is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for Stuttgart, Deniz Undav brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Deniz Undav will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Deniz Undav – Germany World Cup 2026 Profile</h2><p>Deniz Undav is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for Stuttgart, Deniz Undav brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Deniz Undav will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kljjxi1661083660.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hcxx8s1763586492.png"
   },
   {
     "slug": "maximilian-beier",
@@ -7001,7 +7178,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Maximilian Beier – Germany World Cup 2026 Profile</h2><p>Maximilian Beier is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Maximilian Beier brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Maximilian Beier will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Maximilian Beier – Germany World Cup 2026 Profile</h2><p>Maximilian Beier is a forward who represents Germany at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Maximilian Beier brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Maximilian Beier will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/dm3cp41700050040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bfzp1g1756325953.png"
   },
   {
     "slug": "aleksandar-pavlovic",
@@ -7019,7 +7198,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Aleksandar Pavlović – Germany World Cup 2026 Profile</h2><p>Aleksandar Pavlović is a midfielder who represents Germany at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Aleksandar Pavlović brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Aleksandar Pavlović will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Aleksandar Pavlović – Germany World Cup 2026 Profile</h2><p>Aleksandar Pavlović is a midfielder who represents Germany at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Aleksandar Pavlović brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Germany prepare for the biggest stage in football, Aleksandar Pavlović will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4gy5s71770542176.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/22ti3z1756408943.png"
   },
   {
     "slug": "yahia-fofana",
@@ -7037,7 +7218,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Yahia Fofana – Ivory Coast World Cup 2026 Profile</h2><p>Yahia Fofana is a goalkeeper who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Angers, Yahia Fofana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Yahia Fofana will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Yahia Fofana – Ivory Coast World Cup 2026 Profile</h2><p>Yahia Fofana is a goalkeeper who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Angers, Yahia Fofana brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Yahia Fofana will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jby1d51546354375.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hu70nu1766137589.png"
   },
   {
     "slug": "badra-ali-sangare",
@@ -7055,7 +7238,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Badra Ali Sangaré – Ivory Coast World Cup 2026 Profile</h2><p>Badra Ali Sangaré is a goalkeeper who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Lens, Badra Ali Sangaré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Badra Ali Sangaré will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Badra Ali Sangaré – Ivory Coast World Cup 2026 Profile</h2><p>Badra Ali Sangaré is a goalkeeper who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Lens, Badra Ali Sangaré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Badra Ali Sangaré will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i5th491601324310.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc7kcv1757163183.png"
   },
   {
     "slug": "ira-tape",
@@ -7091,7 +7276,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, fitness managed",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Serge Aurier – Ivory Coast World Cup 2026 Profile</h2><p>Serge Aurier is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Galatasaray, Serge Aurier brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Serge Aurier will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Serge Aurier – Ivory Coast World Cup 2026 Profile</h2><p>Serge Aurier is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Galatasaray, Serge Aurier brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Serge Aurier will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v8ed721509456264.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3cfhpv1693756909.png"
   },
   {
     "slug": "odilon-kossounou",
@@ -7109,7 +7296,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Odilon Kossounou – Ivory Coast World Cup 2026 Profile</h2><p>Odilon Kossounou is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Atalanta, Odilon Kossounou brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Odilon Kossounou will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Odilon Kossounou – Ivory Coast World Cup 2026 Profile</h2><p>Odilon Kossounou is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Atalanta, Odilon Kossounou brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Odilon Kossounou will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/qx8rn71623838893.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/p876cf1764331393.png"
   },
   {
     "slug": "willy-boly",
@@ -7127,7 +7316,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Willy Boly – Ivory Coast World Cup 2026 Profile</h2><p>Willy Boly is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Willy Boly brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Willy Boly will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Willy Boly – Ivory Coast World Cup 2026 Profile</h2><p>Willy Boly is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Willy Boly brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Willy Boly will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sezc6v1772392588.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ju3q7e1757162938.png"
   },
   {
     "slug": "ghislain-konan",
@@ -7145,7 +7336,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ghislain Konan – Ivory Coast World Cup 2026 Profile</h2><p>Ghislain Konan is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Ghislain Konan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Ghislain Konan will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ghislain Konan – Ivory Coast World Cup 2026 Profile</h2><p>Ghislain Konan is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Ghislain Konan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Ghislain Konan will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jaf7ie1541591927.jpg"
   },
   {
     "slug": "evan-ndicka",
@@ -7163,7 +7355,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Evan Ndicka – Ivory Coast World Cup 2026 Profile</h2><p>Evan Ndicka is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for AS Roma, Evan Ndicka brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Evan Ndicka will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Evan Ndicka – Ivory Coast World Cup 2026 Profile</h2><p>Evan Ndicka is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for AS Roma, Evan Ndicka brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Evan Ndicka will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kh9c4i1578087133.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8ark361758816299.png"
   },
   {
     "slug": "simon-adingra",
@@ -7181,7 +7375,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Simon Adingra – Ivory Coast World Cup 2026 Profile</h2><p>Simon Adingra is one of the brightest young talents in African football. The Brighton winger's pace, dribbling, and direct style have made him a key player for both club and country. He was instrumental in Ivory Coast's 2024 AFCON triumph.</p><h3>Tournament Outlook</h3><p>Adingra will be the main attacking threat for the Elephants. His ability to beat defenders and create chances is Ivory Coast's most potent weapon at the World Cup.</p>"
+    "seoArticle": "<h2>Simon Adingra – Ivory Coast World Cup 2026 Profile</h2><p>Simon Adingra is one of the brightest young talents in African football. The Brighton winger's pace, dribbling, and direct style have made him a key player for both club and country. He was instrumental in Ivory Coast's 2024 AFCON triumph.</p><h3>Tournament Outlook</h3><p>Adingra will be the main attacking threat for the Elephants. His ability to beat defenders and create chances is Ivory Coast's most potent weapon at the World Cup.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ps0isw1752176102.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rxw49v1762198657.png"
   },
   {
     "slug": "sebastien-haller",
@@ -7199,7 +7395,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Sébastien Haller – Ivory Coast World Cup 2026 Profile</h2><p>Sébastien Haller is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Sébastien Haller brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Sébastien Haller will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Sébastien Haller – Ivory Coast World Cup 2026 Profile</h2><p>Sébastien Haller is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Borussia Dortmund, Sébastien Haller brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Sébastien Haller will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/prf3mf1610112961.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1tu3in1759780321.png"
   },
   {
     "slug": "nicolas-pepe",
@@ -7217,7 +7415,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Nicolas Pépé – Ivory Coast World Cup 2026 Profile</h2><p>Nicolas Pépé is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Trabzonspor, Nicolas Pépé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Nicolas Pépé will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Nicolas Pépé – Ivory Coast World Cup 2026 Profile</h2><p>Nicolas Pépé is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Trabzonspor, Nicolas Pépé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Nicolas Pépé will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7ewjmz1724779988.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xeui221762889301.png"
   },
   {
     "slug": "ibrahim-sangare",
@@ -7235,7 +7435,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Ibrahim Sangaré – Ivory Coast World Cup 2026 Profile</h2><p>Ibrahim Sangaré is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Ibrahim Sangaré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Ibrahim Sangaré will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ibrahim Sangaré – Ivory Coast World Cup 2026 Profile</h2><p>Ibrahim Sangaré is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Ibrahim Sangaré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Ibrahim Sangaré will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i5th491601324310.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc7kcv1757163183.png"
   },
   {
     "slug": "franck-kessie",
@@ -7253,7 +7455,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Franck Kessié – Ivory Coast World Cup 2026 Profile</h2><p>Franck Kessié is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Franck Kessié brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Franck Kessié will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Franck Kessié – Ivory Coast World Cup 2026 Profile</h2><p>Franck Kessié is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Franck Kessié brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Franck Kessié will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jjgcgk1771663908.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wcmpma1771663848.png"
   },
   {
     "slug": "jean-philippe-krasso",
@@ -7271,7 +7475,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jean-Philippe Krasso – Ivory Coast World Cup 2026 Profile</h2><p>Jean-Philippe Krasso is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Al-Qadsiah, Jean-Philippe Krasso brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jean-Philippe Krasso will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jean-Philippe Krasso – Ivory Coast World Cup 2026 Profile</h2><p>Jean-Philippe Krasso is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Al-Qadsiah, Jean-Philippe Krasso brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jean-Philippe Krasso will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/czuf2w1609237204.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kvb4j71766329205.png"
   },
   {
     "slug": "jeremie-boga",
@@ -7289,7 +7495,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jeremie Boga – Ivory Coast World Cup 2026 Profile</h2><p>Jeremie Boga is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nice, Jeremie Boga brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jeremie Boga will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Jeremie Boga – Ivory Coast World Cup 2026 Profile</h2><p>Jeremie Boga is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Nice, Jeremie Boga brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jeremie Boga will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xyrvyq1431625747.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/spr68z1766319612.png"
   },
   {
     "slug": "christian-kouame",
@@ -7307,7 +7515,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Christian Kouamé – Ivory Coast World Cup 2026 Profile</h2><p>Christian Kouamé is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Fiorentina, Christian Kouamé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Christian Kouamé will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Christian Kouamé – Ivory Coast World Cup 2026 Profile</h2><p>Christian Kouamé is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Fiorentina, Christian Kouamé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Christian Kouamé will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1in9q11546112789.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sjz7nd1697894438.png"
   },
   {
     "slug": "oumar-diakite",
@@ -7325,7 +7535,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Oumar Diakité – Ivory Coast World Cup 2026 Profile</h2><p>Oumar Diakité is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Oumar Diakité brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Oumar Diakité will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Oumar Diakité – Ivory Coast World Cup 2026 Profile</h2><p>Oumar Diakité is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Oumar Diakité brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Oumar Diakité will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ws5egt1735338560.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2s5slh1767799799.png"
   },
   {
     "slug": "hamed-traore",
@@ -7343,7 +7555,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Hamed Traoré – Ivory Coast World Cup 2026 Profile</h2><p>Hamed Traoré is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Bournemouth, Hamed Traoré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Hamed Traoré will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Hamed Traoré – Ivory Coast World Cup 2026 Profile</h2><p>Hamed Traoré is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Bournemouth, Hamed Traoré brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Hamed Traoré will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jfdbdy1610989447.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xhaum31766153544.png"
   },
   {
     "slug": "maxwell-cornet",
@@ -7361,7 +7575,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Maxwell Cornet – Ivory Coast World Cup 2026 Profile</h2><p>Maxwell Cornet is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Southampton, Maxwell Cornet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Maxwell Cornet will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Maxwell Cornet – Ivory Coast World Cup 2026 Profile</h2><p>Maxwell Cornet is a forward who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Southampton, Maxwell Cornet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Maxwell Cornet will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4l8wjm1717627646.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6ckiwm1764248228.png"
   },
   {
     "slug": "emmanuel-agbadou",
@@ -7379,7 +7595,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Emmanuel Agbadou – Ivory Coast World Cup 2026 Profile</h2><p>Emmanuel Agbadou is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Emmanuel Agbadou brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Emmanuel Agbadou will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Emmanuel Agbadou – Ivory Coast World Cup 2026 Profile</h2><p>Emmanuel Agbadou is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Reims, Emmanuel Agbadou brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Emmanuel Agbadou will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1qojn71674743693.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vwlqq91756975538.png"
   },
   {
     "slug": "wilfried-singo",
@@ -7397,7 +7615,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Wilfried Singo – Ivory Coast World Cup 2026 Profile</h2><p>Wilfried Singo is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Monaco, Wilfried Singo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Wilfried Singo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Wilfried Singo – Ivory Coast World Cup 2026 Profile</h2><p>Wilfried Singo is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Monaco, Wilfried Singo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Wilfried Singo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/emwwrg1769177944.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zwfgmo1769177983.png"
   },
   {
     "slug": "jean-michael-seri",
@@ -7415,7 +7635,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jean Michaël Seri – Ivory Coast World Cup 2026 Profile</h2><p>Jean Michaël Seri is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Hull City, Jean Michaël Seri brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jean Michaël Seri will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Jean Michaël Seri – Ivory Coast World Cup 2026 Profile</h2><p>Jean Michaël Seri is a midfielder who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Hull City, Jean Michaël Seri brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Jean Michaël Seri will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ibinve1605009069.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/cjroze1605009079.png"
   },
   {
     "slug": "maxwel-cornet",
@@ -7433,7 +7655,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Maxwel Cornet – Ivory Coast World Cup 2026 Profile</h2><p>Maxwel Cornet is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Southampton, Maxwel Cornet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Maxwel Cornet will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Maxwel Cornet – Ivory Coast World Cup 2026 Profile</h2><p>Maxwel Cornet is a defender who represents Ivory Coast at the 2026 FIFA World Cup. Currently playing for Southampton, Maxwel Cornet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ivory Coast prepare for the biggest stage in football, Maxwel Cornet will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4l8wjm1717627646.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6ckiwm1764248228.png"
   },
   {
     "slug": "hernan-galindez",
@@ -7451,7 +7675,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Hernán Galíndez – Ecuador World Cup 2026 Profile</h2><p>Hernán Galíndez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Huracán, Hernán Galíndez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Hernán Galíndez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Hernán Galíndez – Ecuador World Cup 2026 Profile</h2><p>Hernán Galíndez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Huracán, Hernán Galíndez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Hernán Galíndez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a3j9uz1717175074.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i7jwvi1763739794.png"
   },
   {
     "slug": "alexander-dominguez",
@@ -7469,7 +7695,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alexander Domínguez – Ecuador World Cup 2026 Profile</h2><p>Alexander Domínguez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Liga de Quito, Alexander Domínguez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Alexander Domínguez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Alexander Domínguez – Ecuador World Cup 2026 Profile</h2><p>Alexander Domínguez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Liga de Quito, Alexander Domínguez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Alexander Domínguez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j7b0kr1717139509.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ty0o6e1724150081.png"
   },
   {
     "slug": "moises-ramirez",
@@ -7487,7 +7715,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Moisés Ramírez – Ecuador World Cup 2026 Profile</h2><p>Moisés Ramírez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Independiente del Valle, Moisés Ramírez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Moisés Ramírez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Moisés Ramírez – Ecuador World Cup 2026 Profile</h2><p>Moisés Ramírez is a goalkeeper who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Independiente del Valle, Moisés Ramírez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Moisés Ramírez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o5h2k91717175779.jpg"
   },
   {
     "slug": "piero-hincapie",
@@ -7505,7 +7734,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Piero Hincapié – Ecuador World Cup 2026 Profile</h2><p>Piero Hincapié is one of the most sought-after young centre-backs in world football. The Bayer Leverkusen defender has been a key part of their historic success, combining pace with composure on the ball and an ability to play out from the back.</p><h3>Tournament Outlook</h3><p>Hincapié anchors Ecuador's defence and is the team's most valuable player. His development at the highest level of Bundesliga football has prepared him perfectly for the World Cup.</p>"
+    "seoArticle": "<h2>Piero Hincapié – Ecuador World Cup 2026 Profile</h2><p>Piero Hincapié is one of the most sought-after young centre-backs in world football. The Bayer Leverkusen defender has been a key part of their historic success, combining pace with composure on the ball and an ability to play out from the back.</p><h3>Tournament Outlook</h3><p>Hincapié anchors Ecuador's defence and is the team's most valuable player. His development at the highest level of Bundesliga football has prepared him perfectly for the World Cup.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c7dpnp1769332212.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/7dltx01769330396.png"
   },
   {
     "slug": "pervis-estupinan",
@@ -7523,7 +7754,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Pervis Estupiñán – Ecuador World Cup 2026 Profile</h2><p>Pervis Estupiñán is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Brighton, Pervis Estupiñán brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Pervis Estupiñán will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Pervis Estupiñán – Ecuador World Cup 2026 Profile</h2><p>Pervis Estupiñán is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Brighton, Pervis Estupiñán brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Pervis Estupiñán will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vuzi4g1604867431.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc2kib1758892363.png"
   },
   {
     "slug": "felix-torres",
@@ -7541,7 +7774,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Félix Torres – Ecuador World Cup 2026 Profile</h2><p>Félix Torres is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Corinthians, Félix Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Félix Torres will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Félix Torres – Ecuador World Cup 2026 Profile</h2><p>Félix Torres is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Corinthians, Félix Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Félix Torres will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p2cvim1717177138.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/arv0dd1769774741.png"
   },
   {
     "slug": "robert-arboleda",
@@ -7559,7 +7794,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Robert Arboleda – Ecuador World Cup 2026 Profile</h2><p>Robert Arboleda is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for São Paulo, Robert Arboleda brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Robert Arboleda will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Robert Arboleda – Ecuador World Cup 2026 Profile</h2><p>Robert Arboleda is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for São Paulo, Robert Arboleda brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Robert Arboleda will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hw0tpi1631305151.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9q87oe1767886403.png"
   },
   {
     "slug": "angelo-preciado",
@@ -7577,7 +7814,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Angelo Preciado – Ecuador World Cup 2026 Profile</h2><p>Angelo Preciado is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Genk, Angelo Preciado brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Angelo Preciado will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Angelo Preciado – Ecuador World Cup 2026 Profile</h2><p>Angelo Preciado is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Genk, Angelo Preciado brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Angelo Preciado will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fldkbi1717181838.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lhzix21623867937.png"
   },
   {
     "slug": "william-pacho",
@@ -7613,7 +7852,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jackson Porozo – Ecuador World Cup 2026 Profile</h2><p>Jackson Porozo is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Troyes, Jackson Porozo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jackson Porozo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jackson Porozo – Ecuador World Cup 2026 Profile</h2><p>Jackson Porozo is a defender who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Troyes, Jackson Porozo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jackson Porozo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yl2g2b1717180011.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/uzoed21668544710.png"
   },
   {
     "slug": "moises-caicedo",
@@ -7631,7 +7872,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 82,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Moisés Caicedo – Ecuador World Cup 2026 Profile</h2><p>Moisés Caicedo is one of the Premier League's most complete midfielders. Chelsea's record signing has justified his price tag with commanding performances, combining ball-winning ability with impressive distribution and a growing eye for goal.</p><h3>Tournament Outlook</h3><p>Caicedo is Ecuador's most important player. His ability to dominate the midfield battle and transition from defence to attack makes him the engine of the team. A standout World Cup could see him recognised as one of the best midfielders in the world.</p>"
+    "seoArticle": "<h2>Moisés Caicedo – Ecuador World Cup 2026 Profile</h2><p>Moisés Caicedo is one of the Premier League's most complete midfielders. Chelsea's record signing has justified his price tag with commanding performances, combining ball-winning ability with impressive distribution and a growing eye for goal.</p><h3>Tournament Outlook</h3><p>Caicedo is Ecuador's most important player. His ability to dominate the midfield battle and transition from defence to attack makes him the engine of the team. A standout World Cup could see him recognised as one of the best midfielders in the world.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/b32gfw1771426837.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/u3feyy1757002398.png"
   },
   {
     "slug": "gonzalo-plata",
@@ -7649,7 +7892,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Gonzalo Plata – Ecuador World Cup 2026 Profile</h2><p>Gonzalo Plata is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Flamengo, Gonzalo Plata brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Gonzalo Plata will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Gonzalo Plata – Ecuador World Cup 2026 Profile</h2><p>Gonzalo Plata is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Flamengo, Gonzalo Plata brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Gonzalo Plata will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0ile871668542657.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sdclx01751003063.png"
   },
   {
     "slug": "enner-valencia",
@@ -7667,7 +7912,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, managing workload",
     "sentimentScore": 55,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Enner Valencia – Ecuador World Cup 2026 Profile</h2><p>Enner Valencia is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Liga de Quito, Enner Valencia brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Enner Valencia will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Enner Valencia – Ecuador World Cup 2026 Profile</h2><p>Enner Valencia is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Liga de Quito, Enner Valencia brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Enner Valencia will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/dakcfv1767607482.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gplbd81668544491.png"
   },
   {
     "slug": "jeremy-sarmiento",
@@ -7685,7 +7932,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jeremy Sarmiento – Ecuador World Cup 2026 Profile</h2><p>Jeremy Sarmiento is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Brighton, Jeremy Sarmiento brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jeremy Sarmiento will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Jeremy Sarmiento – Ecuador World Cup 2026 Profile</h2><p>Jeremy Sarmiento is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Brighton, Jeremy Sarmiento brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jeremy Sarmiento will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fawxw71661108952.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zdq2621758886486.png"
   },
   {
     "slug": "kendry-paez",
@@ -7703,7 +7952,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Kendry Páez – Ecuador World Cup 2026 Profile</h2><p>Kendry Páez is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Chelsea, Kendry Páez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Kendry Páez will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Kendry Páez – Ecuador World Cup 2026 Profile</h2><p>Kendry Páez is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Chelsea, Kendry Páez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Kendry Páez will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w31hz81735536482.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tf06hr1766053963.png"
   },
   {
     "slug": "alan-franco",
@@ -7721,7 +7972,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alan Franco – Ecuador World Cup 2026 Profile</h2><p>Alan Franco is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Atlético Mineiro, Alan Franco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Alan Franco will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Alan Franco – Ecuador World Cup 2026 Profile</h2><p>Alan Franco is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Atlético Mineiro, Alan Franco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Alan Franco will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wfp0jf1647028667.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/d4dtcf1763755226.png"
   },
   {
     "slug": "carlos-gruezo",
@@ -7739,7 +7992,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Carlos Gruezo – Ecuador World Cup 2026 Profile</h2><p>Carlos Gruezo is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for FC Augsburg, Carlos Gruezo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Carlos Gruezo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Carlos Gruezo – Ecuador World Cup 2026 Profile</h2><p>Carlos Gruezo is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for FC Augsburg, Carlos Gruezo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Carlos Gruezo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/71tvh51717182507.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ha044c1681899190.png"
   },
   {
     "slug": "jose-cifuentes",
@@ -7757,7 +8012,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>José Cifuentes – Ecuador World Cup 2026 Profile</h2><p>José Cifuentes is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Cruzeiro, José Cifuentes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, José Cifuentes will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>José Cifuentes – Ecuador World Cup 2026 Profile</h2><p>José Cifuentes is a midfielder who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Cruzeiro, José Cifuentes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, José Cifuentes will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2fqfxp1623150919.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2eyl0h1766575746.png"
   },
   {
     "slug": "kevin-rodriguez",
@@ -7775,7 +8032,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kevin Rodríguez – Ecuador World Cup 2026 Profile</h2><p>Kevin Rodríguez is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Real Valladolid, Kevin Rodríguez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Kevin Rodríguez will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Kevin Rodríguez – Ecuador World Cup 2026 Profile</h2><p>Kevin Rodríguez is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Real Valladolid, Kevin Rodríguez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Kevin Rodríguez will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r6vlwa1545242094.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/0ml2zi1761148957.png"
   },
   {
     "slug": "jordy-caicedo",
@@ -7793,7 +8052,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jordy Caicedo – Ecuador World Cup 2026 Profile</h2><p>Jordy Caicedo is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for CSKA Sofia, Jordy Caicedo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jordy Caicedo will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jordy Caicedo – Ecuador World Cup 2026 Profile</h2><p>Jordy Caicedo is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for CSKA Sofia, Jordy Caicedo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Jordy Caicedo will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/q9h6271657546854.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9teqe21657546877.png"
   },
   {
     "slug": "michael-estrada",
@@ -7829,7 +8090,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Djorkaeff Reasco – Ecuador World Cup 2026 Profile</h2><p>Djorkaeff Reasco is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Independiente del Valle, Djorkaeff Reasco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Djorkaeff Reasco will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Djorkaeff Reasco – Ecuador World Cup 2026 Profile</h2><p>Djorkaeff Reasco is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Independiente del Valle, Djorkaeff Reasco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, Djorkaeff Reasco will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c330781668548872.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ipebh11668548936.png"
   },
   {
     "slug": "john-yeboah",
@@ -7847,7 +8110,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>John Yeboah – Ecuador World Cup 2026 Profile</h2><p>John Yeboah is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Venezia, John Yeboah brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, John Yeboah will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>John Yeboah – Ecuador World Cup 2026 Profile</h2><p>John Yeboah is a forward who represents Ecuador at the 2026 FIFA World Cup. Currently playing for Venezia, John Yeboah brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Ecuador prepare for the biggest stage in football, John Yeboah will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xv21mj1735536238.jpg"
   },
   {
     "slug": "eloy-room",
@@ -7865,7 +8129,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Eloy Room – Curaçao World Cup 2026 Profile</h2><p>Eloy Room is a goalkeeper who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Vitesse, Eloy Room brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Eloy Room will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Eloy Room – Curaçao World Cup 2026 Profile</h2><p>Eloy Room is a goalkeeper who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Vitesse, Eloy Room brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Eloy Room will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vy4b431544969946.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fjxh0b1701724194.png"
   },
   {
     "slug": "ziggy-owusu-ansah",
@@ -7919,7 +8185,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Cuco Martina – Curaçao World Cup 2026 Profile</h2><p>Cuco Martina is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for RKC Waalwijk, Cuco Martina brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Cuco Martina will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Cuco Martina – Curaçao World Cup 2026 Profile</h2><p>Cuco Martina is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for RKC Waalwijk, Cuco Martina brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Cuco Martina will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l874t21510331439.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mv93pf1576580291.png"
   },
   {
     "slug": "jurien-gaari",
@@ -7937,7 +8205,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Juriën Gaari – Curaçao World Cup 2026 Profile</h2><p>Juriën Gaari is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Go Ahead Eagles, Juriën Gaari brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Juriën Gaari will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Juriën Gaari – Curaçao World Cup 2026 Profile</h2><p>Juriën Gaari is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Go Ahead Eagles, Juriën Gaari brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Juriën Gaari will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6hts7h1701120658.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zug9lu1701203378.png"
   },
   {
     "slug": "darryl-lachman",
@@ -7955,7 +8225,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Darryl Lachman – Curaçao World Cup 2026 Profile</h2><p>Darryl Lachman is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for SBV Excelsior, Darryl Lachman brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Darryl Lachman will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Darryl Lachman – Curaçao World Cup 2026 Profile</h2><p>Darryl Lachman is a defender who represents Curaçao at the 2026 FIFA World Cup. Currently playing for SBV Excelsior, Darryl Lachman brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Darryl Lachman will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lk5dtb1653512335.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hod0p41716055232.png"
   },
   {
     "slug": "gervane-kastaneer",
@@ -7973,7 +8245,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Gervane Kastaneer – Curaçao World Cup 2026 Profile</h2><p>Gervane Kastaneer is Curaçao's most dangerous attacking player. His pace and physicality give him the ability to trouble any defence, and his experience in English football has sharpened his game.</p><h3>Tournament Outlook</h3><p>Kastaneer will lead Curaçao's attack at their first-ever World Cup. His ability to hold the ball up and bring others into play will be crucial for a team that may have to play on the counter.</p>"
+    "seoArticle": "<h2>Gervane Kastaneer – Curaçao World Cup 2026 Profile</h2><p>Gervane Kastaneer is Curaçao's most dangerous attacking player. His pace and physicality give him the ability to trouble any defence, and his experience in English football has sharpened his game.</p><h3>Tournament Outlook</h3><p>Kastaneer will lead Curaçao's attack at their first-ever World Cup. His ability to hold the ball up and bring others into play will be crucial for a team that may have to play on the counter.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uvilvt1750627686.jpg"
   },
   {
     "slug": "michael-maria",
@@ -8027,7 +8300,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Leandro Bacuna – Curaçao World Cup 2026 Profile</h2><p>Leandro Bacuna is a midfielder who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Watford, Leandro Bacuna brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Leandro Bacuna will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Leandro Bacuna – Curaçao World Cup 2026 Profile</h2><p>Leandro Bacuna is a midfielder who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Watford, Leandro Bacuna brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Leandro Bacuna will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0dmfnu1505913368.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/13dolh1726605947.png"
   },
   {
     "slug": "juninho-bacuna",
@@ -8045,7 +8320,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Juninho Bacuna – Curaçao World Cup 2026 Profile</h2><p>Juninho Bacuna is a midfielder who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Birmingham City, Juninho Bacuna brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Juninho Bacuna will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Juninho Bacuna – Curaçao World Cup 2026 Profile</h2><p>Juninho Bacuna is a midfielder who represents Curaçao at the 2026 FIFA World Cup. Currently playing for Birmingham City, Juninho Bacuna brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Juninho Bacuna will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ktoqhe1609601525.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j801h91694549422.png"
   },
   {
     "slug": "elson-hooi",
@@ -8099,7 +8376,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jarchinio Antonia – Curaçao World Cup 2026 Profile</h2><p>Jarchinio Antonia is a forward who represents Curaçao at the 2026 FIFA World Cup. Currently playing for NAC Breda, Jarchinio Antonia brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Jarchinio Antonia will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jarchinio Antonia – Curaçao World Cup 2026 Profile</h2><p>Jarchinio Antonia is a forward who represents Curaçao at the 2026 FIFA World Cup. Currently playing for NAC Breda, Jarchinio Antonia brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Curaçao prepare for the biggest stage in football, Jarchinio Antonia will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4o1md11640623039.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/5q7apk1640623067.png"
   },
   {
     "slug": "shermaine-martina",
@@ -10403,7 +10682,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran captain",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ehsan Hajsafi – Iran World Cup 2026 Profile</h2><p>Ehsan Hajsafi is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for AEK Athens, Ehsan Hajsafi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ehsan Hajsafi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ehsan Hajsafi – Iran World Cup 2026 Profile</h2><p>Ehsan Hajsafi is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for AEK Athens, Ehsan Hajsafi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ehsan Hajsafi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/cva0ig1668781789.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3rvehf1668782022.png"
   },
   {
     "slug": "sadegh-moharrami",
@@ -10421,7 +10702,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Sadegh Moharrami – Iran World Cup 2026 Profile</h2><p>Sadegh Moharrami is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Dinamo Zagreb, Sadegh Moharrami brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Sadegh Moharrami will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Sadegh Moharrami – Iran World Cup 2026 Profile</h2><p>Sadegh Moharrami is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Dinamo Zagreb, Sadegh Moharrami brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Sadegh Moharrami will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v9owqj1668785285.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/26kzio1668785345.png"
   },
   {
     "slug": "morteza-pouraliganji",
@@ -10439,7 +10722,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Morteza Pouraliganji – Iran World Cup 2026 Profile</h2><p>Morteza Pouraliganji is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Persepolis, Morteza Pouraliganji brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Morteza Pouraliganji will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Morteza Pouraliganji – Iran World Cup 2026 Profile</h2><p>Morteza Pouraliganji is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Persepolis, Morteza Pouraliganji brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Morteza Pouraliganji will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ncsu821668786522.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bvp8bl1668786470.png"
   },
   {
     "slug": "hossein-kanaanizadegan",
@@ -10457,7 +10742,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Hossein Kanaanizadegan – Iran World Cup 2026 Profile</h2><p>Hossein Kanaanizadegan is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Hossein Kanaanizadegan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Hossein Kanaanizadegan will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Hossein Kanaanizadegan – Iran World Cup 2026 Profile</h2><p>Hossein Kanaanizadegan is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Hossein Kanaanizadegan brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Hossein Kanaanizadegan will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kbj1jy1668782864.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kffsom1668782969.png"
   },
   {
     "slug": "majid-hosseini",
@@ -10475,7 +10762,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Majid Hosseini – Iran World Cup 2026 Profile</h2><p>Majid Hosseini is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Kayserispor, Majid Hosseini brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Majid Hosseini will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Majid Hosseini – Iran World Cup 2026 Profile</h2><p>Majid Hosseini is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Kayserispor, Majid Hosseini brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Majid Hosseini will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1h1d7w1668782289.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/f3ioes1668782350.png"
   },
   {
     "slug": "shoja-khalilzadeh",
@@ -10511,7 +10800,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Milad Mohammadi – Iran World Cup 2026 Profile</h2><p>Milad Mohammadi is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for AEK Athens, Milad Mohammadi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Milad Mohammadi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Milad Mohammadi – Iran World Cup 2026 Profile</h2><p>Milad Mohammadi is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for AEK Athens, Milad Mohammadi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Milad Mohammadi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uw0wfw1668785895.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mvpqij1668785747.png"
   },
   {
     "slug": "mehdi-taremi",
@@ -10529,7 +10820,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 78,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Mehdi Taremi – Iran World Cup 2026 Profile</h2><p>Mehdi Taremi is Iran's all-time leading scorer and a clinical striker who has proven himself in European football with Porto and Inter Milan. His movement, aerial ability, and finishing make him a complete centre-forward.</p><h3>Tournament Outlook</h3><p>Taremi carries Iran's attacking hopes. His experience in the Champions League and ability to score against top defenders give Iran a genuine goal threat at the World Cup. He will be the focal point of every attack.</p>"
+    "seoArticle": "<h2>Mehdi Taremi – Iran World Cup 2026 Profile</h2><p>Mehdi Taremi is Iran's all-time leading scorer and a clinical striker who has proven himself in European football with Porto and Inter Milan. His movement, aerial ability, and finishing make him a complete centre-forward.</p><h3>Tournament Outlook</h3><p>Taremi carries Iran's attacking hopes. His experience in the Champions League and ability to score against top defenders give Iran a genuine goal threat at the World Cup. He will be the focal point of every attack.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p2za081596279630.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9dhm7l1772033412.png"
   },
   {
     "slug": "sardar-azmoun",
@@ -10547,7 +10840,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "History of knee issues",
     "sentimentScore": 62,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Sardar Azmoun – Iran World Cup 2026 Profile</h2><p>Sardar Azmoun is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Roma, Sardar Azmoun brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Sardar Azmoun will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Sardar Azmoun – Iran World Cup 2026 Profile</h2><p>Sardar Azmoun is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Roma, Sardar Azmoun brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Sardar Azmoun will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/d6af4x1595974275.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qbwg8l1674560734.png"
   },
   {
     "slug": "alireza-jahanbakhsh",
@@ -10565,7 +10860,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alireza Jahanbakhsh – Iran World Cup 2026 Profile</h2><p>Alireza Jahanbakhsh is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Feyenoord, Alireza Jahanbakhsh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Alireza Jahanbakhsh will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Alireza Jahanbakhsh – Iran World Cup 2026 Profile</h2><p>Alireza Jahanbakhsh is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Feyenoord, Alireza Jahanbakhsh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Alireza Jahanbakhsh will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ztf5851670094463.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dfrwg01767622139.png"
   },
   {
     "slug": "ali-gholizadeh",
@@ -10583,7 +10880,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ali Gholizadeh – Iran World Cup 2026 Profile</h2><p>Ali Gholizadeh is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Charleroi, Ali Gholizadeh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ali Gholizadeh will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ali Gholizadeh – Iran World Cup 2026 Profile</h2><p>Ali Gholizadeh is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Charleroi, Ali Gholizadeh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ali Gholizadeh will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ylvzgc1668781527.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6iznwf1770474978.png"
   },
   {
     "slug": "saeid-ezatolahi",
@@ -10619,7 +10918,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ahmad Nourollahi – Iran World Cup 2026 Profile</h2><p>Ahmad Nourollahi is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Shabab Al-Ahli, Ahmad Nourollahi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ahmad Nourollahi will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ahmad Nourollahi – Iran World Cup 2026 Profile</h2><p>Ahmad Nourollahi is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Shabab Al-Ahli, Ahmad Nourollahi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ahmad Nourollahi will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8fh9we1668786019.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i33tcl1668786074.png"
   },
   {
     "slug": "omid-ebrahimi",
@@ -10655,7 +10956,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Saman Ghoddos – Iran World Cup 2026 Profile</h2><p>Saman Ghoddos is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Brentford, Saman Ghoddos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Saman Ghoddos will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Saman Ghoddos – Iran World Cup 2026 Profile</h2><p>Saman Ghoddos is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Brentford, Saman Ghoddos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Saman Ghoddos will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3pcno21610655335.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9r84g11694113587.png"
   },
   {
     "slug": "allahyar-sayyadmanesh",
@@ -10673,7 +10976,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Allahyar Sayyadmanesh – Iran World Cup 2026 Profile</h2><p>Allahyar Sayyadmanesh is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Fenerbahçe, Allahyar Sayyadmanesh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Allahyar Sayyadmanesh will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Allahyar Sayyadmanesh – Iran World Cup 2026 Profile</h2><p>Allahyar Sayyadmanesh is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Fenerbahçe, Allahyar Sayyadmanesh brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Allahyar Sayyadmanesh will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1waizo1674730247.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8vm2ad1767097790.png"
   },
   {
     "slug": "mehdi-ghayedi",
@@ -10709,7 +11014,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ramin Rezaeian – Iran World Cup 2026 Profile</h2><p>Ramin Rezaeian is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Sepahan, Ramin Rezaeian brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ramin Rezaeian will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ramin Rezaeian – Iran World Cup 2026 Profile</h2><p>Ramin Rezaeian is a defender who represents Iran at the 2026 FIFA World Cup. Currently playing for Sepahan, Ramin Rezaeian brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Ramin Rezaeian will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a1m7o01668786760.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yiz0x31668787055.png"
   },
   {
     "slug": "karim-ansarifard",
@@ -10727,7 +11034,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, limited role",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Karim Ansarifard – Iran World Cup 2026 Profile</h2><p>Karim Ansarifard is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Omonia, Karim Ansarifard brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Karim Ansarifard will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Karim Ansarifard – Iran World Cup 2026 Profile</h2><p>Karim Ansarifard is a forward who represents Iran at the 2026 FIFA World Cup. Currently playing for Omonia, Karim Ansarifard brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Karim Ansarifard will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8cago41668780729.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mx5z2k1668780873.png"
   },
   {
     "slug": "vahid-amiri",
@@ -10745,7 +11054,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 42,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Vahid Amiri – Iran World Cup 2026 Profile</h2><p>Vahid Amiri is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Persepolis, Vahid Amiri brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Vahid Amiri will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Vahid Amiri – Iran World Cup 2026 Profile</h2><p>Vahid Amiri is a midfielder who represents Iran at the 2026 FIFA World Cup. Currently playing for Persepolis, Vahid Amiri brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Iran prepare for the biggest stage in football, Vahid Amiri will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/t69qoe1578225835.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/iidf781763553903.png"
   },
   {
     "slug": "kevin-de-bruyne",
@@ -10763,7 +11074,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Managing recurring hamstring issue",
     "sentimentScore": 78,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Kevin De Bruyne – Belgium World Cup 2026 Profile</h2><p>Kevin De Bruyne is widely regarded as one of the greatest playmakers of his generation. The Manchester City maestro possesses unparalleled vision, passing range, and the ability to produce decisive moments in the biggest matches.</p><h3>Tournament Outlook</h3><p>At 35, this is likely De Bruyne's farewell tournament. If fit, his creativity and experience make Belgium significantly more dangerous. His fitness management will be the biggest talking point of Belgium's campaign.</p>"
+    "seoArticle": "<h2>Kevin De Bruyne – Belgium World Cup 2026 Profile</h2><p>Kevin De Bruyne is widely regarded as one of the greatest playmakers of his generation. The Manchester City maestro possesses unparalleled vision, passing range, and the ability to produce decisive moments in the biggest matches.</p><h3>Tournament Outlook</h3><p>At 35, this is likely De Bruyne's farewell tournament. If fit, his creativity and experience make Belgium significantly more dangerous. His fitness management will be the biggest talking point of Belgium's campaign.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yibqv71676043512.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/o4flia1764089447.png"
   },
   {
     "slug": "jeremy-doku",
@@ -10781,7 +11094,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 78,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Jérémy Doku – Belgium World Cup 2026 Profile</h2><p>Jérémy Doku is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Manchester City, Jérémy Doku brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Jérémy Doku will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jérémy Doku – Belgium World Cup 2026 Profile</h2><p>Jérémy Doku is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Manchester City, Jérémy Doku brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Jérémy Doku will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w37jy41703326117.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tehbsx1769183074.png"
   },
   {
     "slug": "leandro-trossard",
@@ -10799,7 +11114,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Leandro Trossard – Belgium World Cup 2026 Profile</h2><p>Leandro Trossard is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Arsenal, Leandro Trossard brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Leandro Trossard will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Leandro Trossard – Belgium World Cup 2026 Profile</h2><p>Leandro Trossard is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Arsenal, Leandro Trossard brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Leandro Trossard will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2ledb81705918706.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/07fzpg1769331977.png"
   },
   {
     "slug": "romelu-lukaku",
@@ -10817,7 +11134,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Romelu Lukaku – Belgium World Cup 2026 Profile</h2><p>Romelu Lukaku is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Napoli, Romelu Lukaku brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Romelu Lukaku will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Romelu Lukaku – Belgium World Cup 2026 Profile</h2><p>Romelu Lukaku is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Napoli, Romelu Lukaku brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Romelu Lukaku will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0yrfdz1725016583.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qi2z1d1764089572.png"
   },
   {
     "slug": "koen-casteels",
@@ -10835,7 +11154,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Koen Casteels – Belgium World Cup 2026 Profile</h2><p>Koen Casteels is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Wolfsburg, Koen Casteels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Koen Casteels will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Koen Casteels – Belgium World Cup 2026 Profile</h2><p>Koen Casteels is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Wolfsburg, Koen Casteels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Koen Casteels will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/aynccr1578226454.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/k0vvcr1578226455.png"
   },
   {
     "slug": "thibaut-courtois",
@@ -10853,7 +11174,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Returning from Achilles injury",
     "sentimentScore": 68,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Thibaut Courtois – Belgium World Cup 2026 Profile</h2><p>Thibaut Courtois is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Real Madrid, Thibaut Courtois brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Thibaut Courtois will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Thibaut Courtois – Belgium World Cup 2026 Profile</h2><p>Thibaut Courtois is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Real Madrid, Thibaut Courtois brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Thibaut Courtois will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lc7dlm1771264561.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/592mar1733653475.png"
   },
   {
     "slug": "matz-sels",
@@ -10871,7 +11194,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Matz Sels – Belgium World Cup 2026 Profile</h2><p>Matz Sels is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Matz Sels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Matz Sels will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Matz Sels – Belgium World Cup 2026 Profile</h2><p>Matz Sels is a goalkeeper who represents Belgium at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Matz Sels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Matz Sels will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2ovzty1772393650.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wnmkve1757163210.png"
   },
   {
     "slug": "jan-vertonghen",
@@ -10889,7 +11214,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Retired from international football",
     "sentimentScore": 30,
     "sentimentLabel": "concerned",
-    "seoArticle": "<h2>Jan Vertonghen – Belgium World Cup 2026 Profile</h2><p>Jan Vertonghen is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Unattached, Jan Vertonghen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Jan Vertonghen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jan Vertonghen – Belgium World Cup 2026 Profile</h2><p>Jan Vertonghen is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Unattached, Jan Vertonghen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Jan Vertonghen will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/usywuu1431566467.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rxmbye1724749677.png"
   },
   {
     "slug": "wout-faes",
@@ -10907,7 +11234,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Wout Faes – Belgium World Cup 2026 Profile</h2><p>Wout Faes is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Leicester City, Wout Faes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Wout Faes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Wout Faes – Belgium World Cup 2026 Profile</h2><p>Wout Faes is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Leicester City, Wout Faes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Wout Faes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ygxj7u1608641208.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/c20fnd1772104361.png"
   },
   {
     "slug": "arthur-theate",
@@ -10925,7 +11254,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Arthur Theate – Belgium World Cup 2026 Profile</h2><p>Arthur Theate is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Al-Ittihad, Arthur Theate brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Arthur Theate will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Arthur Theate – Belgium World Cup 2026 Profile</h2><p>Arthur Theate is a defender who represents Belgium at the 2026 FIFA World Cup. Currently playing for Al-Ittihad, Arthur Theate brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Arthur Theate will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i3ftd91630160061.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tr7ftn1762287457.png"
   },
   {
     "slug": "timothy-castagne",
@@ -11051,7 +11382,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Orel Mangala – Belgium World Cup 2026 Profile</h2><p>Orel Mangala is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Orel Mangala brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Orel Mangala will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Orel Mangala – Belgium World Cup 2026 Profile</h2><p>Orel Mangala is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Nottingham Forest, Orel Mangala brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Orel Mangala will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zj3lcb1605733699.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1gmcji1766146434.png"
   },
   {
     "slug": "arne-engels",
@@ -11069,7 +11402,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Arne Engels – Belgium World Cup 2026 Profile</h2><p>Arne Engels is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Celtic, Arne Engels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Arne Engels will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Arne Engels – Belgium World Cup 2026 Profile</h2><p>Arne Engels is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Celtic, Arne Engels brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Arne Engels will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oeg5fa1674558950.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/42wifj1731103211.png"
   },
   {
     "slug": "lois-openda",
@@ -11087,7 +11422,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Loïs Openda – Belgium World Cup 2026 Profile</h2><p>Loïs Openda is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for RB Leipzig, Loïs Openda brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Loïs Openda will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Loïs Openda – Belgium World Cup 2026 Profile</h2><p>Loïs Openda is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for RB Leipzig, Loïs Openda brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Loïs Openda will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jthzmk1623844882.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1chuok1759225712.png"
   },
   {
     "slug": "johan-bakayoko",
@@ -11105,7 +11442,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Johan Bakayoko – Belgium World Cup 2026 Profile</h2><p>Johan Bakayoko is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for PSV Eindhoven, Johan Bakayoko brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Johan Bakayoko will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Johan Bakayoko – Belgium World Cup 2026 Profile</h2><p>Johan Bakayoko is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for PSV Eindhoven, Johan Bakayoko brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Johan Bakayoko will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mmudrc1679494951.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/47l15r1763560990.png"
   },
   {
     "slug": "charles-de-ketelaere",
@@ -11141,7 +11480,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Yannick Carrasco – Belgium World Cup 2026 Profile</h2><p>Yannick Carrasco is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Al-Shabab, Yannick Carrasco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Yannick Carrasco will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Yannick Carrasco – Belgium World Cup 2026 Profile</h2><p>Yannick Carrasco is a midfielder who represents Belgium at the 2026 FIFA World Cup. Currently playing for Al-Shabab, Yannick Carrasco brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Yannick Carrasco will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9uee1t1535566838.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/f75lo41679064315.png"
   },
   {
     "slug": "dodi-lukebakio",
@@ -11159,7 +11500,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Dodi Lukebakio – Belgium World Cup 2026 Profile</h2><p>Dodi Lukebakio is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Sevilla, Dodi Lukebakio brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Dodi Lukebakio will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Dodi Lukebakio – Belgium World Cup 2026 Profile</h2><p>Dodi Lukebakio is a forward who represents Belgium at the 2026 FIFA World Cup. Currently playing for Sevilla, Dodi Lukebakio brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Belgium prepare for the biggest stage in football, Dodi Lukebakio will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/nc5tw21724784416.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/335dwm1724784475.png"
   },
   {
     "slug": "mohamed-salah",
@@ -11177,7 +11520,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 90,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Mohamed Salah – Egypt World Cup 2026 Profile</h2><p>Mohamed Salah is Africa's greatest current footballer and one of the best players in the world. The Liverpool forward's blistering pace, clinical finishing, and consistency at the highest level over nearly a decade are extraordinary. He is Egypt's all-time leading scorer and most important player.</p><h3>Tournament Outlook</h3><p>Salah will carry Egypt's hopes on his shoulders. His ability to score against anyone and create from nothing makes Egypt genuine dark horses in their group. At 34, this may be his last World Cup, adding motivation to deliver a memorable tournament.</p>"
+    "seoArticle": "<h2>Mohamed Salah – Egypt World Cup 2026 Profile</h2><p>Mohamed Salah is Africa's greatest current footballer and one of the best players in the world. The Liverpool forward's blistering pace, clinical finishing, and consistency at the highest level over nearly a decade are extraordinary. He is Egypt's all-time leading scorer and most important player.</p><h3>Tournament Outlook</h3><p>Salah will carry Egypt's hopes on his shoulders. His ability to score against anyone and create from nothing makes Egypt genuine dark horses in their group. At 34, this may be his last World Cup, adding motivation to deliver a memorable tournament.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o7y57t1718438615.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3blc581757088735.png"
   },
   {
     "slug": "mohamed-el-shenawy",
@@ -11285,7 +11630,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Omar Gaber – Egypt World Cup 2026 Profile</h2><p>Omar Gaber is a defender who represents Egypt at the 2026 FIFA World Cup. Currently playing for Pyramids FC, Omar Gaber brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Omar Gaber will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Omar Gaber – Egypt World Cup 2026 Profile</h2><p>Omar Gaber is a defender who represents Egypt at the 2026 FIFA World Cup. Currently playing for Pyramids FC, Omar Gaber brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Omar Gaber will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vww5f91516215461.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/38179x1516215618.png"
   },
   {
     "slug": "ahmed-fatouh",
@@ -11375,7 +11722,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mohamed Elneny – Egypt World Cup 2026 Profile</h2><p>Mohamed Elneny is a midfielder who represents Egypt at the 2026 FIFA World Cup. Currently playing for Beşiktaş, Mohamed Elneny brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Mohamed Elneny will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Mohamed Elneny – Egypt World Cup 2026 Profile</h2><p>Mohamed Elneny is a midfielder who represents Egypt at the 2026 FIFA World Cup. Currently playing for Beşiktaş, Mohamed Elneny brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Mohamed Elneny will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sid7t31678272422.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1bm0wr1694204323.png"
   },
   {
     "slug": "tarek-hamed",
@@ -11429,7 +11778,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ibrahim Adel – Egypt World Cup 2026 Profile</h2><p>Ibrahim Adel is a midfielder who represents Egypt at the 2026 FIFA World Cup. Currently playing for Al Ahly, Ibrahim Adel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Ibrahim Adel will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Ibrahim Adel – Egypt World Cup 2026 Profile</h2><p>Ibrahim Adel is a midfielder who represents Egypt at the 2026 FIFA World Cup. Currently playing for Al Ahly, Ibrahim Adel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Ibrahim Adel will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/az4o2n1632996895.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l913fh1632996813.png"
   },
   {
     "slug": "amr-el-soulia",
@@ -11483,7 +11834,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Mostafa Mohamed – Egypt World Cup 2026 Profile</h2><p>Mostafa Mohamed is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Nantes, Mostafa Mohamed brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Mostafa Mohamed will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Mostafa Mohamed – Egypt World Cup 2026 Profile</h2><p>Mostafa Mohamed is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Nantes, Mostafa Mohamed brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Mostafa Mohamed will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/q5znkh1674746538.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ebm0591765877211.png"
   },
   {
     "slug": "trezeguet",
@@ -11501,7 +11854,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Trezeguet – Egypt World Cup 2026 Profile</h2><p>Trezeguet is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Trabzonspor, Trezeguet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Trezeguet will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Trezeguet – Egypt World Cup 2026 Profile</h2><p>Trezeguet is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Trabzonspor, Trezeguet brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Trezeguet will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lt5tc11563981420.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kd5p321750397912.png"
   },
   {
     "slug": "mahmoud-hassan",
@@ -11537,7 +11892,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Marwan Hamdy – Egypt World Cup 2026 Profile</h2><p>Marwan Hamdy is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Al Masry, Marwan Hamdy brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Marwan Hamdy will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Marwan Hamdy – Egypt World Cup 2026 Profile</h2><p>Marwan Hamdy is a forward who represents Egypt at the 2026 FIFA World Cup. Currently playing for Al Masry, Marwan Hamdy brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Egypt prepare for the biggest stage in football, Marwan Hamdy will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e4m03l1705485729.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/x2vi4j1750397927.png"
   },
   {
     "slug": "ahmed-koka",
@@ -11573,7 +11930,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Omar Marmoush – Egypt World Cup 2026 Profile</h2><p>Omar Marmoush has been a sensation in European football, earning a big-money move to Manchester City. His pace, work rate, and goalscoring ability from the wing have made him one of the most in-demand attackers in Europe.</p><h3>Tournament Outlook</h3><p>Marmoush gives Egypt a second world-class attacker alongside Salah. His energy and directness complement Salah's movement perfectly, and together they form one of the most dangerous attacking duos at the tournament.</p>"
+    "seoArticle": "<h2>Omar Marmoush – Egypt World Cup 2026 Profile</h2><p>Omar Marmoush has been a sensation in European football, earning a big-money move to Manchester City. His pace, work rate, and goalscoring ability from the wing have made him one of the most in-demand attackers in Europe.</p><h3>Tournament Outlook</h3><p>Marmoush gives Egypt a second world-class attacker alongside Salah. His energy and directness complement Salah's movement perfectly, and together they form one of the most dangerous attacking duos at the tournament.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w1jx521658324336.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kgn5451757098568.png"
   },
   {
     "slug": "lamine-yamal",
@@ -11591,7 +11950,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 92,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Lamine Yamal – Spain World Cup 2026 Profile</h2><p>Lamine Yamal is the most precocious talent in world football. At just 18, the Barcelona sensation has already won the European Championship, set records as the youngest goalscorer and assist provider, and established himself as one of the most dangerous wingers on the planet.</p><h3>Tournament Outlook</h3><p>Yamal is expected to be one of the stars of the tournament. His fearlessness, technique, and eye for both goals and assists give Spain a match-winner who opponents simply cannot contain. His trajectory suggests he could become the best player in the world within years.</p>"
+    "seoArticle": "<h2>Lamine Yamal – Spain World Cup 2026 Profile</h2><p>Lamine Yamal is the most precocious talent in world football. At just 18, the Barcelona sensation has already won the European Championship, set records as the youngest goalscorer and assist provider, and established himself as one of the most dangerous wingers on the planet.</p><h3>Tournament Outlook</h3><p>Yamal is expected to be one of the stars of the tournament. His fearlessness, technique, and eye for both goals and assists give Spain a match-winner who opponents simply cannot contain. His trajectory suggests he could become the best player in the world within years.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ukerpq1692551634.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/m9n4ja1761512633.png"
   },
   {
     "slug": "pedri",
@@ -11645,7 +12006,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Álvaro Morata – Spain World Cup 2026 Profile</h2><p>Álvaro Morata is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for AC Milan, Álvaro Morata brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Álvaro Morata will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Álvaro Morata – Spain World Cup 2026 Profile</h2><p>Álvaro Morata is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for AC Milan, Álvaro Morata brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Álvaro Morata will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oi5xzw1565177307.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/5cci4b1764278358.png"
   },
   {
     "slug": "unai-simon",
@@ -11663,7 +12026,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Unai Simón – Spain World Cup 2026 Profile</h2><p>Unai Simón is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Athletic Bilbao, Unai Simón brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Unai Simón will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Unai Simón – Spain World Cup 2026 Profile</h2><p>Unai Simón is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Athletic Bilbao, Unai Simón brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Unai Simón will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7mte7u1603316714.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6b7izw1603316358.png"
   },
   {
     "slug": "david-raya",
@@ -11681,7 +12046,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>David Raya – Spain World Cup 2026 Profile</h2><p>David Raya is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Arsenal, David Raya brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, David Raya will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>David Raya – Spain World Cup 2026 Profile</h2><p>David Raya is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Arsenal, David Raya brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, David Raya will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hretja1705918045.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/21rp2q1769331784.png"
   },
   {
     "slug": "robert-sanchez",
@@ -11699,7 +12066,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Robert Sánchez – Spain World Cup 2026 Profile</h2><p>Robert Sánchez is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Chelsea, Robert Sánchez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Robert Sánchez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Robert Sánchez – Spain World Cup 2026 Profile</h2><p>Robert Sánchez is a goalkeeper who represents Spain at the 2026 FIFA World Cup. Currently playing for Chelsea, Robert Sánchez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Robert Sánchez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0t3h3g1771428153.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/jfzjqy1757001022.png"
   },
   {
     "slug": "dani-carvajal",
@@ -11717,7 +12086,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Returning from knee injury",
     "sentimentScore": 60,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Dani Carvajal – Spain World Cup 2026 Profile</h2><p>Dani Carvajal is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Madrid, Dani Carvajal brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Dani Carvajal will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Dani Carvajal – Spain World Cup 2026 Profile</h2><p>Dani Carvajal is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Madrid, Dani Carvajal brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Dani Carvajal will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/gapy0m1771264214.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/k510z81733653425.png"
   },
   {
     "slug": "aymeric-laporte",
@@ -11735,7 +12106,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Aymeric Laporte – Spain World Cup 2026 Profile</h2><p>Aymeric Laporte is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Al-Nassr, Aymeric Laporte brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Aymeric Laporte will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Aymeric Laporte – Spain World Cup 2026 Profile</h2><p>Aymeric Laporte is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Al-Nassr, Aymeric Laporte brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Aymeric Laporte will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vlenx41704364385.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/q4eqw31762285953.png"
   },
   {
     "slug": "robin-le-normand",
@@ -11753,7 +12126,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Robin Le Normand – Spain World Cup 2026 Profile</h2><p>Robin Le Normand is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Robin Le Normand brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Robin Le Normand will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Robin Le Normand – Spain World Cup 2026 Profile</h2><p>Robin Le Normand is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Robin Le Normand brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Robin Le Normand will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/iqosdp1724311723.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ubsd6x1762288701.png"
   },
   {
     "slug": "marc-cucurella",
@@ -11771,7 +12146,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Marc Cucurella – Spain World Cup 2026 Profile</h2><p>Marc Cucurella is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Chelsea, Marc Cucurella brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Marc Cucurella will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Marc Cucurella – Spain World Cup 2026 Profile</h2><p>Marc Cucurella is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Chelsea, Marc Cucurella brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Marc Cucurella will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n9f2911771426994.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j7i66q1757002736.png"
   },
   {
     "slug": "alejandro-grimaldo",
@@ -11789,7 +12166,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Alejandro Grimaldo – Spain World Cup 2026 Profile</h2><p>Alejandro Grimaldo is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Bayer Leverkusen, Alejandro Grimaldo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Alejandro Grimaldo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Alejandro Grimaldo – Spain World Cup 2026 Profile</h2><p>Alejandro Grimaldo is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Bayer Leverkusen, Alejandro Grimaldo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Alejandro Grimaldo will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/crrp8a1522246032.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ddeb6b1756316030.png"
   },
   {
     "slug": "pau-torres",
@@ -11807,7 +12186,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Pau Torres – Spain World Cup 2026 Profile</h2><p>Pau Torres is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Aston Villa, Pau Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Pau Torres will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Pau Torres – Spain World Cup 2026 Profile</h2><p>Pau Torres is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Aston Villa, Pau Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Pau Torres will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png"
   },
   {
     "slug": "jules-kounde",
@@ -11825,7 +12206,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Jules Koundé – Spain World Cup 2026 Profile</h2><p>Jules Koundé is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Jules Koundé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Jules Koundé will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Jules Koundé – Spain World Cup 2026 Profile</h2><p>Jules Koundé is a defender who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Jules Koundé brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Jules Koundé will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0rzza71771254479.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qea88i1726509803.png"
   },
   {
     "slug": "fabian-ruiz",
@@ -11843,7 +12226,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Fabián Ruiz – Spain World Cup 2026 Profile</h2><p>Fabián Ruiz is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Paris Saint-Germain, Fabián Ruiz brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Fabián Ruiz will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Fabián Ruiz – Spain World Cup 2026 Profile</h2><p>Fabián Ruiz is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Paris Saint-Germain, Fabián Ruiz brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Fabián Ruiz will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/53hbfh1770216586.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wq4dxd1766335227.png"
   },
   {
     "slug": "dani-olmo",
@@ -11861,7 +12246,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Dani Olmo – Spain World Cup 2026 Profile</h2><p>Dani Olmo is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Dani Olmo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Dani Olmo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Dani Olmo – Spain World Cup 2026 Profile</h2><p>Dani Olmo is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Dani Olmo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Dani Olmo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lo29ok1771254713.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/s9hzoh1725611346.png"
   },
   {
     "slug": "nico-williams",
@@ -11897,7 +12284,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 60,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mikel Oyarzabal – Spain World Cup 2026 Profile</h2><p>Mikel Oyarzabal is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Mikel Oyarzabal brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Mikel Oyarzabal will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Mikel Oyarzabal – Spain World Cup 2026 Profile</h2><p>Mikel Oyarzabal is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Mikel Oyarzabal brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Mikel Oyarzabal will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6032ku1574504970.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9apeaz1762709253.png"
   },
   {
     "slug": "ferran-torres",
@@ -11915,7 +12304,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ferran Torres – Spain World Cup 2026 Profile</h2><p>Ferran Torres is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Ferran Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Ferran Torres will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Ferran Torres – Spain World Cup 2026 Profile</h2><p>Ferran Torres is a forward who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Ferran Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Ferran Torres will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png"
   },
   {
     "slug": "fermin-lopez",
@@ -11933,7 +12324,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Fermín López – Spain World Cup 2026 Profile</h2><p>Fermín López is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Fermín López brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Fermín López will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Fermín López – Spain World Cup 2026 Profile</h2><p>Fermín López is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Barcelona, Fermín López brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Fermín López will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5z9d271771253844.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4skahz1761512602.png"
   },
   {
     "slug": "martin-zubimendi",
@@ -11951,7 +12344,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Martín Zubimendi – Spain World Cup 2026 Profile</h2><p>Martín Zubimendi is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Martín Zubimendi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Martín Zubimendi will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Martín Zubimendi – Spain World Cup 2026 Profile</h2><p>Martín Zubimendi is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Martín Zubimendi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Martín Zubimendi will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fztcvl1769331626.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lj71fn1769331598.png"
   },
   {
     "slug": "alejandro-baena",
@@ -11969,7 +12364,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Alejandro Baena – Spain World Cup 2026 Profile</h2><p>Alejandro Baena is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Villarreal, Alejandro Baena brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Alejandro Baena will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Alejandro Baena – Spain World Cup 2026 Profile</h2><p>Alejandro Baena is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Villarreal, Alejandro Baena brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Alejandro Baena will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ildb381723369697.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/04ntmp1762890059.png"
   },
   {
     "slug": "mikel-merino",
@@ -11987,7 +12384,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mikel Merino – Spain World Cup 2026 Profile</h2><p>Mikel Merino is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Arsenal, Mikel Merino brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Mikel Merino will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Mikel Merino – Spain World Cup 2026 Profile</h2><p>Mikel Merino is a midfielder who represents Spain at the 2026 FIFA World Cup. Currently playing for Arsenal, Mikel Merino brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Spain prepare for the biggest stage in football, Mikel Merino will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mc96do1503244964.jpg"
   },
   {
     "slug": "vozinha",
@@ -12077,7 +12475,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Steven Fortes – Cabo Verde World Cup 2026 Profile</h2><p>Steven Fortes is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Estoril, Steven Fortes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Steven Fortes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Steven Fortes – Cabo Verde World Cup 2026 Profile</h2><p>Steven Fortes is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Estoril, Steven Fortes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Steven Fortes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/he751w1608329034.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/x0bzya1608329087.png"
   },
   {
     "slug": "logan-costa",
@@ -12095,7 +12495,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Logan Costa – Cabo Verde World Cup 2026 Profile</h2><p>Logan Costa is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Toulouse, Logan Costa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Logan Costa will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Logan Costa – Cabo Verde World Cup 2026 Profile</h2><p>Logan Costa is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Toulouse, Logan Costa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Logan Costa will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xg57tl1534441995.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ebi2l81667669825.png"
   },
   {
     "slug": "roberto-lopes",
@@ -12113,7 +12515,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Roberto Lopes – Cabo Verde World Cup 2026 Profile</h2><p>Roberto Lopes is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Hajduk Split, Roberto Lopes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Roberto Lopes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Roberto Lopes – Cabo Verde World Cup 2026 Profile</h2><p>Roberto Lopes is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Hajduk Split, Roberto Lopes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Roberto Lopes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/up2e5f1518283274.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/g83qt91674745645.png"
   },
   {
     "slug": "dylan-tavares",
@@ -12131,7 +12535,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Dylan Tavares – Cabo Verde World Cup 2026 Profile</h2><p>Dylan Tavares is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Standard Liège, Dylan Tavares brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Dylan Tavares will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Dylan Tavares – Cabo Verde World Cup 2026 Profile</h2><p>Dylan Tavares is a defender who represents Cabo Verde at the 2026 FIFA World Cup. Currently playing for Standard Liège, Dylan Tavares brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Cabo Verde prepare for the biggest stage in football, Dylan Tavares will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/x9wfxh1527583626.jpg"
   },
   {
     "slug": "jeffry-fortes",
@@ -13247,7 +13652,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 95,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Kylian Mbappé – France World Cup 2026 Profile</h2><p>Kylian Mbappé is the most dangerous attacking player in world football. The Real Madrid superstar combines extraordinary pace with clinical finishing, brilliant dribbling, and the intelligence to find spaces that others cannot see. He has already scored 48 international goals and is on course to break all records.</p><h3>Tournament Outlook</h3><p>Mbappé will be the player every opponent fears most. His ability to destroy defences with his pace and skill makes France the favourites alongside a handful of other nations. As the main man at Real Madrid, he arrives in the form of his life. A World Cup triumph would cement his place among football's all-time greats.</p>"
+    "seoArticle": "<h2>Kylian Mbappé – France World Cup 2026 Profile</h2><p>Kylian Mbappé is the most dangerous attacking player in world football. The Real Madrid superstar combines extraordinary pace with clinical finishing, brilliant dribbling, and the intelligence to find spaces that others cannot see. He has already scored 48 international goals and is on course to break all records.</p><h3>Tournament Outlook</h3><p>Mbappé will be the player every opponent fears most. His ability to destroy defences with his pace and skill makes France the favourites alongside a handful of other nations. As the main man at Real Madrid, he arrives in the form of his life. A World Cup triumph would cement his place among football's all-time greats.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0yw04y1771265385.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/h9u9vz1733653583.png"
   },
   {
     "slug": "antoine-griezmann",
@@ -14075,7 +14482,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 95,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Erling Haaland – Norway World Cup 2026 Profile</h2><p>Erling Haaland is the most prolific goalscorer in world football. The Manchester City striker has shattered records in the Premier League and Champions League with his extraordinary combination of pace, power, and clinical finishing. His goal ratio is otherworldly.</p><h3>Tournament Outlook</h3><p>Haaland is the reason Norway are genuine dark horses at this World Cup. His ability to score against anyone makes Norway dangerous in every match. Opponents will build their entire defensive strategy around stopping him, which creates space for teammates. A hot streak from Haaland could carry Norway deep into the tournament.</p>"
+    "seoArticle": "<h2>Erling Haaland – Norway World Cup 2026 Profile</h2><p>Erling Haaland is the most prolific goalscorer in world football. The Manchester City striker has shattered records in the Premier League and Champions League with his extraordinary combination of pace, power, and clinical finishing. His goal ratio is otherworldly.</p><h3>Tournament Outlook</h3><p>Haaland is the reason Norway are genuine dark horses at this World Cup. His ability to score against anyone makes Norway dangerous in every match. Opponents will build their entire defensive strategy around stopping him, which creates space for teammates. A hot streak from Haaland could carry Norway deep into the tournament.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bb1agj1727415216.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/un3jr11769182465.png"
   },
   {
     "slug": "martin-degaard",
@@ -14363,7 +14772,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jens Petter Hauge – Norway World Cup 2026 Profile</h2><p>Jens Petter Hauge is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Bodø/Glimt, Jens Petter Hauge brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Jens Petter Hauge will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jens Petter Hauge – Norway World Cup 2026 Profile</h2><p>Jens Petter Hauge is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Bodø/Glimt, Jens Petter Hauge brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Jens Petter Hauge will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/pvg93m1602960359.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ccgqei1769181969.png"
   },
   {
     "slug": "alexander-s-rloth",
@@ -14381,7 +14792,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Alexander Sørloth – Norway World Cup 2026 Profile</h2><p>Alexander Sørloth is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Alexander Sørloth brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Alexander Sørloth will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Alexander Sørloth – Norway World Cup 2026 Profile</h2><p>Alexander Sørloth is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Alexander Sørloth brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Alexander Sørloth will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/slx8ts1724311500.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v3of4b1762288730.png"
   },
   {
     "slug": "joshua-king",
@@ -14399,7 +14812,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Joshua King – Norway World Cup 2026 Profile</h2><p>Joshua King is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Fenerbahçe, Joshua King brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Joshua King will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Joshua King – Norway World Cup 2026 Profile</h2><p>Joshua King is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Fenerbahçe, Joshua King brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Joshua King will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/suxuvs1471428929.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l5lbga1717928633.png"
   },
   {
     "slug": "mohamed-elyounoussi",
@@ -14417,7 +14832,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mohamed Elyounoussi – Norway World Cup 2026 Profile</h2><p>Mohamed Elyounoussi is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Mohamed Elyounoussi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Mohamed Elyounoussi will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Mohamed Elyounoussi – Norway World Cup 2026 Profile</h2><p>Mohamed Elyounoussi is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for Real Sociedad, Mohamed Elyounoussi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Mohamed Elyounoussi will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vu1c3s1542108992.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v9ajfw1610903668.png"
   },
   {
     "slug": "antonio-nusa",
@@ -14435,7 +14852,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Antonio Nusa – Norway World Cup 2026 Profile</h2><p>Antonio Nusa is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for RB Leipzig, Antonio Nusa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Antonio Nusa will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Antonio Nusa – Norway World Cup 2026 Profile</h2><p>Antonio Nusa is a forward who represents Norway at the 2026 FIFA World Cup. Currently playing for RB Leipzig, Antonio Nusa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Antonio Nusa will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/orowpm1731102557.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yo19551763561296.png"
   },
   {
     "slug": "oscar-bobb",
@@ -14471,7 +14890,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mathias Normann – Norway World Cup 2026 Profile</h2><p>Mathias Normann is a midfielder who represents Norway at the 2026 FIFA World Cup. Currently playing for Lecce, Mathias Normann brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Mathias Normann will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Mathias Normann – Norway World Cup 2026 Profile</h2><p>Mathias Normann is a midfielder who represents Norway at the 2026 FIFA World Cup. Currently playing for Lecce, Mathias Normann brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Norway prepare for the biggest stage in football, Mathias Normann will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/73kfp71631992243.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ev42xf1631992199.png"
   },
   {
     "slug": "carlos-mendez",
@@ -14489,7 +14910,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Carlos Méndez – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Carlos Méndez is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Carlos Méndez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Carlos Méndez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Carlos Méndez – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Carlos Méndez is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Carlos Méndez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Carlos Méndez will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yl8oxg1727156749.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/28028965.png"
   },
   {
     "slug": "raul-fuentes",
@@ -14507,7 +14930,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Raúl Fuentes – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Raúl Fuentes is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Raúl Fuentes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Raúl Fuentes will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Raúl Fuentes – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Raúl Fuentes is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Raúl Fuentes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Raúl Fuentes will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l4wim01532342107.jpg"
   },
   {
     "slug": "marco-torres",
@@ -14525,7 +14949,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 42,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Marco Torres – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Marco Torres is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Marco Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Marco Torres will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Marco Torres – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Marco Torres is a goalkeeper who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Marco Torres brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Marco Torres will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png"
   },
   {
     "slug": "diego-hernandez",
@@ -14561,7 +14987,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Samuel Reyes – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Samuel Reyes is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Samuel Reyes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Samuel Reyes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Samuel Reyes – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Samuel Reyes is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Samuel Reyes brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Samuel Reyes will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uyq3az1533291226.jpg"
   },
   {
     "slug": "victor-osei",
@@ -14579,7 +15006,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Victor Osei – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Victor Osei is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Victor Osei brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Victor Osei will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Victor Osei – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Victor Osei is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Victor Osei brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Victor Osei will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/07tcrr1511791561.jpg"
   },
   {
     "slug": "bruno-castillo",
@@ -14615,7 +15043,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>André Lima – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>André Lima is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, André Lima brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, André Lima will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>André Lima – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>André Lima is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, André Lima brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, André Lima will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xqvwwu1431529189.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vstvww1424733342.png"
   },
   {
     "slug": "kevin-joseph",
@@ -14633,7 +15063,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Kevin Joseph – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Kevin Joseph is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Kevin Joseph brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Kevin Joseph will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kevin Joseph – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Kevin Joseph is a defender who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Kevin Joseph brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Kevin Joseph will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpyvxy1469528923.jpg"
   },
   {
     "slug": "roberto-silva",
@@ -14651,7 +15082,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Roberto Silva – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Roberto Silva is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Roberto Silva brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Roberto Silva will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Roberto Silva – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Roberto Silva is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Roberto Silva brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Roberto Silva will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ric2xa1603220536.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/id6jqa1603220449.png"
   },
   {
     "slug": "daniel-moreno",
@@ -14669,7 +15102,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Daniel Moreno – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Daniel Moreno is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Daniel Moreno brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Daniel Moreno will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Daniel Moreno – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Daniel Moreno is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Daniel Moreno brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Daniel Moreno will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mdh0l91510004457.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ntywfr1764278389.png"
   },
   {
     "slug": "alex-correa",
@@ -14687,7 +15122,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Alex Correa – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Alex Correa is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Alex Correa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Alex Correa will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Alex Correa – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Alex Correa is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Alex Correa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Alex Correa will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jsex9r1526664872.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dfi8321679064206.png"
   },
   {
     "slug": "felipe-cruz",
@@ -14723,7 +15160,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Oscar Martínez – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Oscar Martínez is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Oscar Martínez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Oscar Martínez will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Oscar Martínez – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Oscar Martínez is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Oscar Martínez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Oscar Martínez will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ffr5xx1756984715.png"
   },
   {
     "slug": "miguel-ramos",
@@ -14741,7 +15180,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Miguel Ramos – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Miguel Ramos is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Miguel Ramos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Miguel Ramos will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Miguel Ramos – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Miguel Ramos is a midfielder who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Miguel Ramos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Miguel Ramos will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4qhc7x1712489854.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ztj6241701091276.png"
   },
   {
     "slug": "jose-delgado",
@@ -14777,7 +15218,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Emilio Vargas – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Emilio Vargas is a forward who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Emilio Vargas brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Emilio Vargas will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Emilio Vargas – Intercontinental Play-off 2 World Cup 2026 Profile</h2><p>Emilio Vargas is a forward who represents Intercontinental Play-off 2 at the 2026 FIFA World Cup. Currently playing for Club TBD, Emilio Vargas brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 2 prepare for the biggest stage in football, Emilio Vargas will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h2ovta1503225450.jpg"
   },
   {
     "slug": "cristian-pena",
@@ -14903,7 +15345,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, managing workload carefully",
     "sentimentScore": 88,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Lionel Messi – Argentina World Cup 2026 Profile</h2><p>Lionel Messi is widely considered the greatest footballer of all time. The 2022 World Cup winner, eight-time Ballon d'Or recipient, and Argentina's all-time top scorer returns for one final World Cup in the country where he plays his club football.</p><h3>Tournament Outlook</h3><p>At 38, Messi's pace has diminished but his genius remains unmatched. His vision, passing, and ability to produce decisive moments transcend physical limitations. Playing in the United States, where he has become a cultural icon with Inter Miami, adds a fairy-tale dimension. His mere presence elevates the entire squad, and Argentina will manage his minutes to ensure he peaks in the knockout rounds. This promises to be one of sport's greatest farewell tours.</p>"
+    "seoArticle": "<h2>Lionel Messi – Argentina World Cup 2026 Profile</h2><p>Lionel Messi is widely considered the greatest footballer of all time. The 2022 World Cup winner, eight-time Ballon d'Or recipient, and Argentina's all-time top scorer returns for one final World Cup in the country where he plays his club football.</p><h3>Tournament Outlook</h3><p>At 38, Messi's pace has diminished but his genius remains unmatched. His vision, passing, and ability to produce decisive moments transcend physical limitations. Playing in the United States, where he has become a cultural icon with Inter Miami, adds a fairy-tale dimension. His mere presence elevates the entire squad, and Argentina will manage his minutes to ensure he peaks in the knockout rounds. This promises to be one of sport's greatest farewell tours.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kpfsvp1725295651.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/e0i2051750317027.png"
   },
   {
     "slug": "angel-di-maria",
@@ -14939,7 +15383,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 80,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Alexis Mac Allister – Argentina World Cup 2026 Profile</h2><p>Alexis Mac Allister is a midfielder who represents Argentina at the 2026 FIFA World Cup. Currently playing for Liverpool, Alexis Mac Allister brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Alexis Mac Allister will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Alexis Mac Allister – Argentina World Cup 2026 Profile</h2><p>Alexis Mac Allister is a midfielder who represents Argentina at the 2026 FIFA World Cup. Currently playing for Liverpool, Alexis Mac Allister brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Alexis Mac Allister will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9n5dnd1751999911.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/96dmuf1757087513.png"
   },
   {
     "slug": "julian-alvarez",
@@ -14957,7 +15403,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 85,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Julián Álvarez – Argentina World Cup 2026 Profile</h2><p>Julián Álvarez has established himself as one of the world's best strikers after his move to Atlético Madrid. The \"Spider\" combines tireless work rate with clinical finishing, intelligent movement, and the ability to play in multiple positions across the front line.</p><h3>Tournament Outlook</h3><p>Álvarez will likely lead the line as the primary striker. His energy, pressing ability, and goalscoring threat make him the ideal modern centre-forward. He was a World Cup winner in 2022 and arrives with more experience and maturity. With Messi potentially playing in a deeper role, Álvarez's importance has grown immensely.</p>"
+    "seoArticle": "<h2>Julián Álvarez – Argentina World Cup 2026 Profile</h2><p>Julián Álvarez has established himself as one of the world's best strikers after his move to Atlético Madrid. The \"Spider\" combines tireless work rate with clinical finishing, intelligent movement, and the ability to play in multiple positions across the front line.</p><h3>Tournament Outlook</h3><p>Álvarez will likely lead the line as the primary striker. His energy, pressing ability, and goalscoring threat make him the ideal modern centre-forward. He was a World Cup winner in 2022 and arrives with more experience and maturity. With Messi potentially playing in a deeper role, Álvarez's importance has grown immensely.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/rm3tj11741979331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/91pla41762288186.png"
   },
   {
     "slug": "emiliano-martinez",
@@ -14975,7 +15423,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 85,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Emiliano Martínez – Argentina World Cup 2026 Profile</h2><p>Emiliano \"Dibu\" Martínez is one of the best goalkeepers in world football. His penalty-saving heroics at the 2022 World Cup final are etched in football history. His shot-stopping, command of the area, and mental warfare with opposing penalty takers make him a unique weapon.</p><h3>Tournament Outlook</h3><p>Martínez provides Argentina with a world-class presence in goal. His confidence, big-game mentality, and ability to win penalty shootouts make Argentina favourites in any knockout scenario. His Aston Villa form has been consistently excellent.</p>"
+    "seoArticle": "<h2>Emiliano Martínez – Argentina World Cup 2026 Profile</h2><p>Emiliano \"Dibu\" Martínez is one of the best goalkeepers in world football. His penalty-saving heroics at the 2022 World Cup final are etched in football history. His shot-stopping, command of the area, and mental warfare with opposing penalty takers make him a unique weapon.</p><h3>Tournament Outlook</h3><p>Martínez provides Argentina with a world-class presence in goal. His confidence, big-game mentality, and ability to win penalty shootouts make Argentina favourites in any knockout scenario. His Aston Villa form has been consistently excellent.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ffr5xx1756984715.png"
   },
   {
     "slug": "franco-armani",
@@ -14993,7 +15443,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran backup",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Franco Armani – Argentina World Cup 2026 Profile</h2><p>Franco Armani is a goalkeeper who represents Argentina at the 2026 FIFA World Cup. Currently playing for River Plate, Franco Armani brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Franco Armani will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Franco Armani – Argentina World Cup 2026 Profile</h2><p>Franco Armani is a goalkeeper who represents Argentina at the 2026 FIFA World Cup. Currently playing for River Plate, Franco Armani brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Franco Armani will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/s4acpb1719032512.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yoasye1750270727.png"
   },
   {
     "slug": "geronimo-rulli",
@@ -15011,7 +15463,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Gerónimo Rulli – Argentina World Cup 2026 Profile</h2><p>Gerónimo Rulli is a goalkeeper who represents Argentina at the 2026 FIFA World Cup. Currently playing for Marseille, Gerónimo Rulli brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Gerónimo Rulli will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Gerónimo Rulli – Argentina World Cup 2026 Profile</h2><p>Gerónimo Rulli is a goalkeeper who represents Argentina at the 2026 FIFA World Cup. Currently playing for Marseille, Gerónimo Rulli brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Gerónimo Rulli will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jnahab1723461796.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/cpkkmg1766153528.png"
   },
   {
     "slug": "cristian-romero",
@@ -15029,7 +15483,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 75,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Cristian Romero – Argentina World Cup 2026 Profile</h2><p>Cristian Romero is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Tottenham Hotspur, Cristian Romero brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Cristian Romero will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Cristian Romero – Argentina World Cup 2026 Profile</h2><p>Cristian Romero is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Tottenham Hotspur, Cristian Romero brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Cristian Romero will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mmfst91770894655.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dme7x81757016317.png"
   },
   {
     "slug": "lisandro-martinez",
@@ -15047,7 +15503,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Lisandro Martínez – Argentina World Cup 2026 Profile</h2><p>Lisandro Martínez is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Manchester United, Lisandro Martínez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Lisandro Martínez will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Lisandro Martínez – Argentina World Cup 2026 Profile</h2><p>Lisandro Martínez is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Manchester United, Lisandro Martínez brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Lisandro Martínez will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/62xrby1770994011.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mqcogi1766826879.png"
   },
   {
     "slug": "nicolas-otamendi",
@@ -15065,7 +15523,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, managing fitness",
     "sentimentScore": 52,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Nicolás Otamendi – Argentina World Cup 2026 Profile</h2><p>Nicolás Otamendi is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Benfica, Nicolás Otamendi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nicolás Otamendi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Nicolás Otamendi – Argentina World Cup 2026 Profile</h2><p>Nicolás Otamendi is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Benfica, Nicolás Otamendi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nicolás Otamendi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/si0k951623584039.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ifxn6x1632995975.png"
   },
   {
     "slug": "nahuel-molina",
@@ -15083,7 +15543,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Nahuel Molina – Argentina World Cup 2026 Profile</h2><p>Nahuel Molina is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Nahuel Molina brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nahuel Molina will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Nahuel Molina – Argentina World Cup 2026 Profile</h2><p>Nahuel Molina is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Nahuel Molina brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nahuel Molina will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uhc6mv1719036284.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/36bdni1762288498.png"
   },
   {
     "slug": "nicolas-tagliafico",
@@ -15101,7 +15563,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Nicolás Tagliafico – Argentina World Cup 2026 Profile</h2><p>Nicolás Tagliafico is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Lyon, Nicolás Tagliafico brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nicolás Tagliafico will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Nicolás Tagliafico – Argentina World Cup 2026 Profile</h2><p>Nicolás Tagliafico is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Lyon, Nicolás Tagliafico brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Nicolás Tagliafico will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vfodsw1558203361.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4z43fy1766146600.png"
   },
   {
     "slug": "gonzalo-montiel",
@@ -15119,7 +15583,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Gonzalo Montiel – Argentina World Cup 2026 Profile</h2><p>Gonzalo Montiel is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Sevilla, Gonzalo Montiel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Gonzalo Montiel will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Gonzalo Montiel – Argentina World Cup 2026 Profile</h2><p>Gonzalo Montiel is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Sevilla, Gonzalo Montiel brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Gonzalo Montiel will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0f1okp1724793509.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/perteu1750270994.png"
   },
   {
     "slug": "marcos-acuna",
@@ -15137,7 +15603,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Marcos Acuña – Argentina World Cup 2026 Profile</h2><p>Marcos Acuña is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Sevilla, Marcos Acuña brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Marcos Acuña will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Marcos Acuña – Argentina World Cup 2026 Profile</h2><p>Marcos Acuña is a defender who represents Argentina at the 2026 FIFA World Cup. Currently playing for Sevilla, Marcos Acuña brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Argentina prepare for the biggest stage in football, Marcos Acuña will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/z07it21719030763.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pfw9qa1750270796.png"
   },
   {
     "slug": "rodrigo-de-paul",
@@ -17441,7 +17909,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Otabek Shukurov – Uzbekistan World Cup 2026 Profile</h2><p>Otabek Shukurov is a midfielder who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Lokomotiv Tashkent, Otabek Shukurov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Otabek Shukurov will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Otabek Shukurov – Uzbekistan World Cup 2026 Profile</h2><p>Otabek Shukurov is a midfielder who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Lokomotiv Tashkent, Otabek Shukurov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Otabek Shukurov will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6eajoq1712353720.jpg"
   },
   {
     "slug": "islom-tukhtakhodjaev",
@@ -17495,7 +17964,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Utkir Yusupov – Uzbekistan World Cup 2026 Profile</h2><p>Utkir Yusupov is a goalkeeper who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Lokomotiv Tashkent, Utkir Yusupov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Utkir Yusupov will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Utkir Yusupov – Uzbekistan World Cup 2026 Profile</h2><p>Utkir Yusupov is a goalkeeper who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Lokomotiv Tashkent, Utkir Yusupov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Utkir Yusupov will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/u4y5ib1638647613.jpg"
   },
   {
     "slug": "husniddin-aliqulov",
@@ -17513,7 +17983,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Husniddin Aliqulov – Uzbekistan World Cup 2026 Profile</h2><p>Husniddin Aliqulov is a defender who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Husniddin Aliqulov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Husniddin Aliqulov will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Husniddin Aliqulov – Uzbekistan World Cup 2026 Profile</h2><p>Husniddin Aliqulov is a defender who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Husniddin Aliqulov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Husniddin Aliqulov will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bnote71721831518.jpg"
   },
   {
     "slug": "abdukodir-khusanov",
@@ -17531,7 +18002,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Abdukodir Khusanov – Uzbekistan World Cup 2026 Profile</h2><p>Abdukodir Khusanov made a big-money move to Manchester City, becoming one of the most exciting young centre-backs in world football. His pace, aggression, and composure have impressed in the Premier League.</p><h3>Tournament Outlook</h3><p>Khusanov is Uzbekistan's most valuable player and the anchor of the defence. His Premier League experience gives the team a world-class defender capable of competing against any opponent.</p>"
+    "seoArticle": "<h2>Abdukodir Khusanov – Uzbekistan World Cup 2026 Profile</h2><p>Abdukodir Khusanov made a big-money move to Manchester City, becoming one of the most exciting young centre-backs in world football. His pace, aggression, and composure have impressed in the Premier League.</p><h3>Tournament Outlook</h3><p>Khusanov is Uzbekistan's most valuable player and the anchor of the defence. His Premier League experience gives the team a world-class defender capable of competing against any opponent.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ov4b1d1712297858.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/da8tg41769182137.png"
   },
   {
     "slug": "rustam-ashurmatov",
@@ -17549,7 +18022,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Rustam Ashurmatov – Uzbekistan World Cup 2026 Profile</h2><p>Rustam Ashurmatov is a defender who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Al-Qadsiah, Rustam Ashurmatov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Rustam Ashurmatov will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Rustam Ashurmatov – Uzbekistan World Cup 2026 Profile</h2><p>Rustam Ashurmatov is a defender who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Al-Qadsiah, Rustam Ashurmatov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Rustam Ashurmatov will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tc1s7a1712554231.jpg"
   },
   {
     "slug": "davron-khashimov",
@@ -17603,7 +18077,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Khojiakbar Alijonov – Uzbekistan World Cup 2026 Profile</h2><p>Khojiakbar Alijonov is a midfielder who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Khojiakbar Alijonov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Khojiakbar Alijonov will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Khojiakbar Alijonov – Uzbekistan World Cup 2026 Profile</h2><p>Khojiakbar Alijonov is a midfielder who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Khojiakbar Alijonov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Khojiakbar Alijonov will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yv52pv1712555322.jpg"
   },
   {
     "slug": "bobur-abdikholikov",
@@ -17675,7 +18150,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Igor Sergeev – Uzbekistan World Cup 2026 Profile</h2><p>Igor Sergeev is a forward who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Bunyodkor, Igor Sergeev brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Igor Sergeev will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Igor Sergeev – Uzbekistan World Cup 2026 Profile</h2><p>Igor Sergeev is a forward who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Bunyodkor, Igor Sergeev brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Igor Sergeev will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zokp2v1628965801.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/0wsdv71754403889.png"
   },
   {
     "slug": "abbosbek-fayzullaev",
@@ -17783,7 +18260,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Jasurbek Jaloliddinov – Uzbekistan World Cup 2026 Profile</h2><p>Jasurbek Jaloliddinov is a forward who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Jasurbek Jaloliddinov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Jasurbek Jaloliddinov will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Jasurbek Jaloliddinov – Uzbekistan World Cup 2026 Profile</h2><p>Jasurbek Jaloliddinov is a forward who represents Uzbekistan at the 2026 FIFA World Cup. Currently playing for Pakhtakor, Jasurbek Jaloliddinov brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Uzbekistan prepare for the biggest stage in football, Jasurbek Jaloliddinov will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bhyrkm1638220885.jpg"
   },
   {
     "slug": "david-chen",
@@ -17801,7 +18279,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>David Chen – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>David Chen is a goalkeeper who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, David Chen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, David Chen will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>David Chen – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>David Chen is a goalkeeper who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, David Chen brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, David Chen will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpatij1611390635.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8g4uxy1611390510.png"
   },
   {
     "slug": "mark-santos",
@@ -17819,7 +18299,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 45,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Mark Santos – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Mark Santos is a goalkeeper who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Mark Santos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Mark Santos will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Mark Santos – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Mark Santos is a goalkeeper who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Mark Santos brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Mark Santos will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpysxw1421695578.jpg"
   },
   {
     "slug": "james-adu",
@@ -17927,7 +18408,8 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 48,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Tom Bradley – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Tom Bradley is a defender who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Tom Bradley brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Tom Bradley will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Tom Bradley – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Tom Bradley is a defender who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Tom Bradley brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Tom Bradley will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p6ac0f1511439484.jpg"
   },
   {
     "slug": "kevin-mensah",
@@ -17981,7 +18463,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Michael Okafor – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Michael Okafor is a midfielder who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Michael Okafor brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Michael Okafor will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Michael Okafor – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Michael Okafor is a midfielder who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Michael Okafor brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Michael Okafor will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hxrdr71610921126.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bx1rq91757086099.png"
   },
   {
     "slug": "ryan-peters",
@@ -18071,7 +18555,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Emeka Chukwu – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Emeka Chukwu is a forward who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Emeka Chukwu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Emeka Chukwu will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Emeka Chukwu – Intercontinental Play-off 1 World Cup 2026 Profile</h2><p>Emeka Chukwu is a forward who represents Intercontinental Play-off 1 at the 2026 FIFA World Cup. Currently playing for Club TBD, Emeka Chukwu brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As Intercontinental Play-off 1 prepare for the biggest stage in football, Emeka Chukwu will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mpoauf1684404376.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/uavmv91766758876.png"
   },
   {
     "slug": "andre-fonseca",
@@ -18215,7 +18701,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 92,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Jude Bellingham – England World Cup 2026 Profile</h2><p>Jude Bellingham is the most complete young midfielder in world football. The Real Madrid star has already become a Champions League winner and La Liga champion, producing performances that defy his age. His ability to score, create, and lead from midfield is extraordinary.</p><h3>Tournament Outlook</h3><p>Bellingham will be the player England's World Cup campaign revolves around. His big-game mentality, goal threat from midfield, and leadership make him the most important player in the squad. At 22, he has the potential to deliver England's first World Cup since 1966.</p>"
+    "seoArticle": "<h2>Jude Bellingham – England World Cup 2026 Profile</h2><p>Jude Bellingham is the most complete young midfielder in world football. The Real Madrid star has already become a Champions League winner and La Liga champion, producing performances that defy his age. His ability to score, create, and lead from midfield is extraordinary.</p><h3>Tournament Outlook</h3><p>Bellingham will be the player England's World Cup campaign revolves around. His big-game mentality, goal threat from midfield, and leadership make him the most important player in the squad. At 22, he has the potential to deliver England's first World Cup since 1966.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/rfg8xd1771263826.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/trk5271750271712.png"
   },
   {
     "slug": "bukayo-saka",
@@ -18233,7 +18721,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 90,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Bukayo Saka – England World Cup 2026 Profile</h2><p>Bukayo Saka has established himself as one of the best wingers in world football. The Arsenal star's combination of pace, dribbling, crossing, and goalscoring makes him a complete attacking talent. His maturity and consistency at just 24 are remarkable.</p><h3>Tournament Outlook</h3><p>Saka is England's most dangerous wide player. His ability to score and create from the right wing gives England an elite attacking option. His big-tournament experience, including crucial penalties, shows mental resilience beyond his years.</p>"
+    "seoArticle": "<h2>Bukayo Saka – England World Cup 2026 Profile</h2><p>Bukayo Saka has established himself as one of the best wingers in world football. The Arsenal star's combination of pace, dribbling, crossing, and goalscoring makes him a complete attacking talent. His maturity and consistency at just 24 are remarkable.</p><h3>Tournament Outlook</h3><p>Saka is England's most dangerous wide player. His ability to score and create from the right wing gives England an elite attacking option. His big-tournament experience, including crucial penalties, shows mental resilience beyond his years.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/axl31b1769332282.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xfwok41769331816.png"
   },
   {
     "slug": "declan-rice",
@@ -18251,7 +18741,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 80,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Declan Rice – England World Cup 2026 Profile</h2><p>Declan Rice is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Arsenal, Declan Rice brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Declan Rice will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Declan Rice – England World Cup 2026 Profile</h2><p>Declan Rice is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Arsenal, Declan Rice brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Declan Rice will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ty3z7g1705918131.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/do2pew1694204464.png"
   },
   {
     "slug": "phil-foden",
@@ -18269,7 +18761,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 82,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Phil Foden – England World Cup 2026 Profile</h2><p>Phil Foden is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Phil Foden brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Phil Foden will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Phil Foden – England World Cup 2026 Profile</h2><p>Phil Foden is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Phil Foden brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Phil Foden will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/19o7yc1749157221.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lbn4sx1769182620.png"
   },
   {
     "slug": "jordan-pickford",
@@ -18287,7 +18781,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Jordan Pickford – England World Cup 2026 Profile</h2><p>Jordan Pickford is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Everton, Jordan Pickford brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Jordan Pickford will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Jordan Pickford – England World Cup 2026 Profile</h2><p>Jordan Pickford is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Everton, Jordan Pickford brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Jordan Pickford will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/m66e5n1771945410.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wt1c4n1756976358.png"
   },
   {
     "slug": "aaron-ramsdale",
@@ -18305,7 +18801,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 52,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Aaron Ramsdale – England World Cup 2026 Profile</h2><p>Aaron Ramsdale is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Southampton, Aaron Ramsdale brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Aaron Ramsdale will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Aaron Ramsdale – England World Cup 2026 Profile</h2><p>Aaron Ramsdale is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Southampton, Aaron Ramsdale brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Aaron Ramsdale will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/z0dple1678273036.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vzpaeh1770797070.png"
   },
   {
     "slug": "dean-henderson",
@@ -18323,7 +18821,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 50,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Dean Henderson – England World Cup 2026 Profile</h2><p>Dean Henderson is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Crystal Palace, Dean Henderson brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Dean Henderson will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>"
+    "seoArticle": "<h2>Dean Henderson – England World Cup 2026 Profile</h2><p>Dean Henderson is a goalkeeper who represents England at the 2026 FIFA World Cup. Currently playing for Crystal Palace, Dean Henderson brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Dean Henderson will look to make an impact with consistent performances. Shot-stopping ability and command of the area will be tested against top opposition.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0bcnqd1772140599.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fexcpe1761492531.png"
   },
   {
     "slug": "john-stones",
@@ -18341,7 +18841,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 70,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>John Stones – England World Cup 2026 Profile</h2><p>John Stones is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, John Stones brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, John Stones will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>John Stones – England World Cup 2026 Profile</h2><p>John Stones is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, John Stones brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, John Stones will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/iub2p21763068622.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dkq8d41763068509.png"
   },
   {
     "slug": "marc-guehi",
@@ -18359,7 +18861,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 68,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Marc Guéhi – England World Cup 2026 Profile</h2><p>Marc Guéhi is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Crystal Palace, Marc Guéhi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Marc Guéhi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Marc Guéhi – England World Cup 2026 Profile</h2><p>Marc Guéhi is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Crystal Palace, Marc Guéhi brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Marc Guéhi will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wqgmpl1609183670.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/842bfy1771748128.png"
   },
   {
     "slug": "kyle-walker",
@@ -18377,7 +18881,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, pace maintained",
     "sentimentScore": 55,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Kyle Walker – England World Cup 2026 Profile</h2><p>Kyle Walker is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Kyle Walker brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Kyle Walker will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Kyle Walker – England World Cup 2026 Profile</h2><p>Kyle Walker is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Kyle Walker brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Kyle Walker will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ndt9gl1772370034.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mnod0k1757174815.png"
   },
   {
     "slug": "trent-alexander-arnold",
@@ -18395,7 +18901,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Trent Alexander-Arnold – England World Cup 2026 Profile</h2><p>Trent Alexander-Arnold is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Liverpool, Trent Alexander-Arnold brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Trent Alexander-Arnold will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Trent Alexander-Arnold – England World Cup 2026 Profile</h2><p>Trent Alexander-Arnold is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Liverpool, Trent Alexander-Arnold brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Trent Alexander-Arnold will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e35duu1771262822.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rw1mkk1750271928.png"
   },
   {
     "slug": "luke-shaw",
@@ -18413,7 +18921,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Injury-prone, currently fit",
     "sentimentScore": 60,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Luke Shaw – England World Cup 2026 Profile</h2><p>Luke Shaw is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester United, Luke Shaw brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Luke Shaw will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Luke Shaw – England World Cup 2026 Profile</h2><p>Luke Shaw is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester United, Luke Shaw brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Luke Shaw will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wbet0c1770994226.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1kg6bc1766826995.png"
   },
   {
     "slug": "levi-colwill",
@@ -18431,7 +18941,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Levi Colwill – England World Cup 2026 Profile</h2><p>Levi Colwill is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Chelsea, Levi Colwill brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Levi Colwill will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Levi Colwill – England World Cup 2026 Profile</h2><p>Levi Colwill is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Chelsea, Levi Colwill brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Levi Colwill will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/cr417g1628521347.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4irnsq1757002647.png"
   },
   {
     "slug": "ezri-konsa",
@@ -18449,7 +18961,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ezri Konsa – England World Cup 2026 Profile</h2><p>Ezri Konsa is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Aston Villa, Ezri Konsa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ezri Konsa will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Ezri Konsa – England World Cup 2026 Profile</h2><p>Ezri Konsa is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Aston Villa, Ezri Konsa brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ezri Konsa will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uc1jmw1770201046.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rnu4al1756984921.png"
   },
   {
     "slug": "rico-lewis",
@@ -18467,7 +18981,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Rico Lewis – England World Cup 2026 Profile</h2><p>Rico Lewis is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Rico Lewis brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Rico Lewis will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>"
+    "seoArticle": "<h2>Rico Lewis – England World Cup 2026 Profile</h2><p>Rico Lewis is a defender who represents England at the 2026 FIFA World Cup. Currently playing for Manchester City, Rico Lewis brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Rico Lewis will look to make an impact with consistent performances. Defensive solidity and composure under pressure will be critical in group-stage matches and beyond.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a72g3k1702565788.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lt67041769182828.png"
   },
   {
     "slug": "kobbie-mainoo",
@@ -18485,7 +19001,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 72,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Kobbie Mainoo – England World Cup 2026 Profile</h2><p>Kobbie Mainoo is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Manchester United, Kobbie Mainoo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Kobbie Mainoo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Kobbie Mainoo – England World Cup 2026 Profile</h2><p>Kobbie Mainoo is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Manchester United, Kobbie Mainoo brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Kobbie Mainoo will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h66a4l1696149845.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8qrveo1766826836.png"
   },
   {
     "slug": "conor-gallagher",
@@ -18503,7 +19021,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 58,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Conor Gallagher – England World Cup 2026 Profile</h2><p>Conor Gallagher is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Conor Gallagher brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Conor Gallagher will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>"
+    "seoArticle": "<h2>Conor Gallagher – England World Cup 2026 Profile</h2><p>Conor Gallagher is a midfielder who represents England at the 2026 FIFA World Cup. Currently playing for Atlético Madrid, Conor Gallagher brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Conor Gallagher will look to make an impact with consistent performances. Control of the midfield battle and creative contributions will be key to the team's success.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n4fwny1770893526.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pj90do1768679014.png"
   },
   {
     "slug": "cole-palmer",
@@ -18521,7 +19041,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 80,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Cole Palmer – England World Cup 2026 Profile</h2><p>Cole Palmer has emerged as one of the Premier League's most dangerous attacking players. His composure, technique, and ability to produce in big moments have made him a key figure for Chelsea and England. His ice-cold penalty technique has become legendary.</p><h3>Tournament Outlook</h3><p>Palmer provides England with a different creative option who can play centrally or on the right. His big-game composure and set-piece quality make him a potential match-winner at the tournament.</p>"
+    "seoArticle": "<h2>Cole Palmer – England World Cup 2026 Profile</h2><p>Cole Palmer has emerged as one of the Premier League's most dangerous attacking players. His composure, technique, and ability to produce in big moments have made him a key figure for Chelsea and England. His ice-cold penalty technique has become legendary.</p><h3>Tournament Outlook</h3><p>Palmer provides England with a different creative option who can play centrally or on the right. His big-game composure and set-piece quality make him a potential match-winner at the tournament.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r7yrsa1770541322.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fn0pzc1757010119.png"
   },
   {
     "slug": "harry-kane",
@@ -18539,7 +19061,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 78,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Harry Kane – England World Cup 2026 Profile</h2><p>Harry Kane is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Harry Kane brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Harry Kane will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Harry Kane – England World Cup 2026 Profile</h2><p>Harry Kane is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Bayern Munich, Harry Kane brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Harry Kane will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0w9up71770542636.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j4ouvd1756408895.png"
   },
   {
     "slug": "anthony-gordon",
@@ -18557,7 +19081,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 62,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Anthony Gordon – England World Cup 2026 Profile</h2><p>Anthony Gordon is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Newcastle United, Anthony Gordon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Anthony Gordon will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Anthony Gordon – England World Cup 2026 Profile</h2><p>Anthony Gordon is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Newcastle United, Anthony Gordon brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Anthony Gordon will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yleib91770796577.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8ztck61766824986.png"
   },
   {
     "slug": "ollie-watkins",
@@ -18575,7 +19101,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 65,
     "sentimentLabel": "positive",
-    "seoArticle": "<h2>Ollie Watkins – England World Cup 2026 Profile</h2><p>Ollie Watkins is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Aston Villa, Ollie Watkins brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ollie Watkins will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Ollie Watkins – England World Cup 2026 Profile</h2><p>Ollie Watkins is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Aston Villa, Ollie Watkins brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ollie Watkins will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9l400s1752069048.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/w6dir11756987347.png"
   },
   {
     "slug": "ivan-toney",
@@ -18593,7 +19121,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Fully fit",
     "sentimentScore": 55,
     "sentimentLabel": "neutral",
-    "seoArticle": "<h2>Ivan Toney – England World Cup 2026 Profile</h2><p>Ivan Toney is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Ivan Toney brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ivan Toney will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>"
+    "seoArticle": "<h2>Ivan Toney – England World Cup 2026 Profile</h2><p>Ivan Toney is a forward who represents England at the 2026 FIFA World Cup. Currently playing for Al-Ahli, Ivan Toney brings quality and determination to the squad. </p><h3>Tournament Outlook</h3><p>As England prepare for the biggest stage in football, Ivan Toney will look to make an impact with consistent performances. Goal-scoring instincts and movement in the final third will be vital as the team aims to progress.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/woevg11724686948.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ozy92w1771663597.png"
   },
   {
     "slug": "eberechi-eze",
@@ -19043,7 +19573,9 @@ export const PLAYERS: Player[] = [
     "fitnessNote": "Veteran, managing minutes",
     "sentimentScore": 78,
     "sentimentLabel": "cautious",
-    "seoArticle": "<h2>Luka Modrić – Croatia World Cup 2026 Profile</h2><p>Luka Modrić is one of the greatest midfielders in football history. The 2018 Ballon d'Or winner and Real Madrid legend continues to defy age with his exquisite passing, vision, and ability to control matches. At 40, his quality remains evident in every touch.</p><h3>Tournament Outlook</h3><p>This will be Modrić's farewell World Cup. His experience from three consecutive semi-final runs gives Croatia an invaluable presence. While his minutes will be managed carefully, his influence on the pitch and in the dressing room is unmatched. The football world will savour every moment of his final tournament.</p>"
+    "seoArticle": "<h2>Luka Modrić – Croatia World Cup 2026 Profile</h2><p>Luka Modrić is one of the greatest midfielders in football history. The 2018 Ballon d'Or winner and Real Madrid legend continues to defy age with his exquisite passing, vision, and ability to control matches. At 40, his quality remains evident in every touch.</p><h3>Tournament Outlook</h3><p>This will be Modrić's farewell World Cup. His experience from three consecutive semi-final runs gives Croatia an invaluable presence. While his minutes will be managed carefully, his influence on the pitch and in the dressing room is unmatched. The football world will savour every moment of his final tournament.</p>",
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6j40781707595475.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/msewdx1758892756.png"
   },
   {
     "slug": "josko-gvardiol",

@@ -47,6 +47,16 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                   <span className="absolute bottom-2 left-4 font-headline text-5xl font-black text-white/10">
                     #{player.number}
                   </span>
+                  {/* Player headshot overlay */}
+                  {(player.cutoutUrl || player.imageUrl) && (
+                    <div className="absolute -bottom-2 right-2 z-10">
+                      <img
+                        src={player.cutoutUrl || player.imageUrl}
+                        alt={player.name}
+                        className="h-28 w-auto object-contain drop-shadow-lg"
+                      />
+                    </div>
+                  )}
                 </div>
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-1">

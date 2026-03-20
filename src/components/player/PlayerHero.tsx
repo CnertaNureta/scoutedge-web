@@ -11,6 +11,7 @@ interface PlayerHeroProps {
 
 export default function PlayerHero({ player, team }: PlayerHeroProps) {
   const heroImage = getPlayerActionImage(player.name)
+  const playerPhoto = player.cutoutUrl || player.imageUrl
 
   return (
     <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-end">
@@ -21,6 +22,16 @@ export default function PlayerHero({ player, team }: PlayerHeroProps) {
         alt={`${player.name} in action`}
         className="absolute inset-0 w-full h-full object-cover grayscale-[20%] brightness-75 scale-105"
       />
+      {/* Player cutout photo */}
+      {playerPhoto && (
+        <div className="absolute right-4 md:right-24 bottom-0 z-20 hidden md:block">
+          <img
+            src={playerPhoto}
+            alt={player.name}
+            className="h-[400px] lg:h-[500px] object-contain drop-shadow-[0_0_40px_rgba(160,212,148,0.3)]"
+          />
+        </div>
+      )}
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 pb-16 md:pb-24">
         <div className="space-y-3">
           <Link

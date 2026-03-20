@@ -1,0 +1,5359 @@
+{
+  "mexico/Guillermo Ochoa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Luis Malagón": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Carlos Acevedo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Jorge Sánchez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/César Montes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Johan Vásquez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Jesús Gallardo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Gerardo Arteaga": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Kevin Álvarez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Israel Reyes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Jesús Angulo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Edson Álvarez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Luis Chávez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Orbelín Pineda": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Carlos Rodríguez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Diego Lainez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Roberto Alvarado": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Erik Lira": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "mexico/Hirving Lozano": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/daqozk1544969754.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sumitr1762901593.png",
+    "position": "Right Winger",
+    "dateBorn": "1995-07-30",
+    "nationality": "Mexico",
+    "club": "San Diego FC"
+  },
+  "mexico/Santiago Giménez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xs0tpx1679242761.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j63fz01758892529.png",
+    "position": "Centre-Forward",
+    "dateBorn": "2001-04-18",
+    "nationality": "Mexico",
+    "club": "AC Milan"
+  },
+  "mexico/Raúl Jiménez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hfzefq1772025775.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/w4chsd1757070949.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1991-05-05",
+    "nationality": "Mexico",
+    "club": "Fulham"
+  },
+  "mexico/Alexis Vega": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bhp6641630155739.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6abl1y1630155862.png",
+    "position": "Left Wing",
+    "dateBorn": "1997-11-25",
+    "nationality": "Mexico",
+    "club": "Toluca"
+  },
+  "mexico/Henry Martín": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9zhtgw1630140220.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ijusbr1750329232.png",
+    "position": "Forward",
+    "dateBorn": "1992-11-18",
+    "nationality": "Mexico",
+    "club": "CF America"
+  },
+  "south-africa/Ronwen Williams": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5i9esk1751086301.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kd7edx1750875629.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1992-01-21",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Veli Mothwa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Bruce Bvuma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Mothobi Mvala": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/szb2aa1706106238.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lk67781750875686.png",
+    "position": "Centre-Back",
+    "dateBorn": "1994-06-14",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Grant Kekana": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/supqt51751086690.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mqao921750875467.png",
+    "position": "Centre-Back",
+    "dateBorn": "1992-10-31",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Khuliso Mudau": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i0cq7o1706105807.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ods0zi1750875546.png",
+    "position": "Right-Back",
+    "dateBorn": "1995-04-26",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Terrence Mashego": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Aubrey Modiba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Siyanda Xulu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Thapelo Morena": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Teboho Mokoena": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4124n61751085355.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3dq0ds1750874921.png",
+    "position": "Central Midfield",
+    "dateBorn": "1997-01-24",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Sipho Mbule": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/abzdob1677851230.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gl1wgk1677851263.png",
+    "position": "Defender",
+    "nationality": "DR Congo",
+    "club": "Salford City"
+  },
+  "south-africa/Themba Zwane": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j9i4hk1706095566.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/76q7yr1750875450.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "1989-08-03",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Monnapule Saleng": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Patrick Maswanganyi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Bathusi Aubaas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Thalente Mbatha": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-africa/Ethan Brooks": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/d8v08t1749977041.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xrq6e11732915089.png",
+    "position": "Running Back",
+    "nationality": "United States",
+    "club": "Green Bay Packers"
+  },
+  "south-africa/Percy Tau": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/gl8iij1596628689.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tcm6lq1610579534.png",
+    "position": "Right Winger",
+    "dateBorn": "1994-05-13",
+    "nationality": "South Africa",
+    "club": "Qatar SC"
+  },
+  "south-africa/Evidence Makgopa": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lmp3081705589519.jpg",
+    "cutoutUrl": null,
+    "position": "Forward",
+    "dateBorn": "2000-06-05",
+    "nationality": "South Africa",
+    "club": "Orlando Pirates"
+  },
+  "south-africa/Lebo Mothiba": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/efha5w1681488003.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/et0tpz1750875702.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1996-01-28",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Iqraam Rayners": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oh0gcn1750670299.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/49juqb1750875069.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1995-12-19",
+    "nationality": "South Africa",
+    "club": "Mamelodi Sundowns"
+  },
+  "south-africa/Elias Mokwana": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o3izq41750491987.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/parhqr1750492017.png",
+    "position": "Right Winger",
+    "dateBorn": "1999-09-08",
+    "nationality": "South Africa",
+    "club": "Espérance de Tunis"
+  },
+  "south-korea/Son Heung-min": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/12yrco1610289677.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/a5cqf81766425262.png",
+    "position": "Left Wing",
+    "dateBorn": "1992-07-08",
+    "nationality": "South Korea",
+    "club": "Los Angeles FC"
+  },
+  "south-korea/Kim Min-jae": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/heq7bc1770541689.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/m4uh701756408877.png",
+    "position": "Centre-Back",
+    "dateBorn": "1996-11-15",
+    "nationality": "South Korea",
+    "club": "Bayern Munich"
+  },
+  "south-korea/Lee Kang-in": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-korea/Hwang Hee-chan": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/izt4b51772032506.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/917hke1756975302.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1996-01-26",
+    "nationality": "South Korea",
+    "club": "Wolverhampton Wanderers"
+  },
+  "south-korea/Cho Gue-sung": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6ck89h1668773166.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/32w5vj1765385403.png",
+    "position": "Centre-Forward",
+    "nationality": "South Korea",
+    "club": "FC Midtjylland"
+  },
+  "south-korea/Jeong Woo-yeong": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vgfiwh1605452732.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4aw8jx1763641404.png",
+    "position": "Forward",
+    "nationality": "South Korea",
+    "club": "Union Berlin"
+  },
+  "south-korea/Hwang In-beom": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-korea/Lee Jae-sung": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jesvs51610918616.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/p0i9wg1763554091.png",
+    "position": "Midfielder",
+    "nationality": "South Korea",
+    "club": "Mainz"
+  },
+  "south-korea/Jo Hyeon-woo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/unbf8w1751085788.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v7na7c1750221952.png",
+    "position": "Goalkeeper",
+    "nationality": "South Korea",
+    "club": "Ulsan HD"
+  },
+  "south-korea/Kim Seung-gyu": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l2q5o41668683583.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/32ktx81668684378.png",
+    "position": "Goalkeeper",
+    "nationality": "South Korea",
+    "club": "FC Tokyo"
+  },
+  "south-korea/Song Bum-keun": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mjiw7k1668289121.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/70o5p21668289243.png",
+    "position": "Goalkeeper",
+    "nationality": "South Korea",
+    "club": "Jeonbuk Hyundai Motors"
+  },
+  "south-korea/Kim Young-gwon": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v26f8d1668774687.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/q13aof1750221235.png",
+    "position": "Centre-Back",
+    "nationality": "South Korea",
+    "club": "Ulsan HD"
+  },
+  "south-korea/Jung Seung-hyun": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-korea/Kim Jin-su": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9o7pyn1624115037.jpg",
+    "cutoutUrl": null,
+    "position": "First Base",
+    "nationality": "South Korea",
+    "club": "NC Dinos"
+  },
+  "south-korea/Lee Ki-je": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4y3ni71515932564.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "France",
+    "club": "_Free Agent Soccer"
+  },
+  "south-korea/Hong Chul": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8ka93r1668687343.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j0yj3h1668685787.png",
+    "position": "Left-Back",
+    "nationality": "South Korea",
+    "club": "Gangwon FC"
+  },
+  "south-korea/Kwon Kyung-won": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ybtgq11668774018.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l3t4xd1668773938.png",
+    "position": "Centre-Back",
+    "nationality": "South Korea",
+    "club": "Suwon FC"
+  },
+  "south-korea/Kim Do-young": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8ifpqd1674500908.jpg",
+    "cutoutUrl": "https://www.thesportsdb.com/images/media/player/cutout/z9anlm1773141344.png",
+    "position": "Winger",
+    "nationality": "United Kingdom",
+    "club": "Newcastle Knights"
+  },
+  "south-korea/Park Yong-woo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j61f9y1740781516.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/y2ohay1750753126.png",
+    "position": "Defensive Midfield",
+    "nationality": "South Korea",
+    "club": "Al Ain"
+  },
+  "south-korea/Song Min-kyu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-korea/Oh Hyeon-gyu": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fe6gaa1675929608.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/afjq841767641921.png",
+    "position": "Centre-Forward",
+    "nationality": "South Korea",
+    "club": "Genk"
+  },
+  "south-korea/Na Sang-ho": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "south-korea/Bae Jun-ho": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p56j7g1717582870.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gifl4o1631711025.png",
+    "position": "Midfielder",
+    "nationality": "Canada",
+    "club": "Hibernian"
+  },
+  "denmark/Kasper Schmeichel": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kyitp31730845446.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/egcgc21716408164.png",
+    "position": "Goalkeeper",
+    "nationality": "Denmark",
+    "club": "Celtic"
+  },
+  "denmark/Mads Hermansen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/teeix01772133261.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/a55u3k1772134389.png",
+    "position": "Goalkeeper",
+    "nationality": "Denmark",
+    "club": "West Ham United"
+  },
+  "denmark/Frederik Rønnow": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fc5cmn1622035091.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j9t7491763641303.png",
+    "position": "Goalkeeper",
+    "nationality": "Denmark",
+    "club": "Union Berlin"
+  },
+  "denmark/Andreas Christensen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lg5vvk1771261092.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ynkck21768321682.png",
+    "position": "Centre-Back",
+    "nationality": "Denmark",
+    "club": "Barcelona"
+  },
+  "denmark/Joachim Andersen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lxl96o1485605416.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/26u7t11654786787.png",
+    "position": "Goalkeeper",
+    "nationality": "Denmark",
+    "club": "Fremad Amager"
+  },
+  "denmark/Simon Kjær": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zdwowg1711454040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v9jguw1675183954.png",
+    "position": "Defender",
+    "nationality": "Denmark",
+    "club": "_Retired Soccer"
+  },
+  "denmark/Joakim Mæhle": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3ow5qm1610146051.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xxsayw1763669423.png",
+    "position": "Right-Back",
+    "nationality": "Denmark",
+    "club": "Wolfsburg"
+  },
+  "denmark/Victor Kristiansen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/762pdx1654261519.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/eoe35i1761861579.png",
+    "position": "Left-Back",
+    "nationality": "Denmark",
+    "club": "Leicester City"
+  },
+  "denmark/Alexander Bah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Jannik Vestergaard": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Christian Eriksen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Pierre-Emile Højbjerg": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Morten Hjulmand": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Mikkel Damsgaard": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Christian Nørgaard": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Thomas Delaney": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Rasmus Højlund": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Jonas Wind": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Yussuf Poulsen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Andreas Skov Olsen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Jacob Bruun Larsen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Gustav Isaksen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "denmark/Mohamed Daramy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Yann Sommer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Gregor Kobel": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Philipp Köhn": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Manuel Akanji": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Nico Elvedi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Ricardo Rodríguez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Silvan Widmer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Leonidas Stergiou": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Becir Omeragic": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Ulisses Garcia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Granit Xhaka": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Denis Zakaria": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Remo Freuler": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Fabian Rieder": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Ardon Jashari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Michel Aebischer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Xherdan Shaqiri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Breel Embolo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Noah Okafor": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Zeki Amdouni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Ruben Vargas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Dan Ndoye": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "switzerland/Kwadwo Duah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Alphonso Davies": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Jonathan David": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Milan Borjan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Maxime Crépeau": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Dayne St. Clair": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Kamal Miller": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Alistair Johnston": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Moise Bombito": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Derek Cornelius": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Sam Adekugbe": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Richie Laryea": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Stephen Eustáquio": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Ismael Koné": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Tajon Buchanan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Mark-Anthony Kaye": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Samuel Piette": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Liam Millar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Cyle Larin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Jacob Shaffelburg": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Tani Oluwaseyi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Ali Ahmed": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Mathieu Choinière": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "canada/Junior Hoilett": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Saad Al-Sheeb": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Meshaal Barsham": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Yousof Hassan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Pedro Miguel": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Bassam Al-Rawi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Homam Ahmed": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Tarek Salman": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Musab Kheder": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Jassem Gaber": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Sultan Al-Brake": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Abdelkarim Hassan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Hassan Al-Haydos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Karim Boudiaf": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Abdulaziz Hatem": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Assim Madabo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Mostafa Tarek": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Mohammed Waad": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Almoez Ali": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Akram Afif": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Mohammed Muntari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Ahmed Al-Rawi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Yusuf Abdurisag": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "qatar/Ismail Mohamad": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Gianluigi Donnarumma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Alex Meret": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Guglielmo Vicario": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Alessandro Bastoni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Federico Dimarco": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Giovanni Di Lorenzo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Riccardo Calafiori": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Gianluca Mancini": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Andrea Cambiaso": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Matteo Darmian": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Nicolò Barella": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Sandro Tonali": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Jorginho": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Davide Frattesi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Samuele Ricci": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Nicolò Fagioli": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Federico Chiesa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Gianluca Scamacca": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Mateo Retegui": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Giacomo Raspadori": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Lorenzo Pellegrini": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Mattia Zaccagni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "italy/Moise Kean": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Achraf Hakimi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lwhwh71770216476.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/oqu69c1766335243.png"
+  },
+  "morocco/Yassine Bounou": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Munir Mohamedi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Yassine Boutyaib": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Nayef Aguerd": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Noussair Mazraoui": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Romain Saïss": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Adam Masina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Achraf Dari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Yahia Attiyat Allah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Sofyan Amrabat": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Azzedine Ounahi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Hakim Ziyech": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Bilal El Khannouss": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Selim Amallah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Yahya Jabrane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Youssef En-Nesyri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Abde Ezzalzouli": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Brahim Díaz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Sofiane Boufal": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Abderrazak Hamdallah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Ayoub El Kaabi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "morocco/Zakaria Aboukhlal": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Vinícius Jr.": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lxf1he1771264845.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ejuxsh1750271859.png"
+  },
+  "brazil/Rodrygo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Endrick": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Raphinha": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Alisson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Ederson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Bento": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Éder Militão": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Marquinhos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Gabriel Magalhães": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Danilo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Wendell": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Guilherme Arana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Bremer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Bruno Guimarães": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "brazil/Lucas Paquetá": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3mg83e1716706150.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wz75kq1770378434.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "1997-08-27",
+    "nationality": "Brazil",
+    "club": "Flamengo"
+  },
+  "brazil/Casemiro": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0g0bxh1706525357.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ydr3j41766826524.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "1992-02-23",
+    "nationality": "Brazil",
+    "club": "Manchester United"
+  },
+  "brazil/João Gomes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o170sh1772032411.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/u8mcha1756975493.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "2001-02-12",
+    "nationality": "Brazil",
+    "club": "Wolverhampton Wanderers"
+  },
+  "brazil/André": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5yzh2j1771665641.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "dateBorn": "1989-08-26",
+    "nationality": "Portugal",
+    "club": "_Retired Soccer"
+  },
+  "brazil/Gabriel Martinelli": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jf2gcn1716705057.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pnwfls1769331152.png",
+    "position": "Left Wing",
+    "dateBorn": "2001-06-18",
+    "nationality": "Brazil",
+    "club": "Arsenal"
+  },
+  "brazil/Richarlison": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9c6sim1770894215.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qgim7p1757016148.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1997-05-10",
+    "nationality": "Brazil",
+    "club": "Tottenham Hotspur"
+  },
+  "brazil/Savinho": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3w2avy1716707795.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/khqgy21769183420.png",
+    "position": "Left Wing",
+    "dateBorn": "2004-04-10",
+    "nationality": "Brazil",
+    "club": "Manchester City"
+  },
+  "brazil/Yan Couto": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fg52xa1716706821.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hadu641756326239.png",
+    "position": "Right-Back",
+    "dateBorn": "2002-06-03",
+    "nationality": "Brazil",
+    "club": "Borussia Dortmund"
+  },
+  "scotland/Angus Gunn": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4r0sby1772393040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/7mdhk31757163014.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1996-01-22",
+    "nationality": "Scotland",
+    "club": "Nottingham Forest"
+  },
+  "scotland/Craig Gordon": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hptxnh1513016021.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/npww751722423397.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1982-12-31",
+    "nationality": "Scotland",
+    "club": "Hearts"
+  },
+  "scotland/Zander Clark": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xnit8s1549981401.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/n65oll1722423451.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1992-06-26",
+    "nationality": "Scotland",
+    "club": "Doncaster Rovers"
+  },
+  "scotland/Andrew Robertson": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mvmpbc1710165540.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/t0yil51757088652.png",
+    "position": "Left-Back",
+    "dateBorn": "1994-03-11",
+    "nationality": "Scotland",
+    "club": "Liverpool"
+  },
+  "scotland/Kieran Tierney": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vvm2h61678274134.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sx9jwg1725292484.png",
+    "position": "Left-Back",
+    "dateBorn": "1997-06-05",
+    "nationality": "Scotland",
+    "club": "Celtic"
+  },
+  "scotland/Scott McTominay": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vjfgf21771246923.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/b7truo1762288079.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "1996-12-08",
+    "nationality": "Scotland",
+    "club": "Napoli"
+  },
+  "scotland/John McGinn": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/msafxs1770201393.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/keq4991756987159.png",
+    "position": "Central Midfield",
+    "dateBorn": "1994-10-18",
+    "nationality": "Scotland",
+    "club": "Aston Villa"
+  },
+  "scotland/Billy Gilmour": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vc6ads1771246454.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/axk63s1764089469.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "2001-06-11",
+    "nationality": "Scotland",
+    "club": "Napoli"
+  },
+  "scotland/Callum McGregor": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3gdams1513027743.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kmsjdj1701350223.png",
+    "position": "Central Midfield",
+    "dateBorn": "1993-06-14",
+    "nationality": "Scotland",
+    "club": "Celtic"
+  },
+  "scotland/Ryan Christie": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fnbc441771750891.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/r142w81757018147.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "1995-04-28",
+    "nationality": "Scotland",
+    "club": "Bournemouth"
+  },
+  "scotland/Kenny McLean": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/t30s831550092277.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ijblyx1761737486.png",
+    "position": "Central Midfield",
+    "dateBorn": "1992-01-08",
+    "nationality": "Scotland",
+    "club": "Norwich"
+  },
+  "scotland/Grant Hanley": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h7pan41507892657.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2zn65k1695292590.png",
+    "position": "Centre-Back",
+    "dateBorn": "1991-11-20",
+    "nationality": "Scotland",
+    "club": "Hibernian"
+  },
+  "scotland/Jack Hendry": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sa7efp1616962164.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tnn81g1631793532.png",
+    "position": "Centre-Back",
+    "dateBorn": "1995-05-07",
+    "nationality": "Scotland",
+    "club": "Al-Ettifaq"
+  },
+  "scotland/Anthony Ralston": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r54d3a1513028072.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ehhqyq1701949091.png",
+    "position": "Right-Back",
+    "dateBorn": "1998-11-16",
+    "nationality": "Scotland",
+    "club": "Celtic"
+  },
+  "scotland/Ryan Porteous": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3dcfuj1766739625.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yakkb41759501075.png",
+    "position": "Centre-Back",
+    "dateBorn": "1999-03-25",
+    "nationality": "Scotland",
+    "club": "Los Angeles FC"
+  },
+  "scotland/Liam Cooper": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i8omqd1506935372.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1u3cwi1602515267.png",
+    "position": "Centre-Back",
+    "dateBorn": "1991-08-30",
+    "nationality": "Scotland",
+    "club": "_Free Agent Soccer"
+  },
+  "scotland/Che Adams": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n8t9kv1506025169.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fiwc2j1758813462.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1996-07-13",
+    "nationality": "Scotland",
+    "club": "Torino"
+  },
+  "scotland/Lyndon Dykes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vmlh3y1607891503.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4wz2941761931213.png",
+    "position": "Forward",
+    "dateBorn": "1995-10-07",
+    "nationality": "Scotland",
+    "club": "Birmingham"
+  },
+  "scotland/Lawrence Shankland": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bb98v51512945992.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dxju9b1718014808.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1995-08-10",
+    "nationality": "Scotland",
+    "club": "Hearts"
+  },
+  "scotland/Ben Doak": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5vkrus1771751268.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/b5u6q81757018206.png",
+    "position": "Right Winger",
+    "dateBorn": "2005-11-11",
+    "nationality": "Scotland",
+    "club": "Bournemouth"
+  },
+  "scotland/Lewis Ferguson": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ul4eck1548781581.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/84eiy01758896812.png",
+    "position": "Midfielder",
+    "dateBorn": "2019-01-29",
+    "nationality": "Scotland",
+    "club": "Bologna"
+  },
+  "scotland/Stuart Armstrong": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lo53461513013190.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/d5set51726774915.png",
+    "position": "Central Midfield",
+    "dateBorn": "1992-03-30",
+    "nationality": "Scotland",
+    "club": "Aberdeen"
+  },
+  "scotland/Tommy Conway": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Josué Duverger": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Alexandre Pierre": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/01g3a01509973757.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kdktqx1766152430.png",
+    "position": "Defensive Midfield",
+    "nationality": "Denmark",
+    "club": "Marseille"
+  },
+  "haiti/Gerson Célusma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Carlens Arcus": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tm8vet1701459658.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2e5idv1765913925.png",
+    "position": "Defender",
+    "nationality": "Haiti",
+    "club": "Angers"
+  },
+  "haiti/Jean-Ricner Bellegarde": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4raydv1772032154.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i0niw51756975825.png",
+    "position": "Central Midfield",
+    "nationality": "France",
+    "club": "Wolverhampton Wanderers"
+  },
+  "haiti/Ricardo Adé": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e2pvg41724686010.jpg",
+    "cutoutUrl": null,
+    "position": "Centre-Back",
+    "nationality": "Haiti",
+    "club": "LDU Quito"
+  },
+  "haiti/Alex Christian": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/nljq4i1510407763.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hw9yf41766431744.png",
+    "position": "Forward",
+    "nationality": "Belgium",
+    "club": "DC United"
+  },
+  "haiti/Steeve Saint-Duc": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Bryan Alcéus": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Djimy-Bend Alexis": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/m05tjc1718343405.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6bj5hk1762860338.png",
+    "position": "Centre-Forward",
+    "nationality": "Chile",
+    "club": "Sevilla"
+  },
+  "haiti/Derrick Étienne Jr.": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Frantzdy Pierrot": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Danley Jean Jacques": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n9vxgi1506183212.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/t4zkjw1586181349.png",
+    "position": "Midfielder",
+    "nationality": "DR Congo",
+    "club": "East Bengal"
+  },
+  "haiti/Melchie Dumornay": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r0zjnu1702727745.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8xczfo1702727628.png",
+    "position": "Centre-Forward",
+    "nationality": "Haiti",
+    "club": "OL Lyonnes"
+  },
+  "haiti/Leverton Pierre": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/01g3a01509973757.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kdktqx1766152430.png",
+    "position": "Defensive Midfield",
+    "nationality": "Denmark",
+    "club": "Marseille"
+  },
+  "haiti/Kevin Lafrance": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tqhyco1623631689.jpg",
+    "cutoutUrl": null,
+    "position": "Running Back",
+    "nationality": "Canada",
+    "club": "Saskatchewan Roughriders"
+  },
+  "haiti/Stéphane Lambèse": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Zachary Hérivaux": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Ronaldo Damus": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c5pum41683964614.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/srpamx1683964691.png",
+    "position": "Forward",
+    "nationality": "Haiti",
+    "club": "GIF Sundsvall"
+  },
+  "haiti/Mondy Prunier": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Woodensky Cherenfant": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "haiti/Jung Joël André": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5yzh2j1771665641.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "Portugal",
+    "club": "_Retired Soccer"
+  },
+  "usa/Christian Pulisic": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/40pxda1669799830.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qwii9r1758893548.png",
+    "position": "Right Winger",
+    "nationality": "United States",
+    "club": "AC Milan"
+  },
+  "usa/Weston McKennie": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/k5lx3p1621545726.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ct34v01759225325.png",
+    "position": "Midfielder",
+    "nationality": "United States",
+    "club": "Juventus"
+  },
+  "usa/Giovanni Reyna": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Yunus Musah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Tyler Adams": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Brenden Aaronson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Johnny Cardoso": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Luca de la Torre": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Matt Turner": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Ethan Horvath": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Patrick Schulte": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Sergiño Dest": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Antonee Robinson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Chris Richards": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Miles Robinson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Mark McKenzie": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Tim Ream": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Joe Scally": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Tim Weah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Josh Sargent": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Folarin Balogun": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Ricardo Pepi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "usa/Haji Wright": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Alfaro González": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Antony Silva": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Carlos Coronel": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Gustavo Gómez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Omar Alderete": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Fabián Balbuena": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Santiago Arzamendia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Robert Rojas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Matías Espinoza": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Juan Escobar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Andrés Cubas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Mathías Villasanti": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Miguel Almirón": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Julio Enciso": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Ramón Sosa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Gabriel Ávalos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Ángel Romero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Adam Bareiro": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Hernesto Caballero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Diego Gómez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Iván Ramírez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Damián Bobadilla": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "paraguay/Alejandro Gamarra": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Mathew Ryan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Joe Gauci": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Tom Glover": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Harry Souttar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Kye Rowles": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Aziz Behich": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Nathaniel Atkinson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Lewis Miller": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Thomas Deng": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Cameron Burgess": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Jackson Irvine": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Aaron Mooy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Connor Metcalfe": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Aiden O'Neill": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Riley McGree": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Keanu Baccus": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Craig Goodwin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Mathew Leckie": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Mitchell Duke": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Kusini Yengi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Nestory Irankunda": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Martin Boyle": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "australia/Jamie Maclaren": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Altay Bayındır": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Uğurcan Çakır": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Mert Günok": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Merih Demiral": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Çağlar Söyüncü": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Ferdi Kadıoğlu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Samet Akaydin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Kaan Ayhan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Abdülkerim Bardakcı": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Mert Müldür": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Hakan Çalhanoğlu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Arda Güler": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Orkun Kökçü": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/İsmail Yüksek": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Salih Özcan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Yusuf Yazıcı": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Kenan Yıldız": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Cenk Tosun": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Barış Alper Yılmaz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Semih Kılıçsoy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Kerem Aktürkoğlu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Okay Yokuşlu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "turkey/Yunus Akgün": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Manuel Neuer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Marc-André ter Stegen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Alexander Nübel": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Antonio Rüdiger": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Jonathan Tah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Nico Schlotterbeck": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/David Raum": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Joshua Kimmich": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Benjamin Henrichs": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Robin Koch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Jamal Musiala": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Florian Wirtz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/İlkay Gündoğan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Robert Andrich": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Chris Führich": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Pascal Groß": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Leroy Sané": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Kai Havertz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Serge Gnabry": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "germany/Niclas Füllkrug": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5uc4371722878196.jpg",
+    "cutoutUrl": "https://www.thesportsdb.com/images/media/player/cutout/mnocti1773919754.png",
+    "position": "Forward",
+    "nationality": "Germany",
+    "club": "AC Milan"
+  },
+  "germany/Deniz Undav": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kljjxi1661083660.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hcxx8s1763586492.png",
+    "position": "Centre-Forward",
+    "nationality": "Germany",
+    "club": "Stuttgart"
+  },
+  "germany/Maximilian Beier": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/dm3cp41700050040.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bfzp1g1756325953.png",
+    "position": "Forward",
+    "nationality": "Germany",
+    "club": "Borussia Dortmund"
+  },
+  "germany/Aleksandar Pavlović": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4gy5s71770542176.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/22ti3z1756408943.png",
+    "position": "Defensive Midfield",
+    "nationality": "Germany",
+    "club": "Bayern Munich"
+  },
+  "ivory-coast/Yahia Fofana": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jby1d51546354375.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hu70nu1766137589.png",
+    "position": "Midfielder",
+    "nationality": "Ivory Coast",
+    "club": "Rennes"
+  },
+  "ivory-coast/Badra Ali Sangaré": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i5th491601324310.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc7kcv1757163183.png",
+    "position": "Defensive Midfield",
+    "nationality": "Ivory Coast",
+    "club": "Nottingham Forest"
+  },
+  "ivory-coast/Ira Tapé": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ivory-coast/Serge Aurier": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v8ed721509456264.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3cfhpv1693756909.png",
+    "position": "Right-Back",
+    "nationality": "Ivory Coast",
+    "club": "_Free Agent Soccer"
+  },
+  "ivory-coast/Odilon Kossounou": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/qx8rn71623838893.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/p876cf1764331393.png",
+    "position": "Centre-Back",
+    "nationality": "Ivory Coast",
+    "club": "Atalanta"
+  },
+  "ivory-coast/Willy Boly": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sezc6v1772392588.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ju3q7e1757162938.png",
+    "position": "Centre-Back",
+    "nationality": "Ivory Coast",
+    "club": "Nottingham Forest"
+  },
+  "ivory-coast/Ghislain Konan": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jaf7ie1541591927.jpg",
+    "cutoutUrl": null,
+    "position": "Forward",
+    "nationality": "Ivory Coast",
+    "club": "_Retired Soccer"
+  },
+  "ivory-coast/Evan Ndicka": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kh9c4i1578087133.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8ark361758816299.png",
+    "position": "Centre-Back",
+    "nationality": "Ivory Coast",
+    "club": "Roma"
+  },
+  "ivory-coast/Simon Adingra": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ps0isw1752176102.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rxw49v1762198657.png",
+    "position": "Left Wing",
+    "nationality": "Ivory Coast",
+    "club": "Monaco"
+  },
+  "ivory-coast/Sébastien Haller": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/prf3mf1610112961.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1tu3in1759780321.png",
+    "position": "Centre-Forward",
+    "nationality": "Ivory Coast",
+    "club": "Utrecht"
+  },
+  "ivory-coast/Nicolas Pépé": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7ewjmz1724779988.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xeui221762889301.png",
+    "position": "Right Winger",
+    "nationality": "Ivory Coast",
+    "club": "Villarreal"
+  },
+  "ivory-coast/Ibrahim Sangaré": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i5th491601324310.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc7kcv1757163183.png",
+    "position": "Defensive Midfield",
+    "nationality": "Ivory Coast",
+    "club": "Nottingham Forest"
+  },
+  "ivory-coast/Franck Kessié": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jjgcgk1771663908.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wcmpma1771663848.png",
+    "position": "Midfielder",
+    "nationality": "Ivory Coast",
+    "club": "Al-Ahli"
+  },
+  "ivory-coast/Jean-Philippe Krasso": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/czuf2w1609237204.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kvb4j71766329205.png",
+    "position": "Forward",
+    "nationality": "Ivory Coast",
+    "club": "Paris FC"
+  },
+  "ivory-coast/Jeremie Boga": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xyrvyq1431625747.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/spr68z1766319612.png",
+    "position": "Forward",
+    "nationality": "Ivory Coast",
+    "club": "Juventus"
+  },
+  "ivory-coast/Christian Kouamé": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1in9q11546112789.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sjz7nd1697894438.png",
+    "position": "Forward",
+    "nationality": "Ivory Coast",
+    "club": "Fiorentina"
+  },
+  "ivory-coast/Oumar Diakité": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ws5egt1735338560.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2s5slh1767799799.png",
+    "position": "Midfielder",
+    "nationality": "Ivory Coast",
+    "club": "Cercle Brugge"
+  },
+  "ivory-coast/Hamed Traoré": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jfdbdy1610989447.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xhaum31766153544.png",
+    "position": "Attacking Midfield",
+    "nationality": "Ivory Coast",
+    "club": "Marseille"
+  },
+  "ivory-coast/Maxwell Cornet": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4l8wjm1717627646.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6ckiwm1764248228.png",
+    "position": "Left Wing",
+    "nationality": "Ivory Coast",
+    "club": "Genoa"
+  },
+  "ivory-coast/Emmanuel Agbadou": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1qojn71674743693.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vwlqq91756975538.png",
+    "position": "Defender",
+    "nationality": "Ivory Coast",
+    "club": "Beşiktaş"
+  },
+  "ivory-coast/Wilfried Singo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/emwwrg1769177944.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zwfgmo1769177983.png",
+    "position": "Centre-Back",
+    "nationality": "Ivory Coast",
+    "club": "Galatasaray"
+  },
+  "ivory-coast/Jean Michaël Seri": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ibinve1605009069.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/cjroze1605009079.png",
+    "position": "Forward/Center",
+    "nationality": "Italy",
+    "club": "Spezia"
+  },
+  "ivory-coast/Maxwel Cornet": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4l8wjm1717627646.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6ckiwm1764248228.png",
+    "position": "Left Wing",
+    "nationality": "Ivory Coast",
+    "club": "Genoa"
+  },
+  "ecuador/Hernán Galíndez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a3j9uz1717175074.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i7jwvi1763739794.png",
+    "position": "Goalkeeper",
+    "nationality": "Ecuador",
+    "club": "Huracan"
+  },
+  "ecuador/Alexander Domínguez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/j7b0kr1717139509.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ty0o6e1724150081.png",
+    "position": "Goalkeeper",
+    "nationality": "Ecuador",
+    "club": "LDU Quito"
+  },
+  "ecuador/Moisés Ramírez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o5h2k91717175779.jpg",
+    "cutoutUrl": null,
+    "position": "Goalkeeper",
+    "nationality": "Ecuador",
+    "club": "Independiente del Valle"
+  },
+  "ecuador/Piero Hincapié": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c7dpnp1769332212.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/7dltx01769330396.png",
+    "position": "Centre-Back",
+    "dateBorn": "2002-01-09",
+    "nationality": "Ecuador",
+    "club": "Arsenal"
+  },
+  "ecuador/Pervis Estupiñán": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vuzi4g1604867431.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qc2kib1758892363.png",
+    "position": "Left-Back",
+    "dateBorn": "1998-01-21",
+    "nationality": "Ecuador",
+    "club": "AC Milan"
+  },
+  "ecuador/Félix Torres": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p2cvim1717177138.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/arv0dd1769774741.png",
+    "position": "Centre-Back",
+    "dateBorn": "1997-01-11",
+    "nationality": "Ecuador",
+    "club": "Internacional"
+  },
+  "ecuador/Robert Arboleda": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hw0tpi1631305151.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9q87oe1767886403.png",
+    "position": "Centre-Back",
+    "dateBorn": "1991-10-22",
+    "nationality": "Ecuador",
+    "club": "São Paulo"
+  },
+  "ecuador/Angelo Preciado": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fldkbi1717181838.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lhzix21623867937.png",
+    "position": "Right-Back",
+    "dateBorn": "1998-02-18",
+    "nationality": "Ecuador",
+    "club": "Sparta Prague"
+  },
+  "ecuador/William Pacho": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ecuador/Jackson Porozo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yl2g2b1717180011.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/uzoed21668544710.png",
+    "position": "Centre-Back",
+    "dateBorn": "2000-08-04",
+    "nationality": "Ecuador",
+    "club": "Leganes"
+  },
+  "ecuador/Moisés Caicedo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/b32gfw1771426837.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/u3feyy1757002398.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "2001-11-02",
+    "nationality": "Ecuador",
+    "club": "Chelsea"
+  },
+  "ecuador/Gonzalo Plata": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0ile871668542657.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/sdclx01751003063.png",
+    "position": "Right Winger",
+    "dateBorn": "2000-11-01",
+    "nationality": "Ecuador",
+    "club": "Flamengo"
+  },
+  "ecuador/Enner Valencia": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/dakcfv1767607482.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/gplbd81668544491.png",
+    "position": "Forward",
+    "dateBorn": "1989-11-04",
+    "nationality": "Ecuador",
+    "club": "Pachuca"
+  },
+  "ecuador/Jeremy Sarmiento": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fawxw71661108952.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zdq2621758886486.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "2002-06-16",
+    "nationality": "Ecuador",
+    "club": "Middlesbrough"
+  },
+  "ecuador/Kendry Páez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w31hz81735536482.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tf06hr1766053963.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "2007-05-04",
+    "nationality": "Ecuador",
+    "club": "Strasbourg"
+  },
+  "ecuador/Alan Franco": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wfp0jf1647028667.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/d4dtcf1763755226.png",
+    "position": "Central Midfield",
+    "dateBorn": "1998-08-21",
+    "nationality": "Ecuador",
+    "club": "Atlético Mineiro"
+  },
+  "ecuador/Carlos Gruezo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/71tvh51717182507.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ha044c1681899190.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "1995-04-19",
+    "nationality": "Ecuador",
+    "club": "LDU Quito"
+  },
+  "ecuador/José Cifuentes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2fqfxp1623150919.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/2eyl0h1766575746.png",
+    "position": "Central Midfield",
+    "dateBorn": "1999-03-12",
+    "nationality": "Ecuador",
+    "club": "Toronto FC"
+  },
+  "ecuador/Kevin Rodríguez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r6vlwa1545242094.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/0ml2zi1761148957.png",
+    "position": "Centre-Forward",
+    "nationality": "England",
+    "club": "Wrexham"
+  },
+  "ecuador/Jordy Caicedo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/q9h6271657546854.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9teqe21657546877.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1997-11-18",
+    "nationality": "Ecuador",
+    "club": "Huracán"
+  },
+  "ecuador/Michael Estrada": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ecuador/Djorkaeff Reasco": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/c330781668548872.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ipebh11668548936.png",
+    "position": "Forward",
+    "dateBorn": "1999-01-18",
+    "nationality": "Ecuador",
+    "club": "El Nacional"
+  },
+  "ecuador/John Yeboah": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xv21mj1735536238.jpg",
+    "cutoutUrl": null,
+    "position": "Attacking Midfield",
+    "dateBorn": "2000-06-23",
+    "nationality": "Ecuador",
+    "club": "Venezia"
+  },
+  "curacao/Eloy Room": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vy4b431544969946.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fjxh0b1701724194.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1989-02-06",
+    "nationality": "Curacao",
+    "club": "_Free Agent Soccer"
+  },
+  "curacao/Ziggy Owusu-Ansah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Shaquille Flanders": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Cuco Martina": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l874t21510331439.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mv93pf1576580291.png",
+    "position": "Centre-Back",
+    "dateBorn": "1989-09-25",
+    "nationality": "Curacao",
+    "club": "_Free Agent Soccer"
+  },
+  "curacao/Juriën Gaari": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6hts7h1701120658.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/zug9lu1701203378.png",
+    "position": "Centre-Back",
+    "dateBorn": "1993-12-23",
+    "nationality": "Curacao",
+    "club": "_Free Agent Soccer"
+  },
+  "curacao/Darryl Lachman": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lk5dtb1653512335.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/hod0p41716055232.png",
+    "position": "Defender",
+    "dateBorn": "1989-11-11",
+    "nationality": "Curacao",
+    "club": "Perth Glory"
+  },
+  "curacao/Gervane Kastaneer": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uvilvt1750627686.jpg",
+    "cutoutUrl": null,
+    "position": "Left Wing",
+    "dateBorn": "1996-06-09",
+    "nationality": "Curacao",
+    "club": "_Free Agent Soccer"
+  },
+  "curacao/Michaël Maria": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Kenji Gorré": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Leandro Bacuna": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0dmfnu1505913368.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/13dolh1726605947.png",
+    "position": "Right-Back",
+    "dateBorn": "1991-08-21",
+    "nationality": "Curacao",
+    "club": "Bandırmaspor"
+  },
+  "curacao/Juninho Bacuna": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ktoqhe1609601525.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j801h91694549422.png",
+    "position": "Central Midfield",
+    "dateBorn": "1997-08-07",
+    "nationality": "Curacao",
+    "club": "Gaziantep"
+  },
+  "curacao/Elson Hooi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Rangelo Janga": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Jarchinio Antonia": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4o1md11640623039.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/5q7apk1640623067.png",
+    "position": "Winger",
+    "dateBorn": "1990-12-27",
+    "nationality": "Curacao",
+    "club": "SV TEC"
+  },
+  "curacao/Shermaine Martina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Roderick Miller": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Felitciano Zschusschen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Brandley Kuwas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Shanon Carmelia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Gevaro Nepomuceno": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Ayrton Statie": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Vurnon Anita": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "curacao/Gianni Zuiverloon": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Cody Gakpo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Xavi Simons": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Frenkie de Jong": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Virgil van Dijk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Bart Verbruggen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Justin Bijlow": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Mark Flekken": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Nathan Aké": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Denzel Dumfries": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Matthijs de Ligt": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Jurriën Timber": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Micky van de Ven": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Lutsharel Geertruida": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Tijjani Reijnders": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Ryan Gravenberch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Teun Koopmeiners": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Jerdy Schouten": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Donyell Malen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Memphis Depay": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Brian Brobbey": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Steven Bergwijn": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Wout Weghorst": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "netherlands/Ian Maatsen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Takefusa Kubo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Kaoru Mitoma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Daichi Kamada": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Wataru Endo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Shuichi Gonda": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Zion Suzuki": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Daniel Schmidt": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Takehiro Tomiyasu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Ko Itakura": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Miki Yamane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Shogo Taniguchi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Hiroki Ito": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Yuta Nakayama": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Ao Tanaka": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Hidemasa Morita": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Ritsu Doan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Keito Nakamura": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Ayase Ueda": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Kyogo Furuhashi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Junya Ito": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Takuma Asano": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Koji Miyoshi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "japan/Yuki Soma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Aymen Dahmen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Mouez Hassen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Béchir Ben Saïd": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Montassar Talbi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Dylan Bronn": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Mohamed Dräger": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Ali Abdi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Nader Ghandri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Yan Valery": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Wajdi Kechrida": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Ellyes Skhiri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Aïssa Laïdouni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Hannibal Mejbri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Mohamed Ali Ben Romdhane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Naïm Sliti": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Youssef Msakni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Issam Jebali": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Seifeddine Jaziri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Saif-Eddine Khaoui": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Mohamed Maaloul": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Ghaylen Chaaleli": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Hamza Rafia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "tunisia/Anis Slimane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Andriy Lunin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Anatoliy Trubin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Heorhiy Bushchan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Mykola Matviyenko": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Illia Zabarnyi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Oleksandr Zinchenko": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Yukhym Konoplia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Valeriy Bondar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Vitaliy Mykolenko": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Taras Stepanenko": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Oleksandr Zubkov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Mykhaylo Mudryk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Heorhiy Sudakov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Ruslan Malinovskyi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Serhiy Sydorchuk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Volodymyr Brazhko": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Viktor Tsygankov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Artem Dovbyk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Roman Yaremchuk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Danylo Sikan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Oleksandr Pikhalyonok": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Oleksandr Tymchyk": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ukraine/Oleksandr Karavaiev": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Cristiano Ronaldo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Bernardo Silva": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Bruno Fernandes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Rúben Dias": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Diogo Costa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Rui Patrício": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/José Sá": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Pepe": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/João Cancelo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Nuno Mendes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/António Silva": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Gonçalo Inácio": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Nelson Semedo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Diogo Dalot": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Vitinha": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/João Palhinha": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/João Neves": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Rafael Leão": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Pedro Neto": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Gonçalo Ramos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Diogo Jota": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/Francisco Conceição": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "portugal/João Félix": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Alireza Beiranvand": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Hossein Hosseini": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Amir Abedzadeh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Ehsan Hajsafi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/cva0ig1668781789.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3rvehf1668782022.png",
+    "position": "Left-Back",
+    "nationality": "Iran",
+    "club": "AEK"
+  },
+  "iran/Sadegh Moharrami": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/v9owqj1668785285.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/26kzio1668785345.png",
+    "position": "Defender",
+    "nationality": "Iran",
+    "club": "Dinamo Zagreb"
+  },
+  "iran/Morteza Pouraliganji": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ncsu821668786522.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bvp8bl1668786470.png",
+    "position": "Centre-Back",
+    "nationality": "Iran",
+    "club": "Persepolis"
+  },
+  "iran/Hossein Kanaanizadegan": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kbj1jy1668782864.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kffsom1668782969.png",
+    "position": "Centre-Back",
+    "nationality": "Iran",
+    "club": "Al-Ahli SC"
+  },
+  "iran/Majid Hosseini": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1h1d7w1668782289.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/f3ioes1668782350.png",
+    "position": "Defender",
+    "nationality": "Iran",
+    "club": "Kayserispor"
+  },
+  "iran/Shoja Khalilzadeh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Milad Mohammadi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uw0wfw1668785895.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mvpqij1668785747.png",
+    "position": "Left-Back",
+    "nationality": "Iran",
+    "club": "Persepolis"
+  },
+  "iran/Mehdi Taremi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p2za081596279630.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9dhm7l1772033412.png",
+    "position": "Forward",
+    "nationality": "Iran",
+    "club": "Olympiacos"
+  },
+  "iran/Sardar Azmoun": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/d6af4x1595974275.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qbwg8l1674560734.png",
+    "position": "Centre-Forward",
+    "nationality": "Iran",
+    "club": "Shabab Al-Ahli Dubai"
+  },
+  "iran/Alireza Jahanbakhsh": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ztf5851670094463.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dfrwg01767622139.png",
+    "position": "Right Winger",
+    "nationality": "Iran",
+    "club": "Dender"
+  },
+  "iran/Ali Gholizadeh": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ylvzgc1668781527.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6iznwf1770474978.png",
+    "position": "Right Winger",
+    "nationality": "Iran",
+    "club": "Lech Poznań"
+  },
+  "iran/Saeid Ezatolahi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Ahmad Nourollahi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8fh9we1668786019.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/i33tcl1668786074.png",
+    "position": "Midfielder",
+    "nationality": "Iran",
+    "club": "Al Wahda"
+  },
+  "iran/Omid Ebrahimi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Saman Ghoddos": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/3pcno21610655335.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9r84g11694113587.png",
+    "position": "Attacking Midfield",
+    "nationality": "Iran",
+    "club": "_Free Agent Soccer"
+  },
+  "iran/Allahyar Sayyadmanesh": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/1waizo1674730247.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8vm2ad1767097790.png",
+    "position": "Right Winger",
+    "nationality": "Iran",
+    "club": "Westerlo"
+  },
+  "iran/Mehdi Ghayedi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "iran/Ramin Rezaeian": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a1m7o01668786760.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yiz0x31668787055.png",
+    "position": "Right-Back",
+    "nationality": "Iran",
+    "club": "Esteghlal"
+  },
+  "iran/Karim Ansarifard": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/8cago41668780729.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mx5z2k1668780873.png",
+    "position": "Forward",
+    "nationality": "Iran",
+    "club": "Omonia Nicosia"
+  },
+  "iran/Vahid Amiri": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/t69qoe1578225835.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/iidf781763553903.png",
+    "position": "Attacking Midfield",
+    "nationality": "Germany",
+    "club": "Mainz"
+  },
+  "belgium/Kevin De Bruyne": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yibqv71676043512.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/o4flia1764089447.png",
+    "position": "Attacking Midfield",
+    "nationality": "Belgium",
+    "club": "Napoli"
+  },
+  "belgium/Jérémy Doku": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w37jy41703326117.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tehbsx1769183074.png",
+    "position": "Right Winger",
+    "nationality": "Belgium",
+    "club": "Manchester City"
+  },
+  "belgium/Leandro Trossard": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2ledb81705918706.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/07fzpg1769331977.png",
+    "position": "Left Wing",
+    "nationality": "Belgium",
+    "club": "Arsenal"
+  },
+  "belgium/Romelu Lukaku": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0yrfdz1725016583.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qi2z1d1764089572.png",
+    "position": "Centre-Forward",
+    "nationality": "Belgium",
+    "club": "Napoli"
+  },
+  "belgium/Koen Casteels": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/aynccr1578226454.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/k0vvcr1578226455.png",
+    "position": "Goalkeeper",
+    "nationality": "Belgium",
+    "club": "Al Qadsiah"
+  },
+  "belgium/Thibaut Courtois": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lc7dlm1771264561.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/592mar1733653475.png",
+    "position": "Goalkeeper",
+    "nationality": "Belgium",
+    "club": "Real Madrid"
+  },
+  "belgium/Matz Sels": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/2ovzty1772393650.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wnmkve1757163210.png",
+    "position": "Goalkeeper",
+    "nationality": "Belgium",
+    "club": "Nottingham Forest"
+  },
+  "belgium/Jan Vertonghen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/usywuu1431566467.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rxmbye1724749677.png",
+    "position": "Centre-Back",
+    "nationality": "Belgium",
+    "club": "_Retired Soccer"
+  },
+  "belgium/Wout Faes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ygxj7u1608641208.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/c20fnd1772104361.png",
+    "position": "Centre-Back",
+    "nationality": "Belgium",
+    "club": "Monaco"
+  },
+  "belgium/Arthur Theate": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/i3ftd91630160061.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/tr7ftn1762287457.png",
+    "position": "Defender",
+    "nationality": "Belgium",
+    "club": "Eintracht Frankfurt"
+  },
+  "belgium/Timothy Castagne": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Axel Witsel": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Zeno Debast": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Thomas Meunier": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Youri Tielemans": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Amadou Onana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Orel Mangala": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zj3lcb1605733699.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1gmcji1766146434.png",
+    "position": "Central Midfield",
+    "dateBorn": "1998-03-18",
+    "nationality": "Belgium",
+    "club": "Lyon"
+  },
+  "belgium/Arne Engels": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oeg5fa1674558950.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/42wifj1731103211.png",
+    "position": "Midfielder",
+    "dateBorn": "2003-09-08",
+    "nationality": "Belgium",
+    "club": "Celtic"
+  },
+  "belgium/Loïs Openda": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jthzmk1623844882.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1chuok1759225712.png",
+    "position": "Forward",
+    "dateBorn": "2000-02-16",
+    "nationality": "Belgium",
+    "club": "Juventus"
+  },
+  "belgium/Johan Bakayoko": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mmudrc1679494951.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/47l15r1763560990.png",
+    "position": "Right Winger",
+    "dateBorn": "2003-04-20",
+    "nationality": "Belgium",
+    "club": "RB Leipzig"
+  },
+  "belgium/Charles De Ketelaere": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "belgium/Yannick Carrasco": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9uee1t1535566838.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/f75lo41679064315.png",
+    "position": "Left Wing",
+    "dateBorn": "1993-09-04",
+    "nationality": "Belgium",
+    "club": "Al Shabab"
+  },
+  "belgium/Dodi Lukebakio": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/nc5tw21724784416.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/335dwm1724784475.png",
+    "position": "Right Winger",
+    "dateBorn": "1997-09-24",
+    "nationality": "Belgium",
+    "club": "Benfica"
+  },
+  "egypt/Mohamed Salah": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/o7y57t1718438615.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/3blc581757088735.png",
+    "position": "Right Winger",
+    "dateBorn": "1992-06-15",
+    "nationality": "Egypt",
+    "club": "Liverpool"
+  },
+  "egypt/Mohamed El-Shenawy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Mohamed Sobhi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Galal Elmsalmi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Ahmed Hegazi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Mahmoud Hamdy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Omar Gaber": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vww5f91516215461.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/38179x1516215618.png",
+    "position": "Midfielder",
+    "dateBorn": "1992-01-30",
+    "nationality": "Egypt",
+    "club": "Zamalek SC"
+  },
+  "egypt/Ahmed Fatouh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Yasser Ibrahim": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Akram Tawfik": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Karim El Deeb": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Mohamed Elneny": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/sid7t31678272422.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1bm0wr1694204323.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "1992-07-11",
+    "nationality": "Egypt",
+    "club": "Al-Jazeera Club"
+  },
+  "egypt/Tarek Hamed": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Emam Ashour": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Ibrahim Adel": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/az4o2n1632996895.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l913fh1632996813.png",
+    "position": "Midfielder",
+    "nationality": "Morocco",
+    "club": "Al Nasr"
+  },
+  "egypt/Amr El Soulia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Hussein El-Shahat": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Mostafa Mohamed": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/q5znkh1674746538.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ebm0591765877211.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1997-11-28",
+    "nationality": "Egypt",
+    "club": "Nantes"
+  },
+  "egypt/Trezeguet": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lt5tc11563981420.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kd5p321750397912.png",
+    "position": "Left Wing",
+    "dateBorn": "1994-10-01",
+    "nationality": "Egypt",
+    "club": "Al Ahly SC"
+  },
+  "egypt/Mahmoud Hassan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Marwan Hamdy": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e4m03l1705485729.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/x2vi4j1750397927.png",
+    "position": "Central Midfield",
+    "nationality": "Egypt",
+    "club": "Al Ahly SC"
+  },
+  "egypt/Ahmed Koka": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "egypt/Omar Marmoush": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/w1jx521658324336.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/kgn5451757098568.png",
+    "position": "Left Wing",
+    "dateBorn": "1999-02-07",
+    "nationality": "Egypt",
+    "club": "Manchester City"
+  },
+  "spain/Lamine Yamal": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ukerpq1692551634.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/m9n4ja1761512633.png",
+    "position": "Right Winger",
+    "nationality": "Spain",
+    "club": "Barcelona"
+  },
+  "spain/Pedri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "spain/Rodri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "spain/Álvaro Morata": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/oi5xzw1565177307.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/5cci4b1764278358.png",
+    "position": "Centre-Forward",
+    "nationality": "Spain",
+    "club": "Como"
+  },
+  "spain/Unai Simón": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7mte7u1603316714.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/6b7izw1603316358.png",
+    "position": "Goalkeeper",
+    "nationality": "Spain",
+    "club": "Athletic Bilbao"
+  },
+  "spain/David Raya": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hretja1705918045.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/21rp2q1769331784.png",
+    "position": "Goalkeeper",
+    "nationality": "Spain",
+    "club": "Arsenal"
+  },
+  "spain/Robert Sánchez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0t3h3g1771428153.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/jfzjqy1757001022.png",
+    "position": "Goalkeeper",
+    "nationality": "Spain",
+    "club": "Chelsea"
+  },
+  "spain/Dani Carvajal": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/gapy0m1771264214.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/k510z81733653425.png",
+    "position": "Right-Back",
+    "nationality": "Spain",
+    "club": "Real Madrid"
+  },
+  "spain/Aymeric Laporte": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vlenx41704364385.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/q4eqw31762285953.png",
+    "position": "Centre-Back",
+    "nationality": "Spain",
+    "club": "Athletic Bilbao"
+  },
+  "spain/Robin Le Normand": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/iqosdp1724311723.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ubsd6x1762288701.png",
+    "position": "Centre-Back",
+    "nationality": "Spain",
+    "club": "Atletico Madrid"
+  },
+  "spain/Marc Cucurella": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n9f2911771426994.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j7i66q1757002736.png",
+    "position": "Left-Back",
+    "nationality": "Spain",
+    "club": "Chelsea"
+  },
+  "spain/Alejandro Grimaldo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/crrp8a1522246032.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ddeb6b1756316030.png",
+    "position": "Defender",
+    "nationality": "Spain",
+    "club": "Bayer Leverkusen"
+  },
+  "spain/Pau Torres": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png",
+    "position": "Manager",
+    "nationality": "Spain",
+    "club": "Atlético Madrid B"
+  },
+  "spain/Jules Koundé": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0rzza71771254479.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/qea88i1726509803.png",
+    "position": "Centre-Back",
+    "nationality": "France",
+    "club": "Barcelona"
+  },
+  "spain/Fabián Ruiz": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/53hbfh1770216586.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wq4dxd1766335227.png",
+    "position": "Central Midfield",
+    "nationality": "Spain",
+    "club": "Paris SG"
+  },
+  "spain/Dani Olmo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/lo29ok1771254713.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/s9hzoh1725611346.png",
+    "position": "Attacking Midfield",
+    "nationality": "Spain",
+    "club": "Barcelona"
+  },
+  "spain/Nico Williams": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "spain/Mikel Oyarzabal": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6032ku1574504970.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/9apeaz1762709253.png",
+    "position": "Left Wing",
+    "nationality": "Spain",
+    "club": "Real Sociedad"
+  },
+  "spain/Ferran Torres": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png",
+    "position": "Manager",
+    "nationality": "Spain",
+    "club": "Atlético Madrid B"
+  },
+  "spain/Fermín López": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/5z9d271771253844.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4skahz1761512602.png",
+    "position": "Central Midfield",
+    "nationality": "Spain",
+    "club": "Barcelona"
+  },
+  "spain/Martín Zubimendi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/fztcvl1769331626.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lj71fn1769331598.png",
+    "position": "Defensive Midfield",
+    "nationality": "Spain",
+    "club": "Arsenal"
+  },
+  "spain/Alejandro Baena": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ildb381723369697.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/04ntmp1762890059.png",
+    "position": "Left Midfield",
+    "nationality": "Spain",
+    "club": "Atlético Madrid"
+  },
+  "spain/Mikel Merino": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mc96do1503244964.jpg",
+    "cutoutUrl": null,
+    "position": "Centre-Forward",
+    "nationality": "Spain",
+    "club": "_Free Agent Soccer"
+  },
+  "cabo-verde/Vozinha": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Dylan Silva": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Márcio Rosa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Stopira": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Steven Fortes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/he751w1608329034.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/x0bzya1608329087.png",
+    "position": "Defender",
+    "nationality": "France",
+    "club": "Quevilly"
+  },
+  "cabo-verde/Logan Costa": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xg57tl1534441995.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ebi2l81667669825.png",
+    "position": "Centre-Forward",
+    "nationality": "Spain",
+    "club": "_Retired Soccer"
+  },
+  "cabo-verde/Roberto Lopes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/up2e5f1518283274.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/g83qt91674745645.png",
+    "position": "Midfielder",
+    "nationality": "Portugal",
+    "club": "Braga"
+  },
+  "cabo-verde/Dylan Tavares": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/x9wfxh1527583626.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "Portugal",
+    "club": "Tondela"
+  },
+  "cabo-verde/Jeffry Fortes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Kenny Rocha Santos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Nuno Borges": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Jamiro Monteiro": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Patrick Andrade": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Lisandro Semedo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Garry Rodrigues": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Ryan Mendes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Hélio Varela": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Wélber": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Tiago Lopes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Jovane Cabral": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Diney Borges": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Marco Soares": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cabo-verde/Keven Rodrigues": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Mohammed Al-Owais": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Mohammed Al-Rubaie": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Nawaf Al-Aqidi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Hassan Tambakti": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Ali Al-Boleahi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Sultan Al-Ghannam": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Yasser Al-Shahrani": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Saud Abdulhamid": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Abdulelah Al-Amri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Abdullah Madu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Mohamed Kanno": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Abdulellah Al-Malki": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Salem Al-Dawsari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Firas Al-Buraikan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Saleh Al-Shehri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Nasser Al-Dawsari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Ali Al-Hassan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Abdulrahman Al-Oboud": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Ayman Yahya": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Haitham Asiri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Abdullah Radif": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Musab Al-Juwayr": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "saudi-arabia/Ali Al-Asmari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Dušan Vlahović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Aleksandar Mitrović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Dušan Tadić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Predrag Rajković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Vanja Milinković-Savić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Đorđe Petrović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Strahinja Pavlović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Nikola Milenković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Miloš Veljković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Srđan Babić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Filip Mladenović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Strahinja Eraković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Sergej Milinković-Savić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Nemanja Gudelj": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Sasa Lukić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Ivan Ilić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Veljko Birmančević": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Filip Kostić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Andrija Živković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Luka Jović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Filip Đuričić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Uroš Račić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "serbia/Nikola Jojić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Kylian Mbappé": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0yw04y1771265385.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/h9u9vz1733653583.png"
+  },
+  "france/Antoine Griezmann": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Ousmane Dembélé": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Aurélien Tchouaméni": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Mike Maignan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Brice Samba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Alphonse Areola": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/William Saliba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Dayot Upamecano": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Theo Hernández": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Jules Koundé": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Ibrahima Konaté": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Jonathan Clauss": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Wesley Fofana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Eduardo Camavinga": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/N'Golo Kanté": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Adrien Rabiot": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Warren Zaïre-Emery": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Randal Kolo Muani": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Marcus Thuram": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Bradley Barcola": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Kingsley Coman": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "france/Michael Olise": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Edouard Mendy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Seny Dieng": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Mame Biram Dieng": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Kalidou Koulibaly": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Abdou Diallo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Youssouf Sabaly": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Formose Mendy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Ismail Jakobs": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Pape Abou Cissé": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Ismaila Sarr": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Sadio Mané": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Nicolas Jackson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Boulaye Dia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Habib Diarra": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Nampalys Mendy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Idrissa Gueye": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Pape Matar Sarr": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Lamine Camara": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Cheikhou Kouyaté": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Iliman Ndiaye": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Abdallah Sima": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Moussa Niakhaté": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "senegal/Krepin Diatta": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Erling Haaland": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bb1agj1727415216.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/un3jr11769182465.png"
+  },
+  "norway/Martin Ødegaard": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Ørjan Nyland": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Mads Hermansen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Jacob Karlstrøm": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Kristoffer Ajer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Leo Østigård": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Stian Gregersen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Birger Meling": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Julian Ryerson": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/David Møller Wolfe": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Andreas Hanche-Olsen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Sander Berge": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Fredrik Aursnes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Morten Thorsby": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Patrick Berg": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Jens Petter Hauge": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/pvg93m1602960359.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ccgqei1769181969.png",
+    "position": "Left Wing",
+    "nationality": "Norway",
+    "club": "Bodø/Glimt"
+  },
+  "norway/Alexander Sørloth": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/slx8ts1724311500.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v3of4b1762288730.png",
+    "position": "Centre-Forward",
+    "nationality": "Norway",
+    "club": "Atletico Madrid"
+  },
+  "norway/Joshua King": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/suxuvs1471428929.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l5lbga1717928633.png",
+    "position": "Left-Back",
+    "nationality": "Scotland",
+    "club": "Heart of Midlothian"
+  },
+  "norway/Mohamed Elyounoussi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vu1c3s1542108992.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/v9ajfw1610903668.png",
+    "position": "Forward",
+    "nationality": "Norway",
+    "club": "Shonan Bellmare"
+  },
+  "norway/Antonio Nusa": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/orowpm1731102557.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yo19551763561296.png",
+    "position": "Left Midfield",
+    "nationality": "Norway",
+    "club": "RB Leipzig"
+  },
+  "norway/Oscar Bobb": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "norway/Mathias Normann": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/73kfp71631992243.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ev42xf1631992199.png",
+    "position": "Midfielder",
+    "nationality": "Norway",
+    "club": "Al-Raed"
+  },
+  "intercontinental-playoff-2/Carlos Méndez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yl8oxg1727156749.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/28028965.png",
+    "position": "Right Winger",
+    "nationality": "Guatemala",
+    "club": "Milton Keynes Dons"
+  },
+  "intercontinental-playoff-2/Raúl Fuentes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/l4wim01532342107.jpg",
+    "cutoutUrl": null,
+    "position": "Left-Back",
+    "nationality": "Spain",
+    "club": "_Free Agent Soccer"
+  },
+  "intercontinental-playoff-2/Marco Torres": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bk5d9n1710931499.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/l65kxv1654200501.png",
+    "position": "Manager",
+    "nationality": "Spain",
+    "club": "Atlético Madrid B"
+  },
+  "intercontinental-playoff-2/Diego Hernández": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Samuel Reyes": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uyq3az1533291226.jpg",
+    "cutoutUrl": null,
+    "position": "Defender",
+    "nationality": "Mexico",
+    "club": "Tigres"
+  },
+  "intercontinental-playoff-2/Victor Osei": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/07tcrr1511791561.jpg",
+    "cutoutUrl": null,
+    "position": "Forward",
+    "nationality": "England",
+    "club": "South Shields"
+  },
+  "intercontinental-playoff-2/Bruno Castillo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/André Lima": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xqvwwu1431529189.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vstvww1424733342.png",
+    "position": "Forward",
+    "nationality": "Brazil",
+    "club": "_Retired Soccer"
+  },
+  "intercontinental-playoff-2/Kevin Joseph": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpyvxy1469528923.jpg",
+    "cutoutUrl": null,
+    "position": "Forward",
+    "nationality": "England",
+    "club": "_Free Agent Soccer"
+  },
+  "intercontinental-playoff-2/Roberto Silva": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ric2xa1603220536.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/id6jqa1603220449.png",
+    "position": "Right-Back",
+    "dateBorn": "1992-09-20",
+    "nationality": "Spain",
+    "club": "Racing Club de Ferrol"
+  },
+  "intercontinental-playoff-2/Daniel Moreno": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mdh0l91510004457.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ntywfr1764278389.png",
+    "position": "Left-Back",
+    "nationality": "Spain",
+    "club": "Como"
+  },
+  "intercontinental-playoff-2/Alex Correa": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jsex9r1526664872.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dfi8321679064206.png",
+    "position": "Right Winger",
+    "nationality": "Argentina",
+    "club": "Tigres"
+  },
+  "intercontinental-playoff-2/Felipe Cruz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Oscar Martínez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ffr5xx1756984715.png",
+    "position": "Goalkeeper",
+    "nationality": "Argentina",
+    "club": "Aston Villa"
+  },
+  "intercontinental-playoff-2/Miguel Ramos": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/4qhc7x1712489854.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ztj6241701091276.png",
+    "position": "Centre-Back",
+    "nationality": "Spain",
+    "club": "_Free Agent Soccer"
+  },
+  "intercontinental-playoff-2/José Delgado": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Emilio Vargas": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h2ovta1503225450.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "Peru",
+    "club": "_Retired Soccer"
+  },
+  "intercontinental-playoff-2/Cristian Peña": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Luis Orellana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Fernando Espinoza": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Ricardo Duarte": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Pablo Medina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-2/Santiago Ríos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Lionel Messi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/kpfsvp1725295651.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/e0i2051750317027.png",
+    "position": "Right Winger",
+    "dateBorn": "1987-06-24",
+    "nationality": "Argentina",
+    "club": "Inter Miami"
+  },
+  "argentina/Ángel Di María": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Alexis Mac Allister": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9n5dnd1751999911.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/96dmuf1757087513.png",
+    "position": "Central Midfield",
+    "dateBorn": "1998-12-24",
+    "nationality": "Argentina",
+    "club": "Liverpool"
+  },
+  "argentina/Julián Álvarez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/rm3tj11741979331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/91pla41762288186.png",
+    "position": "Centre-Forward",
+    "dateBorn": "2000-01-31",
+    "nationality": "Argentina",
+    "club": "Atletico Madrid"
+  },
+  "argentina/Emiliano Martínez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/7drp311770201331.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ffr5xx1756984715.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1992-09-02",
+    "nationality": "Argentina",
+    "club": "Aston Villa"
+  },
+  "argentina/Franco Armani": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/s4acpb1719032512.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/yoasye1750270727.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1986-10-16",
+    "nationality": "Argentina",
+    "club": "River Plate"
+  },
+  "argentina/Gerónimo Rulli": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/jnahab1723461796.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/cpkkmg1766153528.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1992-05-20",
+    "nationality": "Argentina",
+    "club": "Marseille"
+  },
+  "argentina/Cristian Romero": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mmfst91770894655.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dme7x81757016317.png",
+    "position": "Centre-Back",
+    "dateBorn": "1998-04-27",
+    "nationality": "Argentina",
+    "club": "Tottenham Hotspur"
+  },
+  "argentina/Lisandro Martínez": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/62xrby1770994011.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mqcogi1766826879.png",
+    "position": "Centre-Back",
+    "dateBorn": "1998-01-18",
+    "nationality": "Argentina",
+    "club": "Manchester United"
+  },
+  "argentina/Nicolás Otamendi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/si0k951623584039.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ifxn6x1632995975.png",
+    "position": "Centre-Back",
+    "dateBorn": "1988-02-12",
+    "nationality": "Argentina",
+    "club": "Benfica"
+  },
+  "argentina/Nahuel Molina": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uhc6mv1719036284.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/36bdni1762288498.png",
+    "position": "Right-Back",
+    "dateBorn": "1998-04-06",
+    "nationality": "Argentina",
+    "club": "Atletico Madrid"
+  },
+  "argentina/Nicolás Tagliafico": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/vfodsw1558203361.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4z43fy1766146600.png",
+    "position": "Left-Back",
+    "dateBorn": "1992-08-31",
+    "nationality": "Argentina",
+    "club": "Lyon"
+  },
+  "argentina/Gonzalo Montiel": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0f1okp1724793509.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/perteu1750270994.png",
+    "position": "Right-Back",
+    "dateBorn": "1997-01-01",
+    "nationality": "Argentina",
+    "club": "River Plate"
+  },
+  "argentina/Marcos Acuña": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/z07it21719030763.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pfw9qa1750270796.png",
+    "position": "Left-Back",
+    "dateBorn": "1991-10-28",
+    "nationality": "Argentina",
+    "club": "River Plate"
+  },
+  "argentina/Rodrigo De Paul": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Enzo Fernández": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Leandro Paredes": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Giovani Lo Celso": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Exequiel Palacios": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Lautaro Martínez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Paulo Dybala": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Nicolás González": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "argentina/Alejandro Garnacho": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Raïs M'Bolhi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Moustapha Zeghba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Alexandre Oukidja": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Ramy Bensebaini": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Aissa Mandi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Hicham Boudaoui": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Ismaël Bennacer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Saïd Benrahma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Yacine Brahimi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Amine Gouiri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Islam Slimani": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Mohamed Amoura": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Youcef Atal": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Djamel Benlamri": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Abdelkader Bedrane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Mehdi Zeffane": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Nabil Bentaleb": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Ramiz Zerrouki": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Houssem Aouar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Farès Chaïbi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Baghdad Bounedjah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Youcef Belaïli": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "algeria/Ilyes Chetti": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Patrick Pentz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Heinz Lindner": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Niklas Hedl": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/David Alaba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Kevin Danso": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Maximilian Wöber": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Stefan Posch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Philipp Mwene": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Gernot Trauner": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Flavius Daniliuc": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Konrad Laimer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Marcel Sabitzer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Florian Grillitsch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Nicolas Seiwald": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Christoph Baumgartner": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Romano Schmid": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Marko Arnautović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Michael Gregoritsch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Patrick Wimmer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Maximilian Entrup": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Andreas Weimann": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Florian Kainz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "austria/Alexander Prass": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Yazeed Abulaila": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Ahmad Abu Amara": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Rami Hamed": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Anas Bani Yaseen": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Abdallah Nasib": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Salem Al-Ajalin": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Yazan Al-Arab": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Feras Shilbaya": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Ehsan Haddad": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Nizar Al-Rashdan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Mousa Al-Tamari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Yazan Al-Naimat": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Oday Dabbagh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Baha' Faisal": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Nabil Emad": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Youssef Rawashdeh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Musa Mustafa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Ahmad Saleh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Ali Olwan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Hamza Al-Dardour": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Saeed Hasan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Mohammad Abu Zuraiq": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "jordan/Tareq Khattab": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Luis Díaz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/James Rodríguez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Santiago Arias": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/David Ospina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Camilo Vargas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Álvaro Montero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Yerry Mina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Dávinson Sánchez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Carlos Cuesta": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Daniel Muñoz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Johan Mojica": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jhon Lucumí": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Richard Ríos": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jefferson Lerma": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jhon Arias": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Juan Fernando Quintero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Mateus Uribe": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Kevin Castaño": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Rafael Santos Borré": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jhon Córdoba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jhon Durán": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Roger Martínez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "colombia/Jorge Carrascal": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/André Onana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Simon Ngapandouetnbu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Devis Epassy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Nicolas Nkoulou": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Michael Ngadeu-Ngadjui": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Christopher Wooh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Collins Fai": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Nouhou Tolo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Olivier Mbaizo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Enzo Ebosse": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/André-Frank Zambo Anguissa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Pierre Kunde": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Martin Hongla": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Carlos Baleba": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Jean-Charles Castelletto": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Eric Maxim Choupo-Moting": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Karl Toko Ekambi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Bryan Mbeumo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Vincent Aboubakar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Christian Bassogog": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Georges-Kévin Nkoudou": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Samuel Kotto": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "cameroon/Arnaud Djoum": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Eldor Shomurodov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Oston Urunov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Jaloliddin Masharipov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Otabek Shukurov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6eajoq1712353720.jpg",
+    "cutoutUrl": null,
+    "position": "Central Midfield",
+    "nationality": "Uzbekistan",
+    "club": "Kayserispor"
+  },
+  "uzbekistan/Islom Tukhtakhodjaev": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Abduvohid Nematov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Utkir Yusupov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/u4y5ib1638647613.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "Russia",
+    "club": "PFC Sochi"
+  },
+  "uzbekistan/Husniddin Aliqulov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bnote71721831518.jpg",
+    "cutoutUrl": null,
+    "position": "Centre-Back",
+    "nationality": "Uzbekistan",
+    "club": "Rizespor"
+  },
+  "uzbekistan/Abdukodir Khusanov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ov4b1d1712297858.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/da8tg41769182137.png",
+    "position": "Centre-Back",
+    "nationality": "Uzbekistan",
+    "club": "Manchester City"
+  },
+  "uzbekistan/Rustam Ashurmatov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/tc1s7a1712554231.jpg",
+    "cutoutUrl": null,
+    "position": "Centre-Back",
+    "nationality": "Uzbekistan",
+    "club": "FK Rubin Kazan"
+  },
+  "uzbekistan/Davron Khashimov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Akmal Mozgovoy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Khojiakbar Alijonov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yv52pv1712555322.jpg",
+    "cutoutUrl": null,
+    "position": "Right-Back",
+    "nationality": "Uzbekistan",
+    "club": "Pakhtakor"
+  },
+  "uzbekistan/Bobur Abdikholikov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Jamshid Iskanderov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Azizbek Turgunboev": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Igor Sergeev": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/zokp2v1628965801.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/0wsdv71754403889.png",
+    "position": "Centre-Forward",
+    "nationality": "Russia",
+    "club": "Dynamo Moscow"
+  },
+  "uzbekistan/Abbosbek Fayzullaev": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Sardor Rashidov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Dostonbek Khamdamov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Ibrokhimkhalil Yuldoshev": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Ulugbek Khoshimov": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "uzbekistan/Jasurbek Jaloliddinov": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/bhyrkm1638220885.jpg",
+    "cutoutUrl": null,
+    "position": "Midfielder",
+    "nationality": "Uzbekistan",
+    "club": "Andijan"
+  },
+  "intercontinental-playoff-1/David Chen": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpatij1611390635.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8g4uxy1611390510.png",
+    "position": "Right-Back",
+    "nationality": "Spain",
+    "club": "_Retired Soccer"
+  },
+  "intercontinental-playoff-1/Mark Santos": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/xpysxw1421695578.jpg",
+    "cutoutUrl": null,
+    "position": "Defender",
+    "nationality": "Brazil",
+    "club": "_Retired Soccer"
+  },
+  "intercontinental-playoff-1/James Adu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Nathan Williams": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Patrick Nkomo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Ali Hassan": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Chris O'Brien": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Tom Bradley": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/p6ac0f1511439484.jpg",
+    "cutoutUrl": null,
+    "position": "Defender",
+    "nationality": "Ireland",
+    "club": "_Free Agent Soccer"
+  },
+  "intercontinental-playoff-1/Kevin Mensah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Sam Rivers": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Michael Okafor": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/hxrdr71610921126.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/bx1rq91757086099.png",
+    "position": "Forward",
+    "nationality": "Switzerland",
+    "club": "Leeds United"
+  },
+  "intercontinental-playoff-1/Ryan Peters": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Jacob Singh": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Daniel Kim": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Lewis Campbell": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Emeka Chukwu": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/mpoauf1684404376.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/uavmv91766758876.png",
+    "position": "Midfielder",
+    "dateBorn": "1999-10-18",
+    "nationality": "United States",
+    "club": "Real Salt Lake"
+  },
+  "intercontinental-playoff-1/André Fonseca": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Jordan Blake": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Ahmed Youssef": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Stefan Kovac": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Brandon Lee": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Omar Diallo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "intercontinental-playoff-1/Yuki Tanaka": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "england/Jude Bellingham": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/rfg8xd1771263826.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/trk5271750271712.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "2003-06-29",
+    "nationality": "England",
+    "club": "Real Madrid"
+  },
+  "england/Bukayo Saka": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/axl31b1769332282.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/xfwok41769331816.png",
+    "position": "Right Winger",
+    "dateBorn": "2001-09-05",
+    "nationality": "England",
+    "club": "Arsenal"
+  },
+  "england/Declan Rice": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ty3z7g1705918131.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/do2pew1694204464.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "1999-01-14",
+    "nationality": "England",
+    "club": "Arsenal"
+  },
+  "england/Phil Foden": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/19o7yc1749157221.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lbn4sx1769182620.png",
+    "position": "Left Wing",
+    "dateBorn": "2000-05-28",
+    "nationality": "England",
+    "club": "Manchester City"
+  },
+  "england/Jordan Pickford": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/m66e5n1771945410.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/wt1c4n1756976358.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1994-03-07",
+    "nationality": "England",
+    "club": "Everton"
+  },
+  "england/Aaron Ramsdale": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/z0dple1678273036.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/vzpaeh1770797070.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1998-05-14",
+    "nationality": "England",
+    "club": "Newcastle United"
+  },
+  "england/Dean Henderson": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0bcnqd1772140599.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fexcpe1761492531.png",
+    "position": "Goalkeeper",
+    "dateBorn": "1997-03-12",
+    "nationality": "England",
+    "club": "Crystal Palace"
+  },
+  "england/John Stones": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/iub2p21763068622.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/dkq8d41763068509.png",
+    "position": "Centre-Back",
+    "dateBorn": "1994-05-28",
+    "nationality": "England",
+    "club": "Manchester City"
+  },
+  "england/Marc Guéhi": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wqgmpl1609183670.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/842bfy1771748128.png",
+    "position": "Centre-Back",
+    "dateBorn": "2000-07-13",
+    "nationality": "England",
+    "club": "Manchester City"
+  },
+  "england/Kyle Walker": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/ndt9gl1772370034.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/mnod0k1757174815.png",
+    "position": "Right-Back",
+    "dateBorn": "1990-05-28",
+    "nationality": "England",
+    "club": "Burnley"
+  },
+  "england/Trent Alexander-Arnold": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/e35duu1771262822.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rw1mkk1750271928.png",
+    "position": "Right-Back",
+    "dateBorn": "1998-10-07",
+    "nationality": "England",
+    "club": "Real Madrid"
+  },
+  "england/Luke Shaw": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/wbet0c1770994226.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/1kg6bc1766826995.png",
+    "position": "Left-Back",
+    "dateBorn": "1995-07-12",
+    "nationality": "England",
+    "club": "Manchester United"
+  },
+  "england/Levi Colwill": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/cr417g1628521347.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/4irnsq1757002647.png",
+    "position": "Centre-Back",
+    "dateBorn": "2003-02-26",
+    "nationality": "England",
+    "club": "Chelsea"
+  },
+  "england/Ezri Konsa": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/uc1jmw1770201046.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/rnu4al1756984921.png",
+    "position": "Centre-Back",
+    "dateBorn": "1997-06-06",
+    "nationality": "England",
+    "club": "Aston Villa"
+  },
+  "england/Rico Lewis": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/a72g3k1702565788.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/lt67041769182828.png",
+    "position": "Right-Back",
+    "dateBorn": "2004-11-21",
+    "nationality": "England",
+    "club": "Manchester City"
+  },
+  "england/Kobbie Mainoo": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/h66a4l1696149845.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8qrveo1766826836.png",
+    "position": "Defensive Midfield",
+    "dateBorn": "2005-04-19",
+    "nationality": "England",
+    "club": "Manchester United"
+  },
+  "england/Conor Gallagher": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/n4fwny1770893526.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/pj90do1768679014.png",
+    "position": "Central Midfield",
+    "dateBorn": "2000-02-06",
+    "nationality": "England",
+    "club": "Tottenham Hotspur"
+  },
+  "england/Cole Palmer": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/r7yrsa1770541322.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/fn0pzc1757010119.png",
+    "position": "Attacking Midfield",
+    "dateBorn": "2002-05-06",
+    "nationality": "England",
+    "club": "Chelsea"
+  },
+  "england/Harry Kane": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/0w9up71770542636.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/j4ouvd1756408895.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1993-07-28",
+    "nationality": "England",
+    "club": "Bayern Munich"
+  },
+  "england/Anthony Gordon": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/yleib91770796577.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/8ztck61766824986.png",
+    "position": "Left Wing",
+    "dateBorn": "2001-02-24",
+    "nationality": "England",
+    "club": "Newcastle United"
+  },
+  "england/Ollie Watkins": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/9l400s1752069048.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/w6dir11756987347.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1995-12-30",
+    "nationality": "England",
+    "club": "Aston Villa"
+  },
+  "england/Ivan Toney": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/woevg11724686948.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/ozy92w1771663597.png",
+    "position": "Centre-Forward",
+    "dateBorn": "1996-03-16",
+    "nationality": "England",
+    "club": "Al-Ahli Saudi FC"
+  },
+  "england/Eberechi Eze": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Mohammed Kudus": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Thomas Partey": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Iñaki Williams": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Richard Ofori": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Lawrence Ati-Zigi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Ibrahim Danlad": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Alexander Djiku": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Daniel Amartey": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Denis Odoi": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Tariq Lamptey": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Gideon Mensah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Joseph Aidoo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Mohammed Salisu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/André Ayew": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Salis Abdul Samed": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Elisha Owusu": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Ernest Nuamah": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Jordan Ayew": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Osman Bukari": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Kamaldeen Sulemana": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Antoine Semenyo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Ibrahim Osman": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "ghana/Jerome Opoku": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Luka Modrić": {
+    "imageUrl": "https://r2.thesportsdb.com/images/media/player/thumb/6j40781707595475.jpg",
+    "cutoutUrl": "https://r2.thesportsdb.com/images/media/player/cutout/msewdx1758892756.png"
+  },
+  "croatia/Joško Gvardiol": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Mateo Kovačić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Dominik Livaković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Ivica Ivušić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Nediljko Labrović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Duje Ćaleta-Car": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Borna Sosa": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Josip Stanišić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Josip Šutalo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Martin Erlić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Marin Pongračić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Marcelo Brozović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Mario Pašalić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Lovro Majer": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Luka Sučić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Nikola Vlašić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Ante Budimir": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Andrej Kramarić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Ivan Perišić": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Bruno Petković": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Igor Matanović": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "croatia/Martin Baturina": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Luis Mejía": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Orlando Mosquera": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/César Samudio": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Fidel Escobar": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Andrés Andrade": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Harold Cummings": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Michael Murillo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Eric Davis": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Roderick Miller": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/César Blackman": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Adalberto Carrasquilla": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Édgar Bárcenas": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/José Fajardo": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/César Yanis": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Freddy Góndola": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Alberto Quintero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Jovani Welch": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Cristian Martínez": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Aníbal Godoy": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Ismael Díaz": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Eduardo Guerrero": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Ángel Orelien": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  },
+  "panama/Azael Arancibia": {
+    "imageUrl": null,
+    "cutoutUrl": null
+  }
+}
