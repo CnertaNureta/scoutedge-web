@@ -72,6 +72,7 @@ const config: Config = {
         'pulse-fast': 'pulse 0.8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
         'bar-fill': 'barFill 1.2s ease-out forwards',
+        'cheer-burst': 'cheerBurst 0.6s ease-out forwards',
       },
       keyframes: {
         fadeInUp: {
@@ -81,6 +82,16 @@ const config: Config = {
         barFill: {
           '0%': { width: '0%' },
           '100%': { width: 'var(--bar-width)' },
+        },
+        cheerBurst: {
+          '0%': {
+            opacity: '1',
+            transform: 'translate(-50%, -50%) rotate(var(--burst-angle)) translateY(0) scale(1)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'translate(-50%, -50%) rotate(var(--burst-angle)) translateY(-36px) scale(0)',
+          },
         },
       },
     },
