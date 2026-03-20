@@ -1,41 +1,48 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import type { Player, Team } from '@/lib/types'
+import type { DerivedStats } from '@/lib/player-derived-stats'
 import { getTeamColors } from '@/lib/team-colors'
-import { getPlayerPhoto } from '@/lib/utils'
-import { computeDerivedStats } from '@/lib/player-derived-stats'
+import { getPlayerPhoto, hashString } from '@/lib/utils'
 import StatRadar from '@/components/player/StatRadar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
 import { Heart, MapPin, Hash, Shield, ChevronLeft } from 'lucide-react'
 
+const PILL_CLASS = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]'
+
 interface PlayerHeroProps {
   player: Player
   team: Team
+  derivedStats: DerivedStats
 }
 
-export default function PlayerHero({ player, team }: PlayerHeroProps) {
-  const initialCheers =
-    player.name.split('').reduce((a, c) => a + c.charCodeAt(0), 0) * 7 +
-    player.caps * 3
-
-  const [cheers, setCheers] = useState(initialCheers)
+export default function PlayerHero({ player, team, derivedStats }: PlayerHeroProps) {
+  const colors = getTeamColors(team.slug)
+  const [cheers, setCheers] = useState(
+    () => hashString(player.name) * 7 + player.caps * 3
+  )
   const [hasCheered, setHasCheered] = useState(false)
   const [showBurst, setShowBurst] = useState(false)
+  const burstTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const colors = getTeamColors(team.slug)
   const playerPhoto = getPlayerPhoto(player)
-  const derived = computeDerivedStats(player)
+  const nameParts = player.name.split(' ')
+
+  useEffect(() => {
+    return () => {
+      if (burstTimer.current) clearTimeout(burstTimer.current)
+    }
+  }, [])
 
   const handleCheer = useCallback(() => {
     if (hasCheered) return
     setCheers((prev) => prev + 1)
     setHasCheered(true)
     setShowBurst(true)
-    const timer = setTimeout(() => setShowBurst(false), 600)
-    return () => clearTimeout(timer)
+    burstTimer.current = setTimeout(() => setShowBurst(false), 600)
   }, [hasCheered])
 
   return (
@@ -176,25 +183,25 @@ export default function PlayerHero({ player, team }: PlayerHeroProps) {
               <div>
                 <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.88]">
                   <span className="text-stroke block text-3xl md:text-4xl lg:text-5xl">
-                    {player.name.split(' ')[0]}
+                    {nameParts[0]}
                   </span>
                   <span className="block" style={{ color: colors.glow }}>
-                    {player.name.split(' ').slice(1).join(' ')}
+                    {nameParts.slice(1).join(' ')}
                   </span>
                 </h1>
               </div>
 
               {/* Info pills: number · position · club */}
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                <span className={PILL_CLASS}>
                   <Hash className="w-3.5 h-3.5" style={{ color: colors.glow }} />
                   <span className="font-mono text-sm font-bold">{player.number}</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                <span className={PILL_CLASS}>
                   <Shield className="w-3.5 h-3.5" style={{ color: colors.glow }} />
                   <span className="font-body text-sm">{player.position}</span>
                 </span>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                <span className={PILL_CLASS}>
                   <MapPin className="w-3.5 h-3.5" style={{ color: colors.glow }} />
                   <span className="font-body text-sm">{player.club}</span>
                 </span>
@@ -228,7 +235,7 @@ export default function PlayerHero({ player, team }: PlayerHeroProps) {
                   </span>
                 </div>
                 <StatRadar
-                  stats={derived}
+                  stats={derivedStats}
                   teamGlow={colors.glow}
                   teamPrimary={colors.primary}
                 />

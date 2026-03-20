@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getAllTeams, getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
 import { getPlayerActionImage } from '@/lib/unsplash'
+import { computeDerivedStats } from '@/lib/player-derived-stats'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
@@ -55,6 +56,7 @@ export default async function PlayerPage({ params }: PageProps) {
   if (!team || !player) notFound()
 
   const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== playerSlug).slice(0, 5)
+  const derivedStats = computeDerivedStats(player)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -72,8 +74,8 @@ export default async function PlayerPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <PlayerHero player={player} team={team} />
-      <PlayerStats player={player} />
+      <PlayerHero player={player} team={team} derivedStats={derivedStats} />
+      <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
 
       {/* SEO Content Block */}

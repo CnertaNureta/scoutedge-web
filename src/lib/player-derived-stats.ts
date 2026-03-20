@@ -13,6 +13,9 @@ function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value))
 }
 
+const POSITION_PACE: Record<string, number> = { FWD: 85, MID: 78, DEF: 68, GK: 55 }
+const POSITION_DEFENSE: Record<string, number> = { GK: 85, DEF: 82, MID: 65, FWD: 42 }
+
 export function computeDerivedStats(player: Player): DerivedStats {
   const ratingBase = player.rating * 10
 
@@ -24,13 +27,10 @@ export function computeDerivedStats(player: Player): DerivedStats {
     : player.fitnessStatus === 'amber' ? 0.9
     : 0.75
 
-  const positionPace: Record<string, number> = { FWD: 85, MID: 78, DEF: 68, GK: 55 }
-  const positionDefense: Record<string, number> = { GK: 85, DEF: 82, MID: 65, FWD: 42 }
-
   const capsNorm = Math.min(player.caps, 120)
 
   const pace = clamp(
-    Math.round((positionPace[player.position] ?? 72) * ageFactor * fitnessFactor + (ratingBase - 70) * 0.3),
+    Math.round((POSITION_PACE[player.position] ?? 72) * ageFactor * fitnessFactor + (ratingBase - 70) * 0.3),
     40, 99
   )
 
@@ -52,7 +52,7 @@ export function computeDerivedStats(player: Player): DerivedStats {
   )
 
   const defense = clamp(
-    Math.round((positionDefense[player.position] ?? 60) + (ratingBase - 70) * 0.25),
+    Math.round((POSITION_DEFENSE[player.position] ?? 60) + (ratingBase - 70) * 0.25),
     40, 99
   )
 
