@@ -9,6 +9,7 @@ interface AnimatedNumberProps {
   suffix?: string
   prefix?: string
   className?: string
+  style?: React.CSSProperties
 }
 
 export default function AnimatedNumber({
@@ -18,6 +19,7 @@ export default function AnimatedNumber({
   suffix = '',
   prefix = '',
   className = '',
+  style,
 }: AnimatedNumberProps) {
   const [displayed, setDisplayed] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
@@ -46,7 +48,7 @@ export default function AnimatedNumber({
   }, [value, duration])
 
   return (
-    <span ref={ref} className={`font-mono ${className}`}>
+    <span ref={ref} className={`font-mono ${className}`} style={style}>
       {prefix}{displayed.toFixed(decimals)}{suffix}
     </span>
   )
