@@ -1,13 +1,17 @@
 /**
- * v2: Properly parse the TS file as JSON, inject images, write back.
+ * Inject fetched images into players-data.ts
+ * Usage: node scripts/inject-images-v2.mjs
+ *
+ * Reads player-images.json and updates players-data.ts
+ * to include imageUrl and cutoutUrl fields.
  */
 
 import { readFileSync, writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
+import { getDirname, parseTsPlayersArray } from './lib/thesportsdb.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const IMAGES_FILE = join(__dirname, '../src/data/player-images.json')
+const __dirname = getDirname(import.meta.url)
+const IMAGES_FILE = join(__dirname, 'player-images.json')
 const PLAYERS_FILE = join(__dirname, '../src/data/players-data.ts')
 
 function main() {
@@ -16,16 +20,7 @@ function main() {
 
   console.log('Reading players data...')
   const content = readFileSync(PLAYERS_FILE, 'utf-8')
-
-  // Extract the JSON array from the TS file (skip the type annotation "Player[]")
-  const arrayStart = content.indexOf('= [') + 2  // start at the '[' after '= ['
-  const arrayEnd = content.lastIndexOf(']') + 1
-  const prefix = content.slice(0, arrayStart)
-  const suffix = content.slice(arrayEnd)
-  const jsonStr = content.slice(arrayStart, arrayEnd)
-
-  // Parse the JSON array
-  const players = JSON.parse(jsonStr)
+  const { prefix, suffix, players } = parseTsPlayersArray(content)
   console.log(`Parsed ${players.length} players`)
 
   let injected = 0

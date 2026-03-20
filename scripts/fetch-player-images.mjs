@@ -7,60 +7,18 @@
  */
 
 import { readFileSync, writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
+import { getDirname, searchPlayer, sleep, parseTsPlayersArray } from './lib/thesportsdb.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const API_KEY = '3' // Free tier key
-const BASE_URL = `https://www.thesportsdb.com/api/v1/json/${API_KEY}/searchplayers.php`
+const __dirname = getDirname(import.meta.url)
 const DELAY_MS = 350 // Rate limit: ~3 requests/sec to be safe
 
 const PLAYERS_FILE = join(__dirname, '../src/data/players-data.ts')
-const OUTPUT_FILE = join(__dirname, '../src/data/player-images.json')
+const OUTPUT_FILE = join(__dirname, 'player-images.json')
 
-// Extract player names and teamSlugs from the TS file
 function extractPlayers(content) {
-  const players = []
-  const nameRegex = /"name":\s*"([^"]+)"/g
-  const slugRegex = /"teamSlug":\s*"([^"]+)"/g
-
-  const names = [...content.matchAll(nameRegex)].map(m => m[1])
-  const slugs = [...content.matchAll(slugRegex)].map(m => m[1])
-
-  for (let i = 0; i < names.length; i++) {
-    players.push({ name: names[i], teamSlug: slugs[i] })
-  }
-  return players
-}
-
-async function searchPlayer(name) {
-  const url = `${BASE_URL}?p=${encodeURIComponent(name)}`
-  try {
-    const res = await fetch(url)
-    if (!res.ok) return null
-    const data = await res.json()
-    if (!data.player || data.player.length === 0) return null
-
-    // Find the best match (soccer player)
-    const match = data.player.find(p =>
-      p.strSport === 'Soccer' || p.strSport === 'Football'
-    ) || data.player[0]
-
-    return {
-      imageUrl: match.strThumb || null,
-      cutoutUrl: match.strCutout || null,
-      position: match.strPosition || null,
-      dateBorn: match.dateBorn || null,
-      nationality: match.strNationality || null,
-      club: match.strTeam || null,
-    }
-  } catch {
-    return null
-  }
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
+  const { players } = parseTsPlayersArray(content)
+  return players.map(p => ({ name: p.name, teamSlug: p.teamSlug }))
 }
 
 async function main() {

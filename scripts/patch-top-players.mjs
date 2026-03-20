@@ -2,11 +2,11 @@
  * Manually patch top players that were missed by automated search.
  */
 import { readFileSync, writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
+import { getDirname, stripDiacritics } from './lib/thesportsdb.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const OUTPUT_FILE = join(__dirname, '../src/data/player-images.json')
+const __dirname = getDirname(import.meta.url)
+const OUTPUT_FILE = join(__dirname, 'player-images.json')
 
 const patches = {
   "france/Kylian Mbappé": {
@@ -33,6 +33,12 @@ const patches = {
 
 const imageMap = JSON.parse(readFileSync(OUTPUT_FILE, 'utf-8'))
 
+// Build normalized lookup for O(1) fuzzy matching
+const normalizedKeyMap = new Map()
+for (const existingKey of Object.keys(imageMap)) {
+  normalizedKeyMap.set(stripDiacritics(existingKey), existingKey)
+}
+
 let patched = 0
 for (const [key, data] of Object.entries(patches)) {
   // Try exact match first
@@ -41,15 +47,12 @@ for (const [key, data] of Object.entries(patches)) {
     patched++
     continue
   }
-  // Try fuzzy match (normalized key)
-  const normalizedTarget = key.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  for (const existingKey of Object.keys(imageMap)) {
-    const normalizedExisting = existingKey.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    if (normalizedExisting === normalizedTarget || existingKey === key) {
-      imageMap[existingKey] = data
-      patched++
-      break
-    }
+  // Try normalized match via lookup map
+  const normalizedTarget = stripDiacritics(key)
+  const realKey = normalizedKeyMap.get(normalizedTarget)
+  if (realKey) {
+    imageMap[realKey] = data
+    patched++
   }
 }
 

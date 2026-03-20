@@ -43,6 +43,10 @@ export function positionOrder(position: string): number {
   }
 }
 
+export function getPlayerPhoto(player: { cutoutUrl?: string; imageUrl?: string }): string | undefined {
+  return player.cutoutUrl || player.imageUrl || undefined
+}
+
 export function positionLabel(position: string): string {
   switch (position) {
     case 'GK': return 'Goalkeepers'

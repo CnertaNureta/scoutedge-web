@@ -1,5 +1,6 @@
 import type { Player, Team } from '@/lib/types'
 import { getPlayerActionImage } from '@/lib/unsplash'
+import { getPlayerPhoto } from '@/lib/utils'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ interface PlayerHeroProps {
 
 export default function PlayerHero({ player, team }: PlayerHeroProps) {
   const heroImage = getPlayerActionImage(player.name)
-  const playerPhoto = player.cutoutUrl || player.imageUrl
+  const playerPhoto = getPlayerPhoto(player)
 
   return (
     <section className="relative h-[60vh] min-h-[400px] w-full overflow-hidden flex items-end">
@@ -28,6 +29,7 @@ export default function PlayerHero({ player, team }: PlayerHeroProps) {
           <img
             src={playerPhoto}
             alt={player.name}
+            loading="lazy"
             className="h-[400px] lg:h-[500px] object-contain drop-shadow-[0_0_40px_rgba(160,212,148,0.3)]"
           />
         </div>

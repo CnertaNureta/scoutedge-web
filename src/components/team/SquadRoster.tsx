@@ -1,6 +1,6 @@
 import type { Player } from '@/lib/types'
 import Link from 'next/link'
-import { positionOrder, positionLabel } from '@/lib/utils'
+import { positionOrder, positionLabel, getPlayerPhoto } from '@/lib/utils'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
@@ -31,7 +31,9 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
             {positionLabel(position)}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {posPlayers.map((player) => (
+            {posPlayers.map((player) => {
+              const photo = getPlayerPhoto(player)
+              return (
               <Link
                 key={player.slug}
                 href={`/teams/${teamSlug}/players/${player.slug}`}
@@ -41,18 +43,19 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                   <img
                     src={getPlayerActionImage(player.name)}
                     alt={player.name}
+                    loading="lazy"
                     className="w-full h-full object-cover brightness-50 group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent" />
                   <span className="absolute bottom-2 left-4 font-headline text-5xl font-black text-white/10">
                     #{player.number}
                   </span>
-                  {/* Player headshot overlay */}
-                  {(player.cutoutUrl || player.imageUrl) && (
+                  {photo && (
                     <div className="absolute -bottom-2 right-2 z-10">
                       <img
-                        src={player.cutoutUrl || player.imageUrl}
+                        src={photo}
                         alt={player.name}
+                        loading="lazy"
                         className="h-28 w-auto object-contain drop-shadow-lg"
                       />
                     </div>
@@ -76,7 +79,8 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                   </div>
                 </div>
               </Link>
-            ))}
+              )
+            })}
           </div>
         </div>
       ))}

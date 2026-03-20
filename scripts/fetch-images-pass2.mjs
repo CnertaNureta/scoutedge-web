@@ -6,44 +6,12 @@
  */
 
 import { readFileSync, writeFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { join } from 'path'
+import { getDirname, searchPlayer, sleep, stripDiacritics } from './lib/thesportsdb.mjs'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const API_KEY = '3'
-const BASE_URL = `https://www.thesportsdb.com/api/v1/json/${API_KEY}/searchplayers.php`
+const __dirname = getDirname(import.meta.url)
 const DELAY_MS = 400
-const OUTPUT_FILE = join(__dirname, '../src/data/player-images.json')
-
-function stripDiacritics(str) {
-  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-}
-
-async function searchPlayer(query) {
-  const url = `${BASE_URL}?p=${encodeURIComponent(query)}`
-  try {
-    const res = await fetch(url)
-    if (!res.ok) return null
-    const data = await res.json()
-    if (!data.player || data.player.length === 0) return null
-    const match = data.player.find(p =>
-      p.strSport === 'Soccer' || p.strSport === 'Football'
-    ) || data.player[0]
-    return {
-      imageUrl: match.strThumb || null,
-      cutoutUrl: match.strCutout || null,
-      position: match.strPosition || null,
-      nationality: match.strNationality || null,
-      club: match.strTeam || null,
-    }
-  } catch {
-    return null
-  }
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms))
-}
+const OUTPUT_FILE = join(__dirname, 'player-images.json')
 
 async function main() {
   const imageMap = JSON.parse(readFileSync(OUTPUT_FILE, 'utf-8'))
@@ -68,7 +36,6 @@ async function main() {
         await sleep(DELAY_MS)
         continue
       }
-      await sleep(DELAY_MS)
     }
 
     // Strategy 2: Try last name only (if name has 2+ parts)
@@ -78,7 +45,7 @@ async function main() {
       if (lastName.length >= 4) {
         const result = await searchPlayer(lastName)
         if (result && result.imageUrl) {
-          // Verify it's roughly the right person by checking nationality or sport
+          // Verify it's roughly the right person by checking position
           if (result.position) {
             imageMap[key] = result
             fixed++
@@ -87,7 +54,6 @@ async function main() {
             continue
           }
         }
-        await sleep(DELAY_MS)
       }
     }
 
