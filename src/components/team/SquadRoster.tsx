@@ -24,11 +24,15 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-16">
-      <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 tracking-tight uppercase">Squad</h2>
+      <div className="flex items-center gap-3 mb-10">
+        <div className="w-1 h-8 rounded-full bg-primary" />
+        <h2 className="font-headline text-4xl md:text-5xl tracking-wide uppercase">Squad</h2>
+      </div>
       {sortedGroups.map(([position, posPlayers]) => (
         <div key={position} className="mb-10">
-          <h3 className="font-label text-sm font-bold text-primary uppercase tracking-widest mb-4">
+          <h3 className="font-label text-sm font-semibold text-primary uppercase tracking-widest mb-4 flex items-center gap-3">
             {positionLabel(position)}
+            <div className="flex-1 h-px bg-gradient-to-r from-primary/20 to-transparent" />
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {posPlayers.map((player) => {
@@ -37,17 +41,20 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
               <Link
                 key={player.slug}
                 href={`/teams/${teamSlug}/players/${player.slug}`}
-                className="group relative overflow-hidden rounded-xl border border-outline-variant/20 bg-surface-container hover:bg-surface-container-high transition-all duration-300 hover:-translate-y-0.5"
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-surface-container hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,255,135,0.08)]"
               >
+                {/* Neon top accent */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20" />
+
                 <div className="relative h-32 overflow-hidden">
                   <img
                     src={getPlayerActionImage(player.name)}
                     alt={player.name}
                     loading="lazy"
-                    className="w-full h-full object-cover brightness-50 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent" />
-                  <span className="absolute bottom-2 left-4 font-headline text-5xl font-black text-white/10">
+                  <span className="absolute bottom-2 left-4 font-headline text-5xl text-white/[0.06]">
                     #{player.number}
                   </span>
                   {photo && (
@@ -63,12 +70,12 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                 </div>
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-headline text-lg font-bold group-hover:text-primary transition-colors truncate">
+                    <h4 className="font-headline text-xl tracking-wide group-hover:text-primary transition-colors truncate">
                       {player.name}
                     </h4>
                     <FitnessIndicator status={player.fitnessStatus} />
                   </div>
-                  <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest">
+                  <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
                     {player.position} &middot; {player.club}
                   </p>
                   <p className="font-body text-xs text-on-surface-variant mt-1">

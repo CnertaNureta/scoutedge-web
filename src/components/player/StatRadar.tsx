@@ -144,8 +144,8 @@ export default function StatRadar({ stats, teamGlow, teamPrimary }: StatRadarPro
             y={item.y - 7}
             textAnchor="middle"
             dominantBaseline="middle"
-            className="fill-[#c2c9bb] text-[9px] font-bold tracking-widest"
-            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+            className="fill-[#94a3b8] text-[9px] font-bold tracking-widest"
+            style={{ fontFamily: 'Oswald, sans-serif' }}
           >
             {item.label}
           </text>
@@ -155,7 +155,7 @@ export default function StatRadar({ stats, teamGlow, teamPrimary }: StatRadarPro
             textAnchor="middle"
             dominantBaseline="middle"
             className="text-[13px] font-black"
-            style={{ fontFamily: 'Epilogue, sans-serif', fill: teamGlow }}
+            style={{ fontFamily: 'Bebas Neue, Impact, sans-serif', fill: teamGlow }}
           >
             {animated ? stats[item.statKey] : 0}
           </text>

@@ -1,34 +1,34 @@
 import type { Metadata } from 'next'
-import { Epilogue, Manrope, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google'
+import { Bebas_Neue, Inter, Oswald, JetBrains_Mono } from 'next/font/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import '@/styles/globals.css'
 
-const epilogue = Epilogue({
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
-  weight: ['700', '800', '900'],
-  variable: '--font-headline',
+  weight: '400',
+  variable: '--font-bebas',
   display: 'swap',
 })
 
-const manrope = Manrope({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-body',
+  variable: '--font-inter',
   display: 'swap',
 })
 
-const jakarta = Plus_Jakarta_Sans({
+const oswald = Oswald({
   subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
-  variable: '--font-label',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-oswald',
   display: 'swap',
 })
 
 const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-mono',
+  variable: '--font-jetbrains',
   display: 'swap',
 })
 
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${epilogue.variable} ${manrope.variable} ${jakarta.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`dark ${bebasNeue.variable} ${inter.variable} ${oswald.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>

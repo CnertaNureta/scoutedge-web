@@ -29,7 +29,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
 
         <div className="flex items-center gap-3 mb-6">
           <FlaskConical className="w-6 h-6" style={{ color: colors.glow }} />
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">ScoutEdge Intelligence Report</h2>
+          <h2 className="font-headline text-2xl tracking-wide uppercase">ScoutEdge Intelligence Report</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
         </div>
 
@@ -38,7 +38,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
             {/* Fitness */}
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">Fitness Status</span>
+                <span className="font-label text-sm font-semibold text-on-surface-variant uppercase tracking-widest">Fitness Status</span>
                 <FitnessIndicator status={player.fitnessStatus} showLabel size="md" />
               </div>
               <p className="text-on-surface-variant italic">&ldquo;{player.fitnessNote}&rdquo;</p>
@@ -46,7 +46,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
 
             {/* Sentiment */}
             <div>
-              <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest block mb-2">
+              <span className="font-label text-sm font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
                 Sentiment Analysis
               </span>
               <ChemistryBar value={player.sentimentScore} label={player.sentimentLabel} />
@@ -55,19 +55,19 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
 
           {/* Recent signals */}
           <div className="space-y-4">
-            <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest block">
+            <span className="font-label text-sm font-semibold text-on-surface-variant uppercase tracking-widest block">
               Recent Signals
             </span>
             <div className="space-y-3">
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
+              <div className="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl border border-white/[0.06]">
                 {SIGNAL_ICONS.training}
                 <p className="text-sm text-on-surface">Participated in full squad training session ahead of tournament preparations</p>
               </div>
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
+              <div className="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl border border-white/[0.06]">
                 {SIGNAL_ICONS.quote}
                 <p className="text-sm text-on-surface">Coach praised player&apos;s leadership during pre-tournament camp</p>
               </div>
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg opacity-40 blur-[2px] border border-white/5">
+              <div className="flex items-start gap-3 p-3 bg-white/[0.02] rounded-xl opacity-40 blur-[2px] border border-white/[0.06]">
                 {SIGNAL_ICONS.data}
                 <p className="text-sm">Advanced tactical analysis and positional data...</p>
               </div>
@@ -75,9 +75,16 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-outline-variant/20 flex items-center justify-between">
+        <div className="mt-8 pt-6 border-t border-white/[0.08] flex items-center justify-between">
           <p className="text-on-surface-variant text-sm">2 more signals available with Premium access</p>
-          <button className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-sm font-label font-bold uppercase tracking-widest text-sm transition-all duration-200 hover:brightness-110" style={{ background: colors.glow, color: '#000' }}>
+          <button
+            className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-xl font-label font-semibold uppercase tracking-widest text-sm transition-all duration-200 hover:scale-105"
+            style={{
+              background: colors.glow,
+              color: '#0a0e1a',
+              boxShadow: `0 0 20px ${colors.glow}30`,
+            }}
+          >
             <Lock className="w-4 h-4" />
             Subscribe to Unlock
           </button>

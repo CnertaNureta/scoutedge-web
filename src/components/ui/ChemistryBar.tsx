@@ -1,12 +1,24 @@
 'use client'
 
-import { chemistryColorClass } from '@/lib/utils'
-
 interface ChemistryBarProps {
   value: number
   label?: string
   showValue?: boolean
   size?: 'sm' | 'md' | 'lg'
+}
+
+function barGradient(value: number): string {
+  if (value >= 70) return 'linear-gradient(90deg, #00ff87, #04f5ff)'
+  if (value >= 50) return 'linear-gradient(90deg, #04f5ff, #3b82f6)'
+  if (value >= 35) return 'linear-gradient(90deg, #ffd700, #f59e0b)'
+  return 'linear-gradient(90deg, #ff4081, #ef4444)'
+}
+
+function valueColor(value: number): string {
+  if (value >= 70) return '#00ff87'
+  if (value >= 50) return '#04f5ff'
+  if (value >= 35) return '#ffd700'
+  return '#ff4081'
 }
 
 export default function ChemistryBar({ value, label, showValue = true, size = 'md' }: ChemistryBarProps) {
@@ -16,14 +28,22 @@ export default function ChemistryBar({ value, label, showValue = true, size = 'm
     <div className="w-full">
       {(label || showValue) && (
         <div className="flex justify-between items-center mb-1.5">
-          {label && <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{label}</span>}
-          {showValue && <span className="font-mono text-sm text-on-surface font-bold">{value}</span>}
+          {label && <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">{label}</span>}
+          {showValue && (
+            <span className="font-mono text-sm font-bold" style={{ color: valueColor(value) }}>
+              {value}
+            </span>
+          )}
         </div>
       )}
-      <div className={`w-full bg-surface-container-highest ${height} rounded-full overflow-hidden`}>
+      <div className={`w-full bg-white/[0.06] ${height} rounded-full overflow-hidden`}>
         <div
-          className={`${chemistryColorClass(value)} ${height} rounded-full animate-bar-fill`}
-          style={{ '--bar-width': `${value}%`, width: `${value}%` } as React.CSSProperties}
+          className={`${height} rounded-full animate-bar-fill`}
+          style={{
+            '--bar-width': `${value}%`,
+            width: `${value}%`,
+            background: barGradient(value),
+          } as React.CSSProperties}
         />
       </div>
     </div>

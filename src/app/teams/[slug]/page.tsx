@@ -71,7 +71,7 @@ export default async function TeamPage({ params }: PageProps) {
       {/* SEO Content Block */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">
         <article
-          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-xl"
+          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-2xl border border-white/[0.06]"
           dangerouslySetInnerHTML={{ __html: team.seoArticle }}
         />
       </section>
@@ -79,9 +79,12 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Related Teams */}
       {groupTeams.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-20">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            More from Group {team.group}
-          </h2>
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-1 h-6 rounded-full bg-primary" />
+            <h2 className="font-headline text-2xl tracking-wide uppercase">
+              More from Group {team.group}
+            </h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {groupTeams.map((t) => (
               <TeamCard key={t.slug} team={t} />
