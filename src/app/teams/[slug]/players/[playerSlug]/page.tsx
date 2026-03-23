@@ -7,6 +7,8 @@ import { computeDerivedStats } from '@/lib/player-derived-stats'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
+import SeoArticle from '@/components/ui/SeoArticle'
+import SectionHeader from '@/components/ui/SectionHeader'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
@@ -77,24 +79,11 @@ export default async function PlayerPage({ params }: PageProps) {
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
+      <SeoArticle html={player.seoArticle} />
 
-      {/* SEO Content Block */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <article
-          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-2xl border border-white/[0.06]"
-          dangerouslySetInnerHTML={{ __html: player.seoArticle }}
-        />
-      </section>
-
-      {/* More Players */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-20">
+      <section className="page-container mb-20">
         <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-1 h-6 rounded-full bg-primary" />
-            <h2 className="font-headline text-2xl tracking-wide uppercase">
-              More {team.name} Players
-            </h2>
-          </div>
+          <SectionHeader>More {team.name} Players</SectionHeader>
           <Link
             href={`/teams/${slug}`}
             className="font-label text-sm font-semibold text-primary uppercase tracking-widest hover:underline"

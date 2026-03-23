@@ -1,4 +1,4 @@
-'use client'
+import { chemistryColor } from '@/lib/utils'
 
 interface ChemistryBarProps {
   value: number
@@ -14,13 +14,6 @@ function barGradient(value: number): string {
   return 'linear-gradient(90deg, #ff4081, #ef4444)'
 }
 
-function valueColor(value: number): string {
-  if (value >= 70) return '#00ff87'
-  if (value >= 50) return '#04f5ff'
-  if (value >= 35) return '#ffd700'
-  return '#ff4081'
-}
-
 export default function ChemistryBar({ value, label, showValue = true, size = 'md' }: ChemistryBarProps) {
   const height = size === 'sm' ? 'h-1.5' : size === 'md' ? 'h-2' : 'h-3'
 
@@ -30,7 +23,7 @@ export default function ChemistryBar({ value, label, showValue = true, size = 'm
         <div className="flex justify-between items-center mb-1.5">
           {label && <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">{label}</span>}
           {showValue && (
-            <span className="font-mono text-sm font-bold" style={{ color: valueColor(value) }}>
+            <span className="font-mono text-sm font-bold" style={{ color: chemistryColor(value) }}>
               {value}
             </span>
           )}

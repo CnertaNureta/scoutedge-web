@@ -6,6 +6,8 @@ import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
 import TeamCard from '@/components/team/TeamCard'
+import SeoArticle from '@/components/ui/SeoArticle'
+import SectionHeader from '@/components/ui/SectionHeader'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -67,24 +69,11 @@ export default async function TeamPage({ params }: PageProps) {
       <TeamHero team={team} />
       <TeamStats team={team} />
       <SquadRoster players={players} teamSlug={slug} />
+      <SeoArticle html={team.seoArticle} />
 
-      {/* SEO Content Block */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <article
-          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-2xl border border-white/[0.06]"
-          dangerouslySetInnerHTML={{ __html: team.seoArticle }}
-        />
-      </section>
-
-      {/* Related Teams */}
       {groupTeams.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-20">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-1 h-6 rounded-full bg-primary" />
-            <h2 className="font-headline text-2xl tracking-wide uppercase">
-              More from Group {team.group}
-            </h2>
-          </div>
+        <section className="page-container mb-20">
+          <SectionHeader className="mb-6">More from Group {team.group}</SectionHeader>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {groupTeams.map((t) => (
               <TeamCard key={t.slug} team={t} />

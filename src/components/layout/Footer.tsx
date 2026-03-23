@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ScoutEdgeLogo from '@/components/ui/ScoutEdgeLogo'
 
 export default function Footer() {
   return (
@@ -6,13 +7,8 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center">
-                <span className="text-primary font-headline text-lg leading-none">S</span>
-              </div>
-              <span className="font-headline text-2xl tracking-wider text-on-surface">
-                SCOUT<span className="text-primary">EDGE</span>
-              </span>
+            <div className="mb-6">
+              <ScoutEdgeLogo href="" />
             </div>
             <p className="text-on-surface-variant max-w-sm leading-relaxed">
               AI-powered intelligence platform for the FIFA World Cup 2026. Deep squad analysis, chemistry indexes,
@@ -44,7 +40,6 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        {/* Neon divider */}
         <div className="mt-20 mb-8 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         <div className="flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
           <span>&copy; 2026 ScoutEdge. AI-Powered World Cup Intelligence. All rights reserved.</span>

@@ -7,6 +7,7 @@ import { getTeamColors } from '@/lib/team-colors'
 import { getPlayerPhoto, hashString } from '@/lib/utils'
 import StatRadar from '@/components/player/StatRadar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
 import { Heart, MapPin, Hash, Shield, ChevronLeft } from 'lucide-react'
@@ -29,7 +30,8 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
   const burstTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const playerPhoto = getPlayerPhoto(player)
-  const nameParts = player.name.split(' ')
+  const [firstName, ...restParts] = player.name.split(' ')
+  const surname = restParts.length > 0 ? restParts.join(' ') : firstName
 
   useEffect(() => {
     return () => {
@@ -166,13 +168,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
           {/* RIGHT: Glassmorphism card */}
           <div className="relative">
             <div className="glass-hero-card rounded-2xl border border-white/[0.08] p-6 md:p-8 space-y-5 relative overflow-hidden">
-              {/* Neon top border */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px]"
-                style={{
-                  background: `linear-gradient(90deg, transparent 5%, ${colors.glow} 50%, transparent 95%)`,
-                }}
-              />
+              <NeonAccentBar color={colors.glow} />
 
               {/* Inner ambient glow */}
               <div
@@ -184,10 +180,10 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
               <div>
                 <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl tracking-wide uppercase leading-[0.85]">
                   <span className="text-stroke block text-4xl md:text-5xl lg:text-6xl">
-                    {nameParts[0]}
+                    {firstName}
                   </span>
                   <span className="block" style={{ color: colors.glow }}>
-                    {nameParts.slice(1).join(' ')}
+                    {surname}
                   </span>
                 </h1>
               </div>

@@ -1,6 +1,7 @@
 import type { Player } from '@/lib/types'
 import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import { Newspaper, MessageSquare, BarChart3, FlaskConical, Lock } from 'lucide-react'
@@ -19,13 +20,9 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
   const colors = getTeamColors(player.teamSlug)
 
   return (
-    <section className="max-w-[1440px] mx-auto px-6 mb-16">
+    <section className="page-container mb-16">
       <GlassCard hover={false} className="p-8 relative overflow-hidden">
-        {/* Neon accent line */}
-        <div
-          className="absolute top-0 left-0 right-0 h-[2px]"
-          style={{ background: `linear-gradient(90deg, ${colors.glow}, transparent)` }}
-        />
+        <NeonAccentBar color={colors.glow} />
 
         <div className="flex items-center gap-3 mb-6">
           <FlaskConical className="w-6 h-6" style={{ color: colors.glow }} />

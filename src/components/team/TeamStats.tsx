@@ -1,6 +1,7 @@
 import type { Team } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 
 interface TeamStatsProps {
   team: Team
@@ -8,7 +9,7 @@ interface TeamStatsProps {
 
 export default function TeamStats({ team }: TeamStatsProps) {
   return (
-    <section className="max-w-[1440px] mx-auto px-6 -mt-12 relative z-30 mb-16">
+    <section className="page-container -mt-12 relative z-30 mb-16">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {[
           { label: 'FIFA Ranking', value: `#${team.fifaRanking}`, color: '#00ff87' },
@@ -17,11 +18,7 @@ export default function TeamStats({ team }: TeamStatsProps) {
           { label: 'Confederation', value: team.confederation, color: '#e90052', small: true },
         ].map((stat) => (
           <GlassCard key={stat.label} className="p-6 relative overflow-hidden group">
-            {/* Neon top accent */}
-            <div
-              className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover:opacity-100 transition-opacity"
-              style={{ background: `linear-gradient(90deg, transparent, ${stat.color}, transparent)` }}
-            />
+            <NeonAccentBar color={stat.color} />
             <span className="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-widest">{stat.label}</span>
             <div
               className={`font-headline ${stat.small ? 'text-2xl' : 'text-4xl md:text-5xl'} tracking-wide mt-2`}
@@ -34,7 +31,6 @@ export default function TeamStats({ team }: TeamStatsProps) {
         ))}
       </div>
 
-      {/* Chemistry Breakdown */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <GlassCard className="p-6">
           <ChemistryBar value={team.familiarity} label="Familiarity" />

@@ -28,18 +28,6 @@
       linear-gradient(135deg, #00ff87, #04f5ff, #e90052) border-box;
   }
 
-  /* ── Neon top accent ── */
-  .neon-top-accent::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #00ff87, #04f5ff);
-    border-radius: 999px 999px 0 0;
-  }
-
   /* ── Hero gradients — cinematic ── */
   .hero-gradient {
     background: linear-gradient(
@@ -59,22 +47,9 @@
     );
   }
 
-  .hero-gradient-cinematic {
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 14, 26, 0.1) 0%,
-      rgba(10, 14, 26, 0.3) 30%,
-      rgba(10, 14, 26, 0.7) 60%,
-      rgba(10, 14, 26, 0.98) 100%
-    );
-  }
-  .hero-gradient-left-cinematic {
-    background: linear-gradient(
-      to right,
-      rgba(10, 14, 26, 0.85) 0%,
-      rgba(10, 14, 26, 0.5) 40%,
-      transparent 70%
-    );
+  /* ── Page container ── */
+  .page-container {
+    @apply max-w-[1440px] mx-auto px-6;
   }
 
   /* ── Mesh gradient background — multi-color glow ── */
@@ -186,6 +161,13 @@
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
   .motion-blur-layer {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;

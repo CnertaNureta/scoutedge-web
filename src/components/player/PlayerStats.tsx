@@ -3,6 +3,7 @@ import type { DerivedStats } from '@/lib/player-derived-stats'
 import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
 import AnimatedNumber from '@/components/ui/AnimatedNumber'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import StatRadar from '@/components/player/StatRadar'
 import { Globe, Target, ArrowLeftRight, BarChart3, Calendar, Monitor } from 'lucide-react'
 
@@ -32,16 +33,14 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
 
   return (
     <section
-      className="max-w-[1440px] mx-auto px-6 -mt-12 relative z-30 mb-16"
+      className="page-container -mt-12 relative z-30 mb-16"
       style={{
         '--team-glow': colors.glow,
         '--team-primary': colors.primary,
       } as React.CSSProperties}
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
-        {/* Core stats grid */}
         <div>
-          {/* Section header - broadcast style */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-6 rounded-full" style={{ background: colors.glow }} />
             <h2 className="font-headline text-2xl tracking-wide uppercase">Player Statistics</h2>
@@ -54,11 +53,7 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
                 key={stat.label}
                 className="p-5 text-center relative overflow-hidden group"
               >
-                {/* Neon top border */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-[2px] opacity-60 group-hover:opacity-100 transition-opacity"
-                  style={{ background: `linear-gradient(90deg, transparent, ${colors.glow}, transparent)` }}
-                />
+                <NeonAccentBar color={colors.glow} />
                 <div className="flex justify-center mb-3 transition-colors" style={{ color: colors.glow }}>
                   {STAT_ICONS[stat.label]}
                 </div>
@@ -76,7 +71,6 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
             ))}
           </div>
 
-          {/* Derived attributes bars */}
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
             {(Object.entries(derivedStats) as [string, number][]).map(([key, value]) => (
               <div key={key} className="glass-panel rounded-xl border border-white/[0.06] p-4 hover:border-white/[0.12] transition-colors">
@@ -103,7 +97,6 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
           </div>
         </div>
 
-        {/* Radar chart */}
         <div className="flex flex-col items-center justify-center">
           <div className="glass-panel rounded-2xl border border-white/[0.06] p-6 w-full">
             <div className="flex items-center gap-2 mb-2">

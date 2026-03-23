@@ -4,6 +4,7 @@ import { positionOrder, positionLabel, getPlayerPhoto } from '@/lib/utils'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
+import SectionHeader from '@/components/ui/SectionHeader'
 
 interface SquadRosterProps {
   players: Player[]
@@ -23,11 +24,8 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
   )
 
   return (
-    <section className="max-w-[1440px] mx-auto px-6 mb-16">
-      <div className="flex items-center gap-3 mb-10">
-        <div className="w-1 h-8 rounded-full bg-primary" />
-        <h2 className="font-headline text-4xl md:text-5xl tracking-wide uppercase">Squad</h2>
-      </div>
+    <section className="page-container mb-16">
+      <SectionHeader className="mb-10">Squad</SectionHeader>
       {sortedGroups.map(([position, posPlayers]) => (
         <div key={position} className="mb-10">
           <h3 className="font-label text-sm font-semibold text-primary uppercase tracking-widest mb-4 flex items-center gap-3">
@@ -43,7 +41,6 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                 href={`/teams/${teamSlug}/players/${player.slug}`}
                 className="group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-surface-container hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,255,135,0.08)]"
               >
-                {/* Neon top accent */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
                 <div className="relative h-32 overflow-hidden">
