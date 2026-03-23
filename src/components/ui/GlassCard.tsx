@@ -4,7 +4,7 @@ interface GlassCardProps {
   hover?: boolean
 }
 
-export default function GlassCard({ children, className = '', hover = true }: GlassCardProps) {
+export default function GlassCard({ children, className = '', hover = false }: GlassCardProps) {
   return (
     <div
       className={`glass-panel rounded-xl border border-white/10 shadow-2xl ${

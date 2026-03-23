@@ -61,11 +61,9 @@ const config: Config = {
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        DEFAULT: '0.125rem',
-        lg: '0.25rem',
-        xl: '0.5rem',
-        '2xl': '0.75rem',
-        '3xl': '1rem',
+        xl: '1rem',
+        '2xl': '1.25rem',
+        '3xl': '1.5rem',
       },
       animation: {
         'pulse-slow': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
