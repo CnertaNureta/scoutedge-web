@@ -1,0 +1,643 @@
+{
+  "description": "World Cup history for all 48 teams in the 2026 FIFA World Cup",
+  "lastUpdated": "2026-03-24",
+  "teams": {
+    "mexico": {
+      "name": "Mexico",
+      "totalAppearances": 17,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [1970, 1986],
+      "firstAppearance": 1930,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1970, "description": "Hosted the World Cup and reached the quarter-finals, losing to Italy 4-1 in a classic match" },
+        { "year": 1986, "description": "Hosted again and reached the quarter-finals; Maradona's 'Hand of God' eliminated them vs Argentina" },
+        { "year": 2014, "description": "Guillermo Ochoa's legendary saves vs Brazil in a 0-0 group stage draw" }
+      ],
+      "allTimeRecord": { "played": 60, "won": 17, "drawn": 14, "lost": 29 }
+    },
+    "south-africa": {
+      "name": "South Africa",
+      "totalAppearances": 4,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1998, 2002, 2010],
+      "firstAppearance": 1998,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2010, "description": "Hosted the first World Cup on African soil; Siphiwe Tshabalala's stunning opening goal vs Mexico" },
+        { "year": 1998, "description": "First ever World Cup appearance after end of apartheid; beat France 2-1 in final group game (France already qualified)" }
+      ],
+      "allTimeRecord": { "played": 12, "won": 3, "drawn": 4, "lost": 5 }
+    },
+    "south-korea": {
+      "name": "South Korea",
+      "totalAppearances": 11,
+      "bestFinish": "Semi-finals",
+      "bestFinishYear": [2002],
+      "firstAppearance": 1954,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2002, "description": "Co-hosted and reached the semi-finals, beating Spain and Italy en route — the greatest Asian World Cup run ever" },
+        { "year": 2018, "description": "Stunned defending champions Germany 2-0 in the group stage, eliminating them" },
+        { "year": 2022, "description": "Late Hwang Hee-chan goal vs Portugal sealed dramatic Round of 16 qualification" }
+      ],
+      "allTimeRecord": { "played": 37, "won": 8, "drawn": 9, "lost": 20 }
+    },
+    "denmark": {
+      "name": "Denmark",
+      "totalAppearances": 6,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [1998],
+      "firstAppearance": 1986,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1986, "description": "Debut World Cup saw 'Danish Dynamite' play thrilling attacking football, beating Uruguay 6-1" },
+        { "year": 1998, "description": "Beat Nigeria 4-1 in the Round of 16 to reach the quarter-finals" },
+        { "year": 2022, "description": "Arrived as Euro 2020 semi-finalists but exited in the group stage" }
+      ],
+      "allTimeRecord": { "played": 22, "won": 9, "drawn": 3, "lost": 10 }
+    },
+    "switzerland": {
+      "name": "Switzerland",
+      "totalAppearances": 13,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [1934, 1938, 1954],
+      "firstAppearance": 1934,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1954, "description": "Hosted the World Cup and reached the quarter-finals; the tournament of the 'Miracle of Bern'" },
+        { "year": 2006, "description": "Became the first team eliminated from a World Cup without conceding a goal (lost on penalties to Ukraine)" },
+        { "year": 2022, "description": "Beat reigning Euro champions Italy in World Cup qualifying, denying them a spot" }
+      ],
+      "allTimeRecord": { "played": 41, "won": 14, "drawn": 8, "lost": 19 }
+    },
+    "canada": {
+      "name": "Canada",
+      "totalAppearances": 2,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1986, 2022],
+      "firstAppearance": 1986,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1986, "description": "First and only World Cup appearance for 36 years; failed to score in three group games" },
+        { "year": 2022, "description": "Returned after 36-year absence; Alphonso Davies scored Canada's first-ever World Cup goal vs Croatia" }
+      ],
+      "allTimeRecord": { "played": 6, "won": 0, "drawn": 0, "lost": 6 }
+    },
+    "qatar": {
+      "name": "Qatar",
+      "totalAppearances": 1,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [2022],
+      "firstAppearance": 2022,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2022, "description": "Hosted the first Middle Eastern World Cup; became the first host nation to lose the opening game" }
+      ],
+      "allTimeRecord": { "played": 3, "won": 0, "drawn": 0, "lost": 3 }
+    },
+    "italy": {
+      "name": "Italy",
+      "totalAppearances": 18,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1934, 1938, 1982, 2006],
+      "firstAppearance": 1934,
+      "titlesWon": 4,
+      "iconicMoments": [
+        { "year": 1982, "description": "Paolo Rossi's hat-trick vs Brazil in one of the greatest World Cup games ever; went on to win the title" },
+        { "year": 2006, "description": "Won the World Cup in Germany; Zidane's headbutt on Materazzi in the final became iconic" },
+        { "year": 1970, "description": "The 'Game of the Century' semi-final vs West Germany, winning 4-3" }
+      ],
+      "allTimeRecord": { "played": 83, "won": 45, "drawn": 21, "lost": 17 }
+    },
+    "morocco": {
+      "name": "Morocco",
+      "totalAppearances": 7,
+      "bestFinish": "Semi-finals",
+      "bestFinishYear": [2022],
+      "firstAppearance": 1970,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2022, "description": "Became the first African and Arab nation to reach a World Cup semi-final, beating Belgium, Spain, and Portugal" },
+        { "year": 1986, "description": "First African team to top a World Cup group, finishing ahead of England, Poland, and Portugal" }
+      ],
+      "allTimeRecord": { "played": 23, "won": 8, "drawn": 6, "lost": 9 }
+    },
+    "brazil": {
+      "name": "Brazil",
+      "totalAppearances": 22,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1958, 1962, 1970, 1994, 2002],
+      "firstAppearance": 1930,
+      "titlesWon": 5,
+      "iconicMoments": [
+        { "year": 1970, "description": "Pelé and the greatest team ever assembled won in Mexico; the 4-1 final vs Italy is considered the perfect performance" },
+        { "year": 2002, "description": "Ronaldo's redemption — scored both goals in the final vs Germany after the mysterious 1998 final seizure" },
+        { "year": 2014, "description": "Host nation humiliated 7-1 by Germany in the semi-final in Belo Horizonte — the 'Mineirazo'" }
+      ],
+      "allTimeRecord": { "played": 114, "won": 76, "drawn": 19, "lost": 19 }
+    },
+    "scotland": {
+      "name": "Scotland",
+      "totalAppearances": 8,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1954, 1958, 1974, 1978, 1982, 1986, 1990, 1998],
+      "firstAppearance": 1954,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1978, "description": "Archie Gemmill's legendary solo goal vs the Netherlands — one of the greatest World Cup goals ever scored" },
+        { "year": 1998, "description": "Opening match of France 98 vs Brazil; Tom Boyd's own goal in a 2-1 loss" }
+      ],
+      "allTimeRecord": { "played": 23, "won": 4, "drawn": 7, "lost": 12 }
+    },
+    "haiti": {
+      "name": "Haiti",
+      "totalAppearances": 1,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1974],
+      "firstAppearance": 1974,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1974, "description": "Emmanuel Sanon scored against Italy's Dino Zoff, ending his record 1,142-minute unbeaten streak" }
+      ],
+      "allTimeRecord": { "played": 3, "won": 0, "drawn": 0, "lost": 3 }
+    },
+    "usa": {
+      "name": "United States",
+      "totalAppearances": 11,
+      "bestFinish": "Semi-finals",
+      "bestFinishYear": [1930],
+      "firstAppearance": 1930,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1950, "description": "Stunned England 1-0 in one of the greatest World Cup upsets of all time" },
+        { "year": 2002, "description": "Beat Mexico 2-0 to reach the quarter-finals; Landon Donovan emerged as a star" },
+        { "year": 2022, "description": "Christian Pulisic's goal vs Iran sent the US through; he was hospitalized after scoring" }
+      ],
+      "allTimeRecord": { "played": 37, "won": 11, "drawn": 7, "lost": 19 }
+    },
+    "paraguay": {
+      "name": "Paraguay",
+      "totalAppearances": 9,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [2010],
+      "firstAppearance": 1930,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2010, "description": "Reached their first quarter-final; Oscar Cardozo's penalty miss vs Spain ended their dream" },
+        { "year": 1998, "description": "José Luis Chilavert's goalkeeping heroics helped them reach the Round of 16" }
+      ],
+      "allTimeRecord": { "played": 30, "won": 8, "drawn": 9, "lost": 13 }
+    },
+    "australia": {
+      "name": "Australia",
+      "totalAppearances": 6,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [2006, 2022],
+      "firstAppearance": 1974,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2005, "description": "John Aloisi's penalty in the playoff vs Uruguay ended a 32-year World Cup drought" },
+        { "year": 2006, "description": "Tim Cahill scored the Socceroos' first-ever World Cup goal; reached the Round of 16" },
+        { "year": 2022, "description": "Beat Denmark to reach the knockout stage for only the second time" }
+      ],
+      "allTimeRecord": { "played": 20, "won": 4, "drawn": 4, "lost": 12 }
+    },
+    "turkey": {
+      "name": "Turkey",
+      "totalAppearances": 3,
+      "bestFinish": "Third place",
+      "bestFinishYear": [2002],
+      "firstAppearance": 1954,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2002, "description": "Stunning third-place finish in their second World Cup; Hakan Şükür scored the fastest World Cup goal ever (10.8 seconds) in the third-place match" },
+        { "year": 1954, "description": "First World Cup appearance; lost 7-0 to West Germany in the group stage" }
+      ],
+      "allTimeRecord": { "played": 10, "won": 5, "drawn": 1, "lost": 4 }
+    },
+    "germany": {
+      "name": "Germany",
+      "totalAppearances": 20,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1954, 1974, 1990, 2014],
+      "firstAppearance": 1934,
+      "titlesWon": 4,
+      "iconicMoments": [
+        { "year": 1954, "description": "The 'Miracle of Bern' — beat the mighty Hungarians 3-2 in the final as heavy underdogs" },
+        { "year": 2014, "description": "Demolished Brazil 7-1 in the semi-final and won the title with Götze's extra-time final goal vs Argentina" },
+        { "year": 1990, "description": "Reunification tournament; Andreas Brehme's penalty won the final vs Argentina" }
+      ],
+      "allTimeRecord": { "played": 112, "won": 68, "drawn": 21, "lost": 23 }
+    },
+    "ivory-coast": {
+      "name": "Ivory Coast",
+      "totalAppearances": 4,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [2006, 2010, 2014],
+      "firstAppearance": 2006,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2006, "description": "Didier Drogba led the 'Golden Generation' to their first World Cup; drew with Argentina" },
+        { "year": 2014, "description": "Beat Japan 2-1 with a late Gervinho goal in a dramatic group game" }
+      ],
+      "allTimeRecord": { "played": 12, "won": 3, "drawn": 3, "lost": 6 }
+    },
+    "ecuador": {
+      "name": "Ecuador",
+      "totalAppearances": 4,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [2006],
+      "firstAppearance": 2002,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2006, "description": "Beat Poland and Costa Rica to reach the Round of 16 in their second World Cup" },
+        { "year": 2022, "description": "Enner Valencia scored in the opening match vs Qatar; Ecuador won 2-0" }
+      ],
+      "allTimeRecord": { "played": 13, "won": 4, "drawn": 2, "lost": 7 }
+    },
+    "curacao": {
+      "name": "Curaçao",
+      "totalAppearances": 0,
+      "bestFinish": "Debut",
+      "bestFinishYear": [],
+      "firstAppearance": 2026,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2025, "description": "Historic qualification as the smallest Caribbean nation to reach a World Cup; population of ~150,000" }
+      ],
+      "allTimeRecord": { "played": 0, "won": 0, "drawn": 0, "lost": 0 }
+    },
+    "netherlands": {
+      "name": "Netherlands",
+      "totalAppearances": 11,
+      "bestFinish": "Runners-up",
+      "bestFinishYear": [1974, 1978, 2010],
+      "firstAppearance": 1934,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1974, "description": "Johan Cruyff and Total Football revolutionized the game; lost the final to West Germany" },
+        { "year": 1998, "description": "Dennis Bergkamp's last-minute goal vs Argentina — one of the greatest World Cup goals ever" },
+        { "year": 2010, "description": "Reached the final in South Africa; lost to Spain in extra time" }
+      ],
+      "allTimeRecord": { "played": 50, "won": 29, "drawn": 10, "lost": 11 }
+    },
+    "japan": {
+      "name": "Japan",
+      "totalAppearances": 7,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [2002, 2010, 2018, 2022],
+      "firstAppearance": 1998,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2022, "description": "Shocked Germany 2-1 and Spain 2-1 in the group stage to top the 'Group of Death'" },
+        { "year": 2002, "description": "Co-hosts reached the Round of 16; electrifying atmosphere across the nation" },
+        { "year": 2018, "description": "Led Belgium 2-0 in the Round of 16 before losing 3-2 in a heartbreaking comeback" }
+      ],
+      "allTimeRecord": { "played": 24, "won": 7, "drawn": 5, "lost": 12 }
+    },
+    "tunisia": {
+      "name": "Tunisia",
+      "totalAppearances": 6,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1978, 1998, 2002, 2006, 2018, 2022],
+      "firstAppearance": 1978,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1978, "description": "First African nation to win a World Cup match, beating Mexico 3-1" },
+        { "year": 2022, "description": "Beat France 1-0 in the group stage but still failed to advance" }
+      ],
+      "allTimeRecord": { "played": 18, "won": 3, "drawn": 5, "lost": 10 }
+    },
+    "ukraine": {
+      "name": "Ukraine",
+      "totalAppearances": 1,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [2006],
+      "firstAppearance": 2006,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2006, "description": "Reached the quarter-finals on debut; Andriy Shevchenko led the squad but lost to Italy" }
+      ],
+      "allTimeRecord": { "played": 5, "won": 2, "drawn": 0, "lost": 3 }
+    },
+    "portugal": {
+      "name": "Portugal",
+      "totalAppearances": 8,
+      "bestFinish": "Third place",
+      "bestFinishYear": [1966],
+      "firstAppearance": 1966,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1966, "description": "Eusébio scored 9 goals including 4 in a legendary comeback vs North Korea from 3-0 down" },
+        { "year": 2022, "description": "Cristiano Ronaldo's final World Cup; lost to Morocco in the quarter-finals" },
+        { "year": 2006, "description": "Reached the semi-finals; Ronaldo emerged as a global star" }
+      ],
+      "allTimeRecord": { "played": 35, "won": 19, "drawn": 5, "lost": 11 }
+    },
+    "iran": {
+      "name": "Iran",
+      "totalAppearances": 6,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1978, 1998, 2006, 2014, 2018, 2022],
+      "firstAppearance": 1978,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1998, "description": "Beat the USA 2-1 in a politically charged group-stage match in Lyon" },
+        { "year": 2018, "description": "Nearly beat Portugal in the group stage; a late VAR penalty denied them advancement" },
+        { "year": 2022, "description": "Beat Wales 2-0 with two injury-time goals in a dramatic group match" }
+      ],
+      "allTimeRecord": { "played": 18, "won": 4, "drawn": 3, "lost": 11 }
+    },
+    "belgium": {
+      "name": "Belgium",
+      "totalAppearances": 14,
+      "bestFinish": "Third place",
+      "bestFinishYear": [2018],
+      "firstAppearance": 1930,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2018, "description": "Golden Generation reached the semi-finals; Nacer Chadli's counter-attack goal eliminated Japan in a 3-2 classic" },
+        { "year": 1986, "description": "Reached the semi-finals in Mexico; lost to Maradona's Argentina" },
+        { "year": 2014, "description": "Reached the quarter-finals with a talented young squad featuring Hazard, De Bruyne, and Lukaku" }
+      ],
+      "allTimeRecord": { "played": 51, "won": 21, "drawn": 10, "lost": 20 }
+    },
+    "egypt": {
+      "name": "Egypt",
+      "totalAppearances": 3,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [1934, 1990, 2018],
+      "firstAppearance": 1934,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1934, "description": "First African nation to play in a World Cup" },
+        { "year": 2018, "description": "Mohamed Salah returned from injury to score vs Saudi Arabia; first World Cup in 28 years" }
+      ],
+      "allTimeRecord": { "played": 7, "won": 0, "drawn": 2, "lost": 5 }
+    },
+    "spain": {
+      "name": "Spain",
+      "totalAppearances": 16,
+      "bestFinish": "Winners",
+      "bestFinishYear": [2010],
+      "firstAppearance": 1934,
+      "titlesWon": 1,
+      "iconicMoments": [
+        { "year": 2010, "description": "Won the World Cup for the first time; Iniesta's extra-time goal in the final vs Netherlands — the peak of tiki-taka" },
+        { "year": 2022, "description": "Set a World Cup record with 1,058 completed passes in a 7-0 demolition of Costa Rica" },
+        { "year": 1950, "description": "Reached the final group stage (top 4) in their best early tournament showing" }
+      ],
+      "allTimeRecord": { "played": 67, "won": 31, "drawn": 16, "lost": 20 }
+    },
+    "cabo-verde": {
+      "name": "Cabo Verde",
+      "totalAppearances": 0,
+      "bestFinish": "Debut",
+      "bestFinishYear": [],
+      "firstAppearance": 2026,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2025, "description": "Historic first World Cup qualification for the island nation of ~600,000 people" }
+      ],
+      "allTimeRecord": { "played": 0, "won": 0, "drawn": 0, "lost": 0 }
+    },
+    "saudi-arabia": {
+      "name": "Saudi Arabia",
+      "totalAppearances": 7,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [1994],
+      "firstAppearance": 1994,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1994, "description": "Saeed Al-Owairan's solo goal vs Belgium — dribbling past five players — became one of the tournament's greatest goals" },
+        { "year": 2022, "description": "Stunned Argentina 2-1 in one of the biggest World Cup upsets in history; Saudi Arabia declared a national holiday" }
+      ],
+      "allTimeRecord": { "played": 19, "won": 4, "drawn": 2, "lost": 13 }
+    },
+    "serbia": {
+      "name": "Serbia",
+      "totalAppearances": 3,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [2006, 2010, 2018, 2022],
+      "firstAppearance": 2006,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2022, "description": "Dramatic 3-3 draw vs Cameroon in one of the most entertaining group games" },
+        { "year": 2018, "description": "Beat Costa Rica 1-0 with a stunning Kolarov free kick" }
+      ],
+      "allTimeRecord": { "played": 12, "won": 2, "drawn": 2, "lost": 8 },
+      "note": "As independent Serbia since 2006; Yugoslavia/Serbia & Montenegro had reached the semi-finals (1930, 1962)"
+    },
+    "france": {
+      "name": "France",
+      "totalAppearances": 16,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1998, 2018],
+      "firstAppearance": 1930,
+      "titlesWon": 2,
+      "iconicMoments": [
+        { "year": 1998, "description": "Zidane's two headers in the final vs Brazil; the host nation won the World Cup for the first time" },
+        { "year": 2018, "description": "Won in Russia with a young, talented squad; Mbappé became the youngest scorer in a final since Pelé" },
+        { "year": 2022, "description": "Mbappé's hat-trick in the final vs Argentina wasn't enough; lost on penalties in one of the greatest finals ever" }
+      ],
+      "allTimeRecord": { "played": 73, "won": 39, "drawn": 13, "lost": 21 }
+    },
+    "senegal": {
+      "name": "Senegal",
+      "totalAppearances": 3,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [2002],
+      "firstAppearance": 2002,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2002, "description": "Shocked defending champions France 1-0 in the opening match on debut; reached the quarter-finals" },
+        { "year": 2022, "description": "Won their first-ever knockout round match at a World Cup, beating Ecuador" }
+      ],
+      "allTimeRecord": { "played": 11, "won": 4, "drawn": 3, "lost": 4 }
+    },
+    "norway": {
+      "name": "Norway",
+      "totalAppearances": 3,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [1998],
+      "firstAppearance": 1938,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1998, "description": "Beat Brazil 2-1 in the group stage; reached the Round of 16" },
+        { "year": 1938, "description": "Lost to Italy 2-1 in extra time in the first round" }
+      ],
+      "allTimeRecord": { "played": 8, "won": 2, "drawn": 1, "lost": 5 }
+    },
+    "tbd-playoff-i": {
+      "name": "TBD (Group I Playoff)",
+      "totalAppearances": null,
+      "bestFinish": null,
+      "bestFinishYear": [],
+      "firstAppearance": null,
+      "titlesWon": null,
+      "iconicMoments": [],
+      "allTimeRecord": null,
+      "note": "Awaiting intercontinental playoff result"
+    },
+    "argentina": {
+      "name": "Argentina",
+      "totalAppearances": 18,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1978, 1986, 2022],
+      "firstAppearance": 1930,
+      "titlesWon": 3,
+      "iconicMoments": [
+        { "year": 1986, "description": "Maradona's 'Hand of God' and 'Goal of the Century' vs England in the same quarter-final match" },
+        { "year": 2022, "description": "Messi finally won the World Cup; the final vs France is widely considered the greatest World Cup final ever" },
+        { "year": 1978, "description": "Won the World Cup as hosts; Mario Kempes scored twice in the final" }
+      ],
+      "allTimeRecord": { "played": 88, "won": 47, "drawn": 17, "lost": 24 }
+    },
+    "algeria": {
+      "name": "Algeria",
+      "totalAppearances": 5,
+      "bestFinish": "Round of 16",
+      "bestFinishYear": [2014],
+      "firstAppearance": 1982,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1982, "description": "Beat West Germany 2-1 in a famous upset; later denied advancement by the 'Disgrace of Gijón' collusion" },
+        { "year": 2014, "description": "Reached the Round of 16 for the first time; pushed Germany to extra time before losing 2-1" }
+      ],
+      "allTimeRecord": { "played": 16, "won": 4, "drawn": 4, "lost": 8 }
+    },
+    "austria": {
+      "name": "Austria",
+      "totalAppearances": 8,
+      "bestFinish": "Third place",
+      "bestFinishYear": [1954],
+      "firstAppearance": 1934,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1954, "description": "Finished third in Switzerland; part of the highest-scoring World Cup match ever (Austria 7-5 Switzerland)" },
+        { "year": 1978, "description": "Beat West Germany in the group stage — the 'Miracle of Córdoba'" },
+        { "year": 1982, "description": "Part of the infamous 'Disgrace of Gijón' result vs West Germany" }
+      ],
+      "allTimeRecord": { "played": 29, "won": 12, "drawn": 4, "lost": 13 }
+    },
+    "jordan": {
+      "name": "Jordan",
+      "totalAppearances": 0,
+      "bestFinish": "Debut",
+      "bestFinishYear": [],
+      "firstAppearance": 2026,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2024, "description": "Reached the Asian Cup final for the first time, signaling their rise as a regional power" },
+        { "year": 2025, "description": "Historic first World Cup qualification" }
+      ],
+      "allTimeRecord": { "played": 0, "won": 0, "drawn": 0, "lost": 0 }
+    },
+    "colombia": {
+      "name": "Colombia",
+      "totalAppearances": 7,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [2014],
+      "firstAppearance": 1962,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2014, "description": "James Rodríguez won the Golden Boot with 6 goals; his volley vs Uruguay is an all-time great World Cup goal" },
+        { "year": 1994, "description": "Andrés Escobar's own goal vs USA led to tragedy; he was murdered after returning home" },
+        { "year": 1990, "description": "René Higuita's eccentric goalkeeping and Colombia's flair announced them on the world stage" }
+      ],
+      "allTimeRecord": { "played": 24, "won": 9, "drawn": 4, "lost": 11 }
+    },
+    "cameroon": {
+      "name": "Cameroon",
+      "totalAppearances": 8,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [1990],
+      "firstAppearance": 1982,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1990, "description": "38-year-old Roger Milla's goals and corner-flag dance; the 'Indomitable Lions' reached the quarter-finals, inspiring a continent" },
+        { "year": 1982, "description": "Unbeaten in the group stage but eliminated on goal difference in their World Cup debut" },
+        { "year": 2022, "description": "Vincent Aboubakar's stoppage-time winner beat Brazil but wasn't enough to advance" }
+      ],
+      "allTimeRecord": { "played": 26, "won": 5, "drawn": 8, "lost": 13 }
+    },
+    "uzbekistan": {
+      "name": "Uzbekistan",
+      "totalAppearances": 0,
+      "bestFinish": "Debut",
+      "bestFinishYear": [],
+      "firstAppearance": 2026,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2025, "description": "Historic first World Cup qualification — Central Asia's first representative at a World Cup since independence" }
+      ],
+      "allTimeRecord": { "played": 0, "won": 0, "drawn": 0, "lost": 0 }
+    },
+    "tbd-playoff-k": {
+      "name": "TBD (Group K Playoff)",
+      "totalAppearances": null,
+      "bestFinish": null,
+      "bestFinishYear": [],
+      "firstAppearance": null,
+      "titlesWon": null,
+      "iconicMoments": [],
+      "allTimeRecord": null,
+      "note": "Awaiting intercontinental playoff result"
+    },
+    "england": {
+      "name": "England",
+      "totalAppearances": 16,
+      "bestFinish": "Winners",
+      "bestFinishYear": [1966],
+      "firstAppearance": 1950,
+      "titlesWon": 1,
+      "iconicMoments": [
+        { "year": 1966, "description": "Won the World Cup at Wembley; Geoff Hurst's hat-trick in the final and 'They think it's all over' commentary" },
+        { "year": 2018, "description": "Reached the semi-finals for the first time since 1990; Harry Kane won the Golden Boot" },
+        { "year": 1986, "description": "Gary Lineker won the Golden Boot but Maradona's genius eliminated them in the quarter-finals" }
+      ],
+      "allTimeRecord": { "played": 74, "won": 32, "drawn": 22, "lost": 20 }
+    },
+    "ghana": {
+      "name": "Ghana",
+      "totalAppearances": 4,
+      "bestFinish": "Quarter-finals",
+      "bestFinishYear": [2010],
+      "firstAppearance": 2006,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2010, "description": "Asamoah Gyan's penalty miss after Suárez's handball on the line; nearly became the first African semi-finalist" },
+        { "year": 2006, "description": "First World Cup appearance; Asamoah Gyan scored with a last-minute penalty vs Czech Republic" }
+      ],
+      "allTimeRecord": { "played": 15, "won": 5, "drawn": 3, "lost": 7 }
+    },
+    "croatia": {
+      "name": "Croatia",
+      "totalAppearances": 6,
+      "bestFinish": "Runners-up",
+      "bestFinishYear": [2018],
+      "firstAppearance": 1998,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 1998, "description": "Third place on debut; Davor Šuker won the Golden Boot with 6 goals" },
+        { "year": 2018, "description": "Reached the final for the first time; Mandžukić's own goal in the final and Modrić's Golden Ball" },
+        { "year": 2022, "description": "Third place again; beaten semi-finalists in back-to-back tournaments — remarkable for a nation of 4 million" }
+      ],
+      "allTimeRecord": { "played": 28, "won": 14, "drawn": 3, "lost": 11 }
+    },
+    "panama": {
+      "name": "Panama",
+      "totalAppearances": 1,
+      "bestFinish": "Group stage",
+      "bestFinishYear": [2018],
+      "firstAppearance": 2018,
+      "titlesWon": 0,
+      "iconicMoments": [
+        { "year": 2018, "description": "Felipe Baloy scored Panama's first-ever World Cup goal vs England; tears of joy across the nation" },
+        { "year": 2017, "description": "Qualifying goal vs Costa Rica sparked a national holiday; commentator's emotional call became viral" }
+      ],
+      "allTimeRecord": { "played": 3, "won": 0, "drawn": 0, "lost": 3 }
+    }
+  }
+}

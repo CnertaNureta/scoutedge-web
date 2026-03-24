@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup } from '@/lib/data-service'
+import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getAllVenues, getTeamTimezone, getJetLagTier } from '@/lib/data-service'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
@@ -9,6 +9,8 @@ import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import SquadRoster from '@/components/team/SquadRoster'
 import TeamCard from '@/components/team/TeamCard'
+import HistoricalPerformance from '@/components/team/HistoricalPerformance'
+import MatchCenter from '@/components/team/MatchCenter'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -49,6 +51,10 @@ export default async function TeamPage({ params }: PageProps) {
 
   const players = getPlayersByTeam(slug)
   const groupTeams = getTeamsByGroup(team.group).filter((t) => t.slug !== slug)
+  const wcHistory = getWorldCupHistory(slug)
+  const venues = getAllVenues()
+  const teamTimezone = getTeamTimezone(slug)
+  const jetLagTier = getJetLagTier(slug)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -90,6 +96,17 @@ export default async function TeamPage({ params }: PageProps) {
       <TacticalDNA team={team} players={players} />
       <SquadDepth players={players} />
       <SquadRoster players={players} teamSlug={slug} />
+
+      {/* Phase 2: Historical Performance */}
+      {wcHistory && <HistoricalPerformance history={wcHistory} />}
+
+      {/* Phase 2: Match Center & Venue Info */}
+      <MatchCenter
+        venues={venues}
+        teamTimezone={teamTimezone}
+        jetLagTier={jetLagTier}
+        teamName={team.name}
+      />
 
       {/* SEO Content Block */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">

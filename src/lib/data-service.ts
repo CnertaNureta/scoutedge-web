@@ -1,6 +1,9 @@
 import { TEAMS } from '@/data/teams-meta'
 import { PLAYERS } from '@/data/players-data'
-import type { Team, Player } from '@/lib/types'
+import type { Team, Player, WorldCupHistory, Venue, TeamTimezone } from '@/lib/types'
+import worldCupHistoryData from '@/data/world-cup-history.json'
+import venuesData from '@/data/venues.json'
+import timezoneData from '@/data/timezone-adjustments.json'
 
 export function getAllTeams(): Team[] {
   return TEAMS
@@ -28,4 +31,27 @@ export function getPlayerBySlug(teamSlug: string, playerSlug: string): Player | 
 
 export function getAllPlayers(): Player[] {
   return PLAYERS
+}
+
+export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const teams = (worldCupHistoryData as any).teams
+  const entry = teams[teamSlug]
+  if (!entry || entry.totalAppearances === null) return undefined
+  return entry as WorldCupHistory
+}
+
+export function getAllVenues(): Venue[] {
+  return (venuesData as { venues: Venue[] }).venues
+}
+
+export function getTeamTimezone(teamSlug: string): TeamTimezone | undefined {
+  const teamTimezones = (timezoneData as { teamHomeTimezones: Record<string, TeamTimezone> }).teamHomeTimezones
+  return teamTimezones[teamSlug]
+}
+
+export function getJetLagTier(teamSlug: string): string | undefined {
+  const tiers = (timezoneData as { jetLagRiskTiers: Array<{ tier: string; teams: string[] }> }).jetLagRiskTiers
+  const tier = tiers.find(t => t.teams.includes(teamSlug))
+  return tier?.tier
 }
