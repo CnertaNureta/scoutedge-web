@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import Link from 'next/link'
 import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup } from '@/lib/data-service'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
+import TacticalDNA from '@/components/team/TacticalDNA'
+import SquadDepth from '@/components/team/SquadDepth'
 import SquadRoster from '@/components/team/SquadRoster'
 import TeamCard from '@/components/team/TeamCard'
 
@@ -64,8 +67,28 @@ export default async function TeamPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
+      <nav aria-label="Breadcrumb" className="max-w-[1440px] mx-auto px-6 pt-6 pb-2">
+        <ol className="flex items-center gap-2 font-label text-sm font-bold uppercase tracking-widest">
+          <li>
+            <Link href="/teams" className="text-on-surface-variant hover:text-primary transition-colors">
+              All Teams
+            </Link>
+          </li>
+          <li className="text-outline-variant" aria-hidden="true">&rarr;</li>
+          <li>
+            <span className="text-on-surface-variant">Group {team.group}</span>
+          </li>
+          <li className="text-outline-variant" aria-hidden="true">&rarr;</li>
+          <li>
+            <span className="text-on-surface" aria-current="page">{team.flag} {team.name}</span>
+          </li>
+        </ol>
+      </nav>
+
       <TeamHero team={team} />
-      <TeamStats team={team} />
+      <TeamStats team={team} players={players} />
+      <TacticalDNA team={team} players={players} />
+      <SquadDepth players={players} />
       <SquadRoster players={players} teamSlug={slug} />
 
       {/* SEO Content Block */}
