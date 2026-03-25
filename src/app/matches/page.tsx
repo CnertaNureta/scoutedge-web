@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import MatchesClient from './MatchesClient'
 
 export const metadata: Metadata = {
-  title: 'All Group-Stage Matches — World Cup 2026 Fixtures & Predictions',
+  title: 'World Cup 2026 Match Schedule: Fixtures, Kick-Off Times & Predictions',
   description:
-    'Browse all 72 World Cup 2026 group-stage fixtures with AI-powered win probability predictions, venues, and kick-off times across 12 groups.',
+    'Complete World Cup 2026 match schedule with all 72 group-stage fixtures. AI-powered win probability predictions, venues, and kick-off times across 16 host cities in the USA, Canada & Mexico.',
   keywords:
-    'World Cup 2026 matches, World Cup 2026 fixtures, World Cup 2026 schedule, World Cup 2026 predictions',
+    'World Cup 2026 schedule, World Cup 2026 fixtures, World Cup 2026 matches, World Cup 2026 kick off times, World Cup 2026 predictions',
   alternates: { canonical: 'https://scoutedge.ai/matches' },
 }
 

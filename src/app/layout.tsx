@@ -34,17 +34,17 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'ScoutEdge — AI-Powered World Cup 2026 Intelligence',
+    default: 'World Cup 2026 AI Predictions, Squad Analysis & Match Previews | ScoutEdge',
     template: '%s | ScoutEdge',
   },
   description:
-    'AI-powered analysis of all 48 World Cup 2026 teams. Squad chemistry indexes, win probability predictions, player intelligence reports, and match previews.',
-  keywords: 'World Cup 2026, FIFA World Cup, football analysis, soccer predictions, team chemistry, player stats',
+    'AI-powered predictions and analysis for all 48 World Cup 2026 teams. Squad chemistry indexes, win probabilities, player scouting reports, and match previews across the USA, Canada & Mexico.',
+  keywords: 'World Cup 2026, World Cup 2026 predictions, FIFA World Cup 2026, soccer predictions, football analysis, team chemistry, player stats, World Cup 2026 schedule',
   openGraph: {
     type: 'website',
     siteName: 'ScoutEdge',
-    title: 'ScoutEdge — AI-Powered World Cup 2026 Intelligence',
-    description: 'Deep-dive into all 48 teams competing in the 2026 FIFA World Cup.',
+    title: 'World Cup 2026 AI Predictions & Squad Analysis | ScoutEdge',
+    description: 'AI-powered predictions and deep-dive analysis for all 48 teams competing in the 2026 FIFA World Cup.',
   },
   twitter: {
     card: 'summary_large_image',

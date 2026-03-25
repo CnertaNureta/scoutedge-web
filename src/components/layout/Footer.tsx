@@ -40,8 +40,8 @@ export default function Footer() {
         <div className="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
           <span>&copy; 2026 ScoutEdge. AI-Powered World Cup Intelligence. All rights reserved.</span>
           <div className="flex space-x-8">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-on-surface transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

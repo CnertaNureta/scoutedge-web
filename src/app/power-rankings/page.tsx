@@ -7,10 +7,10 @@ import ChemistryBar from '@/components/ui/ChemistryBar'
 import type { Team } from '@/lib/types'
 
 export const metadata: Metadata = {
-  title: 'Power Rankings — World Cup 2026 AI Predictions',
+  title: 'World Cup 2026 Power Rankings: AI Predictions for All 48 Teams',
   description:
-    'AI-powered World Cup 2026 power rankings. All 48 teams ranked by chemistry index, FIFA ranking, squad depth, and predictive signals. Updated weekly.',
-  keywords: 'World Cup 2026 power rankings, World Cup 2026 predictions, World Cup 2026 favorites, FIFA World Cup rankings',
+    'AI-powered World Cup 2026 power rankings updated weekly. All 48 teams ranked by chemistry index, FIFA ranking, squad depth, and predictive signals. Who will win the 2026 World Cup?',
+  keywords: 'World Cup 2026 power rankings, World Cup 2026 predictions, who will win World Cup 2026, World Cup 2026 favorites, FIFA World Cup rankings',
   openGraph: {
     title: 'World Cup 2026 Power Rankings | ScoutEdge',
     description: 'AI-ranked power standings of all 48 World Cup 2026 teams.',

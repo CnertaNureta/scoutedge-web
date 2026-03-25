@@ -6,10 +6,10 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
-  title: 'Daily Briefing — World Cup 2026 AI Intelligence',
+  title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
   description:
-    'Your daily World Cup 2026 intelligence briefing. AI-extracted signals from news, social media, and data sources. Key developments, team updates, and prediction shifts.',
-  keywords: 'World Cup 2026 daily briefing, World Cup 2026 news, World Cup 2026 updates, World Cup 2026 intelligence',
+    'Your daily World Cup 2026 intelligence briefing. AI-extracted signals covering injuries, transfers, form, tactical shifts, and sentiment across all 48 teams. Updated daily.',
+  keywords: 'World Cup 2026 news, World Cup 2026 daily briefing, World Cup 2026 updates, World Cup 2026 injuries, World Cup 2026 intelligence',
   openGraph: {
     title: 'Daily Briefing — World Cup 2026 | ScoutEdge',
     description: 'AI-powered daily intelligence on all 48 World Cup 2026 teams.',

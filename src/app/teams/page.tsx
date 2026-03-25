@@ -3,10 +3,10 @@ import { getAllTeams, getAllGroups, getTeamsByGroup } from '@/lib/data-service'
 import TeamCard from '@/components/team/TeamCard'
 
 export const metadata: Metadata = {
-  title: 'All 48 Teams — World Cup 2026 Groups & Analysis',
+  title: 'All 48 World Cup 2026 Teams: Groups, Squads & AI Predictions',
   description:
-    'Browse all 48 teams competing in the 2026 FIFA World Cup. Organized by group with AI-powered chemistry indexes, FIFA rankings, and squad analysis.',
-  keywords: 'World Cup 2026 teams, World Cup 2026 groups, FIFA World Cup 2026 analysis',
+    'Browse all 48 teams competing in the 2026 FIFA World Cup. Organized by group with AI-powered chemistry indexes, FIFA rankings, squad depth analysis, and win probability predictions.',
+  keywords: 'World Cup 2026 teams, World Cup 2026 groups, World Cup 2026 squads, FIFA World Cup 2026 predictions, World Cup 2026 analysis',
   alternates: { canonical: 'https://scoutedge.ai/teams' },
 }
 

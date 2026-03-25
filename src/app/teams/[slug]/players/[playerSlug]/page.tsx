@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team || !player) return { title: 'Player Not Found' }
 
   return {
-    title: `${player.name} — ${team.name} World Cup 2026 Stats & Profile`,
-    description: `${player.name} World Cup 2026 profile. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} international caps, ${player.goals} goals. AI-powered fitness and performance intelligence.`,
+    title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
+    description: `${player.name} World Cup 2026 scouting report. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} caps, ${player.goals} goals, rating ${player.rating}/10. AI-powered fitness and performance analysis.`,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
     openGraph: {
       title: `${player.name} — World Cup 2026 | ScoutEdge`,
