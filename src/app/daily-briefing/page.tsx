@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllTeams, getPlayersByTeam } from '@/lib/data-service'
+import { fetchWorldCupNews } from '@/lib/news-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 
@@ -52,12 +53,10 @@ function generateDailySignals(): Signal[] {
   const teams = getAllTeams()
   const signals: Signal[] = []
 
-  // Generate signals from actual team/player data
   const sortedByChemistry = [...teams].sort((a, b) => b.chemistry - a.chemistry)
   const topTeams = sortedByChemistry.slice(0, 3)
   const bottomTeams = sortedByChemistry.slice(-3)
 
-  // Top chemistry signals
   for (const team of topTeams) {
     signals.push({
       type: 'form',
@@ -68,7 +67,6 @@ function generateDailySignals(): Signal[] {
     })
   }
 
-  // Low chemistry alerts
   for (const team of bottomTeams) {
     signals.push({
       type: 'sentiment',
@@ -79,7 +77,6 @@ function generateDailySignals(): Signal[] {
     })
   }
 
-  // Injury signals from player fitness data
   for (const team of teams.slice(0, 12)) {
     const players = getPlayersByTeam(team.slug)
     const injured = players.filter((p) => p.fitnessStatus === 'red')
@@ -96,7 +93,6 @@ function generateDailySignals(): Signal[] {
     }
   }
 
-  // Tactical signals from top-ranked teams
   const topRanked = [...teams].sort((a, b) => a.fifaRanking - b.fifaRanking).slice(0, 5)
   for (const team of topRanked) {
     signals.push({
@@ -108,13 +104,13 @@ function generateDailySignals(): Signal[] {
     })
   }
 
-  // Sort by impact priority
   const impactOrder = { high: 0, medium: 1, low: 2 }
   return signals.sort((a, b) => impactOrder[a.impact] - impactOrder[b.impact])
 }
 
-export default function DailyBriefingPage() {
+export default async function DailyBriefingPage() {
   const signals = generateDailySignals()
+  const news = await fetchWorldCupNews(20)
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -172,6 +168,12 @@ export default function DailyBriefingPage() {
               <span className="font-mono text-lg font-bold text-primary">{signals.length}</span>
               <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Signals</span>
             </GlassCard>
+            {news.length > 0 && (
+              <GlassCard className="px-5 py-3 flex items-center gap-2">
+                <span className="font-mono text-lg font-bold text-primary">{news.length}</span>
+                <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Live News</span>
+              </GlassCard>
+            )}
             <GlassCard className="px-5 py-3 flex items-center gap-2">
               <span className="font-mono text-lg font-bold text-red-400">{highCount}</span>
               <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">High Impact</span>
@@ -184,8 +186,58 @@ export default function DailyBriefingPage() {
         </div>
       </section>
 
+      {/* Live News Section */}
+      {news.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
+              Live News Feed
+            </h2>
+            <Badge variant="primary" size="sm">Real-time</Badge>
+          </div>
+          <div className="grid gap-3 md:grid-cols-2">
+            {news.map((item, i) => (
+              <a
+                key={i}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <GlassCard className="p-5 h-full hover:border-primary/30 transition-colors">
+                  <div className="flex items-start gap-3">
+                    <span className="text-xl flex-shrink-0 mt-0.5">{'\u{1F4F0}'}</span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-headline text-sm md:text-base font-bold tracking-tight mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                        {item.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        {item.source && (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-xs font-label uppercase tracking-widest text-on-surface-variant">
+                            {item.source}
+                          </span>
+                        )}
+                        {item.relativeTime && (
+                          <span className="text-xs text-on-surface-variant/70 font-mono">
+                            {item.relativeTime}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </GlassCard>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Signal Type Filter Labels */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-8">
+      <section className="max-w-[1440px] mx-auto px-6 mb-4">
+        <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mb-6">
+          Intelligence Signals
+        </h2>
         <div className="flex flex-wrap gap-2">
           {signalTypes.map((type) => (
             <span
