@@ -1,4 +1,4 @@
-import type { Player } from '@/lib/types'
+import type { Player, PlayerSignal } from '@/lib/types'
 import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
@@ -59,24 +59,35 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
               Recent Signals
             </span>
             <div className="space-y-3">
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
-                {SIGNAL_ICONS.training}
-                <p className="text-sm text-on-surface">Participated in full squad training session ahead of tournament preparations</p>
-              </div>
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
-                {SIGNAL_ICONS.quote}
-                <p className="text-sm text-on-surface">Coach praised player&apos;s leadership during pre-tournament camp</p>
-              </div>
-              <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg opacity-40 blur-[2px] border border-white/5">
-                {SIGNAL_ICONS.data}
-                <p className="text-sm">Advanced tactical analysis and positional data...</p>
-              </div>
+              {player.recentSignals && player.recentSignals.length > 0 ? (
+                <>
+                  {player.recentSignals.map((signal: PlayerSignal, i: number) => (
+                    <div key={i} className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
+                      {SIGNAL_ICONS[signal.type] ?? SIGNAL_ICONS.data}
+                      <p className="text-sm text-on-surface">{signal.text}</p>
+                    </div>
+                  ))}
+                  <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg opacity-40 blur-[2px] border border-white/5">
+                    {SIGNAL_ICONS.data}
+                    <p className="text-sm">Advanced tactical analysis and positional data...</p>
+                  </div>
+                </>
+              ) : (
+                <div className="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg border border-white/5">
+                  <Newspaper className="w-5 h-5 text-on-surface-variant/50 shrink-0" />
+                  <p className="text-sm text-on-surface-variant italic">No recent signals. Check back as the tournament approaches.</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-outline-variant/20 flex items-center justify-between">
-          <p className="text-on-surface-variant text-sm">2 more signals available with Premium access</p>
+          <p className="text-on-surface-variant text-sm">
+            {player.recentSignals && player.recentSignals.length > 0
+              ? 'More signals available with Premium access'
+              : 'Premium signals will appear here as intelligence is gathered'}
+          </p>
           <button className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-sm font-label font-bold uppercase tracking-widest text-sm transition-all duration-200 hover:brightness-110" style={{ background: colors.glow, color: '#000' }}>
             <Lock className="w-4 h-4" />
             Subscribe to Unlock

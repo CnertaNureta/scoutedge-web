@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getAllVenues, getTeamTimezone, getJetLagTier } from '@/lib/data-service'
+import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getMarketIntel } from '@/lib/data-service'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
+import SquadRoster from '@/components/team/SquadRoster'
+import MarketIntel from '@/components/team/MarketIntel'
 import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
-import SquadRoster from '@/components/team/SquadRoster'
-import TeamCard from '@/components/team/TeamCard'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
-import MatchCenter from '@/components/team/MatchCenter'
+import TeamCard from '@/components/team/TeamCard'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -51,10 +50,8 @@ export default async function TeamPage({ params }: PageProps) {
 
   const players = getPlayersByTeam(slug)
   const groupTeams = getTeamsByGroup(team.group).filter((t) => t.slug !== slug)
-  const wcHistory = getWorldCupHistory(slug)
-  const venues = getAllVenues()
-  const teamTimezone = getTeamTimezone(slug)
-  const jetLagTier = getJetLagTier(slug)
+  const worldCupHistory = getWorldCupHistory(slug)
+  const marketIntel = getMarketIntel(slug)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -73,40 +70,21 @@ export default async function TeamPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <nav aria-label="Breadcrumb" className="max-w-[1440px] mx-auto px-6 pt-6 pb-2">
-        <ol className="flex items-center gap-2 font-label text-sm font-bold uppercase tracking-widest">
-          <li>
-            <Link href="/teams" className="text-on-surface-variant hover:text-primary transition-colors">
-              All Teams
-            </Link>
-          </li>
-          <li className="text-outline-variant" aria-hidden="true">&rarr;</li>
-          <li>
-            <span className="text-on-surface-variant">Group {team.group}</span>
-          </li>
-          <li className="text-outline-variant" aria-hidden="true">&rarr;</li>
-          <li>
-            <span className="text-on-surface" aria-current="page">{team.flag} {team.name}</span>
-          </li>
-        </ol>
-      </nav>
-
       <TeamHero team={team} />
-      <TeamStats team={team} players={players} />
-      <TacticalDNA team={team} players={players} />
-      <SquadDepth players={players} />
+      <TeamStats team={team} />
       <SquadRoster players={players} teamSlug={slug} />
 
-      {/* Phase 2: Historical Performance */}
-      {wcHistory && <HistoricalPerformance history={wcHistory} />}
+      {/* Market Intelligence */}
+      {marketIntel && <MarketIntel teamName={team.name} marketIntel={marketIntel} />}
 
-      {/* Phase 2: Match Center & Venue Info */}
-      <MatchCenter
-        venues={venues}
-        teamTimezone={teamTimezone}
-        jetLagTier={jetLagTier}
-        teamName={team.name}
-      />
+      {/* Tactical DNA Radar */}
+      <TacticalDNA team={team} players={players} />
+
+      {/* Squad Depth Analysis */}
+      <SquadDepth players={players} />
+
+      {/* Historical Performance */}
+      {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
 
       {/* SEO Content Block */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">

@@ -12,11 +12,14 @@ export default function Header() {
             <Link href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Teams
             </Link>
-            <Link href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Schedule
+            <Link href="/matches" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Matches
             </Link>
-            <Link href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Analysis
+            <Link href="/daily-briefing" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Briefing
+            </Link>
+            <Link href="/power-rankings" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Rankings
             </Link>
           </div>
           <div className="flex items-center gap-4">
@@ -39,9 +42,13 @@ export default function Header() {
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
           <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Teams</span>
         </Link>
-        <Link href="/teams" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+        <Link href="/matches" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Schedule</span>
+          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Matches</span>
+        </Link>
+        <Link href="/daily-briefing" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Briefing</span>
         </Link>
       </nav>
     </>

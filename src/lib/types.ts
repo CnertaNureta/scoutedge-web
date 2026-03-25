@@ -112,3 +112,26 @@ export interface TeamTimezone {
   adjustmentHours: number
   notes: string
 }
+
+export interface BookmakerOdds {
+  bookmaker: string
+  decimalOdds: number
+  impliedProbability: number
+}
+
+export interface ValueBet {
+  ourProbability: number
+  marketProbability: number
+  edge: number
+  bestOdds: number
+  bestBookmaker: string
+  signalStrength: 'strong' | 'moderate' | 'weak'
+}
+
+export interface MarketIntelData {
+  tournamentOdds: BookmakerOdds[]
+  averageOdds: number
+  impliedProbability: number
+  movement: 'shortening' | 'drifting' | 'stable'
+  valueBet: ValueBet | null
+}

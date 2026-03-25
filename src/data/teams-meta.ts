@@ -45,16 +45,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "South Korea 2002 \u2014 energetic underdogs feeding off crowd support",
     keyInsight:
       "Bafana Bafana have rebuilt impressively under Hugo Broos with a young, athletic squad; their AFCON resurgence suggests they are no longer World Cup tourists.",
-    seoArticle: `<h2>South Africa at the 2026 World Cup</h2>
-<p>South Africa return to the FIFA World Cup for the first time since hosting the tournament in 2010. Under Belgian coach Hugo Broos, Bafana Bafana have undergone a dramatic transformation, shifting from aging veterans to a vibrant, youthful squad hungry to prove themselves on the global stage.</p>
-<h3>The Broos Revolution</h3>
-<p>When Broos took charge, he made the bold decision to drop established stars and rebuild with players under 25. The gamble has paid off spectacularly. South Africa reached the semi-finals of the 2023 Africa Cup of Nations and qualified for the 2026 World Cup on merit \u2014 a significant achievement given the depth of African football.</p>
-<p>The team plays with high energy and a fearless attacking mentality. Percy Tau provides experience and creativity, while younger talents like Ronwen Williams in goal have emerged as genuine continental stars.</p>
-<h3>South Africa World Cup 2026 Group A Outlook</h3>
-<p>Drawn into Group A alongside co-hosts Mexico, South Korea, and Denmark, South Africa face a challenging but not impossible path. Their athleticism and tactical discipline under Broos give them a genuine chance of advancing past the group stage for the first time in their history.</p>
-<p>The expanded 48-team format, with the top two from each group plus the best third-placed teams advancing, works in Bafana Bafana\u2019s favor. A strong opening performance could set the tone for a memorable campaign. South Africa\u2019s World Cup 2026 journey will be closely watched across the African continent as a symbol of the region\u2019s rising footballing ambitions.</p>
-<h3>Key Factors for Success</h3>
-<p>Defensive organization and set-piece proficiency will be crucial. If South Africa can stay compact and exploit transition moments, they have the quality to cause upsets against any team in their group.</p>`,
+    seoArticle: `<h2>South Africa World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>South Africa return to the FIFA World Cup for the first time since hosting in 2010, reinvented under Belgian coach Hugo Broos as one of African football&#8217;s most compelling stories. Bafana Bafana&#8217;s transformation has been remarkable: where an aging, cautious squad once represented them, a fearless young team built around under-25 talent now competes with ambition and tactical sophistication. AFCON semi-finalists in 2023, South Africa arrive in North America ready to compete rather than merely participate.</p>
+<p>Broos&#8217; greatest achievement has been embedding a collective identity that transcends individual quality. South Africa&#8217;s Chemistry Index of 68/100 (Familiarity 62, Stability 70, Morale 78) reflects a young squad still building familiarity, but the high morale score captures the extraordinary belief this group carries from their qualifying campaign and continental performances. These players know they have surprised the world before; they intend to do it again.</p>
+<h3>Tactical Identity</h3>
+<p>Broos deploys South Africa in a energetic 4-4-2 or 4-3-3 that prioritizes defensive organization and rapid counter-attacks through athletic forward runners. The team presses with intensity above their midfield line and transitions vertically when possession is won. Percy Tau&#8217;s experience provides the attacking creative hub; younger players provide the energy and pace that makes South Africa&#8217;s counter-attacks genuinely dangerous for any opponent.</p>
+<h3>Key Player to Watch: Percy Tau</h3>
+<p>Percy Tau has experienced the highs and lows of top-level European football and brings that experience back to the national team as Bafana Bafana&#8217;s most technically accomplished attacker. His ability to find space between defensive lines, link midfield to attack, and deliver in the final third gives South Africa a quality differential their opponents must specifically plan for. When Tau is on form, South Africa are not just competitive &#8212; they are dangerous.</p>
+<h3>Group Stage Prediction: Group A (South Africa, Mexico, South Korea, Denmark)</h3>
+<p>Group A is a significant challenge &#8212; co-host Mexico, organized Denmark, and ever-consistent South Korea &#8212; but Broos&#8217; South Africa will compete in every match. Advancement as a third-placed team is their most realistic route forward. <strong>Predicted outcome: 3rd place contention, 2&#8211;4 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Competitive Underdog &#8212; Group advancement the target</strong></p>
+<p>South Africa&#8217;s primary objective is group-stage qualification. If achieved, the expanded 48-team format&#8217;s third-place pathway gives them a route to the knockout rounds where anything becomes possible for a well-organized team with nothing to lose.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 68/100 (Familiarity 62 &middot; Stability 70 &middot; Morale 78). South Africa&#8217;s return to the World Cup after a 16-year absence is a story worth celebrating. <strong>Their target is advancement from Group A &#8212; achievable against South Korea or Denmark, and the kind of result that would ignite an entire continent.</strong></p>`,
   },
   {
     slug: "south-korea",
@@ -71,16 +75,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "South Korea 2002 \u2014 relentless pressing and incredible stamina",
     keyInsight:
       "Son Heung-min\u2019s likely final World Cup adds emotional urgency; South Korea\u2019s elite pressing intensity can trouble any opponent over 90 minutes.",
-    seoArticle: `<h2>South Korea at the 2026 World Cup</h2>
-<p>South Korea head into the 2026 FIFA World Cup as one of Asia\u2019s most consistent performers, making their eleventh consecutive World Cup appearance. The Taegeuk Warriors carry the legacy of their extraordinary 2002 semi-final run and the more recent heroics of their 2022 group-stage victory over Portugal.</p>
-<h3>Son Heung-min\u2019s Farewell Tournament</h3>
-<p>The 2026 World Cup is widely expected to be captain Son Heung-min\u2019s final major international tournament. The Tottenham Hotspur star remains South Korea\u2019s most dangerous attacking weapon, and his leadership will be paramount in galvanizing a squad that blends Premier League experience with emerging domestic talent.</p>
-<p>Beyond Son, players like Kim Min-jae at center-back and Lee Kang-in in midfield provide world-class quality at both ends of the pitch. The squad\u2019s European club experience gives them familiarity with high-intensity football.</p>
-<h3>South Korea World Cup 2026 Tactical Approach</h3>
-<p>Under coach Hong Myung-bo, South Korea employ an aggressive pressing system that demands extraordinary fitness levels. The team\u2019s work rate and willingness to run for the full ninety minutes is their greatest tactical asset, allowing them to suffocate more technically gifted opponents.</p>
-<p>Group A presents a balanced challenge with Mexico, South Africa, and Denmark. South Korea should be competitive in every match, and their big-game mentality \u2014 forged through decades of World Cup participation \u2014 gives them an edge in tight encounters.</p>
-<h3>Prospects and Predictions</h3>
-<p>South Korea\u2019s World Cup 2026 campaign will likely come down to their ability to manage Son\u2019s workload while maintaining their trademark intensity. If the supporting cast steps up, a Round of 16 appearance is well within reach, with the potential for more if the draw opens favorably in the knockout stage.</p>`,
+    seoArticle: `<h2>South Korea World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>South Korea arrive at the 2026 FIFA World Cup for their eleventh consecutive appearance, carrying the emotional weight of Son Heung-min&#8217;s likely farewell to the tournament stage. The Taegeuk Warriors have built a reputation over three decades for competitive resilience, pressing intensity, and the ability to perform beyond expectations in major tournaments &#8212; the 2002 semi-final remains the defining achievement, but the 2022 win over Portugal demonstrated that this generation has its own capacity for memorable nights.</p>
+<p>Under Hong Myung-bo, South Korea&#8217;s Chemistry Index of 76/100 (Familiarity 74, Stability 68, Morale 75) reflects a squad with good collective understanding but ongoing questions about tactical stability. The blend of Son&#8217;s leadership, Kim Min-jae&#8217;s world-class defending, and Lee Kang-in&#8217;s midfield creativity gives them quality at both ends of the pitch.</p>
+<h3>Tactical Identity</h3>
+<p>Hong Myung-bo deploys South Korea in an aggressive pressing 4-3-3 that demands extraordinary work rate from every player. The team&#8217;s greatest strength is their ability to sustain pressing intensity across 90 minutes &#8212; a physical output that wears down technically superior opponents. When the press disrupts buildup and quick transitions release Son into space, South Korea are genuinely dangerous regardless of the opponent&#8217;s quality.</p>
+<h3>Key Player to Watch: Son Heung-min</h3>
+<p>Son Heung-min&#8217;s likely final World Cup carries immense emotional significance for South Korean football. The Tottenham Hotspur captain remains his country&#8217;s most dangerous attacker &#8212; his movement, finishing, and ability to score from outside the box make him a threat that no defensive setup can fully neutralize. Son has the ability to deliver iconic moments; Group A could provide the stage for one.</p>
+<h3>Group Stage Prediction: Group A (South Korea, Mexico, South Africa, Denmark)</h3>
+<p>Group A gives South Korea a clear path. They are likely the second-best team behind Mexico and should advance with a combination of results against South Africa and competitive showings against Denmark and El Tri. <strong>Predicted outcome: Group A qualification, 4&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Target &#8212; Quarter-final if Son delivers</strong></p>
+<p>South Korea&#8217;s knockout ceiling in 2026 is determined primarily by Son&#8217;s form and fitness. When he is operating at his peak, South Korea can upset any opponent on a given day. The pressing system creates the opportunities; Son decides whether they are taken.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 76/100 (Familiarity 74 &middot; Stability 68 &middot; Morale 75). South Korea are reliable qualifiers from difficult groups and dangerous opponents in knockout rounds when Son is motivated. <strong>Our pick for Round of 16 progression, with the emotional fuel of Son&#8217;s farewell tournament as their most powerful competitive asset.</strong></p>`,
   },
   {
     slug: "denmark",
@@ -98,16 +106,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Denmark 1992 \u2014 tight-knit underdog with collective spirit",
     keyInsight:
       "Denmark\u2019s remarkable squad continuity and selfless team ethic make them perennial dark horses; their collective identity often outweighs individual star power.",
-    seoArticle: `<h2>Denmark at the 2026 World Cup</h2>
-<p>Denmark arrive at the 2026 FIFA World Cup through the playoff route, but their ranking and pedigree make them a dangerous proposition for any opponent. The Danish Dynamite have built one of Europe\u2019s most cohesive national teams over the past decade, reaching the Euro 2020 semi-finals and consistently punching above their weight.</p>
-<h3>A Team Built on Togetherness</h3>
-<p>Under Kasper Hjulmand, Denmark prioritize collective effort over individual brilliance. Every player knows their role, pressing triggers are drilled to perfection, and the team defends as a unified block. This organizational excellence allows Denmark to compete with and often beat teams with far greater individual talent.</p>
-<p>Christian Eriksen\u2019s remarkable return to international football following his cardiac arrest at Euro 2020 remains one of football\u2019s most inspiring stories. His creativity and set-piece delivery remain vital to Danish attacking play.</p>
-<h3>Denmark World Cup 2026 Group A Analysis</h3>
-<p>Entering Group A as the playoff qualifier alongside Mexico, South Africa, and South Korea, Denmark face a competitive but navigable group. Their European pedigree and tournament experience should serve them well, though they cannot afford complacency against any opponent in the expanded format.</p>
-<p>Denmark\u2019s strength lies in their midfield control and defensive discipline. Pierre-Emile Hojbjerg provides the engine room intensity, while the center-back pairing offers Premier League-quality solidity. The question mark hovers over their attacking output, where goals have sometimes been hard to come by.</p>
-<h3>Dark Horse Credentials</h3>
-<p>Denmark\u2019s World Cup 2026 campaign could mirror their Euro 2020 run if the knockout draw is favorable. Their ability to raise performance levels in tournament football, combined with a squad that has grown together over multiple campaigns, makes them one of the most underrated teams in the competition.</p>`,
+    seoArticle: `<h2>Denmark World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Denmark arrive at the 2026 FIFA World Cup as one of international football&#8217;s most consistently underrated teams &#8212; a compact, selfless unit built on remarkable squad continuity that persistently outperforms their individual talent level. Under Kasper Hjulmand, the Danes have developed a collective identity so strong that the sum is reliably greater than its parts. Euro 2020 semi-finalists, consistent World Cup qualifiers, and a team that no opponent relishes facing.</p>
+<p>Denmark&#8217;s Chemistry Index of 80/100 (Familiarity 82, Stability 78, Morale 72) is the highest of any non-top-12 FIFA-ranked team, and the familiarity score of 82 tells the real story: this squad has played together through multiple major tournaments under the same philosophy. The low morale score (72) relative to their cohesion suggests a squad that is focused and determined rather than emotionally fired up &#8212; exactly the Danish way.</p>
+<h3>Tactical Identity</h3>
+<p>Hjulmand&#8217;s Denmark operate in a disciplined 3-4-3 or 4-3-3 that prioritizes defensive solidity, quick transitions, and clinical exploitation of set pieces and counter-attack opportunities. Christian Eriksen&#8217;s creativity from midfield remains the key offensive mechanism, while the defensive block&#8217;s compactness makes Denmark one of the most difficult teams to score against in international football.</p>
+<h3>Key Player to Watch: Christian Eriksen</h3>
+<p>Christian Eriksen&#8217;s return to top-level football following his cardiac arrest at Euro 2020 is one of sport&#8217;s great stories &#8212; and his continued excellence for Manchester United and Denmark confirms that the talent and intelligence were never diminished. Eriksen&#8217;s ability to find pockets of space, deliver the incisive pass, and score from range makes him Denmark&#8217;s most creative weapon and the player opposition must specifically suppress to neutralize Denmark&#8217;s attacking threat.</p>
+<h3>Group Stage Prediction: Group A (Denmark, Mexico, South Korea, South Africa)</h3>
+<p>Group A gives Denmark a realistic path to advancement alongside Mexico. Both South Korea and South Africa are winnable matches for a team of Denmark&#8217;s organized quality. <strong>Predicted outcome: Group A qualification as runners-up, 4&#8211;7 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
+<p>Denmark&#8217;s knockout history shows a team that consistently performs to their potential in high-stakes matches. Their defensive organization makes them difficult to beat; their set-piece quality gives them a scoring mechanism against any opponent. A quarter-final run is achievable.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 80/100 (Familiarity 82 &middot; Stability 78 &middot; Morale 72). Denmark are the tournament&#8217;s most cohesive non-elite team &#8212; organized, hard to beat, and consistently capable of surprising higher-ranked opponents. <strong>Our dark horse pick for a quarter-final run from the left side of the draw.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -128,16 +140,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Switzerland 2024 \u2014 tactically flexible and knockout-tough",
     keyInsight:
       "Switzerland\u2019s tactical intelligence and big-tournament composure make them the group\u2019s most reliable team; they rarely lose matches they should win.",
-    seoArticle: `<h2>Switzerland at the 2026 World Cup</h2>
-<p>Switzerland have established themselves as one of European football\u2019s most consistent performers, qualifying for every major tournament since 2014. The Nati arrive at the 2026 FIFA World Cup with a squad that blends experienced campaigners with exciting young talent, coached by the tactically astute Murat Yakin.</p>
-<h3>Tactical Flexibility Under Yakin</h3>
-<p>Murat Yakin has proven himself as one of the most underrated coaches in international football. His ability to adapt formations and tactics to specific opponents was on full display at Euro 2024, where Switzerland impressed before a narrow quarter-final exit. Yakin frequently shifts between three-at-the-back and four-at-the-back systems, keeping opponents guessing.</p>
-<p>Granit Xhaka remains the metronome in midfield, dictating tempo with his precise passing range. His performances for Bayer Leverkusen have only enhanced his standing as one of Europe\u2019s elite midfielders.</p>
-<h3>Switzerland World Cup 2026 Group B Preview</h3>
-<p>Group B pairs Switzerland with Canada, Qatar, and Italy. The Swiss will fancy their chances as group favorites or close to it, with their tournament pedigree giving them a significant psychological advantage. They have reached the knockout stages in each of their last four major tournaments.</p>
-<p>The key to Switzerland\u2019s World Cup 2026 success will be their defensive organization. They concede very few goals in group stages and have mastered the art of managing games. If they can add more attacking fluency to their solid defensive foundation, a deep run is entirely possible.</p>
-<h3>Generational Transition</h3>
-<p>With several stalwarts approaching the twilight of their careers, the 2026 World Cup represents a critical juncture for Swiss football. Emerging talents in attack and midfield must step up alongside the veterans to ensure continuity of success on the world stage.</p>`,
+    seoArticle: `<h2>Switzerland World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Switzerland have established themselves as one of European football&#8217;s most reliable overachievers &#8212; a nation that consistently qualifies for major tournaments, consistently advances beyond the group stage, and consistently makes life difficult for the continent&#8217;s heavyweights. Under Murat Yakin, the Swiss have added tactical versatility to their trademark defensive organization, making them one of the most complete units in their FIFA ranking tier.</p>
+<p>Switzerland&#8217;s Chemistry Index of 77/100 (Familiarity 80, Stability 76, Morale 74) reflects a well-established squad with strong collective understanding. The familiarity score of 80 captures years of playing together under similar tactical principles, while the morale and stability scores reflect a group confident in their system and identity.</p>
+<h3>Tactical Identity</h3>
+<p>Yakin typically deploys Switzerland in a 3-4-2-1 or 4-3-3 that prioritizes defensive solidity, rapid ball recovery, and exploiting the quality of Granit Xhaka and Xherdan Shaqiri in advanced positions. The Swiss press actively and maintain exceptional defensive shape, making them extremely difficult to break down for 90 minutes.</p>
+<h3>Key Player to Watch: Granit Xhaka</h3>
+<p>Granit Xhaka&#8217;s Bayer Leverkusen renaissance &#8212; winning the Bundesliga and reaching the Europa League final &#8212; has produced his best football since joining Arsenal. At 33, Xhaka plays with the authority and decision-making quality of a player who has finally found the perfect environment. His positional discipline, passing range, and set-piece delivery make him Switzerland&#8217;s most important player in both attacking and defensive phases.</p>
+<h3>Group Stage Prediction: Group B (Switzerland, Italy, Canada, Qatar)</h3>
+<p>Group B presents a complex challenge with Italy (FIFA #9) as the primary rival for top position. Canada and Qatar are more manageable. <strong>Predicted outcome: Group B runners-up behind Italy, 4&#8211;7 points.</strong></p>
+<h3>Knockout Potential</h3><p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
+<p>Switzerland&#8217;s knockout track record is excellent &#8212; they reached the quarter-finals in 2022 (losing to Portugal) and the Round of 16 in 2022. In 2026, with Xhaka in his prime, they carry genuine upset potential against any team in the last 16.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 77/100 (Familiarity 80 &middot; Stability 76 &middot; Morale 74). Switzerland are one of tournament football&#8217;s most reliable performers, consistently delivering results that match or exceed their FIFA ranking. <strong>Our pick for Round of 16 progression, with a genuine quarter-final upset possible.</strong></p>`,
   },
   {
     slug: "canada",
@@ -154,16 +169,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "USA 2002 \u2014 co-hosts with athletic pressing and team spirit",
     keyInsight:
       "Canada\u2019s golden generation peaked at the right moment; co-host status and Alphonso Davies\u2019 speed create genuine upset potential in every match.",
-    seoArticle: `<h2>Canada at the 2026 World Cup</h2>
-<p>Canada enter the 2026 FIFA World Cup as co-hosts, riding the momentum of a footballing renaissance. After decades in the wilderness, Les Rouges have emerged as a legitimate force in CONCACAF, reaching the 2022 World Cup in Qatar and producing a generation of players competing at the highest levels of European club football.</p>
-<h3>The Golden Generation</h3>
-<p>Alphonso Davies headlines a Canadian squad brimming with talent. The Bayern Munich full-back\u2019s blistering pace and ability to beat defenders make him one of the most exciting players at the tournament. Jonathan David provides clinical finishing from the striker position, while midfield options have deepened significantly with players plying their trade across Europe\u2019s top leagues.</p>
-<p>Under Jesse Marsch, Canada play an aggressive, high-pressing style that prioritizes winning the ball high up the pitch and creating chances through rapid transitions. The system maximizes the squad\u2019s athleticism and energy.</p>
-<h3>Canada World Cup 2026 Home Advantage</h3>
-<p>Playing on home soil in Canada\u2019s World Cup 2026 venues will provide an enormous boost. The country\u2019s passionate and growing football fanbase will create electric atmospheres in Toronto, Vancouver, and other host cities. Group B opponents Switzerland, Qatar, and Italy will face a hostile road environment.</p>
-<p>The expanded 48-team format and co-host status remove the pressure of qualification, allowing Canada to focus entirely on preparation. This extended runway could prove invaluable for building squad chemistry and tactical understanding.</p>
-<h3>Realistic Expectations</h3>
-<p>While a deep tournament run would be ambitious, advancing from the group stage is a realistic and expected minimum. Canada\u2019s World Cup 2026 journey is about establishing the nation as a permanent fixture in international football, and a strong home showing could accelerate that transformation.</p>`,
+    seoArticle: `<h2>Canada World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Canada enter the 2026 FIFA World Cup as co-hosts experiencing a footballing renaissance that would have been unimaginable a decade ago. After their first World Cup in 36 years in Qatar 2022 &#8212; where they showed enormous promise despite early elimination &#8212; Canada return to the tournament on home soil with a squad that has been developing together through CONCACAF competition and featuring players across Europe&#8217;s top leagues.</p>
+<p>Canada&#8217;s Chemistry Index of 70/100 (Familiarity 68, Stability 64, Morale 85) tells a compelling story. The morale score of 85 is exceptional &#8212; powered by home-crowd advantage, national footballing pride, and the extraordinary emotional stakes of competing in their own country. Alphonso Davies leads a generation of Canadian talent that is redefining what North American football can achieve.</p>
+<h3>Tactical Identity</h3>
+<p>Jesse Marsch deploys Canada in a high-energy pressing 4-3-3 built around the philosophy he implemented at Leipzig and Salzburg: relentless pressing, quick vertical play, and aggressive transition defending. Davies&#8217; pace and attacking quality on the left is the system&#8217;s most dangerous weapon; Jonathan David&#8217;s Premier League-level finishing provides the goal-scoring certainty the system requires.</p>
+<h3>Key Player to Watch: Alphonso Davies</h3>
+<p>Alphonso Davies is one of the world&#8217;s elite left-backs &#8212; explosive pace, excellent crossing, and the ability to beat defenders in isolation. At Bayern Munich he has won multiple Bundesliga titles and a Champions League. For Canada at home, Davies&#8217; combination of world-class quality and the emotional investment of playing in his own country makes him a potentially decisive tournament performer.</p>
+<h3>Group Stage Prediction: Group B (Canada, Italy, Switzerland, Qatar)</h3>
+<p>Group B with Italy (FIFA #9) and Switzerland (FIFA #19) is tough for Canada. Qatar are the most beatable opponent. Advancement as a third-placed team may be the realistic target. <strong>Predicted outcome: 3rd place possibility, 2&#8211;4 points, with Davies providing individual highlights.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Competitive Underdog &#8212; Home crowd could produce a shock</strong></p>
+<p>Canada&#8217;s home crowd advantage &#8212; playing in Canadian cities in front of 60,000+ passionate supporters &#8212; is a genuine competitive factor that could produce results exceeding their FIFA ranking. With Davies and David on form, Canada are capable of beating any Group B opponent on a given day.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 64 &middot; Morale 85). Canada&#8217;s home World Cup is the defining moment for their footballing generation. <strong>Long-shot advancement from Group B, but Davies and David could produce moments that define Canadian sport for a generation regardless of the results.</strong></p>`,
   },
   {
     slug: "qatar",
@@ -180,16 +199,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Japan 2002 \u2014 methodical preparation with home-tournament experience",
     keyInsight:
       "Qatar\u2019s 2022 hosting experience taught harsh on-pitch lessons; their technical style now has a harder competitive edge but remains unproven away from home.",
-    seoArticle: `<h2>Qatar at the 2026 World Cup</h2>
-<p>Qatar return to the World Cup stage determined to erase the memory of their 2022 campaign, where they became the first host nation to lose all three group-stage matches. The Maroons have used the intervening years to rebuild and strengthen, with a clear focus on competitive credibility at the highest level.</p>
-<h3>Lessons from 2022</h3>
-<p>The 2022 World Cup was a humbling experience for Qatar on the pitch, despite the tournament\u2019s organizational success. Losses to Ecuador, Senegal, and the Netherlands exposed a gap between Qatar\u2019s domestic development and the global elite. However, the experience was invaluable, providing the squad with a clear understanding of what World Cup football demands.</p>
-<p>Under Carlos Queiroz, Qatar have adopted a more pragmatic approach. The Portuguese coach brings vast World Cup experience from his stints with Iran and Portugal, and he has instilled greater defensive discipline without sacrificing the technical passing game that underpins Qatari football.</p>
-<h3>Qatar World Cup 2026 Group B Challenge</h3>
-<p>Group B presents a significant challenge with Switzerland, Canada, and Italy all strong opponents. Qatar will need to be at their very best to collect points, but the pressure of hosting has been removed, potentially allowing the players to compete with greater freedom and less anxiety.</p>
-<p>Almoez Ali remains the attacking talisman, and his ability to score crucial goals will be vital. The midfield has matured with players gaining experience in the AFC Champions League and competitive international fixtures.</p>
-<h3>Long-Term Development Goals</h3>
-<p>Qatar\u2019s World Cup 2026 campaign is part of a broader national football development strategy. Competing credibly against top-tier opponents would validate years of investment in youth academies and infrastructure. Even a single group-stage victory would represent significant progress from the 2022 disappointment.</p>`,
+    seoArticle: `<h2>Qatar World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Qatar return to the FIFA World Cup having made history in 2022 &#8212; becoming the first host nation to be eliminated in the group stage in the tournament&#8217;s modern era. Under Carlos Queiroz, the Asian champions have been working to correct the defensive vulnerabilities that led to five goals conceded in their first two matches. Qatar&#8217;s qualification from Asia demonstrates genuine progress and the continued investment of their Football Association in the national program.</p>
+<p>Qatar&#8217;s Chemistry Index of 71/100 (Familiarity 75, Stability 72, Morale 65) reflects a squad that plays together regularly in the domestic league and has developed strong tactical familiarity under Queiroz&#8217;s system. The lower morale score (65) possibly reflects the psychological weight of the 2022 host-nation exit that still defines their international reputation.</p>
+<h3>Tactical Identity</h3>
+<p>Queiroz deploys Qatar in a disciplined defensive system that prioritizes compactness, organized shape, and looking to exploit set pieces offensively. The team has improving technical quality through the Aspire Academy pipeline and the experience of Gulf Cup competitions. Akram Afif provides the attacking quality most capable of threatening Group B opponents.</p>
+<h3>Key Player to Watch: Akram Afif</h3>
+<p>Akram Afif is Qatar&#8217;s most creative and dangerous player &#8212; a tricky winger with strong dribbling ability and the composure to deliver in pressure situations. His AFC Asian Cup performance, including a hat-trick in the final, demonstrated his capability at continental level. Against Group B opponents, Afif&#8217;s ability to create from the flanks is Qatar&#8217;s primary threat.</p>
+<h3>Group Stage Prediction: Group B (Qatar, Italy, Switzerland, Canada)</h3>
+<p>Group B with Italy (FIFA #9) and Switzerland (FIFA #19) is a significant challenge. Canada at home will also be motivated. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; maximum 1 point with a strong performance against Canada.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage Only</strong></p>
+<p>Qatar&#8217;s realistic objective is competitive performances in all three matches and demonstrating growth from 2022. A genuine result against Canada would represent a significant achievement at this level.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 71/100 (Familiarity 75 &middot; Stability 72 &middot; Morale 65). Qatar have invested heavily in footballing infrastructure and their Asian Cup victories demonstrate genuine development. <strong>Group stage elimination expected, but competitive performances would represent progress for a program that is still building toward long-term ambitions.</strong></p>`,
   },
   {
     slug: "italy",
@@ -289,16 +312,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Iceland 2016 \u2014 disciplined underdogs with remarkable unity",
     keyInsight:
       "Scotland\u2019s never-say-die attitude and Steve Clarke\u2019s pragmatic system give them knockout-round potential, but goals remain a persistent concern.",
-    seoArticle: `<h2>Scotland at the 2026 World Cup</h2>
-<p>Scotland return to the FIFA World Cup for the first time since 1998, ending a 28-year absence from football\u2019s greatest stage. The Tartan Army\u2019s passionate supporters will travel in force to North America, and the entire nation will unite behind a squad that has exceeded expectations under Steve Clarke.</p>
-<h3>Clarke\u2019s Tactical Blueprint</h3>
-<p>Steve Clarke has built Scotland into a well-organized, difficult-to-beat team that maximizes its resources. Playing primarily in a 3-5-2 or 5-3-2 formation, Scotland defend resolutely and look to exploit set pieces and quick transitions. Andrew Robertson provides Premier League quality at wing-back, while John McGinn\u2019s energy and goals from midfield are crucial.</p>
-<p>The system\u2019s greatest strength is its defensive solidity. Scotland regularly frustrate more talented opponents by denying space and forcing errors. Their disciplined shape makes them exceptionally tough to break down in tournament football.</p>
-<h3>Scotland World Cup 2026 Group C Preview</h3>
-<p>Group C is daunting on paper, with Brazil and Morocco presenting elite-level challenges. Haiti offer a more favorable matchup. Scotland\u2019s path to the knockout rounds likely involves beating Haiti convincingly and stealing a result from either Brazil or Morocco.</p>
-<p>Scotland\u2019s World Cup 2026 campaign will depend on their ability to remain compact and competitive against superior opposition. Clarke\u2019s teams have shown they can do this at European Championships, and the expanded format gives them a genuine route to progression.</p>
-<h3>A Nation\u2019s Dream</h3>
-<p>For Scottish football, merely being at the World Cup is a significant achievement. But this squad has the mentality and tactical discipline to go further. If Scotland can navigate the group stage, the knockout rounds offer a fresh start where their underdog spirit could prove decisive in tight, high-stakes matches.</p>`,
+    seoArticle: `<h2>Scotland World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Scotland return to the FIFA World Cup for the first time since 1998 &#8212; a 28-year absence that has ended under Steve Clarke&#8217;s methodical, pragmatic management. The Tartan Army will travel to North America in enormous numbers, and the emotional significance of Scotland&#8217;s qualification &#8212; achieved through a grueling European qualifying campaign &#8212; cannot be overstated. This is a squad that has earned its place at football&#8217;s greatest tournament through tactical discipline and collective spirit rather than individual star power.</p>
+<p>Scotland&#8217;s Chemistry Index of 75/100 (Familiarity 79, Stability 74, Morale 73) reflects a well-drilled squad whose high familiarity score (79) is the product of Clarke&#8217;s consistent selection policy. Andrew Robertson provides genuine world-class quality at wing-back; John McGinn brings Premier League excellence in midfield.</p>
+<h3>Tactical Identity</h3>
+<p>Clarke&#8217;s Scotland operate in a defensively disciplined 3-5-2 or 5-3-2 that prioritizes defensive compactness, set-piece threat, and exploiting transitions. The back five absorbs pressure effectively and releases quickly through Robertson&#8217;s overlapping runs. Scotland are exceptionally difficult to break down and capable of exploiting opponents who commit men forward against them.</p>
+<h3>Key Player to Watch: Andrew Robertson</h3>
+<p>Andrew Robertson is Scotland&#8217;s most technically accomplished player and one of the world&#8217;s best left-backs. His Liverpool experience, Champions League pedigree, and relentless work rate make him the quality differential that Clarke&#8217;s system is built to leverage. Robertson&#8217;s crosses, long-range delivery, and ability to arrive late in dangerous areas give Scotland an attacking dimension from an unexpected source.</p>
+<h3>Group Stage Prediction: Group C (Scotland, Brazil, Morocco, Haiti)</h3>
+<p>Group C is daunting &#8212; Brazil and Morocco are elite-level opponents. Scotland will target maximum points from Haiti and competitive performances against the top two. <strong>Predicted outcome: 3rd place, 1&#8211;4 points, with qualification dependent on results across other groups.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Competitive Underdog &#8212; Group-stage qualification the target</strong></p>
+<p>Scotland&#8217;s knockout chance depends on advancement from a very tough group. If they navigate that, Clarke&#8217;s organized system has shown in previous tournaments that it can compete with higher-quality opponents in knockout football.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 75/100 (Familiarity 79 &middot; Stability 74 &middot; Morale 73). Scotland&#8217;s return after 28 years is a celebration of patient, intelligent coaching and collective determination. <strong>Group-stage progression is a tough ask from Group C, but Clarke&#8217;s Scotland will compete hard in every minute of every match.</strong></p>`,
   },
   {
     slug: "haiti",
@@ -315,16 +342,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Togo 2006 \u2014 historic qualifiers competing with pure pride",
     keyInsight:
       "Haiti\u2019s qualification is a monumental achievement for Caribbean football; their diaspora talent pool in France and North America gives them surprising technical quality.",
-    seoArticle: `<h2>Haiti at the 2026 World Cup</h2>
-<p>Haiti\u2019s qualification for the 2026 FIFA World Cup is one of the tournament\u2019s most remarkable stories. The Caribbean nation, which last appeared at a World Cup in 1974, has overcome enormous socioeconomic challenges to earn their place on football\u2019s biggest stage. The achievement has united a nation and its global diaspora in celebration.</p>
-<h3>Diaspora Talent and Caribbean Pride</h3>
-<p>Haiti\u2019s squad draws heavily from the Haitian diaspora, particularly players born or raised in France, Canada, and the United States. This recruitment strategy has elevated the team\u2019s technical quality significantly, with several players competing in European leagues and Major League Soccer.</p>
-<p>The team plays with infectious joy and passion that reflects Haiti\u2019s vibrant culture. While they may lack the depth and tactical sophistication of World Cup regulars, their technical ability on the ball can surprise opponents who underestimate them.</p>
-<h3>Haiti World Cup 2026 Group C Reality</h3>
-<p>Group C alongside Brazil, Morocco, and Scotland represents a formidable challenge. Haiti enter as clear underdogs in every match, but the expanded 48-team format gives them a mathematical chance of advancing, and the World Cup has a long history of producing shocks.</p>
-<p>Haiti\u2019s World Cup 2026 goal will be to compete with dignity, score goals, and create moments that inspire the next generation of Haitian footballers. A single point or a memorable performance against one of the group\u2019s heavyweights would be celebrated as a historic achievement.</p>
-<h3>Beyond the Pitch</h3>
-<p>Haiti\u2019s World Cup participation carries significance far beyond football. For a nation that has endured earthquakes, political instability, and economic hardship, the team\u2019s presence in the 2026 World Cup is a beacon of hope and national pride that resonates deeply with Haitians worldwide.</p>`,
+    seoArticle: `<h2>Haiti World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Haiti&#8217;s qualification for the 2026 FIFA World Cup represents one of football&#8217;s most uplifting stories. A country that has faced extraordinary hardship &#8212; political instability, natural disasters, economic challenges &#8212; has produced a football team that qualified for the World Cup through determination, collective spirit, and the talent of a diaspora-enriched squad. The Grenadiers arrive in North America not as tourists but as competitors who earned their place.</p>
+<p>Haiti&#8217;s Chemistry Index of 60/100 (Familiarity 55, Stability 52, Morale 90) contains the most remarkable number in the tournament. A morale score of 90 &#8212; among the highest of any of the 48 participating nations &#8212; captures the extraordinary emotional energy that Haiti carry. When you have overcome what Haiti has overcome to reach a World Cup, technical limitations become secondary to spirit.</p>
+<h3>Tactical Identity</h3>
+<p>Nicolas Delepine&#8217;s Haiti play with energy, directness, and a pressing intensity that leverages their exceptional athletic profile. The squad features several players from the French and American leagues who bring tactical organization to complement the raw athleticism. Haiti will be organized and difficult to break down &#8212; not a team that will simply concede five goals and disappear.</p>
+<h3>Key Player to Watch: Duckens Nazon</h3>
+<p>Duckens Nazon is Haiti&#8217;s most dangerous attacking threat &#8212; a direct, physical forward who can cause problems for any central defensive pairing with his movement and finishing ability. Haiti&#8217;s best results come when Nazon receives service in behind defensive lines and exploits his physical presence in the box. Against Scotland, the most winnable of Haiti&#8217;s group matches, Nazon&#8217;s performance could be decisive.</p>
+<h3>Group Stage Prediction: Group C (Haiti, Brazil, Morocco, Scotland)</h3>
+<p>Group C is a formidable challenge. Brazil and Morocco are elite opponents; Scotland are organized and experienced. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; but every competitive performance represents a victory for Haitian football.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Competitive Underdog &#8212; Inspiring group-stage performances the goal</strong></p>
+<p>Haiti&#8217;s realistic objective is competitive performances and a result against Scotland. The morale score (90) suggests a team capable of extraordinary effort; the structural scores suggest limited technical depth.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 60/100 (Familiarity 55 &middot; Stability 52 &middot; Morale 90). Haiti represent one of football&#8217;s most powerful human stories. <strong>Group-stage progression is unlikely from Group C, but Haiti&#8217;s presence at this World Cup is itself a triumph &#8212; and their spirit makes them dangerous for any opponent who takes them lightly.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -371,16 +402,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Paraguay 2010 \u2014 defensive resilience with set-piece danger",
     keyInsight:
       "Paraguay\u2019s return to the World Cup after missing two editions brings renewed hunger; their CONMEBOL qualifying battle-hardening gives them a competitive edge in tight matches.",
-    seoArticle: `<h2>Paraguay at the 2026 World Cup</h2>
-<p>Paraguay return to the FIFA World Cup after missing the 2018 and 2022 editions, ending a painful absence for a nation with proud World Cup history. The Guaranies reached the quarter-finals in 2010 and have a tradition of producing tough, competitive teams that refuse to yield easily.</p>
-<h3>Rebuilding Paraguayan Football</h3>
-<p>The qualification campaign through CONMEBOL \u2014 widely regarded as the toughest in world football \u2014 required Paraguay to overcome powerhouses like Argentina, Brazil, and Uruguay on a regular basis. This battle-hardening provides invaluable experience that teams from other confederations simply cannot replicate.</p>
-<p>Paraguay\u2019s squad has undergone significant renewal, with a new generation of players emerging alongside experienced campaigners. The team\u2019s traditional strengths of defensive resilience, aerial dominance, and set-piece expertise remain hallmarks of their playing style.</p>
-<h3>Paraguay World Cup 2026 Group D Prospects</h3>
-<p>Group D features co-hosts USA, Australia, and Turkey alongside Paraguay. While the USA will be formidable with home support, Paraguay have the tactical discipline and competitive mentality to take points from any opponent. Their CONMEBOL pedigree ensures they will not be overawed by the occasion.</p>
-<p>Paraguay\u2019s World Cup 2026 approach will likely be characteristically pragmatic. Under their coaching setup, the team will prioritize defensive organization and look to exploit opponents on the break and from set pieces. In a tight group, this approach could be effective enough to secure passage to the knockout rounds.</p>
-<h3>Sleeping Giant Potential</h3>
-<p>Paraguay may fly under the radar heading into the 2026 World Cup, but their recent qualifying form and South American toughness make them a dangerous opponent. Teams that underestimate the Guaranies tend to regret it.</p>`,
+    seoArticle: `<h2>Paraguay World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Paraguay return to the FIFA World Cup after a qualification campaign that demonstrated this proud footballing nation&#8217;s resilience through CONMEBOL&#8217;s unforgiving gauntlet. The Albirroja have a rich World Cup history &#8212; quarter-finalists in 1962 and 2010 &#8212; and this squad, under Alfaro Moreno&#8217;s organized management, carries forward a tradition of defensive organization and competitive spirit that makes Paraguay difficult opponents for any team.</p>
+<p>Paraguay&#8217;s Chemistry Index of 66/100 (Familiarity 64, Stability 60, Morale 70) reflects a functional, organized squad still finding its optimal combination. The lower morale score (70) suggests a team aware of the gap between themselves and the tournament&#8217;s elite but determined to compete for every point.</p>
+<h3>Tactical Identity</h3>
+<p>Paraguay play in an organized 4-4-2 or 4-3-3 that prioritizes defensive compactness and set-piece proficiency. Their physical, direct style creates challenges for technically superior opponents who find the compact defensive shape difficult to penetrate. Transitional moments &#8212; quick releases to mobile forwards &#8212; are Paraguay&#8217;s most reliable attacking mechanism.</p>
+<h3>Key Player to Watch: Miguel Almirón</h3>
+<p>Miguel Almirón&#8217;s Premier League experience at Newcastle United &#8212; where he has been one of the league&#8217;s more consistent attacking midfielders &#8212; gives Paraguay a creativity and technical quality in midfield that elevates the team&#8217;s ceiling. When Almirón is in form, Paraguay have the ability to threaten organized defensive units and create chances from unexpected positions.</p>
+<h3>Group Stage Prediction: Group D (Paraguay, USA, Australia, Turkey)</h3>
+<p>Group D gives Paraguay a realistic competitive window. The USA&#8217;s co-host advantage makes them the group&#8217;s likely winner, but Paraguay should target a result against Australia or Turkey. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage Target &#8212; Advancement possible via third-place pathway</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 66/100 (Familiarity 64 &middot; Stability 60 &middot; Morale 70). Paraguay are a competitive CONMEBOL nation who will make life difficult for every opponent in Group D. <strong>Third-place pathway to the Round of 32 is their most realistic advancement route.</strong></p>`,
   },
   {
     slug: "australia",
@@ -397,16 +431,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Australia 2006 \u2014 physical, never-quit mentality with European-based squad",
     keyInsight:
       "The Socceroos\u2019 growing contingent in European leagues has raised their technical floor; their physicality and aerial prowess remain potent weapons in tournament football.",
-    seoArticle: `<h2>Australia at the 2026 World Cup</h2>
-<p>Australia head to the 2026 FIFA World Cup building on the momentum of their impressive 2022 campaign, where the Socceroos reached the Round of 16 and captured the imagination of a sports-mad nation. The green and gold return with renewed confidence and a squad that continues to benefit from increasing European exposure.</p>
-<h3>Evolution of Australian Football</h3>
-<p>Australian football has undergone a transformation in recent years. Gone are the days when the squad relied primarily on A-League players supplemented by a handful of Europeans. Today\u2019s Socceroos feature a significant contingent playing in the Premier League, Bundesliga, La Liga, and other top European competitions.</p>
-<p>Under coach Tony Popovic, Australia play with the physical intensity and never-say-die attitude that has always characterized their football, now augmented by improved technical quality and tactical awareness. The team\u2019s aerial ability and set-piece proficiency remain genuine weapons at tournament level.</p>
-<h3>Australia World Cup 2026 Group D Preview</h3>
-<p>Group D presents a challenging but not insurmountable draw with co-hosts USA, Paraguay, and Turkey. Australia\u2019s 2022 World Cup experience, where they defeated Denmark and Tunisia in the group stage, provides a template for how to navigate tough groups through discipline and collective effort.</p>
-<p>The Socceroos\u2019 World Cup 2026 campaign will depend on their ability to manage the physical demands of competing in North American summer conditions. Their fitness levels and squad depth will be tested across three group matches, with the potential for an extended run in the expanded format.</p>
-<h3>Growing the Game Down Under</h3>
-<p>Each World Cup appearance strengthens football\u2019s position in Australia\u2019s competitive sporting landscape. A strong 2026 showing could further accelerate the sport\u2019s growth and inspire the next generation of Australian talent to pursue careers in the world\u2019s most popular game.</p>`,
+    seoArticle: `<h2>Australia World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Australia arrive at the 2026 FIFA World Cup buoyed by the extraordinary emotional impact of their 2022 semi-final run &#8212; the Socceroos&#8217; greatest achievement and a moment that captivated a nation not traditionally defined by football. Under Tony Popovic, Australia are building on that legacy with a new generation of European-based talent who have been inspired by what Ange Postecoglou&#8217;s 2006 generation and the 2022 squad achieved.</p>
+<p>Australia&#8217;s Chemistry Index of 71/100 (Familiarity 69, Stability 66, Morale 77) reflects a squad rebuilding after the retirement of key 2022 contributors. The morale (77) is elevated by the recent successes and the high-profile emergence of new talents in European leagues.</p>
+<h3>Tactical Identity</h3>
+<p>Popovic deploys Australia in a high-energy pressing 4-3-3 that demands relentless work rate from every outfield player. The system mirrors what Postecoglou has built at club level &#8212; aggressive pressing, vertical ball progression, and quick transitions. Australia&#8217;s European-trained players are well-suited to this style, and the physicality of the Australian game provides a foundation for competitive performances against technically superior teams.</p>
+<h3>Key Player to Watch: Mathew Ryan</h3>
+<p>Mathew Ryan is one of the most experienced goalkeepers in Australian football history and was the hero of the 2022 penalty shootout victory over France. His shot-stopping quality, distribution, and leadership behind the defense make him a genuine match-winner in tight encounters where a single save can determine progression. Ryan&#8217;s experience at the highest European club levels gives Australia exceptional quality between the posts.</p>
+<h3>Group Stage Prediction: Group D (Australia, USA, Paraguay, Turkey)</h3>
+<p>Group D offers Australia a competitive window. The USA&#8217;s home advantage makes them the likely group winners; Turkey and Paraguay are beatable opponents for a well-organized Australian side. <strong>Predicted outcome: 2nd or 3rd place, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; 2022 mentality lives on</strong></p>
+<p>Australia&#8217;s 2022 legacy gives them a psychological platform that transcends their FIFA ranking. The belief that they can compete with anyone in knockout football &#8212; demonstrated against Denmark and Argentina in 2022 &#8212; is a genuine competitive asset.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 71/100 (Familiarity 69 &middot; Stability 66 &middot; Morale 77). Australia carry the spirit of their 2022 semi-final heroes into every match. <strong>Group-stage advancement is realistic from Group D, with the potential for another memorable knockout performance if they get there.</strong></p>`,
   },
   {
     slug: "turkey",
@@ -424,16 +462,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Turkey 2002 \u2014 explosive attacking talent that can beat anyone on its day",
     keyInsight:
       "Turkey\u2019s young, fearless squad showed glimpses of brilliance at Euro 2024; their unpredictability is both their greatest strength and most frustrating weakness.",
-    seoArticle: `<h2>Turkey at the 2026 World Cup</h2>
-<p>Turkey return to the FIFA World Cup through the playoff route, ending a long absence from the tournament. The Crescent-Stars have produced memorable World Cup moments in the past, most notably their stunning third-place finish in 2002, and a new generation of Turkish talent is eager to write its own chapter in football history.</p>
-<h3>Young and Fearless</h3>
-<p>Under Italian coach Vincenzo Montella, Turkey have embraced an attacking, high-energy style that reflects the youth and exuberance of the squad. Players like Arda Guler, Kenan Yildiz, and Ferdi Kadioglu have emerged as stars at top European clubs, bringing a level of individual quality that Turkish football has not possessed in years.</p>
-<p>Arda Guler, in particular, has drawn comparisons to some of Turkey\u2019s all-time greats. His creativity and eye for goal from midfield make him one of the most exciting young players at the 2026 World Cup, and his performances will be crucial to Turkish ambitions.</p>
-<h3>Turkey World Cup 2026 Group D Analysis</h3>
-<p>Group D pairs Turkey with co-hosts USA, Paraguay, and Australia. It is a group where Turkey have the talent to compete with every opponent, but their inconsistency means results could go either way. The playoff entry adds an element of uncertainty about their form and momentum heading into the tournament.</p>
-<p>Turkey\u2019s World Cup 2026 prospects will depend on whether they can channel their attacking talent into consistent performances. When everything clicks, they are capable of beating anyone; when concentration lapses, they can concede soft goals that undermine their attacking prowess.</p>
-<h3>Harnessing the Passion</h3>
-<p>Turkish football fans are among the most passionate in the world, and the diaspora communities across North America will ensure vocal support at every venue. If Turkey can ride that emotional energy while maintaining tactical discipline, they could be one of the tournament\u2019s surprise packages.</p>`,
+    seoArticle: `<h2>Turkey World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Turkey arrive at the 2026 FIFA World Cup following an impressive qualification campaign that demonstrated Vincenzo Montella&#8217;s Italian coaching influence on a technically gifted squad. The Crescent Stars have a history of performing beyond expectations at major tournaments &#8212; their 2002 third-place finish remains their greatest achievement &#8212; and this generation of Turkish talent, spread across Serie A, La Liga, and the Bundesliga, carries genuine quality.</p>
+<p>Turkey&#8217;s Chemistry Index of 72/100 (Familiarity 67, Stability 63, Morale 79) reflects a squad with strong individual talent but still developing the collective cohesion under Montella&#8217;s system. The morale (79) is elevated by the excitement around a genuinely talented generation.</p>
+<h3>Tactical Identity</h3>
+<p>Montella deploys Turkey in a possession-oriented 4-3-3 that maximizes Hakan Çalhanoglu&#8217;s deep-lying creative quality and Arda Güler&#8217;s attacking brilliance. The system demands technical discipline in midfield and quick, direct passing through Güler&#8217;s advanced positions.</p>
+<h3>Key Player to Watch: Arda Güler</h3>
+<p>Arda Güler has arrived at Real Madrid as one of the most technically gifted young players in European football. His ability to find space between lines, turn under pressure, and deliver precise actions in the final third marks him as a generational talent for Turkish football. At 19-20, his 2026 World Cup will serve as the announcement of Turkey&#8217;s next great era.</p>
+<h3>Group Stage Prediction: Group D (Turkey, USA, Paraguay, Australia)</h3>
+<p>Group D is competitive. Turkey&#8217;s technical quality should give them an edge over Paraguay and Australia, though the USA&#8217;s home advantage makes them the likely group winners. <strong>Predicted outcome: 2nd or 3rd place, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; Güler as the wild card</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 72/100 (Familiarity 67 &middot; Stability 63 &middot; Morale 79). Turkey have a genuinely exciting young generation led by Güler that could make this tournament a coming-of-age moment for Turkish football. <strong>Round of 16 is the realistic target; a deep run depends on Güler&#8217;s form and Montella&#8217;s system reaching its potential.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -480,16 +521,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Ivory Coast 2015 \u2014 AFCON champions riding a wave of confidence",
     keyInsight:
       "Fresh off their 2023 AFCON title on home soil, Ivory Coast carry genuine belief; their blend of European-league talent and tactical discipline should not be underestimated.",
-    seoArticle: `<h2>Ivory Coast at the 2026 World Cup</h2>
-<p>Ivory Coast enter the 2026 FIFA World Cup as reigning Africa Cup of Nations champions, having won a dramatic AFCON 2023 tournament on home soil. The Elephants\u2019 incredible run \u2014 which saw them recover from the brink of elimination in the group stage to lift the trophy \u2014 has instilled a belief and spirit that makes them a dangerous proposition for any opponent.</p>
-<h3>AFCON Glory as a Springboard</h3>
-<p>Under Emerse Fae, who took charge mid-tournament during AFCON 2023 and engineered a remarkable turnaround, Ivory Coast play with the freedom and confidence of a team that knows it can overcome any adversity. Fae\u2019s calm demeanor and tactical flexibility have earned the trust of a talented squad.</p>
-<p>The squad features an impressive array of talent playing in Europe\u2019s top leagues. Sebastien Haller\u2019s inspiring return from cancer to score crucial AFCON goals, Nicolas Pepe\u2019s pace, and Franck Kessie\u2019s midfield power provide quality across the pitch.</p>
-<h3>Ivory Coast World Cup 2026 Group E Outlook</h3>
-<p>Group E alongside Germany, Ecuador, and Curacao presents a clear challenge but also genuine opportunity. Ivory Coast will target qualification alongside Germany, and their AFCON-winning pedigree gives them the big-game experience to handle high-pressure situations.</p>
-<p>The Elephants\u2019 World Cup 2026 campaign will be closely watched across Africa. As continental champions, they carry the hopes of an entire continent, and their talented squad has the quality to reach the knockout stages and potentially go further.</p>
-<h3>Legacy of the Golden Generation</h3>
-<p>Ivory Coast\u2019s previous golden generation featuring Drogba, Toure, and others never fully delivered at the World Cup. This current squad has the chance to surpass those legends by combining their AFCON success with a memorable World Cup campaign in North America.</p>`,
+    seoArticle: `<h2>Ivory Coast World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Ivory Coast enter the 2026 FIFA World Cup as reigning Africa Cup of Nations champions, having won AFCON 2023 in extraordinary circumstances &#8212; recovering from near group-stage elimination to win the tournament on home soil. Under Emerse Fa&eacute;, who took charge mid-tournament and engineered the comeback, the Elephants have developed a resilient, belief-driven identity that makes them dangerous regardless of the scoreline or circumstance.</p>
+<p>Ivory Coast&#8217;s Chemistry Index of 74/100 (Familiarity 70, Stability 68, Morale 86) is anchored by an extraordinary morale score of 86 &#8212; reflecting the extraordinary collective confidence of AFCON champions who know they can overcome any adversity. S&eacute;bastien Haller&#8217;s inspiring return from cancer to score AFCON goals is the defining story of this generation&#8217;s resilience.</p>
+<h3>Tactical Identity</h3>
+<p>Fa&eacute; deploys Ivory Coast in a dynamic 4-3-3 that leverages the squad&#8217;s physical quality, European league experience, and pressing intensity. The system&#8217;s strength is its collective belief &#8212; Ivory Coast teams under Fa&eacute; never give up, never concede defeat, and maintain their intensity until the final whistle in a way that has repeatedly confounded opponents who thought the match was won.</p>
+<h3>Key Player to Watch: Franck Kessie</h3>
+<p>Franck Kessie&#8217;s midfield power &#8212; combining physical dominance, ball-winning ability, and surprising technical quality &#8212; gives Ivory Coast an engine in central midfield capable of competing with any opponent. His Barcelona experience adds tactical sophistication to the raw physicality that defined his AC Milan years.</p>
+<h3>Group Stage Prediction: Group E (Ivory Coast, Germany, Ecuador, Curacao)</h3>
+<p>Group E gives Ivory Coast a complex challenge with Germany as the dominant opponent. The match against Ecuador is the key battleground for the second qualification spot. <strong>Predicted outcome: 2nd place competition, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; AFCON spirit could produce upsets</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 74/100 (Familiarity 70 &middot; Stability 68 &middot; Morale 86). Ivory Coast are Africa&#8217;s defending champions and one of the continent&#8217;s most dangerous teams at this tournament. <strong>Round of 16 advancement is the target; a shock against Germany is not impossible for a team that has already won a tournament from the brink of elimination.</strong></p>`,
   },
   {
     slug: "ecuador",
@@ -506,16 +550,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Ecuador 2006 \u2014 young, athletic squad with high-altitude advantage in qualifying",
     keyInsight:
       "Ecuador\u2019s youthful squad brings pace and directness but lacks tournament experience; their CONMEBOL qualifying resilience gives them a competitive edge.",
-    seoArticle: `<h2>Ecuador at the 2026 World Cup</h2>
-<p>Ecuador continue their emergence as a consistent World Cup qualifier, making their fourth appearance at football\u2019s greatest tournament. La Tri have built on the foundations of their 2002 and 2006 campaigns to become a regular presence in CONMEBOL\u2019s fiercely competitive qualifying process.</p>
-<h3>Youth Movement</h3>
-<p>Ecuador boast one of the youngest squads at the 2026 World Cup. Players like Moises Caicedo, who has established himself as a world-class midfielder at a Premier League club, lead a generation of Ecuadorian talent that has attracted interest from Europe\u2019s biggest clubs.</p>
-<p>The squad\u2019s youth brings both advantages and risks. On one hand, the players possess incredible energy, pace, and fearlessness. On the other, the lack of World Cup experience could prove costly in tight knockout situations. The coaching staff\u2019s ability to channel youthful exuberance into tactical discipline will be crucial.</p>
-<h3>Ecuador World Cup 2026 Group E Preview</h3>
-<p>Group E with Germany, Ivory Coast, and Curacao offers Ecuador a realistic path to the knockout rounds. Germany will be favorites, but the remaining positions are open, and Ecuador\u2019s CONMEBOL pedigree gives them a competitive edge over opponents from other confederations.</p>
-<p>Ecuador\u2019s World Cup 2026 approach will likely focus on aggressive pressing and quick vertical passing. Their altitude advantage in qualifying translates into exceptional fitness levels that serve them well in the latter stages of matches when opponents tire.</p>
-<h3>Building a Football Culture</h3>
-<p>Each World Cup appearance strengthens Ecuador\u2019s footballing infrastructure and inspires the next generation. A strong 2026 campaign, potentially reaching the knockout rounds, would represent a significant step forward for Ecuadorian football and cement La Tri\u2019s status among South America\u2019s established football nations.</p>`,
+    seoArticle: `<h2>Ecuador World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Ecuador continue their emergence as a reliable CONMEBOL presence at the World Cup, making their fourth tournament appearance and arriving with arguably their most talented generation. The young Ecuadorian squad &#8212; built around Mois&eacute;s Caicedo&#8217;s world-class midfield quality &#8212; carries exceptional athleticism and a pressing intensity forged through CONMEBOL&#8217;s demanding qualifying environment.</p>
+<p>Ecuador&#8217;s Chemistry Index of 70/100 (Familiarity 68, Stability 65, Morale 74) reflects a squad with growing cohesion under Sebastian Beccacece&#8217;s coaching. The youth of many squad members means familiarity is still building &#8212; but also that physical intensity will be maintained throughout a long tournament.</p>
+<h3>Tactical Identity</h3>
+<p>Beccacece&#8217;s Ecuador play high-energy, pressing football that maximizes the squad&#8217;s exceptional fitness levels &#8212; built through years of playing at altitude during qualifying. Quick, vertical passing and aggressive ball recovery characterize a team that rarely allows opponents comfortable time on the ball.</p>
+<h3>Key Player to Watch: Mois&eacute;s Caicedo</h3>
+<p>Mois&eacute;s Caicedo has established himself at Chelsea as one of the Premier League&#8217;s best defensive midfielders &#8212; combining extraordinary work rate, exceptional ball-winning ability, and improving technical quality. For Ecuador, Caicedo is the platform on which the entire defensive structure rests, and his ability to dictate pressing intensity from the base of midfield determines how effective Ecuador&#8217;s system is against technical opponents.</p>
+<h3>Group Stage Prediction: Group E (Ecuador, Germany, Ivory Coast, Curacao)</h3>
+<p>Germany are overwhelming group favorites, but the battle between Ecuador and Ivory Coast for second place is genuinely open. Ecuador&#8217;s CONMEBOL physical conditioning gives them an edge in direct encounters. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable if group stage advances</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 65 &middot; Morale 74). Ecuador&#8217;s Caicedo-powered midfield is a genuine competitive strength that any opponent must plan for. <strong>Second place in Group E is contested but achievable; a Round of 16 appearance would represent Ecuador&#8217;s best modern World Cup.</strong></p>`,
   },
   {
     slug: "curacao",
@@ -532,16 +579,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Trinidad & Tobago 2006 \u2014 tiny island nation at football\u2019s biggest party",
     keyInsight:
       "Curacao\u2019s Dutch-born talent pool gives them surprising quality; their fairy-tale qualification is one of the great stories of the expanded World Cup format.",
-    seoArticle: `<h2>Curacao at the 2026 World Cup</h2>
-<p>Curacao\u2019s qualification for the 2026 FIFA World Cup is one of the most remarkable underdog stories in football history. The tiny Caribbean island, with a population of just 150,000, has earned a place at football\u2019s grandest stage \u2014 a testament to the expanded 48-team format and the quality of the island\u2019s diaspora talent.</p>
-<h3>The Dutch Connection</h3>
-<p>Curacao\u2019s squad draws heavily from the Curacao-born population in the Netherlands. Players who grew up in Dutch academies and competed in the Eredivisie and other European leagues bring a level of technical quality that belies the nation\u2019s size. This Dutch-Caribbean fusion creates an entertaining, technically proficient team.</p>
-<p>Veteran coach Dick Advocaat brings invaluable experience to the setup, having managed the Netherlands, Belgium, and numerous top European clubs. His tactical nous and ability to organize limited resources into competitive units is exactly what Curacao need on the world stage.</p>
-<h3>Curacao World Cup 2026 Group E Challenge</h3>
-<p>Group E alongside Germany, Ivory Coast, and Ecuador is a daunting draw for Curacao. Realistic expectations center on competitive performances and memorable moments rather than advancement, but the World Cup has produced stranger upsets. A draw or a goal against one of the bigger teams would be celebrated as a historic achievement.</p>
-<p>Curacao\u2019s World Cup 2026 presence matters beyond results. For a small island nation, appearing at the World Cup puts Curacao on the global map and inspires young Caribbean footballers to dream bigger than ever before.</p>
-<h3>Inspiration for Small Nations</h3>
-<p>Curacao\u2019s journey to the 2026 World Cup proves that football remains a sport where size does not determine destiny. Their participation is a gift to the tournament\u2019s narrative and a reminder of why the World Cup captures the imagination of the entire world.</p>`,
+    seoArticle: `<h2>Curacao World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Curacao&#8217;s qualification for the 2026 FIFA World Cup is one of the tournament&#8217;s great underdog stories. The small Caribbean island nation &#8212; part of the Kingdom of the Netherlands with a population of approximately 150,000 &#8212; has leveraged its diaspora talent pool and the coaching experience of Dick Advocaat to achieve something that would have seemed impossible a decade ago. Veteran 77-year-old Advocaat brings extraordinary UEFA experience to a squad playing in their first World Cup.</p>
+<p>Curacao&#8217;s Chemistry Index of 63/100 (Familiarity 58, Stability 55, Morale 88) contains another remarkable morale number &#8212; 88, reflecting the genuine euphoria of qualification for a nation that no one expected to be here. The low structural scores are honest reflections of a squad limited by the talent pool available, while the morale score represents the extraordinary collective belief of a team that beat the odds to reach this stage.</p>
+<h3>Tactical Identity</h3>
+<p>Advocaat will deploy Curacao in an organized defensive structure designed to minimize exposure against technically superior opponents while maximizing their counter-attacking threat through pacey forward runners. Set pieces represent their best scoring opportunity, and Advocaat&#8217;s experience in major European coaching roles gives Curacao tactical organization that many similarly ranked nations lack.</p>
+<h3>Key Player to Watch: Cuco Martina</h3>
+<p>Veteran defender Cuco Martina&#8217;s experience and Dutch-league background provides the defensive backbone and leadership that Curacao need. His organizational quality &#8212; communicating defensive structure and keeping the team&#8217;s shape under pressure &#8212; will determine how competitive Curacao can be across their three group matches.</p>
+<h3>Group Stage Prediction: Group E (Curacao, Germany, Ivory Coast, Ecuador)</h3>
+<p>Group E is an extraordinarily tough draw for Curacao. Germany, Ivory Coast, and Ecuador are all significantly higher-ranked opponents. <strong>Predicted outcome: 4th place, 0&#8211;1 points &#8212; competitive performances the goal.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage Only &#8212; Participation is the achievement</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 63/100 (Familiarity 58 &middot; Stability 55 &middot; Morale 88). Curacao represent everything that makes the expanded 48-team World Cup worthwhile &#8212; a tiny nation on football&#8217;s global stage for the first time. <strong>Results will be difficult to come by in Group E, but Curacao&#8217;s presence is a celebration of the sport&#8217;s global reach.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -614,16 +664,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Tunisia 2022 \u2014 organized defense with dangerous set pieces",
     keyInsight:
       "Tunisia\u2019s defensive resilience and AFCON pedigree make them tough to break down; they historically raise their game at major tournaments.",
-    seoArticle: `<h2>Tunisia at the 2026 World Cup</h2>
-<p>Tunisia return to the FIFA World Cup as one of Africa\u2019s most experienced tournament teams. The Eagles of Carthage have qualified for six World Cups and bring a wealth of major tournament experience to the 2026 edition. Their well-organized defensive approach and competitive spirit make them a difficult opponent for any team.</p>
-<h3>Defensive Foundation</h3>
-<p>Tunisian football is built on defensive discipline and tactical organization. The team rarely concedes goals in bunches and has a knack for frustrating technically superior opponents through compact shape and intelligent positional play. This defensive-first philosophy is complemented by dangerous set-piece routines and quick counter-attacks.</p>
-<p>The squad features a healthy mix of players from the French league system, North African domestic leagues, and other European competitions. This diversity of experience provides tactical flexibility and ensures the team can adapt to different opponents and styles.</p>
-<h3>Tunisia World Cup 2026 Group F Outlook</h3>
-<p>Group F with the Netherlands, Japan, and Ukraine is one of the tougher groups in the tournament. Tunisia\u2019s path to advancement will require at least one significant result against a higher-ranked opponent, a challenge they have met before \u2014 most recently defeating France at the 2022 World Cup group stage.</p>
-<p>Tunisia\u2019s World Cup 2026 strategy will center on defensive solidity and tactical discipline. In a group with three strong attacking teams, the ability to keep clean sheets and capitalize on set pieces could be the difference between elimination and advancement.</p>
-<h3>African Pride</h3>
-<p>Tunisia have long been a standard-bearer for North African football on the world stage. Their consistency in qualifying for World Cups and competing credibly reflects a mature footballing culture that values preparation, discipline, and collective effort over individual stardom.</p>`,
+    seoArticle: `<h2>Tunisia World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Tunisia arrive at the 2026 FIFA World Cup as one of Africa&#8217;s most experienced World Cup nations, making their sixth appearance at the tournament. The Eagles of Carthage carry a rich footballing tradition and a squad featuring players from European leagues who bring technical quality to a tactically organized national team setup.</p>
+<p>Tunisia&#8217;s Chemistry Index of 69/100 (Familiarity 72, Stability 67, Morale 71) reflects a well-established squad with good tactical familiarity. Their 2022 World Cup &#8212; where they won their group match against France but were eliminated on results &#8212; demonstrated that Tunisia can compete and beat top-level opposition on their day.</p>
+<h3>Tactical Identity</h3>
+<p>Tunisia play in a disciplined, organized system that prioritizes defensive structure, midfield work rate, and exploiting pace on the counter. The team&#8217;s European-based players provide technical quality, and their AFCON experience has given them the big-game mental preparation needed for World Cup group stage competition.</p>
+<h3>Key Player to Watch: Wahbi Khazri</h3>
+<p>Wahbi Khazri&#8217;s experience and quality in the final third &#8212; combining French league expertise with an influential international career &#8212; gives Tunisia their most reliable creative and goal-scoring threat. His ability to deliver when the pressure is highest has been a consistent feature of Tunisia&#8217;s best World Cup moments.</p>
+<h3>Group Stage Prediction: Group F (Tunisia, Netherlands, Japan, Ukraine)</h3>
+<p>Group F is a significant challenge &#8212; Netherlands and Japan are both highly ranked with strong chemistry scores. Tunisia will contest the third-place pathway alongside Ukraine. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;3 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Third-place pathway possible</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 69/100 (Familiarity 72 &middot; Stability 67 &middot; Morale 71). Tunisia are a competitive African presence who will test every team in Group F. <strong>A third-place finish and the expanded format&#8217;s best-third pathway represents their most realistic route to the knockout rounds.</strong></p>`,
   },
   {
     slug: "ukraine",
@@ -641,16 +694,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Croatia 1998 \u2014 war-galvanized squad playing with extraordinary purpose",
     keyInsight:
       "Ukraine\u2019s squad plays with a motivation that transcends football; their wartime resilience and Rebrov\u2019s tactical intelligence make them one of the tournament\u2019s most emotionally charged teams.",
-    seoArticle: `<h2>Ukraine at the 2026 World Cup</h2>
-<p>Ukraine\u2019s qualification for the 2026 FIFA World Cup carries a significance that extends far beyond football. Competing amidst an ongoing conflict, the Ukrainian national team has become a symbol of resilience, unity, and hope for an entire nation. Every match is played with a purpose and emotional intensity that few teams in World Cup history have ever matched.</p>
-<h3>Playing for Something Greater</h3>
-<p>Under Serhiy Rebrov, Ukraine have channeled their extraordinary circumstances into remarkable performances on the pitch. The squad\u2019s motivation levels are unmatched \u2014 every player understands that their World Cup performances carry meaning for millions of Ukrainians around the world.</p>
-<p>Oleksandr Zinchenko, Mykhailo Mudryk, and Artem Dovbyk provide world-class quality across the pitch. Many Ukrainian players have continued competing at the highest levels of European club football despite the personal challenges they face, demonstrating remarkable mental strength.</p>
-<h3>Ukraine World Cup 2026 Group F Analysis</h3>
-<p>Group F alongside the Netherlands, Japan, and Tunisia presents a formidable challenge. Ukraine enter through the playoffs but their quality and motivation should not be underestimated. Their Euro 2020 quarter-final run and subsequent qualifying performances demonstrate they can compete with the best when it matters most.</p>
-<p>Ukraine\u2019s World Cup 2026 campaign will unite Ukrainians worldwide. The team\u2019s performances in North America will be watched with intense emotion and pride, and the players carry the weight of representing their nation\u2019s spirit on the global stage.</p>
-<h3>A Team That Defies the Odds</h3>
-<p>Ukraine\u2019s presence at the 2026 World Cup is itself an achievement given the circumstances. But this is a team that refuses to accept limitations, and their competitive performances at recent tournaments suggest they are capable of producing results that defy expectations and inspire the world.</p>`,
+    seoArticle: `<h2>Ukraine World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Ukraine&#8217;s presence at the 2026 FIFA World Cup carries a significance that transcends football. Playing under the shadow of the ongoing war that has devastated their country since 2022, the Ukrainian national team has become a symbol of national resilience and defiance. Their qualification campaign &#8212; completed while many players&#8217; families remain in a country under active conflict &#8212; demonstrates a collective strength of purpose that no other team at this tournament can match.</p>
+<p>Ukraine&#8217;s Chemistry Index of 80/100 (Familiarity 75, Stability 61, Morale 92) tells the story in numbers. A morale score of 92 &#8212; equaled only by Argentina among the tournament&#8217;s 48 nations &#8212; reflects a team playing for something far larger than football. The stability score (61) captures the genuine structural challenges of preparing a national team while the country&#8217;s infrastructure is under attack. Yet Ukraine qualified. And they will compete.</p>
+<h3>Tactical Identity</h3>
+<p>Serhiy Rebrov deploys Ukraine in a technically proficient 4-3-3 or 4-2-3-1 that maximizes the quality of a squad featuring Bundesliga, Premier League, and La Liga players. Ukraine have historically been one of Eastern Europe&#8217;s most technically sophisticated national teams, and Rebrov&#8217;s system leverages positional intelligence and pressing work rate to create competitive performances against higher-ranked opponents.</p>
+<h3>Key Player to Watch: Mykhailo Mudryk</h3>
+<p>Mykhailo Mudryk&#8217;s pace, direct dribbling, and ability to beat defenders in isolation make him Ukraine&#8217;s most dangerous attacking weapon. At Chelsea, his career has been developing toward the impact his talent suggests is possible; for Ukraine, the emotional stakes of playing for his country in this context could produce his best performances yet. When Mudryk is in space, he creates genuine danger against any defensive unit.</p>
+<h3>Group Stage Prediction: Group F (Ukraine, Netherlands, Japan, Tunisia)</h3>
+<p>Group F is competitive. Netherlands and Japan are technically superior, but Ukraine&#8217;s extraordinary morale and European-quality squad make them dangerous opponents. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points &#8212; with the emotional weight of their campaign behind every performance.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; Morale of 92 is a match-winning factor</strong></p>
+<p>Ukraine&#8217;s extraordinary morale &#8212; the highest outside Argentina &#8212; is a genuine competitive advantage in tight tournament matches. When both teams are equal on quality, the team playing with greater emotional purpose typically wins. Ukraine will never stop competing.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 80/100 (Familiarity 75 &middot; Stability 61 &middot; Morale 92). Ukraine are playing for their country in the most literal sense. <strong>Every point they earn, every match they compete in, carries the weight of a nation fighting for its survival. Their football will match that spirit &#8212; expect Ukraine to fight for every centimeter of Group F.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -697,16 +754,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Iran 2018 \u2014 compact defense that nearly upset Portugal and Spain",
     keyInsight:
       "Iran\u2019s defensive organization is world-class at tournament level; they consistently make life miserable for top teams and have the quality to steal results.",
-    seoArticle: `<h2>Iran at the 2026 World Cup</h2>
-<p>Iran return to the FIFA World Cup as Asia\u2019s most consistent qualifying nation, making their seventh appearance at the tournament. Team Melli have built a reputation as one of the toughest teams to beat in international football, combining tactical discipline with genuine individual quality in key positions.</p>
-<h3>The Art of Defensive Organization</h3>
-<p>Iran\u2019s greatest strength is their defensive organization. Under successive coaches, the team has mastered the art of compact, disciplined defending that frustrates even the most talented attacking teams. Their 2018 World Cup performances \u2014 narrowly losing to Spain and Portugal while drawing with them for large periods \u2014 demonstrated that Iran can compete at the highest level.</p>
-<p>The squad features several players with European experience, including strikers capable of clinical finishing on the counter-attack. Mehdi Taremi and Sardar Azmoun have provided world-class attacking output for Iran in recent years, and the team\u2019s set-piece routines are well-drilled and dangerous.</p>
-<h3>Iran World Cup 2026 Group G Challenge</h3>
-<p>Group G with Portugal, Belgium, and Egypt is one of the most competitive in the tournament. Iran will approach each match with their characteristic defensive resolve, looking to keep clean sheets and exploit transition opportunities. Their ability to stay in matches gives them a chance against any opponent.</p>
-<p>Iran\u2019s World Cup 2026 campaign will draw passionate support from the Iranian diaspora across North America. The team\u2019s performances carry deep emotional significance, and the players understand the responsibility of representing their nation on the world stage.</p>
-<h3>Exceeding Expectations</h3>
-<p>Iran have a habit of producing better World Cup performances than their ranking might suggest. Their tactical discipline and competitive intensity ensure that every match is a contest, and the expanded format could open pathways to the knockout rounds that were previously closed.</p>`,
+    seoArticle: `<h2>Iran World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Iran arrive at the 2026 FIFA World Cup having established themselves as Asia&#8217;s second-most consistent World Cup qualifier behind Japan and South Korea. Under Amir Ghalenoei, the Team Melli bring tactical discipline, physical organization, and a style of play built on collective structure rather than individual star power. Their 2022 World Cup &#8212; where they beat Wales before narrowly losing to the USA &#8212; demonstrated genuine competitive quality.</p>
+<p>Iran&#8217;s Chemistry Index of 73/100 (Familiarity 76, Stability 71, Morale 70) reflects a well-drilled squad with good tactical familiarity. The Bundesliga and other European league experience of several players elevates the technical quality available to Ghalenoei.</p>
+<h3>Tactical Identity</h3>
+<p>Ghalenoei deploys Iran in a defensive 4-3-3 or 4-1-4-1 that prioritizes compactness, organized defensive structure, and looking to exploit direct transitions. Iran are extremely difficult to break down and capable of decisive moments on the counter. Their set-piece quality is a consistent scoring mechanism.</p>
+<h3>Key Player to Watch: Mehdi Taremi</h3>
+<p>Mehdi Taremi&#8217;s Inter Milan performances &#8212; scoring crucial goals in Serie A and the Champions League &#8212; have established him as one of Asia&#8217;s best forwards in European football. His movement, aerial threat, and technical quality in the penalty area give Iran a genuine goal-scoring dimension that opponents cannot ignore when designing their defensive approach.</p>
+<h3>Group Stage Prediction: Group G (Iran, Portugal, Belgium, Egypt)</h3>
+<p>Group G is a tough draw with Portugal and Belgium. However, the match against Egypt represents a winnable opportunity. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Third-place pathway the realistic route</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 73/100 (Familiarity 76 &middot; Stability 71 &middot; Morale 70). Iran are competitive and organized, with Taremi as a match-winner capable of decisive moments. <strong>A third-place finish from Group G and the expanded format pathway represents their realistic World Cup ambition.</strong></p>`,
   },
   {
     slug: "belgium",
@@ -749,16 +809,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Egypt 2018 \u2014 Salah-dependent but defensively resolute",
     keyInsight:
       "Mohamed Salah\u2019s likely final World Cup adds narrative weight; Egypt\u2019s AFCON pedigree and defensive discipline make them group-stage dark horses.",
-    seoArticle: `<h2>Egypt at the 2026 World Cup</h2>
-<p>Egypt return to the FIFA World Cup with one of Africa\u2019s most decorated footballing histories behind them. The seven-time Africa Cup of Nations champions bring a unique combination of tournament experience, tactical discipline, and the star power of Mohamed Salah to the 2026 edition.</p>
-<h3>The Salah Factor</h3>
-<p>Mohamed Salah remains Egypt\u2019s talisman and one of the most dangerous attackers in world football. His pace, finishing, and ability to produce moments of individual brilliance can decide matches at the highest level. The 2026 World Cup is likely Salah\u2019s farewell tournament, adding emotional intensity to every performance.</p>
-<p>Beyond Salah, Egypt have built a squad that combines domestic league players with Europeans competing across the continent. The team\u2019s strength lies in collective organization rather than individual stars, with Salah providing the crucial cutting edge that elevates the overall quality.</p>
-<h3>Egypt World Cup 2026 Group G Preview</h3>
-<p>Group G alongside Portugal, Iran, and Belgium is extremely competitive. Egypt will need Salah at his best and the defense at its most organized to advance. However, the Pharaohs have experience in high-pressure continental tournaments and the mental fortitude to handle the World Cup\u2019s demands.</p>
-<p>Egypt\u2019s World Cup 2026 strategy will center on defensive solidity and quick transitions to Salah. This focused approach has proven effective at AFCON tournaments and could yield results against Group G opponents who may underestimate Egyptian organization.</p>
-<h3>Continental Standard-Bearer</h3>
-<p>As Africa\u2019s most successful national team in continental competition, Egypt carry the weight of representing Egyptian and Arab football on the world stage. A strong World Cup showing would resonate deeply across the Middle East and North Africa, inspiring millions of young footballers.</p>`,
+    seoArticle: `<h2>Egypt World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Egypt return to the FIFA World Cup after a 28-year absence, qualification powered largely by the continued brilliance of Mohamed Salah &#8212; their captain, talisman, and one of the world&#8217;s elite forwards entering what is likely his final World Cup campaign. The Pharaohs carry the weight of a footballing nation of 100 million people and the extraordinary personal story of Salah&#8217;s journey from small-town Egyptian boy to global superstar.</p>
+<p>Egypt&#8217;s Chemistry Index of 71/100 (Familiarity 73, Stability 69, Morale 80) reflects a squad with reasonable collective organization and a morale (80) elevated by Salah&#8217;s presence and the historic nature of their qualification.</p>
+<h3>Tactical Identity</h3>
+<p>Hossam Hassan has built Egypt&#8217;s system around maximizing Salah&#8217;s impact &#8212; positioning him in the left half-space where he is most dangerous, ensuring the defensive structure behind him is solid enough to allow him license to influence matches offensively. It is a rational approach for a team whose quality differential comes from one player, and the challenge is ensuring Salah receives sufficient service to impose his quality.</p>
+<h3>Key Player to Watch: Mohamed Salah</h3>
+<p>Mohamed Salah requires no introduction. One of Liverpool&#8217;s greatest ever players, a Premier League legend, and the standard-bearer for African football over the past decade. For Egypt, Salah is everything &#8212; the player around whom the team&#8217;s entire competitive identity is constructed. His World Cup goals could define whether Egypt advance from Group G.</p>
+<h3>Group Stage Prediction: Group G (Egypt, Portugal, Belgium, Iran)</h3>
+<p>Group G with Portugal and Belgium is challenging. Iran represent the most competitive opponent for second or third place. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points, with Salah individual brilliance potentially decisive in tight matches.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Third-place pathway if Salah delivers</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 71/100 (Familiarity 73 &middot; Stability 69 &middot; Morale 80). Egypt&#8217;s World Cup is Mohamed Salah&#8217;s World Cup. <strong>Group-stage progression depends on Salah&#8217;s performance and whether Egypt&#8217;s team structure can support rather than limit his impact. A third-place finish is achievable; a Round of 32 run would be historic.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -805,16 +868,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Cape Verde 2013 AFCON \u2014 tiny island with massive heart",
     keyInsight:
       "Cabo Verde\u2019s Portuguese-league talent pipeline and AFCON quarter-final experience give them more quality than their ranking suggests; they are no pushovers.",
-    seoArticle: `<h2>Cabo Verde at the 2026 World Cup</h2>
-<p>Cabo Verde\u2019s qualification for the 2026 FIFA World Cup is a landmark achievement for the small island nation in the Atlantic Ocean. With a population of approximately 600,000, Cabo Verde are one of the smallest countries ever to qualify for a World Cup, and their presence at the tournament is a triumph of development, diaspora engagement, and collective determination.</p>
-<h3>Island Nation, Global Talent</h3>
-<p>Like many small footballing nations, Cabo Verde benefit enormously from their diaspora community. Players of Cabo Verdean descent born and raised in Portugal, France, and the Netherlands have chosen to represent the Blue Sharks, bringing European league experience that significantly elevates the squad\u2019s quality.</p>
-<p>The Portuguese connection is particularly strong, with several players competing in Liga Portugal and lower European divisions. This pathway provides Cabo Verde with technically proficient players who are comfortable in organized tactical systems, giving them an identity that transcends their FIFA ranking.</p>
-<h3>Cabo Verde World Cup 2026 Group H Reality</h3>
-<p>Group H alongside Spain, Saudi Arabia, and Serbia is a challenging draw. Spain are overwhelming favorites, but Cabo Verde will target their matches against Saudi Arabia and Serbia as genuine opportunities to compete for a historic result. Their AFCON quarter-final appearance in 2023 demonstrated they can perform on big stages.</p>
-<p>Cabo Verde\u2019s World Cup 2026 campaign is about pride, representation, and inspiration. Every minute on the World Cup pitch is a victory for a nation that has defied all odds to reach this point.</p>
-<h3>Legacy Beyond Football</h3>
-<p>Cabo Verde\u2019s World Cup participation will raise the international profile of this beautiful archipelago and inspire young Cabo Verdeans everywhere. The team\u2019s journey from African football\u2019s margins to the World Cup stage is a story that resonates far beyond sport.</p>`,
+    seoArticle: `<h2>Cabo Verde World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Cabo Verde&#8217;s presence at the 2026 FIFA World Cup is one of tournament football&#8217;s most extraordinary achievements. An island nation of approximately 600,000 people &#8212; one of the smallest countries ever to qualify for a World Cup &#8212; has reached North America through the talent of its diaspora community and the development of a football culture that punches far above its demographic weight.</p>
+<p>Cabo Verde&#8217;s Chemistry Index of 64/100 (Familiarity 60, Stability 58, Morale 87) contains a remarkable morale score that captures the pride and joy of a nation experiencing something unprecedented in its sporting history. The Portuguese-league connection gives the Blue Sharks technical foundation; the AFCON quarter-final experience gives them confidence in big matches.</p>
+<h3>Tactical Identity</h3>
+<p>Bubista&#8217;s Cabo Verde play organized, compact football that maximizes the squad&#8217;s technical quality while maintaining defensive structure. The diaspora recruitment from Portugal, France, and the Netherlands has created a squad with European-trained technical players who are comfortable in organized tactical systems. Set pieces and transitions are Cabo Verde&#8217;s most reliable threat mechanisms.</p>
+<h3>Key Player to Watch: Ryan Mendes</h3>
+<p>Ryan Mendes&#8217; experience in Portuguese football and his technical quality in attacking positions gives Cabo Verde their most reliable creative threat. His ability to deliver in wide areas and create chances from direct play represents the pattern through which Cabo Verde can produce competitive performances in Group H.</p>
+<h3>Group Stage Prediction: Group H (Cabo Verde, Spain, Saudi Arabia, Serbia)</h3>
+<p>Group H with Spain (FIFA #2) is a formidable challenge. Cabo Verde&#8217;s competitive matches are against Saudi Arabia and Serbia. <strong>Predicted outcome: 3rd or 4th place, 0&#8211;3 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Competitive performance the achievement</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 64/100 (Familiarity 60 &middot; Stability 58 &middot; Morale 87). Cabo Verde are one of the World Cup&#8217;s most inspiring stories. <strong>Results will be difficult against Group H opponents, but every minute on the World Cup pitch is a celebration of what 600,000 people and their diaspora can achieve.</strong></p>`,
   },
   {
     slug: "saudi-arabia",
@@ -831,16 +897,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Saudi Arabia 2022 \u2014 capable of stunning upsets against the biggest teams",
     keyInsight:
       "Saudi Arabia\u2019s shock defeat of Argentina at the 2022 World Cup proved they can beat anyone; the Saudi Pro League investment has raised domestic player quality.",
-    seoArticle: `<h2>Saudi Arabia at the 2026 World Cup</h2>
-<p>Saudi Arabia arrive at the 2026 FIFA World Cup still riding the afterglow of their stunning 2-1 victory over Argentina in the 2022 World Cup group stage \u2014 arguably the greatest upset in World Cup history. The Green Falcons have demonstrated that they can compete with and defeat the very best, and they bring that belief to North America.</p>
-<h3>Building on the Argentina Shock</h3>
-<p>The victory over Argentina in 2022 was more than a fluke; it was the product of meticulous preparation, incredible defensive discipline, and ruthless counter-attacking execution. Saudi Arabia have sought to build on that template, developing a squad that combines domestic Saudi Pro League players with the tactical organization needed to compete at the highest level.</p>
-<p>The massive investment in the Saudi Pro League has attracted world-class talent to the domestic competition, which in turn raises the standard of Saudi national team players who train and compete alongside global stars on a weekly basis.</p>
-<h3>Saudi Arabia World Cup 2026 Group H Preview</h3>
-<p>Group H with Spain, Cabo Verde, and Serbia presents both challenges and opportunities. Spain will be formidable, but Saudi Arabia have already proven they can upset favorites. Matches against Cabo Verde and Serbia offer realistic prospects for points and potential advancement.</p>
-<p>Saudi Arabia\u2019s World Cup 2026 strategy will draw on the blueprint that shocked Argentina: disciplined defensive shape, a high offside line, and devastating counter-attacks. If executed with the same precision, any opponent can be troubled.</p>
-<h3>Vision 2034 and Beyond</h3>
-<p>With Saudi Arabia bidding to host the 2034 World Cup, the 2026 tournament takes on additional significance as a showcase of the nation\u2019s footballing ambitions. A strong performance would bolster the hosting case and demonstrate the maturity of Saudi Arabian football on the world stage.</p>`,
+    seoArticle: `<h2>Saudi Arabia World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Saudi Arabia arrive at the 2026 FIFA World Cup still riding the psychological wave of the most famous World Cup upset in recent history &#8212; their 2-1 victory over Argentina in the 2022 group stage. That result, built on meticulous preparation, an extraordinarily high defensive line, and clinical counter-attacking, showed that Saudi Arabia are capable of defeating the world&#8217;s best on any given day. Under Roberto Mancini, they are working to translate that capacity for upsets into more consistent tournament performances.</p>
+<p>Saudi Arabia&#8217;s Chemistry Index of 67/100 (Familiarity 71, Stability 66, Morale 77) reflects a squad with reasonable structural organization under Mancini&#8217;s coaching. The Saudi Pro League&#8217;s investment in world-class talent has raised the domestic competitive standard, which in turn has elevated the national team&#8217;s training environment.</p>
+<h3>Tactical Identity</h3>
+<p>Mancini deploys Saudi Arabia in a disciplined 4-3-3 that uses a high defensive line to compress space and force opponents into offside positions &#8212; the blueprint that produced the Argentina shock. The system requires exceptional coordination and risks devastation if the line is beaten; the reward is opponents so compressed they struggle to find space for their most dangerous players.</p>
+<h3>Key Player to Watch: Salem Al-Dawsari</h3>
+<p>Salem Al-Dawsari scored the iconic winner against Argentina in 2022 &#8212; one of the tournament&#8217;s great individual goals. His pace, direct dribbling, and ability to deliver under maximum pressure make him Saudi Arabia&#8217;s most dangerous forward and the player most capable of producing another match-defining moment against a major opponent.</p>
+<h3>Group Stage Prediction: Group H (Saudi Arabia, Spain, Cabo Verde, Serbia)</h3>
+<p>Group H with Spain (FIFA #2) makes advancement challenging. Saudi Arabia will target Serbia as their best prospect for three points. <strong>Predicted outcome: 3rd place competition, 1&#8211;4 points &#8212; with an upset against Serbia possible.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; High-line system could produce another shock</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 67/100 (Familiarity 71 &middot; Stability 66 &middot; Morale 77). Saudi Arabia proved in 2022 that they can beat anyone in the world on their day. <strong>Group H advancement is unlikely against Spain, but the potential for another historic upset &#8212; against Serbia or even Spain &#8212; is real.</strong></p>`,
   },
   {
     slug: "serbia",
@@ -857,16 +926,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Serbia 2010 \u2014 talented individuals searching for collective identity",
     keyInsight:
       "Serbia\u2019s squad is packed with top-league talent but has consistently underperformed at tournaments; unlocking their potential requires the tactical cohesion that has eluded them.",
-    seoArticle: `<h2>Serbia at the 2026 World Cup</h2>
-<p>Serbia head into the 2026 FIFA World Cup with one of the most talented squads in their history, yet carrying the frustration of consistent underperformance at major tournaments. The Eagles possess players competing at the highest levels of European football but have struggled to translate individual quality into collective success on the biggest stages.</p>
-<h3>Talent in Abundance</h3>
-<p>Serbia\u2019s squad reads like an all-star team of European football. Dusan Vlahovic provides elite-level striking, Sergej Milinkovic-Savic offers midfield power and creativity, and Aleksandar Mitrovic adds proven international goal-scoring pedigree. The depth of Serbian talent across Europe\u2019s top five leagues is impressive by any standard.</p>
-<p>Under Dragan Stojkovic, Serbia have attempted to build a tactical system that maximizes this individual quality. The challenge has always been finding the right balance and ensuring that star players buy into a collective approach rather than relying on moments of individual brilliance.</p>
-<h3>Serbia World Cup 2026 Group H Analysis</h3>
-<p>Group H alongside Spain, Cabo Verde, and Saudi Arabia offers Serbia a genuine path to the knockout rounds. While Spain are clear favorites, the remaining positions are contested, and Serbia\u2019s talent should give them an edge over Cabo Verde and Saudi Arabia in direct matchups.</p>
-<p>Serbia\u2019s World Cup 2026 campaign represents perhaps their best opportunity to make a deep run since the golden era of Yugoslav football. The expanded format provides more room for error in the group stage, and a favorable knockout draw could open pathways to the quarter-finals.</p>
-<h3>Time to Deliver</h3>
-<p>Serbian football fans have waited patiently for their talented squads to deliver at a major tournament. The 2026 World Cup may be the last chance for this generation to fulfill its potential and give Serbia a World Cup performance worthy of the nation\u2019s rich footballing heritage.</p>`,
+    seoArticle: `<h2>Serbia World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Serbia arrive at the 2026 FIFA World Cup with one of European football&#8217;s most technically gifted squads relative to their FIFA ranking. Dragan Stojkovic has assembled a team built around Dusan Vlahovic&#8217;s world-class striking quality and a midfield of technical excellence &#8212; yet Serbia have consistently struggled to translate club-level talent into tournament results. 2026 represents another opportunity to break that pattern.</p>
+<p>Serbia&#8217;s Chemistry Index of 72/100 (Familiarity 70, Stability 64, Morale 73) reflects a squad with reasonable collective understanding but ongoing tactical stability questions. The gap between Serbia&#8217;s individual talent and their collective output is the central paradox of their international football &#8212; and Stojkovic&#8217;s job is resolving it.</p>
+<h3>Tactical Identity</h3>
+<p>Stojkovic typically deploys Serbia in an attack-minded 3-4-3 or 4-3-3 that leverages Vlahovic&#8217;s movement and finishing quality alongside Sergej Milinkovic-Savic&#8217;s midfield dynamism. The system&#8217;s strength is its attacking intent and the individual quality of Serbia&#8217;s technical players; the weakness is the defensive vulnerability that comes from a squad not organized around clean sheets as a primary objective.</p>
+<h3>Key Player to Watch: Du&#353;an Vlahovic</h3>
+<p>Du&#353;an Vlahovic is one of Europe&#8217;s elite strikers &#8212; a powerful, technically accomplished center-forward with the finishing instinct, aerial presence, and movement to score from multiple positions. At Juventus, his consistent goal-scoring demonstrates world-class finishing at the highest club level. For Serbia, Vlahovic is the player around whom the entire attacking system is built, and his ability to deliver in tight group-stage matches will determine how far Serbia go.</p>
+<h3>Group Stage Prediction: Group H (Serbia, Spain, Cabo Verde, Saudi Arabia)</h3>
+<p>Group H with Spain is a significant challenge, but Serbia should be competitive against Saudi Arabia and Cabo Verde. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; Vlahovic as the decisive factor</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 72/100 (Familiarity 70 &middot; Stability 64 &middot; Morale 73). Serbia have the individual talent to compete in any match at this tournament. <strong>Round of 16 advancement is achievable from Group H; whether Serbia translate their talent into results depends on Stojkovic&#8217;s system and Vlahovic&#8217;s form.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -913,16 +985,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Senegal 2002 \u2014 fearless African team capable of stunning giants",
     keyInsight:
       "Senegal\u2019s 2022 AFCON title and consistently strong qualifying campaigns have made them Africa\u2019s most reliable tournament team; their European-based squad is genuinely world-class.",
-    seoArticle: `<h2>Senegal at the 2026 World Cup</h2>
-<p>Senegal head into the 2026 FIFA World Cup as one of Africa\u2019s strongest representatives, building on their AFCON 2022 title and a competitive showing at the 2022 World Cup where they reached the Round of 16. The Lions of Teranga have established themselves as a permanent fixture among football\u2019s elite nations.</p>
-<h3>European-Based Excellence</h3>
-<p>Senegal\u2019s squad is stacked with players from Europe\u2019s top leagues. The Premier League, Ligue 1, Serie A, and Bundesliga all feature Senegalese internationals in prominent roles. This European experience has elevated Senegal\u2019s tactical sophistication and competitive edge to a level that makes them genuine contenders in every match they play.</p>
-<p>Under long-serving coach Aliou Cisse, Senegal have developed a clear tactical identity that blends physical intensity with technical quality. The team\u2019s defensive organization is excellent, while the attacking unit possesses the pace and power to trouble any defense in the world.</p>
-<h3>Senegal World Cup 2026 Group I Analysis</h3>
-<p>Group I alongside France, Norway, and a playoff qualifier presents a clear challenge in France but also a genuine opportunity to advance. Senegal have the quality to compete with Les Bleus and should be favored against Norway and the playoff team.</p>
-<p>Senegal\u2019s World Cup 2026 campaign will be watched closely across Africa. As reigning AFCON champions and Africa\u2019s highest-ranked team, they carry continental expectations alongside their own ambitions. The target is to surpass the 2002 quarter-final achievement and write a new chapter in Senegalese football history.</p>
-<h3>Africa\u2019s Best Hope?</h3>
-<p>With Morocco\u2019s 2022 semi-final raising the bar for African teams, Senegal will be determined to match or exceed that run. The squad\u2019s quality, experience, and competitive mentality suggest they are capable of a deep World Cup run if the draw opens favorably.</p>`,
+    seoArticle: `<h2>Senegal World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Senegal arrive at the 2026 FIFA World Cup as Africa&#8217;s highest-ranked team and one of the continent&#8217;s most established World Cup presences. The Lions of Teranga &#8212; reigning AFCON champions from 2022 and AFCON 2024 finalists &#8212; have built a consistently competitive international program under Aliou Ciss&eacute; that combines European-league technical quality with collective team spirit that regularly outperforms their FIFA ranking in knockout competitions.</p>
+<p>Senegal&#8217;s Chemistry Index of 77/100 (Familiarity 78, Stability 75, Morale 79) reflects a well-established squad with strong collective understanding. The high familiarity score (78) captures years of Ciss&eacute;&#8217;s consistent squad selection and the players&#8217; accumulated shared tournament experience at AFCON and the 2022 World Cup.</p>
+<h3>Tactical Identity</h3>
+<p>Ciss&eacute; deploys Senegal in a physically powerful 4-3-3 that combines European league technical quality with exceptional athleticism. The team presses high, defends with organized intensity, and attacks through the pace and direct play of their forward line. Idrissa Gueye&#8217;s midfield energy and S&eacute;kou Mara&#8217;s attacking threat provide the platform for competitive performances against any opponent.</p>
+<h3>Key Player to Watch: Idrissa Gueye</h3>
+<p>Idrissa Gueye&#8217;s midfield work rate &#8212; among the highest in international football &#8212; gives Senegal an engine that controls the tempo of matches through sheer competitive intensity. His experience at Everton, PSG, and Everton again has made him one of the Premier League&#8217;s most respected midfielders. For Senegal, Gueye&#8217;s defensive work allows the attacking players to function with greater freedom.</p>
+<h3>Group Stage Prediction: Group I (Senegal, France, Norway, TBD Playoff)</h3>
+<p>Group I with France (FIFA #1) is challenging. Senegal will target the Norway match as the key competition for second place. <strong>Predicted outcome: 2nd place competition, 3&#8211;6 points, with a potential upset against France not impossible for a team with their defensive organization.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
+<p>Senegal&#8217;s 2022 Round of 16 appearance and AFCON titles demonstrate consistent ability to compete and win at major tournaments. In 2026, with a mature squad and an established system, a quarter-final run is achievable if the draw presents a favorable pathway.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 77/100 (Familiarity 78 &middot; Stability 75 &middot; Morale 79). Senegal are Africa&#8217;s most complete team and a genuinely dangerous opponent for any nation they face. <strong>Round of 16 minimum, quarter-final dark horse &#8212; and one of the teams most likely to deliver a memorable tournament upset.</strong></p>`,
   },
   {
     slug: "norway",
@@ -939,16 +1015,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Norway 1998 \u2014 physical Scandinavians with a world-class focal point",
     keyInsight:
       "Everything runs through Erling Haaland; Norway\u2019s World Cup campaign will be defined by how effectively they can service their generational striker.",
-    seoArticle: `<h2>Norway at the 2026 World Cup</h2>
-<p>Norway return to the FIFA World Cup for the first time since 1998, ending a 28-year absence largely thanks to one man: Erling Haaland. The Manchester City striker is one of the most prolific goal-scorers in football history, and his presence transforms Norway from a decent European side into a genuine World Cup threat.</p>
-<h3>The Haaland Effect</h3>
-<p>Erling Haaland\u2019s goal-scoring record at club level is nothing short of extraordinary, and his ability to score goals in virtually every match he plays gives Norway a decisive advantage in tight tournament games. When you have a striker who can score from anywhere inside the box, every set piece, cross, and through ball becomes a potential goal.</p>
-<p>The challenge for Stale Solbakken is building a team around Haaland that provides adequate service while remaining defensively sound. Martin Odegaard\u2019s creativity from midfield is the ideal complement, and his Arsenal-honed tactical intelligence helps connect Norway\u2019s build-up play with Haaland\u2019s finishing.</p>
-<h3>Norway World Cup 2026 Group I Outlook</h3>
-<p>Group I with France, Senegal, and a playoff qualifier is tough, but Norway have the individual quality to compete. France are formidable, but the match against Senegal could determine second place. Norway\u2019s ability to take points from that crucial fixture may decide their knockout-round fate.</p>
-<p>Norway\u2019s World Cup 2026 campaign represents a unique opportunity. The combination of Haaland and Odegaard gives them a spine that most nations would envy, and if the supporting cast can raise their level, Norway could be one of the tournament\u2019s most exciting teams to watch.</p>
-<h3>Scandinavian Renaissance</h3>
-<p>Norway\u2019s qualification is part of a broader Scandinavian football renaissance, with Denmark and Sweden also competing regularly at major tournaments. Norwegian football\u2019s investment in youth development is bearing fruit, and the 2026 World Cup could be just the beginning of a sustained period of international relevance.</p>`,
+    seoArticle: `<h2>Norway World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Norway arrive at the 2026 FIFA World Cup powered by the most feared goalscorer in world football &#8212; Erling Haaland. The nation has qualified for their first World Cup in 28 years on the strength of a generation of talented players whose collective ambitions have finally aligned with a qualification campaign capable of overcoming Europe&#8217;s competitive qualifying format. Under St&aring;le Solbakken, Norway are more than just a platform for Haaland &#8212; they are a complete international team.</p>
+<p>Norway&#8217;s Chemistry Index of 69/100 (Familiarity 66, Stability 68, Morale 81) reflects a squad still building collective cohesion under Solbakken&#8217;s system. The high morale (81) captures the excitement of a 28-year World Cup return and the belief that this generation &#8212; with Haaland at the peak of his powers &#8212; can achieve something special.</p>
+<h3>Tactical Identity</h3>
+<p>Solbakken deploys Norway in a pragmatic 4-3-3 that maximizes Haaland&#8217;s goal-scoring output through service into dangerous positions and physical battles with center-backs. The system is not built around beautiful football; it is built around winning. Solbakken&#8217;s organization ensures Norway are difficult to beat defensively while providing Haaland with enough quality service to score in almost every match.</p>
+<h3>Key Player to Watch: Erling Haaland</h3>
+<p>Erling Haaland is, at the time of the 2026 World Cup, possibly the world&#8217;s most prolific goalscorer in a calendar year across club and international football. His record at Manchester City &#8212; multiple Golden Boots, Champions League winner &#8212; represents the most dominant striking spell in recent football history. For Norway, Haaland is the tournament&#8217;s most dangerous individual match-winner. Any defense in Group I must construct their entire game plan around stopping him.</p>
+<h3>Group Stage Prediction: Group I (Norway, France, Senegal, TBD Playoff)</h3>
+<p>Group I is exceptionally tough with France (FIFA #1) and Senegal (FIFA #17). Norway will target the playoff team as certain points and compete hard for a result against Senegal. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points &#8212; Haaland&#8217;s goals as the defining factor.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; Haaland as the wild card</strong></p>
+<p>Norway&#8217;s knockout ceiling is set by Haaland&#8217;s capacity to win matches on his own. In tight knockout encounters where a single goal separates teams, having the world&#8217;s most reliable goalscorer is a decisive structural advantage that no Chemistry Index can fully capture.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 69/100 (Familiarity 66 &middot; Stability 68 &middot; Morale 81). Norway&#8217;s World Cup campaign is built on one question: can Erling Haaland be the difference? <strong>Our answer is yes &#8212; Norway will compete hard in Group I and Haaland will score goals. Round of 16 is achievable; further depends on form, fitness, and whether the system around him clicks.</strong></p>`,
   },
   {
     slug: "tbd-playoff-i",
@@ -966,16 +1046,15 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Playoff qualifier \u2014 team determined through intercontinental playoffs",
     keyInsight:
       "The Group I playoff spot remains undecided; the qualifying team will bring the hunger of having fought through the intercontinental playoff gauntlet to earn their place.",
-    seoArticle: `<h2>TBD Playoff Qualifier \u2014 Group I at the 2026 World Cup</h2>
-<p>One spot in Group I at the 2026 FIFA World Cup remains to be filled through the intercontinental playoff process. The team that emerges from this qualifying pathway will complete a group that already features France, Senegal, and Norway.</p>
-<h3>The Playoff Path</h3>
-<p>The FIFA intercontinental playoffs bring together teams from different confederations who narrowly missed automatic qualification. These matches are typically intense, high-stakes affairs that produce drama and heartbreak in equal measure. The team that navigates this gauntlet will arrive at the World Cup battle-tested and hungry.</p>
-<p>Potential candidates include strong nations from various confederations who fell just short in their regional qualifiers. Each will bring unique strengths, tactical identities, and passionate fanbases to the tournament.</p>
-<h3>Group I World Cup 2026 Implications</h3>
-<p>The identity of the playoff qualifier will significantly impact Group I dynamics. A stronger playoff team could challenge Norway for the second qualifying spot, while a lower-ranked qualifier would make the group more predictable. France and Senegal remain the likely favorites regardless.</p>
-<p>For the qualifying team, the expanded 48-team World Cup format provides additional motivation. The opportunity to compete against world-class opposition like France is a rare privilege that will drive the playoff participants to give everything in their qualifying matches.</p>
-<h3>Every Nation\u2019s Dream</h3>
-<p>The World Cup playoff process embodies football\u2019s universal appeal. Whether the qualifying team comes from Asia, Oceania, South America, or Africa, their presence in the 2026 World Cup will represent the fulfillment of a national dream and add to the tournament\u2019s rich diversity of participants.</p>`,
+    seoArticle: `<h2>Group I Playoff Qualifier &#8212; World Cup 2026 Outlook</h2>
+<p>The fourth team in Group I will be determined through the inter-confederation playoff system, with teams from AFC, CONCACAF, OFC, and UEFA competing for the final qualification spots. The playoff pathway rewards teams that came close to automatic qualification in their respective confederations, and past playoff qualifiers have included teams capable of competitive group-stage performances.</p>
+<p>Group I&#8217;s other teams &#8212; France, Senegal, and Norway &#8212; are established international programs with FIFA rankings between 1 and 28. The playoff team will enter as the group&#8217;s fourth seed with a significant quality differential to overcome.</p>
+<h3>Competitive Context</h3>
+<p>Playoff qualifiers at recent World Cups have included teams like Peru (2018), Australia (2022), and Costa Rica (2022) &#8212; nations capable of competitive group-stage performances despite their qualification route. The team that navigates the inter-confederation playoff will have earned their place through multiple competitive matches, arriving with tournament-match sharpness and genuine competitive quality.</p>
+<h3>Group Stage Prediction: Group I</h3>
+<p>The playoff qualifier faces France, Senegal, and Norway &#8212; a formidable group that makes advancement challenging. Maximum points against this quality of opposition would represent an extraordinary achievement. <strong>Predicted outcome: 4th place, 0&#8211;3 points, though competitive performances are achievable.</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 50/100 (placeholder &#8212; will be updated upon qualification). The Group I playoff qualifier deserves the respect afforded to any team that earned their World Cup place through competition. <strong>This page will be updated with full analysis once the playoff team is confirmed.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -1022,16 +1101,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Algeria 2014 \u2014 fearless runners who pushed Germany to extra time",
     keyInsight:
       "Algeria\u2019s deep pool of French-born dual-nationals provides genuine quality; their 2014 World Cup run proved they can hurt top teams with pace and directness.",
-    seoArticle: `<h2>Algeria at the 2026 World Cup</h2>
-<p>Algeria return to the FIFA World Cup seeking to build on the legacy of their 2014 campaign, where the Desert Foxes reached the Round of 16 and pushed eventual champions Germany to extra time. That performance remains a high point of Algerian football, and the 2026 squad aims to match or surpass it.</p>
-<h3>The Dual-Nationality Advantage</h3>
-<p>Algeria\u2019s squad benefits enormously from the large Algerian diaspora in France. Players born and raised in the French academy system who choose to represent Algeria bring Ligue 1 and other European league experience that significantly elevates the squad\u2019s technical quality and tactical awareness.</p>
-<p>Under Vladimir Petkovic, Algeria play an organized, counter-attacking style that maximizes the squad\u2019s pace in forward positions. The team\u2019s defensive structure has improved under the experienced Bosnian-Swiss coach, who brings major tournament management experience from his time with the Swiss national team.</p>
-<h3>Algeria World Cup 2026 Group J Outlook</h3>
-<p>Group J alongside Argentina, Austria, and Jordan gives Algeria a realistic chance of advancing. While Argentina are clear favorites, the competition for second place is open, and Algeria\u2019s quality and competitive edge could give them the advantage over Austria and Jordan.</p>
-<p>Algeria\u2019s World Cup 2026 campaign will draw passionate support from the Algerian diaspora across North America and France. The team\u2019s matches will be emotional occasions, with the players representing a football-mad nation that sees the World Cup as the ultimate stage.</p>
-<h3>North African Pride</h3>
-<p>Algeria\u2019s AFCON-winning heritage and 2014 World Cup heroics have set a standard that the current squad is determined to uphold. A deep run at the 2026 World Cup would place this generation alongside the greatest teams in Algerian football history.</p>`,
+    seoArticle: `<h2>Algeria World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Algeria return to the FIFA World Cup building on the legacy of their memorable 2014 campaign, where the Desert Foxes reached the Round of 16 and pushed eventual champions Germany to extra time. Under Vladimir Petkovic &#8212; who brings major tournament management experience from Switzerland &#8212; Algeria have developed into a well-organized counter-attacking team built around the quality of French-born Algerian players who have chosen to represent the Desert Foxes.</p>
+<p>Algeria&#8217;s Chemistry Index of 70/100 (Familiarity 68, Stability 63, Morale 76) reflects a functional squad with growing cohesion. The dual-nationality recruitment from France has provided European league quality across multiple positions, and Petkovic&#8217;s tactical organization has brought defensive structure to complement the individual attacking talent.</p>
+<h3>Tactical Identity</h3>
+<p>Petkovic deploys Algeria in an organized counter-attacking 4-3-3 or 4-2-3-1 that uses the pace of wide forwards to punish teams that commit men forward. The defensive structure absorbs pressure effectively while maintaining the threat of rapid transitions through Algeria&#8217;s most dangerous attacking players. Set-piece delivery is a consistent scoring opportunity in the system.</p>
+<h3>Key Player to Watch: Riyad Mahrez</h3>
+<p>Riyad Mahrez&#8217;s Champions League experience at Manchester City and his status as African football&#8217;s most technically gifted winger of his generation makes him Algeria&#8217;s most dangerous individual performer. When Mahrez is dribbling at defenders and cutting inside onto his left foot, Algeria become genuinely dangerous against any opponent. His World Cup involvement depends on fitness and form, but the talent remains world-class.</p>
+<h3>Group Stage Prediction: Group J (Algeria, Argentina, Austria, Jordan)</h3>
+<p>Group J with Argentina (defending champions) is a tough draw. Algeria will target Austria as their most competitive rival for second place. <strong>Predicted outcome: 2nd place competition, 3&#8211;6 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 if group advances &#8212; 2014 template is achievable</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 63 &middot; Morale 76). Algeria have the counter-attacking quality to cause problems for higher-ranked opponents and the defensive organization to stay competitive in tight matches. <strong>Round of 16 is achievable via second place in Group J &#8212; and Mahrez&#8217;s individual quality gives them an upset threat in any knockout encounter.</strong></p>`,
   },
   {
     slug: "austria",
@@ -1048,16 +1130,20 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Austria 2024 \u2014 Rangnick\u2019s high-press machine that shocked Euro 2024",
     keyInsight:
       "Rangnick\u2019s gegenpressing system has transformed Austria into a genuine threat; their Euro 2024 performances proved the approach works at the highest level.",
-    seoArticle: `<h2>Austria at the 2026 World Cup</h2>
-<p>Austria arrive at the 2026 FIFA World Cup as one of the tournament\u2019s most improved teams. Under Ralf Rangnick, Das Team have been transformed from inconsistent underachievers into a disciplined, tactically cohesive unit that plays some of the most intense pressing football in world football.</p>
-<h3>The Rangnick Revolution</h3>
-<p>Ralf Rangnick\u2019s appointment as Austria coach was a watershed moment for Austrian football. The father of gegenpressing has implemented his trademark high-intensity pressing system, and the results have been remarkable. Austria\u2019s Euro 2024 performances \u2014 including a group-stage victory over the Netherlands \u2014 announced them as a serious force in European football.</p>
-<p>The squad has bought into Rangnick\u2019s philosophy completely. David Alaba, when fit, provides world-class quality and leadership, while Marcel Sabitzer and Konrad Laimer bring Bundesliga-caliber energy and tactical intelligence. The collective pressing intensity is among the highest at the tournament.</p>
-<h3>Austria World Cup 2026 Group J Preview</h3>
-<p>Group J alongside Argentina, Algeria, and Jordan offers Austria a genuine opportunity to advance. While Argentina are formidable, the remaining matchups are winnable, and Austria\u2019s pressing system could trouble any opponent on its day, including the defending champions.</p>
-<p>Austria\u2019s World Cup 2026 ambitions extend beyond the group stage. Rangnick\u2019s system is designed for tournament football, where sustained intensity and tactical discipline can overcome greater individual talent. A knockout-stage run is a realistic target.</p>
-<h3>A New Era for Austrian Football</h3>
-<p>Austria\u2019s recent trajectory represents one of European football\u2019s most encouraging development stories. The Rangnick era has given Austrian football a clear identity and competitive edge that could yield results at the 2026 World Cup and beyond.</p>`,
+    seoArticle: `<h2>Austria World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Austria arrive at the 2026 FIFA World Cup as one of European football&#8217;s most interesting tactical experiments &#8212; a team built entirely around Ralf Rangnick&#8217;s Red Bull pressing philosophy and now operating at the national team level. Rangnick&#8217;s system &#8212; relentless pressing, vertical play, structured transitions &#8212; has produced remarkable results, including Austria&#8217;s best Euro 2024 campaign in their modern history and a World Cup qualification that exceeded many expectations.</p>
+<p>Austria&#8217;s Chemistry Index of 78/100 (Familiarity 76, Stability 75, Morale 77) reflects a squad that genuinely believes in Rangnick&#8217;s system and has been consistently developing it over several years. The stability score (75) is notably high for a team using such a demanding pressing system &#8212; reflecting Rangnick&#8217;s consistent squad selection and tactical commitment.</p>
+<h3>Tactical Identity</h3>
+<p>Rangnick&#8217;s Austria play an extremely high-pressing 4-3-3 that is among the most extreme pressing systems of any international team. The pressing triggers are coordinated, intense, and relentless &#8212; the blueprint that Rangnick developed at RB Leipzig and Salzburg now applied at the highest international level. Against teams unprepared for this intensity, Austria can be genuinely overwhelming in the first 20-30 minutes of matches.</p>
+<h3>Key Player to Watch: Marcel Sabitzer</h3>
+<p>Marcel Sabitzer embodies the Rangnick philosophy perfectly &#8212; a box-to-box midfielder with extraordinary work rate, technical quality, and the ability to contribute at both ends of the pitch. His Bundesliga and Champions League experience with Bayern Munich and Borussia Dortmund has refined his game to the point where he can be decisive in the highest-quality matches. Sabitzer&#8217;s energy and late runs from deep are among Austria&#8217;s most dangerous attacking patterns.</p>
+<h3>Group Stage Prediction: Group J (Austria, Argentina, Algeria, Jordan)</h3>
+<p>Group J with Argentina is challenging, but Austria enter as genuine competitors for the second qualification spot against Algeria. <strong>Predicted outcome: 2nd place competition, 3&#8211;7 points &#8212; the Algeria match is effectively a knockout game for second place.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable &#8212; Rangnick&#8217;s system as the equalizer</strong></p>
+<p>Austria&#8217;s pressing system has proven capable of disrupting technically superior opponents when executed at full intensity. In a knockout environment where a single poor pressing phase can be decisive, Rangnick&#8217;s team gives themselves a genuine opportunity against any opponent from the last 16 onwards.</p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 78/100 (Familiarity 76 &middot; Stability 75 &middot; Morale 77). Austria under Rangnick are European football&#8217;s most interesting tactical story &#8212; a pressing system applied consistently at national team level with growing success. <strong>Round of 16 is achievable and Austria are our surprise pick from Group J if they advance.</strong></p>`,
   },
   {
     slug: "jordan",
@@ -1074,16 +1160,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Jordan 2023 Asian Cup \u2014 organized underdogs who reached the final",
     keyInsight:
       "Jordan\u2019s shock run to the 2023 Asian Cup final revealed genuine quality and tactical maturity; their defensive resilience makes them dangerous underdogs.",
-    seoArticle: `<h2>Jordan at the 2026 World Cup</h2>
-<p>Jordan qualify for their first-ever FIFA World Cup, capping a remarkable rise in Asian football. The Nashama\u2019s journey to the 2023 Asian Cup final \u2014 where they defeated South Korea, Iraq, and Tajikistan before losing to Qatar in the final \u2014 demonstrated that Jordanian football has reached a new level of competitiveness and ambition.</p>
-<h3>From Asian Cup Heroes to World Cup Debutants</h3>
-<p>Jordan\u2019s Asian Cup run was built on extraordinary defensive discipline, tactical intelligence, and a collective spirit that unified the entire nation. These same qualities powered their World Cup qualifying campaign, and they represent the foundation upon which Jordan\u2019s World Cup campaign will be built.</p>
-<p>The squad features players from the Jordanian domestic league, the Gulf leagues, and a growing number of overseas-based professionals. While they may lack the individual star power of some opponents, their collective organization and competitive mentality compensate significantly.</p>
-<h3>Jordan World Cup 2026 Group J Challenge</h3>
-<p>Group J alongside Argentina, Algeria, and Austria is a daunting draw for World Cup debutants. Argentina are the defending champions, Austria are one of Europe\u2019s most improved teams, and Algeria bring African pedigree. However, Jordan have shown they can compete with and defeat higher-ranked Asian teams, and the step up to World Cup level may not be as dramatic as some expect.</p>
-<p>Jordan\u2019s World Cup 2026 approach will center on the defensive organization that powered their Asian Cup run. If they can stay in matches and compete for points, even a single draw would be a historic achievement celebrated across the Arab world.</p>
-<h3>Inspiring a Region</h3>
-<p>Jordan\u2019s World Cup debut resonates far beyond Jordanian borders. Their success inspires football development across the Levant and demonstrates that smaller nations can reach football\u2019s pinnacle through smart development, strong coaching, and unwavering team spirit.</p>`,
+    seoArticle: `<h2>Jordan World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Jordan make their FIFA World Cup debut at the 2026 tournament &#8212; the first time the Nashama have qualified for football&#8217;s greatest stage. Their AFC qualifying campaign, which included impressive results against established Asian footballing nations, demonstrated genuine competitive quality and a collective spirit that has captured hearts across the Arab world. Jordan&#8217;s qualification is a landmark moment for football development in the Middle East.</p>
+<p>Jordan&#8217;s Chemistry Index of 67/100 (Familiarity 65, Stability 63, Morale 84) contains a morale score of 84 that reflects the extraordinary pride of a footballing nation experiencing its defining competitive moment. The structural scores are honest reflections of a program still developing, while the morale captures something that cannot be coached: the meaning of this World Cup to every Jordanian player and fan.</p>
+<h3>Tactical Identity</h3>
+<p>Hussein Ammouta deploys Jordan in an organized, defensive-first 4-3-3 or 4-4-2 that uses collective discipline to compensate for individual quality gaps against higher-ranked opponents. Jordan&#8217;s strategy will be to remain competitive, limit damage against Argentina and Austria, and maximize their opportunity against Algeria in a three-way battle for second place that could be more open than the rankings suggest.</p>
+<h3>Key Player to Watch: Yazan Al-Naimat</h3>
+<p>Yazan Al-Naimat&#8217;s goals and creative play have been central to Jordan&#8217;s qualification campaign and AFC tournament performances. His ability to create and score from attacking midfield positions gives Jordan a genuine offensive threat that opponents cannot entirely dismiss, particularly in matches where Jordan&#8217;s defensive organization absorbs pressure and creates space on the counter-attack.</p>
+<h3>Group Stage Prediction: Group J (Jordan, Argentina, Algeria, Austria)</h3>
+<p>Group J is a significant challenge for World Cup debutants. Argentina are the clear group favorites; Algeria and Austria compete for second. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; competitive performances would represent a significant achievement for Jordan&#8217;s maiden World Cup campaign.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Historic debut is the achievement</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 67/100 (Familiarity 65 &middot; Stability 63 &middot; Morale 84). Jordan&#8217;s first World Cup is a historic moment for Middle Eastern football. <strong>Results will be hard to come by in Group J, but competitive performances against Algeria and Austria would represent genuine progress for a footballing nation writing its World Cup story for the very first time.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -1130,16 +1219,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Cameroon 1990 \u2014 athletic, unpredictable African force",
     keyInsight:
       "Cameroon\u2019s incredible World Cup history includes the iconic 1990 quarter-final; their athleticism and unpredictability make them a nightmare draw for any opponent.",
-    seoArticle: `<h2>Cameroon at the 2026 World Cup</h2>
-<p>Cameroon return to the FIFA World Cup with one of the most storied histories in African football. The Indomitable Lions\u2019 legendary 1990 World Cup campaign \u2014 where Roger Milla danced his way to the quarter-finals \u2014 remains one of the tournament\u2019s most iconic stories. The 2026 squad arrives determined to write a new chapter worthy of that legacy.</p>
-<h3>Continuing the Legacy</h3>
-<p>Cameroon\u2019s football heritage is unmatched in Africa alongside Nigeria and Ghana. Five-time Africa Cup of Nations champions, the Indomitable Lions bring a tradition of big-stage performance and fearless competition that makes them dangerous opponents regardless of their ranking or recent form.</p>
-<p>The squad blends experienced European-based players with emerging talent from the Cameroonian domestic league and academies. The team\u2019s traditional strengths of physicality, pace, and aerial dominance remain potent weapons, while tactical organization has improved under recent coaching appointments.</p>
-<h3>Cameroon World Cup 2026 Group K Preview</h3>
-<p>Group K alongside Colombia, Uzbekistan, and a playoff qualifier presents Cameroon with a genuine opportunity to advance. While Colombia are group favorites, the remaining positions are open, and Cameroon\u2019s big-tournament pedigree gives them a psychological edge over less experienced opponents.</p>
-<p>Cameroon\u2019s World Cup 2026 campaign will be driven by the passion of a football-obsessed nation. The Indomitable Lions\u2019 matches will be watched by millions across Africa, and the players understand the responsibility of representing one of the continent\u2019s most decorated footballing nations.</p>
-<h3>Danger at Every Turn</h3>
-<p>Cameroon\u2019s unpredictability is their greatest asset and their biggest challenge. On their day, they can beat anyone in the world. The question is whether they can sustain that level across three group matches and into the knockout rounds.</p>`,
+    seoArticle: `<h2>Cameroon World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Cameroon arrive at the 2026 FIFA World Cup as one of Africa&#8217;s most historic footballing nations &#8212; five-time Africa Cup of Nations champions, first African team to reach a World Cup quarter-final (1990), and a program defined by extraordinary individual talent. Under Marc Brys, the Indomitable Lions are working to rebuild collective organization around a squad featuring quality players across European leagues.</p>
+<p>Cameroon&#8217;s Chemistry Index of 66/100 (Familiarity 64, Stability 60, Morale 74) reflects the challenges of integrating multiple talented individuals into a coherent system &#8212; historically Cameroon&#8217;s greatest challenge has been collective organization rather than individual quality.</p>
+<h3>Tactical Identity</h3>
+<p>Brys deploys Cameroon in a physical, direct 4-3-3 that leverages the squad&#8217;s exceptional athleticism and the individual quality of players like Vincent Aboubakar and Bryan Mbeumo. The team&#8217;s pressing intensity and physical presence in duels make them difficult opponents in direct contests, while their technical players provide the creative quality needed against organized defenses.</p>
+<h3>Key Player to Watch: Bryan Mbeumo</h3>
+<p>Bryan Mbeumo&#8217;s emergence at Brentwood as one of the Premier League&#8217;s most dangerous wide forwards &#8212; with consistent 15+ goal seasons &#8212; has provided Cameroon with a technically excellent, reliable performer capable of performing at the highest level. His directness, finishing, and ability to create chances independently make him Cameroon&#8217;s most consistently dangerous attacker.</p>
+<h3>Group Stage Prediction: Group K (Cameroon, Colombia, Uzbekistan, TBD Playoff)</h3>
+<p>Group K gives Cameroon competitive opportunities against Uzbekistan and the playoff qualifier. Colombia are the clear group favorites. <strong>Predicted outcome: 2nd or 3rd place competition, 2&#8211;5 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Round of 16 Capable if Group K advances</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 66/100 (Familiarity 64 &middot; Stability 60 &middot; Morale 74). Cameroon have the individual talent to compete with anyone in Group K below Colombia. <strong>Second place is achievable with collective organization; Round of 16 advancement would be a significant achievement for African football.</strong></p>`,
   },
   {
     slug: "uzbekistan",
@@ -1156,16 +1248,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Uzbekistan 2011 Asian Cup \u2014 disciplined dark horses with set-piece danger",
     keyInsight:
       "Uzbekistan\u2019s long-awaited World Cup debut brings Central Asian football to the global stage; their technical midfield and set-piece quality should not be underestimated.",
-    seoArticle: `<h2>Uzbekistan at the 2026 World Cup</h2>
-<p>Uzbekistan qualify for their first-ever FIFA World Cup, marking a historic moment for Central Asian football. The White Wolves have been one of Asia\u2019s strongest non-qualifying nations for decades, consistently coming close but falling short in the final stages. The 2026 World Cup\u2019s expanded format has finally given them the opportunity they have long deserved.</p>
-<h3>Central Asia\u2019s Football Pioneer</h3>
-<p>Uzbekistan boast one of the richest footballing traditions in Central Asia. Consistently competitive in Asian qualifiers and the Asian Cup, the White Wolves play a technically proficient style built on strong midfield control and organized defending. Their domestic league produces technically skilled players, and a growing number of Uzbek internationals are earning moves to European and Asian leagues.</p>
-<p>Under experienced Slovenian coach Srecko Katanec, Uzbekistan have added tactical discipline and European professionalism to their natural technical ability. The team\u2019s set-piece routines are well-drilled and represent a genuine attacking threat.</p>
-<h3>Uzbekistan World Cup 2026 Group K Outlook</h3>
-<p>Group K alongside Colombia, Cameroon, and a playoff qualifier presents significant challenges, but Uzbekistan are not intimidated. Their years of near-misses in Asian qualifying have built a resilience and hunger that will serve them well in the intense atmosphere of World Cup football.</p>
-<p>Uzbekistan\u2019s World Cup 2026 goal is to compete credibly and inspire the next generation of Central Asian footballers. A point or a goal against a more established opponent would be celebrated wildly, while any progression from the group stage would be a fairy-tale achievement.</p>
-<h3>Inspiring a Region</h3>
-<p>Uzbekistan\u2019s World Cup debut carries significance for the entire Central Asian region. Their presence at the 2026 tournament proves that sustained investment in football development and domestic infrastructure can yield results on the world\u2019s biggest stage.</p>`,
+    seoArticle: `<h2>Uzbekistan World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Uzbekistan&#8217;s presence at the 2026 FIFA World Cup represents Central Asian football&#8217;s greatest achievement. The White Wolves have built a competitive AFC program through patient development, Russian-league experience, and the commitment of players who have chosen to represent Uzbekistan over other national team options. Their qualification is a testament to the growth of football across a region not traditionally associated with the game&#8217;s elite.</p>
+<p>Uzbekistan&#8217;s Chemistry Index of 68/100 (Familiarity 67, Stability 65, Morale 82) reflects a squad with reasonable structural cohesion and a high morale score (82) that captures the pride of qualification from a region where football is rapidly growing in stature and investment.</p>
+<h3>Tactical Identity</h3>
+<p>Srecko Katanec deploys Uzbekistan in a disciplined defensive setup that prioritizes competitive organization over attacking ambition. The team&#8217;s approach is pragmatic &#8212; limit damage against Colombia, and compete hard for results against Cameroon and the playoff qualifier in the battles for second and third place.</p>
+<h3>Key Player to Watch: Eldor Shomurodov</h3>
+<p>Eldor Shomurodov&#8217;s Serie A experience at Roma provides Uzbekistan with a clinical center-forward capable of competing at a high technical level. His movement, hold-up play, and goal-scoring instinct give Uzbekistan a competitive attacking reference point that elevates the team&#8217;s threat from set pieces and counter-attacks.</p>
+<h3>Group Stage Prediction: Group K (Uzbekistan, Colombia, Cameroon, TBD Playoff)</h3>
+<p>Group K with Colombia (Copa America 2024 finalists) is challenging. Uzbekistan&#8217;s realistic target is competitive performances and points against Cameroon and the playoff qualifier. <strong>Predicted outcome: 3rd place, 1&#8211;4 points.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Third-place pathway possible</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 68/100 (Familiarity 67 &middot; Stability 65 &middot; Morale 82). Uzbekistan&#8217;s World Cup debut is a landmark for Central Asian football. <strong>Competitive performances and potential third-place pathway advancement would represent a historic achievement for the White Wolves.</strong></p>`,
   },
   {
     slug: "tbd-playoff-k",
@@ -1183,16 +1278,13 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Playoff qualifier \u2014 team determined through intercontinental playoffs",
     keyInsight:
       "The Group K playoff spot awaits its occupant; the qualifying team will bring valuable competitive sharpness from the intense playoff process.",
-    seoArticle: `<h2>TBD Playoff Qualifier \u2014 Group K at the 2026 World Cup</h2>
-<p>The final spot in Group K at the 2026 FIFA World Cup will be determined through the intercontinental playoff process. The qualifying team will join Colombia, Cameroon, and Uzbekistan in what promises to be a competitive and diverse group.</p>
-<h3>The Intercontinental Playoff</h3>
-<p>FIFA\u2019s intercontinental playoffs provide a last chance for teams that narrowly missed automatic qualification from their respective confederations. These high-stakes matches are among the most dramatic in world football, with World Cup dreams hanging in the balance over one or two legs.</p>
-<p>The team that emerges from this process will arrive at the World Cup with the fire and determination that comes from having fought through adversity. Playoff qualifiers often carry a chip on their shoulder that can translate into fearless, high-energy performances at the tournament itself.</p>
-<h3>Group K World Cup 2026 Dynamics</h3>
-<p>The playoff qualifier\u2019s identity will influence Group K\u2019s competitive balance. A stronger team could create a tight four-way contest, while a lower-ranked qualifier might open the group up for the established nations. Regardless, every team in the expanded World Cup has earned their place and deserves respect.</p>
-<p>For the qualifying nation, the 2026 World Cup represents the ultimate prize. The opportunity to compete against South American, African, and Asian opposition in a single group embodies the World Cup\u2019s unique ability to bring the entire footballing world together.</p>
-<h3>The Beauty of the World Cup</h3>
-<p>Whoever fills this final Group K spot will add their own story to the 2026 World Cup\u2019s tapestry. The intercontinental playoff pathway ensures that the team arriving has the quality and determination to compete on the world stage, making them a worthy addition to the tournament.</p>`,
+    seoArticle: `<h2>Group K Playoff Qualifier &#8212; World Cup 2026 Outlook</h2>
+<p>The fourth team in Group K will be determined through the inter-confederation playoff process. Group K&#8217;s other teams &#8212; Colombia (Copa America 2024 finalists), Cameroon (African Football League quality), and Uzbekistan &#8212; represent a competitive but achievable group for a well-organized playoff qualifier.</p>
+<p>The inter-confederation pathway has historically produced competitive qualifiers including Costa Rica (reaching the 2014 quarter-finals), New Zealand, and other teams who defied expectations. The Group K playoff qualifier enters with the determination of teams that fought through multiple elimination matches to reach the tournament.</p>
+<h3>Group Stage Prediction: Group K</h3>
+<p>The playoff qualifier faces Colombia as the clear group favorites, with Cameroon and Uzbekistan as competitive opponents. <strong>Predicted outcome: 3rd or 4th place &#8212; will be updated once the qualifier is confirmed.</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 50/100 (placeholder &#8212; will be updated upon qualification). <strong>This page will be updated with full team analysis once the Group K playoff qualifier is confirmed.</strong></p>`,
   },
 
   // ─────────────────────────────────────────────
@@ -1239,16 +1331,19 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Ghana 2010 \u2014 passionate African contenders with star-studded squad",
     keyInsight:
       "Ghana\u2019s dual-nationality recruitment has rebuilt a squad that can match their 2010 quarter-final generation; the Black Stars remain one of Africa\u2019s most prestigious football nations.",
-    seoArticle: `<h2>Ghana at the 2026 World Cup</h2>
-<p>Ghana return to the FIFA World Cup seeking to recapture the magic of their 2010 campaign, where the Black Stars came within a Suarez handball of becoming the first African nation to reach a World Cup semi-final. That heartbreak remains a defining moment in Ghanaian football, and the 2026 squad is determined to write a happier ending.</p>
-<h3>Rebuilding the Black Stars</h3>
-<p>Ghana have undergone a significant squad rebuild, leveraging the nation\u2019s extensive diaspora to recruit talented players born in Europe who have chosen to represent the Black Stars at international level. This strategy has injected Premier League and Bundesliga quality into the squad, elevating Ghana\u2019s competitive potential.</p>
-<p>Under Otto Addo, Ghana play with the characteristic passion and physicality that has defined West African football, now supplemented by greater tactical organization and technical quality. The blend of European-trained professionals and domestic talents creates a diverse and capable squad.</p>
-<h3>Ghana World Cup 2026 Group L Preview</h3>
-<p>Group L alongside England, Croatia, and Panama presents familiar World Cup challenges for Ghana. The Black Stars have experience competing against European heavyweights and will relish the opportunity to cause upsets. Their 2010 victories over the USA and Serbia provide a blueprint for tournament success.</p>
-<p>Ghana\u2019s World Cup 2026 campaign carries the weight of a football-obsessed nation\u2019s expectations. The 2022 World Cup in Qatar was disappointing, and the players are motivated to restore Ghana\u2019s reputation as one of Africa\u2019s premier footballing nations.</p>
-<h3>African Football\u2019s Heartbeat</h3>
-<p>Ghana\u2019s passionate fanbase and rich football culture make them one of the World Cup\u2019s most colorful participants. The Black Stars\u2019 matches will be accompanied by singing, drumming, and the kind of fervent support that makes the World Cup a truly global celebration of football.</p>`,
+    seoArticle: `<h2>Ghana World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Ghana arrive at the 2026 FIFA World Cup seeking to restore the Black Stars to the prominence of their 2010 campaign &#8212; when they came within a Suarez handball of becoming the first African nation to reach a World Cup semi-final. That heartbreak defines Ghanaian football&#8217;s relationship with the World Cup, and this generation of players &#8212; under Otto Addo&#8217;s guidance &#8212; is determined to write a different ending to that story.</p>
+<p>Ghana&#8217;s Chemistry Index of 67/100 (Familiarity 63, Stability 59, Morale 75) reflects a squad in ongoing development, with the dual-nationality recruitment of diaspora talent still being integrated into a consistent collective identity. The lower familiarity and stability scores represent honest challenges &#8212; but the morale (75) captures the pride of a passionate football culture.</p>
+<h3>Tactical Identity</h3>
+<p>Addo deploys Ghana in an energetic, physically committed 4-3-3 that leverages the athleticism and European-league quality of a squad featuring Premier League and Bundesliga players. The team&#8217;s pressing intensity and physical commitment in duels make them difficult opponents; the challenge is converting competitive performances into match-winning moments.</p>
+<h3>Key Player to Watch: Mohammed Kudus</h3>
+<p>Mohammed Kudus has emerged at West Ham United as one of the Premier League&#8217;s most exciting attacking talents &#8212; a direct, intelligent forward with the technical quality to beat defenders in isolation and deliver in the final third. At Ghana&#8217;s level, Kudus represents a genuine technical step above most Group L opponents, and his ability to create and score from multiple positions is their most reliable match-winning weapon.</p>
+<h3>Group Stage Prediction: Group L (Ghana, England, Croatia, Panama)</h3>
+<p>Group L with England (FIFA #5) and Croatia (FIFA #12) is a significant challenge. Panama represent the group&#8217;s most beatable opponent. <strong>Predicted outcome: 3rd place competition, 1&#8211;4 points &#8212; with Kudus potentially producing a decisive result against Croatia or Panama.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Competitive Underdog &#8212; Kudus as the upset threat</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 67/100 (Familiarity 63 &middot; Stability 59 &middot; Morale 75). Ghana carry the spirit of 2010 into every World Cup they enter. <strong>Third-place pathway advancement is their realistic target; Kudus&#8217; individual quality gives them a genuine upset threat in any group match.</strong></p>`,
   },
   {
     slug: "croatia",
@@ -1291,15 +1386,18 @@ export const TEAMS: Team[] = [
     archetypeMatch: "Panama 2018 \u2014 the underdog who just loves being at the party",
     keyInsight:
       "Panama\u2019s growing CONCACAF consistency and 2018 World Cup experience provide a foundation; their defensive grit and set-piece danger make them competitive in every match.",
-    seoArticle: `<h2>Panama at the 2026 World Cup</h2>
-<p>Panama return to the FIFA World Cup for the second time in their history, building on the unforgettable experience of their 2018 debut in Russia. The Canaleros\u2019 first World Cup goal \u2014 scored against England \u2014 remains one of the most emotional moments in Panamanian sports history, and the 2026 squad aims to create even more historic memories.</p>
-<h3>CONCACAF Mainstays</h3>
-<p>Panama have established themselves as a consistent force in CONCACAF, regularly competing for World Cup qualifying spots and performing well in the Gold Cup and Nations League. Under Thomas Christiansen, the team has developed a mature tactical identity built on defensive organization, physical intensity, and dangerous set-piece routines.</p>
-<p>The squad blends MLS-based players with Central American league regulars and a handful of European-based professionals. While individually they may not match the star power of Group L opponents, their collective effort and competitive spirit make them difficult to beat.</p>
-<h3>Panama World Cup 2026 Group L Challenge</h3>
-<p>Group L alongside England, Ghana, and Croatia is extremely challenging for Panama. Each opponent brings significant quality and tournament experience. However, Panama\u2019s 2018 World Cup appearance provided invaluable big-stage experience, and the team is better prepared for the intensity and pressure of World Cup football.</p>
-<p>Panama\u2019s World Cup 2026 strategy will focus on defensive discipline and maximizing set-piece opportunities. In a group with three strong opponents, keeping matches tight and competing for moments could yield a historic result.</p>
-<h3>Central American Pride</h3>
-<p>Panama\u2019s World Cup qualification is a source of enormous national pride. For a country of four million people, competing at football\u2019s grandest stage alongside global powerhouses is a remarkable achievement. The 2026 World Cup offers another opportunity to inspire a nation and grow the game in Central America.</p>`,
+    seoArticle: `<h2>Panama World Cup 2026 Prediction &#8212; Analysis &amp; Tournament Outlook</h2>
+<p>Panama arrive at the 2026 FIFA World Cup having established themselves as one of CONCACAF&#8217;s most consistently developing programs. After their debut in 2018 &#8212; where they competed with spirit before being eliminated &#8212; Panama have continued building under Thomas Christiansen with a generation of professional players that represents the sport&#8217;s growing depth in Central America.</p>
+<p>Panama&#8217;s Chemistry Index of 65/100 (Familiarity 66, Stability 62, Morale 80) reflects a team with reasonable collective organization and a high morale (80) that captures the pride of the nation&#8217;s second World Cup qualification. The structural scores indicate a team aware of the quality gap with group leaders England and Croatia but determined to compete in every match.</p>
+<h3>Tactical Identity</h3>
+<p>Christiansen deploys Panama in a physical, organized 4-4-2 or 4-3-3 that uses direct play, set-piece threat, and competitive physical commitment to make life difficult for technically superior opponents. Panama&#8217;s players are hard workers who give maximum effort across the full 90 minutes &#8212; the kind of collective commitment that can produce results against opponents who underestimate them.</p>
+<h3>Key Player to Watch: Adalberto Carrasquilla</h3>
+<p>Adalberto Carrasquilla&#8217;s midfield quality &#8212; combining technical ability with competitive intensity &#8212; makes him Panama&#8217;s most important player in controlling possession and creating chances. His Houston Dynamo experience provides a professional foundation, and his leadership in Panama&#8217;s midfield gives the team its competitive identity.</p>
+<h3>Group Stage Prediction: Group L (Panama, England, Croatia, Ghana)</h3>
+<p>Group L with England and Croatia is exceptionally tough for Panama. Ghana represent the group&#8217;s most competitive opponent for a potential points surprise. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; maximum effort, learning experience.</strong></p>
+<h3>Knockout Potential</h3>
+<p>Rating: <strong>Group Stage &#8212; Competitive performances the objective</strong></p>
+<h3>ScoutEdge Verdict</h3>
+<p>Chemistry Index: 65/100 (Familiarity 66 &middot; Stability 62 &middot; Morale 80). Panama&#8217;s second World Cup is a celebration of Central American football&#8217;s development. <strong>Results will be difficult in Group L, but Panama&#8217;s competitive spirit and collective determination make them impossible to completely dismiss.</strong></p>`,
   },
 ]
