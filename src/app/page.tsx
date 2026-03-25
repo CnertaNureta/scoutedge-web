@@ -99,6 +99,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Feature Hub */}
+      <section className="page-container mb-24">
+        <SectionHeader className="mb-10">Explore Intelligence</SectionHeader>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            {
+              title: 'Match Schedule',
+              desc: 'Full group-stage fixtures with AI win-probability previews for every match.',
+              href: '/matches',
+              icon: '\u{26BD}',
+              accent: '#00ff87',
+            },
+            {
+              title: 'Daily Briefing',
+              desc: 'Live news feed and AI-extracted signals updated daily from top sports sources.',
+              href: '/daily-briefing',
+              icon: '\u{1F4F0}',
+              accent: '#04f5ff',
+            },
+            {
+              title: 'Power Rankings',
+              desc: 'AI-driven rankings combining form, chemistry, squad depth, and tactical profiles.',
+              href: '/power-rankings',
+              icon: '\u{1F3C6}',
+              accent: '#ffd700',
+            },
+            {
+              title: 'Group Analysis',
+              desc: 'Deep-dive into all 12 groups with standings, scenarios, and qualification odds.',
+              href: '/groups/A',
+              icon: '\u{1F4CA}',
+              accent: '#e90052',
+            },
+          ].map((feature) => (
+            <Link
+              key={feature.href}
+              href={feature.href}
+              className="relative glass-panel p-6 rounded-2xl border border-white/[0.08] overflow-hidden group hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+            >
+              <NeonAccentBar color={feature.accent} />
+              <div className="text-3xl mb-3">{feature.icon}</div>
+              <h3 className="font-headline text-lg uppercase tracking-wide mb-2" style={{ color: feature.accent }}>
+                {feature.title}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {feature.desc}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative w-full py-24 px-6 mb-0 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-container via-background to-background" />
