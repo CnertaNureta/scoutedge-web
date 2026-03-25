@@ -7,8 +7,10 @@ interface GlassCardProps {
 export default function GlassCard({ children, className = '', hover = false }: GlassCardProps) {
   return (
     <div
-      className={`glass-panel rounded-xl border border-white/10 shadow-2xl ${
-        hover ? 'hover:bg-surface-bright hover:scale-[1.02] transition-all duration-300' : ''
+      className={`glass-panel rounded-2xl border border-white/[0.08] shadow-2xl relative overflow-hidden ${
+        hover
+          ? 'hover:border-white/20 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,255,135,0.08)] transition-all duration-300'
+          : ''
       } ${className}`}
     >
       {children}

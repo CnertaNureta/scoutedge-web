@@ -7,6 +7,8 @@ import { computeDerivedStats } from '@/lib/player-derived-stats'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
+import SeoArticle from '@/components/ui/SeoArticle'
+import SectionHeader from '@/components/ui/SectionHeader'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
@@ -77,26 +79,16 @@ export default async function PlayerPage({ params }: PageProps) {
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
+      <SeoArticle html={player.seoArticle} />
 
-      {/* SEO Content Block */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <article
-          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-xl"
-          dangerouslySetInnerHTML={{ __html: player.seoArticle }}
-        />
-      </section>
-
-      {/* More Players */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-20">
+      <section className="page-container mb-20">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">
-            More {team.name} Players
-          </h2>
+          <SectionHeader>More {team.name} Players</SectionHeader>
           <Link
             href={`/teams/${slug}`}
-            className="font-label text-sm font-bold text-primary uppercase tracking-widest hover:underline"
+            className="font-label text-sm font-semibold text-primary uppercase tracking-widest hover:underline"
           >
-            ← Back to {team.name} Squad
+            Back to {team.name}
           </Link>
         </div>
         <div className="flex flex-wrap gap-3">
@@ -104,7 +96,7 @@ export default async function PlayerPage({ params }: PageProps) {
             <Link
               key={p.slug}
               href={`/teams/${slug}/players/${p.slug}`}
-              className="bg-surface-container hover:bg-surface-container-high px-4 py-2 rounded-full font-body text-sm transition-colors hover:text-primary"
+              className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
             >
               {p.name}
             </Link>

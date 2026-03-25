@@ -12,24 +12,24 @@ export function hashString(str: string): number {
 }
 
 export function chemistryColor(value: number): string {
-  if (value >= 70) return '#22c55e'
-  if (value >= 50) return '#3b82f6'
-  if (value >= 35) return '#f59e0b'
-  return '#ef4444'
+  if (value >= 70) return '#00ff87'
+  if (value >= 50) return '#04f5ff'
+  if (value >= 35) return '#ffd700'
+  return '#ff4081'
 }
 
 export function chemistryColorClass(value: number): string {
-  if (value >= 70) return 'bg-green-500'
-  if (value >= 50) return 'bg-blue-500'
-  if (value >= 35) return 'bg-yellow-500'
-  return 'bg-red-500'
+  if (value >= 70) return 'bg-primary'
+  if (value >= 50) return 'bg-accent'
+  if (value >= 35) return 'bg-tertiary'
+  return 'bg-secondary'
 }
 
 export function fitnessColorClass(status: 'green' | 'amber' | 'red'): string {
   switch (status) {
-    case 'green': return 'bg-green-500'
-    case 'amber': return 'bg-yellow-500 animate-pulse-slow'
-    case 'red': return 'bg-red-500 animate-pulse-fast'
+    case 'green': return 'bg-primary'
+    case 'amber': return 'bg-tertiary animate-pulse-slow'
+    case 'red': return 'bg-secondary animate-pulse-fast'
   }
 }
 

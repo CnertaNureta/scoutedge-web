@@ -29,11 +29,15 @@ export default function TeamsPage() {
       />
 
       {/* Hero */}
-      <section className="relative py-20 md:py-32 px-6">
-        <div className="max-w-[1440px] mx-auto text-center">
-          <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tighter uppercase mb-6">
+      <section className="relative py-24 md:py-36 px-6 overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 mesh-gradient" />
+        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[180px]" />
+
+        <div className="relative z-10 max-w-[1440px] mx-auto text-center">
+          <h1 className="font-headline text-6xl md:text-8xl tracking-wide uppercase mb-6">
             World Cup 2026<br />
-            <span className="text-primary">All 48 Teams</span>
+            <span className="gradient-text">All 48 Teams</span>
           </h1>
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
             AI-powered analysis of every nation competing in the most expansive FIFA World Cup in history.
@@ -47,11 +51,12 @@ export default function TeamsPage() {
         {groups.map((group) => {
           const teams = getTeamsByGroup(group)
           return (
-            <div key={group} className="mb-12">
-              <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6 flex items-center gap-3">
-                <span className="bg-primary-container text-on-primary-container px-4 py-1 rounded-full font-label text-sm">
+            <div key={group} className="mb-14">
+              <h2 className="font-headline text-2xl tracking-wide uppercase mb-6 flex items-center gap-3">
+                <span className="bg-primary/15 text-primary border border-primary/20 px-5 py-1.5 rounded-full font-label text-sm font-semibold tracking-widest">
                   Group {group}
                 </span>
+                <div className="flex-1 h-px bg-gradient-to-r from-primary/20 to-transparent" />
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {teams.map((team) => (

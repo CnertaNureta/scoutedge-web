@@ -7,11 +7,12 @@ import { getTeamColors } from '@/lib/team-colors'
 import { getPlayerPhoto, hashString } from '@/lib/utils'
 import StatRadar from '@/components/player/StatRadar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import Link from 'next/link'
 import { Heart, MapPin, Hash, Shield, ChevronLeft } from 'lucide-react'
 
-const PILL_CLASS = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]'
+const PILL_CLASS = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-white/20 transition-colors'
 
 interface PlayerHeroProps {
   player: Player
@@ -29,7 +30,8 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
   const burstTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const playerPhoto = getPlayerPhoto(player)
-  const nameParts = player.name.split(' ')
+  const [firstName, ...restParts] = player.name.split(' ')
+  const surname = restParts.length > 0 ? restParts.join(' ') : firstName
 
   useEffect(() => {
     return () => {
@@ -56,65 +58,66 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
         } as React.CSSProperties
       }
     >
-      {/* ── Background: dark gradient ── */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#060806] via-background to-[#0a160a]" />
+      {/* Background: deep navy gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#040812] via-background to-[#060a18]" />
+
+      {/* Mesh gradient with team colors */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            radial-gradient(ellipse at 30% 40%, ${colors.glow}12 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 60%, ${colors.secondary}08 0%, transparent 40%)
+          `,
+        }}
+      />
 
       {/* Grass texture overlay */}
-      <div className="absolute inset-0 grass-texture opacity-[0.04] pointer-events-none" />
-
-      {/* Ambient team-color glow blobs */}
-      <div
-        className="absolute top-1/3 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[200px] opacity-[0.08]"
-        style={{ background: colors.glow }}
-      />
-      <div
-        className="absolute bottom-0 right-1/3 w-[500px] h-[500px] rounded-full blur-[180px] opacity-[0.05]"
-        style={{ background: colors.secondary }}
-      />
+      <div className="absolute inset-0 grass-texture opacity-[0.03] pointer-events-none" />
 
       {/* Scanline overlay */}
-      <div className="absolute inset-0 scanline-overlay pointer-events-none opacity-40" />
+      <div className="absolute inset-0 scanline-overlay pointer-events-none opacity-30" />
 
       {/* Vignette */}
       <div className="absolute inset-0 vignette pointer-events-none" />
 
-      {/* ── Main content ── */}
+      {/* Main content */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 py-16 md:py-20">
         {/* Breadcrumb */}
         <Link
           href={`/teams/${team.slug}`}
-          className="inline-flex items-center gap-2 text-on-surface-variant hover:text-on-surface transition-colors group mb-10 md:mb-14"
+          className="inline-flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors group mb-10 md:mb-14"
         >
           <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-          <span className="font-label text-sm font-bold uppercase tracking-widest">
+          <span className="font-label text-sm font-medium uppercase tracking-widest">
             {team.flag} {team.name}
           </span>
         </Link>
 
-        {/* Two-column layout: photo left, glass card right */}
+        {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* ── LEFT: Player cutout with dynamic color blocks ── */}
+          {/* LEFT: Player cutout with dynamic color blocks */}
           <div className="relative flex justify-center lg:justify-center min-h-[420px] md:min-h-[540px]">
             {/* Dynamic color blocks behind player */}
             <div
-              className="absolute top-4 left-1/2 -translate-x-[60%] w-60 h-80 rounded-3xl -rotate-[10deg] opacity-25 blur-sm"
+              className="absolute top-4 left-1/2 -translate-x-[60%] w-60 h-80 rounded-3xl -rotate-[10deg] opacity-20 blur-sm"
               style={{
                 background: `linear-gradient(145deg, ${colors.primary}, ${colors.glow})`,
               }}
             />
             <div
-              className="absolute top-12 left-1/2 -translate-x-[35%] w-52 h-72 rounded-3xl rotate-[6deg] opacity-20 blur-sm"
+              className="absolute top-12 left-1/2 -translate-x-[35%] w-52 h-72 rounded-3xl rotate-[6deg] opacity-15 blur-sm"
               style={{
                 background: `linear-gradient(225deg, ${colors.secondary}, ${colors.primary})`,
               }}
             />
             <div
-              className="absolute bottom-8 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full opacity-20 blur-3xl"
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 w-56 h-56 rounded-full opacity-15 blur-3xl"
               style={{ background: colors.glow }}
             />
             {/* Small accent block */}
             <div
-              className="absolute top-1/4 right-[10%] w-20 h-20 rounded-2xl rotate-[25deg] opacity-15 blur-[2px]"
+              className="absolute top-1/4 right-[10%] w-20 h-20 rounded-2xl rotate-[25deg] opacity-10 blur-[2px]"
               style={{ background: colors.secondary }}
             />
 
@@ -143,7 +146,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                   style={{ background: colors.glow }}
                 />
                 <span
-                  className="absolute font-headline text-[220px] font-black opacity-[0.08]"
+                  className="absolute font-headline text-[220px] opacity-[0.08]"
                   style={{ color: colors.glow }}
                 >
                   {player.number}
@@ -154,7 +157,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
             {/* Ghost number watermark */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 select-none pointer-events-none">
               <span
-                className="font-headline text-[240px] md:text-[320px] font-black leading-none opacity-[0.03]"
+                className="font-headline text-[240px] md:text-[320px] leading-none opacity-[0.03]"
                 style={{ WebkitTextStroke: `2px ${colors.glow}18` }}
               >
                 {player.number}
@@ -162,16 +165,10 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
             </div>
           </div>
 
-          {/* ── RIGHT: Glassmorphism card ── */}
+          {/* RIGHT: Glassmorphism card */}
           <div className="relative">
             <div className="glass-hero-card rounded-2xl border border-white/[0.08] p-6 md:p-8 space-y-5 relative overflow-hidden">
-              {/* Neon top border */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2px]"
-                style={{
-                  background: `linear-gradient(90deg, transparent 5%, ${colors.glow} 50%, transparent 95%)`,
-                }}
-              />
+              <NeonAccentBar color={colors.glow} />
 
               {/* Inner ambient glow */}
               <div
@@ -179,19 +176,19 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                 style={{ background: colors.glow }}
               />
 
-              {/* H1: Player full name — SEO critical */}
+              {/* Player full name */}
               <div>
-                <h1 className="font-headline text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.88]">
-                  <span className="text-stroke block text-3xl md:text-4xl lg:text-5xl">
-                    {nameParts[0]}
+                <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl tracking-wide uppercase leading-[0.85]">
+                  <span className="text-stroke block text-4xl md:text-5xl lg:text-6xl">
+                    {firstName}
                   </span>
                   <span className="block" style={{ color: colors.glow }}>
-                    {nameParts.slice(1).join(' ')}
+                    {surname}
                   </span>
                 </h1>
               </div>
 
-              {/* Info pills: number · position · club */}
+              {/* Info pills */}
               <div className="flex flex-wrap gap-2">
                 <span className={PILL_CLASS}>
                   <Hash className="w-3.5 h-3.5" style={{ color: colors.glow }} />
@@ -230,7 +227,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                     className="w-1 h-4 rounded-full"
                     style={{ background: colors.glow }}
                   />
-                  <span className="font-label text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">
+                  <span className="font-label text-[10px] font-semibold text-on-surface-variant uppercase tracking-widest">
                     Performance Radar
                   </span>
                 </div>
@@ -253,12 +250,12 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                     className="text-center p-3 rounded-xl bg-white/[0.025] border border-white/[0.06]"
                   >
                     <span
-                      className="font-headline text-2xl font-black block"
+                      className="font-headline text-3xl block"
                       style={{ color: colors.glow }}
                     >
                       {s.value}
                     </span>
-                    <span className="font-label text-[9px] font-bold text-on-surface-variant uppercase tracking-widest">
+                    <span className="font-label text-[9px] font-semibold text-on-surface-variant uppercase tracking-widest">
                       {s.label}
                     </span>
                   </div>
@@ -268,15 +265,15 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
           </div>
         </div>
 
-        {/* ── Bottom: Cheer / 点赞助威 button ── */}
+        {/* Bottom: Cheer button */}
         <div className="flex justify-center mt-14">
           <button
             type="button"
             onClick={handleCheer}
             disabled={hasCheered}
             className={`
-              group relative inline-flex items-center gap-3 px-8 py-4 rounded-full
-              border transition-all duration-300 font-label font-bold uppercase tracking-widest text-sm
+              group relative inline-flex items-center gap-3 px-8 py-4 rounded-2xl
+              border transition-all duration-300 font-label font-semibold uppercase tracking-widest text-sm
               ${
                 hasCheered
                   ? 'bg-white/[0.06] border-white/20 cursor-default'
@@ -325,7 +322,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
 
       {/* Bottom neon line */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-[1px] z-30"
+        className="absolute bottom-0 left-0 right-0 h-[2px] z-30"
         style={{
           background: `linear-gradient(90deg, transparent, ${colors.glow}80, ${colors.secondary}60, transparent)`,
         }}
