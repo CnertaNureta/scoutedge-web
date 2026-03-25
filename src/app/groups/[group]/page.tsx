@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import fs from 'fs'
+import path from 'path'
 import { getAllGroups, getTeamsByGroup, getPlayersByTeam, getFixturesByGroup, getTeamBySlug } from '@/lib/data-service'
+import { GROUP_SEO_META } from '@/data/seo-meta'
 import type { MatchFixture } from '@/lib/types'
 import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
@@ -22,13 +25,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (teams.length === 0) return { title: 'Group Not Found' }
 
   const teamNames = teams.map((t) => t.name).join(', ')
+  const seo = GROUP_SEO_META[group.toUpperCase()]
 
   return {
-    title: `Group ${group} Analysis — World Cup 2026 | ${teamNames}`,
-    description: `In-depth AI analysis of World Cup 2026 Group ${group}: ${teamNames}. Squad chemistry, FIFA rankings, tactical profiles, and prediction breakdowns.`,
+    title: seo?.title ?? `Group ${group} Analysis — World Cup 2026 | ${teamNames}`,
+    description: seo?.description ?? `In-depth AI analysis of World Cup 2026 Group ${group}: ${teamNames}. Squad chemistry, FIFA rankings, tactical profiles, and prediction breakdowns.`,
     keywords: `World Cup 2026 Group ${group}, ${teamNames} World Cup 2026, Group ${group} analysis, World Cup 2026 predictions`,
     openGraph: {
-      title: `World Cup 2026 Group ${group} — AI Analysis & Predictions`,
+      title: seo?.ogTitle ?? `World Cup 2026 Group ${group} — AI Analysis & Predictions`,
       description: `Group ${group}: ${teamNames}. AI-powered squad analysis, chemistry indexes, and match predictions.`,
       type: 'article',
     },
@@ -404,6 +408,33 @@ export default async function GroupPage({ params }: PageProps) {
           </div>
         </GlassCard>
       </section>
+
+      {/* Group Analysis Article */}
+      {(() => {
+        try {
+          const articlePath = path.join(process.cwd(), 'src/content/groups', `group-${group.toLowerCase()}-world-cup-2026-analysis.md`)
+          const raw = fs.readFileSync(articlePath, 'utf8')
+          const bodyStart = raw.indexOf('---', raw.indexOf('---') + 3) + 3
+          const body = raw.slice(bodyStart).trim()
+          const paragraphs = body.split(/\n\n+/).filter((p: string) => !p.startsWith('---') && !p.startsWith('|') && p.trim().length > 0)
+          const textParagraphs = paragraphs.filter((p: string) => !p.startsWith('#')).slice(0, 6)
+          if (textParagraphs.length === 0) return null
+          return (
+            <section className="max-w-[1440px] mx-auto px-6 mb-16">
+              <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+                Group {group} Deep Analysis
+              </h2>
+              <GlassCard className="p-8 md:p-12">
+                <div className="space-y-4">
+                  {textParagraphs.map((p: string, i: number) => (
+                    <p key={i} className="text-on-surface-variant text-sm md:text-base leading-relaxed">{p}</p>
+                  ))}
+                </div>
+              </GlassCard>
+            </section>
+          )
+        } catch { return null }
+      })()}
 
       {/* Other Groups Navigation */}
       <section className="max-w-[1440px] mx-auto px-6 mb-20">
