@@ -199,6 +199,13 @@ export default function HomePage() {
               icon: '\u{1F4DD}',
               accent: '#bcf0ae',
             },
+            {
+              title: 'Community',
+              desc: 'Fan forum — predictions, debates, and match-day discussion worldwide.',
+              href: '/community',
+              icon: '\u{1F4AC}',
+              accent: '#e9c400',
+            },
           ] as const).map((feature) => (
             <Link
               key={feature.href}
