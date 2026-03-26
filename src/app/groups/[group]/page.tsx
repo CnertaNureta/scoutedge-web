@@ -26,9 +26,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const teamNames = teams.map((t) => t.name).join(', ')
   const seo = GROUP_SEO_META[group.toUpperCase()]
+  const seoTitle = seo?.title?.replace(/ \| ScoutEdge$/, '') ?? null
 
   return {
-    title: seo?.title ?? `Group ${group} Analysis — World Cup 2026 | ${teamNames}`,
+    title: seoTitle ?? `Group ${group} Analysis — World Cup 2026 | ${teamNames}`,
     description: seo?.description ?? `In-depth AI analysis of World Cup 2026 Group ${group}: ${teamNames}. Squad chemistry, FIFA rankings, tactical profiles, and prediction breakdowns.`,
     keywords: `World Cup 2026 Group ${group}, ${teamNames} World Cup 2026, Group ${group} analysis, World Cup 2026 predictions`,
     openGraph: {

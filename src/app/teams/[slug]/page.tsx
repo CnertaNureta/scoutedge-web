@@ -28,9 +28,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!team) return { title: 'Team Not Found' }
 
   const seo = TEAM_SEO_META[slug]
+  const seoTitle = seo?.title?.replace(/ \| ScoutEdge$/, '') ?? null
 
   return {
-    title: seo?.title ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`,
+    title: seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`,
     description: seo?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`,
     keywords: `${team.name} World Cup 2026, ${team.name} squad, ${team.name} World Cup roster, World Cup 2026 Group ${team.group}`,
     openGraph: {
