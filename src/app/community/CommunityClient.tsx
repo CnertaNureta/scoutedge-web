@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import type { ForumCategory, ForumTopic } from '@/data/community-data'
@@ -79,41 +80,45 @@ function CategorySection({ category }: { category: ForumCategory }) {
 
   return (
     <GlassCard className="mb-6">
-      <button
-        onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center gap-4 p-5 text-left hover:bg-white/[0.02] transition-colors"
-      >
-        <div className="text-3xl">{category.icon}</div>
-        <div className="flex-1">
-          <h2 className="font-headline text-xl uppercase tracking-wide" style={{ color: category.accent }}>
+      <div className="flex items-center gap-4 p-5 hover:bg-white/[0.02] transition-colors">
+        <Link href={`/community/${category.slug}`} className="text-3xl hover:scale-110 transition-transform">
+          {category.icon}
+        </Link>
+        <Link href={`/community/${category.slug}`} className="flex-1 group">
+          <h2 className="font-headline text-xl uppercase tracking-wide group-hover:brightness-125 transition-all" style={{ color: category.accent }}>
             {category.title}
           </h2>
           <p className="text-sm text-on-surface-variant mt-0.5">{category.description}</p>
-        </div>
-        <div className="hidden sm:block text-right mr-4">
+        </Link>
+        <Link href={`/community/${category.slug}`} className="hidden sm:block text-right mr-4 hover:opacity-80 transition-opacity">
           <div className="font-mono text-lg font-bold" style={{ color: category.accent }}>{category.topicCount}</div>
           <div className="text-[10px] text-on-surface-variant uppercase tracking-wider">Topics</div>
-        </div>
-        <svg
-          className={`w-5 h-5 text-on-surface-variant transition-transform ${expanded ? 'rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+        </Link>
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="p-2 rounded-lg hover:bg-white/[0.05] transition-colors"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
+          <svg
+            className={`w-5 h-5 text-on-surface-variant transition-transform ${expanded ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
 
       {expanded && (
         <div className="border-t border-white/[0.05]">
           {category.topics.map((topic) => (
             <TopicRow key={topic.id} topic={topic} accent={category.accent} />
           ))}
-          <div className="px-5 py-3 border-t border-white/[0.05] text-center">
-            <span className="text-xs text-primary font-label font-semibold uppercase tracking-wider cursor-pointer hover:underline">
+          <Link href={`/community/${category.slug}`} className="block px-5 py-3 border-t border-white/[0.05] text-center hover:bg-white/[0.02] transition-colors">
+            <span className="text-xs text-primary font-label font-semibold uppercase tracking-wider hover:underline">
               View All {category.topicCount} Topics →
             </span>
-          </div>
+          </Link>
         </div>
       )}
     </GlassCard>
