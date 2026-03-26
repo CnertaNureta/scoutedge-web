@@ -237,6 +237,13 @@ export default function HomePage() {
               icon: '\u{1F4AC}',
               accent: '#e9c400',
             },
+            {
+              title: 'AI Assistant',
+              desc: 'Ask anything about World Cup 2026 — teams, players, matches, and predictions.',
+              href: '#',
+              icon: '\u{1F916}',
+              accent: '#a0d494',
+            },
           ] as const).map((feature) => (
             <Link
               key={feature.href}
