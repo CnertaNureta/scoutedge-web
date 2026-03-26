@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { getAllTeams, getPlayersByTeam } from '@/lib/data-service'
 import { fetchWorldCupNews } from '@/lib/news-service'
 import { getTrendingPlayers } from '@/data/player-social'
+import liveCache from '@/data/live-cache.json'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
@@ -286,6 +287,85 @@ export default async function DailyBriefingPage() {
           ))}
         </div>
       </section>
+
+      {/* Confirmed 2026 Fixtures — Real Data */}
+      {liveCache.wcFixtures2026.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
+              Confirmed 2026 Fixtures
+            </h2>
+            <Badge variant="primary" size="sm">Live API</Badge>
+          </div>
+          <p className="text-on-surface-variant text-sm mb-6">
+            Real match data from <span className="text-primary">TheSportsDB</span> — updated{' '}
+            {new Date(liveCache.fetchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+          </p>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {liveCache.wcFixtures2026.slice(0, 9).map((match) => (
+              <GlassCard key={match.id} className="p-5 relative overflow-hidden">
+                <NeonAccentBar color="#a0d494" />
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-label font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/15 text-primary">
+                    Round {match.round}
+                  </span>
+                  <span className="text-[10px] text-on-surface-variant">
+                    {new Date(match.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="font-label text-sm font-semibold text-on-surface">{match.homeTeam}</span>
+                  <span className="font-mono text-xs text-on-surface-variant font-bold px-2">
+                    {match.homeScore != null ? `${match.homeScore} - ${match.awayScore}` : 'VS'}
+                  </span>
+                  <span className="font-label text-sm font-semibold text-on-surface text-right">{match.awayTeam}</span>
+                </div>
+                <div className="text-[11px] text-on-surface-variant truncate">
+                  {match.venue}
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+          <div className="text-center mt-4">
+            <Link
+              href="/schedule"
+              className="inline-flex items-center gap-2 text-primary font-label text-xs font-bold uppercase tracking-widest hover:underline"
+            >
+              View Full Schedule ({liveCache.wcFixtures2026.length}+ matches) →
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* 2022 WC Flashbacks — Real Historical Data */}
+      {liveCache.wcFixtures2022.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
+              2022 WC Flashbacks
+            </h2>
+            <Badge variant="outline" size="sm">Historical</Badge>
+          </div>
+          <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-5">
+            {liveCache.wcFixtures2022.slice(0, 10).map((match) => (
+              <GlassCard key={match.id} className="p-4 relative overflow-hidden">
+                <NeonAccentBar color="#e9c400" />
+                <div className="text-center">
+                  <div className="text-[10px] text-on-surface-variant mb-2">
+                    {new Date(match.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </div>
+                  <div className="font-label text-xs font-semibold text-on-surface">{match.homeTeam}</div>
+                  <div className="font-mono text-lg font-bold my-1" style={{ color: '#e9c400' }}>
+                    {match.homeScore} - {match.awayScore}
+                  </div>
+                  <div className="font-label text-xs font-semibold text-on-surface">{match.awayTeam}</div>
+                  <div className="text-[10px] text-on-surface-variant mt-2 truncate">{match.venue}</div>
+                </div>
+              </GlassCard>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Social Buzz — Trending Players */}
       <section className="max-w-[1440px] mx-auto px-6 mb-12">

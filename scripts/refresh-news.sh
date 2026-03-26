@@ -10,6 +10,10 @@ cd /Users/clawstack/scoutedge-web
 
 echo "[$(date)] Starting news refresh build..."
 
+# Fetch real World Cup data from TheSportsDB API
+echo "[$(date)] Fetching live data from TheSportsDB..."
+node scripts/fetch-live-data.mjs 2>&1 || echo "WARN: Live data fetch failed, using cached data"
+
 # Build (fetches fresh RSS at build time)
 npm run build 2>&1
 

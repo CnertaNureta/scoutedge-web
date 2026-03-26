@@ -1,5 +1,6 @@
 import type { Team } from '@/lib/types'
 import { getTeamHeroImage } from '@/lib/unsplash'
+import { getLiveTeamDetails } from '@/lib/live-data-service'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import Badge from '@/components/ui/Badge'
 
@@ -9,6 +10,7 @@ interface TeamHeroProps {
 
 export default function TeamHero({ team }: TeamHeroProps) {
   const heroImage = getTeamHeroImage(team.slug)
+  const liveDetails = getLiveTeamDetails(team.name)
 
   return (
     <section className="relative h-[75vh] min-h-[520px] w-full overflow-hidden flex items-end">
@@ -35,7 +37,16 @@ export default function TeamHero({ team }: TeamHeroProps) {
           {team.isPlayoff && (
             <Badge variant="tertiary" size="md">Subject to UEFA Playoff Results (March 26-31, 2026)</Badge>
           )}
-          <div className="text-7xl md:text-8xl mb-2">{team.flag}</div>
+          <div className="flex items-center gap-4 mb-2">
+            <span className="text-7xl md:text-8xl">{team.flag}</span>
+            {liveDetails?.badge && (
+              <img
+                src={liveDetails.badge}
+                alt={`${team.name} official badge`}
+                className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
+              />
+            )}
+          </div>
           <h1 className="font-headline text-6xl md:text-8xl tracking-wide text-on-surface uppercase leading-none">
             {team.name}
           </h1>
