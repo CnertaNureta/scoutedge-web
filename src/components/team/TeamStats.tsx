@@ -34,12 +34,15 @@ export default function TeamStats({ team }: TeamStatsProps) {
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
         <GlassCard className="p-6">
           <ChemistryBar value={team.familiarity} label="Familiarity" />
+          <p className="text-on-surface-variant text-xs mt-2">How long the squad has played together. Higher = more instinctive understanding on the pitch.</p>
         </GlassCard>
         <GlassCard className="p-6">
           <ChemistryBar value={team.stability} label="Tactical Stability" />
+          <p className="text-on-surface-variant text-xs mt-2">How settled the coaching setup and formation are. Frequent changes lower this score.</p>
         </GlassCard>
         <GlassCard className="p-6">
           <ChemistryBar value={team.morale} label="Morale" />
+          <p className="text-on-surface-variant text-xs mt-2">Current squad confidence. Driven by recent results, fan support, and media sentiment.</p>
         </GlassCard>
       </div>
 
@@ -48,6 +51,7 @@ export default function TeamStats({ team }: TeamStatsProps) {
           <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-tertiary/50 to-transparent" />
           <span className="font-label text-xs font-semibold text-tertiary uppercase tracking-widest">Historical Archetype Match</span>
           <p className="text-on-surface mt-2 font-body text-lg">{team.archetypeMatch}</p>
+          <p className="text-on-surface-variant text-xs mt-2">A past World Cup team whose playing style and trajectory most closely resemble this squad.</p>
         </div>
       )}
     </section>

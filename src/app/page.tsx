@@ -192,6 +192,13 @@ export default function HomePage() {
               icon: '\u{2694}\u{FE0F}',
               accent: '#a0d494',
             },
+            {
+              title: 'Blog',
+              desc: 'Plain-English analysis, predictions, and guides for real football fans.',
+              href: '/blog',
+              icon: '\u{1F4DD}',
+              accent: '#bcf0ae',
+            },
           ] as const).map((feature) => (
             <Link
               key={feature.href}

@@ -24,11 +24,11 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
   const colors = getTeamColors(player.teamSlug)
 
   const coreStats = [
-    { label: 'Caps', value: player.caps, decimals: 0 },
-    { label: 'Goals', value: player.goals, decimals: 0 },
-    { label: 'Assists', value: player.assists, decimals: 0 },
-    { label: 'Rating', value: player.rating, decimals: 1, suffix: '/10' },
-    { label: 'Age', value: player.age, decimals: 0 },
+    { label: 'Caps', value: player.caps, decimals: 0, hint: 'International appearances' },
+    { label: 'Goals', value: player.goals, decimals: 0, hint: 'International goals scored' },
+    { label: 'Assists', value: player.assists, decimals: 0, hint: 'Goal assists provided' },
+    { label: 'Rating', value: player.rating, decimals: 1, suffix: '/10', hint: 'ScoutEdge overall rating' },
+    { label: 'Age', value: player.age, decimals: 0, hint: 'Current age' },
   ]
 
   return (
@@ -67,11 +67,24 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
                 <span className="font-label text-[10px] font-semibold text-on-surface-variant uppercase tracking-widest mt-1 block">
                   {stat.label}
                 </span>
+                <span className="text-[9px] text-on-surface-variant/60 block mt-0.5">{stat.hint}</span>
               </GlassCard>
             ))}
           </div>
 
-          <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div className="mt-6 mb-3 p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <p className="font-label text-xs text-primary uppercase tracking-widest font-semibold mb-2">AI-Derived Attributes</p>
+            <p className="text-on-surface-variant text-xs leading-relaxed">
+              Think of these like FIFA video game stats — our AI calculates them from real performance data.
+              <span className="text-on-surface font-semibold"> PAC</span> = speed &amp; acceleration,
+              <span className="text-on-surface font-semibold"> SHO</span> = finishing &amp; shot power,
+              <span className="text-on-surface font-semibold"> PAS</span> = vision &amp; delivery,
+              <span className="text-on-surface font-semibold"> PHY</span> = strength &amp; stamina,
+              <span className="text-on-surface font-semibold"> DEF</span> = tackling &amp; positioning,
+              <span className="text-on-surface font-semibold"> OVR</span> = overall ability.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {(Object.entries(derivedStats) as [string, number][]).map(([key, value]) => (
               <div key={key} className="glass-panel rounded-xl border border-white/[0.06] p-4 hover:border-white/[0.12] transition-colors">
                 <div className="flex justify-between items-center mb-2">

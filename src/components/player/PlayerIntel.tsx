@@ -50,6 +50,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
                 Sentiment Analysis
               </span>
               <ChemistryBar value={player.sentimentScore} label={player.sentimentLabel} />
+              <p className="text-on-surface-variant text-xs mt-2">How positive the media and fans are about this player right now. Based on AI analysis of recent news, social media, and press conferences.</p>
             </div>
           </div>
 

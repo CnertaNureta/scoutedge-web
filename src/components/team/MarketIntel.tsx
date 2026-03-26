@@ -43,10 +43,11 @@ export default function MarketIntel({ teamName, marketIntel }: MarketIntelProps)
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-12">
-      <h2 className="font-headline text-xl font-bold uppercase tracking-tight mb-6 flex items-center gap-2">
+      <h2 className="font-headline text-xl font-bold uppercase tracking-tight mb-2 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-tertiary" aria-hidden="true" />
         Market Intelligence
       </h2>
+      <p className="text-on-surface-variant text-sm mb-6">What the bookmakers think. Lower odds = the team is more likely to win the tournament. Higher implied probability = stronger favorite.</p>
 
       <GlassCard className="p-6 md:p-8">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">

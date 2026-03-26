@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getMarketIntel } from '@/lib/data-service'
 import { TEAM_FAQS } from '@/data/faq-schema'
 import { TEAM_SEO_META } from '@/data/seo-meta'
+import { getCoachByTeam } from '@/data/coaches-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
@@ -11,6 +12,7 @@ import MarketIntel from '@/components/team/MarketIntel'
 import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
+import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 
@@ -58,6 +60,7 @@ export default async function TeamPage({ params }: PageProps) {
   const groupTeams = getTeamsByGroup(team.group).filter((t) => t.slug !== slug)
   const worldCupHistory = getWorldCupHistory(slug)
   const marketIntel = getMarketIntel(slug)
+  const coach = getCoachByTeam(slug)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -95,6 +98,10 @@ export default async function TeamPage({ params }: PageProps) {
 
       <TeamHero team={team} />
       <TeamStats team={team} />
+
+      {/* Head Coach */}
+      {coach && <CoachProfileComponent coach={coach} />}
+
       <SquadRoster players={players} teamSlug={slug} />
 
       {/* Market Intelligence */}

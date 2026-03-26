@@ -1,5 +1,36 @@
 import Link from 'next/link'
 
+interface DropdownItem {
+  label: string
+  href: string
+}
+
+function NavDropdown({ label, items }: { label: string; items: DropdownItem[] }) {
+  return (
+    <div className="relative group">
+      <button className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+        {label}
+        <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="glass-panel rounded-xl border border-white/[0.08] shadow-2xl py-2 min-w-[200px]">
+          {items.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="block px-5 py-2.5 font-label text-sm text-on-surface-variant hover:text-primary hover:bg-white/[0.04] transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default function Header() {
   return (
     <>
@@ -12,17 +43,27 @@ export default function Header() {
             <Link href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Teams
             </Link>
-            <Link href="/matches" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Matches
+            <NavDropdown
+              label="Tournament"
+              items={[
+                { label: 'Match Schedule', href: '/matches' },
+                { label: 'Group Analysis', href: '/groups/A' },
+                { label: 'Countdown', href: '/countdown' },
+                { label: 'Time Converter', href: '/schedule/converter' },
+              ]}
+            />
+            <NavDropdown
+              label="Analysis"
+              items={[
+                { label: 'Power Rankings', href: '/power-rankings' },
+                { label: 'Daily Briefing', href: '/daily-briefing' },
+              ]}
+            />
+            <Link href="/compare" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Compare
             </Link>
-            <Link href="/daily-briefing" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Briefing
-            </Link>
-            <Link href="/power-rankings" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Rankings
-            </Link>
-            <Link href="/countdown" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Countdown
+            <Link href="/blog" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Blog
             </Link>
           </div>
           <div className="flex items-center gap-4">

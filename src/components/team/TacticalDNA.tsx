@@ -58,6 +58,19 @@ export default function TacticalDNA({ team, players }: TacticalDNAProps) {
             teamPrimary={colors.primary}
           />
           <div className="space-y-4">
+            <p className="text-on-surface-variant text-sm leading-relaxed mb-2">
+              The radar chart shows six key dimensions of team strength. Bigger area = stronger overall squad.
+            </p>
+            <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-4">
+              <ul className="space-y-1.5 text-xs text-on-surface-variant">
+                <li><span className="text-on-surface font-semibold">ATK</span> — Attacking quality: how dangerous the forwards are</li>
+                <li><span className="text-on-surface font-semibold">MID</span> — Midfield control: ability to dominate possession</li>
+                <li><span className="text-on-surface font-semibold">DEF</span> — Defensive solidity: how hard they are to score against</li>
+                <li><span className="text-on-surface font-semibold">CHM</span> — Chemistry: how well the team plays as a unit</li>
+                <li><span className="text-on-surface font-semibold">EXP</span> — Experience: average international caps per player</li>
+                <li><span className="text-on-surface font-semibold">FIT</span> — Fitness: percentage of squad fully fit for the tournament</li>
+              </ul>
+            </div>
             <ChemistryBar value={team.familiarity} label="Familiarity" />
             <ChemistryBar value={team.stability} label="Tactical Stability" />
             <ChemistryBar value={team.morale} label="Morale" />

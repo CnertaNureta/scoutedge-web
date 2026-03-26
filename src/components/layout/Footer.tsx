@@ -27,6 +27,7 @@ export default function Footer() {
               <li><Link href="/daily-briefing" className="hover:text-on-surface transition-colors">Daily Briefing</Link></li>
               <li><Link href="/power-rankings" className="hover:text-on-surface transition-colors">Power Rankings</Link></li>
               <li><Link href="/schedule/converter" className="hover:text-on-surface transition-colors">Time Converter</Link></li>
+              <li><Link href="/blog" className="hover:text-on-surface transition-colors">Blog</Link></li>
               <li><Link href="/teams" className="hover:text-on-surface transition-colors">Player Intel</Link></li>
             </ul>
           </div>
