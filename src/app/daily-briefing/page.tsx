@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllTeams, getPlayersByTeam } from '@/lib/data-service'
 import { fetchWorldCupNews } from '@/lib/news-service'
+import { getTrendingPlayers } from '@/data/player-social'
 import GlassCard from '@/components/ui/GlassCard'
+import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 
 export const metadata: Metadata = {
@@ -280,6 +282,63 @@ export default async function DailyBriefingPage() {
                   </p>
                 </div>
               </div>
+            </GlassCard>
+          ))}
+        </div>
+      </section>
+
+      {/* Social Buzz — Trending Players */}
+      <section className="max-w-[1440px] mx-auto px-6 mb-12">
+        <div className="flex items-center gap-3 mb-6">
+          <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
+            Social Buzz
+          </h2>
+          <Badge variant="primary" size="sm">Trending</Badge>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {getTrendingPlayers(6).map((player) => (
+            <GlassCard key={player.playerSlug} className="p-5 relative overflow-hidden">
+              <NeonAccentBar color={player.buzzScore >= 90 ? '#e9c400' : '#a0d494'} />
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="font-headline text-base uppercase tracking-tight">
+                    {player.playerSlug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+                  </span>
+                  {player.trending && <span className="text-xs">🔥</span>}
+                </div>
+                <div
+                  className="px-2 py-0.5 rounded-full font-mono text-xs font-bold"
+                  style={{
+                    background: player.buzzScore >= 90 ? 'rgba(233,196,0,0.2)' : 'rgba(160,212,148,0.2)',
+                    color: player.buzzScore >= 90 ? '#e9c400' : '#a0d494',
+                  }}
+                >
+                  {player.buzzScore}/100
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {player.platforms.instagram && (
+                  <span className="text-[10px] font-label uppercase tracking-wider text-on-surface-variant bg-white/[0.05] px-2 py-0.5 rounded-full">
+                    IG {player.platforms.instagram.followers}
+                  </span>
+                )}
+                {player.platforms.twitter && (
+                  <span className="text-[10px] font-label uppercase tracking-wider text-on-surface-variant bg-white/[0.05] px-2 py-0.5 rounded-full">
+                    X {player.platforms.twitter.followers}
+                  </span>
+                )}
+                {player.platforms.tiktok && (
+                  <span className="text-[10px] font-label uppercase tracking-wider text-on-surface-variant bg-white/[0.05] px-2 py-0.5 rounded-full">
+                    TikTok {player.platforms.tiktok.followers}
+                  </span>
+                )}
+              </div>
+              {player.recentPosts[0] && (
+                <p className="text-sm text-on-surface-variant leading-relaxed line-clamp-2">
+                  &ldquo;{player.recentPosts[0].summary}&rdquo;
+                  <span className="text-xs text-on-surface-variant/50 ml-1">— {player.recentPosts[0].platform}</span>
+                </p>
+              )}
             </GlassCard>
           ))}
         </div>

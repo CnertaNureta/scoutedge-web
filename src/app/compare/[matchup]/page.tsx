@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllMatchupSlugs, getHeadToHead } from '@/lib/compare-utils'
 import { getTeamBySlug } from '@/lib/data-service'
+import { getH2H } from '@/data/h2h-history'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -253,6 +254,72 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
             </div>
           </GlassCard>
         )}
+
+        {/* Head-to-Head Record */}
+        {(() => {
+          const h2h = getH2H(teamA.slug, teamB.slug)
+          if (!h2h) return null
+          const isTeamAFirst = h2h.teamA === teamA.slug
+          return (
+            <GlassCard className="p-6 md:p-8">
+              <NeonAccentBar color="#e9c400" />
+              <h3 className="font-headline text-xl uppercase tracking-wide mb-2 text-center">All-Time Head-to-Head</h3>
+              <p className="text-on-surface-variant text-sm text-center mb-6">
+                {h2h.totalMatches} meetings · Last: {h2h.lastResult}
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="text-center">
+                  <div className="font-headline text-3xl md:text-4xl text-primary">
+                    {isTeamAFirst ? h2h.teamAWins : h2h.teamBWins}
+                  </div>
+                  <div className="text-xs text-on-surface-variant uppercase tracking-wider">{teamA.name} Wins</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-headline text-3xl md:text-4xl text-on-surface-variant">{h2h.draws}</div>
+                  <div className="text-xs text-on-surface-variant uppercase tracking-wider">Draws</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-headline text-3xl md:text-4xl text-primary">
+                    {isTeamAFirst ? h2h.teamBWins : h2h.teamAWins}
+                  </div>
+                  <div className="text-xs text-on-surface-variant uppercase tracking-wider">{teamB.name} Wins</div>
+                </div>
+              </div>
+              {/* Win ratio bar */}
+              <div className="h-3 rounded-full bg-white/[0.05] overflow-hidden flex mb-6">
+                <div className="h-full bg-primary rounded-l-full" style={{ width: `${((isTeamAFirst ? h2h.teamAWins : h2h.teamBWins) / h2h.totalMatches) * 100}%` }} />
+                <div className="h-full bg-on-surface-variant/30" style={{ width: `${(h2h.draws / h2h.totalMatches) * 100}%` }} />
+                <div className="h-full bg-[#e9c400] rounded-r-full" style={{ width: `${((isTeamAFirst ? h2h.teamBWins : h2h.teamAWins) / h2h.totalMatches) * 100}%` }} />
+              </div>
+              {/* Goals */}
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-3 border-b border-white/[0.04]">
+                <div className="text-right font-mono text-lg font-bold text-primary">{isTeamAFirst ? h2h.teamAGoals : h2h.teamBGoals}</div>
+                <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest text-center min-w-[100px]">Total Goals</span>
+                <div className="font-mono text-lg font-bold text-primary">{isTeamAFirst ? h2h.teamBGoals : h2h.teamAGoals}</div>
+              </div>
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-3">
+                <div className="text-right font-mono text-lg font-bold">{h2h.worldCupMeetings}</div>
+                <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest text-center min-w-[100px]">WC Meetings</span>
+                <div className="font-mono text-lg font-bold">{h2h.worldCupMeetings}</div>
+              </div>
+              {/* Notable meetings */}
+              {h2h.notableMeetings.length > 0 && (
+                <div className="mt-4 space-y-2">
+                  <p className="font-label text-xs text-primary uppercase tracking-widest font-semibold">Key Encounters</p>
+                  {h2h.notableMeetings.map((m, i) => (
+                    <div key={i} className="flex items-start gap-3 py-2 border-b border-white/[0.03] last:border-0">
+                      <span className="font-mono text-xs text-[#e9c400] font-bold shrink-0">{m.year}</span>
+                      <div>
+                        <div className="text-sm text-on-surface">{m.result}</div>
+                        <div className="text-xs text-on-surface-variant">{m.event}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </GlassCard>
+          )
+        })()}
 
         {/* Market Intel */}
         {(marketA || marketB) && (
