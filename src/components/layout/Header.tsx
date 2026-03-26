@@ -46,7 +46,8 @@ export default function Header() {
             <NavDropdown
               label="Tournament"
               items={[
-                { label: 'Match Schedule', href: '/matches' },
+                { label: 'Full Schedule', href: '/schedule' },
+                { label: 'Match Board', href: '/matches' },
                 { label: 'Group Analysis', href: '/groups/A' },
                 { label: 'Countdown', href: '/countdown' },
                 { label: 'Time Converter', href: '/schedule/converter' },
