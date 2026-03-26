@@ -12,6 +12,7 @@ import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import TeamCard from '@/components/team/TeamCard'
+import GlassCard from '@/components/ui/GlassCard'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -114,6 +115,27 @@ export default async function TeamPage({ params }: PageProps) {
           dangerouslySetInnerHTML={{ __html: team.seoArticle }}
         />
       </section>
+
+      {/* FAQ Section */}
+      {teamFaq && teamFaq.faqs.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-3">
+            {teamFaq.faqs.map((faq, i) => (
+              <GlassCard key={i} className="p-6">
+                <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-3 text-primary">
+                  {faq.question}
+                </h3>
+                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">
+                  {faq.answer}
+                </p>
+              </GlassCard>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Related Teams */}
       {groupTeams.length > 0 && (
