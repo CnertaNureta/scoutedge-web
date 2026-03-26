@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import SectionHeader from '@/components/ui/SectionHeader'
 import ScheduleClient from './ScheduleClient'
 
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
   keywords:
     'World Cup 2026 schedule, World Cup 2026 full calendar, World Cup 2026 knockout stage, World Cup 2026 final, World Cup 2026 all matches',
   alternates: { canonical: 'https://scoutedge.ai/schedule' },
+  ...buildOGMeta({
+    title: 'World Cup 2026 Full Schedule — All 104 Matches',
+    description: 'Complete tournament timeline from group stage through the Final at MetLife Stadium.',
+    url: 'https://scoutedge.ai/schedule',
+  }),
 }
 
 export default function SchedulePage() {
@@ -22,10 +28,11 @@ export default function SchedulePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
+        { name: 'Home', url: 'https://scoutedge.ai' },
+        { name: 'Schedule', url: 'https://scoutedge.ai/schedule' },
+      ])) }} />
 
       {/* Hero */}
       <section className="relative py-20 px-6 overflow-hidden">

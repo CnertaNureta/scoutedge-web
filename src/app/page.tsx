@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllTeams } from '@/lib/data-service'
+import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
   keywords:
     'World Cup 2026, World Cup 2026 predictions, FIFA World Cup 2026, soccer predictions, football analysis, team chemistry, player stats, World Cup 2026 schedule',
   alternates: { canonical: 'https://scoutedge.ai' },
+  ...buildOGMeta({
+    title: 'World Cup 2026 AI Predictions & Squad Analysis | ScoutEdge',
+    description: 'AI-powered predictions for all 48 teams. Chemistry indexes, win probabilities, and player scouting reports.',
+    url: 'https://scoutedge.ai',
+  }),
 }
 
 export default function HomePage() {
@@ -20,6 +26,9 @@ export default function HomePage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
+
       {/* Cinematic Hero */}
       <section className="relative min-h-[100vh] flex items-center justify-center px-6 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />

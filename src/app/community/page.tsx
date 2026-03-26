@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { FORUM_CATEGORIES, COMMUNITY_STATS } from '@/data/community-data'
 import CommunityClient from './CommunityClient'
@@ -9,11 +10,22 @@ export const metadata: Metadata = {
     'Join the ScoutEdge community to discuss World Cup 2026 predictions, team squads, match analysis, and connect with football fans worldwide. Share your bold predictions and debate the favorites.',
   keywords:
     'World Cup 2026 forum, football discussion, World Cup predictions forum, fan community, soccer debate, World Cup 2026 fans',
+  alternates: { canonical: 'https://scoutedge.ai/community' },
+  ...buildOGMeta({
+    title: 'Fan Community — World Cup 2026 Discussion Forum',
+    description: 'Predict, debate, and connect with football fans worldwide. Share your World Cup 2026 takes.',
+    url: 'https://scoutedge.ai/community',
+  }),
 }
 
 export default function CommunityPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
+        { name: 'Home', url: 'https://scoutedge.ai' },
+        { name: 'Community', url: 'https://scoutedge.ai/community' },
+      ])) }} />
+
       {/* Hero */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />

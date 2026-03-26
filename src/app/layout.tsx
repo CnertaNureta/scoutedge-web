@@ -43,11 +43,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'ScoutEdge',
+    locale: 'en_US',
     title: 'World Cup 2026 AI Predictions & Squad Analysis | ScoutEdge',
     description: 'AI-powered predictions and deep-dive analysis for all 48 teams competing in the 2026 FIFA World Cup.',
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@scoutedge_ai',
+    creator: '@scoutedge_ai',
+  },
+  metadataBase: new URL('https://scoutedge.ai'),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 

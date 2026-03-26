@@ -68,10 +68,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/daily-briefing`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
 
     // Tool pages
+    { url: `${BASE}/schedule`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
     { url: `${BASE}/countdown`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE}/schedule/converter`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+    { url: `${BASE}/community`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
 
     // Legal
     { url: `${BASE}/privacy-policy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.2 },
