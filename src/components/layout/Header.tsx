@@ -66,6 +66,9 @@ export default function Header() {
             <Link href="/blog" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Blog
             </Link>
+            <Link href="/predictions" className="font-headline font-bold tracking-tight text-[#e9c400] hover:brightness-125 transition-all">
+              Predictions
+            </Link>
             <Link href="/community" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Community
             </Link>
@@ -94,9 +97,9 @@ export default function Header() {
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
           <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Matches</span>
         </Link>
-        <Link href="/community" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Community</span>
+        <Link href="/predictions" className="flex flex-col items-center justify-center text-[#e9c400] active:scale-90 transition-transform">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Predict</span>
         </Link>
       </nav>
     </>
