@@ -5,6 +5,7 @@ import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
+import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 AI Predictions, Squad Analysis & Match Previews | ScoutEdge',
@@ -151,6 +152,13 @@ export default function HomePage() {
               icon: '\u{1F4F0}',
               accent: '#ffb4aa',
             },
+            {
+              title: 'Prediction Challenge',
+              desc: 'Pick winners, choose your champion, and compete against the AI.',
+              href: '/predictions',
+              icon: '\u{1F3AF}',
+              accent: '#ffd700',
+            },
           ] as const).map((feature) => (
             <Link
               key={feature.href}
@@ -230,6 +238,11 @@ export default function HomePage() {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="page-container mb-24">
+        <NewsletterSignup variant="banner" />
       </section>
 
       {/* CTA Section */}

@@ -7,6 +7,7 @@ import liveCache from '@/data/live-cache.json'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
+import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
@@ -422,6 +423,11 @@ export default async function DailyBriefingPage() {
             </GlassCard>
           ))}
         </div>
+      </section>
+
+      {/* Newsletter */}
+      <section className="max-w-[1440px] mx-auto px-6 mb-12">
+        <NewsletterSignup variant="banner" />
       </section>
 
       {/* CTA */}
