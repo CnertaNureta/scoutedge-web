@@ -18,6 +18,7 @@ export default function Footer() {
               <li><Link href="/teams" className="hover:text-on-surface transition-colors">All Teams</Link></li>
               <li><Link href="/groups/a" className="hover:text-on-surface transition-colors">Group Standings</Link></li>
               <li><Link href="/matches" className="hover:text-on-surface transition-colors">Match Schedule</Link></li>
+              <li><Link href="/countdown" className="hover:text-on-surface transition-colors">Countdown</Link></li>
             </ul>
           </div>
           <div>
@@ -25,6 +26,7 @@ export default function Footer() {
             <ul className="space-y-4 text-on-surface-variant">
               <li><Link href="/daily-briefing" className="hover:text-on-surface transition-colors">Daily Briefing</Link></li>
               <li><Link href="/power-rankings" className="hover:text-on-surface transition-colors">Power Rankings</Link></li>
+              <li><Link href="/schedule/converter" className="hover:text-on-surface transition-colors">Time Converter</Link></li>
               <li><Link href="/teams" className="hover:text-on-surface transition-colors">Player Intel</Link></li>
             </ul>
           </div>

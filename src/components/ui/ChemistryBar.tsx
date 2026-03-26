@@ -8,10 +8,10 @@ interface ChemistryBarProps {
 }
 
 function barGradient(value: number): string {
-  if (value >= 70) return 'linear-gradient(90deg, #00ff87, #04f5ff)'
-  if (value >= 50) return 'linear-gradient(90deg, #04f5ff, #3b82f6)'
-  if (value >= 35) return 'linear-gradient(90deg, #ffd700, #f59e0b)'
-  return 'linear-gradient(90deg, #ff4081, #ef4444)'
+  if (value >= 70) return 'linear-gradient(90deg, #a0d494, #bcf0ae)'
+  if (value >= 50) return 'linear-gradient(90deg, #78a96e, #a0d494)'
+  if (value >= 35) return 'linear-gradient(90deg, #e9c400, #ffe16d)'
+  return 'linear-gradient(90deg, #ffb4aa, #ffdad5)'
 }
 
 export default function ChemistryBar({ value, label, showValue = true, size = 'md' }: ChemistryBarProps) {

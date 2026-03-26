@@ -21,9 +21,9 @@ export default function ProbabilityBar({
         <span className="font-label text-xs text-secondary font-semibold">{awayLabel} {Math.round(awayProb * 100)}%</span>
       </div>
       <div className="w-full h-2 rounded-full overflow-hidden flex bg-white/[0.06]">
-        <div className="h-full rounded-l-full" style={{ width: `${homeProb * 100}%`, background: 'linear-gradient(90deg, #00ff87, #04f5ff)' }} />
+        <div className="h-full rounded-l-full" style={{ width: `${homeProb * 100}%`, background: 'linear-gradient(90deg, #a0d494, #bcf0ae)' }} />
         <div className="bg-white/10 h-full" style={{ width: `${drawProb * 100}%` }} />
-        <div className="h-full rounded-r-full" style={{ width: `${awayProb * 100}%`, background: 'linear-gradient(90deg, #e90052, #ff4081)' }} />
+        <div className="h-full rounded-r-full" style={{ width: `${awayProb * 100}%`, background: 'linear-gradient(90deg, #ffb4aa, #ffdad5)' }} />
       </div>
     </div>
   )

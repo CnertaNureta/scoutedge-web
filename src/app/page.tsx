@@ -1,8 +1,18 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getAllTeams } from '@/lib/data-service'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
+
+export const metadata: Metadata = {
+  title: 'World Cup 2026 AI Predictions, Squad Analysis & Match Previews | ScoutEdge',
+  description:
+    'AI-powered predictions and analysis for all 48 World Cup 2026 teams. Squad chemistry indexes, win probabilities, player scouting reports, and match previews across the USA, Canada & Mexico.',
+  keywords:
+    'World Cup 2026, World Cup 2026 predictions, FIFA World Cup 2026, soccer predictions, football analysis, team chemistry, player stats, World Cup 2026 schedule',
+  alternates: { canonical: 'https://scoutedge.ai' },
+}
 
 export default function HomePage() {
   const teams = getAllTeams()
@@ -59,10 +69,10 @@ export default function HomePage() {
       <section className="page-container -mt-16 relative z-20 mb-24">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: 'Teams', value: '48', accent: '#00ff87' },
-            { label: 'Host Cities', value: '16', accent: '#04f5ff' },
-            { label: 'Matches', value: '104', accent: '#ffd700' },
-            { label: 'Players Analyzed', value: '1,200+', accent: '#e90052' },
+            { label: 'Teams', value: '48', accent: '#a0d494' },
+            { label: 'Host Cities', value: '16', accent: '#bcf0ae' },
+            { label: 'Matches', value: '104', accent: '#e9c400' },
+            { label: 'Players Analyzed', value: '1,200+', accent: '#ffb4aa' },
           ].map((stat, i) => (
             <div
               key={stat.label}
@@ -99,40 +109,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Feature Hub */}
-      <section className="page-container mb-24">
-        <SectionHeader className="mb-10">Explore Intelligence</SectionHeader>
+      {/* Feature Hub — Analysis */}
+      <section className="page-container mb-16">
+        <SectionHeader className="mb-8">Analysis &amp; Intelligence</SectionHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {[
+          {([
             {
-              title: 'Match Schedule',
-              desc: 'Full group-stage fixtures with AI win-probability previews for every match.',
-              href: '/matches',
-              icon: '\u{26BD}',
-              accent: '#00ff87',
+              title: 'All 48 Teams',
+              desc: 'Squad chemistry, tactical profiles, and AI predictions for every nation.',
+              href: '/teams',
+              icon: '\u{1F3C3}',
+              accent: '#a0d494',
             },
             {
-              title: 'Daily Briefing',
-              desc: 'Live news feed and AI-extracted signals updated daily from top sports sources.',
-              href: '/daily-briefing',
-              icon: '\u{1F4F0}',
-              accent: '#04f5ff',
+              title: 'Match Schedule',
+              desc: 'Full group-stage fixtures with AI win-probability previews.',
+              href: '/matches',
+              icon: '\u{26BD}',
+              accent: '#bcf0ae',
             },
             {
               title: 'Power Rankings',
-              desc: 'AI-driven rankings combining form, chemistry, squad depth, and tactical profiles.',
+              desc: 'AI-driven rankings combining form, chemistry, and squad depth.',
               href: '/power-rankings',
               icon: '\u{1F3C6}',
-              accent: '#ffd700',
+              accent: '#e9c400',
             },
             {
-              title: 'Group Analysis',
-              desc: 'Deep-dive into all 12 groups with standings, scenarios, and qualification odds.',
-              href: '/groups/A',
-              icon: '\u{1F4CA}',
-              accent: '#e90052',
+              title: 'Daily Briefing',
+              desc: 'Live news feed and AI-extracted signals updated daily.',
+              href: '/daily-briefing',
+              icon: '\u{1F4F0}',
+              accent: '#ffb4aa',
             },
-          ].map((feature) => (
+          ] as const).map((feature) => (
             <Link
               key={feature.href}
               href={feature.href}
@@ -143,9 +153,57 @@ export default function HomePage() {
               <h3 className="font-headline text-lg uppercase tracking-wide mb-2" style={{ color: feature.accent }}>
                 {feature.title}
               </h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
-                {feature.desc}
-              </p>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{feature.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Feature Hub — Tools */}
+      <section className="page-container mb-24">
+        <SectionHeader className="mb-8">Tools &amp; Resources</SectionHeader>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {([
+            {
+              title: 'Countdown',
+              desc: 'Live countdown to kickoff with key dates and venue highlights.',
+              href: '/countdown',
+              icon: '\u{23F3}',
+              accent: '#ffb4aa',
+            },
+            {
+              title: 'Time Converter',
+              desc: 'Match kick-off times converted to your local time zone.',
+              href: '/schedule/converter',
+              icon: '\u{1F30D}',
+              accent: '#e9c400',
+            },
+            {
+              title: 'Group Analysis',
+              desc: 'Deep-dive into all 12 groups with standings and qualification odds.',
+              href: '/groups/A',
+              icon: '\u{1F4CA}',
+              accent: '#bcf0ae',
+            },
+            {
+              title: 'Compare Teams',
+              desc: 'Head-to-head comparisons for all 1,128 possible matchups.',
+              href: '/compare',
+              icon: '\u{2694}\u{FE0F}',
+              accent: '#a0d494',
+            },
+          ] as const).map((feature) => (
+            <Link
+              key={feature.href}
+              href={feature.href}
+              className="relative glass-panel p-6 rounded-2xl border border-white/[0.08] overflow-hidden group hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
+            >
+              <NeonAccentBar color={feature.accent} />
+              <div className="text-3xl mb-3">{feature.icon}</div>
+              <h3 className="font-headline text-lg uppercase tracking-wide mb-2" style={{ color: feature.accent }}>
+                {feature.title}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{feature.desc}</p>
             </Link>
           ))}
         </div>

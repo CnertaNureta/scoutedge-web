@@ -21,6 +21,9 @@ export default function Header() {
             <Link href="/power-rankings" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Rankings
             </Link>
+            <Link href="/countdown" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Countdown
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex bg-surface-container-high rounded-full px-4 py-2 items-center gap-2">

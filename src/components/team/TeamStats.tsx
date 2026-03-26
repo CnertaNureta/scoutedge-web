@@ -12,10 +12,10 @@ export default function TeamStats({ team }: TeamStatsProps) {
     <section className="page-container -mt-12 relative z-30 mb-16">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {[
-          { label: 'FIFA Ranking', value: `#${team.fifaRanking}`, color: '#00ff87' },
-          { label: 'Chemistry', value: String(team.chemistry), color: '#ffd700', showBar: true },
-          { label: 'Group', value: team.group, color: '#04f5ff' },
-          { label: 'Confederation', value: team.confederation, color: '#e90052', small: true },
+          { label: 'FIFA Ranking', value: `#${team.fifaRanking}`, color: '#a0d494' },
+          { label: 'Chemistry', value: String(team.chemistry), color: '#e9c400', showBar: true },
+          { label: 'Group', value: team.group, color: '#bcf0ae' },
+          { label: 'Confederation', value: team.confederation, color: '#ffb4aa', small: true },
         ].map((stat) => (
           <GlassCard key={stat.label} className="p-6 relative overflow-hidden group">
             <NeonAccentBar color={stat.color} />

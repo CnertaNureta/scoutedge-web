@@ -12,10 +12,10 @@ export function hashString(str: string): number {
 }
 
 export function chemistryColor(value: number): string {
-  if (value >= 70) return '#00ff87'
-  if (value >= 50) return '#04f5ff'
-  if (value >= 35) return '#ffd700'
-  return '#ff4081'
+  if (value >= 70) return '#a0d494'
+  if (value >= 50) return '#bcf0ae'
+  if (value >= 35) return '#e9c400'
+  return '#ffb4aa'
 }
 
 export function chemistryColorClass(value: number): string {
