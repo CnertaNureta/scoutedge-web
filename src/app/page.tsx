@@ -13,7 +13,21 @@ export const metadata: Metadata = {
     'AI-powered predictions and analysis for all 48 World Cup 2026 teams. Squad chemistry indexes, win probabilities, player scouting reports, and match previews across the USA, Canada & Mexico.',
   keywords:
     'World Cup 2026, World Cup 2026 predictions, FIFA World Cup 2026, soccer predictions, football analysis, team chemistry, player stats, World Cup 2026 schedule',
-  alternates: { canonical: 'https://scoutedge.ai' },
+  alternates: {
+    canonical: 'https://scoutedge.ai',
+    languages: {
+      'x-default': 'https://scoutedge.ai',
+      en: 'https://scoutedge.ai',
+      es: 'https://scoutedge.ai/es',
+      'zh-Hans': 'https://scoutedge.ai/zh',
+      pt: 'https://scoutedge.ai/pt',
+      ar: 'https://scoutedge.ai/ar',
+      fr: 'https://scoutedge.ai/fr',
+      ja: 'https://scoutedge.ai/ja',
+      ko: 'https://scoutedge.ai/ko',
+      de: 'https://scoutedge.ai/de',
+    },
+  },
   ...buildOGMeta({
     title: 'World Cup 2026 AI Predictions & Squad Analysis | ScoutEdge',
     description: 'AI-powered predictions for all 48 teams. Chemistry indexes, win probabilities, and player scouting reports.',

@@ -40,7 +40,23 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="mt-20 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
+        {/* Language Switcher */}
+        <div className="mt-12 pt-8 border-t border-outline-variant/10">
+          <h6 className="font-label font-bold text-xs uppercase tracking-widest text-on-surface-variant mb-4">Available Languages</h6>
+          <div className="flex flex-wrap gap-2">
+            <span className="px-3 py-1.5 rounded-full bg-primary/15 text-primary text-xs font-label font-bold uppercase tracking-wider">EN</span>
+            <Link href="/es" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1EA}\u{1F1F8}'} Espa&ntilde;ol</Link>
+            <Link href="/zh" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1E8}\u{1F1F3}'} 中文</Link>
+            <Link href="/pt" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1E7}\u{1F1F7}'} Portugu&ecirc;s</Link>
+            <Link href="/ar" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1F8}\u{1F1E6}'} العربية</Link>
+            <Link href="/fr" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1EB}\u{1F1F7}'} Fran&ccedil;ais</Link>
+            <Link href="/ja" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1EF}\u{1F1F5}'} 日本語</Link>
+            <Link href="/ko" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1F0}\u{1F1F7}'} 한국어</Link>
+            <Link href="/de" className="px-3 py-1.5 rounded-full bg-white/[0.04] text-on-surface-variant text-xs font-label uppercase tracking-wider hover:bg-white/[0.08] hover:text-primary transition-colors">{'\u{1F1E9}\u{1F1EA}'} Deutsch</Link>
+          </div>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
           <span>&copy; 2026 ScoutEdge. AI-Powered World Cup Intelligence. All rights reserved.</span>
           <div className="flex space-x-8">
             <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">Privacy Policy</Link>

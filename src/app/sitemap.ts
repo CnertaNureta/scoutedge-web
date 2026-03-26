@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { getAllTeams, getPlayersByTeam, getAllGroups } from '@/lib/data-service'
 import { getAllMatchupSlugs } from '@/lib/compare-utils'
 import { getAllPosts } from '@/lib/blog-service'
+import { SUPPORTED_LOCALES } from '@/i18n/locales'
 
 export const dynamic = 'force-static'
 
@@ -75,6 +76,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE}/community`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
     { url: `${BASE}/predictions`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.95 },
+
+    // Localized homepages (8 languages)
+    ...SUPPORTED_LOCALES.map((locale) => ({
+      url: `${BASE}/${locale}`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    })),
 
     // Legal
     { url: `${BASE}/privacy-policy`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.2 },
