@@ -5,9 +5,17 @@
 @layer base {
   html {
     color-scheme: dark;
+    /* Smooth scrolling for anchor links and JS-driven scroll */
+    scroll-behavior: smooth;
+    /* Prevent text size inflation on orientation change (iOS) */
+    -webkit-text-size-adjust: 100%;
   }
   body {
     @apply bg-background text-on-background font-body antialiased;
+    /* Momentum scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Disable tap highlight flash on touch */
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -157,6 +165,31 @@
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
   .stagger-6 { animation-delay: 0.6s; }
+}
+
+/* ── Safe area insets — notch / Dynamic Island / home bar support ── */
+@layer utilities {
+  .safe-area-inset-top    { padding-top:    env(safe-area-inset-top, 0px); }
+  .safe-area-inset-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .safe-area-inset-left   { padding-left:   env(safe-area-inset-left, 0px); }
+  .safe-area-inset-right  { padding-right:  env(safe-area-inset-right, 0px); }
+
+  /* touch-action helpers — enable precise gesture control */
+  .touch-pan-y  { touch-action: pan-y; }
+  .touch-pan-x  { touch-action: pan-x; }
+  .touch-none   { touch-action: none; }
+  .touch-auto   { touch-action: auto; }
+
+  /* Prevent native overscroll/bounce on carousels and sidebars */
+  .overscroll-none { overscroll-behavior: none; }
+  .overscroll-contain { overscroll-behavior: contain; }
+}
+
+@layer base {
+  /* Prevent native pull-to-refresh on mobile browsers — our custom P2R handles it */
+  body {
+    overscroll-behavior-y: contain;
+  }
 }
 
 /* Reduced motion support */

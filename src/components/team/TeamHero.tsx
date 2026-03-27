@@ -15,7 +15,7 @@ export default function TeamHero({ team }: TeamHeroProps) {
 
   return (
     <section className="relative h-[75vh] min-h-[520px] w-full overflow-hidden flex items-end">
-      {/* Background image */}
+      {/* Background image — LCP element */}
       <Image
         src={heroImage}
         alt={`${team.name} football atmosphere`}

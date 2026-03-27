@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import {
   getAllVenues,
@@ -13,6 +13,9 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { usePullToRefresh } from '@/hooks/usePullToRefresh'
+import { useSwipeGesture } from '@/hooks/useSwipeGesture'
+import { useWakeLock } from '@/hooks/useWakeLock'
 
 const rounds = ['Match Day 1', 'Match Day 2', 'Match Day 3'] as const
 
@@ -304,6 +307,35 @@ export default function MatchesClient({
   teamsBySlug,
 }: MatchesClientProps) {
   const [activeGroup, setActiveGroup] = useState<string | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0)
+  const filterRef = useRef<HTMLDivElement>(null)
+
+  // Derived group index for swipe navigation
+  const groupList = [null, ...groups] // null = "All"
+  const activeIdx = groupList.indexOf(activeGroup)
+
+  // Pull-to-refresh — re-renders the fixture list to pick up any data changes
+  const handleRefresh = useCallback(async () => {
+    await new Promise<void>((r) => setTimeout(r, 600))
+    setRefreshKey((k) => k + 1)
+  }, [])
+
+  const { isRefreshing, pullDistance } = usePullToRefresh({ onRefresh: handleRefresh })
+
+  // Swipe left/right to cycle through group tabs
+  useSwipeGesture({
+    onSwipeLeft: () => {
+      const next = Math.min(activeIdx + 1, groupList.length - 1)
+      setActiveGroup(groupList[next])
+    },
+    onSwipeRight: () => {
+      const prev = Math.max(activeIdx - 1, 0)
+      setActiveGroup(groupList[prev])
+    },
+  })
+
+  // Watch mode — keep screen on while viewing live match data
+  const { isSupported: wakeLockSupported, isActive: watchMode, request: startWatch, release: stopWatch } = useWakeLock()
 
   const filteredFixtures = useMemo(
     () => (activeGroup ? fixtures.filter((fixture) => fixture.group === activeGroup) : fixtures),
@@ -382,6 +414,27 @@ export default function MatchesClient({
 
   return (
     <>
+      {/* Pull-to-refresh indicator */}
+      {(isRefreshing || pullDistance > 0) && (
+        <div
+          className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center transition-transform duration-150 pointer-events-none"
+          style={{ transform: `translateY(${isRefreshing ? 56 : pullDistance - 16}px)` }}
+        >
+          <div className={`flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container border border-primary/20 shadow-lg ${isRefreshing ? 'animate-pulse' : ''}`}>
+            <svg
+              className={`w-4 h-4 text-primary ${isRefreshing ? 'animate-spin' : ''}`}
+              style={{ transform: isRefreshing ? undefined : `rotate(${Math.min(pullDistance * 3, 360)}deg)` }}
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+            <span className="font-label text-xs text-primary font-bold">
+              {isRefreshing ? 'Refreshing…' : 'Pull to refresh'}
+            </span>
+          </div>
+        </div>
+      )}
+
       <section className="relative overflow-hidden px-6 py-24 md:py-32">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute top-1/4 left-[12%] h-[420px] w-[420px] rounded-full bg-primary/10 blur-[150px]" />
@@ -411,6 +464,22 @@ export default function MatchesClient({
             <Badge variant="outline" size="md">16 host cities</Badge>
             <Badge variant="outline" size="md">3 match days</Badge>
           </div>
+
+          {/* Watch Mode toggle */}
+          {wakeLockSupported && (
+            <button
+              onClick={watchMode ? stopWatch : startWatch}
+              className={`mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full font-label text-xs font-bold uppercase tracking-widest transition-all duration-200 ${
+                watchMode
+                  ? 'bg-primary text-on-primary'
+                  : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant/20'
+              }`}
+              aria-label={watchMode ? 'Disable watch mode' : 'Enable watch mode — keep screen on'}
+            >
+              <span>{watchMode ? '📺' : '👁'}</span>
+              {watchMode ? 'Watch Mode On' : 'Watch Mode'}
+            </button>
+          )}
         </div>
       </section>
 
@@ -537,7 +606,7 @@ export default function MatchesClient({
         </GlassCard>
       </section>
 
-      <section className="page-container pb-24 space-y-14">
+      <section key={refreshKey} className="page-container pb-24 space-y-14">
         {visibleGroups.map((group) => {
           const groupTeams = teamsByGroup[group] ?? []
           const groupNarrative = buildGroupNarrative(group, groupTeams)
