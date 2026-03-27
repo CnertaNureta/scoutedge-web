@@ -14,6 +14,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@serwist/next": "^9.5.7",
     "@stripe/react-stripe-js": "^6.0.0",
     "@stripe/stripe-js": "^9.0.0",
     "@supabase/supabase-js": "^2.100.1",
@@ -24,7 +25,9 @@
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "stripe": "^21.0.1"
+    "serwist": "^9.5.7",
+    "stripe": "^21.0.1",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
@@ -34,6 +37,7 @@
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
+    "@types/web-push": "^3.6.4",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.0.0",
