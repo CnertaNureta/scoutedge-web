@@ -73,11 +73,9 @@ export function getPredictionContextByTeamPair(
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  const teams = (worldCupHistoryData as { teams: Record<string, unknown> }).teams
-  const entry = teams[teamSlug]
-  if (!entry || typeof entry !== 'object') return undefined
-  const rawEntry = entry as { totalAppearances?: number | null }
-  if (rawEntry.totalAppearances === null || rawEntry.totalAppearances === undefined) return undefined
+  const data = worldCupHistoryData as unknown as { teams: Record<string, WorldCupHistory & { totalAppearances: number | null }> }
+  const entry = data.teams[teamSlug]
+  if (!entry || entry.totalAppearances === null) return undefined
   return entry as WorldCupHistory
 }
 
