@@ -133,7 +133,7 @@ export default function ComparePage() {
         </div>
 
         {/* Interactive team selector */}
-        <div>
+        <div className="mb-16">
           <SectionHeader className="mb-6">Compare Any Two Teams</SectionHeader>
           <p className="text-on-surface-variant text-sm mb-6">
             Choose from all 48 teams to compare any of the {totalMatchups} possible matchups.
@@ -148,6 +148,42 @@ export default function ComparePage() {
             }))}
           />
         </div>
+
+        {/* SEO-friendly full index — all 1128 matchups as crawlable links */}
+        <details className="mb-12 glass-panel rounded-2xl border border-white/[0.08] overflow-hidden">
+          <summary className="px-6 py-5 cursor-pointer font-headline text-lg uppercase tracking-wide text-on-surface hover:text-primary transition-colors flex items-center justify-between">
+            <span>Browse All {totalMatchups} Matchups A—Z</span>
+            <svg className="w-5 h-5 text-on-surface-variant transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div className="px-6 pb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+              {teams.map((teamA, i) =>
+                teams.slice(i + 1).map((teamB) => {
+                  const slug = `${teamA.slug}-vs-${teamB.slug}`
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/compare/${slug}`}
+                      className="rounded-lg border border-white/[0.04] px-3 py-2 flex items-center justify-between hover:border-white/15 hover:bg-white/[0.02] transition-all text-sm"
+                    >
+                      <span className="flex items-center gap-1.5 min-w-0 truncate">
+                        <span>{teamA.flag}</span>
+                        <span className="font-headline text-xs uppercase tracking-tight truncate">{teamA.name}</span>
+                      </span>
+                      <span className="text-on-surface-variant text-xs mx-1.5 shrink-0">vs</span>
+                      <span className="flex items-center gap-1.5 min-w-0 truncate flex-row-reverse">
+                        <span>{teamB.flag}</span>
+                        <span className="font-headline text-xs uppercase tracking-tight truncate text-right">{teamB.name}</span>
+                      </span>
+                    </Link>
+                  )
+                })
+              )}
+            </div>
+          </div>
+        </details>
       </section>
     </>
   )
