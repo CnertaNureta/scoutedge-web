@@ -4,6 +4,7 @@ import { getAllTeams, getTeamsByGroup, getAllGroups } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
+import CompareSelector from '@/components/compare/CompareSelector'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Team Comparisons: Head-to-Head for All 48 Teams',
@@ -131,34 +132,21 @@ export default function ComparePage() {
           </div>
         </div>
 
-        {/* Full index — all matchups */}
+        {/* Interactive team selector */}
         <div>
-          <SectionHeader className="mb-6">All {totalMatchups} Matchups</SectionHeader>
-          <p className="text-on-surface-variant text-sm mb-6">Browse every possible head-to-head comparison at the 2026 World Cup.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-            {teams.map((teamA, i) =>
-              teams.slice(i + 1).map((teamB) => {
-                const slug = `${teamA.slug}-vs-${teamB.slug}`
-                return (
-                  <Link
-                    key={slug}
-                    href={`/compare/${slug}`}
-                    className="glass-panel rounded-xl border border-white/[0.06] px-4 py-3 flex items-center justify-between hover:border-white/15 hover:bg-white/[0.02] transition-all text-sm"
-                  >
-                    <span className="flex items-center gap-1.5 min-w-0 truncate">
-                      <span>{teamA.flag}</span>
-                      <span className="font-headline text-xs uppercase tracking-tight truncate">{teamA.name}</span>
-                    </span>
-                    <span className="text-on-surface-variant text-xs mx-1.5 shrink-0">vs</span>
-                    <span className="flex items-center gap-1.5 min-w-0 truncate flex-row-reverse">
-                      <span>{teamB.flag}</span>
-                      <span className="font-headline text-xs uppercase tracking-tight truncate text-right">{teamB.name}</span>
-                    </span>
-                  </Link>
-                )
-              })
-            )}
-          </div>
+          <SectionHeader className="mb-6">Compare Any Two Teams</SectionHeader>
+          <p className="text-on-surface-variant text-sm mb-6">
+            Choose from all 48 teams to compare any of the {totalMatchups} possible matchups.
+          </p>
+          <CompareSelector
+            teams={teams.map((t) => ({
+              slug: t.slug,
+              name: t.name,
+              flag: t.flag,
+              group: t.group,
+              fifaRanking: t.fifaRanking,
+            }))}
+          />
         </div>
       </section>
     </>
