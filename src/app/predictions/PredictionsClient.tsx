@@ -5,6 +5,7 @@ import Link from 'next/link'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
+import BettingCTA from '@/components/monetization/BettingCTA'
 
 interface MatchData {
   id: string
@@ -256,6 +257,22 @@ export default function PredictionsClient({ matches, contenders }: PredictionsCl
                   />
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Betting Banner between sections */}
+          {groupMatches.length > 0 && knockoutMatches.length > 0 && groupMatches[0] && (
+            <div className="mb-10">
+              <BettingCTA
+                matchId={groupMatches[0].id}
+                homeTeamName={groupMatches[0].homeTeamName}
+                awayTeamName={groupMatches[0].awayTeamName}
+                homeWinProb={groupMatches[0].homeWinProb}
+                awayWinProb={groupMatches[0].awayWinProb}
+                drawProb={groupMatches[0].drawProb}
+                placement="predictions-banner"
+                variant="banner"
+              />
             </div>
           )}
 
@@ -556,6 +573,18 @@ function MatchPredictionCard({
           {' '}({Math.round(Math.max(match.homeWinProb, match.awayWinProb) * 100)}%)
         </span>
       </div>
+
+      {/* Affiliate CTA */}
+      <BettingCTA
+        matchId={match.id}
+        homeTeamName={match.homeTeamName}
+        awayTeamName={match.awayTeamName}
+        homeWinProb={match.homeWinProb}
+        awayWinProb={match.awayWinProb}
+        drawProb={match.drawProb}
+        placement="match-card-inline"
+        variant="compact"
+      />
     </GlassCard>
   )
 }

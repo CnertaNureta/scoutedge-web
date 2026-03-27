@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AuthButton from './AuthButton'
 
 interface DropdownItem {
   label: string
@@ -72,6 +73,9 @@ export default function Header() {
             <Link href="/community" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Community
             </Link>
+            <Link href="/pricing" className="font-headline font-bold tracking-tight text-primary hover:brightness-125 transition-all">
+              Pro
+            </Link>
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex bg-surface-container-high rounded-full px-4 py-2 items-center gap-2">
@@ -79,6 +83,9 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
               <span className="text-sm text-on-surface-variant">Search teams...</span>
+            </div>
+            <div className="hidden md:block">
+              <AuthButton />
             </div>
           </div>
         </nav>

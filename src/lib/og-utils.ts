@@ -15,10 +15,16 @@ export interface OGMeta {
   type?: 'website' | 'article'
   section?: string
   publishedTime?: string
+  /** Absolute URL to a pre-generated OG image (1200×630) */
+  image?: string
 }
 
 /** Generate consistent Open Graph metadata for any page */
 export function buildOGMeta(meta: OGMeta) {
+  const images = meta.image
+    ? [{ url: meta.image, width: 1200, height: 630, alt: meta.title }]
+    : undefined
+
   return {
     openGraph: {
       title: meta.title,
@@ -27,6 +33,7 @@ export function buildOGMeta(meta: OGMeta) {
       siteName: 'ScoutEdge',
       type: meta.type ?? 'website',
       locale: 'en_US',
+      ...(images && { images }),
       ...(meta.section && { section: meta.section }),
       ...(meta.publishedTime && { publishedTime: meta.publishedTime }),
     },
@@ -35,6 +42,7 @@ export function buildOGMeta(meta: OGMeta) {
       title: meta.title,
       description: meta.description,
       site: '@scoutedge_ai',
+      ...(meta.image && { images: [meta.image] }),
     },
   }
 }

@@ -1,9 +1,11 @@
 import type { MarketIntelData } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
+import BettingCTA from '@/components/monetization/BettingCTA'
 
 interface MarketIntelProps {
   teamName: string
+  teamSlug?: string
   marketIntel: MarketIntelData
 }
 
@@ -38,7 +40,7 @@ function MovementIndicator({ movement }: { movement: MarketIntelData['movement']
   )
 }
 
-export default function MarketIntel({ teamName, marketIntel }: MarketIntelProps) {
+export default function MarketIntel({ teamName, teamSlug, marketIntel }: MarketIntelProps) {
   const { tournamentOdds, averageOdds, impliedProbability, movement, valueBet } = marketIntel
 
   return (
@@ -152,6 +154,18 @@ export default function MarketIntel({ teamName, marketIntel }: MarketIntelProps)
           Odds for informational purposes only. ScoutEdge does not facilitate or encourage gambling.
           Odds sourced from third-party providers and may not reflect real-time market conditions.
         </p>
+
+        {/* Geo-aware tracked CTA */}
+        <BettingCTA
+          matchId={teamSlug || 'tournament'}
+          homeTeamName={teamName}
+          awayTeamName={teamName}
+          homeWinProb={impliedProbability / 100}
+          awayWinProb={0}
+          drawProb={0}
+          placement="market-intel"
+          variant="card"
+        />
       </GlassCard>
     </section>
   )

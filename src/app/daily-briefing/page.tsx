@@ -8,6 +8,8 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+import GatedSignalFeed from '@/components/monetization/GatedSignalFeed'
+import { DAILY_BRIEFING_FREE_SIGNALS } from '@/lib/premium-content'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
@@ -110,6 +112,35 @@ function generateDailySignals(): Signal[] {
 
   const impactOrder = { high: 0, medium: 1, low: 2 }
   return signals.sort((a, b) => impactOrder[a.impact] - impactOrder[b.impact])
+}
+
+function SignalCard({ signal }: { signal: Signal }) {
+  return (
+    <GlassCard className="p-5 md:p-6">
+      <div className="flex items-start gap-4">
+        <span className="text-2xl flex-shrink-0 mt-0.5">{getSignalIcon(signal.type)}</span>
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-center gap-2 mb-2">
+            <Link
+              href={`/teams/${signal.team.slug}`}
+              className="inline-flex items-center gap-1.5 font-label text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
+            >
+              {signal.team.flag} {signal.team.name}
+            </Link>
+            <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-label font-bold uppercase tracking-widest border ${getImpactClass(signal.impact)}`}>
+              {signal.impact}
+            </span>
+          </div>
+          <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-1">
+            {signal.headline}
+          </h3>
+          <p className="text-on-surface-variant text-sm leading-relaxed">
+            {signal.detail}
+          </p>
+        </div>
+      </div>
+    </GlassCard>
+  )
 }
 
 export default async function DailyBriefingPage() {
@@ -257,36 +288,25 @@ export default async function DailyBriefingPage() {
         </div>
       </section>
 
-      {/* Signals Feed */}
+      {/* Signals Feed — Free preview + Premium gated */}
       <section className="max-w-[1440px] mx-auto px-6 mb-20">
-        <div className="space-y-3">
-          {signals.map((signal, i) => (
-            <GlassCard key={i} className="p-5 md:p-6">
-              <div className="flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0 mt-0.5">{getSignalIcon(signal.type)}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <Link
-                      href={`/teams/${signal.team.slug}`}
-                      className="inline-flex items-center gap-1.5 font-label text-xs uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors"
-                    >
-                      {signal.team.flag} {signal.team.name}
-                    </Link>
-                    <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-label font-bold uppercase tracking-widest border ${getImpactClass(signal.impact)}`}>
-                      {signal.impact}
-                    </span>
-                  </div>
-                  <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-1">
-                    {signal.headline}
-                  </h3>
-                  <p className="text-on-surface-variant text-sm leading-relaxed">
-                    {signal.detail}
-                  </p>
-                </div>
-              </div>
-            </GlassCard>
-          ))}
-        </div>
+        <GatedSignalFeed
+          totalCount={signals.length}
+          freeSlot={
+            <div className="space-y-3">
+              {signals.slice(0, DAILY_BRIEFING_FREE_SIGNALS).map((signal, i) => (
+                <SignalCard key={i} signal={signal} />
+              ))}
+            </div>
+          }
+          premiumSlot={
+            <div className="space-y-3">
+              {signals.slice(DAILY_BRIEFING_FREE_SIGNALS).map((signal, i) => (
+                <SignalCard key={i} signal={signal} />
+              ))}
+            </div>
+          }
+        />
       </section>
 
       {/* Confirmed 2026 Fixtures — Real Data */}
