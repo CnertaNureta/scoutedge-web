@@ -43,10 +43,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const allPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3)
 
-  // Article schema
+  // BlogPosting schema
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     description: post.description,
     datePublished: post.date,

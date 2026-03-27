@@ -22,11 +22,25 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
   const nameA = teamA?.name ?? parts[0]
   const nameB = teamB?.name ?? parts[1]
 
+  const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
+  const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
+
   return {
-    title: `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`,
-    description: `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`,
+    title,
+    description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
     alternates: { canonical: `https://scoutedge.ai/compare/${matchup}` },
+    openGraph: {
+      title,
+      description,
+      url: `https://scoutedge.ai/compare/${matchup}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   }
 }
 

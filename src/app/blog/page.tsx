@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/blog-service'
 import Badge from '@/components/ui/Badge'
-import BlogCard from '@/components/blog/BlogCard'
+import BlogFilter from '@/components/blog/BlogFilter'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Blog: Analysis, Predictions & Guides',
@@ -48,13 +48,9 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Posts grid */}
+      {/* Posts grid with filtering */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-        </div>
+        <BlogFilter posts={posts} />
       </section>
     </>
   )
