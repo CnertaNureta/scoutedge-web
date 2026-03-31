@@ -6,6 +6,18 @@ import worldCupHistoryData from '@/data/world-cup-history.json'
 import venuesData from '@/data/venues.json'
 import timezoneData from '@/data/timezone-adjustments.json'
 
+type WorldCupHistoryEntry = Omit<
+  WorldCupHistory,
+  'totalAppearances' | 'bestFinish' | 'firstAppearance' | 'titlesWon' | 'allTimeRecord'
+> & {
+  totalAppearances: number | null
+  bestFinish: string | null
+  firstAppearance: number | null
+  titlesWon: number | null
+  allTimeRecord: WorldCupHistory['allTimeRecord'] | null
+  note?: string
+}
+
 export function getAllTeams(): Team[] {
   return TEAMS
 }
@@ -41,8 +53,7 @@ export function getAllPlayers(): Player[] {
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const teams = (worldCupHistoryData as any).teams
+  const teams = (worldCupHistoryData as unknown as { teams: Record<string, WorldCupHistoryEntry> }).teams
   const entry = teams[teamSlug]
   if (!entry || entry.totalAppearances === null) return undefined
   return entry as WorldCupHistory
