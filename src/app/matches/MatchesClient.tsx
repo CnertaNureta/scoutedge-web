@@ -2,15 +2,19 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import { getAllGroups, getTeamBySlug, getTeamsByGroup } from '@/lib/data-service'
-import type { MatchFixture, Team } from '@/lib/types'
+import type { MatchFixture, TeamMeta } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 
-const groups = getAllGroups()
 const rounds = ['Match Day 1', 'Match Day 2', 'Match Day 3'] as const
+
+interface MatchesClientProps {
+  fixtures: MatchFixture[]
+  groups: string[]
+  teamsByGroup: Record<string, TeamMeta[]>
+  teamsBySlug: Record<string, TeamMeta>
+}
 
 function formatKickoff(utc: string): { date: string; time: string } {
   const d = new Date(utc)
@@ -29,7 +33,7 @@ function formatKickoff(utc: string): { date: string; time: string } {
   return { date, time }
 }
 
-function TeamBadge({ team, align }: { team: Team; align: 'left' | 'right' }) {
+function TeamBadge({ team, align }: { team: TeamMeta; align: 'left' | 'right' }) {
   return (
     <Link
       href={`/teams/${team.slug}`}
@@ -48,9 +52,15 @@ function TeamBadge({ team, align }: { team: Team; align: 'left' | 'right' }) {
   )
 }
 
-function MatchCard({ fixture }: { fixture: MatchFixture }) {
-  const home = getTeamBySlug(fixture.homeTeamSlug)
-  const away = getTeamBySlug(fixture.awayTeamSlug)
+function MatchCard({
+  fixture,
+  teamsBySlug,
+}: {
+  fixture: MatchFixture
+  teamsBySlug: Record<string, TeamMeta>
+}) {
+  const home = teamsBySlug[fixture.homeTeamSlug]
+  const away = teamsBySlug[fixture.awayTeamSlug]
   if (!home || !away) return null
 
   const { date, time } = formatKickoff(fixture.kickoffUtc)
@@ -94,12 +104,17 @@ function MatchCard({ fixture }: { fixture: MatchFixture }) {
   )
 }
 
-export default function MatchesClient() {
+export default function MatchesClient({
+  fixtures,
+  groups,
+  teamsByGroup,
+  teamsBySlug,
+}: MatchesClientProps) {
   const [activeGroup, setActiveGroup] = useState<string | null>(null)
 
   const filteredFixtures = activeGroup
-    ? MATCH_FIXTURES.filter((f) => f.group === activeGroup)
-    : MATCH_FIXTURES
+    ? fixtures.filter((f) => f.group === activeGroup)
+    : fixtures
 
   // Group fixtures by group letter, then by round
   const fixturesByGroup: Record<string, Record<string, MatchFixture[]>> = {}
@@ -145,7 +160,7 @@ export default function MatchesClient() {
             All Groups
           </button>
           {groups.map((g) => {
-            const groupTeams = getTeamsByGroup(g)
+            const groupTeams = teamsByGroup[g] ?? []
             return (
               <button
                 key={g}
@@ -168,7 +183,7 @@ export default function MatchesClient() {
       {/* Fixtures by Group */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         {sortedGroups.map((group) => {
-          const groupTeams = getTeamsByGroup(group)
+          const groupTeams = teamsByGroup[group] ?? []
           return (
             <div key={group} className="mb-14">
               {/* Group Header */}
@@ -197,6 +212,7 @@ export default function MatchesClient() {
                         <MatchCard
                           key={`${fixture.homeTeamSlug}-${fixture.awayTeamSlug}`}
                           fixture={fixture}
+                          teamsBySlug={teamsBySlug}
                         />
                       ))}
                     </div>

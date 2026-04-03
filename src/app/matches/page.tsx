@@ -1,5 +1,8 @@
 import type { Metadata } from 'next'
+import { getMatchesBoardData } from '@/lib/site-data'
 import MatchesClient from './MatchesClient'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Match Schedule: Fixtures, Kick-Off Times & Predictions',
@@ -10,14 +13,17 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://scoutedge.ai/matches' },
 }
 
-export default function MatchesPage() {
+export default async function MatchesPage() {
+  const { fixtures, groups, teamsByGroup, teamsBySlug } =
+    await getMatchesBoardData()
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'World Cup 2026 Group-Stage Matches',
     description:
       'All 72 group-stage fixtures for the 2026 FIFA World Cup with AI predictions.',
-    numberOfItems: 72,
+    numberOfItems: fixtures.length,
   }
 
   return (
@@ -26,7 +32,12 @@ export default function MatchesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <MatchesClient />
+      <MatchesClient
+        fixtures={fixtures}
+        groups={groups}
+        teamsByGroup={teamsByGroup}
+        teamsBySlug={teamsBySlug}
+      />
     </>
   )
 }

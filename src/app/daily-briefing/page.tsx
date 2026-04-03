@@ -1,15 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getAllTeams, getPlayersByTeam } from '@/lib/data-service'
+import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
-import { getTrendingPlayers } from '@/data/player-social'
-import liveCache from '@/data/live-cache.json'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 import GatedSignalFeed from '@/components/monetization/GatedSignalFeed'
 import { DAILY_BRIEFING_FREE_SIGNALS } from '@/lib/premium-content'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
@@ -29,13 +29,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://scoutedge.ai/daily-briefing' },
 }
 
-interface Signal {
-  type: 'injury' | 'transfer' | 'form' | 'tactical' | 'sentiment'
-  team: { name: string; flag: string; slug: string }
-  headline: string
-  detail: string
-  impact: 'high' | 'medium' | 'low'
-}
+type Signal = DailyBriefingSignal
 
 function getSignalIcon(type: Signal['type']): string {
   switch (type) {
@@ -53,65 +47,6 @@ function getImpactClass(impact: Signal['impact']): string {
     case 'medium': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
     case 'low': return 'bg-green-500/20 text-green-400 border-green-500/30'
   }
-}
-
-function generateDailySignals(): Signal[] {
-  const teams = getAllTeams()
-  const signals: Signal[] = []
-
-  const sortedByChemistry = [...teams].sort((a, b) => b.chemistry - a.chemistry)
-  const topTeams = sortedByChemistry.slice(0, 3)
-  const bottomTeams = sortedByChemistry.slice(-3)
-
-  for (const team of topTeams) {
-    signals.push({
-      type: 'form',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} squad chemistry at ${team.chemistry}/100`,
-      detail: `Strong cohesion detected across the squad. Familiarity index: ${team.familiarity}, Stability: ${team.stability}, Morale: ${team.morale}. Coach ${team.coachName}'s system appears well-drilled.`,
-      impact: 'medium',
-    })
-  }
-
-  for (const team of bottomTeams) {
-    signals.push({
-      type: 'sentiment',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} chemistry concerns — ${team.chemistry}/100`,
-      detail: `Below-average squad cohesion detected. Morale: ${team.morale}, Stability: ${team.stability}. This could impact tournament preparation.`,
-      impact: team.chemistry < 50 ? 'high' : 'medium',
-    })
-  }
-
-  for (const team of teams.slice(0, 12)) {
-    const players = getPlayersByTeam(team.slug)
-    const injured = players.filter((p) => p.fitnessStatus === 'red')
-    const monitoring = players.filter((p) => p.fitnessStatus === 'amber')
-
-    if (injured.length > 0) {
-      signals.push({
-        type: 'injury',
-        team: { name: team.name, flag: team.flag, slug: team.slug },
-        headline: `${team.name}: ${injured.length} player${injured.length > 1 ? 's' : ''} flagged injured`,
-        detail: `${injured.map((p) => `${p.name} (${p.position}) — ${p.fitnessNote}`).join('. ')}. ${monitoring.length} additional player${monitoring.length !== 1 ? 's' : ''} under monitoring.`,
-        impact: injured.length >= 2 ? 'high' : 'medium',
-      })
-    }
-  }
-
-  const topRanked = [...teams].sort((a, b) => a.fifaRanking - b.fifaRanking).slice(0, 5)
-  for (const team of topRanked) {
-    signals.push({
-      type: 'tactical',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} tactical profile: ${team.archetypeMatch}`,
-      detail: team.keyInsight,
-      impact: 'low',
-    })
-  }
-
-  const impactOrder = { high: 0, medium: 1, low: 2 }
-  return signals.sort((a, b) => impactOrder[a.impact] - impactOrder[b.impact])
 }
 
 function SignalCard({ signal }: { signal: Signal }) {
@@ -144,19 +79,19 @@ function SignalCard({ signal }: { signal: Signal }) {
 }
 
 export default async function DailyBriefingPage() {
-  const signals = generateDailySignals()
-  const news = await fetchWorldCupNews(20)
+  const [briefingData, news] = await Promise.all([
+    getDailyBriefingPageData(),
+    fetchWorldCupNews(20),
+  ])
+
+  const { signals, signalTypes, highCount, mediumCount, trendingPlayers, liveCache } =
+    briefingData
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
-
-  const highCount = signals.filter((s) => s.impact === 'high').length
-  const mediumCount = signals.filter((s) => s.impact === 'medium').length
-
-  const signalTypes = [...new Set(signals.map((s) => s.type))]
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -397,7 +332,7 @@ export default async function DailyBriefingPage() {
           <Badge variant="primary" size="sm">Trending</Badge>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {getTrendingPlayers(6).map((player) => (
+          {trendingPlayers.map((player) => (
             <GlassCard key={player.playerSlug} className="p-5 relative overflow-hidden">
               <NeonAccentBar color={player.buzzScore >= 90 ? '#e9c400' : '#a0d494'} />
               <div className="flex items-center justify-between mb-3">
