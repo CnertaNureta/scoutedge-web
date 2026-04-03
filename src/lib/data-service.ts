@@ -1,10 +1,22 @@
 import { TEAMS } from '@/data/teams-meta'
 import { PLAYERS } from '@/data/players-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
+import { PREDICTION_CONTEXTS } from '@/data/prediction-contexts'
 import type { Team, Player, MatchFixture, WorldCupHistory, Venue, TeamTimezone, MarketIntelData } from '@/lib/types'
+import type { PredictionContextRecord } from '@/lib/prediction-context'
 import worldCupHistoryData from '@/data/world-cup-history.json'
 import venuesData from '@/data/venues.json'
 import timezoneData from '@/data/timezone-adjustments.json'
+
+type RawWorldCupHistoryEntry = Omit<Partial<WorldCupHistory>, 'totalAppearances' | 'bestFinish' | 'titlesWon'> & {
+  totalAppearances: number | null
+  bestFinish: string | null
+  titlesWon: number | null
+}
+
+type WorldCupHistoryDataFile = {
+  teams: Record<string, RawWorldCupHistoryEntry & Partial<WorldCupHistory>>
+}
 
 export function getAllTeams(): Team[] {
   return TEAMS
@@ -40,9 +52,25 @@ export function getAllPlayers(): Player[] {
   return PLAYERS
 }
 
+export function getPredictionContexts(): PredictionContextRecord[] {
+  return PREDICTION_CONTEXTS
+}
+
+export function getPredictionContextByMatchId(matchId: string): PredictionContextRecord | undefined {
+  return PREDICTION_CONTEXTS.find((record) => record.match_id === matchId)
+}
+
+export function getPredictionContextByTeamPair(
+  homeTeamSlug: string,
+  awayTeamSlug: string
+): PredictionContextRecord | undefined {
+  return PREDICTION_CONTEXTS.find(
+    (record) => record.home_team_slug === homeTeamSlug && record.away_team_slug === awayTeamSlug
+  )
+}
+
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const teams = (worldCupHistoryData as any).teams
+  const teams = (worldCupHistoryData as unknown as WorldCupHistoryDataFile).teams
   const entry = teams[teamSlug]
   if (!entry || entry.totalAppearances === null) return undefined
   return entry as WorldCupHistory
