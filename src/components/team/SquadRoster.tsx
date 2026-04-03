@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Player } from '@/lib/types'
 import Link from 'next/link'
 import { positionOrder, positionLabel, getPlayerPhoto } from '@/lib/utils'
@@ -44,10 +45,12 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20" />
 
                 <div className="relative h-32 overflow-hidden">
-                  <img
+                  <Image
                     src={getPlayerActionImage(player.name)}
                     alt={player.name}
-                    loading="lazy"
+                    fill
+                    unoptimized
+                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
                     className="w-full h-full object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent" />
@@ -56,10 +59,12 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                   </span>
                   {photo && (
                     <div className="absolute -bottom-2 right-2 z-10">
-                      <img
+                      <Image
                         src={photo}
                         alt={player.name}
-                        loading="lazy"
+                        width={112}
+                        height={112}
+                        unoptimized
                         className="h-28 w-auto object-contain drop-shadow-lg"
                       />
                     </div>

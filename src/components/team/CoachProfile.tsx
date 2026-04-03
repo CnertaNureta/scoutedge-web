@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { CoachProfile as CoachData } from '@/data/coaches-data'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -25,9 +26,12 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
           {/* Coach photo */}
           <div className="shrink-0">
             {coach.photo ? (
-              <img
+              <Image
                 src={coach.photo}
                 alt={`${coach.name} portrait`}
+                width={144}
+                height={144}
+                unoptimized
                 className="w-28 h-28 md:w-36 md:h-36 rounded-2xl object-cover border border-white/[0.08]"
               />
             ) : (

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Team } from '@/lib/types'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { getLiveTeamDetails } from '@/lib/live-data-service'
@@ -15,9 +16,13 @@ export default function TeamHero({ team }: TeamHeroProps) {
   return (
     <section className="relative h-[75vh] min-h-[520px] w-full overflow-hidden flex items-end">
       {/* Background image */}
-      <img
+      <Image
         src={heroImage}
         alt={`${team.name} football atmosphere`}
+        fill
+        priority
+        unoptimized
+        sizes="100vw"
         className="absolute inset-0 w-full h-full object-cover brightness-[0.35] saturate-[1.2] scale-105"
       />
 
@@ -40,9 +45,12 @@ export default function TeamHero({ team }: TeamHeroProps) {
           <div className="flex items-center gap-4 mb-2">
             <span className="text-7xl md:text-8xl">{team.flag}</span>
             {liveDetails?.badge && (
-              <img
+              <Image
                 src={liveDetails.badge}
                 alt={`${team.name} official badge`}
+                width={80}
+                height={80}
+                unoptimized
                 className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
               />
             )}

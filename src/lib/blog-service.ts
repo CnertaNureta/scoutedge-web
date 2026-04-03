@@ -29,9 +29,27 @@ export interface BlogPost {
   wordCount: number
   faqs: FAQ[]
   toc: TOCItem[]
+  contentType?: string
+  sourceDate?: string
+  publishedAt?: string
+  factCount?: number
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'src/content/blog')
+
+function getSortTimestamp(post: Pick<BlogPost, 'publishedAt' | 'lastUpdated' | 'date' | 'sourceDate'>): number {
+  const candidates = [post.publishedAt, post.lastUpdated, post.date, post.sourceDate]
+
+  for (const value of candidates) {
+    if (!value) continue
+    const timestamp = new Date(value).getTime()
+    if (Number.isFinite(timestamp)) {
+      return timestamp
+    }
+  }
+
+  return 0
+}
 
 function estimateReadingTime(text: string): number {
   const words = text.split(/\s+/).length
@@ -105,11 +123,21 @@ export function getAllPosts(): BlogPost[] {
         wordCount,
         faqs: parseFAQs(content),
         toc: extractTOC(html),
+        contentType: typeof data.contentType === 'string' ? data.contentType : undefined,
+        sourceDate: typeof data.sourceDate === 'string' ? data.sourceDate : undefined,
+        publishedAt: typeof data.publishedAt === 'string' ? data.publishedAt : undefined,
+        factCount: typeof data.factCount === 'number' ? data.factCount : undefined,
       }
     })
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort((a, b) => getSortTimestamp(b) - getSortTimestamp(a))
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
   return getAllPosts().find((p) => p.slug === slug)
+}
+
+export function getLatestNarrativePost(contentType: string): BlogPost | undefined {
+  return getAllPosts()
+    .filter((post) => post.contentType === contentType)
+    .sort((a, b) => getSortTimestamp(b) - getSortTimestamp(a))[0]
 }

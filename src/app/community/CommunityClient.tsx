@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import Script from 'next/script'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import type { ForumCategory, ForumTopic } from '@/data/community-data'
@@ -206,9 +207,9 @@ export default function CommunityClient({ categories, stats }: CommunityClientPr
           All discussions are powered by GitHub Discussions.
         </p>
         <div id="giscus-container" className="max-w-3xl mx-auto">
-          <script
-            // eslint-disable-next-line @next/next/no-sync-scripts
+          <Script
             src="https://giscus.app/client.js"
+            strategy="lazyOnload"
             data-repo="CnertaNureta/scoutedge-web"
             data-repo-id=""
             data-category="General"
