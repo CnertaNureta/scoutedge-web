@@ -20,8 +20,54 @@ export interface Team extends TeamMeta {
 }
 
 export interface PlayerSignal {
+  id?: string
   type: 'training' | 'quote' | 'data'
+  category?: 'fitness' | 'morale' | 'tactical'
   text: string
+  sourceType?: 'player_profile' | 'social_post' | 'derived_rule' | 'seo_article'
+  sentiment?: 'positive' | 'neutral' | 'negative' | 'mixed'
+  confidence?: number
+  happenedAt?: string
+}
+
+export interface PlayerSignalRecord {
+  id: string
+  player_key: string
+  player_slug: string
+  player_name: string
+  team_slug: string
+  category: 'fitness' | 'morale' | 'tactical'
+  type: PlayerSignal['type']
+  source_type: NonNullable<PlayerSignal['sourceType']>
+  source_key: string
+  summary: string
+  evidence: string
+  sentiment: NonNullable<PlayerSignal['sentiment']>
+  confidence: number
+  weight: number
+  happened_at: string
+  metadata?: Record<string, unknown>
+}
+
+export interface PlayerIntelRecord {
+  player_key: string
+  player_slug: string
+  player_name: string
+  team_slug: string
+  fitness_status: 'green' | 'amber' | 'red'
+  fitness_note: string
+  morale_score: number
+  morale_label: 'positive' | 'neutral' | 'negative'
+  tactical_risk: 'low' | 'medium' | 'high'
+  tactical_note: string
+  selection_risk: 'low' | 'medium' | 'high'
+  selection_note: string
+  recent_signals: PlayerSignal[]
+  source_signal_ids: string[]
+  signal_count: number
+  last_signal_at: string
+  last_updated: string
+  metadata?: Record<string, unknown>
 }
 
 export interface Player {
@@ -44,6 +90,12 @@ export interface Player {
   imageUrl?: string
   cutoutUrl?: string
   recentSignals?: PlayerSignal[]
+  tacticalRisk?: PlayerIntelRecord['tactical_risk']
+  tacticalNote?: string
+  selectionRisk?: PlayerIntelRecord['selection_risk']
+  selectionNote?: string
+  intelLastUpdated?: string
+  intelSignalCount?: number
 }
 
 export interface MatchFixture {
