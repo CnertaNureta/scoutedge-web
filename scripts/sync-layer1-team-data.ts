@@ -37,6 +37,13 @@ function readFlagOrEnv(flag: string, envName: string): string | null {
   return readFlag(flag) || process.env[envName] || null
 }
 
+function readCompetitionScope(): { competition: string; season: string } {
+  return {
+    competition: readFlagOrEnv('--competition', 'LAYER1_COMPETITION') || 'World Cup 2026',
+    season: readFlagOrEnv('--season', 'LAYER1_SEASON') || '2026',
+  }
+}
+
 function normalizeSourceMode(input: string | null): Layer1SourceMode {
   if (input === 'fixture') return 'fixtures'
   if (input === 'fixtures' || input === 'csv' || input === 'live') return input
@@ -68,8 +75,7 @@ async function fetchHtml(url: string): Promise<string> {
 
 async function buildLiveSourceBundle(): Promise<Layer1SourceBundle> {
   const fetchedAt = new Date().toISOString()
-  const competition = process.env.LAYER1_COMPETITION || 'World Cup 2026'
-  const season = process.env.LAYER1_SEASON || '2026'
+  const { competition, season } = readCompetitionScope()
 
   const shootingUrl =
     process.env.FBREF_SHOOTING_URL ||
@@ -105,7 +111,7 @@ async function buildLiveSourceBundle(): Promise<Layer1SourceBundle> {
   }
 }
 
-function buildCsvDataset(): Layer1BuildResult {
+export function buildCsvDataset(): Layer1BuildResult {
   const fbrefCsvPath = readFlagOrEnv('--fbref-csv', 'FBREF_TEAM_STATS_CSV_FILE')
   const eloCsvPath = readFlagOrEnv('--elo-csv', 'ELO_RATINGS_CSV_FILE')
 
@@ -117,12 +123,13 @@ function buildCsvDataset(): Layer1BuildResult {
 
   const sourceUpdatedAt = readFlag('--source-updated-at') || new Date().toISOString()
   const asOfDate = readFlag('--as-of-date') || sourceUpdatedAt.slice(0, 10)
+  const { competition, season } = readCompetitionScope()
 
   return buildLayer1CsvDatasetFromFiles({
     fbrefCsvPath: resolve(process.cwd(), fbrefCsvPath),
     eloCsvPath: resolve(process.cwd(), eloCsvPath),
-    competition: process.env.LAYER1_COMPETITION || 'World Cup 2026',
-    season: process.env.LAYER1_SEASON || '2026',
+    competition,
+    season,
     sourceUpdatedAt,
     asOfDate,
     fbrefSourceUrl:
