@@ -207,7 +207,6 @@ export default function CommunityClient({ categories, stats }: CommunityClientPr
         </p>
         <div id="giscus-container" className="max-w-3xl mx-auto">
           <script
-            // eslint-disable-next-line @next/next/no-sync-scripts
             src="https://giscus.app/client.js"
             data-repo="CnertaNureta/scoutedge-web"
             data-repo-id=""
