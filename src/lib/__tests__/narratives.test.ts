@@ -6,6 +6,7 @@ import {
   parseNarrativeStatus,
 } from '@/lib/narratives'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
+import { TEAMS } from '@/data/teams-meta'
 
 describe('narrative pipeline builders', () => {
   it('builds a fact-anchored match preview bundle', () => {
@@ -36,6 +37,29 @@ describe('narrative pipeline builders', () => {
     expect(bundle.narrative.facts_used.length).toBeGreaterThanOrEqual(6)
     expect(bundle.aiContent.full_content).toContain('## What This Briefing Can Safely Say')
     expect(bundle.aiContent.related_team_ids.length).toBeGreaterThanOrEqual(6)
+  })
+
+  it('only includes fixtures that are still upcoming on the source date', () => {
+    const sourceDate = '2026-06-20'
+    const bundle = buildDailyBriefingBundle({
+      status: 'draft',
+      sourceDate,
+    })
+
+    const teamBySlug = new Map(TEAMS.map((team) => [team.slug, team.name]))
+    const expectedFixtureLabels = MATCH_FIXTURES
+      .filter((fixture) => fixture.kickoffUtc >= `${sourceDate}T00:00:00Z`)
+      .sort((a, b) => new Date(a.kickoffUtc).getTime() - new Date(b.kickoffUtc).getTime())
+      .slice(0, 3)
+      .map((fixture) => (
+        `${teamBySlug.get(fixture.homeTeamSlug)} vs ${teamBySlug.get(fixture.awayTeamSlug)}`
+      ))
+
+    const actualFixtureLabels = bundle.narrative.facts_used
+      .filter((fact) => fact.source === 'match-fixtures')
+      .map((fact) => fact.label)
+
+    expect(actualFixtureLabels).toEqual(expectedFixtureLabels)
   })
 
   it('creates the two required sample narratives', () => {

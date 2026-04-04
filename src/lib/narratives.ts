@@ -388,6 +388,7 @@ export function buildMatchPreviewBundle(
 export function buildDailyBriefingBundle(options: BuildNarrativeOptions = {}): NarrativeBundle {
   const status = options.status ?? 'draft'
   const sourceDate = options.sourceDate ?? new Date().toISOString().slice(0, 10)
+  const sourceDateStart = new Date(`${sourceDate}T00:00:00Z`).getTime()
   const chemistryLeaders = [...TEAMS]
     .sort((a, b) => {
       if (b.chemistry !== a.chemistry) return b.chemistry - a.chemistry
@@ -406,6 +407,7 @@ export function buildDailyBriefingBundle(options: BuildNarrativeOptions = {}): N
     .slice(0, 3)
 
   const upcomingFixtures = [...MATCH_FIXTURES]
+    .filter((fixture) => new Date(fixture.kickoffUtc).getTime() >= sourceDateStart)
     .sort((a, b) => new Date(a.kickoffUtc).getTime() - new Date(b.kickoffUtc).getTime())
     .slice(0, 3)
 

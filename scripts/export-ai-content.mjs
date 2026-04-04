@@ -18,12 +18,15 @@
 import { createClient } from '@supabase/supabase-js'
 import fs from 'fs'
 import path from 'path'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const BLOG_DIR = path.join(__dirname, '..', 'src', 'content', 'blog')
+const ENV_FILE = path.join(__dirname, '..', '.env.local')
 
-process.loadEnvFile?.(path.join(__dirname, '..', '.env.local'))
+if (fs.existsSync(ENV_FILE)) {
+  process.loadEnvFile?.(ENV_FILE)
+}
 
 function parseArgs(argv) {
   const options = {
@@ -99,6 +102,54 @@ function buildMarkdown(row, publishedAt) {
   return `${frontmatter}\n\n${row.full_content || ''}\n`
 }
 
+export function findSnapshotRowIndex(rows, row) {
+  if (!Array.isArray(rows)) return -1
+
+  if (row?.id) {
+    const idMatch = rows.findIndex(
+      (entry) => entry && typeof entry === 'object' && entry.id === row.id
+    )
+    if (idMatch >= 0) return idMatch
+  }
+
+  if (!row?.slug) return -1
+
+  return rows.findIndex(
+    (entry) => entry && typeof entry === 'object' && entry.slug === row.slug
+  )
+}
+
+export function markSnapshotPublished(snapshot, row, publishedAt) {
+  const contentRows = Array.isArray(snapshot.ai_content) ? snapshot.ai_content : []
+  const contentIndex = findSnapshotRowIndex(contentRows, row)
+  if (contentIndex >= 0) {
+    snapshot.ai_content[contentIndex] = {
+      ...snapshot.ai_content[contentIndex],
+      status: 'published',
+      published_at: publishedAt,
+    }
+  }
+
+  if (!Array.isArray(snapshot.narratives)) return snapshot
+
+  const narrativeIndex = row?.source_narrative_id
+    ? snapshot.narratives.findIndex(
+        (entry) =>
+          entry && typeof entry === 'object' && entry.id === row.source_narrative_id
+      )
+    : findSnapshotRowIndex(snapshot.narratives, row)
+
+  if (narrativeIndex >= 0) {
+    snapshot.narratives[narrativeIndex] = {
+      ...snapshot.narratives[narrativeIndex],
+      status: 'published',
+      published_at: publishedAt,
+    }
+  }
+
+  return snapshot
+}
+
 async function loadRowsFromSupabase() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -125,13 +176,20 @@ async function loadRowsFromSupabase() {
     mode: 'supabase',
     rows: rows || [],
     async markPublished(row, publishedAt) {
-      const { error: contentError } = await supabase
+      let contentUpdate = supabase
         .from('ai_content')
         .update({ status: 'published', published_at: publishedAt })
-        .eq('slug', row.slug)
+
+      contentUpdate = row.id
+        ? contentUpdate.eq('id', row.id)
+        : contentUpdate.eq('slug', row.slug)
+
+      const { error: contentError } = await contentUpdate
 
       if (contentError) {
-        throw new Error(`Failed to update ai_content ${row.slug}: ${contentError.message}`)
+        throw new Error(
+          `Failed to update ai_content ${row.id ?? row.slug}: ${contentError.message}`
+        )
       }
 
       if (row.source_narrative_id) {
@@ -157,26 +215,7 @@ function loadRowsFromSnapshot(snapshotPath) {
     mode: 'snapshot',
     rows: rows.filter((row) => row.status === 'approved'),
     async markPublished(row, publishedAt) {
-      const contentIndex = snapshot.ai_content.findIndex((entry) => entry.slug === row.slug)
-      if (contentIndex >= 0) {
-        snapshot.ai_content[contentIndex] = {
-          ...snapshot.ai_content[contentIndex],
-          status: 'published',
-          published_at: publishedAt,
-        }
-      }
-
-      if (Array.isArray(snapshot.narratives)) {
-        const narrativeIndex = snapshot.narratives.findIndex((entry) => entry.slug === row.slug)
-        if (narrativeIndex >= 0) {
-          snapshot.narratives[narrativeIndex] = {
-            ...snapshot.narratives[narrativeIndex],
-            status: 'published',
-            published_at: publishedAt,
-          }
-        }
-      }
-
+      markSnapshotPublished(snapshot, row, publishedAt)
       fs.writeFileSync(snapshotPath, JSON.stringify(snapshot, null, 2), 'utf-8')
     },
   }
@@ -215,8 +254,14 @@ async function main() {
   console.log(`\nDone. Exported ${exported} article(s).`)
 }
 
-main().catch((error) => {
-  const message = error instanceof Error ? error.message : String(error)
-  console.error(message)
-  process.exit(1)
-})
+const isDirectExecution = process.argv[1]
+  ? import.meta.url === pathToFileURL(process.argv[1]).href
+  : false
+
+if (isDirectExecution) {
+  main().catch((error) => {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error(message)
+    process.exit(1)
+  })
+}
