@@ -3,11 +3,9 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useAuth } from '@/contexts/AuthContext'
-import { useSubscription } from '@/contexts/SubscriptionContext'
 
 export default function AuthButton() {
   const { user, loading, signOut } = useAuth()
-  const { isPro } = useSubscription()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -54,22 +52,7 @@ export default function AuthButton() {
           <div className="px-4 py-2.5 border-b border-white/[0.06]">
             <p className="text-sm font-bold text-on-surface truncate">{displayName}</p>
             <p className="text-xs text-on-surface-variant truncate">{user.email}</p>
-            {isPro && (
-              <span className="inline-block mt-1.5 px-2 py-0.5 rounded-full bg-primary/15 text-primary text-[10px] font-bold uppercase tracking-widest">
-                Pro
-              </span>
-            )}
           </div>
-
-          {!isPro && (
-            <Link
-              href="/pricing"
-              onClick={() => setMenuOpen(false)}
-              className="block w-full text-left px-4 py-2.5 text-sm text-primary hover:bg-white/[0.04] transition-colors font-medium"
-            >
-              Upgrade to Pro
-            </Link>
-          )}
 
           <button
             onClick={async () => {

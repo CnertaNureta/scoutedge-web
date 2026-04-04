@@ -2,6 +2,7 @@
 
 import { mkdirSync, writeFileSync } from 'fs'
 import { dirname, resolve } from 'path'
+import { pathToFileURL } from 'url'
 
 import { createClient } from '@supabase/supabase-js'
 
@@ -17,6 +18,11 @@ const DEFAULT_JSON_OUT = resolve(process.cwd(), 'tmp/layer1-sync-report.json')
 const DEFAULT_SOURCE_MODE = 'live'
 
 type Layer1SourceMode = 'live' | 'fixtures' | 'csv'
+
+export interface Layer1MetricWriteRows {
+  teamStats: Array<Record<string, string | number | null | Record<string, unknown>>>
+  ratings: Array<Record<string, string | number | null | Record<string, unknown>>>
+}
 
 function hasFlag(flag: string): boolean {
   return process.argv.includes(flag)
@@ -132,6 +138,61 @@ function buildCsvDataset(): Layer1BuildResult {
   })
 }
 
+export function buildMetricWriteRows(result: Layer1BuildResult): Layer1MetricWriteRows {
+  return {
+    teamStats: result.teamStats.map((row) => ({
+      team_slug: row.teamSlug,
+      source: row.source,
+      competition: row.competition,
+      season: row.season,
+      source_team_name:
+        typeof row.raw.shooting_team_name === 'string'
+          ? row.raw.shooting_team_name
+          : row.teamName,
+      source_url: row.sourceUrl || null,
+      source_updated_at: row.sourceUpdatedAt,
+      as_of_date: row.asOfDate,
+      matches_played: row.matchesPlayed,
+      minutes_played: null,
+      possession_pct: row.possessionPct,
+      passes_completed: row.passesCompleted,
+      passes_attempted: row.passesAttempted,
+      pass_completion_pct: row.passCompletionPct,
+      xg_for: row.xg,
+      xg_against: null,
+      raw_payload: {
+        ...row.raw,
+        npxg: row.npxg,
+        progressive_passes: row.progressivePasses,
+        competition: row.competition,
+        season: row.season,
+      },
+    })),
+    ratings: result.ratings.map((row) => ({
+      team_slug: row.teamSlug,
+      source: row.source,
+      competition: row.competition,
+      season: row.season,
+      source_team_name:
+        typeof row.raw.source_team_name === 'string'
+          ? row.raw.source_team_name
+          : row.teamName,
+      source_url: row.sourceUrl || null,
+      source_updated_at: row.sourceUpdatedAt,
+      as_of_date: row.asOfDate,
+      rating: row.ratingValue,
+      rating_rank: row.ranking,
+      rating_scale: row.ratingType,
+      raw_payload: {
+        ...row.raw,
+        delta: row.delta,
+        competition: row.competition,
+        season: row.season,
+      },
+    })),
+  }
+}
+
 async function syncToSupabase(result: Layer1BuildResult): Promise<void> {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -213,51 +274,7 @@ async function syncToSupabase(result: Layer1BuildResult): Promise<void> {
     source: 'scoutedge-layer1',
   }))
 
-  const teamStats = result.teamStats.map((row) => ({
-    team_slug: row.teamSlug,
-    source: row.source,
-    source_team_name:
-      typeof row.raw.shooting_team_name === 'string'
-        ? row.raw.shooting_team_name
-        : row.teamName,
-    source_url: row.sourceUrl || null,
-    source_updated_at: row.sourceUpdatedAt,
-    as_of_date: row.sourceUpdatedAt.slice(0, 10),
-    matches_played: row.matchesPlayed,
-    minutes_played: null,
-    possession_pct: row.possessionPct,
-    passes_completed: row.passesCompleted,
-    passes_attempted: row.passesAttempted,
-    pass_completion_pct: row.passCompletionPct,
-    xg_for: row.xg,
-    xg_against: null,
-    raw_payload: {
-      ...row.raw,
-      npxg: row.npxg,
-      progressive_passes: row.progressivePasses,
-      competition: row.competition,
-      season: row.season,
-    },
-  }))
-
-  const ratings = result.ratings.map((row) => ({
-    team_slug: row.teamSlug,
-    source: row.source,
-    source_team_name:
-      typeof row.raw.source_team_name === 'string'
-        ? row.raw.source_team_name
-        : row.teamName,
-    source_url: row.sourceUrl || null,
-    source_updated_at: row.sourceUpdatedAt,
-    as_of_date: row.sourceUpdatedAt.slice(0, 10),
-    rating: row.ratingValue,
-    rating_rank: row.ranking,
-    rating_scale: row.ratingType,
-    raw_payload: {
-      ...row.raw,
-      delta: row.delta,
-    },
-  }))
+  const { teamStats, ratings } = buildMetricWriteRows(result)
 
   const { error: teamsError } = await supabase.from('teams').upsert(teamRows, {
     onConflict: 'slug',
@@ -362,10 +379,10 @@ async function syncToSupabase(result: Layer1BuildResult): Promise<void> {
     supabase.from('team_name_aliases').upsert(aliasRows, { onConflict: 'normalized_alias' }),
     supabase
       .from('team_stats')
-      .upsert(teamStats, { onConflict: 'team_slug,source,as_of_date' }),
+      .upsert(teamStats, { onConflict: 'team_slug,source,competition,season,as_of_date' }),
     supabase
       .from('team_ratings')
-      .upsert(ratings, { onConflict: 'team_slug,source,as_of_date' }),
+      .upsert(ratings, { onConflict: 'team_slug,source,competition,season,as_of_date' }),
   ]
 
   const responses = await Promise.all(writes)
@@ -438,7 +455,11 @@ async function main() {
   }, null, 2))
 }
 
-main().catch((error) => {
-  console.error('[layer1-sync] Fatal:', error instanceof Error ? error.message : error)
-  process.exit(1)
-})
+const entryHref = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : null
+
+if (entryHref === import.meta.url) {
+  main().catch((error) => {
+    console.error('[layer1-sync] Fatal:', error instanceof Error ? error.message : error)
+    process.exit(1)
+  })
+}

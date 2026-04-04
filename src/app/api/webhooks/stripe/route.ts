@@ -106,8 +106,7 @@ export async function POST(req: NextRequest) {
 
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const subId = (invoice as any).subscription as string | null
+        const subId = getSubscriptionIdFromInvoice(invoice)
         if (subId) {
           await admin
             .from('subscriptions')
@@ -123,6 +122,12 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ received: true })
+}
+
+function getSubscriptionIdFromInvoice(invoice: Stripe.Invoice): string | null {
+  const subscription = invoice.parent?.subscription_details?.subscription
+  if (!subscription) return null
+  return typeof subscription === 'string' ? subscription : subscription.id
 }
 
 async function upsertSubscription(

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import { getAllTeams, getAllGroups, getTeamsByGroup } from '@/lib/data-service'
+import { getTeamsPageData } from '@/lib/site-data'
 import TeamCard from '@/components/team/TeamCard'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'All 48 World Cup 2026 Teams: Groups, Squads & AI Predictions',
@@ -10,15 +12,15 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://scoutedge.ai/teams' },
 }
 
-export default function TeamsPage() {
-  const groups = getAllGroups()
+export default async function TeamsPage() {
+  const { groups, teamsByGroup, totalTeams } = await getTeamsPageData()
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'World Cup 2026 Teams',
     description: 'All 48 teams competing in the 2026 FIFA World Cup',
-    numberOfItems: getAllTeams().length,
+    numberOfItems: totalTeams,
   }
 
   return (
@@ -49,7 +51,7 @@ export default function TeamsPage() {
       {/* Groups */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         {groups.map((group) => {
-          const teams = getTeamsByGroup(group)
+          const teams = teamsByGroup[group] ?? []
           return (
             <div key={group} className="mb-14">
               <h2 className="font-headline text-2xl tracking-wide uppercase mb-6 flex items-center gap-3">

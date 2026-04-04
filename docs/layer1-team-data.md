@@ -151,6 +151,10 @@ The migration creates:
 - `latest_team_features`
 - `match_team_features`
 
+`team_stats` and `team_ratings` snapshots are keyed by source plus
+`competition`, `season`, and `as_of_date`, so historical template imports can
+coexist with World Cup 2026 writes without overwriting each other.
+
 ## Coverage notes
 
 - The fixture-backed TS path keeps all `48` teams in `teams/matches`, but only counts `46` resolved teams for stats/ratings coverage.

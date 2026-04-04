@@ -48,6 +48,8 @@ function main() {
       source text not null,
       source_team_name text not null,
       source_url text,
+      competition text not null,
+      season text not null,
       as_of_date text not null,
       matches_played integer,
       minutes_played integer,
@@ -66,6 +68,8 @@ function main() {
       source text not null,
       source_team_name text not null,
       source_url text,
+      competition text not null,
+      season text not null,
       as_of_date text not null,
       rating real not null,
       rating_rank integer,
@@ -150,6 +154,8 @@ function main() {
       'source',
       'source_team_name',
       'source_url',
+      'competition',
+      'season',
       'as_of_date',
       'matches_played',
       'minutes_played',
@@ -167,7 +173,9 @@ function main() {
       source: row.source,
       source_team_name: (row.raw.shooting_team_name as string) || row.teamName,
       source_url: row.sourceUrl,
-      as_of_date: row.sourceUpdatedAt.slice(0, 10),
+      competition: row.competition,
+      season: row.season,
+      as_of_date: row.asOfDate,
       matches_played: row.matchesPlayed,
       minutes_played: null,
       possession_pct: row.possessionPct,
@@ -181,6 +189,8 @@ function main() {
         ...row.raw,
         npxg: row.npxg,
         progressive_passes: row.progressivePasses,
+        competition: row.competition,
+        season: row.season,
       }),
     }))
   )
@@ -193,6 +203,8 @@ function main() {
       'source',
       'source_team_name',
       'source_url',
+      'competition',
+      'season',
       'as_of_date',
       'rating',
       'rating_rank',
@@ -205,7 +217,9 @@ function main() {
       source: row.source,
       source_team_name: (row.raw.source_team_name as string) || row.teamName,
       source_url: row.sourceUrl,
-      as_of_date: row.sourceUpdatedAt.slice(0, 10),
+      competition: row.competition,
+      season: row.season,
+      as_of_date: row.asOfDate,
       rating: row.ratingValue,
       rating_rank: row.ranking,
       rating_scale: row.ratingType,
@@ -213,6 +227,8 @@ function main() {
       raw_payload: JSON.stringify({
         ...row.raw,
         delta: row.delta,
+        competition: row.competition,
+        season: row.season,
       }),
     }))
   )
@@ -228,6 +244,8 @@ function main() {
         team_stats.pass_completion_pct
       from team_stats
       join teams on teams.slug = team_stats.team_slug
+      where team_stats.competition = 'World Cup 2026'
+        and team_stats.season = '2026'
       order by teams.slug
       limit 5
     `)
@@ -243,6 +261,8 @@ function main() {
         json_extract(team_ratings.raw_payload, '$.delta') as delta
       from team_ratings
       join teams on teams.slug = team_ratings.team_slug
+      where team_ratings.competition = 'World Cup 2026'
+        and team_ratings.season = '2026'
       order by team_ratings.rating_rank
       limit 5
     `)
@@ -264,15 +284,23 @@ function main() {
       left join team_stats as home_stats
         on home_stats.team_slug = matches.home_team_slug
         and home_stats.source = 'fbref'
+        and home_stats.competition = 'World Cup 2026'
+        and home_stats.season = '2026'
       left join team_stats as away_stats
         on away_stats.team_slug = matches.away_team_slug
         and away_stats.source = 'fbref'
+        and away_stats.competition = 'World Cup 2026'
+        and away_stats.season = '2026'
       left join team_ratings as home_rating
         on home_rating.team_slug = matches.home_team_slug
         and home_rating.source = 'world-football-elo'
+        and home_rating.competition = 'World Cup 2026'
+        and home_rating.season = '2026'
       left join team_ratings as away_rating
         on away_rating.team_slug = matches.away_team_slug
         and away_rating.source = 'world-football-elo'
+        and away_rating.competition = 'World Cup 2026'
+        and away_rating.season = '2026'
       where matches.home_team_slug not like 'tbd-playoff-%'
         and matches.away_team_slug not like 'tbd-playoff-%'
       order by matches.kickoff_utc

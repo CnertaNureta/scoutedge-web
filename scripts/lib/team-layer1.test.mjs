@@ -36,6 +36,8 @@ describe('team layer1 utilities', () => {
     expect(result.coverage.coveredTeamCount).toBe(9)
     expect(result.records.find((row) => row.team_slug === 'usa')).toMatchObject({
       source: 'fbref',
+      competition: 'World Cup 2026',
+      season: '2026',
       possession_pct: 55.1,
       pass_completion_pct: 88.9,
       xg_for: 16.5,
@@ -52,9 +54,28 @@ describe('team layer1 utilities', () => {
     expect(result.coverage.coveredTeamCount).toBe(9)
     expect(result.records.find((row) => row.team_slug === 'south-korea')).toMatchObject({
       source: 'world-football-elo',
+      competition: 'World Cup 2026',
+      season: '2026',
       rating: 1868,
       rating_rank: 13,
       rating_scale: 'elo',
+    })
+  })
+
+  it('allows CSV imports to override competition scope without changing snapshot dates', () => {
+    const csv = readFileSync(path.join(fixturesDir, 'elo-ratings.csv'), 'utf8')
+    const result = parseEloRatingsCsv(csv, {
+      competition: 'UEFA Euro 2024',
+      season: '2024',
+      asOfDate: '2024-07-14',
+      sourceUpdatedAt: '2026-04-04T00:00:00Z',
+    })
+
+    expect(result.records.find((row) => row.team_slug === 'usa')).toMatchObject({
+      competition: 'UEFA Euro 2024',
+      season: '2024',
+      as_of_date: '2024-07-14',
+      source_updated_at: '2026-04-04T00:00:00Z',
     })
   })
 })

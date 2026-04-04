@@ -9,8 +9,6 @@ import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
 import SeoArticle from '@/components/ui/SeoArticle'
 import SectionHeader from '@/components/ui/SectionHeader'
-import PremiumSection from '@/components/monetization/PremiumSection'
-import { PREMIUM_PLAYER_SECTIONS } from '@/lib/premium-content'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
@@ -80,15 +78,7 @@ export default async function PlayerPage({ params }: PageProps) {
 
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
       <PlayerStats player={player} derivedStats={derivedStats} />
-      <PremiumSection
-        feature={PREMIUM_PLAYER_SECTIONS.playerIntel.label}
-        variant={PREMIUM_PLAYER_SECTIONS.playerIntel.variant}
-        teaserTitle="Intelligence Report"
-        teaserDescription={`AI-extracted signals, fitness tracking, and performance analysis for ${player.name}.`}
-        trackingKey={PREMIUM_PLAYER_SECTIONS.playerIntel.key}
-      >
-        <PlayerIntel player={player} />
-      </PremiumSection>
+      <PlayerIntel player={player} />
       <SeoArticle html={player.seoArticle} />
 
       <section className="page-container mb-20">

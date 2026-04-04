@@ -1,18 +1,20 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getAllTeams } from '@/lib/data-service'
+import { getHomePageData } from '@/lib/site-data'
 import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
+export const revalidate = 300
+
 export const metadata: Metadata = {
-  title: 'World Cup 2026 AI Predictions, Squad Analysis & Match Previews | ScoutEdge',
+  title: 'World Cup 2026 Narratives, Squad Analysis & Match Intelligence | ScoutEdge',
   description:
-    'AI-powered predictions and analysis for all 48 World Cup 2026 teams. Squad chemistry indexes, win probabilities, player scouting reports, and match previews across the USA, Canada & Mexico.',
+    'Narrative-first World Cup 2026 intelligence for all 48 teams. Squad chemistry reads, player reports, and match context across the USA, Canada, and Mexico.',
   keywords:
-    'World Cup 2026, World Cup 2026 predictions, FIFA World Cup 2026, soccer predictions, football analysis, team chemistry, player stats, World Cup 2026 schedule',
+    'World Cup 2026, World Cup intelligence, World Cup narratives, football analysis, team chemistry, player reports, World Cup 2026 schedule',
   alternates: {
     canonical: 'https://scoutedge.ai',
     languages: {
@@ -29,15 +31,14 @@ export const metadata: Metadata = {
     },
   },
   ...buildOGMeta({
-    title: 'World Cup 2026 AI Predictions & Squad Analysis | ScoutEdge',
-    description: 'AI-powered predictions for all 48 teams. Chemistry indexes, win probabilities, and player scouting reports.',
+    title: 'World Cup 2026 Narratives & Squad Analysis | ScoutEdge',
+    description: 'Narrative-first intelligence for all 48 teams. Chemistry indexes, match context, and player scouting reports.',
     url: 'https://scoutedge.ai',
   }),
 }
 
-export default function HomePage() {
-  const teams = getAllTeams()
-  const topTeams = teams.filter((t) => t.fifaRanking <= 10).slice(0, 6)
+export default async function HomePage() {
+  const { topTeams } = await getHomePageData()
 
   return (
     <>
@@ -66,7 +67,7 @@ export default function HomePage() {
           </h1>
 
           <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 animate-fade-in-up opacity-0 stagger-2">
-            Deep squad analysis, chemistry indexes, win probability predictions, and player intelligence reports
+            Narrative-first team dossiers, chemistry reads, match leverage, and player intelligence
             for all 48 nations competing across the United States, Canada, and Mexico.
           </p>
 
@@ -77,12 +78,12 @@ export default function HomePage() {
             >
               Explore All 48 Teams
             </Link>
-            <a
-              href="#top-teams"
+            <Link
+              href="/daily-briefing"
               className="border border-white/20 text-on-surface px-10 py-4 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] hover:border-primary/40 transition-all"
             >
-              Top Contenders
-            </a>
+              Read Daily Briefing
+            </Link>
           </div>
         </div>
 
@@ -140,14 +141,14 @@ export default function HomePage() {
           {([
             {
               title: 'All 48 Teams',
-              desc: 'Squad chemistry, tactical profiles, and AI predictions for every nation.',
+              desc: 'Squad chemistry, tactical profiles, and team identity reads for every nation.',
               href: '/teams',
               icon: '\u{1F3C3}',
               accent: '#a0d494',
             },
             {
               title: 'Match Schedule',
-              desc: 'Full group-stage fixtures with AI win-probability previews.',
+              desc: 'Full group-stage fixtures with travel context, venue notes, and model reads.',
               href: '/matches',
               icon: '\u{26BD}',
               accent: '#bcf0ae',
@@ -167,10 +168,10 @@ export default function HomePage() {
               accent: '#ffb4aa',
             },
             {
-              title: 'Prediction Challenge',
-              desc: 'Pick winners, choose your champion, and compete against the AI.',
-              href: '/predictions',
-              icon: '\u{1F3AF}',
+              title: 'Narrative Library',
+              desc: 'Published briefings, team essays, and match stories written for real tournament context.',
+              href: '/blog',
+              icon: '\u{1F4DD}',
               accent: '#ffd700',
             },
           ] as const).map((feature) => (
@@ -224,24 +225,24 @@ export default function HomePage() {
               accent: '#a0d494',
             },
             {
-              title: 'Blog',
-              desc: 'Plain-English analysis, predictions, and guides for real football fans.',
-              href: '/blog',
-              icon: '\u{1F4DD}',
+              title: 'Full Schedule',
+              desc: 'Tournament-wide kickoff planning across venues, dates, and host cities.',
+              href: '/schedule',
+              icon: '\u{1F5D3}\u{FE0F}',
               accent: '#bcf0ae',
             },
             {
-              title: 'Community',
-              desc: 'Fan forum — predictions, debates, and match-day discussion worldwide.',
-              href: '/community',
-              icon: '\u{1F4AC}',
+              title: 'Blog',
+              desc: 'Plain-English analysis, tournament essays, and World Cup guides.',
+              href: '/blog',
+              icon: '\u{1F4DD}',
               accent: '#e9c400',
             },
             {
-              title: 'AI Assistant',
-              desc: 'Ask anything about World Cup 2026 — teams, players, matches, and predictions.',
-              href: '#',
-              icon: '\u{1F916}',
+              title: 'Player Intel',
+              desc: 'Use team pages to move from national narratives into player-level context.',
+              href: '/teams',
+              icon: '\u{1F9E0}',
               accent: '#a0d494',
             },
           ] as const).map((feature) => (
@@ -274,15 +275,26 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <h2 className="font-headline text-4xl md:text-6xl tracking-wide uppercase mb-6">
-            Premium <span className="text-tertiary">Intelligence</span> Awaits
+            Narratives Over <span className="text-tertiary">Noise</span>
           </h2>
           <p className="text-on-surface-variant text-lg max-w-xl mx-auto mb-10">
-            Get full AI-powered scouting reports, real-time fitness tracking, and predictive match analysis
-            for every game of the 2026 World Cup.
+            ScoutEdge v1 is focused on the tournament stories that matter most: team identity, player signals,
+            and match context without forum clutter, betting prompts, or subscription walls dominating the journey.
           </p>
-          <button className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_50px_rgba(255,215,0,0.5)]">
-            Subscribe for Premium Intel
-          </button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/daily-briefing"
+              className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:shadow-[0_0_50px_rgba(255,215,0,0.5)]"
+            >
+              Read The Briefing
+            </Link>
+            <Link
+              href="/matches"
+              className="border border-white/20 text-on-surface px-10 py-4 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] hover:border-primary/40 transition-all"
+            >
+              Open Match Board
+            </Link>
+          </div>
         </div>
       </section>
     </>

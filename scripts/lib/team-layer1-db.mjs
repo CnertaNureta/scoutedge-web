@@ -36,9 +36,9 @@ export async function upsertCanonicalTeamsAndAliases(client, { teamRows, aliasRo
 }
 
 export async function upsertTeamStats(client, rows) {
-  await upsertRows(client, 'team_stats', rows, 'team_slug,source,as_of_date')
+  await upsertRows(client, 'team_stats', rows, 'team_slug,source,competition,season,as_of_date')
 }
 
 export async function upsertTeamRatings(client, rows) {
-  await upsertRows(client, 'team_ratings', rows, 'team_slug,source,as_of_date')
+  await upsertRows(client, 'team_ratings', rows, 'team_slug,source,competition,season,as_of_date')
 }

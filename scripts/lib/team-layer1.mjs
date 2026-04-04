@@ -1,4 +1,6 @@
 const TODAY = new Date().toISOString().slice(0, 10)
+const DEFAULT_COMPETITION = 'World Cup 2026'
+const DEFAULT_SEASON = '2026'
 
 export const TEAM_CATALOG = [
   { slug: 'mexico', name: 'Mexico', confederation: 'CONCACAF' },
@@ -271,11 +273,16 @@ export function parseFbrefTeamStatsCsv(text, options = {}) {
       continue
     }
 
+    const competition = options.competition ?? getField(row, ['Competition']) ?? DEFAULT_COMPETITION
+    const season = options.season ?? getField(row, ['Season']) ?? DEFAULT_SEASON
+
     records.push({
       team_slug: team.slug,
       source: 'fbref',
       source_team_name: sourceTeamName,
       source_url: options.sourceUrl ?? getField(row, ['Source URL', 'SourceUrl']) ?? null,
+      competition,
+      season,
       as_of_date: toDateOnly(
         options.asOfDate
           ?? getField(row, ['As Of', 'AsOf', 'Date'])
@@ -314,11 +321,16 @@ export function parseEloRatingsCsv(text, options = {}) {
       continue
     }
 
+    const competition = options.competition ?? getField(row, ['Competition']) ?? DEFAULT_COMPETITION
+    const season = options.season ?? getField(row, ['Season']) ?? DEFAULT_SEASON
+
     records.push({
       team_slug: team.slug,
       source: 'world-football-elo',
       source_team_name: sourceTeamName,
       source_url: options.sourceUrl ?? getField(row, ['Source URL', 'SourceUrl']) ?? null,
+      competition,
+      season,
       as_of_date: toDateOnly(
         options.asOfDate
           ?? getField(row, ['As Of', 'AsOf', 'Date'])

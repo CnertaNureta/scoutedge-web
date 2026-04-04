@@ -20,6 +20,9 @@ describe('layer1 team data', () => {
     expect(rows.length).toBe(46)
     expect(usa?.teamName).toBe('USA')
     expect(usa?.xg).not.toBeNull()
+    expect(usa?.competition).toBe('World Cup 2026')
+    expect(usa?.season).toBe('2026')
+    expect(usa?.asOfDate).toBe('2026-03-31')
     expect(ivoryCoast?.raw.shooting_team_name).toBe('Côte d\'Ivoire')
   })
 
@@ -30,6 +33,9 @@ describe('layer1 team data', () => {
 
     expect(rows.length).toBe(46)
     expect(southKorea?.teamName).toBe('South Korea')
+    expect(southKorea?.competition).toBe('World Cup 2026')
+    expect(southKorea?.season).toBe('2026')
+    expect(southKorea?.asOfDate).toBe('2026-03-31')
     expect(typeof southKorea?.ratingValue).toBe('number')
   })
 

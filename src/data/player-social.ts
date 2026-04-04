@@ -154,6 +154,20 @@ export const PLAYER_SOCIAL_DATA: PlayerSocialProfile[] = [
   },
 ]
 
+export function buildPlayerSocialKey(teamSlug: string, playerSlug: string): string {
+  return `${teamSlug}::${playerSlug}`
+}
+
+export function buildPlayerSocialIndex(
+  profiles: PlayerSocialProfile[] = PLAYER_SOCIAL_DATA
+): Map<string, PlayerSocialProfile> {
+  return new Map(
+    profiles.map((profile) => [buildPlayerSocialKey(profile.teamSlug, profile.playerSlug), profile])
+  )
+}
+
+const PLAYER_SOCIAL_INDEX = buildPlayerSocialIndex()
+
 /** Get trending players sorted by buzz score */
 export function getTrendingPlayers(limit = 10): PlayerSocialProfile[] {
   return [...PLAYER_SOCIAL_DATA]
@@ -162,6 +176,6 @@ export function getTrendingPlayers(limit = 10): PlayerSocialProfile[] {
 }
 
 /** Get social profile for a specific player */
-export function getPlayerSocial(playerSlug: string): PlayerSocialProfile | undefined {
-  return PLAYER_SOCIAL_DATA.find((p) => p.playerSlug === playerSlug)
+export function getPlayerSocial(teamSlug: string, playerSlug: string): PlayerSocialProfile | undefined {
+  return PLAYER_SOCIAL_INDEX.get(buildPlayerSocialKey(teamSlug, playerSlug))
 }

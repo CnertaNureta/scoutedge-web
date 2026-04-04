@@ -57,6 +57,7 @@ export interface TeamStatRow {
   source: string
   sourceUrl: string
   sourceUpdatedAt: string
+  asOfDate: string
   season: string
   competition: string
   matchesPlayed: number | null
@@ -76,6 +77,9 @@ export interface TeamRatingRow {
   source: string
   sourceUrl: string
   sourceUpdatedAt: string
+  asOfDate: string
+  season: string
+  competition: string
   ratingType: 'elo'
   ratingValue: number
   ranking: number | null
@@ -232,6 +236,10 @@ function maybeNumber(value: string): number | null {
   return Number.isFinite(parsed) ? parsed : null
 }
 
+function toDateOnly(value: string): string {
+  return value.slice(0, 10)
+}
+
 function csvValue(value: string | number | null | undefined): string {
   if (value == null) return ''
   const text = String(value)
@@ -339,6 +347,7 @@ export function parseFbrefTeamStats(sourceBundle: Layer1SourceBundle): TeamStatR
         source: 'fbref',
         sourceUrl: sourceBundle.fbref.shooting.sourceUrl,
         sourceUpdatedAt: sourceBundle.fbref.shooting.fetchedAt,
+        asOfDate: toDateOnly(sourceBundle.fbref.shooting.fetchedAt),
         season: sourceBundle.season,
         competition: sourceBundle.competition,
         matchesPlayed: null,
@@ -562,6 +571,9 @@ export function parseEloRatings(sourceBundle: Layer1SourceBundle): TeamRatingRow
       source: 'world-football-elo',
       sourceUrl: sourceBundle.elo.sourceUrl,
       sourceUpdatedAt: sourceBundle.elo.fetchedAt,
+      asOfDate: toDateOnly(sourceBundle.elo.fetchedAt),
+      season: sourceBundle.season,
+      competition: sourceBundle.competition,
       ratingType: 'elo',
       ratingValue: rating,
       ranking:

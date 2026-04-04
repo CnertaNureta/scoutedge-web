@@ -74,8 +74,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/schedule/converter`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
-    { url: `${BASE}/community`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.85 },
-    { url: `${BASE}/predictions`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.95 },
 
     // Localized homepages (8 languages)
     ...SUPPORTED_LOCALES.map((locale) => ({

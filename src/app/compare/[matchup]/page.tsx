@@ -72,7 +72,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
   const data = getHeadToHead(matchup)
   if (!data) return <div className="page-container py-20 text-center text-on-surface-variant">Matchup not found.</div>
 
-  const { teamA, teamB, prediction, statDeltas, squadA, squadB, keyPlayerMatchups, historyA, historyB, marketA, marketB, verdict } = data
+  const { teamA, teamB, prediction, statDeltas, squadA, squadB, keyPlayerMatchups, historyA, historyB, verdict } = data
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -334,20 +334,6 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
             </GlassCard>
           )
         })()}
-
-        {/* Market Intel */}
-        {(marketA || marketB) && (
-          <GlassCard className="p-6 md:p-8">
-            <h3 className="font-headline text-xl uppercase tracking-wide mb-6 text-center">Tournament Odds</h3>
-            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 mb-4">
-              <div className="text-right font-headline text-sm uppercase tracking-wide text-primary">{teamA.name}</div>
-              <div />
-              <div className="font-headline text-sm uppercase tracking-wide text-primary">{teamB.name}</div>
-            </div>
-            <StatRow label="Avg Odds" valueA={marketA?.averageOdds ?? 0} valueB={marketB?.averageOdds ?? 0} higherIsBetter={false} />
-            <StatRow label="Implied %" valueA={marketA?.impliedProbability ?? 0} valueB={marketB?.impliedProbability ?? 0} />
-          </GlassCard>
-        )}
 
         {/* Related Comparisons */}
         {related.length > 0 && (

@@ -47,34 +47,24 @@ export default function Header() {
             <NavDropdown
               label="Tournament"
               items={[
-                { label: 'Full Schedule', href: '/schedule' },
                 { label: 'Match Board', href: '/matches' },
+                { label: 'Full Schedule', href: '/schedule' },
                 { label: 'Group Analysis', href: '/groups/A' },
                 { label: 'Countdown', href: '/countdown' },
                 { label: 'Time Converter', href: '/schedule/converter' },
               ]}
             />
-            <NavDropdown
-              label="Analysis"
-              items={[
-                { label: 'Power Rankings', href: '/power-rankings' },
-                { label: 'Daily Briefing', href: '/daily-briefing' },
-              ]}
-            />
+            <Link href="/daily-briefing" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Daily Briefing
+            </Link>
+            <Link href="/power-rankings" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+              Power Rankings
+            </Link>
             <Link href="/compare" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Compare
             </Link>
             <Link href="/blog" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               Blog
-            </Link>
-            <Link href="/predictions" className="font-headline font-bold tracking-tight text-[#e9c400] hover:brightness-125 transition-all">
-              Predictions
-            </Link>
-            <Link href="/community" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
-              Community
-            </Link>
-            <Link href="/pricing" className="font-headline font-bold tracking-tight text-primary hover:brightness-125 transition-all">
-              Pro
             </Link>
           </div>
           <div className="flex items-center gap-4">
@@ -102,11 +92,11 @@ export default function Header() {
         </Link>
         <Link href="/matches" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Matches</span>
+          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Board</span>
         </Link>
-        <Link href="/predictions" className="flex flex-col items-center justify-center text-[#e9c400] active:scale-90 transition-transform">
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Predict</span>
+        <Link href="/daily-briefing" className="flex flex-col items-center justify-center text-on-surface-variant active:scale-90 transition-transform">
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14-6H5m14 12H9m10 0v-6m0 6l-3-3m3 3l3-3" /></svg>
+          <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">Briefing</span>
         </Link>
       </nav>
     </>

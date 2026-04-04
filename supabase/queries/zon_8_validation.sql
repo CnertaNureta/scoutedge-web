@@ -5,6 +5,8 @@
 select
   teams.slug,
   teams.name,
+  latest_team_stats.competition,
+  latest_team_stats.season,
   latest_team_stats.possession_pct,
   latest_team_stats.pass_completion_pct,
   latest_team_stats.xg_for,
@@ -13,6 +15,8 @@ select
 from latest_team_stats
 join teams on teams.slug = latest_team_stats.team_slug
 where latest_team_stats.source = 'fbref'
+  and latest_team_stats.competition = 'World Cup 2026'
+  and latest_team_stats.season = '2026'
 order by latest_team_stats.as_of_date desc, teams.name
 limit 5;
 
@@ -20,12 +24,16 @@ limit 5;
 select
   teams.slug,
   teams.name,
+  latest_team_ratings.competition,
+  latest_team_ratings.season,
   latest_team_ratings.rating,
   latest_team_ratings.rating_rank,
   latest_team_ratings.as_of_date
 from latest_team_ratings
 join teams on teams.slug = latest_team_ratings.team_slug
 where latest_team_ratings.source = 'world-football-elo'
+  and latest_team_ratings.competition = 'World Cup 2026'
+  and latest_team_ratings.season = '2026'
 order by latest_team_ratings.rating_rank asc nulls last
 limit 5;
 

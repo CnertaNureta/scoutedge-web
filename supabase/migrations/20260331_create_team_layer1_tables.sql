@@ -51,6 +51,8 @@ create table if not exists team_stats (
   source text not null,
   source_team_name text not null,
   source_url text,
+  competition text not null,
+  season text not null,
   as_of_date date not null,
   matches_played numeric(6, 2),
   minutes_played numeric(8, 2),
@@ -62,8 +64,7 @@ create table if not exists team_stats (
   xg_against numeric(8, 3),
   source_updated_at timestamptz,
   raw_payload jsonb not null default '{}'::jsonb,
-  ingested_at timestamptz not null default now(),
-  unique (team_slug, source, as_of_date)
+  ingested_at timestamptz not null default now()
 );
 
 create table if not exists team_ratings (
@@ -72,14 +73,15 @@ create table if not exists team_ratings (
   source text not null,
   source_team_name text not null,
   source_url text,
+  competition text not null,
+  season text not null,
   as_of_date date not null,
   rating numeric(10, 2) not null,
   rating_rank integer,
   rating_scale text not null default 'elo',
   source_updated_at timestamptz,
   raw_payload jsonb not null default '{}'::jsonb,
-  ingested_at timestamptz not null default now(),
-  unique (team_slug, source, as_of_date)
+  ingested_at timestamptz not null default now()
 );
 
 create index if not exists idx_team_name_aliases_team_slug on team_name_aliases(team_slug);
@@ -87,10 +89,16 @@ create index if not exists idx_matches_group_code on matches(group_code);
 create index if not exists idx_matches_kickoff_utc on matches(kickoff_utc);
 create index if not exists idx_matches_home_team_slug on matches(home_team_slug);
 create index if not exists idx_matches_away_team_slug on matches(away_team_slug);
+create unique index if not exists idx_team_stats_snapshot_unique
+  on team_stats(team_slug, source, competition, season, as_of_date);
 create index if not exists idx_team_stats_team_slug on team_stats(team_slug);
-create index if not exists idx_team_stats_source_as_of_date on team_stats(source, as_of_date desc);
+create index if not exists idx_team_stats_source_scope_as_of_date
+  on team_stats(source, competition, season, as_of_date desc);
+create unique index if not exists idx_team_ratings_snapshot_unique
+  on team_ratings(team_slug, source, competition, season, as_of_date);
 create index if not exists idx_team_ratings_team_slug on team_ratings(team_slug);
-create index if not exists idx_team_ratings_source_as_of_date on team_ratings(source, as_of_date desc);
+create index if not exists idx_team_ratings_source_scope_as_of_date
+  on team_ratings(source, competition, season, as_of_date desc);
 
 drop trigger if exists teams_set_updated_at on teams;
 create trigger teams_set_updated_at
@@ -103,9 +111,11 @@ before update on matches
 for each row execute function set_updated_at();
 
 create or replace view latest_team_stats as
-select distinct on (team_slug, source)
+select distinct on (team_slug, source, competition, season)
   team_slug,
   source,
+  competition,
+  season,
   source_team_name,
   source_url,
   as_of_date,
@@ -121,12 +131,14 @@ select distinct on (team_slug, source)
   raw_payload,
   ingested_at
 from team_stats
-order by team_slug, source, as_of_date desc, ingested_at desc;
+order by team_slug, source, competition, season, as_of_date desc, ingested_at desc;
 
 create or replace view latest_team_ratings as
-select distinct on (team_slug, source)
+select distinct on (team_slug, source, competition, season)
   team_slug,
   source,
+  competition,
+  season,
   source_team_name,
   source_url,
   as_of_date,
@@ -137,13 +149,15 @@ select distinct on (team_slug, source)
   raw_payload,
   ingested_at
 from team_ratings
-order by team_slug, source, as_of_date desc, ingested_at desc;
+order by team_slug, source, competition, season, as_of_date desc, ingested_at desc;
 
 create or replace view latest_team_features as
 select
   teams.slug,
   teams.name,
   teams.confederation,
+  stats.competition as stats_competition,
+  stats.season as stats_season,
   stats.as_of_date as stats_as_of_date,
   stats.possession_pct,
   stats.passes_completed,
@@ -151,6 +165,8 @@ select
   stats.pass_completion_pct,
   stats.xg_for,
   stats.xg_against,
+  ratings.competition as rating_competition,
+  ratings.season as rating_season,
   ratings.as_of_date as rating_as_of_date,
   ratings.rating as elo_rating,
   ratings.rating_rank as elo_rank
@@ -158,9 +174,13 @@ from teams
 left join latest_team_stats as stats
   on stats.team_slug = teams.slug
   and stats.source = 'fbref'
+  and stats.competition = 'World Cup 2026'
+  and stats.season = '2026'
 left join latest_team_ratings as ratings
   on ratings.team_slug = teams.slug
-  and ratings.source = 'world-football-elo';
+  and ratings.source = 'world-football-elo'
+  and ratings.competition = 'World Cup 2026'
+  and ratings.season = '2026';
 
 create or replace view match_team_features as
 select
@@ -190,12 +210,20 @@ join teams as away_team
 left join latest_team_stats as home_stats
   on home_stats.team_slug = matches.home_team_slug
   and home_stats.source = 'fbref'
+  and home_stats.competition = 'World Cup 2026'
+  and home_stats.season = '2026'
 left join latest_team_stats as away_stats
   on away_stats.team_slug = matches.away_team_slug
   and away_stats.source = 'fbref'
+  and away_stats.competition = 'World Cup 2026'
+  and away_stats.season = '2026'
 left join latest_team_ratings as home_ratings
   on home_ratings.team_slug = matches.home_team_slug
   and home_ratings.source = 'world-football-elo'
+  and home_ratings.competition = 'World Cup 2026'
+  and home_ratings.season = '2026'
 left join latest_team_ratings as away_ratings
   on away_ratings.team_slug = matches.away_team_slug
-  and away_ratings.source = 'world-football-elo';
+  and away_ratings.source = 'world-football-elo'
+  and away_ratings.competition = 'World Cup 2026'
+  and away_ratings.season = '2026';

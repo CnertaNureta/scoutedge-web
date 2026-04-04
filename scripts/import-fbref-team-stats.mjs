@@ -17,6 +17,8 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DEFAULT_INPUT = path.join(__dirname, 'fixtures', 'fbref-team-stats.csv')
+const DEFAULT_COMPETITION = 'World Cup 2026'
+const DEFAULT_SEASON = '2026'
 
 async function loadText({ input, url }) {
   if (input) return readFileSync(path.resolve(process.cwd(), input), 'utf8')
@@ -35,6 +37,8 @@ async function main() {
   const text = await loadText(args)
   const result = parseFbrefTeamStatsCsv(text, {
     asOfDate: args['as-of'],
+    competition: args.competition ?? process.env.LAYER1_COMPETITION ?? DEFAULT_COMPETITION,
+    season: args.season ?? process.env.LAYER1_SEASON ?? DEFAULT_SEASON,
     sourceUrl: args['source-url'] ?? args.url ?? null,
     sourceUpdatedAt: args['source-updated-at'],
   })

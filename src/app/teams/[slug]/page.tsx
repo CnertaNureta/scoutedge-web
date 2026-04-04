@@ -1,42 +1,39 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getMarketIntel } from '@/lib/data-service'
-import { TEAM_FAQS } from '@/data/faq-schema'
-import { TEAM_SEO_META } from '@/data/seo-meta'
-import { getCoachByTeam } from '@/data/coaches-data'
+import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
-import MarketIntel from '@/components/team/MarketIntel'
 import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
-import PremiumSection from '@/components/monetization/PremiumSection'
-import { PREMIUM_TEAM_SECTIONS } from '@/lib/premium-content'
 
 interface PageProps {
   params: Promise<{ slug: string }>
 }
 
+export const revalidate = 300
+
 export async function generateStaticParams() {
-  return getAllTeams().map((team) => ({ slug: team.slug }))
+  const teams = await getAllTeamsForRouting()
+  return teams.map((team) => ({ slug: team.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const team = getTeamBySlug(slug)
-  if (!team) return { title: 'Team Not Found' }
+  const pageData = await getTeamPageData(slug)
+  if (!pageData) return { title: 'Team Not Found' }
 
-  const seo = TEAM_SEO_META[slug]
-  const seoTitle = seo?.title?.replace(/ \| ScoutEdge$/, '') ?? null
+  const { team, seoMeta } = pageData
+  const seoTitle = seoMeta?.title?.replace(/ \| ScoutEdge$/, '') ?? null
 
   return {
     title: seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`,
-    description: seo?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`,
+    description: seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`,
     keywords: `${team.name} World Cup 2026, ${team.name} squad, ${team.name} World Cup roster, World Cup 2026 Group ${team.group}`,
     openGraph: {
       title: `${team.name} — World Cup 2026 AI Analysis`,
@@ -55,14 +52,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TeamPage({ params }: PageProps) {
   const { slug } = await params
-  const team = getTeamBySlug(slug)
-  if (!team) notFound()
+  const pageData = await getTeamPageData(slug)
+  if (!pageData) notFound()
 
-  const players = getPlayersByTeam(slug)
-  const groupTeams = getTeamsByGroup(team.group).filter((t) => t.slug !== slug)
-  const worldCupHistory = getWorldCupHistory(slug)
-  const marketIntel = getMarketIntel(slug)
-  const coach = getCoachByTeam(slug)
+  const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -74,7 +67,6 @@ export default async function TeamPage({ params }: PageProps) {
     location: { '@type': 'Country', name: team.name },
   }
 
-  const teamFaq = TEAM_FAQS[slug]
   const faqJsonLd = teamFaq ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -106,40 +98,9 @@ export default async function TeamPage({ params }: PageProps) {
 
       <SquadRoster players={players} teamSlug={slug} />
 
-      {/* Market Intelligence — Premium */}
-      {marketIntel && (
-        <PremiumSection
-          feature={PREMIUM_TEAM_SECTIONS.marketIntel.label}
-          variant={PREMIUM_TEAM_SECTIONS.marketIntel.variant}
-          teaserTitle="Market Intelligence"
-          teaserDescription={`Betting odds, market movement, and value bets for ${team.name}.`}
-          trackingKey={PREMIUM_TEAM_SECTIONS.marketIntel.key}
-        >
-          <MarketIntel teamName={team.name} teamSlug={slug} marketIntel={marketIntel} />
-        </PremiumSection>
-      )}
+      <TacticalDNA team={team} players={players} />
 
-      {/* Tactical DNA Radar — Premium */}
-      <PremiumSection
-        feature={PREMIUM_TEAM_SECTIONS.tacticalDNA.label}
-        variant={PREMIUM_TEAM_SECTIONS.tacticalDNA.variant}
-        teaserTitle="Tactical DNA"
-        teaserDescription={`AI-powered tactical profile and radar analysis for ${team.name}.`}
-        trackingKey={PREMIUM_TEAM_SECTIONS.tacticalDNA.key}
-      >
-        <TacticalDNA team={team} players={players} />
-      </PremiumSection>
-
-      {/* Squad Depth Analysis — Premium */}
-      <PremiumSection
-        feature={PREMIUM_TEAM_SECTIONS.squadDepth.label}
-        variant={PREMIUM_TEAM_SECTIONS.squadDepth.variant}
-        teaserTitle="Squad Depth"
-        teaserDescription="Position-by-position depth chart with player ratings."
-        trackingKey={PREMIUM_TEAM_SECTIONS.squadDepth.key}
-      >
-        <SquadDepth players={players} />
-      </PremiumSection>
+      <SquadDepth players={players} />
 
       {/* Historical Performance */}
       {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
