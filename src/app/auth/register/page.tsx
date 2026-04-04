@@ -79,7 +79,7 @@ export default function RegisterPage() {
         <div className="glass-hero-card rounded-2xl border border-white/[0.06] p-8">
           <div className="text-center mb-8">
             <h1 className="font-display text-4xl tracking-tight text-primary mb-2">Create Account</h1>
-            <p className="text-on-surface-variant text-sm">Join ScoutEdge for premium World Cup intel</p>
+            <p className="text-on-surface-variant text-sm">Create a ScoutEdge account for saved briefings and follow lists</p>
           </div>
 
           {error && (

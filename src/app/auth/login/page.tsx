@@ -18,7 +18,8 @@ export default function LoginPage() {
 
           <h1 className="font-headline text-3xl uppercase tracking-wide text-primary mb-3">Sign In</h1>
           <p className="text-on-surface-variant mb-8">
-            Account system launching soon. Sign up to get notified when Pro features go live.
+            Account tools are staying lightweight while ScoutEdge focuses on narrative-first World Cup intelligence.
+            Leave your email to hear when saved briefings and follow lists open up.
           </p>
 
           <div className="space-y-4">
@@ -28,7 +29,7 @@ export default function LoginPage() {
               className="w-full bg-surface-container rounded-xl px-4 py-3 text-sm text-on-surface placeholder:text-on-surface-variant/50 border border-white/[0.06] focus:border-primary/40 focus:outline-none transition-colors"
             />
             <button className="w-full bg-primary text-on-primary px-6 py-3 rounded-xl font-label font-bold uppercase tracking-widest hover:brightness-110 transition-all">
-              Get Notified
+              Get Access Updates
             </button>
           </div>
 

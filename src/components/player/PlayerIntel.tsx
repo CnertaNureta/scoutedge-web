@@ -4,7 +4,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import Badge from '@/components/ui/Badge'
-import { Newspaper, MessageSquare, BarChart3, FlaskConical, Lock, AlertTriangle, Clock3 } from 'lucide-react'
+import { Newspaper, MessageSquare, BarChart3, FlaskConical, AlertTriangle, Clock3 } from 'lucide-react'
 
 interface PlayerIntelProps {
   player: Player
@@ -129,24 +129,18 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-outline-variant/20 flex items-center justify-between">
-          <div>
-            <p className="text-on-surface-variant text-sm">
-              {player.recentSignals && player.recentSignals.length > 0
-                ? 'More signals available with Premium access'
-                : 'Premium signals will appear here as intelligence is gathered'}
+        <div className="mt-8 pt-6 border-t border-outline-variant/20">
+          <p className="text-on-surface-variant text-sm">
+            {player.recentSignals && player.recentSignals.length > 0
+              ? 'Signals refresh as new reporting and performance context arrive.'
+              : 'This panel expands as more reporting and team context are gathered.'}
+          </p>
+          {lastUpdatedLabel && (
+            <p className="text-on-surface-variant text-xs mt-1 inline-flex items-center gap-1.5">
+              <Clock3 className="w-3.5 h-3.5" />
+              Updated {lastUpdatedLabel} UTC
             </p>
-            {lastUpdatedLabel && (
-              <p className="text-on-surface-variant text-xs mt-1 inline-flex items-center gap-1.5">
-                <Clock3 className="w-3.5 h-3.5" />
-                Updated {lastUpdatedLabel} UTC
-              </p>
-            )}
-          </div>
-          <button className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-sm font-label font-bold uppercase tracking-widest text-sm transition-all duration-200 hover:brightness-110" style={{ background: colors.glow, color: '#000' }}>
-            <Lock className="w-4 h-4" />
-            Subscribe to Unlock
-          </button>
+          )}
         </div>
       </GlassCard>
     </section>
