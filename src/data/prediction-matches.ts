@@ -5,7 +5,7 @@
  */
 
 import { MATCH_FIXTURES } from './match-fixtures'
-import { getAllTeams } from '@/lib/data-service'
+import { TEAMS } from '@/data/teams-meta'
 import {
   predictScheduledMatches,
   type ScheduledMatchPredictionInput,
@@ -48,7 +48,7 @@ function fallbackProfile(slug: string): TeamProfile {
 
 /** Pick the most interesting match from each group (highest combined rank teams) */
 function pickGroupHighlights(): PredictionMatch[] {
-  const teams = getAllTeams()
+  const teams = TEAMS
   const groups = [...new Set(MATCH_FIXTURES.map((f) => f.group))].sort()
 
   return groups.map((group) => {
@@ -130,7 +130,7 @@ const KNOCKOUT_PREDICTIONS: PredictionMatch[] = [
 ]
 
 export function getPredictionMatches(): PredictionMatch[] {
-  const teams = getAllTeams()
+  const teams = TEAMS
   const groupHighlights = pickGroupHighlights()
   const candidates = [...groupHighlights, ...KNOCKOUT_PREDICTIONS]
 

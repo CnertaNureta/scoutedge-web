@@ -1,7 +1,17 @@
 import { TEAMS } from '@/data/teams-meta'
 import { PLAYERS } from '@/data/players-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import type { Team, Player, MatchFixture, WorldCupHistory, Venue, TeamTimezone, MarketIntelData } from '@/lib/types'
+import { PREDICTION_CONTEXTS, PREDICTION_CONTEXT_MATCH_ID_ALIASES } from '@/data/prediction-contexts'
+import type {
+  Team,
+  Player,
+  MatchFixture,
+  WorldCupHistory,
+  Venue,
+  TeamTimezone,
+  MarketIntelData,
+} from '@/lib/types'
+import type { PredictionContextRecord } from '@/lib/prediction-context'
 import worldCupHistoryData from '@/data/world-cup-history.json'
 import venuesData from '@/data/venues.json'
 import timezoneData from '@/data/timezone-adjustments.json'
@@ -42,6 +52,24 @@ export function getPlayerBySlug(teamSlug: string, playerSlug: string): Player | 
 
 export function getAllPlayers(): Player[] {
   return PLAYERS.map(mergePlayerWithIntel)
+}
+
+export function getPredictionContexts(): PredictionContextRecord[] {
+  return PREDICTION_CONTEXTS
+}
+
+export function getPredictionContextByMatchId(matchId: string): PredictionContextRecord | undefined {
+  const resolvedMatchId = PREDICTION_CONTEXT_MATCH_ID_ALIASES[matchId] ?? matchId
+  return PREDICTION_CONTEXTS.find((record) => record.match_id === resolvedMatchId)
+}
+
+export function getPredictionContextByTeamPair(
+  homeTeamSlug: string,
+  awayTeamSlug: string
+): PredictionContextRecord | undefined {
+  return PREDICTION_CONTEXTS.find(
+    (record) => record.home_team_slug === homeTeamSlug && record.away_team_slug === awayTeamSlug
+  )
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
