@@ -6,12 +6,6 @@ import type Stripe from 'stripe'
 // Disable body parsing — Stripe needs the raw body for signature verification
 export const dynamic = 'force-dynamic'
 
-type InvoiceSubscriptionRef = string | { id: string } | null | undefined
-
-type InvoiceWithSubscription = Stripe.Invoice & {
-  subscription?: InvoiceSubscriptionRef
-}
-
 export async function POST(req: NextRequest) {
   const body = await req.text()
   const signature = req.headers.get('stripe-signature')
@@ -112,11 +106,7 @@ export async function POST(req: NextRequest) {
 
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        const subscription = (invoice as InvoiceWithSubscription).subscription
-        const subId =
-          typeof subscription === 'string'
-            ? subscription
-            : subscription?.id ?? null
+        const subId = getSubscriptionIdFromInvoice(invoice)
         if (subId) {
           await admin
             .from('subscriptions')
@@ -132,6 +122,12 @@ export async function POST(req: NextRequest) {
   }
 
   return NextResponse.json({ received: true })
+}
+
+function getSubscriptionIdFromInvoice(invoice: Stripe.Invoice): string | null {
+  const subscription = invoice.parent?.subscription_details?.subscription
+  if (!subscription) return null
+  return typeof subscription === 'string' ? subscription : subscription.id
 }
 
 async function upsertSubscription(

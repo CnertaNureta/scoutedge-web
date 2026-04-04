@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import type { Team } from '@/lib/types'
+import Image from 'next/image'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { getLiveTeamDetails } from '@/lib/live-data-service'
 import ChemistryBar from '@/components/ui/ChemistryBar'
@@ -21,9 +21,8 @@ export default function TeamHero({ team }: TeamHeroProps) {
         alt={`${team.name} football atmosphere`}
         fill
         priority
-        unoptimized
         sizes="100vw"
-        className="absolute inset-0 w-full h-full object-cover brightness-[0.35] saturate-[1.2] scale-105"
+        className="absolute inset-0 object-cover brightness-[0.35] saturate-[1.2] scale-105"
       />
 
       {/* Gradient overlays */}
@@ -50,7 +49,7 @@ export default function TeamHero({ team }: TeamHeroProps) {
                 alt={`${team.name} official badge`}
                 width={80}
                 height={80}
-                unoptimized
+                sizes="(min-width: 768px) 80px, 64px"
                 className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
               />
             )}

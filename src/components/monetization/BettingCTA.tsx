@@ -54,7 +54,6 @@ function PartnerLogo({ partner }: { partner: AffiliatePartner }) {
           alt={partner.name}
           width={32}
           height={32}
-          unoptimized
           className="w-full h-full object-contain p-1"
           onError={() => setImgError(true)}
         />

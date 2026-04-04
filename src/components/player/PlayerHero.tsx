@@ -131,8 +131,8 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                   width={600}
                   height={600}
                   priority
-                  unoptimized
-                  className="h-[420px] md:h-[540px] lg:h-[600px] object-contain relative z-10"
+                  sizes="(min-width: 1024px) 600px, (min-width: 768px) 540px, 420px"
+                  className="h-[420px] md:h-[540px] lg:h-[600px] w-auto object-contain relative z-10"
                   style={{
                     filter: `drop-shadow(0 0 80px ${colors.glow}35) drop-shadow(0 0 40px ${colors.glow}18)`,
                   }}
