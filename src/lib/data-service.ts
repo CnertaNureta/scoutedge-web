@@ -1,22 +1,11 @@
 import { TEAMS } from '@/data/teams-meta'
 import { PLAYERS } from '@/data/players-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import { PREDICTION_CONTEXTS, PREDICTION_CONTEXT_MATCH_ID_ALIASES } from '@/data/prediction-contexts'
 import type { Team, Player, MatchFixture, WorldCupHistory, Venue, TeamTimezone, MarketIntelData } from '@/lib/types'
-import type { PredictionContextRecord } from '@/lib/prediction-context'
 import worldCupHistoryData from '@/data/world-cup-history.json'
 import venuesData from '@/data/venues.json'
 import timezoneData from '@/data/timezone-adjustments.json'
-
-type RawWorldCupHistoryEntry = Omit<Partial<WorldCupHistory>, 'totalAppearances' | 'bestFinish' | 'titlesWon'> & {
-  totalAppearances: number | null
-  bestFinish: string | null
-  titlesWon: number | null
-}
-
-type WorldCupHistoryDataFile = {
-  teams: Record<string, RawWorldCupHistoryEntry & Partial<WorldCupHistory>>
-}
+import { mergePlayerWithIntel } from '@/lib/player-intel-service'
 
 export function getAllTeams(): Team[] {
   return TEAMS
@@ -41,37 +30,22 @@ export function getFixturesByGroup(group: string): MatchFixture[] {
 }
 
 export function getPlayersByTeam(teamSlug: string): Player[] {
-  return PLAYERS.filter((p) => p.teamSlug === teamSlug)
+  return PLAYERS
+    .filter((p) => p.teamSlug === teamSlug)
+    .map(mergePlayerWithIntel)
 }
 
 export function getPlayerBySlug(teamSlug: string, playerSlug: string): Player | undefined {
-  return PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === playerSlug)
+  const player = PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === playerSlug)
+  return player ? mergePlayerWithIntel(player) : undefined
 }
 
 export function getAllPlayers(): Player[] {
-  return PLAYERS
-}
-
-export function getPredictionContexts(): PredictionContextRecord[] {
-  return PREDICTION_CONTEXTS
-}
-
-export function getPredictionContextByMatchId(matchId: string): PredictionContextRecord | undefined {
-  const resolvedMatchId = PREDICTION_CONTEXT_MATCH_ID_ALIASES[matchId] ?? matchId
-  return PREDICTION_CONTEXTS.find((record) => record.match_id === resolvedMatchId)
-}
-
-export function getPredictionContextByTeamPair(
-  homeTeamSlug: string,
-  awayTeamSlug: string
-): PredictionContextRecord | undefined {
-  return PREDICTION_CONTEXTS.find(
-    (record) => record.home_team_slug === homeTeamSlug && record.away_team_slug === awayTeamSlug
-  )
+  return PLAYERS.map(mergePlayerWithIntel)
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  const teams = (worldCupHistoryData as unknown as WorldCupHistoryDataFile).teams
+  const teams = (worldCupHistoryData as any).teams
   const entry = teams[teamSlug]
   if (!entry || entry.totalAppearances === null) return undefined
   return entry as WorldCupHistory
