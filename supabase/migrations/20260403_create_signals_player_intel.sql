@@ -30,7 +30,7 @@ begin
   if exists (
     select 1
     from information_schema.columns
-    where table_schema = 'public'
+    where table_schema = current_schema()
       and table_name = 'signals'
       and column_name = 'player_key'
   ) then
@@ -86,13 +86,13 @@ begin
   if exists (
     select 1
     from information_schema.columns
-    where table_schema = 'public'
+    where table_schema = current_schema()
       and table_name = 'player_intel'
       and column_name = 'team_slug'
   ) and exists (
     select 1
     from information_schema.columns
-    where table_schema = 'public'
+    where table_schema = current_schema()
       and table_name = 'player_intel'
       and column_name = 'last_updated'
   ) then
