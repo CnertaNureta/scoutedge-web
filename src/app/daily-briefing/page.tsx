@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
+import { getLatestNarrativePost } from '@/lib/blog-service'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
@@ -86,6 +87,7 @@ export default async function DailyBriefingPage() {
 
   const { signals, signalTypes, highCount, mediumCount, trendingPlayers, liveCache } =
     briefingData
+  const publishedBriefing = getLatestNarrativePost('daily_briefing')
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -155,6 +157,34 @@ export default async function DailyBriefingPage() {
           </div>
         </div>
       </section>
+
+      {publishedBriefing && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12">
+          <GlassCard className="p-6 md:p-7 border-primary/20">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-3xl">
+                <Badge variant="primary" size="sm">Published Narrative</Badge>
+                <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mt-3 mb-3">
+                  {publishedBriefing.title}
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed mb-4">
+                  {publishedBriefing.description}
+                </p>
+                <div className="flex flex-wrap gap-3 text-xs font-label uppercase tracking-widest text-on-surface-variant">
+                  {publishedBriefing.publishedAt && <span>Published {publishedBriefing.publishedAt}</span>}
+                  {publishedBriefing.factCount && <span>{publishedBriefing.factCount} anchored facts</span>}
+                </div>
+              </div>
+              <Link
+                href={`/blog/${publishedBriefing.slug}`}
+                className="inline-flex items-center rounded-full border border-primary/40 px-5 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
+              >
+                Read Full Briefing
+              </Link>
+            </div>
+          </GlassCard>
+        </section>
+      )}
 
       {/* Live News Section */}
       {news.length > 0 && (

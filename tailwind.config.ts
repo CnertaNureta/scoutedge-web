@@ -55,10 +55,12 @@ const config: Config = {
         'inverse-on-surface': '#2f312e',
       },
       fontFamily: {
-        headline: ['Epilogue', 'sans-serif'],
-        body: ['Manrope', 'sans-serif'],
-        label: ['Plus Jakarta Sans', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        headline: ['var(--font-headline)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
+        label: ['var(--font-label)', 'sans-serif'],
+        mono: ['var(--font-mono)', 'monospace'],
+        condensed: ['var(--font-condensed)', 'sans-serif'],
+        display: ['var(--font-display)', 'sans-serif'],
       },
       borderRadius: {
         xl: '1rem',

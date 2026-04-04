@@ -7,7 +7,7 @@ import type { PlayerSocialProfile } from '@/data/player-social'
 import type { PageSEOMeta } from '@/data/seo-meta'
 import { mergePlayerWithIntel } from '@/lib/player-intel-service'
 import { getSupabaseAdmin } from '@/lib/supabase-server'
-import type { MatchFixture, MarketIntelData, Player, Team, TeamMeta, WorldCupHistory } from '@/lib/types'
+import type { MatchFixture, MarketIntelData, Player, Team, WorldCupHistory } from '@/lib/types'
 
 export const CORE_PAGE_REVALIDATE_SECONDS = 300
 
@@ -81,8 +81,8 @@ export interface TeamPageData {
 export interface MatchesBoardData {
   groups: string[]
   fixtures: MatchFixture[]
-  teamsBySlug: Record<string, TeamMeta>
-  teamsByGroup: Record<string, TeamMeta[]>
+  teamsBySlug: Record<string, Team>
+  teamsByGroup: Record<string, Team[]>
   sources: CorePageSources
 }
 
@@ -563,17 +563,6 @@ function mergeSeoMeta(
   return merged
 }
 
-function toTeamMeta(team: Team): TeamMeta {
-  return compact({
-    slug: team.slug,
-    name: team.name,
-    flag: team.flag,
-    group: team.group,
-    confederation: team.confederation,
-    isPlayoff: team.isPlayoff,
-  })
-}
-
 function fixtureKey(
   fixture: Pick<MatchFixture, 'group' | 'round' | 'homeTeamSlug' | 'awayTeamSlug'>
 ): string {
@@ -948,16 +937,15 @@ export async function getTeamPageData(slug: string): Promise<TeamPageData | null
 export async function getMatchesBoardData(): Promise<MatchesBoardData> {
   const snapshot = await getCoreSiteSnapshot()
   const groups = getGroups(snapshot.teams)
-  const teamMeta = snapshot.teams.map(toTeamMeta)
 
   return {
     groups,
     fixtures: snapshot.fixtures,
-    teamsBySlug: Object.fromEntries(teamMeta.map((team) => [team.slug, team])),
+    teamsBySlug: Object.fromEntries(snapshot.teams.map((team) => [team.slug, team])),
     teamsByGroup: Object.fromEntries(
       groups.map((group) => [
         group,
-        teamMeta.filter((team) => team.group === group),
+        snapshot.teams.filter((team) => team.group === group),
       ])
     ),
     sources: snapshot.sources,
