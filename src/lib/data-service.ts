@@ -1,7 +1,7 @@
 import { TEAMS } from '@/data/teams-meta'
 import { PLAYERS } from '@/data/players-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import { PREDICTION_CONTEXTS } from '@/data/prediction-contexts'
+import { PREDICTION_CONTEXTS, PREDICTION_CONTEXT_MATCH_ID_ALIASES } from '@/data/prediction-contexts'
 import type { Team, Player, MatchFixture, WorldCupHistory, Venue, TeamTimezone, MarketIntelData } from '@/lib/types'
 import type { PredictionContextRecord } from '@/lib/prediction-context'
 import worldCupHistoryData from '@/data/world-cup-history.json'
@@ -57,7 +57,8 @@ export function getPredictionContexts(): PredictionContextRecord[] {
 }
 
 export function getPredictionContextByMatchId(matchId: string): PredictionContextRecord | undefined {
-  return PREDICTION_CONTEXTS.find((record) => record.match_id === matchId)
+  const resolvedMatchId = PREDICTION_CONTEXT_MATCH_ID_ALIASES[matchId] ?? matchId
+  return PREDICTION_CONTEXTS.find((record) => record.match_id === resolvedMatchId)
 }
 
 export function getPredictionContextByTeamPair(

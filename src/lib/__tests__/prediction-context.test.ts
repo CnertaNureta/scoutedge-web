@@ -1,15 +1,20 @@
 import { describe, expect, it } from 'vitest'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
+import { getPredictionMatches } from '@/data/prediction-matches'
 import { PREDICTION_CONTEXTS } from '@/data/prediction-contexts'
-import { MATCH_CONTEXT_MODEL_VERSION } from '@/lib/prediction-context'
+import { getPredictionMatchId, MATCH_CONTEXT_MODEL_VERSION } from '@/lib/prediction-context'
 import { getPredictionContextByMatchId, getPredictionContextByTeamPair, getPredictionContexts } from '@/lib/data-service'
 
 describe('prediction contexts', () => {
   it('generates one match_context record for every fixture', () => {
-    expect(PREDICTION_CONTEXTS).toHaveLength(MATCH_FIXTURES.length)
+    const fixtureMatchIds = new Set(MATCH_FIXTURES.map((fixture) => getPredictionMatchId(fixture)))
+    const predictionOnlyMatches = getPredictionMatches().filter(
+      (match) => !fixtureMatchIds.has(getPredictionMatchId(match))
+    )
 
+    expect(PREDICTION_CONTEXTS).toHaveLength(MATCH_FIXTURES.length + predictionOnlyMatches.length)
     const uniqueIds = new Set(PREDICTION_CONTEXTS.map((record) => record.match_id))
-    expect(uniqueIds.size).toBe(MATCH_FIXTURES.length)
+    expect(uniqueIds.size).toBe(PREDICTION_CONTEXTS.length)
   })
 
   it('includes confidence intervals, ordered key factors, and model version for every record', () => {
@@ -94,5 +99,17 @@ describe('prediction contexts', () => {
     expect(
       getPredictionContextByTeamPair(firstFixture.homeTeamSlug, firstFixture.awayTeamSlug)?.match_id
     ).toBe(firstRecord!.match_id)
+
+    const highlightedPrediction = getPredictionMatches().find((match) => match.group)
+    expect(highlightedPrediction).toBeDefined()
+    expect(getPredictionContextByMatchId(highlightedPrediction!.id)?.match_id).toBe(
+      getPredictionMatchId(highlightedPrediction!)
+    )
+
+    const knockoutPrediction = getPredictionMatches().find((match) => !match.group)
+    expect(knockoutPrediction).toBeDefined()
+    expect(getPredictionContextByMatchId(knockoutPrediction!.id)?.match_id).toBe(
+      getPredictionMatchId(knockoutPrediction!)
+    )
   })
 })

@@ -5,7 +5,7 @@
  */
 
 import { MATCH_FIXTURES } from './match-fixtures'
-import { getAllTeams } from '@/lib/data-service'
+import { TEAMS } from '@/data/teams-meta'
 
 export interface PredictionMatch {
   id: string
@@ -23,7 +23,7 @@ export interface PredictionMatch {
 
 /** Pick the most interesting match from each group (highest combined rank teams) */
 function pickGroupHighlights(): PredictionMatch[] {
-  const teams = getAllTeams()
+  const teams = TEAMS
   const groups = [...new Set(MATCH_FIXTURES.map((f) => f.group))].sort()
 
   return groups.map((group) => {
