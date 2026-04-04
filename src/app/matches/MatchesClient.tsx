@@ -2,14 +2,10 @@
 
 import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import {
-  getAllGroups,
   getAllVenues,
   getJetLagTier,
-  getTeamBySlug,
   getTeamTimezone,
-  getTeamsByGroup,
 } from '@/lib/data-service'
 import type { MatchFixture, Team, Venue } from '@/lib/types'
 import Badge from '@/components/ui/Badge'
@@ -18,11 +14,17 @@ import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import SectionHeader from '@/components/ui/SectionHeader'
 
-const groups = getAllGroups()
 const rounds = ['Match Day 1', 'Match Day 2', 'Match Day 3'] as const
 
 type RoundName = typeof rounds[number]
 type JetLagTier = 'none' | 'moderate' | 'significant' | 'extreme'
+
+interface MatchesClientProps {
+  fixtures: MatchFixture[]
+  groups: string[]
+  teamsByGroup: Record<string, Team[]>
+  teamsBySlug: Record<string, Team>
+}
 
 const ROUND_META: Record<RoundName, { accent: string; eyebrow: string; title: string; description: string }> = {
   'Match Day 1': {
@@ -149,9 +151,18 @@ function buildMatchStory(fixture: MatchFixture, home: Team, away: Team, venue?: 
 }
 
 function buildGroupNarrative(group: string, teams: Team[]) {
+  if (teams.length === 0) {
+    return {
+      title: `Group ${group} is taking shape`,
+      description: 'This board is waiting on the latest group context to settle into place.',
+    }
+  }
+
   const favorite = [...teams].sort((a, b) => a.fifaRanking - b.fifaRanking)[0]
   const chemistryLeader = [...teams].sort((a, b) => b.chemistry - a.chemistry)[0]
-  const rankingSpread = Math.max(...teams.map((team) => team.fifaRanking)) - Math.min(...teams.map((team) => team.fifaRanking))
+  const rankingSpread =
+    Math.max(...teams.map((team) => team.fifaRanking)) -
+    Math.min(...teams.map((team) => team.fifaRanking))
 
   if (rankingSpread <= 12) {
     return {
@@ -209,9 +220,17 @@ function TeamRow({
   )
 }
 
-function MatchCard({ fixture, accent }: { fixture: MatchFixture; accent: string }) {
-  const home = getTeamBySlug(fixture.homeTeamSlug)
-  const away = getTeamBySlug(fixture.awayTeamSlug)
+function MatchCard({
+  fixture,
+  teamsBySlug,
+  accent,
+}: {
+  fixture: MatchFixture
+  teamsBySlug: Record<string, Team>
+  accent: string
+}) {
+  const home = teamsBySlug[fixture.homeTeamSlug]
+  const away = teamsBySlug[fixture.awayTeamSlug]
 
   if (!home || !away) return null
 
@@ -278,12 +297,17 @@ function MatchCard({ fixture, accent }: { fixture: MatchFixture; accent: string 
   )
 }
 
-export default function MatchesClient() {
+export default function MatchesClient({
+  fixtures,
+  groups,
+  teamsByGroup,
+  teamsBySlug,
+}: MatchesClientProps) {
   const [activeGroup, setActiveGroup] = useState<string | null>(null)
 
   const filteredFixtures = useMemo(
-    () => (activeGroup ? MATCH_FIXTURES.filter((fixture) => fixture.group === activeGroup) : MATCH_FIXTURES),
-    [activeGroup],
+    () => (activeGroup ? fixtures.filter((fixture) => fixture.group === activeGroup) : fixtures),
+    [activeGroup, fixtures]
   )
 
   const fixturesByGroup = useMemo(() => {
@@ -304,40 +328,57 @@ export default function MatchesClient() {
     return grouped
   }, [filteredFixtures])
 
-  const visibleGroups = activeGroup ? [activeGroup] : groups.filter((group) => fixturesByGroup[group])
+  const visibleGroups = activeGroup
+    ? [activeGroup]
+    : groups.filter((group) => fixturesByGroup[group])
   const hostCities = new Set(filteredFixtures.map((fixture) => fixture.city)).size
 
-  const roundBriefings = useMemo(() => (
-    rounds.map((round) => {
-      const fixtures = filteredFixtures.filter((fixture) => fixture.round === round)
-      const cities = new Set(fixtures.map((fixture) => fixture.city)).size
-      const closestFixture = [...fixtures].sort((a, b) => (
-        Math.abs(a.homeWinProb - a.awayWinProb) - Math.abs(b.homeWinProb - b.awayWinProb)
-      ))[0]
-      const strongestFavorite = [...fixtures].sort((a, b) => (
-        Math.max(b.homeWinProb, b.awayWinProb) - Math.max(a.homeWinProb, a.awayWinProb)
-      ))[0]
-      const closestHome = closestFixture ? getTeamBySlug(closestFixture.homeTeamSlug) : undefined
-      const closestAway = closestFixture ? getTeamBySlug(closestFixture.awayTeamSlug) : undefined
-      const strongestHome = strongestFavorite ? getTeamBySlug(strongestFavorite.homeTeamSlug) : undefined
-      const strongestAway = strongestFavorite ? getTeamBySlug(strongestFavorite.awayTeamSlug) : undefined
-      const strongestTeam = strongestFavorite && strongestHome && strongestAway
-        ? (strongestFavorite.homeWinProb >= strongestFavorite.awayWinProb ? strongestHome.name : strongestAway.name)
-        : null
+  const roundBriefings = useMemo(
+    () =>
+      rounds.map((round) => {
+        const roundFixtures = filteredFixtures.filter((fixture) => fixture.round === round)
+        const cities = new Set(roundFixtures.map((fixture) => fixture.city)).size
+        const closestFixture = [...roundFixtures].sort(
+          (a, b) => Math.abs(a.homeWinProb - a.awayWinProb) - Math.abs(b.homeWinProb - b.awayWinProb)
+        )[0]
+        const strongestFavorite = [...roundFixtures].sort(
+          (a, b) =>
+            Math.max(b.homeWinProb, b.awayWinProb) - Math.max(a.homeWinProb, a.awayWinProb)
+        )[0]
+        const closestHome = closestFixture
+          ? teamsBySlug[closestFixture.homeTeamSlug]
+          : undefined
+        const closestAway = closestFixture
+          ? teamsBySlug[closestFixture.awayTeamSlug]
+          : undefined
+        const strongestHome = strongestFavorite
+          ? teamsBySlug[strongestFavorite.homeTeamSlug]
+          : undefined
+        const strongestAway = strongestFavorite
+          ? teamsBySlug[strongestFavorite.awayTeamSlug]
+          : undefined
+        const strongestTeam =
+          strongestFavorite && strongestHome && strongestAway
+            ? strongestFavorite.homeWinProb >= strongestFavorite.awayWinProb
+              ? strongestHome.name
+              : strongestAway.name
+            : null
 
-      return {
-        round,
-        fixtures: fixtures.length,
-        cities,
-        tensionLine: closestHome && closestAway
-          ? `${closestHome.name} vs ${closestAway.name} is the closest model split on the board.`
-          : 'The slate stays balanced across the board.',
-        leverageLine: strongestTeam
-          ? `${strongestTeam} carry the strongest single-match edge of the round.`
-          : 'No dominant favorite emerges from the model.',
-      }
-    })
-  ), [filteredFixtures])
+        return {
+          round,
+          fixtures: roundFixtures.length,
+          cities,
+          tensionLine:
+            closestHome && closestAway
+              ? `${closestHome.name} vs ${closestAway.name} is the closest model split on the board.`
+              : 'The slate stays balanced across the board.',
+          leverageLine: strongestTeam
+            ? `${strongestTeam} carry the strongest single-match edge of the round.`
+            : 'No dominant favorite emerges from the model.',
+        }
+      }),
+    [filteredFixtures, teamsBySlug]
+  )
 
   return (
     <>
@@ -474,7 +515,7 @@ export default function MatchesClient() {
               All Groups
             </button>
             {groups.map((group) => {
-              const teams = getTeamsByGroup(group)
+              const groupTeams = teamsByGroup[group] ?? []
 
               return (
                 <button
@@ -485,9 +526,9 @@ export default function MatchesClient() {
                       ? 'bg-primary text-on-primary'
                       : 'border border-white/[0.08] bg-white/[0.03] text-on-surface-variant hover:border-white/20 hover:bg-white/[0.06]'
                   }`}
-                  title={teams.map((team) => team.name).join(', ')}
+                  title={groupTeams.map((team) => team.name).join(', ')}
                 >
-                  <span className="hidden sm:inline">{teams.map((team) => team.flag).join(' ')}</span>
+                  <span className="hidden sm:inline">{groupTeams.map((team) => team.flag).join(' ')}</span>
                   <span className="sm:ml-2">Group {group}</span>
                 </button>
               )
@@ -498,9 +539,9 @@ export default function MatchesClient() {
 
       <section className="page-container pb-24 space-y-14">
         {visibleGroups.map((group) => {
-          const groupTeams = getTeamsByGroup(group)
+          const groupTeams = teamsByGroup[group] ?? []
           const groupNarrative = buildGroupNarrative(group, groupTeams)
-          const fixtures = fixturesByGroup[group]
+          const groupFixtures = fixturesByGroup[group]
 
           return (
             <div key={group}>
@@ -522,8 +563,8 @@ export default function MatchesClient() {
                   {[
                     { label: 'Favorite', value: `#${Math.min(...groupTeams.map((team) => team.fifaRanking))}` },
                     { label: 'Top chemistry', value: `${Math.max(...groupTeams.map((team) => team.chemistry))}` },
-                    { label: 'Fixtures', value: `${Object.values(fixtures).flat().length}` },
-                    { label: 'Cities', value: `${new Set(Object.values(fixtures).flat().map((fixture) => fixture.city)).size}` },
+                    { label: 'Fixtures', value: `${Object.values(groupFixtures).flat().length}` },
+                    { label: 'Cities', value: `${new Set(Object.values(groupFixtures).flat().map((fixture) => fixture.city)).size}` },
                   ].map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-center">
                       <div className="font-headline text-2xl text-primary">{item.value}</div>
@@ -537,7 +578,7 @@ export default function MatchesClient() {
 
               <div className="space-y-8">
                 {rounds.map((round) => {
-                  const matches = fixtures[round]
+                  const matches = groupFixtures?.[round] ?? []
                   const meta = ROUND_META[round]
 
                   if (!matches.length) return null
@@ -559,6 +600,7 @@ export default function MatchesClient() {
                           <MatchCard
                             key={`${fixture.group}-${fixture.round}-${fixture.homeTeamSlug}-${fixture.awayTeamSlug}`}
                             fixture={fixture}
+                            teamsBySlug={teamsBySlug}
                             accent={meta.accent}
                           />
                         ))}

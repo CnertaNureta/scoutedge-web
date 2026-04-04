@@ -1,9 +1,12 @@
 import type { Metadata } from 'next'
+import { getMatchesBoardData } from '@/lib/site-data'
 import Link from 'next/link'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import { getLatestNarrativePost } from '@/lib/blog-service'
 import MatchesClient from './MatchesClient'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Match Schedule: Fixtures, Kick-Off Times & Predictions',
@@ -14,7 +17,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://scoutedge.ai/matches' },
 }
 
-export default function MatchesPage() {
+export default async function MatchesPage() {
+  const { fixtures, groups, teamsByGroup, teamsBySlug } = await getMatchesBoardData()
   const featuredPreview = getLatestNarrativePost('match_preview')
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -22,7 +26,7 @@ export default function MatchesPage() {
     name: 'World Cup 2026 Group-Stage Matches',
     description:
       'All 72 group-stage fixtures for the 2026 FIFA World Cup with AI predictions.',
-    numberOfItems: 72,
+    numberOfItems: fixtures.length,
   }
 
   return (
@@ -58,7 +62,12 @@ export default function MatchesPage() {
           </GlassCard>
         </section>
       )}
-      <MatchesClient />
+      <MatchesClient
+        fixtures={fixtures}
+        groups={groups}
+        teamsByGroup={teamsByGroup}
+        teamsBySlug={teamsBySlug}
+      />
     </>
   )
 }

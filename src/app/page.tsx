@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getAllTeams } from '@/lib/data-service'
+import { getHomePageData } from '@/lib/site-data'
 import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 AI Predictions, Squad Analysis & Match Previews | ScoutEdge',
@@ -35,9 +37,8 @@ export const metadata: Metadata = {
   }),
 }
 
-export default function HomePage() {
-  const teams = getAllTeams()
-  const topTeams = teams.filter((t) => t.fifaRanking <= 10).slice(0, 6)
+export default async function HomePage() {
+  const { topTeams } = await getHomePageData()
 
   return (
     <>
