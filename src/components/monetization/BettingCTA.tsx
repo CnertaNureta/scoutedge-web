@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useCallback, useState } from 'react'
 import { useGeo } from '@/hooks/useGeo'
 import {
@@ -174,9 +175,9 @@ function CompactVariant({
 
       <p className="text-[8px] text-on-surface-variant/40 mt-1.5 text-center">
         Gambling involves risk.{' '}
-        <a href="/affiliate-disclosure" className="underline">
+        <Link href="/affiliate-disclosure" className="underline">
           Affiliate disclosure
-        </a>
+        </Link>
         .
       </p>
     </div>
@@ -259,9 +260,9 @@ function BannerVariant({
             {' | '}
           </>
         )}
-        <a href="/affiliate-disclosure" className="underline">
+        <Link href="/affiliate-disclosure" className="underline">
           Affiliate disclosure
-        </a>
+        </Link>
         .
       </p>
     </GlassCard>
@@ -347,9 +348,9 @@ function CardVariant({
             {' | '}
           </>
         )}
-        <a href="/affiliate-disclosure" className="underline">
+        <Link href="/affiliate-disclosure" className="underline">
           Affiliate disclosure
-        </a>
+        </Link>
         .
       </p>
     </div>
