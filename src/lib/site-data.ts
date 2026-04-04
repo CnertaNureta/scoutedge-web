@@ -128,6 +128,10 @@ const DEFAULT_SOURCES: CorePageSources = {
   liveCache: 'pipeline',
 }
 
+const SUPABASE_PAGE_SIZE = 1000
+const UNSAFE_HTML_OVERRIDE_PATTERN =
+  /<\s*(script|style|iframe|object|embed|form|input|button|textarea|select|meta|link|base)\b|\son[a-z]+\s*=|javascript:/i
+
 function isSupabaseConfigured(): boolean {
   return Boolean(
     process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -196,6 +200,11 @@ function readJsonValue<T>(row: Record<string, unknown>, ...keys: string[]): T | 
   }
 
   return undefined
+}
+
+function sanitizeHtmlOverride(value: string | undefined): string | undefined {
+  if (!value) return undefined
+  return UNSAFE_HTML_OVERRIDE_PATTERN.test(value) ? undefined : value
 }
 
 function normalizeFaqEntries(value: unknown): FAQEntry[] | undefined {
@@ -297,7 +306,7 @@ function normalizeTeamOverride(row: Record<string, unknown>): TeamOverride | nul
     morale: readNumber(row, 'morale'),
     archetypeMatch: readString(row, 'archetypeMatch', 'archetype_match'),
     keyInsight: readString(row, 'keyInsight', 'key_insight'),
-    seoArticle: readString(row, 'seoArticle', 'seo_article'),
+    seoArticle: sanitizeHtmlOverride(readString(row, 'seoArticle', 'seo_article')),
   })
 }
 
@@ -335,7 +344,7 @@ function normalizePlayerOverride(row: Record<string, unknown>): PlayerOverride |
     fitnessNote: readString(row, 'fitnessNote', 'fitness_note'),
     sentimentScore: readNumber(row, 'sentimentScore', 'sentiment_score'),
     sentimentLabel: readString(row, 'sentimentLabel', 'sentiment_label'),
-    seoArticle: readString(row, 'seoArticle', 'seo_article'),
+    seoArticle: sanitizeHtmlOverride(readString(row, 'seoArticle', 'seo_article')),
     imageUrl: readString(row, 'imageUrl', 'image_url'),
     cutoutUrl: readString(row, 'cutoutUrl', 'cutout_url'),
   })
@@ -458,9 +467,29 @@ async function readSupabaseTable(
 
   for (const tableName of tableNames) {
     try {
-      const { data, error } = await getSupabaseAdmin().from(tableName).select('*')
-      if (error || !Array.isArray(data) || data.length === 0) continue
-      return data as Record<string, unknown>[]
+      const rows: Record<string, unknown>[] = []
+      let offset = 0
+
+      while (true) {
+        const { data, error } = await getSupabaseAdmin()
+          .from(tableName)
+          .select('*')
+          .range(offset, offset + SUPABASE_PAGE_SIZE - 1)
+
+        if (error || !Array.isArray(data)) {
+          rows.length = 0
+          break
+        }
+
+        if (data.length === 0) break
+
+        rows.push(...(data as Record<string, unknown>[]))
+
+        if (data.length < SUPABASE_PAGE_SIZE) break
+        offset += SUPABASE_PAGE_SIZE
+      }
+
+      if (rows.length > 0) return rows
     } catch {
       continue
     }
