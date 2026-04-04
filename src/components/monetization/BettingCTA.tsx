@@ -1,8 +1,8 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useCallback, useState } from 'react'
 import { useGeo } from '@/hooks/useGeo'
 import {
   type AffiliatePartner,

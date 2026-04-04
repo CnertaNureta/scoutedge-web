@@ -6,6 +6,11 @@
 
 import { MATCH_FIXTURES } from './match-fixtures'
 import { getAllTeams } from '@/lib/data-service'
+import {
+  predictScheduledMatches,
+  type ScheduledMatchPredictionInput,
+  type TeamProfile,
+} from '@/lib/prediction-engine'
 
 export interface PredictionMatch {
   id: string
@@ -19,6 +24,26 @@ export interface PredictionMatch {
   homeWinProb: number
   drawProb: number
   awayWinProb: number
+}
+
+function clampProbability(value: number): number {
+  const v = Number.isFinite(value) ? value : 0
+  return Math.max(0, Math.min(1, v))
+}
+
+function fallbackProfile(slug: string): TeamProfile {
+  return {
+    slug,
+    name: slug
+      .split('-')
+      .map((s) => (s.length > 0 ? s[0].toUpperCase() + s.slice(1) : s))
+      .join(' '),
+    fifaRanking: 150,
+    chemistry: 50,
+    familiarity: 50,
+    stability: 50,
+    morale: 50,
+  }
 }
 
 /** Pick the most interesting match from each group (highest combined rank teams) */
@@ -105,7 +130,60 @@ const KNOCKOUT_PREDICTIONS: PredictionMatch[] = [
 ]
 
 export function getPredictionMatches(): PredictionMatch[] {
-  return [...pickGroupHighlights(), ...KNOCKOUT_PREDICTIONS]
+  const teams = getAllTeams()
+  const groupHighlights = pickGroupHighlights()
+  const candidates = [...groupHighlights, ...KNOCKOUT_PREDICTIONS]
+
+  const engineInputs: ScheduledMatchPredictionInput[] = candidates.map((match) => {
+    const homeTeam = teams.find((t) => t.slug === match.homeTeamSlug)
+    const awayTeam = teams.find((t) => t.slug === match.awayTeamSlug)
+    const resolvedHome = homeTeam
+      ? {
+          slug: homeTeam.slug,
+          name: homeTeam.name,
+          fifaRanking: homeTeam.fifaRanking,
+          chemistry: homeTeam.chemistry,
+          familiarity: homeTeam.familiarity,
+          stability: homeTeam.stability,
+          morale: homeTeam.morale,
+        }
+      : fallbackProfile(match.homeTeamSlug)
+    const resolvedAway = awayTeam
+      ? {
+          slug: awayTeam.slug,
+          name: awayTeam.name,
+          fifaRanking: awayTeam.fifaRanking,
+          chemistry: awayTeam.chemistry,
+          familiarity: awayTeam.familiarity,
+          stability: awayTeam.stability,
+          morale: awayTeam.morale,
+      }
+      : fallbackProfile(match.awayTeamSlug)
+
+    return {
+      match,
+      homeTeam: resolvedHome,
+      awayTeam: resolvedAway,
+    }
+  })
+
+  const predictionByMatch = new Map<string, ReturnType<typeof predictScheduledMatches>[number]>()
+  const enginePredictions = predictScheduledMatches(engineInputs)
+
+  for (let index = 0; index < enginePredictions.length; index += 1) {
+    predictionByMatch.set(candidates[index].id, enginePredictions[index])
+  }
+
+  return candidates.map((match) => {
+    const prediction = predictionByMatch.get(match.id)
+    if (!prediction) return match
+    return {
+      ...match,
+      homeWinProb: clampProbability(prediction.probabilities.home),
+      drawProb: clampProbability(prediction.probabilities.draw),
+      awayWinProb: clampProbability(prediction.probabilities.away),
+    }
+  })
 }
 
 /** World Cup winner predictions */
