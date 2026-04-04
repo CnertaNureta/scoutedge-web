@@ -513,12 +513,20 @@ for each row execute function update_updated_at();
 -- Structured AI/editorial content with optional entity linkage.
 create table if not exists narratives (
   id uuid primary key default gen_random_uuid(),
+  cache_key text unique,
   competition_code text not null default 'world_cup_2026',
   content_type text not null,
   slug text not null unique,
   title text not null,
-  summary text,
-  body_markdown text,
+  summary text not null default '',
+  source_date date,
+  match_key text,
+  home_team_slug text,
+  away_team_slug text,
+  team_slug text,
+  player_slug text,
+  fact_hash text,
+  body_markdown text not null default '',
   body_html text,
   schema_type text,
   schema_payload jsonb not null default '{}'::jsonb,
@@ -529,16 +537,96 @@ create table if not exists narratives (
   source text not null default 'manual',
   model_version text not null default 'manual',
   facts_used jsonb not null default '[]'::jsonb,
+  meta jsonb not null default '{}'::jsonb,
   metadata jsonb not null default '{}'::jsonb,
   status text not null default 'draft',
+  approved_at timestamptz,
   published_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
   constraint narratives_competition_code_not_blank check (btrim(competition_code) <> ''),
   constraint narratives_slug_not_blank check (btrim(slug) <> ''),
   constraint narratives_title_not_blank check (btrim(title) <> ''),
-  constraint narratives_status_valid check (status in ('draft', 'published', 'archived'))
+  constraint narratives_status_valid check (
+    status in ('draft', 'approved', 'published', 'archived')
+  )
 );
+
+alter table narratives add column if not exists cache_key text;
+alter table narratives add column if not exists competition_code text not null default 'world_cup_2026';
+alter table narratives add column if not exists summary text not null default '';
+alter table narratives add column if not exists source_date date;
+alter table narratives add column if not exists match_key text;
+alter table narratives add column if not exists home_team_slug text;
+alter table narratives add column if not exists away_team_slug text;
+alter table narratives add column if not exists team_slug text;
+alter table narratives add column if not exists player_slug text;
+alter table narratives add column if not exists fact_hash text;
+alter table narratives add column if not exists body_markdown text not null default '';
+alter table narratives add column if not exists body_html text;
+alter table narratives add column if not exists schema_type text;
+alter table narratives add column if not exists schema_payload jsonb not null default '{}'::jsonb;
+alter table narratives add column if not exists team_id uuid;
+alter table narratives add column if not exists player_id uuid;
+alter table narratives add column if not exists match_id uuid;
+alter table narratives add column if not exists group_code text;
+alter table narratives add column if not exists source text not null default 'manual';
+alter table narratives add column if not exists model_version text not null default 'manual';
+alter table narratives add column if not exists facts_used jsonb not null default '[]'::jsonb;
+alter table narratives add column if not exists meta jsonb not null default '{}'::jsonb;
+alter table narratives add column if not exists metadata jsonb not null default '{}'::jsonb;
+alter table narratives add column if not exists status text not null default 'draft';
+alter table narratives add column if not exists approved_at timestamptz;
+alter table narratives add column if not exists published_at timestamptz;
+alter table narratives add column if not exists created_at timestamptz not null default now();
+alter table narratives add column if not exists updated_at timestamptz not null default now();
+
+do $$
+begin
+  alter table narratives drop constraint if exists narratives_status_valid;
+  alter table narratives drop constraint if exists narratives_status_check;
+  alter table narratives
+    add constraint narratives_status_valid
+    check (status in ('draft', 'approved', 'published', 'archived'));
+end;
+$$;
+
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'narratives'::regclass
+      and conname = 'narratives_team_id_fkey'
+  ) then
+    alter table narratives
+      add constraint narratives_team_id_fkey
+      foreign key (team_id) references teams(id) on delete cascade;
+  end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'narratives'::regclass
+      and conname = 'narratives_player_id_fkey'
+  ) then
+    alter table narratives
+      add constraint narratives_player_id_fkey
+      foreign key (player_id) references players(id) on delete cascade;
+  end if;
+
+  if not exists (
+    select 1
+    from pg_constraint
+    where conrelid = 'narratives'::regclass
+      and conname = 'narratives_match_id_fkey'
+  ) then
+    alter table narratives
+      add constraint narratives_match_id_fkey
+      foreign key (match_id) references matches(id) on delete cascade;
+  end if;
+end;
+$$;
 
 create index if not exists idx_narratives_competition_type_published
   on narratives(competition_code, content_type, published_at desc);
@@ -547,8 +635,10 @@ create index if not exists idx_narratives_player_id on narratives(player_id);
 create index if not exists idx_narratives_match_id on narratives(match_id);
 create index if not exists idx_narratives_group_code on narratives(group_code);
 create index if not exists idx_narratives_status on narratives(status, published_at desc);
+create unique index if not exists narratives_cache_key_idx on narratives(cache_key);
 
 drop trigger if exists narratives_updated_at on narratives;
+drop trigger if exists narratives_set_updated_at on narratives;
 create trigger narratives_updated_at
 before update on narratives
 for each row execute function update_updated_at();

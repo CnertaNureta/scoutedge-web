@@ -94,6 +94,27 @@ describe('core football schema migration', () => {
     expect(coreMigration).toContain("signal_type in ('injury', 'transfer', 'form', 'tactical', 'sentiment')")
   })
 
+  it('keeps narratives forward-compatible with the later publishing pipeline migration', () => {
+    expect(coreMigration).toContain('cache_key text unique')
+    expect(coreMigration).toContain('source_date date')
+    expect(coreMigration).toContain('match_key text')
+    expect(coreMigration).toContain('home_team_slug text')
+    expect(coreMigration).toContain('away_team_slug text')
+    expect(coreMigration).toContain('team_slug text')
+    expect(coreMigration).toContain('player_slug text')
+    expect(coreMigration).toContain('fact_hash text')
+    expect(coreMigration).toContain("meta jsonb not null default '{}'::jsonb")
+    expect(coreMigration).toContain('approved_at timestamptz')
+    expect(coreMigration).toContain("status in ('draft', 'approved', 'published', 'archived')")
+    expect(coreMigration).toContain('alter table narratives add column if not exists competition_code')
+    expect(coreMigration).toContain('alter table narratives add column if not exists cache_key text;')
+    expect(coreMigration).toContain('create unique index if not exists narratives_cache_key_idx on narratives(cache_key);')
+    expect(coreMigration).toContain("conname = 'narratives_team_id_fkey'")
+    expect(coreMigration).toContain("conname = 'narratives_player_id_fkey'")
+    expect(coreMigration).toContain("conname = 'narratives_match_id_fkey'")
+    expect(coreMigration).toContain('drop trigger if exists narratives_set_updated_at on narratives;')
+  })
+
   it('defines current-snapshot compatibility views for teams, players, fixtures, and compare reads', () => {
     expect(coreMigration).toContain('create or replace view team_profiles_current as')
     expect(coreMigration).toContain('create or replace view player_profiles_current as')
@@ -177,6 +198,9 @@ describe('core football schema documentation', () => {
     expect(schemaDoc).toContain('normalizes raw `unknown` fitness values to `amber`')
     expect(schemaDoc).toContain('training`, `quote`, or `data')
     expect(schemaDoc).toContain('injury`, `transfer`, `form`, `tactical`, and `sentiment')
+    expect(schemaDoc).toContain('cache_key')
+    expect(schemaDoc).toContain('approved_at')
+    expect(schemaDoc).toContain('archived')
   })
 
   it('documents which app surfaces map to each compatibility view', () => {

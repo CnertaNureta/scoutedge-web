@@ -84,8 +84,8 @@ This document describes the core football fact-layer introduced for `ZON-6`.
 ### `narratives`
 
 - Purpose: structured AI/editorial content for team previews, group analysis, match previews, and player reports.
-- Key fields: `competition_code`, `content_type`, `slug`, `title`, `summary`, `body_markdown`, `body_html`, `schema_type`, `schema_payload`, optional `team_id`, `player_id`, `match_id`, `group_code`, `status`, `published_at`.
-- Compatibility note: supports tournament-wide content such as power rankings in addition to team/player/match/group scoped narratives.
+- Key fields: `cache_key`, `competition_code`, `content_type`, `slug`, `title`, `summary`, `source_date`, `match_key`, `home_team_slug`, `away_team_slug`, `team_slug`, `player_slug`, `fact_hash`, `body_markdown`, `body_html`, `schema_type`, `schema_payload`, optional `team_id`, `player_id`, `match_id`, `group_code`, `status`, `approved_at`, `published_at`.
+- Compatibility note: supports tournament-wide content such as power rankings in addition to team/player/match/group scoped narratives, reserves the cache/status fields the later publishing pipeline expects so out-of-order merges do not break migrations, and keeps the narrative status vocabulary compatible across `draft`, `approved`, `published`, and `archived`.
 - Main indexes: `slug` unique, `competition_code + content_type + published_at`, team/player/match/group lookup indexes, `status + published_at`.
 
 ## Compatibility views
