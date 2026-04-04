@@ -117,9 +117,11 @@ function getTravelContext(home: Team, away: Team) {
     .join(' and ')
 
   const adjustmentHours = highest.timezone?.adjustmentHours
+  const absoluteAdjustmentHours =
+    typeof adjustmentHours === 'number' ? Math.abs(adjustmentHours) : undefined
 
-  if (adjustmentHours && adjustmentHours > 0) {
-    return `${impactedTeams} arrive with ${adjustmentHours}-hour body-clock shift and ${jetLagCopy[highest.tier!]}.`
+  if (absoluteAdjustmentHours && absoluteAdjustmentHours > 0) {
+    return `${impactedTeams} arrive with ${absoluteAdjustmentHours}-hour body-clock shift and ${jetLagCopy[highest.tier!]}.`
   }
 
   return `${impactedTeams} carry ${jetLagCopy[highest.tier!]} into kickoff.`
