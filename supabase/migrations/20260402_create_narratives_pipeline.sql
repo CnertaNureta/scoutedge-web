@@ -34,6 +34,7 @@ create table if not exists narratives (
   updated_at timestamptz not null default timezone('utc', now())
 );
 
+alter table narratives add column if not exists cache_key text;
 alter table narratives add column if not exists summary text not null default '';
 alter table narratives add column if not exists slug text;
 alter table narratives add column if not exists source_date date;
@@ -51,11 +52,22 @@ alter table narratives add column if not exists published_at timestamptz;
 alter table narratives add column if not exists created_at timestamptz not null default timezone('utc', now());
 alter table narratives add column if not exists updated_at timestamptz not null default timezone('utc', now());
 
+do $$
+begin
+  alter table narratives drop constraint if exists narratives_status_valid;
+  alter table narratives drop constraint if exists narratives_status_check;
+  alter table narratives
+    add constraint narratives_status_valid
+    check (status in ('draft', 'approved', 'published', 'archived'));
+end;
+$$;
+
 create unique index if not exists narratives_cache_key_idx on narratives (cache_key);
 create index if not exists narratives_content_status_idx on narratives (content_type, status, source_date desc);
 create index if not exists narratives_match_key_idx on narratives (match_key);
 create index if not exists narratives_slug_idx on narratives (slug);
 
+drop trigger if exists narratives_updated_at on narratives;
 drop trigger if exists narratives_set_updated_at on narratives;
 create trigger narratives_set_updated_at
 before update on narratives
