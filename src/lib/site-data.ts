@@ -767,9 +767,9 @@ const getCoreSiteSnapshot = cache(async (): Promise<CoreSiteSnapshot> => {
     supabaseCoaches,
     supabasePlayerSocial,
   ] = await Promise.all([
-    readSupabaseTable(['teams', 'team_profiles']),
-    readSupabaseTable(['players', 'team_players']),
-    readSupabaseTable(['match_fixtures', 'fixtures']),
+    readSupabaseTable(['team_profiles_current', 'teams', 'team_profiles']),
+    readSupabaseTable(['player_profiles_current', 'players', 'team_players']),
+    readSupabaseTable(['match_fixtures_current', 'match_fixtures', 'fixtures']),
     readSupabaseTable(['team_faqs']),
     readSupabaseTable(['team_seo_meta', 'seo_meta']),
     readSupabaseTable(['coaches', 'coach_profiles']),
