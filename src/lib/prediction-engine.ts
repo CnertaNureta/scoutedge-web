@@ -260,7 +260,7 @@ function resolveWeights(
       odds: 0,
     }
     const sum = fallback.elo + fallback.xgAdjustment + fallback.odds
-    if (sum <= 0) return DEFAULT_WEIGHTS
+    if (sum <= 0) return FALLBACK_WEIGHTS
     return {
       elo: (fallback.elo / sum) * 1,
       xgAdjustment: (fallback.xgAdjustment / sum) * 1,

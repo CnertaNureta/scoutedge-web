@@ -89,6 +89,24 @@ describe('prediction-engine', () => {
     expect(sumProbabilities(prediction.probabilities)).toBeCloseTo(1, 6)
   })
 
+  it('keeps the no-odds fallback when custom weights sum to zero', () => {
+    const prediction = predictMatch(
+      {
+        matchId: 'ar-vs-fr-zero-custom',
+        homeTeam: ARGENTINA,
+        awayTeam: FRANCE,
+      },
+      {
+        elo: 0,
+        xgAdjustment: 0,
+      }
+    )
+
+    expect(prediction.metadata.usedOdds).toBe(false)
+    expect(prediction.metadata.usedWeights).toEqual(NO_ODDS_LAYER_WEIGHTS)
+    expect(sumProbabilities(prediction.probabilities)).toBeCloseTo(1, 6)
+  })
+
   it('ignores odds inputs when they do not match the scheduled teams', () => {
     const prediction = predictMatch({
       matchId: 'ar-vs-fr-mismatch',
