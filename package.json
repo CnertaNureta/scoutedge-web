@@ -11,6 +11,14 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "typecheck": "tsc --noEmit",
+    "layer1:sync": "node --experimental-strip-types scripts/sync-layer1-team-data.ts",
+    "layer1:sync:fixtures": "node --experimental-strip-types scripts/sync-layer1-team-data.ts --fixture --skip-db",
+    "layer1:sync:csv": "node --experimental-strip-types scripts/sync-layer1-team-data.ts --source-mode csv",
+    "layer1:fbref:template": "node --experimental-strip-types scripts/export-fbref-team-stats-template.ts",
+    "layer1:validate": "node --experimental-strip-types scripts/validate-layer1-team-data.ts",
+    "import:fbref-team-stats": "node scripts/import-fbref-team-stats.mjs",
+    "import:elo-ratings": "node scripts/import-elo-ratings.mjs",
+    "validate:layer1": "node scripts/validate-layer1-team-data.mjs",
     "prepare": "husky"
   },
   "dependencies": {
