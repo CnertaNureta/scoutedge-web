@@ -22,7 +22,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createClient } from '@supabase/supabase-js'
 import { PLAYERS } from '../src/data/players-data.ts'
-import { PLAYER_SOCIAL_DATA } from '../src/data/player-social.ts'
+import { PLAYER_SOCIAL_DATA, buildPlayerSocialIndex } from '../src/data/player-social.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
@@ -42,9 +42,7 @@ const SAMPLE_PLAYERS = [
 const POSITIVE_WORDS = ['fully fit', 'peak physical', 'ready', 'breakout', 'proud', 'dreamed', 'outstanding shape', 'clean bill of health', 'statement tournament']
 const NEGATIVE_WORDS = ['injury', 'inflammation', 'concern', 'monitor', 'speculation', 'questionable', 'managing', 'cautionary']
 
-const socialByPlayerSlug = new Map(
-  PLAYER_SOCIAL_DATA.map((profile) => [profile.playerSlug, profile])
-)
+const socialByPlayerKey = buildPlayerSocialIndex(PLAYER_SOCIAL_DATA)
 
 function hash(text) {
   return createHash('sha1').update(text).digest('hex').slice(0, 16)
@@ -344,7 +342,7 @@ function buildTacticalSignal(player) {
 }
 
 function buildSocialSignals(player) {
-  const profile = socialByPlayerSlug.get(player.slug)
+  const profile = socialByPlayerKey.get(buildPlayerKey(player))
   if (!profile) return []
 
   return profile.recentPosts.slice(0, 2).map((post) => {

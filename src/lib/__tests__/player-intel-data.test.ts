@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import generatedPlayerIntel from '@/data/generated-player-intel.json'
 import generatedPlayerSignals from '@/data/generated-player-signals.json'
 import { PLAYERS } from '@/data/players-data'
+import { buildPlayerSocialIndex } from '@/data/player-social'
 import type { PlayerIntelRecord, PlayerSignalRecord } from '@/lib/types'
 
 const playerIntel = generatedPlayerIntel as PlayerIntelRecord[]
@@ -78,5 +79,31 @@ describe('generated player intel pipeline', () => {
       expect(intel, `missing intel for ${player.teamSlug}::${player.slug}`).toBeDefined()
       expect(unrelatedSignal, `cross-team signal leaked into ${player.teamSlug}::${player.slug}`).toBeUndefined()
     }
+  })
+
+  it('indexes social profiles by team-aware key', () => {
+    const socialIndex = buildPlayerSocialIndex([
+      {
+        playerSlug: 'shared-player',
+        teamSlug: 'team-a',
+        platforms: {},
+        buzzScore: 12,
+        recentPosts: [],
+        trending: false,
+      },
+      {
+        playerSlug: 'shared-player',
+        teamSlug: 'team-b',
+        platforms: {},
+        buzzScore: 88,
+        recentPosts: [],
+        trending: true,
+      },
+    ])
+
+    expect(socialIndex.get('team-a::shared-player')?.teamSlug).toBe('team-a')
+    expect(socialIndex.get('team-b::shared-player')?.teamSlug).toBe('team-b')
+    expect(socialIndex.get('team-a::shared-player')?.buzzScore).toBe(12)
+    expect(socialIndex.get('team-b::shared-player')?.buzzScore).toBe(88)
   })
 })

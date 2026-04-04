@@ -26,6 +26,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
   const colors = getTeamColors(player.teamSlug)
   const lastUpdatedLabel = player.intelLastUpdated
     ? new Date(player.intelLastUpdated).toLocaleDateString('en-US', {
+      timeZone: 'UTC',
       month: 'short',
       day: 'numeric',
       year: 'numeric',
@@ -138,7 +139,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
             {lastUpdatedLabel && (
               <p className="text-on-surface-variant text-xs mt-1 inline-flex items-center gap-1.5">
                 <Clock3 className="w-3.5 h-3.5" />
-                Updated {lastUpdatedLabel}
+                Updated {lastUpdatedLabel} UTC
               </p>
             )}
           </div>
