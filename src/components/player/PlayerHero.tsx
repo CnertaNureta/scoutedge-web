@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import type { Player, Team } from '@/lib/types'
 import type { DerivedStats } from '@/lib/player-derived-stats'
 import { getTeamColors } from '@/lib/team-colors'
@@ -124,11 +125,14 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
             {/* Player cutout */}
             {playerPhoto ? (
               <div className="relative z-10">
-                <img
+                <Image
                   src={playerPhoto}
                   alt={`${player.name} cutout photo`}
-                  loading="eager"
-                  className="h-[420px] md:h-[540px] lg:h-[600px] object-contain relative z-10"
+                  width={600}
+                  height={600}
+                  priority
+                  sizes="(min-width: 1024px) 600px, (min-width: 768px) 540px, 420px"
+                  className="h-[420px] md:h-[540px] lg:h-[600px] w-auto object-contain relative z-10"
                   style={{
                     filter: `drop-shadow(0 0 80px ${colors.glow}35) drop-shadow(0 0 40px ${colors.glow}18)`,
                   }}

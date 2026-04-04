@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { getAllTeams, getPlayersByTeam } from '@/lib/data-service'
+import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
-import { getTrendingPlayers } from '@/data/player-social'
-import liveCache from '@/data/live-cache.json'
+import { getLatestNarrativePost } from '@/lib/blog-service'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+
+export const revalidate = 300
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
@@ -27,13 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://scoutedge.ai/daily-briefing' },
 }
 
-interface Signal {
-  type: 'injury' | 'transfer' | 'form' | 'tactical' | 'sentiment'
-  team: { name: string; flag: string; slug: string }
-  headline: string
-  detail: string
-  impact: 'high' | 'medium' | 'low'
-}
+type Signal = DailyBriefingSignal
 
 function getSignalIcon(type: Signal['type']): string {
   switch (type) {
@@ -51,65 +46,6 @@ function getImpactClass(impact: Signal['impact']): string {
     case 'medium': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
     case 'low': return 'bg-green-500/20 text-green-400 border-green-500/30'
   }
-}
-
-function generateDailySignals(): Signal[] {
-  const teams = getAllTeams()
-  const signals: Signal[] = []
-
-  const sortedByChemistry = [...teams].sort((a, b) => b.chemistry - a.chemistry)
-  const topTeams = sortedByChemistry.slice(0, 3)
-  const bottomTeams = sortedByChemistry.slice(-3)
-
-  for (const team of topTeams) {
-    signals.push({
-      type: 'form',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} squad chemistry at ${team.chemistry}/100`,
-      detail: `Strong cohesion detected across the squad. Familiarity index: ${team.familiarity}, Stability: ${team.stability}, Morale: ${team.morale}. Coach ${team.coachName}'s system appears well-drilled.`,
-      impact: 'medium',
-    })
-  }
-
-  for (const team of bottomTeams) {
-    signals.push({
-      type: 'sentiment',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} chemistry concerns — ${team.chemistry}/100`,
-      detail: `Below-average squad cohesion detected. Morale: ${team.morale}, Stability: ${team.stability}. This could impact tournament preparation.`,
-      impact: team.chemistry < 50 ? 'high' : 'medium',
-    })
-  }
-
-  for (const team of teams.slice(0, 12)) {
-    const players = getPlayersByTeam(team.slug)
-    const injured = players.filter((p) => p.fitnessStatus === 'red')
-    const monitoring = players.filter((p) => p.fitnessStatus === 'amber')
-
-    if (injured.length > 0) {
-      signals.push({
-        type: 'injury',
-        team: { name: team.name, flag: team.flag, slug: team.slug },
-        headline: `${team.name}: ${injured.length} player${injured.length > 1 ? 's' : ''} flagged injured`,
-        detail: `${injured.map((p) => `${p.name} (${p.position}) — ${p.fitnessNote}`).join('. ')}. ${monitoring.length} additional player${monitoring.length !== 1 ? 's' : ''} under monitoring.`,
-        impact: injured.length >= 2 ? 'high' : 'medium',
-      })
-    }
-  }
-
-  const topRanked = [...teams].sort((a, b) => a.fifaRanking - b.fifaRanking).slice(0, 5)
-  for (const team of topRanked) {
-    signals.push({
-      type: 'tactical',
-      team: { name: team.name, flag: team.flag, slug: team.slug },
-      headline: `${team.name} tactical profile: ${team.archetypeMatch}`,
-      detail: team.keyInsight,
-      impact: 'low',
-    })
-  }
-
-  const impactOrder = { high: 0, medium: 1, low: 2 }
-  return signals.sort((a, b) => impactOrder[a.impact] - impactOrder[b.impact])
 }
 
 function SignalCard({ signal }: { signal: Signal }) {
@@ -142,19 +78,20 @@ function SignalCard({ signal }: { signal: Signal }) {
 }
 
 export default async function DailyBriefingPage() {
-  const signals = generateDailySignals()
-  const news = await fetchWorldCupNews(20)
+  const [briefingData, news] = await Promise.all([
+    getDailyBriefingPageData(),
+    fetchWorldCupNews(20),
+  ])
+
+  const { signals, signalTypes, highCount, mediumCount, trendingPlayers, liveCache } =
+    briefingData
+  const publishedBriefing = getLatestNarrativePost('daily_briefing')
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   })
-
-  const highCount = signals.filter((s) => s.impact === 'high').length
-  const mediumCount = signals.filter((s) => s.impact === 'medium').length
-
-  const signalTypes = [...new Set(signals.map((s) => s.type))]
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -218,6 +155,34 @@ export default async function DailyBriefingPage() {
           </div>
         </div>
       </section>
+
+      {publishedBriefing && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12">
+          <GlassCard className="p-6 md:p-7 border-primary/20">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-3xl">
+                <Badge variant="primary" size="sm">Published Narrative</Badge>
+                <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mt-3 mb-3">
+                  {publishedBriefing.title}
+                </h2>
+                <p className="text-on-surface-variant leading-relaxed mb-4">
+                  {publishedBriefing.description}
+                </p>
+                <div className="flex flex-wrap gap-3 text-xs font-label uppercase tracking-widest text-on-surface-variant">
+                  {publishedBriefing.publishedAt && <span>Published {publishedBriefing.publishedAt}</span>}
+                  {publishedBriefing.factCount && <span>{publishedBriefing.factCount} anchored facts</span>}
+                </div>
+              </div>
+              <Link
+                href={`/blog/${publishedBriefing.slug}`}
+                className="inline-flex items-center rounded-full border border-primary/40 px-5 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
+              >
+                Read Full Briefing
+              </Link>
+            </div>
+          </GlassCard>
+        </section>
+      )}
 
       {/* Live News Section */}
       {news.length > 0 && (
@@ -396,7 +361,7 @@ export default async function DailyBriefingPage() {
           <Badge variant="primary" size="sm">Trending</Badge>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {getTrendingPlayers(6).map((player) => (
+          {trendingPlayers.map((player) => (
             <GlassCard key={player.playerSlug} className="p-5 relative overflow-hidden">
               <NeonAccentBar color={player.buzzScore >= 90 ? '#e9c400' : '#a0d494'} />
               <div className="flex items-center justify-between mb-3">
