@@ -3,7 +3,7 @@ import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
-import { Newspaper, MessageSquare, BarChart3, FlaskConical, Lock } from 'lucide-react'
+import { Newspaper, MessageSquare, BarChart3, FlaskConical } from 'lucide-react'
 
 interface PlayerIntelProps {
   player: Player
@@ -86,13 +86,9 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
         <div className="mt-8 pt-6 border-t border-outline-variant/20 flex items-center justify-between">
           <p className="text-on-surface-variant text-sm">
             {player.recentSignals && player.recentSignals.length > 0
-              ? 'More signals available with Premium access'
-              : 'Premium signals will appear here as intelligence is gathered'}
+              ? 'Signals refresh as new reporting and performance context arrive.'
+              : 'This panel expands as more reporting and team context are gathered.'}
           </p>
-          <button className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-sm font-label font-bold uppercase tracking-widest text-sm transition-all duration-200 hover:brightness-110" style={{ background: colors.glow, color: '#000' }}>
-            <Lock className="w-4 h-4" />
-            Subscribe to Unlock
-          </button>
         </div>
       </GlassCard>
     </section>

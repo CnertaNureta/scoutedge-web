@@ -8,8 +8,6 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
-import GatedSignalFeed from '@/components/monetization/GatedSignalFeed'
-import { DAILY_BRIEFING_FREE_SIGNALS } from '@/lib/premium-content'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
@@ -288,25 +286,26 @@ export default async function DailyBriefingPage() {
         </div>
       </section>
 
-      {/* Signals Feed — Free preview + Premium gated */}
+      {/* Signals Feed */}
       <section className="max-w-[1440px] mx-auto px-6 mb-20">
-        <GatedSignalFeed
-          totalCount={signals.length}
-          freeSlot={
-            <div className="space-y-3">
-              {signals.slice(0, DAILY_BRIEFING_FREE_SIGNALS).map((signal, i) => (
-                <SignalCard key={i} signal={signal} />
-              ))}
+        <GlassCard className="mb-5 p-5 md:p-6 border-primary/20">
+          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 className="font-headline text-xl uppercase tracking-tight text-on-surface">
+                Open Signal Feed
+              </h3>
+              <p className="mt-2 max-w-2xl text-sm leading-6 text-on-surface-variant">
+                ScoutEdge v1 keeps the briefing open so the core narrative layer stays readable without paywalls or subscription detours.
+              </p>
             </div>
-          }
-          premiumSlot={
-            <div className="space-y-3">
-              {signals.slice(DAILY_BRIEFING_FREE_SIGNALS).map((signal, i) => (
-                <SignalCard key={i} signal={signal} />
-              ))}
-            </div>
-          }
-        />
+            <Badge variant="primary" size="sm">All signals visible</Badge>
+          </div>
+        </GlassCard>
+        <div className="space-y-3">
+          {signals.map((signal, i) => (
+            <SignalCard key={i} signal={signal} />
+          ))}
+        </div>
       </section>
 
       {/* Confirmed 2026 Fixtures — Real Data */}

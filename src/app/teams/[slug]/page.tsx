@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory, getMarketIntel } from '@/lib/data-service'
+import { getAllTeams, getTeamBySlug, getPlayersByTeam, getTeamsByGroup, getWorldCupHistory } from '@/lib/data-service'
 import { TEAM_FAQS } from '@/data/faq-schema'
 import { TEAM_SEO_META } from '@/data/seo-meta'
 import { getCoachByTeam } from '@/data/coaches-data'
@@ -8,15 +8,12 @@ import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
-import MarketIntel from '@/components/team/MarketIntel'
 import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
-import PremiumSection from '@/components/monetization/PremiumSection'
-import { PREMIUM_TEAM_SECTIONS } from '@/lib/premium-content'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -61,7 +58,6 @@ export default async function TeamPage({ params }: PageProps) {
   const players = getPlayersByTeam(slug)
   const groupTeams = getTeamsByGroup(team.group).filter((t) => t.slug !== slug)
   const worldCupHistory = getWorldCupHistory(slug)
-  const marketIntel = getMarketIntel(slug)
   const coach = getCoachByTeam(slug)
 
   const jsonLd = {
@@ -106,40 +102,9 @@ export default async function TeamPage({ params }: PageProps) {
 
       <SquadRoster players={players} teamSlug={slug} />
 
-      {/* Market Intelligence — Premium */}
-      {marketIntel && (
-        <PremiumSection
-          feature={PREMIUM_TEAM_SECTIONS.marketIntel.label}
-          variant={PREMIUM_TEAM_SECTIONS.marketIntel.variant}
-          teaserTitle="Market Intelligence"
-          teaserDescription={`Betting odds, market movement, and value bets for ${team.name}.`}
-          trackingKey={PREMIUM_TEAM_SECTIONS.marketIntel.key}
-        >
-          <MarketIntel teamName={team.name} teamSlug={slug} marketIntel={marketIntel} />
-        </PremiumSection>
-      )}
+      <TacticalDNA team={team} players={players} />
 
-      {/* Tactical DNA Radar — Premium */}
-      <PremiumSection
-        feature={PREMIUM_TEAM_SECTIONS.tacticalDNA.label}
-        variant={PREMIUM_TEAM_SECTIONS.tacticalDNA.variant}
-        teaserTitle="Tactical DNA"
-        teaserDescription={`AI-powered tactical profile and radar analysis for ${team.name}.`}
-        trackingKey={PREMIUM_TEAM_SECTIONS.tacticalDNA.key}
-      >
-        <TacticalDNA team={team} players={players} />
-      </PremiumSection>
-
-      {/* Squad Depth Analysis — Premium */}
-      <PremiumSection
-        feature={PREMIUM_TEAM_SECTIONS.squadDepth.label}
-        variant={PREMIUM_TEAM_SECTIONS.squadDepth.variant}
-        teaserTitle="Squad Depth"
-        teaserDescription="Position-by-position depth chart with player ratings."
-        trackingKey={PREMIUM_TEAM_SECTIONS.squadDepth.key}
-      >
-        <SquadDepth players={players} />
-      </PremiumSection>
+      <SquadDepth players={players} />
 
       {/* Historical Performance */}
       {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}

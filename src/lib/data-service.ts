@@ -41,10 +41,11 @@ export function getAllPlayers(): Player[] {
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const teams = (worldCupHistoryData as any).teams
+  const teams = (worldCupHistoryData as { teams: Record<string, unknown> }).teams
   const entry = teams[teamSlug]
-  if (!entry || entry.totalAppearances === null) return undefined
+  if (!entry || typeof entry !== 'object') return undefined
+  const rawEntry = entry as { totalAppearances?: number | null }
+  if (rawEntry.totalAppearances === null || rawEntry.totalAppearances === undefined) return undefined
   return entry as WorldCupHistory
 }
 
