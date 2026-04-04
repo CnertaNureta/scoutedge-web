@@ -1,0 +1,346 @@
+{
+  "generatedAt": "2026-04-03T02:13:55.215Z",
+  "status": "approved",
+  "sourceDate": "2026-04-03",
+  "narratives": [
+    {
+      "cache_key": "match_preview:A-mexico-vs-south-africa-2026-06-11:2026-06-11:fnv1a-c15f67be",
+      "content_type": "match_preview",
+      "title": "Mexico vs South Africa Match Preview",
+      "summary": "Mexico open Group A with a 55% win edge over South Africa, but the gap stays narrow enough for team state and availability to matter.",
+      "slug": "mexico-vs-south-africa-match-preview-2026-06-11",
+      "status": "approved",
+      "source_date": "2026-06-11",
+      "match_key": "A-mexico-vs-south-africa-2026-06-11",
+      "home_team_slug": "mexico",
+      "away_team_slug": "south-africa",
+      "team_slug": null,
+      "player_slug": null,
+      "facts_used": [
+        {
+          "key": "kickoff",
+          "label": "Kickoff (UTC)",
+          "value": "June 11, 2026 at 6:00 PM UTC",
+          "source": "match-fixtures",
+          "detail": "Estadio Azteca, Mexico City"
+        },
+        {
+          "key": "group",
+          "label": "Group",
+          "value": "Group A",
+          "source": "match-fixtures"
+        },
+        {
+          "key": "probabilities",
+          "label": "Model probabilities",
+          "value": "Mexico 55% · Draw 25% · South Africa 20%",
+          "source": "match-fixtures"
+        },
+        {
+          "key": "rank-gap",
+          "label": "FIFA ranking gap",
+          "value": "Mexico #15 vs South Africa #59",
+          "source": "teams-meta"
+        },
+        {
+          "key": "chemistry",
+          "label": "Chemistry index",
+          "value": "Mexico 72/100 vs South Africa 68/100",
+          "source": "teams-meta"
+        },
+        {
+          "key": "morale",
+          "label": "Morale index",
+          "value": "Mexico 82/100 vs South Africa 78/100",
+          "source": "teams-meta"
+        },
+        {
+          "key": "fitness-home",
+          "label": "Mexico fitness watch",
+          "value": "0 red, 3 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "fitness-away",
+          "label": "South Africa fitness watch",
+          "value": "0 red, 3 amber",
+          "source": "players-data"
+        }
+      ],
+      "fact_hash": "fnv1a-c15f67be",
+      "body_markdown": "# Mexico vs South Africa Match Preview\n\nScoutEdge has this Group A fixture at 55% for Mexico, 25% for the draw, and 20% for South Africa. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.\n\n## Match Snapshot\n\n- Kickoff: June 11, 2026 at 6:00 PM UTC\n- Venue: Estadio Azteca, Mexico City\n- Rankings: Mexico #15, South Africa #59\n- Chemistry: Mexico 72/100, South Africa 68/100\n\n## Why Mexico Start Ahead\n\nMexico carry the stronger baseline profile in the model because they pair the better FIFA ranking with the better chemistry and morale scores. Co-hosts Mexico carry enormous home-crowd pressure but lack a proven goal-scorer; their tournament will hinge on whether the midfield can control tempo against elite opposition.\n\nTheir most bankable performers remain Edson Álvarez (7.6/10) and Santiago Giménez (7.5/10), which keeps the preview grounded in players already rated as the squad's best current options.\n\n## Where South Africa Can Swing The Match\n\nBafana Bafana have rebuilt impressively under Hugo Broos with a young, athletic squad; their AFCON resurgence suggests they are no longer World Cup tourists.\n\nSouth Africa's case depends on whether their squad cohesion can outperform the ranking gap and whether Teboho Mokoena (7.4/10) and Ronwen Williams (7.3/10) can lift the team's ceiling in the decisive moments.\n\n## Availability Watch\n\n- Mexico: 0 red flags and 3 amber flags across the current player fitness snapshot.\n- South Africa: 0 red flags and 3 amber flags across the current player fitness snapshot.\n\n## Fact Anchors\n\n- Kickoff (UTC): June 11, 2026 at 6:00 PM UTC (Estadio Azteca, Mexico City)\n- Group: Group A\n- Model probabilities: Mexico 55% · Draw 25% · South Africa 20%\n- FIFA ranking gap: Mexico #15 vs South Africa #59\n- Chemistry index: Mexico 72/100 vs South Africa 68/100\n- Morale index: Mexico 82/100 vs South Africa 78/100\n- Mexico fitness watch: 0 red, 3 amber\n- South Africa fitness watch: 0 red, 3 amber\n\n## Fact Constraint Note\n\nThis narrative does not speculate beyond the stored fixture, team, and player datasets. Any claim that is not represented in `facts_used` should be treated as out of scope for publication.\n",
+      "meta": {
+        "fixtureGroup": "A",
+        "matchKey": "A-mexico-vs-south-africa-2026-06-11",
+        "venue": "Estadio Azteca",
+        "city": "Mexico City",
+        "factHash": "fnv1a-c15f67be",
+        "factCount": 8
+      },
+      "approved_at": "2026-04-03T02:13:55.212Z",
+      "published_at": null
+    },
+    {
+      "cache_key": "daily_briefing:world-cup-2026-daily-briefing-2026-04-03:2026-04-03:fnv1a-49674867",
+      "content_type": "daily_briefing",
+      "title": "World Cup 2026 Daily Briefing: April 3, 2026",
+      "summary": "Argentina, Spain, and Morocco lead today's chemistry board, while availability watch items cluster around Belgium, Portugal, Iran.",
+      "slug": "world-cup-2026-daily-briefing-2026-04-03",
+      "status": "approved",
+      "source_date": "2026-04-03",
+      "match_key": null,
+      "home_team_slug": null,
+      "away_team_slug": null,
+      "team_slug": null,
+      "player_slug": null,
+      "facts_used": [
+        {
+          "key": "chemistry-leader-1",
+          "label": "Argentina chemistry leader",
+          "value": "90/100 chemistry · 92/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #4"
+        },
+        {
+          "key": "chemistry-leader-2",
+          "label": "Spain chemistry leader",
+          "value": "86/100 chemistry · 90/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #2"
+        },
+        {
+          "key": "chemistry-leader-3",
+          "label": "Morocco chemistry leader",
+          "value": "85/100 chemistry · 88/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #14"
+        },
+        {
+          "key": "injury-watch-1",
+          "label": "Belgium availability watch",
+          "value": "1 red, 5 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "injury-watch-2",
+          "label": "Portugal availability watch",
+          "value": "1 red, 3 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "injury-watch-3",
+          "label": "Iran availability watch",
+          "value": "0 red, 7 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "fixture-1",
+          "label": "Mexico vs South Africa",
+          "value": "June 11, 2026 at 6:00 PM UTC · Mexico 55% / Draw 25% / South Africa 20%",
+          "source": "match-fixtures",
+          "detail": "Group A"
+        },
+        {
+          "key": "fixture-2",
+          "label": "South Korea vs Denmark",
+          "value": "June 11, 2026 at 9:00 PM UTC · South Korea 35% / Draw 30% / Denmark 35%",
+          "source": "match-fixtures",
+          "detail": "Group A"
+        },
+        {
+          "key": "fixture-3",
+          "label": "France vs Senegal",
+          "value": "June 11, 2026 at 11:00 PM UTC · France 52% / Draw 25% / Senegal 23%",
+          "source": "match-fixtures",
+          "detail": "Group I"
+        }
+      ],
+      "fact_hash": "fnv1a-49674867",
+      "body_markdown": "# World Cup 2026 Daily Briefing: April 3, 2026\n\nThis briefing is fact-anchored to ScoutEdge's stored team, player, and fixture datasets as of April 3, 2026. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.\n\n## Form Leaders\n\n- Argentina: chemistry 90/100, morale 92/100, familiarity 88/100, FIFA ranking #4.\n- Spain: chemistry 86/100, morale 90/100, familiarity 85/100, FIFA ranking #2.\n- Morocco: chemistry 85/100, morale 88/100, familiarity 83/100, FIFA ranking #14.\n\n## Availability Alerts\n\n- Belgium: 1 red fitness flags and 5 amber fitness flags in the current player snapshot.\n- Portugal: 1 red fitness flags and 3 amber fitness flags in the current player snapshot.\n- Iran: 0 red fitness flags and 7 amber fitness flags in the current player snapshot.\n\n## Next Notable Fixtures\n\n- Mexico vs South Africa on June 11, 2026 at 6:00 PM UTC in Mexico City. Model edge: Mexico 55%, draw 25%, South Africa 20%.\n- South Korea vs Denmark on June 11, 2026 at 9:00 PM UTC in Arlington. Model edge: South Korea 35%, draw 30%, Denmark 35%.\n- France vs Senegal on June 11, 2026 at 11:00 PM UTC in Foxborough. Model edge: France 52%, draw 25%, Senegal 23%.\n\n## What This Briefing Can Safely Say\n\nThe pipeline is allowed to summarize tracked rankings, chemistry, morale, availability flags, and scheduled fixtures. It is not allowed to invent new injuries, quotes, transfers, or tactical changes unless those facts are first written into structured storage and referenced in `facts_used`.\n\n## Fact Anchors\n\n- Argentina chemistry leader: 90/100 chemistry · 92/100 morale (FIFA #4)\n- Spain chemistry leader: 86/100 chemistry · 90/100 morale (FIFA #2)\n- Morocco chemistry leader: 85/100 chemistry · 88/100 morale (FIFA #14)\n- Belgium availability watch: 1 red, 5 amber\n- Portugal availability watch: 1 red, 3 amber\n- Iran availability watch: 0 red, 7 amber\n- Mexico vs South Africa: June 11, 2026 at 6:00 PM UTC · Mexico 55% / Draw 25% / South Africa 20% (Group A)\n- South Korea vs Denmark: June 11, 2026 at 9:00 PM UTC · South Korea 35% / Draw 30% / Denmark 35% (Group A)\n- France vs Senegal: June 11, 2026 at 11:00 PM UTC · France 52% / Draw 25% / Senegal 23% (Group I)\n",
+      "meta": {
+        "briefingDate": "2026-04-03",
+        "chemistryLeader": "argentina",
+        "injuryWatchCount": 3,
+        "factHash": "fnv1a-49674867",
+        "factCount": 9
+      },
+      "approved_at": "2026-04-03T02:13:55.215Z",
+      "published_at": null
+    }
+  ],
+  "ai_content": [
+    {
+      "content_type": "match_preview",
+      "title": "Mexico vs South Africa Match Preview",
+      "summary": "Mexico open Group A with a 55% win edge over South Africa, but the gap stays narrow enough for team state and availability to matter.",
+      "slug": "mexico-vs-south-africa-match-preview-2026-06-11",
+      "status": "approved",
+      "full_content": "# Mexico vs South Africa Match Preview\n\nScoutEdge has this Group A fixture at 55% for Mexico, 25% for the draw, and 20% for South Africa. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.\n\n## Match Snapshot\n\n- Kickoff: June 11, 2026 at 6:00 PM UTC\n- Venue: Estadio Azteca, Mexico City\n- Rankings: Mexico #15, South Africa #59\n- Chemistry: Mexico 72/100, South Africa 68/100\n\n## Why Mexico Start Ahead\n\nMexico carry the stronger baseline profile in the model because they pair the better FIFA ranking with the better chemistry and morale scores. Co-hosts Mexico carry enormous home-crowd pressure but lack a proven goal-scorer; their tournament will hinge on whether the midfield can control tempo against elite opposition.\n\nTheir most bankable performers remain Edson Álvarez (7.6/10) and Santiago Giménez (7.5/10), which keeps the preview grounded in players already rated as the squad's best current options.\n\n## Where South Africa Can Swing The Match\n\nBafana Bafana have rebuilt impressively under Hugo Broos with a young, athletic squad; their AFCON resurgence suggests they are no longer World Cup tourists.\n\nSouth Africa's case depends on whether their squad cohesion can outperform the ranking gap and whether Teboho Mokoena (7.4/10) and Ronwen Williams (7.3/10) can lift the team's ceiling in the decisive moments.\n\n## Availability Watch\n\n- Mexico: 0 red flags and 3 amber flags across the current player fitness snapshot.\n- South Africa: 0 red flags and 3 amber flags across the current player fitness snapshot.\n\n## Fact Anchors\n\n- Kickoff (UTC): June 11, 2026 at 6:00 PM UTC (Estadio Azteca, Mexico City)\n- Group: Group A\n- Model probabilities: Mexico 55% · Draw 25% · South Africa 20%\n- FIFA ranking gap: Mexico #15 vs South Africa #59\n- Chemistry index: Mexico 72/100 vs South Africa 68/100\n- Morale index: Mexico 82/100 vs South Africa 78/100\n- Mexico fitness watch: 0 red, 3 amber\n- South Africa fitness watch: 0 red, 3 amber\n\n## Fact Constraint Note\n\nThis narrative does not speculate beyond the stored fixture, team, and player datasets. Any claim that is not represented in `facts_used` should be treated as out of scope for publication.\n",
+      "facts_used": [
+        {
+          "key": "kickoff",
+          "label": "Kickoff (UTC)",
+          "value": "June 11, 2026 at 6:00 PM UTC",
+          "source": "match-fixtures",
+          "detail": "Estadio Azteca, Mexico City"
+        },
+        {
+          "key": "group",
+          "label": "Group",
+          "value": "Group A",
+          "source": "match-fixtures"
+        },
+        {
+          "key": "probabilities",
+          "label": "Model probabilities",
+          "value": "Mexico 55% · Draw 25% · South Africa 20%",
+          "source": "match-fixtures"
+        },
+        {
+          "key": "rank-gap",
+          "label": "FIFA ranking gap",
+          "value": "Mexico #15 vs South Africa #59",
+          "source": "teams-meta"
+        },
+        {
+          "key": "chemistry",
+          "label": "Chemistry index",
+          "value": "Mexico 72/100 vs South Africa 68/100",
+          "source": "teams-meta"
+        },
+        {
+          "key": "morale",
+          "label": "Morale index",
+          "value": "Mexico 82/100 vs South Africa 78/100",
+          "source": "teams-meta"
+        },
+        {
+          "key": "fitness-home",
+          "label": "Mexico fitness watch",
+          "value": "0 red, 3 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "fitness-away",
+          "label": "South Africa fitness watch",
+          "value": "0 red, 3 amber",
+          "source": "players-data"
+        }
+      ],
+      "related_team_ids": [
+        "mexico",
+        "south-africa"
+      ],
+      "related_player_ids": [
+        "edson-alvarez",
+        "santiago-gimenez",
+        "teboho-mokoena",
+        "ronwen-williams"
+      ],
+      "source_date": "2026-06-11",
+      "published_at": null,
+      "metadata": {
+        "fixtureGroup": "A",
+        "matchKey": "A-mexico-vs-south-africa-2026-06-11",
+        "venue": "Estadio Azteca",
+        "city": "Mexico City",
+        "factHash": "fnv1a-c15f67be",
+        "factCount": 8
+      }
+    },
+    {
+      "content_type": "daily_briefing",
+      "title": "World Cup 2026 Daily Briefing: April 3, 2026",
+      "summary": "Argentina, Spain, and Morocco lead today's chemistry board, while availability watch items cluster around Belgium, Portugal, Iran.",
+      "slug": "world-cup-2026-daily-briefing-2026-04-03",
+      "status": "approved",
+      "full_content": "# World Cup 2026 Daily Briefing: April 3, 2026\n\nThis briefing is fact-anchored to ScoutEdge's stored team, player, and fixture datasets as of April 3, 2026. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.\n\n## Form Leaders\n\n- Argentina: chemistry 90/100, morale 92/100, familiarity 88/100, FIFA ranking #4.\n- Spain: chemistry 86/100, morale 90/100, familiarity 85/100, FIFA ranking #2.\n- Morocco: chemistry 85/100, morale 88/100, familiarity 83/100, FIFA ranking #14.\n\n## Availability Alerts\n\n- Belgium: 1 red fitness flags and 5 amber fitness flags in the current player snapshot.\n- Portugal: 1 red fitness flags and 3 amber fitness flags in the current player snapshot.\n- Iran: 0 red fitness flags and 7 amber fitness flags in the current player snapshot.\n\n## Next Notable Fixtures\n\n- Mexico vs South Africa on June 11, 2026 at 6:00 PM UTC in Mexico City. Model edge: Mexico 55%, draw 25%, South Africa 20%.\n- South Korea vs Denmark on June 11, 2026 at 9:00 PM UTC in Arlington. Model edge: South Korea 35%, draw 30%, Denmark 35%.\n- France vs Senegal on June 11, 2026 at 11:00 PM UTC in Foxborough. Model edge: France 52%, draw 25%, Senegal 23%.\n\n## What This Briefing Can Safely Say\n\nThe pipeline is allowed to summarize tracked rankings, chemistry, morale, availability flags, and scheduled fixtures. It is not allowed to invent new injuries, quotes, transfers, or tactical changes unless those facts are first written into structured storage and referenced in `facts_used`.\n\n## Fact Anchors\n\n- Argentina chemistry leader: 90/100 chemistry · 92/100 morale (FIFA #4)\n- Spain chemistry leader: 86/100 chemistry · 90/100 morale (FIFA #2)\n- Morocco chemistry leader: 85/100 chemistry · 88/100 morale (FIFA #14)\n- Belgium availability watch: 1 red, 5 amber\n- Portugal availability watch: 1 red, 3 amber\n- Iran availability watch: 0 red, 7 amber\n- Mexico vs South Africa: June 11, 2026 at 6:00 PM UTC · Mexico 55% / Draw 25% / South Africa 20% (Group A)\n- South Korea vs Denmark: June 11, 2026 at 9:00 PM UTC · South Korea 35% / Draw 30% / Denmark 35% (Group A)\n- France vs Senegal: June 11, 2026 at 11:00 PM UTC · France 52% / Draw 25% / Senegal 23% (Group I)\n",
+      "facts_used": [
+        {
+          "key": "chemistry-leader-1",
+          "label": "Argentina chemistry leader",
+          "value": "90/100 chemistry · 92/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #4"
+        },
+        {
+          "key": "chemistry-leader-2",
+          "label": "Spain chemistry leader",
+          "value": "86/100 chemistry · 90/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #2"
+        },
+        {
+          "key": "chemistry-leader-3",
+          "label": "Morocco chemistry leader",
+          "value": "85/100 chemistry · 88/100 morale",
+          "source": "teams-meta",
+          "detail": "FIFA #14"
+        },
+        {
+          "key": "injury-watch-1",
+          "label": "Belgium availability watch",
+          "value": "1 red, 5 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "injury-watch-2",
+          "label": "Portugal availability watch",
+          "value": "1 red, 3 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "injury-watch-3",
+          "label": "Iran availability watch",
+          "value": "0 red, 7 amber",
+          "source": "players-data"
+        },
+        {
+          "key": "fixture-1",
+          "label": "Mexico vs South Africa",
+          "value": "June 11, 2026 at 6:00 PM UTC · Mexico 55% / Draw 25% / South Africa 20%",
+          "source": "match-fixtures",
+          "detail": "Group A"
+        },
+        {
+          "key": "fixture-2",
+          "label": "South Korea vs Denmark",
+          "value": "June 11, 2026 at 9:00 PM UTC · South Korea 35% / Draw 30% / Denmark 35%",
+          "source": "match-fixtures",
+          "detail": "Group A"
+        },
+        {
+          "key": "fixture-3",
+          "label": "France vs Senegal",
+          "value": "June 11, 2026 at 11:00 PM UTC · France 52% / Draw 25% / Senegal 23%",
+          "source": "match-fixtures",
+          "detail": "Group I"
+        }
+      ],
+      "related_team_ids": [
+        "argentina",
+        "spain",
+        "morocco",
+        "belgium",
+        "portugal",
+        "iran",
+        "mexico",
+        "south-africa",
+        "south-korea",
+        "denmark",
+        "france",
+        "senegal"
+      ],
+      "related_player_ids": [],
+      "source_date": "2026-04-03",
+      "published_at": null,
+      "metadata": {
+        "briefingDate": "2026-04-03",
+        "chemistryLeader": "argentina",
+        "injuryWatchCount": 3,
+        "factHash": "fnv1a-49674867",
+        "factCount": 9
+      }
+    }
+  ]
+}

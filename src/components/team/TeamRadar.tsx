@@ -159,7 +159,7 @@ export default function TeamRadar({ stats, teamGlow, teamPrimary }: TeamRadarPro
             textAnchor="middle"
             dominantBaseline="middle"
             className="fill-[#c2c9bb] text-xs font-bold tracking-widest"
-            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+            style={{ fontFamily: 'var(--font-label)' }}
           >
             {item.label}
           </text>
@@ -169,7 +169,7 @@ export default function TeamRadar({ stats, teamGlow, teamPrimary }: TeamRadarPro
             textAnchor="middle"
             dominantBaseline="middle"
             className="text-[13px] font-black"
-            style={{ fontFamily: 'Epilogue, sans-serif', fill: teamGlow }}
+            style={{ fontFamily: 'var(--font-headline)', fill: teamGlow }}
           >
             {animated ? stats[item.statKey] : 0}
           </text>
