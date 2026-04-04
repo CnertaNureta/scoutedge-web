@@ -3,7 +3,8 @@ import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
-import { Newspaper, MessageSquare, BarChart3, FlaskConical, Lock } from 'lucide-react'
+import Badge from '@/components/ui/Badge'
+import { Newspaper, MessageSquare, BarChart3, FlaskConical, Lock, AlertTriangle, Clock3 } from 'lucide-react'
 
 interface PlayerIntelProps {
   player: Player
@@ -15,8 +16,22 @@ const SIGNAL_ICONS: Record<string, React.ReactNode> = {
   data: <BarChart3 className="w-5 h-5 text-on-surface-variant shrink-0" />,
 }
 
+function getRiskVariant(risk: Player['selectionRisk']) {
+  if (risk === 'high') return 'secondary'
+  if (risk === 'medium') return 'tertiary'
+  return 'primary'
+}
+
 export default function PlayerIntel({ player }: PlayerIntelProps) {
   const colors = getTeamColors(player.teamSlug)
+  const lastUpdatedLabel = player.intelLastUpdated
+    ? new Date(player.intelLastUpdated).toLocaleDateString('en-US', {
+      timeZone: 'UTC',
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+    : null
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-16">
@@ -52,6 +67,30 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
               <ChemistryBar value={player.sentimentScore} label={player.sentimentLabel} />
               <p className="text-on-surface-variant text-xs mt-2">How positive the media and fans are about this player right now. Based on AI analysis of recent news, social media, and press conferences.</p>
             </div>
+
+            {(player.selectionRisk || player.tacticalRisk) && (
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <AlertTriangle className="w-4 h-4 text-on-surface-variant" />
+                  <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">
+                    Selection Risk
+                  </span>
+                  {player.selectionRisk && (
+                    <Badge variant={getRiskVariant(player.selectionRisk)} size="md">
+                      {player.selectionRisk}
+                    </Badge>
+                  )}
+                </div>
+                {player.selectionNote && (
+                  <p className="text-on-surface-variant text-sm leading-relaxed">{player.selectionNote}</p>
+                )}
+                {player.tacticalNote && (
+                  <p className="text-on-surface-variant text-xs leading-relaxed">
+                    Tactical read: {player.tacticalNote}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Recent signals */}
@@ -63,9 +102,16 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
               {player.recentSignals && player.recentSignals.length > 0 ? (
                 <>
                   {player.recentSignals.map((signal: PlayerSignal, i: number) => (
-                    <div key={i} className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
+                    <div key={signal.id ?? i} className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg border border-white/5">
                       {SIGNAL_ICONS[signal.type] ?? SIGNAL_ICONS.data}
-                      <p className="text-sm text-on-surface">{signal.text}</p>
+                      <div className="min-w-0">
+                        {signal.category && (
+                          <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">
+                            {signal.category}
+                          </p>
+                        )}
+                        <p className="text-sm text-on-surface">{signal.text}</p>
+                      </div>
                     </div>
                   ))}
                   <div className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg opacity-40 blur-[2px] border border-white/5">
@@ -84,11 +130,19 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
         </div>
 
         <div className="mt-8 pt-6 border-t border-outline-variant/20 flex items-center justify-between">
-          <p className="text-on-surface-variant text-sm">
-            {player.recentSignals && player.recentSignals.length > 0
-              ? 'More signals available with Premium access'
-              : 'Premium signals will appear here as intelligence is gathered'}
-          </p>
+          <div>
+            <p className="text-on-surface-variant text-sm">
+              {player.recentSignals && player.recentSignals.length > 0
+                ? 'More signals available with Premium access'
+                : 'Premium signals will appear here as intelligence is gathered'}
+            </p>
+            {lastUpdatedLabel && (
+              <p className="text-on-surface-variant text-xs mt-1 inline-flex items-center gap-1.5">
+                <Clock3 className="w-3.5 h-3.5" />
+                Updated {lastUpdatedLabel} UTC
+              </p>
+            )}
+          </div>
           <button className="cursor-pointer flex items-center gap-2 px-6 py-3 rounded-sm font-label font-bold uppercase tracking-widest text-sm transition-all duration-200 hover:brightness-110" style={{ background: colors.glow, color: '#000' }}>
             <Lock className="w-4 h-4" />
             Subscribe to Unlock

@@ -1,0 +1,1332 @@
+{
+  "generated_at": "2026-04-03T00:00:00.000Z",
+  "player_count": 1103,
+  "signal_count": 4427,
+  "sample_players": [
+    {
+      "player_key": "mexico::guillermo-ochoa",
+      "player_slug": "guillermo-ochoa",
+      "player_name": "Guillermo Ochoa",
+      "team_slug": "mexico",
+      "fitness_status": "amber",
+      "fitness_note": "Veteran managing minor knee inflammation",
+      "morale_score": 62,
+      "morale_label": "neutral",
+      "tactical_risk": "medium",
+      "tactical_note": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+      "selection_risk": "medium",
+      "selection_note": "Guillermo Ochoa carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+      "recent_signals": [
+        {
+          "id": "ead7abaf928b97b8",
+          "type": "data",
+          "category": "fitness",
+          "text": "Guillermo Ochoa is available but carrying a manageable fitness concern.",
+          "sourceType": "player_profile",
+          "sentiment": "neutral",
+          "confidence": 0.92,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "625b6ceea84a0ac0",
+          "type": "data",
+          "category": "tactical",
+          "text": "Guillermo Ochoa carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+          "sourceType": "derived_rule",
+          "sentiment": "neutral",
+          "confidence": 0.78,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "7ba4149b7c32aa44",
+          "type": "data",
+          "category": "morale",
+          "text": "Guillermo Ochoa's baseline mood signal sits at 62/100 (neutral).",
+          "sourceType": "player_profile",
+          "sentiment": "neutral",
+          "confidence": 0.87,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "79ab3c6a824e8270",
+          "type": "data",
+          "category": "tactical",
+          "text": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+          "sourceType": "seo_article",
+          "sentiment": "neutral",
+          "confidence": 0.69,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        }
+      ],
+      "source_signal_ids": [
+        "ead7abaf928b97b8",
+        "625b6ceea84a0ac0",
+        "7ba4149b7c32aa44",
+        "79ab3c6a824e8270"
+      ],
+      "signal_count": 4,
+      "last_signal_at": "2026-04-03T00:00:00.000Z",
+      "last_updated": "2026-04-03T00:00:00.000Z",
+      "metadata": {
+        "source_count_by_type": {
+          "player_profile": 2,
+          "derived_rule": 1,
+          "seo_article": 1
+        }
+      }
+    },
+    {
+      "player_key": "france::kylian-mbappe",
+      "player_slug": "kylian-mbappe",
+      "player_name": "Kylian Mbappé",
+      "team_slug": "france",
+      "fitness_status": "green",
+      "fitness_note": "Fully fit Recent training/camp activity supports current availability.",
+      "morale_score": 100,
+      "morale_label": "positive",
+      "tactical_risk": "low",
+      "tactical_note": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+      "selection_risk": "low",
+      "selection_note": "Kylian Mbappé profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+      "recent_signals": [
+        {
+          "id": "55818e688134e4ca",
+          "type": "training",
+          "category": "fitness",
+          "text": "Instagram pulse: Training camp arrival with France squad",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-28T12:00:00.000Z"
+        },
+        {
+          "id": "1d160287c5abedc2",
+          "type": "data",
+          "category": "morale",
+          "text": "Instagram pulse: Season recap at Real Madrid — 38 goals",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-25T12:00:00.000Z"
+        },
+        {
+          "id": "ca4df22482679209",
+          "type": "training",
+          "category": "fitness",
+          "text": "Kylian Mbappé is currently fully available for tournament preparation.",
+          "sourceType": "player_profile",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "a26a2a247e9d4d61",
+          "type": "data",
+          "category": "morale",
+          "text": "Kylian Mbappé's baseline mood signal sits at 95/100 (positive).",
+          "sourceType": "player_profile",
+          "sentiment": "positive",
+          "confidence": 0.87,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        }
+      ],
+      "source_signal_ids": [
+        "55818e688134e4ca",
+        "1d160287c5abedc2",
+        "ca4df22482679209",
+        "a26a2a247e9d4d61",
+        "d45519bc10ba372d",
+        "8357faf427cabb12"
+      ],
+      "signal_count": 6,
+      "last_signal_at": "2026-05-28T12:00:00.000Z",
+      "last_updated": "2026-04-03T00:00:00.000Z",
+      "metadata": {
+        "source_count_by_type": {
+          "social_post": 2,
+          "player_profile": 2,
+          "derived_rule": 1,
+          "seo_article": 1
+        }
+      }
+    },
+    {
+      "player_key": "argentina::lionel-messi",
+      "player_slug": "lionel-messi",
+      "player_name": "Lionel Messi",
+      "team_slug": "argentina",
+      "fitness_status": "amber",
+      "fitness_note": "Veteran, managing workload carefully",
+      "morale_score": 100,
+      "morale_label": "positive",
+      "tactical_risk": "medium",
+      "tactical_note": "At 38, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+      "selection_risk": "medium",
+      "selection_note": "Lionel Messi carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+      "recent_signals": [
+        {
+          "id": "45c29c3a361ee0f2",
+          "type": "quote",
+          "category": "morale",
+          "text": "Instagram pulse: \"One last dance? Vamos Argentina 🇦🇷\"",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-30T12:00:00.000Z"
+        },
+        {
+          "id": "06adb08947cee486",
+          "type": "training",
+          "category": "fitness",
+          "text": "Instagram pulse: Training for final tournament appearance speculation",
+          "sourceType": "social_post",
+          "sentiment": "neutral",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-20T12:00:00.000Z"
+        },
+        {
+          "id": "11eba9a16907f73f",
+          "type": "data",
+          "category": "fitness",
+          "text": "Lionel Messi is available but carrying a manageable fitness concern.",
+          "sourceType": "player_profile",
+          "sentiment": "neutral",
+          "confidence": 0.92,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "ed7b1e7a3ef9244a",
+          "type": "data",
+          "category": "tactical",
+          "text": "Lionel Messi carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+          "sourceType": "derived_rule",
+          "sentiment": "neutral",
+          "confidence": 0.78,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        }
+      ],
+      "source_signal_ids": [
+        "45c29c3a361ee0f2",
+        "06adb08947cee486",
+        "11eba9a16907f73f",
+        "ed7b1e7a3ef9244a",
+        "ba24ed58136a988e",
+        "a93fcfa59a293456"
+      ],
+      "signal_count": 6,
+      "last_signal_at": "2026-05-30T12:00:00.000Z",
+      "last_updated": "2026-04-03T00:00:00.000Z",
+      "metadata": {
+        "source_count_by_type": {
+          "social_post": 2,
+          "player_profile": 2,
+          "derived_rule": 1,
+          "seo_article": 1
+        }
+      }
+    },
+    {
+      "player_key": "usa::christian-pulisic",
+      "player_slug": "christian-pulisic",
+      "player_name": "Christian Pulisic",
+      "team_slug": "usa",
+      "fitness_status": "green",
+      "fitness_note": "Fully fit",
+      "morale_score": 100,
+      "morale_label": "positive",
+      "tactical_risk": "low",
+      "tactical_note": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+      "selection_risk": "low",
+      "selection_note": "Christian Pulisic profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+      "recent_signals": [
+        {
+          "id": "06f421a0ca541f94",
+          "type": "quote",
+          "category": "morale",
+          "text": "Instagram pulse: \"Home World Cup. This is what we dreamed of. 🇺🇸\"",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-29T12:00:00.000Z"
+        },
+        {
+          "id": "38989ca5c5fc1010",
+          "type": "data",
+          "category": "morale",
+          "text": "Twitter pulse: USMNT squad reveal reaction",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-22T12:00:00.000Z"
+        },
+        {
+          "id": "4fcb3357bbf10120",
+          "type": "training",
+          "category": "fitness",
+          "text": "Christian Pulisic is currently fully available for tournament preparation.",
+          "sourceType": "player_profile",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "4285f5081086b1c2",
+          "type": "data",
+          "category": "morale",
+          "text": "Christian Pulisic's baseline mood signal sits at 90/100 (positive).",
+          "sourceType": "player_profile",
+          "sentiment": "positive",
+          "confidence": 0.87,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        }
+      ],
+      "source_signal_ids": [
+        "06f421a0ca541f94",
+        "38989ca5c5fc1010",
+        "4fcb3357bbf10120",
+        "4285f5081086b1c2",
+        "5dbe4fd6aa4bf633",
+        "41c5e1cf7e690f14"
+      ],
+      "signal_count": 6,
+      "last_signal_at": "2026-05-29T12:00:00.000Z",
+      "last_updated": "2026-04-03T00:00:00.000Z",
+      "metadata": {
+        "source_count_by_type": {
+          "social_post": 2,
+          "player_profile": 2,
+          "derived_rule": 1,
+          "seo_article": 1
+        }
+      }
+    },
+    {
+      "player_key": "japan::hiroki-ito",
+      "player_slug": "hiroki-ito",
+      "player_name": "Hiroki Ito",
+      "team_slug": "japan",
+      "fitness_status": "green",
+      "fitness_note": "Fully fit",
+      "morale_score": 70,
+      "morale_label": "positive",
+      "tactical_risk": "low",
+      "tactical_note": "availability, caps, and rating all point toward a stable role",
+      "selection_risk": "low",
+      "selection_note": "Hiroki Ito profiles as a stable tactical option because availability, caps, and rating all point toward a stable role.",
+      "recent_signals": [
+        {
+          "id": "249e1acb46719c6a",
+          "type": "data",
+          "category": "morale",
+          "text": "Instagram pulse: Bayern Munich season wrap + Japan WC prep",
+          "sourceType": "social_post",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "happenedAt": "2026-05-25T12:00:00.000Z"
+        },
+        {
+          "id": "1043cd12dbb0f5c9",
+          "type": "training",
+          "category": "fitness",
+          "text": "Hiroki Ito is currently fully available for tournament preparation.",
+          "sourceType": "player_profile",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "30bd0236cb020627",
+          "type": "data",
+          "category": "morale",
+          "text": "Hiroki Ito's baseline mood signal sits at 65/100 (positive).",
+          "sourceType": "player_profile",
+          "sentiment": "neutral",
+          "confidence": 0.87,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        },
+        {
+          "id": "6aa529ce3b06134c",
+          "type": "data",
+          "category": "tactical",
+          "text": "Hiroki Ito profiles as a stable tactical option because availability, caps, and rating all point toward a stable role.",
+          "sourceType": "derived_rule",
+          "sentiment": "positive",
+          "confidence": 0.78,
+          "happenedAt": "2026-04-03T00:00:00.000Z"
+        }
+      ],
+      "source_signal_ids": [
+        "249e1acb46719c6a",
+        "1043cd12dbb0f5c9",
+        "30bd0236cb020627",
+        "6aa529ce3b06134c",
+        "3f2854251f553f43"
+      ],
+      "signal_count": 5,
+      "last_signal_at": "2026-05-25T12:00:00.000Z",
+      "last_updated": "2026-04-03T00:00:00.000Z",
+      "metadata": {
+        "source_count_by_type": {
+          "social_post": 1,
+          "player_profile": 2,
+          "derived_rule": 1,
+          "seo_article": 1
+        }
+      }
+    }
+  ],
+  "signal_to_intel_evidence": [
+    {
+      "player_key": "mexico::guillermo-ochoa",
+      "player_slug": "guillermo-ochoa",
+      "team_slug": "mexico",
+      "signals": [
+        {
+          "id": "ead7abaf928b97b8",
+          "player_key": "mexico::guillermo-ochoa",
+          "player_slug": "guillermo-ochoa",
+          "player_name": "Guillermo Ochoa",
+          "team_slug": "mexico",
+          "category": "fitness",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "fitness:amber:Veteran managing minor knee inflammation",
+          "summary": "Guillermo Ochoa is available but carrying a manageable fitness concern.",
+          "evidence": "Veteran managing minor knee inflammation",
+          "sentiment": "neutral",
+          "confidence": 0.92,
+          "weight": 1.35,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "fitness_status": "amber"
+          }
+        },
+        {
+          "id": "625b6ceea84a0ac0",
+          "player_key": "mexico::guillermo-ochoa",
+          "player_slug": "guillermo-ochoa",
+          "player_name": "Guillermo Ochoa",
+          "team_slug": "mexico",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "derived_rule",
+          "source_key": "selection:medium:medium:140:6.8",
+          "summary": "Guillermo Ochoa carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+          "evidence": "medical workload is being monitored; age/workload management is part of the decision",
+          "sentiment": "neutral",
+          "confidence": 0.78,
+          "weight": 1.15,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "selection_risk": "medium",
+            "tactical_risk": "medium"
+          }
+        },
+        {
+          "id": "7ba4149b7c32aa44",
+          "player_key": "mexico::guillermo-ochoa",
+          "player_slug": "guillermo-ochoa",
+          "player_name": "Guillermo Ochoa",
+          "team_slug": "mexico",
+          "category": "morale",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "sentiment:62:neutral",
+          "summary": "Guillermo Ochoa's baseline mood signal sits at 62/100 (neutral).",
+          "evidence": "sentimentScore=62; sentimentLabel=neutral",
+          "sentiment": "neutral",
+          "confidence": 0.87,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        },
+        {
+          "id": "79ab3c6a824e8270",
+          "player_key": "mexico::guillermo-ochoa",
+          "player_slug": "guillermo-ochoa",
+          "player_name": "Guillermo Ochoa",
+          "team_slug": "mexico",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "seo_article",
+          "source_key": "seo-article:714ed4220945730b",
+          "summary": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+          "evidence": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+          "sentiment": "neutral",
+          "confidence": 0.69,
+          "weight": 0.85,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        }
+      ],
+      "player_intel": {
+        "player_key": "mexico::guillermo-ochoa",
+        "player_slug": "guillermo-ochoa",
+        "player_name": "Guillermo Ochoa",
+        "team_slug": "mexico",
+        "fitness_status": "amber",
+        "fitness_note": "Veteran managing minor knee inflammation",
+        "morale_score": 62,
+        "morale_label": "neutral",
+        "tactical_risk": "medium",
+        "tactical_note": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+        "selection_risk": "medium",
+        "selection_note": "Guillermo Ochoa carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+        "recent_signals": [
+          {
+            "id": "ead7abaf928b97b8",
+            "type": "data",
+            "category": "fitness",
+            "text": "Guillermo Ochoa is available but carrying a manageable fitness concern.",
+            "sourceType": "player_profile",
+            "sentiment": "neutral",
+            "confidence": 0.92,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "625b6ceea84a0ac0",
+            "type": "data",
+            "category": "tactical",
+            "text": "Guillermo Ochoa carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+            "sourceType": "derived_rule",
+            "sentiment": "neutral",
+            "confidence": 0.78,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "7ba4149b7c32aa44",
+            "type": "data",
+            "category": "morale",
+            "text": "Guillermo Ochoa's baseline mood signal sits at 62/100 (neutral).",
+            "sourceType": "player_profile",
+            "sentiment": "neutral",
+            "confidence": 0.87,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "79ab3c6a824e8270",
+            "type": "data",
+            "category": "tactical",
+            "text": "At 40, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+            "sourceType": "seo_article",
+            "sentiment": "neutral",
+            "confidence": 0.69,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          }
+        ],
+        "source_signal_ids": [
+          "ead7abaf928b97b8",
+          "625b6ceea84a0ac0",
+          "7ba4149b7c32aa44",
+          "79ab3c6a824e8270"
+        ],
+        "signal_count": 4,
+        "last_signal_at": "2026-04-03T00:00:00.000Z",
+        "last_updated": "2026-04-03T00:00:00.000Z",
+        "metadata": {
+          "source_count_by_type": {
+            "player_profile": 2,
+            "derived_rule": 1,
+            "seo_article": 1
+          }
+        }
+      }
+    },
+    {
+      "player_key": "france::kylian-mbappe",
+      "player_slug": "kylian-mbappe",
+      "team_slug": "france",
+      "signals": [
+        {
+          "id": "55818e688134e4ca",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-28:a87e6f59fbe5c552",
+          "summary": "Instagram pulse: Training camp arrival with France squad",
+          "evidence": "Instagram on 2026-05-28 (6.8M likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-28T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "6.8M likes",
+            "buzz_score": 97,
+            "trending": true
+          }
+        },
+        {
+          "id": "1d160287c5abedc2",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "morale",
+          "type": "data",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-25:0712068c039d2e21",
+          "summary": "Instagram pulse: Season recap at Real Madrid — 38 goals",
+          "evidence": "Instagram on 2026-05-25 (5.2M likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-25T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "5.2M likes",
+            "buzz_score": 97,
+            "trending": true
+          }
+        },
+        {
+          "id": "ca4df22482679209",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "player_profile",
+          "source_key": "fitness:green:Fully fit",
+          "summary": "Kylian Mbappé is currently fully available for tournament preparation.",
+          "evidence": "Fully fit",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "fitness_status": "green"
+          }
+        },
+        {
+          "id": "a26a2a247e9d4d61",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "morale",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "sentiment:95:positive",
+          "summary": "Kylian Mbappé's baseline mood signal sits at 95/100 (positive).",
+          "evidence": "sentimentScore=95; sentimentLabel=positive",
+          "sentiment": "positive",
+          "confidence": 0.87,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        },
+        {
+          "id": "d45519bc10ba372d",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "derived_rule",
+          "source_key": "selection:low:low:82:9",
+          "summary": "Kylian Mbappé profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+          "evidence": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+          "sentiment": "positive",
+          "confidence": 0.78,
+          "weight": 0.95,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "selection_risk": "low",
+            "tactical_risk": "low"
+          }
+        },
+        {
+          "id": "8357faf427cabb12",
+          "player_key": "france::kylian-mbappe",
+          "player_slug": "kylian-mbappe",
+          "player_name": "Kylian Mbappé",
+          "team_slug": "france",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "seo_article",
+          "source_key": "seo-article:59f6b7786bb55839",
+          "summary": "Fitness is the foundation of World Cup success, and Kylian Mbappé arrives in outstanding shape.",
+          "evidence": "Fitness is the foundation of World Cup success, and Kylian Mbappé arrives in outstanding shape.",
+          "sentiment": "positive",
+          "confidence": 0.69,
+          "weight": 0.85,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        }
+      ],
+      "player_intel": {
+        "player_key": "france::kylian-mbappe",
+        "player_slug": "kylian-mbappe",
+        "player_name": "Kylian Mbappé",
+        "team_slug": "france",
+        "fitness_status": "green",
+        "fitness_note": "Fully fit Recent training/camp activity supports current availability.",
+        "morale_score": 100,
+        "morale_label": "positive",
+        "tactical_risk": "low",
+        "tactical_note": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+        "selection_risk": "low",
+        "selection_note": "Kylian Mbappé profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+        "recent_signals": [
+          {
+            "id": "55818e688134e4ca",
+            "type": "training",
+            "category": "fitness",
+            "text": "Instagram pulse: Training camp arrival with France squad",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-28T12:00:00.000Z"
+          },
+          {
+            "id": "1d160287c5abedc2",
+            "type": "data",
+            "category": "morale",
+            "text": "Instagram pulse: Season recap at Real Madrid — 38 goals",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-25T12:00:00.000Z"
+          },
+          {
+            "id": "ca4df22482679209",
+            "type": "training",
+            "category": "fitness",
+            "text": "Kylian Mbappé is currently fully available for tournament preparation.",
+            "sourceType": "player_profile",
+            "sentiment": "positive",
+            "confidence": 0.92,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "a26a2a247e9d4d61",
+            "type": "data",
+            "category": "morale",
+            "text": "Kylian Mbappé's baseline mood signal sits at 95/100 (positive).",
+            "sourceType": "player_profile",
+            "sentiment": "positive",
+            "confidence": 0.87,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          }
+        ],
+        "source_signal_ids": [
+          "55818e688134e4ca",
+          "1d160287c5abedc2",
+          "ca4df22482679209",
+          "a26a2a247e9d4d61",
+          "d45519bc10ba372d",
+          "8357faf427cabb12"
+        ],
+        "signal_count": 6,
+        "last_signal_at": "2026-05-28T12:00:00.000Z",
+        "last_updated": "2026-04-03T00:00:00.000Z",
+        "metadata": {
+          "source_count_by_type": {
+            "social_post": 2,
+            "player_profile": 2,
+            "derived_rule": 1,
+            "seo_article": 1
+          }
+        }
+      }
+    },
+    {
+      "player_key": "argentina::lionel-messi",
+      "player_slug": "lionel-messi",
+      "team_slug": "argentina",
+      "signals": [
+        {
+          "id": "45c29c3a361ee0f2",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "morale",
+          "type": "quote",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-30:0c5986318b0a4080",
+          "summary": "Instagram pulse: \"One last dance? Vamos Argentina 🇦🇷\"",
+          "evidence": "Instagram on 2026-05-30 (28M likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-30T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "28M likes",
+            "buzz_score": 98,
+            "trending": true
+          }
+        },
+        {
+          "id": "06adb08947cee486",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-20:95b2b2dc47b3f0e5",
+          "summary": "Instagram pulse: Training for final tournament appearance speculation",
+          "evidence": "Instagram on 2026-05-20 (15M likes)",
+          "sentiment": "neutral",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-20T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "15M likes",
+            "buzz_score": 98,
+            "trending": true
+          }
+        },
+        {
+          "id": "11eba9a16907f73f",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "fitness",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "fitness:amber:Veteran, managing workload carefully",
+          "summary": "Lionel Messi is available but carrying a manageable fitness concern.",
+          "evidence": "Veteran, managing workload carefully",
+          "sentiment": "neutral",
+          "confidence": 0.92,
+          "weight": 1.35,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "fitness_status": "amber"
+          }
+        },
+        {
+          "id": "ed7b1e7a3ef9244a",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "derived_rule",
+          "source_key": "selection:medium:medium:187:8.8",
+          "summary": "Lionel Messi carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+          "evidence": "medical workload is being monitored; age/workload management is part of the decision; international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+          "sentiment": "neutral",
+          "confidence": 0.78,
+          "weight": 1.15,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "selection_risk": "medium",
+            "tactical_risk": "medium"
+          }
+        },
+        {
+          "id": "ba24ed58136a988e",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "morale",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "sentiment:88:cautious",
+          "summary": "Lionel Messi's baseline mood signal sits at 88/100 (cautious).",
+          "evidence": "sentimentScore=88; sentimentLabel=cautious",
+          "sentiment": "positive",
+          "confidence": 0.87,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        },
+        {
+          "id": "a93fcfa59a293456",
+          "player_key": "argentina::lionel-messi",
+          "player_slug": "lionel-messi",
+          "player_name": "Lionel Messi",
+          "team_slug": "argentina",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "seo_article",
+          "source_key": "seo-article:447f990ca824416b",
+          "summary": "At 38, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+          "evidence": "At 38, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+          "sentiment": "neutral",
+          "confidence": 0.69,
+          "weight": 0.85,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        }
+      ],
+      "player_intel": {
+        "player_key": "argentina::lionel-messi",
+        "player_slug": "lionel-messi",
+        "player_name": "Lionel Messi",
+        "team_slug": "argentina",
+        "fitness_status": "amber",
+        "fitness_note": "Veteran, managing workload carefully",
+        "morale_score": 100,
+        "morale_label": "positive",
+        "tactical_risk": "medium",
+        "tactical_note": "At 38, he brings irreplaceable veteran wisdom—the kind of composure that steadies an entire squad under World Cup pressure.",
+        "selection_risk": "medium",
+        "selection_note": "Lionel Messi carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+        "recent_signals": [
+          {
+            "id": "45c29c3a361ee0f2",
+            "type": "quote",
+            "category": "morale",
+            "text": "Instagram pulse: \"One last dance? Vamos Argentina 🇦🇷\"",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-30T12:00:00.000Z"
+          },
+          {
+            "id": "06adb08947cee486",
+            "type": "training",
+            "category": "fitness",
+            "text": "Instagram pulse: Training for final tournament appearance speculation",
+            "sourceType": "social_post",
+            "sentiment": "neutral",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-20T12:00:00.000Z"
+          },
+          {
+            "id": "11eba9a16907f73f",
+            "type": "data",
+            "category": "fitness",
+            "text": "Lionel Messi is available but carrying a manageable fitness concern.",
+            "sourceType": "player_profile",
+            "sentiment": "neutral",
+            "confidence": 0.92,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "ed7b1e7a3ef9244a",
+            "type": "data",
+            "category": "tactical",
+            "text": "Lionel Messi carries manageable lineup risk because medical workload is being monitored; age/workload management is part of the decision.",
+            "sourceType": "derived_rule",
+            "sentiment": "neutral",
+            "confidence": 0.78,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          }
+        ],
+        "source_signal_ids": [
+          "45c29c3a361ee0f2",
+          "06adb08947cee486",
+          "11eba9a16907f73f",
+          "ed7b1e7a3ef9244a",
+          "ba24ed58136a988e",
+          "a93fcfa59a293456"
+        ],
+        "signal_count": 6,
+        "last_signal_at": "2026-05-30T12:00:00.000Z",
+        "last_updated": "2026-04-03T00:00:00.000Z",
+        "metadata": {
+          "source_count_by_type": {
+            "social_post": 2,
+            "player_profile": 2,
+            "derived_rule": 1,
+            "seo_article": 1
+          }
+        }
+      }
+    },
+    {
+      "player_key": "usa::christian-pulisic",
+      "player_slug": "christian-pulisic",
+      "team_slug": "usa",
+      "signals": [
+        {
+          "id": "06f421a0ca541f94",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "morale",
+          "type": "quote",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-29:9fbae18c48349c5a",
+          "summary": "Instagram pulse: \"Home World Cup. This is what we dreamed of. 🇺🇸\"",
+          "evidence": "Instagram on 2026-05-29 (1.8M likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-29T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "1.8M likes",
+            "buzz_score": 85,
+            "trending": true
+          }
+        },
+        {
+          "id": "38989ca5c5fc1010",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "morale",
+          "type": "data",
+          "source_type": "social_post",
+          "source_key": "social:Twitter:2026-05-22:ba8996b70dd81ef6",
+          "summary": "Twitter pulse: USMNT squad reveal reaction",
+          "evidence": "Twitter on 2026-05-22 (92K likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 1.05,
+          "happened_at": "2026-05-22T12:00:00.000Z",
+          "metadata": {
+            "platform": "Twitter",
+            "engagement": "92K likes",
+            "buzz_score": 85,
+            "trending": true
+          }
+        },
+        {
+          "id": "4fcb3357bbf10120",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "player_profile",
+          "source_key": "fitness:green:Fully fit",
+          "summary": "Christian Pulisic is currently fully available for tournament preparation.",
+          "evidence": "Fully fit",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "fitness_status": "green"
+          }
+        },
+        {
+          "id": "4285f5081086b1c2",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "morale",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "sentiment:90:positive",
+          "summary": "Christian Pulisic's baseline mood signal sits at 90/100 (positive).",
+          "evidence": "sentimentScore=90; sentimentLabel=positive",
+          "sentiment": "positive",
+          "confidence": 0.87,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        },
+        {
+          "id": "5dbe4fd6aa4bf633",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "derived_rule",
+          "source_key": "selection:low:low:68:8",
+          "summary": "Christian Pulisic profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+          "evidence": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+          "sentiment": "positive",
+          "confidence": 0.78,
+          "weight": 0.95,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "selection_risk": "low",
+            "tactical_risk": "low"
+          }
+        },
+        {
+          "id": "41c5e1cf7e690f14",
+          "player_key": "usa::christian-pulisic",
+          "player_slug": "christian-pulisic",
+          "player_name": "Christian Pulisic",
+          "team_slug": "usa",
+          "category": "morale",
+          "type": "data",
+          "source_type": "seo_article",
+          "source_key": "seo-article:318b78ea43eafcdd",
+          "summary": "Christian Pulisic is USA's field marshal heading into the 2026 World Cup.",
+          "evidence": "Christian Pulisic is USA's field marshal heading into the 2026 World Cup.",
+          "sentiment": "neutral",
+          "confidence": 0.69,
+          "weight": 0.85,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        }
+      ],
+      "player_intel": {
+        "player_key": "usa::christian-pulisic",
+        "player_slug": "christian-pulisic",
+        "player_name": "Christian Pulisic",
+        "team_slug": "usa",
+        "fitness_status": "green",
+        "fitness_note": "Fully fit",
+        "morale_score": 100,
+        "morale_label": "positive",
+        "tactical_risk": "low",
+        "tactical_note": "international experience points to a trusted squad role; recent performance level supports a stable tactical role",
+        "selection_risk": "low",
+        "selection_note": "Christian Pulisic profiles as a stable tactical option because international experience points to a trusted squad role; recent performance level supports a stable tactical role.",
+        "recent_signals": [
+          {
+            "id": "06f421a0ca541f94",
+            "type": "quote",
+            "category": "morale",
+            "text": "Instagram pulse: \"Home World Cup. This is what we dreamed of. 🇺🇸\"",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-29T12:00:00.000Z"
+          },
+          {
+            "id": "38989ca5c5fc1010",
+            "type": "data",
+            "category": "morale",
+            "text": "Twitter pulse: USMNT squad reveal reaction",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-22T12:00:00.000Z"
+          },
+          {
+            "id": "4fcb3357bbf10120",
+            "type": "training",
+            "category": "fitness",
+            "text": "Christian Pulisic is currently fully available for tournament preparation.",
+            "sourceType": "player_profile",
+            "sentiment": "positive",
+            "confidence": 0.92,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "4285f5081086b1c2",
+            "type": "data",
+            "category": "morale",
+            "text": "Christian Pulisic's baseline mood signal sits at 90/100 (positive).",
+            "sourceType": "player_profile",
+            "sentiment": "positive",
+            "confidence": 0.87,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          }
+        ],
+        "source_signal_ids": [
+          "06f421a0ca541f94",
+          "38989ca5c5fc1010",
+          "4fcb3357bbf10120",
+          "4285f5081086b1c2",
+          "5dbe4fd6aa4bf633",
+          "41c5e1cf7e690f14"
+        ],
+        "signal_count": 6,
+        "last_signal_at": "2026-05-29T12:00:00.000Z",
+        "last_updated": "2026-04-03T00:00:00.000Z",
+        "metadata": {
+          "source_count_by_type": {
+            "social_post": 2,
+            "player_profile": 2,
+            "derived_rule": 1,
+            "seo_article": 1
+          }
+        }
+      }
+    },
+    {
+      "player_key": "japan::hiroki-ito",
+      "player_slug": "hiroki-ito",
+      "team_slug": "japan",
+      "signals": [
+        {
+          "id": "249e1acb46719c6a",
+          "player_key": "japan::hiroki-ito",
+          "player_slug": "hiroki-ito",
+          "player_name": "Hiroki Ito",
+          "team_slug": "japan",
+          "category": "morale",
+          "type": "data",
+          "source_type": "social_post",
+          "source_key": "social:Instagram:2026-05-25:52950a30544b6284",
+          "summary": "Instagram pulse: Bayern Munich season wrap + Japan WC prep",
+          "evidence": "Instagram on 2026-05-25 (62K likes)",
+          "sentiment": "positive",
+          "confidence": 0.73,
+          "weight": 0.9,
+          "happened_at": "2026-05-25T12:00:00.000Z",
+          "metadata": {
+            "platform": "Instagram",
+            "engagement": "62K likes",
+            "buzz_score": 58,
+            "trending": false
+          }
+        },
+        {
+          "id": "1043cd12dbb0f5c9",
+          "player_key": "japan::hiroki-ito",
+          "player_slug": "hiroki-ito",
+          "player_name": "Hiroki Ito",
+          "team_slug": "japan",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "player_profile",
+          "source_key": "fitness:green:Fully fit",
+          "summary": "Hiroki Ito is currently fully available for tournament preparation.",
+          "evidence": "Fully fit",
+          "sentiment": "positive",
+          "confidence": 0.92,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "fitness_status": "green"
+          }
+        },
+        {
+          "id": "30bd0236cb020627",
+          "player_key": "japan::hiroki-ito",
+          "player_slug": "hiroki-ito",
+          "player_name": "Hiroki Ito",
+          "team_slug": "japan",
+          "category": "morale",
+          "type": "data",
+          "source_type": "player_profile",
+          "source_key": "sentiment:65:positive",
+          "summary": "Hiroki Ito's baseline mood signal sits at 65/100 (positive).",
+          "evidence": "sentimentScore=65; sentimentLabel=positive",
+          "sentiment": "neutral",
+          "confidence": 0.87,
+          "weight": 1,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        },
+        {
+          "id": "6aa529ce3b06134c",
+          "player_key": "japan::hiroki-ito",
+          "player_slug": "hiroki-ito",
+          "player_name": "Hiroki Ito",
+          "team_slug": "japan",
+          "category": "tactical",
+          "type": "data",
+          "source_type": "derived_rule",
+          "source_key": "selection:low:low:15:7",
+          "summary": "Hiroki Ito profiles as a stable tactical option because availability, caps, and rating all point toward a stable role.",
+          "evidence": "availability, caps, and rating all point toward a stable role",
+          "sentiment": "positive",
+          "confidence": 0.78,
+          "weight": 0.95,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {
+            "selection_risk": "low",
+            "tactical_risk": "low"
+          }
+        },
+        {
+          "id": "3f2854251f553f43",
+          "player_key": "japan::hiroki-ito",
+          "player_slug": "hiroki-ito",
+          "player_name": "Hiroki Ito",
+          "team_slug": "japan",
+          "category": "fitness",
+          "type": "training",
+          "source_type": "seo_article",
+          "source_key": "seo-article:63810a5d5cca00b0",
+          "summary": "Fitness is the foundation of World Cup success, and Hiroki Ito arrives in outstanding shape.",
+          "evidence": "Fitness is the foundation of World Cup success, and Hiroki Ito arrives in outstanding shape.",
+          "sentiment": "positive",
+          "confidence": 0.69,
+          "weight": 0.85,
+          "happened_at": "2026-04-03T00:00:00.000Z",
+          "metadata": {}
+        }
+      ],
+      "player_intel": {
+        "player_key": "japan::hiroki-ito",
+        "player_slug": "hiroki-ito",
+        "player_name": "Hiroki Ito",
+        "team_slug": "japan",
+        "fitness_status": "green",
+        "fitness_note": "Fully fit",
+        "morale_score": 70,
+        "morale_label": "positive",
+        "tactical_risk": "low",
+        "tactical_note": "availability, caps, and rating all point toward a stable role",
+        "selection_risk": "low",
+        "selection_note": "Hiroki Ito profiles as a stable tactical option because availability, caps, and rating all point toward a stable role.",
+        "recent_signals": [
+          {
+            "id": "249e1acb46719c6a",
+            "type": "data",
+            "category": "morale",
+            "text": "Instagram pulse: Bayern Munich season wrap + Japan WC prep",
+            "sourceType": "social_post",
+            "sentiment": "positive",
+            "confidence": 0.73,
+            "happenedAt": "2026-05-25T12:00:00.000Z"
+          },
+          {
+            "id": "1043cd12dbb0f5c9",
+            "type": "training",
+            "category": "fitness",
+            "text": "Hiroki Ito is currently fully available for tournament preparation.",
+            "sourceType": "player_profile",
+            "sentiment": "positive",
+            "confidence": 0.92,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "30bd0236cb020627",
+            "type": "data",
+            "category": "morale",
+            "text": "Hiroki Ito's baseline mood signal sits at 65/100 (positive).",
+            "sourceType": "player_profile",
+            "sentiment": "neutral",
+            "confidence": 0.87,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          },
+          {
+            "id": "6aa529ce3b06134c",
+            "type": "data",
+            "category": "tactical",
+            "text": "Hiroki Ito profiles as a stable tactical option because availability, caps, and rating all point toward a stable role.",
+            "sourceType": "derived_rule",
+            "sentiment": "positive",
+            "confidence": 0.78,
+            "happenedAt": "2026-04-03T00:00:00.000Z"
+          }
+        ],
+        "source_signal_ids": [
+          "249e1acb46719c6a",
+          "1043cd12dbb0f5c9",
+          "30bd0236cb020627",
+          "6aa529ce3b06134c",
+          "3f2854251f553f43"
+        ],
+        "signal_count": 5,
+        "last_signal_at": "2026-05-25T12:00:00.000Z",
+        "last_updated": "2026-04-03T00:00:00.000Z",
+        "metadata": {
+          "source_count_by_type": {
+            "social_post": 1,
+            "player_profile": 2,
+            "derived_rule": 1,
+            "seo_article": 1
+          }
+        }
+      }
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useCallback, useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useGeo } from '@/hooks/useGeo'
 import {
   type AffiliatePartner,
@@ -48,9 +50,11 @@ function PartnerLogo({ partner }: { partner: AffiliatePartner }) {
       style={{ backgroundColor: `${partner.color}20` }}
     >
       {partner.logo && !imgError ? (
-        <img
+        <Image
           src={partner.logo}
           alt={partner.name}
+          width={32}
+          height={32}
           className="w-full h-full object-contain p-1"
           onError={() => setImgError(true)}
         />

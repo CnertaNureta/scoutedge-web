@@ -5,18 +5,7 @@ import type { Team, Player, MatchFixture, WorldCupHistory, Venue, TeamTimezone, 
 import worldCupHistoryData from '@/data/world-cup-history.json'
 import venuesData from '@/data/venues.json'
 import timezoneData from '@/data/timezone-adjustments.json'
-
-type WorldCupHistoryEntry = Omit<
-  WorldCupHistory,
-  'totalAppearances' | 'bestFinish' | 'firstAppearance' | 'titlesWon' | 'allTimeRecord'
-> & {
-  totalAppearances: number | null
-  bestFinish: string | null
-  firstAppearance: number | null
-  titlesWon: number | null
-  allTimeRecord: WorldCupHistory['allTimeRecord'] | null
-  note?: string
-}
+import { mergePlayerWithIntel } from '@/lib/player-intel-service'
 
 export function getAllTeams(): Team[] {
   return TEAMS
@@ -41,19 +30,22 @@ export function getFixturesByGroup(group: string): MatchFixture[] {
 }
 
 export function getPlayersByTeam(teamSlug: string): Player[] {
-  return PLAYERS.filter((p) => p.teamSlug === teamSlug)
+  return PLAYERS
+    .filter((p) => p.teamSlug === teamSlug)
+    .map(mergePlayerWithIntel)
 }
 
 export function getPlayerBySlug(teamSlug: string, playerSlug: string): Player | undefined {
-  return PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === playerSlug)
+  const player = PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === playerSlug)
+  return player ? mergePlayerWithIntel(player) : undefined
 }
 
 export function getAllPlayers(): Player[] {
-  return PLAYERS
+  return PLAYERS.map(mergePlayerWithIntel)
 }
 
 export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefined {
-  const teams = (worldCupHistoryData as unknown as { teams: Record<string, WorldCupHistoryEntry> }).teams
+  const teams = (worldCupHistoryData as any).teams
   const entry = teams[teamSlug]
   if (!entry || entry.totalAppearances === null) return undefined
   return entry as WorldCupHistory
