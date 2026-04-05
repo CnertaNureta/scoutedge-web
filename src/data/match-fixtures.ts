@@ -1,4 +1,4 @@
-import type { MatchFixture } from "@/lib/types"
+import type { MatchFixture } from '../lib/types'
 
 /**
  * World Cup 2026 group-stage fixtures.

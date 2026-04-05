@@ -1,3 +1,5 @@
+import { getCanonicalTeamName, resolveTeamSlug, teamSlugToCommonName } from '@/lib/team-aliases'
+
 /**
  * Live Data Service — fetches real World Cup 2026 data from TheSportsDB API.
  *
@@ -122,27 +124,21 @@ export interface LiveTeamDetails {
 
 /** Get real team details from the cached live data */
 export function getLiveTeamDetails(teamName: string): LiveTeamDetails | null {
-  const details = (liveCache.teamDetails as Record<string, LiveTeamDetails>)[teamName]
-  return details || null
-}
+  const teamDetails = liveCache.teamDetails as Record<string, LiveTeamDetails>
+  const slug = resolveTeamSlug(teamName)
+  const candidates = slug
+    ? [teamName, teamSlugToCommonName(slug), getCanonicalTeamName(slug)]
+    : [teamName]
 
-/** Team name mapping: our slugs → TheSportsDB names */
-const TEAM_NAME_MAP: Record<string, string> = {
-  usa: 'USA',
-  'south-korea': 'South Korea',
-  'saudi-arabia': 'Saudi Arabia',
-  'costa-rica': 'Costa Rica',
-  'ivory-coast': 'Ivory Coast',
-  'south-africa': 'South Africa',
-  'new-zealand': 'New Zealand',
-  'cape-verde': 'Cape Verde',
+  for (const candidate of candidates) {
+    const details = teamDetails[candidate]
+    if (details) return details
+  }
+
+  return null
 }
 
 /** Convert our team slug to display name for API matching */
 export function slugToApiName(slug: string): string {
-  if (TEAM_NAME_MAP[slug]) return TEAM_NAME_MAP[slug]
-  return slug
-    .split('-')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ')
+  return teamSlugToCommonName(slug)
 }
