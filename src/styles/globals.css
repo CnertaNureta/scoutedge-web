@@ -156,6 +156,28 @@
   .diagonal-accent {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
   }
+
+  /* ── Dashboard form components ── */
+  .btn-primary {
+    @apply bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl hover:bg-primary-fixed transition-colors disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-outline-variant text-on-surface-variant font-label text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl hover:bg-white/[0.04] transition-colors;
+  }
+  .btn-destructive {
+    @apply bg-secondary text-on-secondary font-label text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-xl hover:brightness-110 transition-all disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .input-field {
+    @apply w-full bg-surface-container-low border border-outline-variant rounded-xl px-4 py-3 font-body text-sm text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition-colors;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer utilities {
@@ -192,14 +214,33 @@
   }
 }
 
+/* Focus-visible — prominent ring for keyboard users, invisible for mouse */
+@layer base {
+  :focus-visible {
+    outline: 2px solid #a0d494;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  /* Links and inline elements get a tighter offset */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline-offset: 3px;
+  }
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
   .motion-blur-layer {
     backdrop-filter: none;
