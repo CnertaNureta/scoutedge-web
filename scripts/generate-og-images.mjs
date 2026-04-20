@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * OG Image Generator for ScoutEdge
+ * OG Image Generator for WorldCapIQ
  *
  * Generates 1200×630 social sharing cards for teams, players, and matches.
  * Uses satori (JSX → SVG) + sharp (SVG → PNG).
@@ -471,11 +471,11 @@ function footer() {
             style: { display: 'flex', alignItems: 'center', gap: 8 },
             children: [
               { type: 'div', props: { style: { width: 16, height: 16, background: COLORS.primary, borderRadius: 3 } } },
-              { type: 'span', props: { style: { fontFamily: 'Plus Jakarta Sans', fontSize: 12, fontWeight: 700, color: COLORS.text, textTransform: 'uppercase', letterSpacing: '0.1em' }, children: 'SCOUTEDGE' } },
+              { type: 'span', props: { style: { fontFamily: 'Plus Jakarta Sans', fontSize: 12, fontWeight: 700, color: COLORS.text, textTransform: 'uppercase', letterSpacing: '0.1em' }, children: 'WORLDCAPIQ' } },
             ],
           },
         },
-        { type: 'span', props: { style: { fontFamily: 'Manrope', fontSize: 12, color: COLORS.textMuted }, children: 'scoutedge.ai · World Cup 2026' } },
+        { type: 'span', props: { style: { fontFamily: 'Manrope', fontSize: 12, color: COLORS.textMuted }, children: 'worldcapiq.com · World Cup 2026' } },
       ],
     },
   }

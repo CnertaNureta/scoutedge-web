@@ -91,7 +91,7 @@ export interface LocaleTranslations {
 
 export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   es: {
-    metaTitle: 'Copa del Mundo 2026 — Predicciones IA, Análisis de Plantillas y Pronósticos | ScoutEdge',
+    metaTitle: 'Copa del Mundo 2026 — Predicciones IA, Análisis de Plantillas y Pronósticos | KickOracle',
     metaDescription: 'Predicciones impulsadas por IA y análisis de las 48 selecciones del Mundial 2026. Índices de química, probabilidades de victoria e informes de jugadores en EE.UU., Canadá y México.',
     heroDateRange: '11 de junio — 19 de julio, 2026',
     heroTitle1: 'COPA DEL',
@@ -137,7 +137,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   zh: {
-    metaTitle: '2026世界杯 — AI预测、阵容分析与比赛前瞻 | ScoutEdge',
+    metaTitle: '2026世界杯 — AI预测、阵容分析与比赛前瞻 | KickOracle',
     metaDescription: 'AI驱动的2026世界杯48支球队预测与分析。化学指数、胜率预测、球员球探报告，覆盖美国、加拿大和墨西哥三国赛事。',
     heroDateRange: '2026年6月11日 — 7月19日',
     heroTitle1: '2026',
@@ -183,7 +183,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   pt: {
-    metaTitle: 'Copa do Mundo 2026 — Previsões IA, Análise de Elencos e Prognósticos | ScoutEdge',
+    metaTitle: 'Copa do Mundo 2026 — Previsões IA, Análise de Elencos e Prognósticos | KickOracle',
     metaDescription: 'Previsões e análises com IA para todas as 48 seleções da Copa do Mundo 2026. Índices de entrosamento, probabilidades de vitória e relatórios de jogadores nos EUA, Canadá e México.',
     heroDateRange: '11 de junho — 19 de julho, 2026',
     heroTitle1: 'COPA DO',
@@ -229,7 +229,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   ar: {
-    metaTitle: 'كأس العالم 2026 — توقعات الذكاء الاصطناعي وتحليل الفرق | ScoutEdge',
+    metaTitle: 'كأس العالم 2026 — توقعات الذكاء الاصطناعي وتحليل الفرق | KickOracle',
     metaDescription: 'توقعات وتحليلات مدعومة بالذكاء الاصطناعي لجميع المنتخبات الـ48 في كأس العالم 2026. مؤشرات التناغم واحتمالات الفوز وتقارير اللاعبين.',
     heroDateRange: '11 يونيو — 19 يوليو، 2026',
     heroTitle1: 'كأس',
@@ -275,7 +275,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   fr: {
-    metaTitle: 'Coupe du Monde 2026 — Prédictions IA, Analyse des Effectifs et Pronostics | ScoutEdge',
+    metaTitle: 'Coupe du Monde 2026 — Prédictions IA, Analyse des Effectifs et Pronostics | KickOracle',
     metaDescription: 'Prédictions et analyses par IA des 48 équipes de la Coupe du Monde 2026. Indices de cohésion, probabilités de victoire et rapports de joueurs aux USA, Canada et Mexique.',
     heroDateRange: '11 juin — 19 juillet 2026',
     heroTitle1: 'COUPE DU',
@@ -321,7 +321,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   ja: {
-    metaTitle: '2026 FIFAワールドカップ — AI予測、チーム分析＆試合プレビュー | ScoutEdge',
+    metaTitle: '2026 FIFAワールドカップ — AI予測、チーム分析＆試合プレビュー | KickOracle',
     metaDescription: '2026年ワールドカップ出場48チームのAI予測と分析。ケミストリー指数、勝率予測、選手スカウティングレポート。アメリカ・カナダ・メキシコ開催。',
     heroDateRange: '2026年6月11日 — 7月19日',
     heroTitle1: 'ワールド',
@@ -367,7 +367,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   ko: {
-    metaTitle: '2026 FIFA 월드컵 — AI 예측, 스쿼드 분석 & 경기 프리뷰 | ScoutEdge',
+    metaTitle: '2026 FIFA 월드컵 — AI 예측, 스쿼드 분석 & 경기 프리뷰 | KickOracle',
     metaDescription: '2026 월드컵 48개 대표팀의 AI 예측과 분석. 케미스트리 지수, 승률 예측, 선수 스카우팅 리포트. 미국·캐나다·멕시코 개최.',
     heroDateRange: '2026년 6월 11일 — 7월 19일',
     heroTitle1: 'FIFA',
@@ -413,7 +413,7 @@ export const TRANSLATIONS: Record<Locale, LocaleTranslations> = {
   },
 
   de: {
-    metaTitle: 'WM 2026 — KI-Vorhersagen, Kaderanalyse & Spielvorschauen | ScoutEdge',
+    metaTitle: 'WM 2026 — KI-Vorhersagen, Kaderanalyse & Spielvorschauen | KickOracle',
     metaDescription: 'KI-gestützte Vorhersagen und Analysen für alle 48 Teams der WM 2026. Chemie-Indizes, Siegwahrscheinlichkeiten und Spielerberichte in USA, Kanada und Mexiko.',
     heroDateRange: '11. Juni — 19. Juli 2026',
     heroTitle1: 'FUSSBALL',

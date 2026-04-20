@@ -1,13 +1,63 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+const ALLOWED_API_ORIGINS = new Set(
+  [
+    process.env.NEXT_PUBLIC_APP_URL,
+    'https://kickoracle.com',
+    'https://www.scoutedge.io',
+    'https://kickoracle.com',
+    'https://www.kickoracle.com',
+  ].filter(Boolean),
+)
+
+const CSP_DIRECTIVES = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.redoc.ly https://js.stripe.com https://www.googletagmanager.com",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "img-src 'self' data: blob: https://images.unsplash.com https://upload.wikimedia.org https://*.thesportsdb.com https://www.googletagmanager.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "connect-src 'self' https://*.supabase.co https://api.stripe.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+  "frame-src https://js.stripe.com https://checkout.stripe.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+].join('; ')
+
+function addSecurityHeaders(response: NextResponse): NextResponse {
+  response.headers.set('Content-Security-Policy', CSP_DIRECTIVES)
+  response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
+  response.headers.set('X-Content-Type-Options', 'nosniff')
+  response.headers.set('X-Frame-Options', 'DENY')
+  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin')
+  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
+  return response
+}
+
 export function middleware(req: NextRequest) {
-  // Allow Stripe webhooks through without any auth checks
   if (req.nextUrl.pathname.startsWith('/api/webhooks/')) {
-    return NextResponse.next()
+    return addSecurityHeaders(NextResponse.next())
   }
 
-  return NextResponse.next()
+  if (req.nextUrl.pathname.startsWith('/api/v1/')) {
+    const origin = req.headers.get('origin')
+    const allowedOrigin = origin && ALLOWED_API_ORIGINS.has(origin) ? origin : null
+
+    if (req.method === 'OPTIONS') {
+      const preflight = new NextResponse(null, { status: 204 })
+      preflight.headers.set('Access-Control-Allow-Methods', 'GET, OPTIONS')
+      preflight.headers.set('Access-Control-Allow-Headers', 'X-API-Key, Content-Type')
+      preflight.headers.set('Access-Control-Max-Age', '86400')
+      if (allowedOrigin) preflight.headers.set('Access-Control-Allow-Origin', allowedOrigin)
+      return addSecurityHeaders(preflight)
+    }
+
+    const response = addSecurityHeaders(NextResponse.next())
+    if (allowedOrigin) response.headers.set('Access-Control-Allow-Origin', allowedOrigin)
+    response.headers.set('Access-Control-Expose-Headers', 'X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset')
+    return response
+  }
+
+  return addSecurityHeaders(NextResponse.next())
 }
 
 export const config = {

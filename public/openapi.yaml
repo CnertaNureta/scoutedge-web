@@ -1,0 +1,1130 @@
+openapi: 3.1.0
+info:
+  title: ScoutEdge B2B Data API
+  version: "1.0"
+  description: |
+    Real-time World Cup 2026 intelligence — matches, predictions, signals,
+    odds, value bets, team chemistry, and player intel.
+
+    ## Authentication
+
+    All requests require an API key passed via the `X-API-Key` header.
+
+    ```
+    X-API-Key: se_live_abc123...
+    ```
+
+    Keys are provisioned per-organization. Contact sales@scoutedge.com to
+    obtain a key or upgrade your tier.
+
+    ## Tiers
+
+    | Tier | Endpoints | Rate Limit |
+    |------|-----------|------------|
+    | **Basic** | matches, standings, predictions, teams | Per plan |
+    | **Advanced** | All Basic + odds, signals, value-bets, players, chemistry | Per plan |
+    | **Event** | All Advanced + real-time websocket (coming soon) | Per plan |
+    | **White Label** | Full platform embed | Custom |
+
+    ## Rate Limiting
+
+    Every response includes rate-limit headers:
+
+    | Header | Description |
+    |--------|-------------|
+    | `X-RateLimit-Limit` | Max requests in current window |
+    | `X-RateLimit-Remaining` | Requests remaining |
+    | `X-RateLimit-Reset` | ISO 8601 timestamp when window resets |
+    | `Retry-After` | Seconds to wait (only on 429) |
+
+    Both per-minute and per-month limits apply. When either is exceeded the
+    API responds with `429 Too Many Requests`.
+
+    > **v1.0 note:** Per-minute rate limits are currently enforced **per serverless instance**.
+    > A customer routed across multiple instances may see an effective ceiling higher than the
+    > documented per-minute quota. Per-month quotas are enforced globally and remain exact.
+    > Distributed per-minute enforcement ships in **v1.1**; no API contract changes are expected.
+
+    ## Response Envelope
+
+    All responses follow a consistent JSON envelope:
+
+    ```json
+    {
+      "status": "ok",
+      "data": [ ... ],
+      "meta": { "total": 48, "page": 1, "limit": 20 }
+    }
+    ```
+
+    Error responses:
+
+    ```json
+    {
+      "status": "error",
+      "data": null,
+      "error": "Invalid or expired API key"
+    }
+    ```
+
+    ## Pagination
+
+    List endpoints accept `page` (1-based) and `limit` (1–100, default 20).
+
+    ## Versioning
+
+    The current version is **v1**. All endpoints are prefixed with `/api/v1/`.
+    Breaking changes will be introduced under a new version prefix.
+  contact:
+    name: ScoutEdge API Support
+    email: api@scoutedge.com
+  license:
+    name: Proprietary
+servers:
+  - url: https://scoutedge.com/api/v1
+    description: Production
+  - url: http://localhost:3000/api/v1
+    description: Local development
+
+security:
+  - ApiKeyAuth: []
+
+tags:
+  - name: Matches
+    description: World Cup 2026 match fixtures and results
+  - name: Standings
+    description: Group stage standings
+  - name: Teams
+    description: National team profiles and chemistry
+  - name: Players
+    description: Player profiles and intel (Advanced tier)
+  - name: Predictions
+    description: AI-generated win probabilities
+  - name: Odds
+    description: Bookmaker odds snapshots (Advanced tier)
+  - name: Signals
+    description: AI-extracted intelligence signals (Advanced tier)
+  - name: Value Bets
+    description: Identified betting value edges (Advanced tier)
+
+paths:
+  /matches:
+    get:
+      operationId: listMatches
+      summary: List matches
+      description: Returns a paginated list of World Cup 2026 matches with optional filters.
+      tags: [Matches]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/matches?group_code=A&limit=10"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/matches",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"group_code": "A", "limit": 10},
+            )
+            matches = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/matches?group_code=A&limit=10",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: matches } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: group_code
+          in: query
+          schema: { type: string, example: "A" }
+          description: Filter by group letter (A–L)
+        - name: match_status
+          in: query
+          schema: { type: string, enum: [scheduled, live, completed, postponed, cancelled], example: "scheduled" }
+          description: Filter by match status
+        - name: date
+          in: query
+          schema: { type: string, format: date, example: "2026-06-11" }
+          description: Filter by match date (YYYY-MM-DD)
+        - name: team_id
+          in: query
+          schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+          description: Filter by team ID (home or away)
+      responses:
+        "200":
+          description: Paginated match list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+        "500": { $ref: '#/components/responses/ServerError' }
+
+  /matches/{matchId}:
+    get:
+      operationId: getMatch
+      summary: Get match by ID
+      description: Returns a single match with home/away team details.
+      tags: [Matches]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/matches/550e8400-e29b-41d4-a716-446655440000"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/matches/550e8400-e29b-41d4-a716-446655440000",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+            )
+            match = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/matches/550e8400-e29b-41d4-a716-446655440000",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: match } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/matchId'
+      responses:
+        "200":
+          description: Match detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MatchDetailResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /standings:
+    get:
+      operationId: listStandings
+      summary: List group standings
+      description: Returns current group standings, optionally filtered by group.
+      tags: [Standings]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/standings?group_code=A"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/standings",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"group_code": "A"},
+            )
+            standings = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/standings?group_code=A",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: standings } = await res.json();
+      parameters:
+        - name: group_code
+          in: query
+          schema: { type: string, example: "A" }
+          description: Filter by group letter (A–L)
+      responses:
+        "200":
+          description: Standings list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StandingsListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /teams:
+    get:
+      operationId: listTeams
+      summary: List teams
+      description: Returns a paginated list of all 48 World Cup 2026 teams.
+      tags: [Teams]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/teams?sort=fifa_rank&limit=10"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/teams",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"sort": "fifa_rank", "limit": 10},
+            )
+            teams = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/teams?sort=fifa_rank&limit=10",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: teams } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: group_code
+          in: query
+          schema: { type: string, example: "B" }
+          description: Filter by group letter
+        - name: confederation
+          in: query
+          schema: { type: string, example: "CONMEBOL" }
+          description: Filter by confederation
+        - name: sort
+          in: query
+          schema: { type: string, enum: [name, fifa_rank, confederation, group_code, elo_rating], default: name }
+          description: Sort field
+      responses:
+        "200":
+          description: Paginated team list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /teams/{teamId}:
+    get:
+      operationId: getTeam
+      summary: Get team by ID
+      description: Returns a single team with expanded stats.
+      tags: [Teams]
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+      responses:
+        "200":
+          description: Team detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamDetailResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /teams/{teamId}/chemistry:
+    get:
+      operationId: getTeamChemistry
+      summary: Get team chemistry
+      description: |
+        Returns AI-computed chemistry metrics for a team.
+        **Requires Advanced tier or above.**
+      tags: [Teams]
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+      responses:
+        "200":
+          description: Team chemistry data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChemistryResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /players:
+    get:
+      operationId: listPlayers
+      summary: List players
+      description: |
+        Returns a paginated list of players with intel data.
+        **Requires Advanced tier or above.**
+      tags: [Players]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/players?team_id=550e8400-e29b-41d4-a716-446655440000&position=Forward"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/players",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"team_id": "550e8400-e29b-41d4-a716-446655440000", "position": "Forward"},
+            )
+            players = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/players?team_id=550e8400-e29b-41d4-a716-446655440000&position=Forward",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: players } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: team_id
+          in: query
+          schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+          description: Filter by team ID
+        - name: position
+          in: query
+          schema: { type: string, example: "Forward" }
+          description: Filter by position
+        - name: fitness_status
+          in: query
+          schema: { type: string, enum: [green, amber, red, unknown] }
+          description: Filter by fitness status
+      responses:
+        "200":
+          description: Paginated player list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /players/{playerId}:
+    get:
+      operationId: getPlayer
+      summary: Get player by ID
+      description: |
+        Returns a single player with full intel and recent signals.
+        **Requires Advanced tier or above.**
+      tags: [Players]
+      parameters:
+        - $ref: '#/components/parameters/playerId'
+      responses:
+        "200":
+          description: Player detail with signals
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerDetailResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /predictions:
+    get:
+      operationId: listPredictions
+      summary: List predictions
+      description: Returns AI-generated match predictions with win probabilities.
+      tags: [Predictions]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/predictions?date=2026-06-15"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/predictions",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"date": "2026-06-15"},
+            )
+            predictions = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/predictions?date=2026-06-15",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: predictions } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: date
+          in: query
+          schema: { type: string, format: date, example: "2026-06-15" }
+          description: Filter by match date (YYYY-MM-DD)
+        - name: team_id
+          in: query
+          schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440001" }
+          description: Filter by team ID
+      responses:
+        "200":
+          description: Paginated prediction list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /predictions/{matchId}:
+    get:
+      operationId: getPrediction
+      summary: Get prediction for a match
+      description: Returns the AI prediction for a specific match.
+      tags: [Predictions]
+      parameters:
+        - $ref: '#/components/parameters/matchId'
+      responses:
+        "200":
+          description: Match prediction
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionDetailResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /odds:
+    get:
+      operationId: listOdds
+      summary: List odds snapshots
+      description: |
+        Returns paginated bookmaker odds snapshots.
+        **Requires Advanced tier or above.**
+      tags: [Odds]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/odds?market=1x2&bookmaker=bet365"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/odds",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"market": "1x2", "bookmaker": "bet365"},
+            )
+            odds = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/odds?market=1x2&bookmaker=bet365",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: odds } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: market
+          in: query
+          schema: { type: string, example: "1x2" }
+          description: Filter by betting market
+        - name: team_id
+          in: query
+          schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440002" }
+          description: Filter by team ID
+        - name: bookmaker
+          in: query
+          schema: { type: string, example: "bet365" }
+          description: Filter by bookmaker name
+      responses:
+        "200":
+          description: Paginated odds list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OddsListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /odds/{matchId}:
+    get:
+      operationId: getMatchOdds
+      summary: Get odds for a match
+      description: |
+        Returns all odds snapshots for a specific match.
+        **Requires Advanced tier or above.**
+      tags: [Odds]
+      parameters:
+        - $ref: '#/components/parameters/matchId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: bookmaker
+          in: query
+          schema: { type: string, example: "pinnacle" }
+          description: Filter by bookmaker name
+      responses:
+        "200":
+          description: Match odds list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OddsListResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /signals:
+    get:
+      operationId: listSignals
+      summary: List intelligence signals
+      description: |
+        Returns AI-extracted signals from news, social media, and other sources.
+        **Requires Advanced tier or above.**
+      tags: [Signals]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/signals?signal_type=injury&impact=high"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/signals",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"signal_type": "injury", "impact": "high"},
+            )
+            signals = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/signals?signal_type=injury&impact=high",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: signals } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: signal_type
+          in: query
+          schema: { type: string, example: "injury" }
+          description: Filter by signal type
+        - name: impact
+          in: query
+          schema: { type: string, enum: [high, medium, low] }
+          description: Filter by signal impact level
+        - name: since
+          in: query
+          schema: { type: string, format: date, example: "2026-06-01" }
+          description: Only signals extracted after this date (YYYY-MM-DD)
+      responses:
+        "200":
+          description: Paginated signal list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /signals/{teamId}:
+    get:
+      operationId: getTeamSignals
+      summary: Get signals for a team
+      description: |
+        Returns intelligence signals for a specific team.
+        **Requires Advanced tier or above.**
+      tags: [Signals]
+      parameters:
+        - $ref: '#/components/parameters/teamId'
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: signal_type
+          in: query
+          schema: { type: string, example: "tactical" }
+          description: Filter by signal type
+        - name: impact
+          in: query
+          schema: { type: string, enum: [high, medium, low] }
+          description: Filter by signal impact level
+      responses:
+        "200":
+          description: Team signal list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalListResponse'
+        "400": { $ref: '#/components/responses/BadRequest' }
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "404": { $ref: '#/components/responses/NotFound' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+  /value-bets:
+    get:
+      operationId: listValueBets
+      summary: List value bets
+      description: |
+        Returns identified betting value edges where model probability exceeds market odds.
+        **Requires Advanced tier or above.**
+      tags: [Value Bets]
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl -H "X-API-Key: se_live_YOUR_KEY" \
+              "https://scoutedge.com/api/v1/value-bets?min_edge=0.05&signal_strength=high"
+        - lang: Python
+          source: |
+            import httpx
+
+            resp = httpx.get(
+                "https://scoutedge.com/api/v1/value-bets",
+                headers={"X-API-Key": "se_live_YOUR_KEY"},
+                params={"min_edge": 0.05, "signal_strength": "high"},
+            )
+            bets = resp.json()["data"]
+        - lang: JavaScript
+          source: |
+            const res = await fetch(
+              "https://scoutedge.com/api/v1/value-bets?min_edge=0.05&signal_strength=high",
+              { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
+            );
+            const { data: bets } = await res.json();
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/limit'
+        - name: team_id
+          in: query
+          schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440003" }
+          description: Filter by team ID
+        - name: market
+          in: query
+          schema: { type: string, example: "1x2" }
+          description: Filter by betting market
+        - name: min_edge
+          in: query
+          schema: { type: number, format: float, minimum: 0, maximum: 1, example: 0.05 }
+          description: Minimum edge threshold (0.0–1.0)
+        - name: signal_strength
+          in: query
+          schema: { type: string, enum: [low, medium, high] }
+          description: Filter by signal strength
+      responses:
+        "200":
+          description: Paginated value bet list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValueBetListResponse'
+        "401": { $ref: '#/components/responses/Unauthorized' }
+        "403": { $ref: '#/components/responses/Forbidden' }
+        "429": { $ref: '#/components/responses/RateLimited' }
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Your ScoutEdge API key (e.g. `se_live_abc123...`)
+
+  parameters:
+    page:
+      name: page
+      in: query
+      schema: { type: integer, minimum: 1, default: 1 }
+      description: Page number (1-based)
+    limit:
+      name: limit
+      in: query
+      schema: { type: integer, minimum: 1, maximum: 100, default: 20 }
+      description: Results per page (max 100)
+    matchId:
+      name: matchId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+      description: Match ID (UUID)
+    teamId:
+      name: teamId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+      description: Team ID (UUID)
+    playerId:
+      name: playerId
+      in: path
+      required: true
+      schema: { type: string, format: uuid }
+      description: Player ID (UUID)
+
+  schemas:
+    Meta:
+      type: object
+      properties:
+        total: { type: integer, example: 48 }
+        page: { type: integer, example: 1 }
+        limit: { type: integer, example: 20 }
+      required: [total, page, limit]
+
+    ErrorEnvelope:
+      type: object
+      properties:
+        status: { type: string, const: "error" }
+        data: { type: "null" }
+        error: { type: string, example: "Invalid or expired API key" }
+      required: [status, data, error]
+
+    TeamRef:
+      type: object
+      properties:
+        id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        name: { type: string, example: "Brazil" }
+        slug: { type: string, example: "BRA" }
+        flag: { type: string, format: uri }
+      required: [id, name, slug]
+
+    Match:
+      type: object
+      properties:
+        id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        home_team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440001" }
+        away_team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440002" }
+        kickoff_utc: { type: string, format: date-time }
+        venue: { type: string, example: "MetLife Stadium" }
+        city: { type: string, example: "East Rutherford" }
+        group_code: { type: string, example: "A" }
+        stage: { type: string, example: "Group Stage" }
+        round: { type: string, example: "Group Stage - Matchday 1" }
+        match_status: { type: string, enum: [scheduled, live, completed, postponed, cancelled], example: "scheduled" }
+        home_score: { type: integer, nullable: true }
+        away_score: { type: integer, nullable: true }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        home_team: { $ref: '#/components/schemas/TeamRef' }
+        away_team: { $ref: '#/components/schemas/TeamRef' }
+
+    MatchListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Match' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    MatchDetailResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { $ref: '#/components/schemas/Match' }
+      required: [status, data]
+
+    Standing:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        group_code: { type: string, example: "A" }
+        ranking: { type: integer, example: 1 }
+        played: { type: integer, example: 3 }
+        won: { type: integer, example: 2 }
+        drawn: { type: integer, example: 1 }
+        lost: { type: integer, example: 0 }
+        goals_for: { type: integer, example: 5 }
+        goals_against: { type: integer, example: 1 }
+        goal_difference: { type: integer, example: 4 }
+        points: { type: integer, example: 7 }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+        team:
+          type: object
+          properties:
+            id: { type: string, format: uuid }
+            name: { type: string, example: "Brazil" }
+            slug: { type: string, example: "BRA" }
+            confederation: { type: string, example: "CONMEBOL" }
+            flag: { type: string, format: uri }
+
+    StandingsListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Standing' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    Team:
+      type: object
+      properties:
+        id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        name: { type: string, example: "Brazil" }
+        slug: { type: string, example: "brazil" }
+        flag_url: { type: string, format: uri, nullable: true }
+        confederation: { type: string, example: "CONMEBOL" }
+        fifa_rank: { type: integer, example: 3 }
+        elo_rating: { type: number, format: float, example: 2140.5 }
+        group_code: { type: string, example: "A" }
+        coach_name: { type: string, example: "Dorival Júnior", nullable: true }
+        created_at: { type: string, format: date-time }
+        updated_at: { type: string, format: date-time }
+
+    TeamListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Team' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    TeamDetailResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { $ref: '#/components/schemas/Team' }
+      required: [status, data]
+
+    Chemistry:
+      type: object
+      properties:
+        team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        chemistry: { type: number, format: float, example: 0.82 }
+        familiarity: { type: number, format: float, example: 0.75 }
+        stability: { type: number, format: float, example: 0.88 }
+        morale: { type: number, format: float, example: 0.79 }
+        chemistry_rank: { type: integer, example: 5 }
+        updated_at: { type: string, format: date-time }
+
+    ChemistryResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { $ref: '#/components/schemas/Chemistry' }
+      required: [status, data]
+
+    Player:
+      type: object
+      properties:
+        id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440042" }
+        name: { type: string, example: "Vinícius Júnior" }
+        slug: { type: string, example: "vinicius-junior" }
+        team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        position: { type: string, example: "Forward" }
+        number: { type: integer, example: 7 }
+        age: { type: integer, example: 25 }
+        club: { type: string, example: "Real Madrid" }
+        caps: { type: integer, example: 38 }
+        goals: { type: integer, example: 12 }
+        assists: { type: integer, example: 8 }
+        rating: { type: number, format: float, example: 7.8 }
+        image_url: { type: string, format: uri, nullable: true }
+        cutout_url: { type: string, format: uri, nullable: true }
+        fitness_status: { type: string, enum: [green, amber, red, unknown] }
+        fitness_note: { type: string, example: "Fully fit, started last 3 matches" }
+        sentiment_score: { type: number, format: float, example: 0.72 }
+        sentiment_label: { type: string, example: "positive" }
+
+    PlayerListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Player' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    Signal:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        signal_type: { type: string, example: "injury" }
+        team_id: { type: string, format: uuid, nullable: true }
+        player_id: { type: string, format: uuid, nullable: true }
+        match_id: { type: string, format: uuid, nullable: true }
+        headline: { type: string, example: "Vinícius Júnior misses training session" }
+        detail: { type: string }
+        impact: { type: string, enum: [high, medium, low], example: "high" }
+        source_url: { type: string, format: uri }
+        signal_at: { type: string, format: date-time }
+
+    PlayerDetailResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data:
+          allOf:
+            - $ref: '#/components/schemas/Player'
+            - type: object
+              properties:
+                recent_signals:
+                  type: array
+                  items: { $ref: '#/components/schemas/Signal' }
+      required: [status, data]
+
+    Prediction:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        match_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        home_team_name: { type: string, example: "Brazil" }
+        away_team_name: { type: string, example: "France" }
+        home_win_prob: { type: number, format: float, example: 0.42 }
+        draw_prob: { type: number, format: float, example: 0.28 }
+        away_win_prob: { type: number, format: float, example: 0.30 }
+        explanation_json: { type: object }
+        confidence_interval: { type: number, format: float, example: 0.055 }
+        model_version: { type: string, example: "elo-poisson-v2" }
+        created_at: { type: string, format: date-time }
+        kickoff_utc: { type: string, format: date-time, nullable: true }
+
+    PredictionListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Prediction' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    PredictionDetailResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data:
+          allOf:
+            - $ref: '#/components/schemas/Prediction'
+            - type: object
+              properties:
+                venue: { type: string }
+                city: { type: string }
+                match_status: { type: string, enum: [scheduled, live, completed, postponed, cancelled] }
+      required: [status, data]
+
+    Odds:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        match_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440001" }
+        team_name: { type: string, example: "Brazil" }
+        outcome: { type: string, example: "home_win" }
+        market: { type: string, example: "1x2" }
+        bookmaker: { type: string, example: "bet365" }
+        decimal_odds: { type: number, format: float, example: 2.40 }
+        implied_probability: { type: number, format: float, example: 0.42 }
+        snapshot_at: { type: string, format: date-time }
+        created_at: { type: string, format: date-time }
+
+    OddsListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Odds' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    SignalListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/Signal' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+    ValueBet:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        match_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440000" }
+        team_id: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440001" }
+        team_name: { type: string, example: "Brazil" }
+        market: { type: string, example: "1x2" }
+        edge: { type: number, format: float, example: 0.08 }
+        signal_strength: { type: string, enum: [low, medium, high] }
+        best_bookmaker: { type: string, example: "pinnacle" }
+        best_odds: { type: number, format: float, example: 2.55 }
+        our_probability: { type: number, format: float, example: 0.47 }
+        market_probability: { type: number, format: float, example: 0.39 }
+        computed_at: { type: string, format: date-time }
+
+    ValueBetListResponse:
+      type: object
+      properties:
+        status: { type: string, const: "ok" }
+        data: { type: array, items: { $ref: '#/components/schemas/ValueBet' } }
+        meta: { $ref: '#/components/schemas/Meta' }
+      required: [status, data]
+
+  responses:
+    BadRequest:
+      description: Invalid request parameters
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "Invalid ID parameter"
+    Unauthorized:
+      description: Missing or invalid API key
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "Missing X-API-Key header"
+    Forbidden:
+      description: Insufficient tier for this endpoint
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "This endpoint requires an Advanced, Event, or White Label subscription"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "Match not found"
+    RateLimited:
+      description: Rate limit exceeded
+      headers:
+        X-RateLimit-Limit:
+          schema: { type: integer }
+          description: Max requests in current window
+        X-RateLimit-Remaining:
+          schema: { type: integer }
+          description: Requests remaining (0 when exceeded)
+        X-RateLimit-Reset:
+          schema: { type: string, format: date-time }
+          description: When the rate limit window resets
+        Retry-After:
+          schema: { type: integer }
+          description: Seconds to wait before retrying
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "Rate limit exceeded"
+    ServerError:
+      description: Internal server error
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/ErrorEnvelope' }
+          example:
+            status: error
+            data: null
+            error: "Internal server error"

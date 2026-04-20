@@ -6,7 +6,7 @@ set -e
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-cd /Users/clawstack/scoutedge-web
+cd /Users/clawstack/worldcapiq-web
 
 echo "[$(date)] Starting news refresh build..."
 

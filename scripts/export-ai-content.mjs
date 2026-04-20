@@ -80,7 +80,7 @@ function buildFrontmatter(row, publishedAt) {
   lines.push(`keywords: ${JSON.stringify(buildKeywords(row))}`)
   lines.push(`date: "${date}"`)
   lines.push(`lastUpdated: "${date}"`)
-  lines.push(`author: "ScoutEdge AI"`)
+  lines.push(`author: "WorldCapIQ AI"`)
   lines.push(`slug: "${row.slug}"`)
   lines.push(`category: "${humanize(row.content_type)}"`)
   lines.push(`contentType: "${row.content_type}"`)

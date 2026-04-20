@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
 
 const config: Config = {
   darkMode: 'class',
@@ -53,6 +54,19 @@ const config: Config = {
         'outline-variant': '#42493f',
         'inverse-surface': '#e3e3df',
         'inverse-on-surface': '#2f312e',
+        // Lingo module tokens (mapped to main site green theme)
+        'lingo-text': '#e3e3df',
+        'lingo-text-muted': '#c2c9bb',
+        'lingo-accent': '#a0d494',
+        'lingo-bg': '#121412',
+        'lingo-surface': '#1a1c1a',
+        'lingo-surface-hover': '#1e201e',
+        'lingo-border': '#42493f',
+        'lingo-phonetic': '#a0d494',
+        'lingo-ipa': '#c2c9bb',
+        'lingo-difficulty-easy': '#a0d494',
+        'lingo-difficulty-medium': '#e9c400',
+        'lingo-difficulty-hard': '#ffb4aa',
       },
       fontFamily: {
         headline: ['var(--font-headline)', 'sans-serif'],
@@ -96,7 +110,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [typography],
 }
 
 export default config

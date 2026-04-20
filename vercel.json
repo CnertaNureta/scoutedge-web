@@ -1,0 +1,50 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/tools/schedule",
+      "destination": "https://schedule.worldcupiq.com",
+      "permanent": true
+    },
+    {
+      "source": "/tools/bracket",
+      "destination": "https://bracket.worldcupiq.com",
+      "permanent": true
+    },
+    {
+      "source": "/tools/countdown",
+      "destination": "https://countdown.worldcupiq.com",
+      "permanent": true
+    },
+    {
+      "source": "/tools/formation",
+      "destination": "https://formation.worldcupiq.com",
+      "permanent": true
+    },
+    {
+      "source": "/tools/quiz",
+      "destination": "https://quiz.worldcupiq.com",
+      "permanent": true
+    },
+    {
+      "source": "/tools/wallpaper",
+      "destination": "https://wallpaper.worldcupiq.com",
+      "permanent": true
+    }
+  ]
+}

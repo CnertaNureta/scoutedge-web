@@ -1,3 +1,10 @@
+/**
+ * Homepage hero — dramatic player-in-action shot (celebration / powerful kick).
+ * Board requested: "球员踢球的激情瞬间" — passionate player moment, not a wide stadium.
+ */
+export const HOMEPAGE_HERO_IMAGE =
+  'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=1920&h=1080&q=85&fit=crop&crop=center'
+
 const TEAM_HERO_IMAGES: Record<string, string> = {
   argentina: 'photo-1624523781850-a7f38cce4f45',
   brazil: 'photo-1551958219-acbc608c6377',

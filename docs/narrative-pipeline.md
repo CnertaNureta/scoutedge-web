@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create a stable ScoutEdge narrative chain that turns structured facts into cacheable drafts, publishable `ai_content`, and frontend-readable markdown.
+Create a stable WorldCapIQ narrative chain that turns structured facts into cacheable drafts, publishable `ai_content`, and frontend-readable markdown.
 
 ## Storage Model
 

@@ -61,7 +61,7 @@ function shouldFallbackToCsv(): boolean {
 async function fetchHtml(url: string): Promise<string> {
   const response = await fetch(url, {
     headers: {
-      'user-agent': 'ScoutEdgeLayer1Sync/1.0 (+https://scoutedge.ai)',
+      'user-agent': 'WorldCapIQLayer1Sync/1.0 (+https://worldcapiq.com)',
       'accept-language': 'en-US,en;q=0.9',
     },
   })
@@ -278,7 +278,7 @@ async function syncToSupabase(result: Layer1BuildResult): Promise<void> {
     alias: row.aliasName,
     normalized_alias: row.aliasKey,
     team_slug: row.teamSlug,
-    source: 'scoutedge-layer1',
+    source: 'worldcapiq-layer1',
   }))
 
   const { teamStats, ratings } = buildMetricWriteRows(result)

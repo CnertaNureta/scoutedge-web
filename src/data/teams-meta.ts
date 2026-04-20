@@ -57,7 +57,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Competitive Underdog &#8212; Group advancement the target</strong></p>
 <p>South Africa&#8217;s primary objective is group-stage qualification. If achieved, the expanded 48-team format&#8217;s third-place pathway gives them a route to the knockout rounds where anything becomes possible for a well-organized team with nothing to lose.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 68/100 (Familiarity 62 &middot; Stability 70 &middot; Morale 78). South Africa&#8217;s return to the World Cup after a 16-year absence is a story worth celebrating. <strong>Their target is advancement from Group A &#8212; achievable against South Korea or Denmark, and the kind of result that would ignite an entire continent.</strong></p>`,
   },
   {
@@ -87,7 +87,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Target &#8212; Quarter-final if Son delivers</strong></p>
 <p>South Korea&#8217;s knockout ceiling in 2026 is determined primarily by Son&#8217;s form and fitness. When he is operating at his peak, South Korea can upset any opponent on a given day. The pressing system creates the opportunities; Son decides whether they are taken.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 76/100 (Familiarity 74 &middot; Stability 68 &middot; Morale 75). South Korea are reliable qualifiers from difficult groups and dangerous opponents in knockout rounds when Son is motivated. <strong>Our pick for Round of 16 progression, with the emotional fuel of Son&#8217;s farewell tournament as their most powerful competitive asset.</strong></p>`,
   },
   {
@@ -118,7 +118,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
 <p>Denmark&#8217;s knockout history shows a team that consistently performs to their potential in high-stakes matches. Their defensive organization makes them difficult to beat; their set-piece quality gives them a scoring mechanism against any opponent. A quarter-final run is achievable.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 80/100 (Familiarity 82 &middot; Stability 78 &middot; Morale 72). Denmark are the tournament&#8217;s most cohesive non-elite team &#8212; organized, hard to beat, and consistently capable of surprising higher-ranked opponents. <strong>Our dark horse pick for a quarter-final run from the left side of the draw.</strong></p>`,
   },
 
@@ -151,7 +151,7 @@ export const TEAMS: Team[] = [
 <p>Group B presents a complex challenge with Italy (FIFA #9) as the primary rival for top position. Canada and Qatar are more manageable. <strong>Predicted outcome: Group B runners-up behind Italy, 4&#8211;7 points.</strong></p>
 <h3>Knockout Potential</h3><p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
 <p>Switzerland&#8217;s knockout track record is excellent &#8212; they reached the quarter-finals in 2022 (losing to Portugal) and the Round of 16 in 2022. In 2026, with Xhaka in his prime, they carry genuine upset potential against any team in the last 16.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 77/100 (Familiarity 80 &middot; Stability 76 &middot; Morale 74). Switzerland are one of tournament football&#8217;s most reliable performers, consistently delivering results that match or exceed their FIFA ranking. <strong>Our pick for Round of 16 progression, with a genuine quarter-final upset possible.</strong></p>`,
   },
   {
@@ -181,7 +181,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Competitive Underdog &#8212; Home crowd could produce a shock</strong></p>
 <p>Canada&#8217;s home crowd advantage &#8212; playing in Canadian cities in front of 60,000+ passionate supporters &#8212; is a genuine competitive factor that could produce results exceeding their FIFA ranking. With Davies and David on form, Canada are capable of beating any Group B opponent on a given day.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 64 &middot; Morale 85). Canada&#8217;s home World Cup is the defining moment for their footballing generation. <strong>Long-shot advancement from Group B, but Davies and David could produce moments that define Canadian sport for a generation regardless of the results.</strong></p>`,
   },
   {
@@ -211,7 +211,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage Only</strong></p>
 <p>Qatar&#8217;s realistic objective is competitive performances in all three matches and demonstrating growth from 2022. A genuine result against Canada would represent a significant achievement at this level.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 71/100 (Familiarity 75 &middot; Stability 72 &middot; Morale 65). Qatar have invested heavily in footballing infrastructure and their Asian Cup victories demonstrate genuine development. <strong>Group stage elimination expected, but competitive performances would represent progress for a program that is still building toward long-term ambitions.</strong></p>`,
   },
   {
@@ -324,7 +324,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Competitive Underdog &#8212; Group-stage qualification the target</strong></p>
 <p>Scotland&#8217;s knockout chance depends on advancement from a very tough group. If they navigate that, Clarke&#8217;s organized system has shown in previous tournaments that it can compete with higher-quality opponents in knockout football.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 75/100 (Familiarity 79 &middot; Stability 74 &middot; Morale 73). Scotland&#8217;s return after 28 years is a celebration of patient, intelligent coaching and collective determination. <strong>Group-stage progression is a tough ask from Group C, but Clarke&#8217;s Scotland will compete hard in every minute of every match.</strong></p>`,
   },
   {
@@ -354,7 +354,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Competitive Underdog &#8212; Inspiring group-stage performances the goal</strong></p>
 <p>Haiti&#8217;s realistic objective is competitive performances and a result against Scotland. The morale score (90) suggests a team capable of extraordinary effort; the structural scores suggest limited technical depth.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 60/100 (Familiarity 55 &middot; Stability 52 &middot; Morale 90). Haiti represent one of football&#8217;s most powerful human stories. <strong>Group-stage progression is unlikely from Group C, but Haiti&#8217;s presence at this World Cup is itself a triumph &#8212; and their spirit makes them dangerous for any opponent who takes them lightly.</strong></p>`,
   },
 
@@ -413,7 +413,7 @@ export const TEAMS: Team[] = [
 <p>Group D gives Paraguay a realistic competitive window. The USA&#8217;s co-host advantage makes them the group&#8217;s likely winner, but Paraguay should target a result against Australia or Turkey. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage Target &#8212; Advancement possible via third-place pathway</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 66/100 (Familiarity 64 &middot; Stability 60 &middot; Morale 70). Paraguay are a competitive CONMEBOL nation who will make life difficult for every opponent in Group D. <strong>Third-place pathway to the Round of 32 is their most realistic advancement route.</strong></p>`,
   },
   {
@@ -443,7 +443,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; 2022 mentality lives on</strong></p>
 <p>Australia&#8217;s 2022 legacy gives them a psychological platform that transcends their FIFA ranking. The belief that they can compete with anyone in knockout football &#8212; demonstrated against Denmark and Argentina in 2022 &#8212; is a genuine competitive asset.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 71/100 (Familiarity 69 &middot; Stability 66 &middot; Morale 77). Australia carry the spirit of their 2022 semi-final heroes into every match. <strong>Group-stage advancement is realistic from Group D, with the potential for another memorable knockout performance if they get there.</strong></p>`,
   },
   {
@@ -473,7 +473,7 @@ export const TEAMS: Team[] = [
 <p>Group D is competitive. Turkey&#8217;s technical quality should give them an edge over Paraguay and Australia, though the USA&#8217;s home advantage makes them the likely group winners. <strong>Predicted outcome: 2nd or 3rd place, 3&#8211;6 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; Güler as the wild card</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 72/100 (Familiarity 67 &middot; Stability 63 &middot; Morale 79). Turkey have a genuinely exciting young generation led by Güler that could make this tournament a coming-of-age moment for Turkish football. <strong>Round of 16 is the realistic target; a deep run depends on Güler&#8217;s form and Montella&#8217;s system reaching its potential.</strong></p>`,
   },
 
@@ -532,7 +532,7 @@ export const TEAMS: Team[] = [
 <p>Group E gives Ivory Coast a complex challenge with Germany as the dominant opponent. The match against Ecuador is the key battleground for the second qualification spot. <strong>Predicted outcome: 2nd place competition, 3&#8211;6 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; AFCON spirit could produce upsets</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 74/100 (Familiarity 70 &middot; Stability 68 &middot; Morale 86). Ivory Coast are Africa&#8217;s defending champions and one of the continent&#8217;s most dangerous teams at this tournament. <strong>Round of 16 advancement is the target; a shock against Germany is not impossible for a team that has already won a tournament from the brink of elimination.</strong></p>`,
   },
   {
@@ -561,7 +561,7 @@ export const TEAMS: Team[] = [
 <p>Germany are overwhelming group favorites, but the battle between Ecuador and Ivory Coast for second place is genuinely open. Ecuador&#8217;s CONMEBOL physical conditioning gives them an edge in direct encounters. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable if group stage advances</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 65 &middot; Morale 74). Ecuador&#8217;s Caicedo-powered midfield is a genuine competitive strength that any opponent must plan for. <strong>Second place in Group E is contested but achievable; a Round of 16 appearance would represent Ecuador&#8217;s best modern World Cup.</strong></p>`,
   },
   {
@@ -590,7 +590,7 @@ export const TEAMS: Team[] = [
 <p>Group E is an extraordinarily tough draw for Curacao. Germany, Ivory Coast, and Ecuador are all significantly higher-ranked opponents. <strong>Predicted outcome: 4th place, 0&#8211;1 points &#8212; competitive performances the goal.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage Only &#8212; Participation is the achievement</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 63/100 (Familiarity 58 &middot; Stability 55 &middot; Morale 88). Curacao represent everything that makes the expanded 48-team World Cup worthwhile &#8212; a tiny nation on football&#8217;s global stage for the first time. <strong>Results will be difficult to come by in Group E, but Curacao&#8217;s presence is a celebration of the sport&#8217;s global reach.</strong></p>`,
   },
 
@@ -675,7 +675,7 @@ export const TEAMS: Team[] = [
 <p>Group F is a significant challenge &#8212; Netherlands and Japan are both highly ranked with strong chemistry scores. Tunisia will contest the third-place pathway alongside Ukraine. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;3 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Third-place pathway possible</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 69/100 (Familiarity 72 &middot; Stability 67 &middot; Morale 71). Tunisia are a competitive African presence who will test every team in Group F. <strong>A third-place finish and the expanded format&#8217;s best-third pathway represents their most realistic route to the knockout rounds.</strong></p>`,
   },
   {
@@ -706,7 +706,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; Morale of 92 is a match-winning factor</strong></p>
 <p>Ukraine&#8217;s extraordinary morale &#8212; the highest outside Argentina &#8212; is a genuine competitive advantage in tight tournament matches. When both teams are equal on quality, the team playing with greater emotional purpose typically wins. Ukraine will never stop competing.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 80/100 (Familiarity 75 &middot; Stability 61 &middot; Morale 92). Ukraine are playing for their country in the most literal sense. <strong>Every point they earn, every match they compete in, carries the weight of a nation fighting for its survival. Their football will match that spirit &#8212; expect Ukraine to fight for every centimeter of Group F.</strong></p>`,
   },
 
@@ -765,7 +765,7 @@ export const TEAMS: Team[] = [
 <p>Group G is a tough draw with Portugal and Belgium. However, the match against Egypt represents a winnable opportunity. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Third-place pathway the realistic route</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 73/100 (Familiarity 76 &middot; Stability 71 &middot; Morale 70). Iran are competitive and organized, with Taremi as a match-winner capable of decisive moments. <strong>A third-place finish from Group G and the expanded format pathway represents their realistic World Cup ambition.</strong></p>`,
   },
   {
@@ -820,7 +820,7 @@ export const TEAMS: Team[] = [
 <p>Group G with Portugal and Belgium is challenging. Iran represent the most competitive opponent for second or third place. <strong>Predicted outcome: 3rd or 4th place, 1&#8211;4 points, with Salah individual brilliance potentially decisive in tight matches.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Third-place pathway if Salah delivers</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 71/100 (Familiarity 73 &middot; Stability 69 &middot; Morale 80). Egypt&#8217;s World Cup is Mohamed Salah&#8217;s World Cup. <strong>Group-stage progression depends on Salah&#8217;s performance and whether Egypt&#8217;s team structure can support rather than limit his impact. A third-place finish is achievable; a Round of 32 run would be historic.</strong></p>`,
   },
 
@@ -879,7 +879,7 @@ export const TEAMS: Team[] = [
 <p>Group H with Spain (FIFA #2) is a formidable challenge. Cabo Verde&#8217;s competitive matches are against Saudi Arabia and Serbia. <strong>Predicted outcome: 3rd or 4th place, 0&#8211;3 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Competitive performance the achievement</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 64/100 (Familiarity 60 &middot; Stability 58 &middot; Morale 87). Cabo Verde are one of the World Cup&#8217;s most inspiring stories. <strong>Results will be difficult against Group H opponents, but every minute on the World Cup pitch is a celebration of what 600,000 people and their diaspora can achieve.</strong></p>`,
   },
   {
@@ -908,7 +908,7 @@ export const TEAMS: Team[] = [
 <p>Group H with Spain (FIFA #2) makes advancement challenging. Saudi Arabia will target Serbia as their best prospect for three points. <strong>Predicted outcome: 3rd place competition, 1&#8211;4 points &#8212; with an upset against Serbia possible.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; High-line system could produce another shock</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 67/100 (Familiarity 71 &middot; Stability 66 &middot; Morale 77). Saudi Arabia proved in 2022 that they can beat anyone in the world on their day. <strong>Group H advancement is unlikely against Spain, but the potential for another historic upset &#8212; against Serbia or even Spain &#8212; is real.</strong></p>`,
   },
   {
@@ -937,7 +937,7 @@ export const TEAMS: Team[] = [
 <p>Group H with Spain is a significant challenge, but Serbia should be competitive against Saudi Arabia and Cabo Verde. <strong>Predicted outcome: 2nd or 3rd place competition, 3&#8211;6 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; Vlahovic as the decisive factor</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 72/100 (Familiarity 70 &middot; Stability 64 &middot; Morale 73). Serbia have the individual talent to compete in any match at this tournament. <strong>Round of 16 advancement is achievable from Group H; whether Serbia translate their talent into results depends on Stojkovic&#8217;s system and Vlahovic&#8217;s form.</strong></p>`,
   },
 
@@ -997,7 +997,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 to Quarter-Final Capable</strong></p>
 <p>Senegal&#8217;s 2022 Round of 16 appearance and AFCON titles demonstrate consistent ability to compete and win at major tournaments. In 2026, with a mature squad and an established system, a quarter-final run is achievable if the draw presents a favorable pathway.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 77/100 (Familiarity 78 &middot; Stability 75 &middot; Morale 79). Senegal are Africa&#8217;s most complete team and a genuinely dangerous opponent for any nation they face. <strong>Round of 16 minimum, quarter-final dark horse &#8212; and one of the teams most likely to deliver a memorable tournament upset.</strong></p>`,
   },
   {
@@ -1027,7 +1027,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; Haaland as the wild card</strong></p>
 <p>Norway&#8217;s knockout ceiling is set by Haaland&#8217;s capacity to win matches on his own. In tight knockout encounters where a single goal separates teams, having the world&#8217;s most reliable goalscorer is a decisive structural advantage that no Chemistry Index can fully capture.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 69/100 (Familiarity 66 &middot; Stability 68 &middot; Morale 81). Norway&#8217;s World Cup campaign is built on one question: can Erling Haaland be the difference? <strong>Our answer is yes &#8212; Norway will compete hard in Group I and Haaland will score goals. Round of 16 is achievable; further depends on form, fitness, and whether the system around him clicks.</strong></p>`,
   },
   {
@@ -1053,7 +1053,7 @@ export const TEAMS: Team[] = [
 <p>Playoff qualifiers at recent World Cups have included teams like Peru (2018), Australia (2022), and Costa Rica (2022) &#8212; nations capable of competitive group-stage performances despite their qualification route. The team that navigates the inter-confederation playoff will have earned their place through multiple competitive matches, arriving with tournament-match sharpness and genuine competitive quality.</p>
 <h3>Group Stage Prediction: Group I</h3>
 <p>The playoff qualifier faces France, Senegal, and Norway &#8212; a formidable group that makes advancement challenging. Maximum points against this quality of opposition would represent an extraordinary achievement. <strong>Predicted outcome: 4th place, 0&#8211;3 points, though competitive performances are achievable.</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 50/100 (placeholder &#8212; will be updated upon qualification). The Group I playoff qualifier deserves the respect afforded to any team that earned their World Cup place through competition. <strong>This page will be updated with full analysis once the playoff team is confirmed.</strong></p>`,
   },
 
@@ -1112,7 +1112,7 @@ export const TEAMS: Team[] = [
 <p>Group J with Argentina (defending champions) is a tough draw. Algeria will target Austria as their most competitive rival for second place. <strong>Predicted outcome: 2nd place competition, 3&#8211;6 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 if group advances &#8212; 2014 template is achievable</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 70/100 (Familiarity 68 &middot; Stability 63 &middot; Morale 76). Algeria have the counter-attacking quality to cause problems for higher-ranked opponents and the defensive organization to stay competitive in tight matches. <strong>Round of 16 is achievable via second place in Group J &#8212; and Mahrez&#8217;s individual quality gives them an upset threat in any knockout encounter.</strong></p>`,
   },
   {
@@ -1142,7 +1142,7 @@ export const TEAMS: Team[] = [
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable &#8212; Rangnick&#8217;s system as the equalizer</strong></p>
 <p>Austria&#8217;s pressing system has proven capable of disrupting technically superior opponents when executed at full intensity. In a knockout environment where a single poor pressing phase can be decisive, Rangnick&#8217;s team gives themselves a genuine opportunity against any opponent from the last 16 onwards.</p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 78/100 (Familiarity 76 &middot; Stability 75 &middot; Morale 77). Austria under Rangnick are European football&#8217;s most interesting tactical story &#8212; a pressing system applied consistently at national team level with growing success. <strong>Round of 16 is achievable and Austria are our surprise pick from Group J if they advance.</strong></p>`,
   },
   {
@@ -1171,7 +1171,7 @@ export const TEAMS: Team[] = [
 <p>Group J is a significant challenge for World Cup debutants. Argentina are the clear group favorites; Algeria and Austria compete for second. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; competitive performances would represent a significant achievement for Jordan&#8217;s maiden World Cup campaign.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Historic debut is the achievement</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 67/100 (Familiarity 65 &middot; Stability 63 &middot; Morale 84). Jordan&#8217;s first World Cup is a historic moment for Middle Eastern football. <strong>Results will be hard to come by in Group J, but competitive performances against Algeria and Austria would represent genuine progress for a footballing nation writing its World Cup story for the very first time.</strong></p>`,
   },
 
@@ -1230,7 +1230,7 @@ export const TEAMS: Team[] = [
 <p>Group K gives Cameroon competitive opportunities against Uzbekistan and the playoff qualifier. Colombia are the clear group favorites. <strong>Predicted outcome: 2nd or 3rd place competition, 2&#8211;5 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Round of 16 Capable if Group K advances</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 66/100 (Familiarity 64 &middot; Stability 60 &middot; Morale 74). Cameroon have the individual talent to compete with anyone in Group K below Colombia. <strong>Second place is achievable with collective organization; Round of 16 advancement would be a significant achievement for African football.</strong></p>`,
   },
   {
@@ -1259,7 +1259,7 @@ export const TEAMS: Team[] = [
 <p>Group K with Colombia (Copa America 2024 finalists) is challenging. Uzbekistan&#8217;s realistic target is competitive performances and points against Cameroon and the playoff qualifier. <strong>Predicted outcome: 3rd place, 1&#8211;4 points.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Third-place pathway possible</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 68/100 (Familiarity 67 &middot; Stability 65 &middot; Morale 82). Uzbekistan&#8217;s World Cup debut is a landmark for Central Asian football. <strong>Competitive performances and potential third-place pathway advancement would represent a historic achievement for the White Wolves.</strong></p>`,
   },
   {
@@ -1283,7 +1283,7 @@ export const TEAMS: Team[] = [
 <p>The inter-confederation pathway has historically produced competitive qualifiers including Costa Rica (reaching the 2014 quarter-finals), New Zealand, and other teams who defied expectations. The Group K playoff qualifier enters with the determination of teams that fought through multiple elimination matches to reach the tournament.</p>
 <h3>Group Stage Prediction: Group K</h3>
 <p>The playoff qualifier faces Colombia as the clear group favorites, with Cameroon and Uzbekistan as competitive opponents. <strong>Predicted outcome: 3rd or 4th place &#8212; will be updated once the qualifier is confirmed.</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 50/100 (placeholder &#8212; will be updated upon qualification). <strong>This page will be updated with full team analysis once the Group K playoff qualifier is confirmed.</strong></p>`,
   },
 
@@ -1342,7 +1342,7 @@ export const TEAMS: Team[] = [
 <p>Group L with England (FIFA #5) and Croatia (FIFA #12) is a significant challenge. Panama represent the group&#8217;s most beatable opponent. <strong>Predicted outcome: 3rd place competition, 1&#8211;4 points &#8212; with Kudus potentially producing a decisive result against Croatia or Panama.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Competitive Underdog &#8212; Kudus as the upset threat</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 67/100 (Familiarity 63 &middot; Stability 59 &middot; Morale 75). Ghana carry the spirit of 2010 into every World Cup they enter. <strong>Third-place pathway advancement is their realistic target; Kudus&#8217; individual quality gives them a genuine upset threat in any group match.</strong></p>`,
   },
   {
@@ -1397,7 +1397,7 @@ export const TEAMS: Team[] = [
 <p>Group L with England and Croatia is exceptionally tough for Panama. Ghana represent the group&#8217;s most competitive opponent for a potential points surprise. <strong>Predicted outcome: 4th place, 0&#8211;3 points &#8212; maximum effort, learning experience.</strong></p>
 <h3>Knockout Potential</h3>
 <p>Rating: <strong>Group Stage &#8212; Competitive performances the objective</strong></p>
-<h3>ScoutEdge Verdict</h3>
+<h3>KickOracle Verdict</h3>
 <p>Chemistry Index: 65/100 (Familiarity 66 &middot; Stability 62 &middot; Morale 80). Panama&#8217;s second World Cup is a celebration of Central American football&#8217;s development. <strong>Results will be difficult in Group L, but Panama&#8217;s competitive spirit and collective determination make them impossible to completely dismiss.</strong></p>`,
   },
 ]

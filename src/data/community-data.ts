@@ -1,3 +1,5 @@
+import { BRAND } from '@/lib/brand-tokens'
+
 export interface ForumCategory {
   slug: string
   title: string
@@ -27,13 +29,13 @@ export const FORUM_CATEGORIES: ForumCategory[] = [
     title: 'Predictions & Betting',
     description: 'Share your World Cup 2026 predictions, group stage picks, and Golden Boot tips.',
     icon: '🔮',
-    accent: '#e9c400',
+    accent: BRAND.tertiary,
     topicCount: 47,
     topics: [
       {
         id: 'pred-1',
         title: 'Official Bold Predictions Thread — Who Wins It All?',
-        author: 'ScoutEdge',
+        author: 'KickOracle',
         replies: 312,
         views: 8420,
         lastActivity: '2h ago',
@@ -89,7 +91,7 @@ export const FORUM_CATEGORIES: ForumCategory[] = [
     title: 'Team Talk',
     description: 'Discuss squads, tactics, key players, and managers for all 48 nations.',
     icon: '⚽',
-    accent: '#a0d494',
+    accent: BRAND.primary,
     topicCount: 124,
     topics: [
       {
@@ -152,13 +154,13 @@ export const FORUM_CATEGORIES: ForumCategory[] = [
     title: 'Match Day Live',
     description: 'Live match threads, post-match reactions, and instant analysis.',
     icon: '🏟️',
-    accent: '#ffb4aa',
+    accent: BRAND.secondary,
     topicCount: 18,
     topics: [
       {
         id: 'match-1',
         title: '[PRE-TOURNAMENT] Opening Ceremony Predictions & Hype Thread',
-        author: 'ScoutEdge',
+        author: 'KickOracle',
         replies: 89,
         views: 3210,
         lastActivity: '30m ago',
@@ -192,7 +194,7 @@ export const FORUM_CATEGORIES: ForumCategory[] = [
     title: 'General Discussion',
     description: 'Off-topic chat, fan meetups, travel tips, and World Cup culture.',
     icon: '💬',
-    accent: '#bcf0ae',
+    accent: BRAND.primaryFixed,
     topicCount: 63,
     topics: [
       {
@@ -218,7 +220,7 @@ export const FORUM_CATEGORIES: ForumCategory[] = [
       {
         id: 'gen-3',
         title: 'Fan meetup thread — Share your city and find watch parties',
-        author: 'ScoutEdge',
+        author: 'KickOracle',
         replies: 234,
         views: 6780,
         lastActivity: '2h ago',

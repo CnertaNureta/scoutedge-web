@@ -79,7 +79,7 @@ function getRelativeTime(pubDate: string): string {
 
 async function fetchRss(url: string): Promise<string> {
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; ScoutEdge/1.0)' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; KickOracle/1.0)' },
   })
   if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`)
   return res.text()

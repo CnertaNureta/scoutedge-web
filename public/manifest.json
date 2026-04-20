@@ -1,6 +1,6 @@
 {
-  "name": "ScoutEdge — World Cup 2026 AI Predictions",
-  "short_name": "ScoutEdge",
+  "name": "WorldCapIQ — World Cup 2026 AI Predictions",
+  "short_name": "WorldCapIQ",
   "description": "AI-powered predictions and analysis for all 48 World Cup 2026 teams.",
   "start_url": "/",
   "scope": "/",
@@ -12,6 +12,11 @@
   "lang": "en",
   "categories": ["sports", "news"],
   "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
     {
       "src": "/icons/icon-192.png",
       "sizes": "192x192",

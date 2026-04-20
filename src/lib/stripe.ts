@@ -20,5 +20,13 @@ export function getStripe(): Stripe {
 export const STRIPE_CONFIG = {
   proMonthlyPriceId: process.env.STRIPE_PRO_MONTHLY_PRICE_ID ?? '',
   proTournamentPriceId: process.env.STRIPE_PRO_TOURNAMENT_PRICE_ID ?? '',
-  webhookSecret: process.env.STRIPE_WEBHOOK_SECRET ?? '',
+  apiBasicPriceId: process.env.STRIPE_API_BASIC_PRICE_ID ?? '',
+  apiAdvancedPriceId: process.env.STRIPE_API_ADVANCED_PRICE_ID ?? '',
+  apiEventPriceId: process.env.STRIPE_API_EVENT_PRICE_ID ?? '',
 } as const
+
+export function getWebhookSecret(): string {
+  const secret = process.env.STRIPE_WEBHOOK_SECRET
+  if (!secret) throw new Error('STRIPE_WEBHOOK_SECRET not configured')
+  return secret
+}

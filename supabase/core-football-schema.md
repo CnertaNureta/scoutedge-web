@@ -1,4 +1,4 @@
-# ScoutEdge Core Football Schema
+# WorldCapIQ Core Football Schema
 
 This document describes the core football fact-layer introduced for `ZON-6`.
 
@@ -62,7 +62,7 @@ This document describes the core football fact-layer introduced for `ZON-6`.
 
 ### `team_chemistry`
 
-- Purpose: dated chemistry snapshots aligned to the current ScoutEdge power-score model.
+- Purpose: dated chemistry snapshots aligned to the current WorldCapIQ power-score model.
 - Key fields: `team_id`, `snapshot_date`, `chemistry`, `familiarity`, `stability`, `morale`, `chemistry_rank`, `rationale`.
 - Compatibility note: supports the current weighted formula used in power rankings and compare utilities.
 - Main indexes: `team_id + snapshot_date`, `snapshot_date + chemistry_rank`.

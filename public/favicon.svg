@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/bebas-neue-400.ttf') format('truetype');
+      }
+    </style>
+    <clipPath id="squircle">
+      <rect width="512" height="512" rx="112" ry="112"/>
+    </clipPath>
+  </defs>
+  <!-- Squircle background -->
+  <rect width="512" height="512" rx="112" ry="112" fill="#a0d494"/>
+  <!-- Diagonal accent line -->
+  <line x1="320" y1="512" x2="512" y2="320" stroke="#0d0f0d" stroke-width="3" opacity="0.4" clip-path="url(#squircle)"/>
+  <!-- IQ text -->
+  <text x="256" y="340" text-anchor="middle" font-family="'Bebas Neue', Impact, 'Arial Narrow', sans-serif" font-size="320" font-weight="400" fill="#0d0f0d" letter-spacing="-8">IQ</text>
+</svg>

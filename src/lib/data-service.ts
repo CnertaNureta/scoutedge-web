@@ -39,6 +39,14 @@ export function getFixturesByGroup(group: string): MatchFixture[] {
   )
 }
 
+export function getFixturesByTeam(teamSlug: string): MatchFixture[] {
+  return MATCH_FIXTURES.filter(
+    (f) => f.homeTeamSlug === teamSlug || f.awayTeamSlug === teamSlug
+  ).sort(
+    (a, b) => new Date(a.kickoffUtc).getTime() - new Date(b.kickoffUtc).getTime()
+  )
+}
+
 export function getPlayersByTeam(teamSlug: string): Player[] {
   return PLAYERS
     .filter((p) => p.teamSlug === teamSlug)
@@ -81,6 +89,14 @@ export function getWorldCupHistory(teamSlug: string): WorldCupHistory | undefine
 
 export function getAllVenues(): Venue[] {
   return (venuesData as { venues: Venue[] }).venues
+}
+
+export function getVenueById(id: string): Venue | undefined {
+  return getAllVenues().find((v) => v.id === id)
+}
+
+export function getVenuesByCity(cityName: string): Venue[] {
+  return getAllVenues().filter((v) => v.metro === cityName || v.city === cityName)
 }
 
 export function getTeamTimezone(teamSlug: string): TeamTimezone | undefined {

@@ -1,0 +1,328 @@
+{
+  "terms": [
+    {
+      "id": "goal",
+      "english": "Goal",
+      "definition": "When the ball fully crosses the goal line between the posts and under the crossbar",
+      "translations": {
+        "spanish": { "word": "Gol", "phonetic": "gohl", "note": "Same as English but one syllable" },
+        "portuguese": { "word": "Gol", "phonetic": "gohl", "note": "Brazilian Portuguese; European Portuguese uses 'golo' (GO-loo)" },
+        "french": { "word": "But", "phonetic": "boo", "note": "Silent 't' — not 'butt'! Means 'target/goal'" },
+        "german": { "word": "Tor", "phonetic": "tor", "note": "Also means 'gate' — a goal is literally a gate" },
+        "italian": { "word": "Gol", "phonetic": "gohl" },
+        "arabic": { "word": "هدف (Hadaf)", "phonetic": "HAH-duf", "note": "Means 'target' or 'objective'" },
+        "japanese": { "word": "ゴール (Gōru)", "phonetic": "GOH-roo", "note": "Borrowed from English" },
+        "chinese": { "word": "进球 (Jìnqiú)", "phonetic": "jin-CHYOH", "note": "Literally 'enter ball'" },
+        "russian": { "word": "Гол (Gol)", "phonetic": "gol", "note": "Borrowed from English" },
+        "dutch": { "word": "Doelpunt", "phonetic": "DOOL-punt", "note": "Literally 'goal point'" },
+        "turkish": { "word": "Gol", "phonetic": "gohl" }
+      }
+    },
+    {
+      "id": "penalty",
+      "english": "Penalty (Kick)",
+      "definition": "A direct free kick from the penalty spot, awarded for a foul in the penalty area",
+      "translations": {
+        "spanish": { "word": "Penalti / Penal", "phonetic": "peh-NAL-tee", "note": "'Penalti' is used in Spain; 'penal' in Latin America" },
+        "portuguese": { "word": "Pênalti", "phonetic": "PEH-nahl-chee", "note": "Brazilian Portuguese; note the 'ti' = 'chee'" },
+        "french": { "word": "Penalty", "phonetic": "pay-nahl-TEE", "note": "Borrowed from English but stressed on last syllable" },
+        "german": { "word": "Elfmeter", "phonetic": "ELF-may-ter", "note": "Literally 'eleven metres' — the distance from goal" },
+        "italian": { "word": "Calcio di rigore", "phonetic": "KAL-choh dee ree-GOH-reh", "note": "Literally 'kick of rigour'; shortened to 'rigore'" },
+        "arabic": { "word": "ركلة الجزاء (Rakla al-Jazaʾ)", "phonetic": "RAK-leh al-juh-ZAH", "note": "Literally 'kick of punishment'" },
+        "japanese": { "word": "ペナルティ (Penaruti)", "phonetic": "peh-NAH-roo-tee", "note": "Borrowed from English, adapted to Japanese phonology" },
+        "dutch": { "word": "Strafschop", "phonetic": "STRAF-skhop", "note": "Literally 'punishment kick'" },
+        "turkish": { "word": "Penaltı", "phonetic": "peh-NAL-tuh", "note": "Note the dotless 'ı' — a different vowel sound in Turkish" }
+      }
+    },
+    {
+      "id": "offside",
+      "english": "Offside",
+      "definition": "When an attacking player is nearer to the opponent's goal than both the ball and the second-to-last defender",
+      "translations": {
+        "spanish": { "word": "Fuera de juego", "phonetic": "FWEH-rah deh HWEH-goh", "note": "Literally 'outside of play'" },
+        "portuguese": { "word": "Impedido", "phonetic": "im-peh-DEE-doo", "note": "Literally 'impeded/obstructed'" },
+        "french": { "word": "Hors-jeu", "phonetic": "or-ZHUH", "note": "Literally 'outside game'; 'jeu' = 'zhuh'" },
+        "german": { "word": "Abseits", "phonetic": "AB-zyts", "note": "Literally 'off-side' (same concept, different construction)" },
+        "italian": { "word": "Fuorigioco", "phonetic": "FWOH-ree-JOH-koh", "note": "Literally 'outside game'" },
+        "arabic": { "word": "تسلل (Tasallul)", "phonetic": "tah-SAL-lul", "note": "Literally 'infiltration/sneaking'" },
+        "japanese": { "word": "オフサイド (Ofusaido)", "phonetic": "oh-foo-SY-doh", "note": "Borrowed from English" },
+        "dutch": { "word": "Buitenspel", "phonetic": "BOW-ten-spel", "note": "Literally 'outside play'" }
+      }
+    },
+    {
+      "id": "red-card",
+      "english": "Red Card",
+      "definition": "A card shown by the referee to dismiss a player from the match",
+      "translations": {
+        "spanish": { "word": "Tarjeta roja", "phonetic": "tar-HEH-tah ROH-hah", "note": "Roja = red (feminine, matching tarjeta)" },
+        "portuguese": { "word": "Cartão vermelho", "phonetic": "kar-TOWN vehr-MEH-lyoo", "note": "Vermelho = red; 'lh' = 'ly' sound" },
+        "french": { "word": "Carton rouge", "phonetic": "kar-TOHN roozh", "note": "Carton = card (like cardboard); rouge = red" },
+        "german": { "word": "Rote Karte", "phonetic": "ROH-teh KAR-teh", "note": "Rote = red (feminine); Karte = card" },
+        "italian": { "word": "Cartellino rosso", "phonetic": "kar-tel-EE-noh ROS-soh", "note": "Rosso = red" },
+        "arabic": { "word": "البطاقة الحمراء (Al-bitaqa al-hamra)", "phonetic": "al-bih-TAH-kah al-HOM-rah", "note": "Hamra = red (feminine form)" },
+        "japanese": { "word": "レッドカード (Reddo kādo)", "phonetic": "REH-doh KAH-doh", "note": "Direct borrowing from English" },
+        "chinese": { "word": "红牌 (Hóng pái)", "phonetic": "hong PY", "note": "Literally 'red card/tile'" },
+        "dutch": { "word": "Rode kaart", "phonetic": "ROH-deh kart", "note": "Rode = red; kaart = card" }
+      }
+    },
+    {
+      "id": "yellow-card",
+      "english": "Yellow Card",
+      "definition": "A caution shown by the referee; two yellow cards result in a red card",
+      "translations": {
+        "spanish": { "word": "Tarjeta amarilla", "phonetic": "tar-HEH-tah ah-mah-REE-yah", "note": "Amarilla = yellow (feminine)" },
+        "portuguese": { "word": "Cartão amarelo", "phonetic": "kar-TOWN ah-mah-REH-loo" },
+        "french": { "word": "Carton jaune", "phonetic": "kar-TOHN zhohn", "note": "Jaune = yellow (the 'j' = 'zh')" },
+        "german": { "word": "Gelbe Karte", "phonetic": "GEL-beh KAR-teh", "note": "Gelbe = yellow (feminine)" },
+        "italian": { "word": "Cartellino giallo", "phonetic": "kar-tel-EE-noh JAL-loh", "note": "Giallo = yellow" },
+        "arabic": { "word": "البطاقة الصفراء (Al-bitaqa al-safra)", "phonetic": "al-bih-TAH-kah al-SAF-rah", "note": "Safra = yellow (feminine)" },
+        "japanese": { "word": "イエローカード (Ierō kādo)", "phonetic": "ee-eh-ROH KAH-doh" },
+        "chinese": { "word": "黄牌 (Huáng pái)", "phonetic": "hwahng PY", "note": "Literally 'yellow card/tile'" }
+      }
+    },
+    {
+      "id": "free-kick",
+      "english": "Free Kick",
+      "definition": "A kick awarded to a team after a foul by their opponents",
+      "translations": {
+        "spanish": { "word": "Tiro libre", "phonetic": "TEE-roh LEE-breh", "note": "Literally 'free shot'" },
+        "portuguese": { "word": "Falta", "phonetic": "FAL-tah", "note": "Literally 'fault/foul' — the word for both foul and free kick" },
+        "french": { "word": "Coup franc", "phonetic": "koo FRAHN", "note": "Literally 'frank/free blow'" },
+        "german": { "word": "Freistoß", "phonetic": "FRY-shtos", "note": "Freistoß = free kick; 'ß' is a special German letter" },
+        "italian": { "word": "Calcio di punizione", "phonetic": "KAL-choh dee poo-neet-SYOH-neh", "note": "Literally 'kick of punishment'; often shortened to 'punizione'" },
+        "arabic": { "word": "ضربة حرة (Darba hurra)", "phonetic": "DAR-bah HOOR-ah", "note": "Literally 'free hit'" },
+        "japanese": { "word": "フリーキック (Furī kikku)", "phonetic": "foo-REE-kik-koo", "note": "Borrowed from English" },
+        "dutch": { "word": "Vrije trap", "phonetic": "VRAY-yeh trap", "note": "Literally 'free kick/trap'" }
+      }
+    },
+    {
+      "id": "corner",
+      "english": "Corner Kick",
+      "definition": "A restart from the corner arc, awarded when the ball goes out over the goal line from a defender",
+      "translations": {
+        "spanish": { "word": "Córner / Saque de esquina", "phonetic": "KOR-nehr / SAH-keh deh es-KEE-nah", "note": "Both terms used; 'córner' borrowed from English" },
+        "portuguese": { "word": "Escanteio", "phonetic": "es-kan-TAY-oo", "note": "Unique Brazilian term; European Portuguese uses 'canto'" },
+        "french": { "word": "Corner", "phonetic": "kor-NEHR", "note": "Borrowed from English but French-accented" },
+        "german": { "word": "Eckball / Ecke", "phonetic": "EK-bal / EK-keh", "note": "Ecke = corner/nook; Eckball = corner ball" },
+        "italian": { "word": "Calcio d'angolo", "phonetic": "KAL-choh DAN-goh-loh", "note": "Literally 'kick of corner'; often shortened to 'angolo'" },
+        "arabic": { "word": "ركلة الزاوية (Rakla az-zawiya)", "phonetic": "RAK-leh az-ZAH-wee-yah", "note": "Zawiya = corner/angle" },
+        "japanese": { "word": "コーナーキック (Kōnā kikku)", "phonetic": "KOH-nah-kik-koo", "note": "Borrowed from English" },
+        "dutch": { "word": "Hoekschop", "phonetic": "HOOK-skhop", "note": "Hoek = corner; schop = kick" }
+      }
+    },
+    {
+      "id": "goalkeeper",
+      "english": "Goalkeeper",
+      "definition": "The player who defends the goal and is the only one allowed to use hands in the penalty area",
+      "translations": {
+        "spanish": { "word": "Portero", "phonetic": "por-TEH-roh", "note": "From 'puerta' (door/gate)" },
+        "portuguese": { "word": "Goleiro", "phonetic": "goh-LAY-roo", "note": "From 'gol' (goal)" },
+        "french": { "word": "Gardien (de but)", "phonetic": "gar-DYAHN duh BOO", "note": "Gardien = guardian/keeper" },
+        "german": { "word": "Torwart", "phonetic": "TOR-vart", "note": "Tor = gate/goal; Wart = guardian" },
+        "italian": { "word": "Portiere", "phonetic": "por-TYEH-reh", "note": "From 'porta' (gate)" },
+        "arabic": { "word": "حارس المرمى (Haris al-marma)", "phonetic": "HAH-ris al-MAR-mah", "note": "Haris = guardian; marma = goal" },
+        "japanese": { "word": "ゴールキーパー (Gōru kīpā)", "phonetic": "GOH-roo-KEE-pah", "note": "Borrowed from English; often shortened to GK" },
+        "chinese": { "word": "门将 (Mén jiàng)", "phonetic": "mun JYAHNG", "note": "Mén = gate; jiàng = general/officer" },
+        "dutch": { "word": "Doelverdediger / Keeper", "phonetic": "DOOL-vehr-day-di-kher / KEE-per", "note": "'Keeper' borrowed from English is common" },
+        "turkish": { "word": "Kaleci", "phonetic": "KAH-leh-jee", "note": "Kale = castle/goal; -ci = person who does/guards" }
+      }
+    },
+    {
+      "id": "referee",
+      "english": "Referee",
+      "definition": "The official who enforces the rules of the game on the field",
+      "translations": {
+        "spanish": { "word": "Árbitro", "phonetic": "AR-bee-troh", "note": "Stress on first syllable — ar-BEE-troh is wrong" },
+        "portuguese": { "word": "Árbitro", "phonetic": "AR-bee-troo" },
+        "french": { "word": "Arbitre", "phonetic": "ar-BEETR", "note": "Stress on second syllable in French" },
+        "german": { "word": "Schiedsrichter", "phonetic": "SHEEDZ-rikh-ter", "note": "Schied = verdict; Richter = judge — 'verdict judge'" },
+        "italian": { "word": "Arbitro", "phonetic": "AR-bee-troh" },
+        "arabic": { "word": "حكم (Hakam)", "phonetic": "HAH-kahm", "note": "Means 'judge' or 'arbitrator' in Arabic" },
+        "japanese": { "word": "審判 (Shinpan)", "phonetic": "SHIN-pahn", "note": "Shin = examine; pan = judge" },
+        "chinese": { "word": "裁判 (Cáipàn)", "phonetic": "TSYE-pahn", "note": "Cai = judge/decide; pan = determine" },
+        "dutch": { "word": "Scheidsrechter", "phonetic": "SKHAYDS-rekh-ter" },
+        "turkish": { "word": "Hakem", "phonetic": "HAH-kem", "note": "Borrowed from Arabic hakam (judge)" }
+      }
+    },
+    {
+      "id": "var",
+      "english": "VAR",
+      "definition": "Video Assistant Referee — technology used to review decisions using video footage",
+      "translations": {
+        "spanish": { "word": "VAR", "phonetic": "VAR", "note": "Universal acronym" },
+        "portuguese": { "word": "VAR", "phonetic": "VAR" },
+        "french": { "word": "VAR", "phonetic": "VAR" },
+        "german": { "word": "VAR", "phonetic": "VAR" },
+        "arabic": { "word": "حكم الفيديو", "phonetic": "HAH-kahm al-FEE-dee-oh", "note": "Video judge" },
+        "japanese": { "word": "ビデオ・アシスタント・レフェリー (Bideo ashisutanto referī)", "phonetic": "BEE-deh-oh ah-shee-SOO-tan-toh reh-feh-REE" },
+        "note": "Universally controversial — pronounced the same in every language, interpreted differently by every fan"
+      }
+    },
+    {
+      "id": "hat-trick",
+      "english": "Hat-trick",
+      "definition": "When a player scores three goals in a single match",
+      "translations": {
+        "spanish": { "word": "Hat-trick / Triplete", "phonetic": "hat-TRICK / tree-PLEH-teh", "note": "Triplete is the Spanish term; hat-trick is also widely used" },
+        "portuguese": { "word": "Hat-trick / Tríplice", "phonetic": "hat-TRICK / TREE-plee-seh" },
+        "french": { "word": "Hat-trick / Triplé", "phonetic": "hat-TRICK / tree-PLAY" },
+        "german": { "word": "Hattrick", "phonetic": "HAT-trick", "note": "Written as one word in German" },
+        "italian": { "word": "Tripletta", "phonetic": "tree-PLET-tah", "note": "Also 'poker' for four goals" },
+        "arabic": { "word": "هاتريك (Hatrik)", "phonetic": "HAH-tree", "note": "Borrowed from English" },
+        "japanese": { "word": "ハットトリック (Hatto torikku)", "phonetic": "HAT-toh-to-rik-koo", "note": "Borrowed from English" },
+        "turkish": { "word": "Hattrick", "phonetic": "HAT-trick" }
+      }
+    },
+    {
+      "id": "let-s-go",
+      "english": "Let's Go! (Chant)",
+      "definition": "The universal football encouragement — how fans urge their team forward",
+      "translations": {
+        "spanish": { "word": "¡Vamos!", "phonetic": "BAH-mohs", "note": "Most universal football chant in the Spanish-speaking world" },
+        "portuguese": { "word": "Vai! / Vamos!", "phonetic": "VY / VAH-moosh", "note": "Vai = go! (singular/direct)" },
+        "french": { "word": "Allez!", "phonetic": "ah-LAY", "note": "'Allez les Bleus!' (ah-LAY leh bluh) = Go Blues!" },
+        "german": { "word": "Los! / Auf geht's!", "phonetic": "lohs / owf GAYTS", "note": "'Auf geht's!' = literally 'Up it goes!'" },
+        "italian": { "word": "Forza!", "phonetic": "FOR-tsah", "note": "'Forza Azzurri!' = Come on Blues! Forza literally means 'strength'" },
+        "arabic": { "word": "يَلّا!", "phonetic": "YAL-lah", "note": "Yalla! = Come on! — Pan-Arab encouragement chant" },
+        "japanese": { "word": "頑張れ! (Ganbare!)", "phonetic": "gahn-BAH-reh", "note": "Means 'do your best / hang in there!'" },
+        "korean": { "word": "대한민국! (Daehan Minguk!)", "phonetic": "deh-HAN MIN-gook", "note": "South Korea fans chant the country's full name as encouragement" },
+        "portuguese_br": { "word": "Vai Brasil!", "phonetic": "VY brah-ZEEL", "note": "Go Brazil! — the classic chant" },
+        "turkish": { "word": "Haydi!", "phonetic": "HY-dee", "note": "Means 'come on / let's go!'" },
+        "dutch": { "word": "Hup Holland Hup!", "phonetic": "hup HOL-und hup", "note": "Classic Dutch chant — 'Hup' is an exclamation of encouragement" }
+      }
+    },
+    {
+      "id": "beautiful-game",
+      "english": "The Beautiful Game",
+      "definition": "Football's most famous nickname — attributed to Pelé",
+      "translations": {
+        "spanish": { "word": "El fútbol es el juego más lindo", "phonetic": "el FOOT-bol ess el HWEH-goh mahs LEEN-doh", "note": "'Lindo' = beautiful/lovely; used especially in Latin America" },
+        "portuguese": { "word": "O jogo bonito", "phonetic": "oo ZHOH-goh boh-NEE-too", "note": "Pelé's own phrase — 'the beautiful game' in Portuguese" },
+        "french": { "word": "Le beau jeu", "phonetic": "luh boh ZHUH", "note": "Literally 'the beautiful game'" },
+        "german": { "word": "Das schöne Spiel", "phonetic": "dahs SHUR-neh SHPEEL", "note": "Schöne = beautiful (with umlaut)" },
+        "italian": { "word": "Il gioco del calcio", "phonetic": "eel JOH-koh del KAL-choh", "note": "Italy calls football 'calcio' (kick) — not 'football'" },
+        "arabic": { "word": "اللعبة الجميلة (Al-luʿba al-jamīla)", "phonetic": "al-LOOB-ah al-jah-MEE-lah", "note": "Jamīla = beautiful" }
+      }
+    }
+  ],
+  "chants": [
+    {
+      "team": "France",
+      "chant": "Allez les Bleus!",
+      "phonetic": "ah-LAY leh bluh",
+      "meaning": "Go Blues! (the French team wear blue)",
+      "context": "Used at all France matches — the signature chant"
+    },
+    {
+      "team": "Italy",
+      "chant": "Forza Azzurri!",
+      "phonetic": "FOR-tsah ah-TSOOR-ree",
+      "meaning": "Come on Blues! (Azzurri = the blues, Italy's kit colour)",
+      "context": "Italy's signature chant. Forza = strength/force"
+    },
+    {
+      "team": "Brazil",
+      "chant": "Brasil! Brasil!",
+      "phonetic": "brah-ZEEL! brah-ZEEL!",
+      "meaning": "Brazil! Brazil!",
+      "context": "Simple but powerful — the rhythm and passion say everything"
+    },
+    {
+      "team": "Argentina",
+      "chant": "¡Vamos Argentina!",
+      "phonetic": "BAH-mohs ar-hen-TEE-nah",
+      "meaning": "Let's go Argentina!",
+      "context": "Also: 'Ole ole ole ole, ar-hen-tee-NAH ar-hen-tee-NAH'"
+    },
+    {
+      "team": "Germany",
+      "chant": "Deutschland! Deutschland!",
+      "phonetic": "DOYTS-lant! DOYTS-lant!",
+      "meaning": "Germany! Germany!",
+      "context": "Also sung to the tune of 'Seven Nation Army'"
+    },
+    {
+      "team": "Spain",
+      "chant": "¡Sí se puede! / ¡España! ¡España!",
+      "phonetic": "see seh PWEH-deh / es-PAHN-yah",
+      "meaning": "Yes it can be done! / Spain! Spain!",
+      "context": "Sí se puede is also associated with social movements"
+    },
+    {
+      "team": "England",
+      "chant": "It's Coming Home!",
+      "phonetic": "its CUM-ing hohm",
+      "meaning": "A reference to football returning to its birthplace — immortalised by 'Three Lions' (1996)",
+      "context": "The most famous football song in English history. Sung every tournament."
+    },
+    {
+      "team": "Senegal",
+      "chant": "Lions de la Téranga!",
+      "phonetic": "leeyon duh lah teh-RAHN-gah",
+      "meaning": "Lions of Teranga — 'teranga' means hospitality in Wolof",
+      "context": "The team's full nickname; Senegalese hospitality is legendary"
+    },
+    {
+      "team": "Morocco",
+      "chant": "Yalla Al-Maghrib!",
+      "phonetic": "YAL-lah al-MAH-rib",
+      "meaning": "Come on Morocco! (using the Arabic name)",
+      "context": "2022 World Cup made this chant famous across the Arab world"
+    },
+    {
+      "team": "South Korea",
+      "chant": "대한민국! (Daehan Minguk!)",
+      "phonetic": "deh-HAN MIN-gook",
+      "meaning": "Republic of Korea! — the country's formal name",
+      "context": "Korean fans chant the full formal country name with Red Devil drums"
+    },
+    {
+      "team": "Japan",
+      "chant": "ニッポン、チャチャチャ! (Nippon Cha Cha Cha!)",
+      "phonetic": "NIP-pon chah chah chah",
+      "meaning": "Japan! Cha cha cha! (rhythmic encouragement)",
+      "context": "One of football's most recognisable non-European chants"
+    },
+    {
+      "team": "USA",
+      "chant": "I Believe That We Will Win!",
+      "phonetic": "eye beh-LEEV that wee wil WIN",
+      "meaning": "A rallying cry adopted by US fans in 2014",
+      "context": "Became iconic at the 2014 World Cup — sung at every USMNT match"
+    },
+    {
+      "team": "Universal",
+      "chant": "Olé Olé Olé!",
+      "phonetic": "oh-LAY oh-LAY oh-LAY",
+      "meaning": "An Andalusian/flamenco exclamation of approval — became the world's football chant",
+      "context": "The most universal football chant on earth. Used by virtually every fan base."
+    }
+  ],
+  "quiz_questions": [
+    {
+      "question": "How do you say 'goal' in German?",
+      "answer": "Tor",
+      "hint": "It also means 'gate' in German — because the net is like a gate"
+    },
+    {
+      "question": "What does 'Forza Azzurri' mean in English?",
+      "answer": "Come on Blues! (Italy's encouragement chant)",
+      "hint": "Forza = strength/force. Azzurri = the blues (Italy's colour)"
+    },
+    {
+      "question": "How do Brazilians say 'Junior' in Vinícius Júnior's name?",
+      "answer": "ZHOO-nyor (the J = zh, like the 's' in 'measure')",
+      "hint": "In Portuguese, J is never a hard English 'j' — it's always 'zh'"
+    },
+    {
+      "question": "What does 'Teranga' mean in Senegalese Wolof?",
+      "answer": "Hospitality — the Lions of Teranga are named for Senegalese warmth",
+      "hint": "Senegal is known for its teranga — a cultural value of openness and generosity"
+    },
+    {
+      "question": "How many syllables does 'Tchouaméni' have?",
+      "answer": "Five — choo-ah-meh-NEE",
+      "hint": "Tch = ch, oua = wa, mé = may, ni = nee"
+    }
+  ]
+}

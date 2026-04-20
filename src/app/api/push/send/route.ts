@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import webpush from 'web-push'
 import { getSupabaseAdmin } from '@/lib/supabase-server'
+import { safeCompare } from '@/lib/crypto-utils'
 
 export const dynamic = 'force-dynamic'
 
@@ -51,10 +52,10 @@ function getVapidConfig() {
 /** POST — Send push notifications by type, with optional audience targeting */
 export async function POST(req: NextRequest) {
   // Server-to-server auth via service role key
-  const authHeader = req.headers.get('authorization')
+  const authHeader = req.headers.get('authorization') ?? ''
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
 
-  if (!serviceKey || authHeader !== `Bearer ${serviceKey}`) {
+  if (!serviceKey || !safeCompare(authHeader, `Bearer ${serviceKey}`)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

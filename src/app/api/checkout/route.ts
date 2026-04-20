@@ -61,7 +61,7 @@ export async function POST(req: NextRequest) {
       customer: customerId,
       mode: isTournament ? 'payment' : 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: `${req.headers.get('origin')}/pricing?success=true`,
+      success_url: `${req.headers.get('origin')}/pricing?success=true&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get('origin')}/pricing?canceled=true`,
       metadata: {
         supabase_user_id: user.id,

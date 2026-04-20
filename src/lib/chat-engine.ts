@@ -154,7 +154,7 @@ export function generateAnswer(input: string): string {
 
   // Greeting
   if (/^(hi|hello|hey|hola|bonjour|sup|yo)\b/.test(q)) {
-    return `Hey! I'm the ScoutEdge AI assistant. Ask me anything about World Cup 2026 — teams, players, groups, predictions, or match schedules.
+    return `Hey! I'm the KickOracle AI assistant. Ask me anything about World Cup 2026 — teams, players, groups, predictions, or match schedules.
 
 **Try asking:**
 - "Who will win the World Cup?"

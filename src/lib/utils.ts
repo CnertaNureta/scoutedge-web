@@ -1,3 +1,5 @@
+import { BRAND } from './brand-tokens'
+
 export function slugify(name: string): string {
   return name
     .toLowerCase()
@@ -12,10 +14,10 @@ export function hashString(str: string): number {
 }
 
 export function chemistryColor(value: number): string {
-  if (value >= 70) return '#a0d494'
-  if (value >= 50) return '#bcf0ae'
-  if (value >= 35) return '#e9c400'
-  return '#ffb4aa'
+  if (value >= 70) return BRAND.primary
+  if (value >= 50) return BRAND.primaryFixed
+  if (value >= 35) return BRAND.tertiary
+  return BRAND.secondary
 }
 
 export function chemistryColorClass(value: number): string {

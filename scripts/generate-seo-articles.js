@@ -207,9 +207,9 @@ function currentForm(p, teamName, pos, seed) {
   const bracket = ageBracket(p.age)
 
   const statsPhrase = p.position === 'GK'
-    ? `Across ${p.caps} international caps, his command of the area and shot-stopping reflexes have earned him a formidable ${p.rating}/10 ScoutEdge rating.`
+    ? `Across ${p.caps} international caps, his command of the area and shot-stopping reflexes have earned him a formidable ${p.rating}/10 WorldCapIQ rating.`
     : p.goals > 10
-      ? `With ${p.goals} international goals and ${p.assists} assists across ${p.caps} caps, his ${p.rating}/10 ScoutEdge rating tells only part of the story.`
+      ? `With ${p.goals} international goals and ${p.assists} assists across ${p.caps} caps, his ${p.rating}/10 WorldCapIQ rating tells only part of the story.`
       : p.goals > 0
         ? `His record of ${p.goals} goals and ${p.assists} assists in ${p.caps} caps reflects a ${pos} whose influence extends far beyond the stats sheet, carrying a ${p.rating}/10 rating.`
         : `Over ${p.caps} international appearances, his ${p.assists} assists and consistent ${p.rating}/10 rating underscore the quiet authority he brings to every match.`

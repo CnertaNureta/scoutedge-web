@@ -6,7 +6,7 @@
  * maximizes rich snippet appearance in search results.
  */
 
-const BASE_URL = 'https://scoutedge.ai'
+const BASE_URL = 'https://kickoracle.com'
 
 export interface OGMeta {
   title: string
@@ -30,7 +30,7 @@ export function buildOGMeta(meta: OGMeta) {
       title: meta.title,
       description: meta.description,
       url: meta.url,
-      siteName: 'ScoutEdge',
+      siteName: 'KickOracle',
       type: meta.type ?? 'website',
       locale: 'en_US',
       ...(images && { images }),
@@ -41,7 +41,7 @@ export function buildOGMeta(meta: OGMeta) {
       card: 'summary_large_image' as const,
       title: meta.title,
       description: meta.description,
-      site: '@scoutedge_ai',
+      site: '@KickOracle',
       ...(meta.image && { images: [meta.image] }),
     },
   }
@@ -59,7 +59,7 @@ export function websiteJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'ScoutEdge',
+    name: 'KickOracle',
     url: BASE_URL,
     description: 'AI-powered World Cup 2026 predictions and squad analysis for all 48 teams.',
     potentialAction: {
@@ -77,11 +77,17 @@ export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'ScoutEdge',
+    name: 'KickOracle',
     url: BASE_URL,
+    logo: `${BASE_URL}/icons/icon-512.png`,
     description: 'AI-powered football analytics and World Cup 2026 predictions platform.',
     foundingDate: '2025',
-    sameAs: [],
+    sameAs: [
+      'https://twitter.com/KickOracle',
+      'https://www.tiktok.com/@scoutedge',
+      'https://www.instagram.com/scoutedge',
+      'https://www.youtube.com/@scoutedge',
+    ],
   }
 }
 

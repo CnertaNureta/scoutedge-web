@@ -209,7 +209,7 @@ export function buildCanonicalTeamRows() {
     slug: team.slug,
     name: team.name,
     confederation: team.confederation,
-    source: 'scoutedge-static',
+    source: 'worldcapiq-static',
     source_updated_at: null,
   }))
 }
@@ -234,7 +234,7 @@ export function buildTeamAliasRows() {
         alias,
         normalized_alias: normalizedAlias,
         team_slug: team.slug,
-        source: 'scoutedge-layer1',
+        source: 'worldcapiq-layer1',
       })
     }
   }

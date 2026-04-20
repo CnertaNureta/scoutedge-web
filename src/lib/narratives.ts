@@ -326,7 +326,7 @@ export function buildMatchPreviewBundle(
   const bodyMarkdown = [
     `# ${title}`,
     '',
-    `ScoutEdge has this Group ${fixture.group} fixture at ${formatPercent(fixture.homeWinProb)} for ${homeTeam.name}, ${formatPercent(fixture.drawProb)} for the draw, and ${formatPercent(fixture.awayWinProb)} for ${awayTeam.name}. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.`,
+    `KickOracle has this Group ${fixture.group} fixture at ${formatPercent(fixture.homeWinProb)} for ${homeTeam.name}, ${formatPercent(fixture.drawProb)} for the draw, and ${formatPercent(fixture.awayWinProb)} for ${awayTeam.name}. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.`,
     '',
     '## Match Snapshot',
     '',
@@ -447,7 +447,7 @@ export function buildDailyBriefingBundle(options: BuildNarrativeOptions = {}): N
   const bodyMarkdown = [
     `# ${title}`,
     '',
-    `This briefing is fact-anchored to ScoutEdge's stored team, player, and fixture datasets as of ${formatDate(sourceDate)}. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.`,
+    `This briefing is fact-anchored to KickOracle's stored team, player, and fixture datasets as of ${formatDate(sourceDate)}. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.`,
     '',
     '## Form Leaders',
     '',

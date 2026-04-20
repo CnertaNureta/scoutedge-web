@@ -3,18 +3,17 @@
 # Fetches from TheSportsDB (free, no key) + API-Football (free tier, 100/day)
 # Then rebuilds the static site and restarts the server.
 #
-# Crontab: 0 6 * * * /path/to/repo/scripts/daily-data-fetch.sh >> /path/to/repo/logs/daily-fetch.log 2>&1
+# Crontab: 0 6 * * * /Users/clawstack/scoutedge-web/scripts/daily-data-fetch.sh >> /Users/clawstack/scoutedge-web/logs/daily-fetch.log 2>&1
 
 set -e
 
 export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd /Users/clawstack/scoutedge-web
+PROJECT_ROOT="$(pwd)"
 
 # Create logs directory
 mkdir -p "$PROJECT_ROOT/logs"
-cd "$PROJECT_ROOT"
 
 load_env_defaults() {
   local env_file="$1"
@@ -79,14 +78,14 @@ node scripts/fetch-live-data.mjs 2>&1 || echo "WARN: TheSportsDB fetch failed, u
 if [ -n "$API_FOOTBALL_KEY" ]; then
   if [ -n "$NEXT_PUBLIC_SUPABASE_URL" ] && [ -n "$SUPABASE_SERVICE_ROLE_KEY" ]; then
     echo "[$(date)] Phase 2: API-Football fetch + normalize + upsert..."
-    npm run ingest:api-football 2>&1 || echo "WARN: API-Football ingest failed, using cached data"
+    npm run ingest:api-football:free-tier 2>&1 || echo "WARN: API-Football ingest failed, using cached data"
   else
     missing_supabase_envs=()
     [ -z "$NEXT_PUBLIC_SUPABASE_URL" ] && missing_supabase_envs+=("NEXT_PUBLIC_SUPABASE_URL")
     [ -z "$SUPABASE_SERVICE_ROLE_KEY" ] && missing_supabase_envs+=("SUPABASE_SERVICE_ROLE_KEY")
 
     echo "[$(date)] Phase 2: API-Football fetch + normalize only — missing ${missing_supabase_envs[*]}"
-    npm run ingest:api-football -- --phase fetch,normalize 2>&1 || echo "WARN: API-Football fetch/normalize failed, using cached data"
+    npm run ingest:api-football:free-tier -- --phase fetch,normalize 2>&1 || echo "WARN: API-Football fetch/normalize failed, using cached data"
   fi
 else
   echo "[$(date)] Phase 2: SKIPPED — API_FOOTBALL_KEY not set"

@@ -1,0 +1,2773 @@
+[
+  {
+    "id": "hakimi-achraf",
+    "name": "Achraf Hakimi",
+    "country": "morocco",
+    "ipa": "/aʃˈraf ħaˈkiːmi/",
+    "phonetic": "ash-RAHF hah-KEE-mee",
+    "syllables": [
+      "ash",
+      "RAHF",
+      "hah",
+      "KEE",
+      "mee"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Achraf: the 'ch' is a 'sh' sound. Hakimi: stress on 'KEE', the 'H' is a deeper pharyngeal sound.",
+    "commonMistakes": [
+      "AH-kraf hah-KIM-ee",
+      "ASH-raf HAK-ih-mee"
+    ],
+    "funFact": "Hakimi (حكيمي) derives from 'Hakeem' meaning 'wise' in Arabic. Born in Madrid to Moroccan parents.",
+    "difficulty": 3,
+    "position": "Defender",
+    "club": "Paris Saint-Germain"
+  },
+  {
+    "id": "mitrovic-aleksandar",
+    "name": "Aleksandar Mitrović",
+    "country": "serbia",
+    "ipa": "/alekˈsandaɾ ˈmitɾovitɕ/",
+    "phonetic": "ah-lek-SAHN-dar MEE-troh-vich",
+    "syllables": [
+      "ah",
+      "lek",
+      "SAHN",
+      "dar",
+      "MEE",
+      "troh",
+      "vich"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Mitrović: stress on 'MEE'. The 'ć' at the end is a soft 'ch' sound, lighter than English 'ch'.",
+    "commonMistakes": [
+      "AL-ek-SAN-der mi-TROV-ik",
+      "mit-ROH-vik"
+    ],
+    "funFact": "The suffix '-ović' means 'son of' in Serbian — Mitrović means 'son of Mitar/Dmitar'.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Al-Hilal"
+  },
+  {
+    "id": "alisson",
+    "name": "Alisson",
+    "country": "brazil",
+    "ipa": "/aˈlisõ/",
+    "phonetic": "ah-LEE-son",
+    "syllables": [
+      "ah",
+      "LEE",
+      "son"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Alisson with double 's' — stress on 'LEE'. The final syllable is nasalized in Portuguese.",
+    "commonMistakes": [
+      "AL-ih-son",
+      "ah-LIS-on"
+    ],
+    "funFact": "Full name: Alisson Ramses Becker. His middle name Ramses references the Egyptian pharaoh.",
+    "difficulty": 2,
+    "position": "Goalkeeper",
+    "club": "Liverpool"
+  },
+  {
+    "id": "davies-alphonso",
+    "name": "Alphonso Davies",
+    "country": "canada",
+    "ipa": "/ælˈfɒnsoʊ ˈdeɪviz/",
+    "phonetic": "al-FON-soh DAY-veez",
+    "syllables": [
+      "al",
+      "FON",
+      "soh",
+      "DAY",
+      "veez"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Alphonso: stress on 'FON'. A Spanish-origin name pronounced with English vowels in Canada.",
+    "commonMistakes": [
+      "AL-fon-soh",
+      "al-FON-zoh"
+    ],
+    "funFact": "Born in a refugee camp in Ghana to Liberian parents, Davies became a Canadian citizen at age 5.",
+    "difficulty": 1,
+    "position": "Defender",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "kramaric-andrej",
+    "name": "Andrej Kramarić",
+    "country": "croatia",
+    "ipa": "/ˈandɾej ˈkɾamaɾitɕ/",
+    "phonetic": "AHN-dray KRAH-mah-rich",
+    "syllables": [
+      "AHN",
+      "dray",
+      "KRAH",
+      "mah",
+      "rich"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Andrej: Croatian form of Andrew, 'AHN-dray'. Kramarić: stress on 'KRAH', the 'ć' is a soft 'ch'.",
+    "commonMistakes": [
+      "AN-drej krah-MAR-ik",
+      "AN-drej KRAM-ar-ik"
+    ],
+    "funFact": "'Kramarić' derives from 'kramar' meaning 'shopkeeper/merchant' — a common Croatian occupational surname.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Hoffenheim"
+  },
+  {
+    "id": "onana-andre",
+    "name": "André Onana",
+    "country": "cameroon",
+    "ipa": "/ɑ̃dʁe oˈnana/",
+    "phonetic": "ahn-DREH oh-NAH-nah",
+    "syllables": [
+      "ahn",
+      "DREH",
+      "oh",
+      "NAH",
+      "nah"
+    ],
+    "stressIndex": 1,
+    "audioHint": "André: French pronunciation — 'ahn-DREH', not 'AN-dray'. Onana: stress on the second 'NAH'.",
+    "commonMistakes": [
+      "AN-dray oh-NAH-nah",
+      "ahn-DREH oh-NAN-ah"
+    ],
+    "funFact": "Onana is a common surname in Cameroon from the Ewondo ethnic group. It means 'he who comes from far'.",
+    "difficulty": 2,
+    "position": "Goalkeeper",
+    "club": "Manchester United"
+  },
+  {
+    "id": "anguissa-zambo",
+    "name": "André-Frank Zambo Anguissa",
+    "country": "cameroon",
+    "ipa": "/ɑ̃dʁe fʁɑ̃k zɑ̃bo ɑ̃ɡisa/",
+    "phonetic": "ahn-DREH FRAHNK ZAHM-boh ahn-GEES-sah",
+    "syllables": [
+      "ahn",
+      "DREH",
+      "FRAHNK",
+      "ZAHM",
+      "boh",
+      "ahn",
+      "GEES",
+      "sah"
+    ],
+    "stressIndex": 6,
+    "audioHint": "Commonly called just 'Anguissa' — ahn-GEES-sah. The 'u' is silent. Zambo is his middle family name.",
+    "commonMistakes": [
+      "an-GWIS-ah",
+      "an-GOO-ee-sah",
+      "ANG-wis-ah"
+    ],
+    "funFact": "Anguissa is from the Beti people of Cameroon. His full four-part name reflects Cameroonian naming traditions.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Napoli"
+  },
+  {
+    "id": "griezmann-antoine",
+    "name": "Antoine Griezmann",
+    "country": "france",
+    "ipa": "/ɑ̃twan ɡʁizmɑn/",
+    "phonetic": "ahn-TWAN GREES-mahn",
+    "syllables": [
+      "ahn",
+      "TWAN",
+      "GREES",
+      "mahn"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Antoine = ahn-TWAN (French 'oi' = 'wa'). Griezmann = GREES-mahn — the 'ie' sounds like 'ee', final 'n' is nasal.",
+    "commonMistakes": [
+      "an-TOIN GRIZ-mun",
+      "AN-toin GREE-mun"
+    ],
+    "funFact": "Antoine Griezmann has Basque heritage — he grew up near the Spanish border and speaks Spanish fluently, which influenced his move to Atlético Madrid aged 14.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Atlético Madrid"
+  },
+  {
+    "id": "guler-arda",
+    "name": "Arda Güler",
+    "country": "turkiye",
+    "ipa": "/aɾˈda ɡyˈleɾ/",
+    "phonetic": "ar-DAH gew-LAIR",
+    "syllables": [
+      "ar",
+      "DAH",
+      "gew",
+      "LAIR"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Güler: the 'ü' is like French 'u' or German 'ü' — round your lips to say 'ee'. 'Güler' means 'laughs'.",
+    "commonMistakes": [
+      "AR-dah GOO-ler",
+      "AR-dah GEW-ler"
+    ],
+    "funFact": "'Güler' means 'one who laughs/smiles' in Turkish. At 19, he's called the 'Turkish Messi'.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "tchouameni-aurelien",
+    "name": "Aurélien Tchouaméni",
+    "country": "france",
+    "ipa": "/oʁeljɛ̃ tʃwameni/",
+    "phonetic": "oh-ray-LYAHN choo-ah-meh-NEE",
+    "syllables": [
+      "oh",
+      "ray",
+      "LYAHN",
+      "choo",
+      "ah",
+      "meh",
+      "NEE"
+    ],
+    "stressIndex": 6,
+    "audioHint": "Aurélien = oh-ray-LYAHN. Tchouaméni = choo-ah-meh-NEE. The 'Tch' makes a 'ch' sound. Stress on the final syllable.",
+    "commonMistakes": [
+      "TOO-wah-meh-nee",
+      "CHOO-ah-meh-nee",
+      "tuh-CHOO-ah-meh-nee"
+    ],
+    "funFact": "Aurélien Tchouaméni's name is of Cameroonian origin. He became one of the world's most expensive midfielders when Real Madrid signed him — a rapid rise from Bordeaux.",
+    "difficulty": 5,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "silva-bernardo",
+    "name": "Bernardo Silva",
+    "country": "portugal",
+    "ipa": "/bɨɾˈnaɾdu ˈsilvɐ/",
+    "phonetic": "ber-NAR-doo SEEL-vah",
+    "syllables": [
+      "ber",
+      "NAR",
+      "doo",
+      "SEEL",
+      "vah"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Bernardo: stress on 'NAR', the final 'o' is 'oo' in Portuguese. Silva: 'SEEL-vah'.",
+    "commonMistakes": [
+      "ber-NAR-doh SIL-vah",
+      "BER-nar-doh"
+    ],
+    "funFact": "'Silva' means 'forest' or 'woodland' in Latin — it's the most common Portuguese surname.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Manchester City"
+  },
+  {
+    "id": "fernandes-bruno",
+    "name": "Bruno Fernandes",
+    "country": "portugal",
+    "ipa": "/ˈbɾunu fɨɾˈnɐ̃dɨʃ/",
+    "phonetic": "BROO-noo fer-NAN-desh",
+    "syllables": [
+      "BROO",
+      "noo",
+      "fer",
+      "NAN",
+      "desh"
+    ],
+    "stressIndex": 0,
+    "audioHint": "In Portuguese, the final 's' in Fernandes is 'sh'. Bruno: 'BROO-noo', not 'BROO-noh'.",
+    "commonMistakes": [
+      "BROO-noh fer-NAN-dez",
+      "BROO-noh fer-NAN-deez"
+    ],
+    "funFact": "One of the most common Portuguese names. 'Fernandes' means 'son of Fernando' — a patronymic tradition.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Manchester United"
+  },
+  {
+    "id": "saka-bukayo",
+    "name": "Bukayo Saka",
+    "country": "england",
+    "ipa": "/buˈkaɪoʊ ˈsɑːkə/",
+    "phonetic": "boo-KY-oh SAH-kuh",
+    "syllables": [
+      "boo",
+      "KY",
+      "oh",
+      "SAH",
+      "kuh"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Bukayo = boo-KY-oh (not boo-KAY-oh). Saka = SAH-kuh. Of Yoruba (Nigerian) origin.",
+    "commonMistakes": [
+      "boo-KAY-oh SAK-uh",
+      "boo-KAH-yoh SAH-kah"
+    ],
+    "funFact": "Bukayo is a Yoruba name from Nigeria meaning 'adds to happiness.' Saka is also a Yoruba surname. His parents immigrated from Nigeria to north London — and his story is very much the story of modern English football.",
+    "difficulty": 3,
+    "position": "Forward/Winger",
+    "club": "Arsenal"
+  },
+  {
+    "id": "casemiro",
+    "name": "Casemiro",
+    "country": "brazil",
+    "ipa": "/kɐzeˈmiɾu/",
+    "phonetic": "kah-zeh-MEE-roo",
+    "syllables": [
+      "kah",
+      "zeh",
+      "MEE",
+      "roo"
+    ],
+    "stressIndex": 2,
+    "audioHint": "The 's' between vowels is voiced as 'z' in Brazilian Portuguese. Final 'o' is 'oo'.",
+    "commonMistakes": [
+      "KAS-eh-meer-oh",
+      "kah-seh-MEER-oh"
+    ],
+    "funFact": "Full name: Carlos Henrique Casimiro. 'Casemiro' is a nickname from his surname, spelled differently.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Manchester United"
+  },
+  {
+    "id": "eriksen-christian",
+    "name": "Christian Eriksen",
+    "country": "denmark",
+    "ipa": "/ˈkʁesdjæn ˈeːɾɪksn̩/",
+    "phonetic": "KRIS-tee-an EH-rik-sen",
+    "syllables": [
+      "KRIS",
+      "tee",
+      "an",
+      "EH",
+      "rik",
+      "sen"
+    ],
+    "stressIndex": 0,
+    "audioHint": "In Danish, Christian is 'KRIS-tee-an' not 'KRIS-chun'. Eriksen: stress on 'EH', the 'sen' is unstressed.",
+    "commonMistakes": [
+      "KRIS-chun AIR-ik-sen",
+      "KRIS-tee-an eh-RIK-sen"
+    ],
+    "funFact": "Eriksen means 'son of Erik'. He famously returned to football after a cardiac arrest during Euro 2020.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Manchester United"
+  },
+  {
+    "id": "pulisic-christian",
+    "name": "Christian Pulisic",
+    "country": "united-states",
+    "ipa": "/pʊˈlɪsɪk/",
+    "phonetic": "puh-LIS-ick",
+    "syllables": [
+      "puh",
+      "LIS",
+      "ick"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Pulisic: stress on 'LIS'. The family pronounces it 'puh-LIS-ick', not 'POOL-ih-sich'. Croatian origin.",
+    "commonMistakes": [
+      "POOL-ih-sick",
+      "puh-LEE-sich",
+      "puh-LIS-ik"
+    ],
+    "funFact": "The Pulisic surname is Croatian in origin. His grandfather Mate Pulišić emigrated from Croatia to the US.",
+    "difficulty": 3,
+    "position": "Winger",
+    "club": "AC Milan"
+  },
+  {
+    "id": "gakpo-cody",
+    "name": "Cody Gakpo",
+    "country": "netherlands",
+    "ipa": "/ˈkoːdi ˈɣɑkpoː/",
+    "phonetic": "KOH-dee GHAK-poh",
+    "syllables": [
+      "KOH",
+      "dee",
+      "GHAK",
+      "poh"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Gakpo: starts with the guttural Dutch 'G' — like gargling. 'GHAK-poh' with a hard stop on 'k'.",
+    "commonMistakes": [
+      "KOH-dee GAK-poh",
+      "KOH-dee gak-POH"
+    ],
+    "funFact": "His full name is Cody Mathès Gakpo. The Gakpo surname has Togolese and Ghanaian roots.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Liverpool"
+  },
+  {
+    "id": "kamada-daichi",
+    "name": "Daichi Kamada",
+    "country": "japan",
+    "ipa": "/daitɕi kamada/",
+    "phonetic": "DYE-chee kah-MAH-dah",
+    "syllables": [
+      "DYE",
+      "chee",
+      "kah",
+      "MAH",
+      "dah"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Daichi: 'dai' sounds like 'dye', 'chi' like 'chee'. Kamada: even syllable weight.",
+    "commonMistakes": [
+      "DAH-ee-chee kah-MAH-dah",
+      "DYE-chee KAM-ah-dah"
+    ],
+    "funFact": "Daichi (大地) means 'great earth/land' in Japanese — a powerful given name.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Crystal Palace"
+  },
+  {
+    "id": "olmo-dani",
+    "name": "Dani Olmo",
+    "country": "spain",
+    "ipa": "/ˈdani ˈolmo/",
+    "phonetic": "DAH-nee OHL-moh",
+    "syllables": [
+      "DAH",
+      "nee",
+      "OHL",
+      "moh"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Olmo: 'OHL-moh', both syllables clear. Dani is a common Spanish short form of Daniel.",
+    "commonMistakes": [
+      "DAN-ee OL-moh",
+      "DAH-nee OL-mo"
+    ],
+    "funFact": "'Olmo' means 'elm tree' in Spanish. Dani spent his formative years at Dinamo Zagreb in Croatia.",
+    "difficulty": 1,
+    "position": "Midfielder",
+    "club": "Barcelona"
+  },
+  {
+    "id": "nunez-darwin",
+    "name": "Darwin Núñez",
+    "country": "uruguay",
+    "ipa": "/daɾˈwin ˈnuɲeθ/",
+    "phonetic": "dar-WEEN NOO-nyeth",
+    "syllables": [
+      "dar",
+      "WEEN",
+      "NOO",
+      "nyeth"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Darwin: Spanish pronunciation with rolled 'r'. Núñez: the 'ñ' is the 'ny' sound, like in 'canyon'.",
+    "commonMistakes": [
+      "DAR-win NOO-nez",
+      "DAR-win NOON-yez"
+    ],
+    "funFact": "Named after Charles Darwin. The 'ñ' in Núñez represents a distinct letter in Spanish, not just an 'n'.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Liverpool"
+  },
+  {
+    "id": "jota-diogo",
+    "name": "Diogo Jota",
+    "country": "portugal",
+    "ipa": "/diˈoɡu ˈʒɔtɐ/",
+    "phonetic": "dee-OH-goo ZHOH-tah",
+    "syllables": [
+      "dee",
+      "OH",
+      "goo",
+      "ZHOH",
+      "tah"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Jota: the 'J' in Portuguese is 'ZH' (like the 's' in 'pleasure'). Not 'HOH-tah' like Spanish.",
+    "commonMistakes": [
+      "dee-OH-goh JOH-tah",
+      "dee-OH-goh HOH-tah"
+    ],
+    "funFact": "'Jota' is his surname — it's also the name of a traditional Spanish dance and the Portuguese word for the letter 'J'.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Liverpool"
+  },
+  {
+    "id": "tadic-dusan",
+    "name": "Dušan Tadić",
+    "country": "serbia",
+    "ipa": "/ˈduʃan ˈtaːditɕ/",
+    "phonetic": "DOO-shan TAH-dich",
+    "syllables": [
+      "DOO",
+      "shan",
+      "TAH",
+      "dich"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Dušan: the 'š' is 'sh'. Tadić: the 'ć' is a soft 'ch'. Both names have stress on the first syllable.",
+    "commonMistakes": [
+      "DOO-san TAD-ik",
+      "doo-SHAN tah-DICH"
+    ],
+    "funFact": "Dušan is a traditional Serbian name from the medieval Serbian emperor Stefan Dušan.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Fenerbahçe"
+  },
+  {
+    "id": "vlahovic-dusan",
+    "name": "Dušan Vlahović",
+    "country": "serbia",
+    "ipa": "/ˈduʃan ˈvlahoʋitɕ/",
+    "phonetic": "DOO-shahn VLAH-hoh-vitch",
+    "syllables": [
+      "DOO",
+      "shahn",
+      "VLAH",
+      "hoh",
+      "vitch"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Dušan = DOO-shahn (the 'š' = 'sh'). Vlahović = VLAH-hoh-vitch (the 'ć' = soft 'ch'). Stress on first syllable of each name.",
+    "commonMistakes": [
+      "doo-SHAHN vlah-HOV-itch",
+      "DOO-san vlah-HOH-vich"
+    ],
+    "funFact": "Dušan in Serbian means 'soul/spirit.' Vlahović's name comes from Vlah, a historical term for Romance-speaking communities in the Balkans. He became Juventus' record signing in 2022.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Juventus"
+  },
+  {
+    "id": "alvarez-edson",
+    "name": "Edson Álvarez",
+    "country": "mexico",
+    "ipa": "/ˈedson ˈalβaɾes/",
+    "phonetic": "ED-sohn AHL-vah-res",
+    "syllables": [
+      "ED",
+      "sohn",
+      "AHL",
+      "vah",
+      "res"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Named after Brazilian legend Edson (Pelé's real name). Álvarez: stress on 'AHL'.",
+    "commonMistakes": [
+      "ED-son al-VAH-rez",
+      "ED-son AHL-vah-REZ"
+    ],
+    "funFact": "Named after Edson Arantes do Nascimento — Pelé. A popular naming tradition in Latin American football.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "West Ham United"
+  },
+  {
+    "id": "camavinga-eduardo",
+    "name": "Eduardo Camavinga",
+    "country": "france",
+    "ipa": "/edwaʁdo kamaˈvĩɡa/",
+    "phonetic": "eh-dwar-DOH kah-mah-VEEN-gah",
+    "syllables": [
+      "eh",
+      "dwar",
+      "DOH",
+      "kah",
+      "mah",
+      "VEEN",
+      "gah"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Camavinga: the stress is on 'VEEN'. Four syllables. The name has Congolese-Angolan origins.",
+    "commonMistakes": [
+      "ED-war-doh KAM-ah-ving-ah",
+      "eh-dwar-doh kah-mah-VIN-gah"
+    ],
+    "funFact": "Born in a refugee camp in Angola to Congolese parents. Became a French citizen and debuted at 16 for Rennes.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "martinez-emiliano",
+    "name": "Emiliano Martínez",
+    "country": "argentina",
+    "ipa": "/emiˈljano maɾˈtineθ/",
+    "phonetic": "eh-mee-lee-AH-noh mar-TEE-neth",
+    "syllables": [
+      "eh",
+      "mee",
+      "lee",
+      "AH",
+      "noh",
+      "mar",
+      "TEE",
+      "neth"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Four syllables in Emiliano with stress on 'AH'. Known as 'Dibu' (DEE-boo) from the cartoon character.",
+    "commonMistakes": [
+      "eh-MIL-ee-ah-no",
+      "em-ih-lee-AH-no"
+    ],
+    "funFact": "Nicknamed 'Dibu' after the Argentine cartoon 'Dibu' because of his resemblance as a child.",
+    "difficulty": 3,
+    "position": "Goalkeeper",
+    "club": "Aston Villa"
+  },
+  {
+    "id": "endrick",
+    "name": "Endrick",
+    "country": "brazil",
+    "ipa": "/ẽˈdɾik/",
+    "phonetic": "en-DREEK",
+    "syllables": [
+      "en",
+      "DREEK"
+    ],
+    "stressIndex": 1,
+    "audioHint": "The 'dr' blend is distinctly Brazilian — 'DREEK' not 'DRIK'. The nasal 'en' starts the name.",
+    "commonMistakes": [
+      "EN-drik",
+      "en-DRICK"
+    ],
+    "funFact": "Full name: Endrick Felipe Moreira de Sousa. Only 17 when he signed with Real Madrid.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "fernandez-enzo",
+    "name": "Enzo Fernández",
+    "country": "argentina",
+    "ipa": "/ˈentso ferˈnandeθ/",
+    "phonetic": "EN-tso fer-NAHN-deth",
+    "syllables": [
+      "EN",
+      "tso",
+      "fer",
+      "NAHN",
+      "deth"
+    ],
+    "stressIndex": 3,
+    "audioHint": "The 'z' in Enzo is a clear 'ts' sound. Fernández has the stress on the second-to-last syllable.",
+    "commonMistakes": [
+      "EN-zoh fer-NAN-dez",
+      "EN-zoh"
+    ],
+    "funFact": "Named after Uruguayan legend Enzo Francescoli, same inspiration as Zinedine Zidane's first name.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Chelsea"
+  },
+  {
+    "id": "haaland-erling",
+    "name": "Erling Haaland",
+    "country": "norway",
+    "ipa": "/ˈɛrlɪŋ ˈhɔːlɑn/",
+    "phonetic": "ER-ling HAW-lahn",
+    "syllables": [
+      "ER",
+      "ling",
+      "HAW",
+      "lahn"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Haaland = HAW-lahn — the double 'aa' in Norwegian gives a broad 'aw' sound. Not HAY-land or HAH-land.",
+    "commonMistakes": [
+      "HAY-lund",
+      "HAH-lund",
+      "HAH-land"
+    ],
+    "funFact": "Erling Haaland was born in Leeds, England, while his father Alfie Haaland played for Manchester City — a quirky connection to his future club. The 'aa' in Norwegian names like Haaland, Aaberg, Aas always makes a long 'aw' sound.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Manchester City"
+  },
+  {
+    "id": "chiesa-federico",
+    "name": "Federico Chiesa",
+    "country": "italy",
+    "ipa": "/fedeˈriko ˈkjɛːza/",
+    "phonetic": "feh-deh-REE-koh kee-EH-zah",
+    "syllables": [
+      "feh",
+      "deh",
+      "REE",
+      "koh",
+      "kee",
+      "EH",
+      "zah"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Chiesa: the 'Ch' in Italian is a 'K' sound. The 'ie' is 'ee-eh'. It means 'church' in Italian.",
+    "commonMistakes": [
+      "feh-deh-REE-koh CHEE-zah",
+      "CHEE-eh-sah"
+    ],
+    "funFact": "'Chiesa' literally means 'church' in Italian. His father Enrico Chiesa was also an Italian international.",
+    "difficulty": 3,
+    "position": "Winger",
+    "club": "Liverpool"
+  },
+  {
+    "id": "valverde-federico",
+    "name": "Federico Valverde",
+    "country": "uruguay",
+    "ipa": "/feðeˈɾiko βalˈβeɾðe/",
+    "phonetic": "feh-deh-REE-koh vahl-VEHR-deh",
+    "syllables": [
+      "feh",
+      "deh",
+      "REE",
+      "koh",
+      "vahl",
+      "VEHR",
+      "deh"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Valverde: both 'v' sounds are soft (between 'v' and 'b'). Stress on 'VEHR'.",
+    "commonMistakes": [
+      "FED-er-ick-oh val-VER-dee",
+      "feh-deh-REE-koh VAL-verd"
+    ],
+    "funFact": "Nicknamed 'El Pajarito' (The Little Bird) for his tireless running across the midfield.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "wirtz-florian",
+    "name": "Florian Wirtz",
+    "country": "germany",
+    "ipa": "/ˈfloːʁiːan vɪʁts/",
+    "phonetic": "FLOH-ree-ahn VEERTS",
+    "syllables": [
+      "FLOH",
+      "ree",
+      "ahn",
+      "VEERTS"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Wirtz: the 'W' is pronounced as a 'V' in German. The 'i' is short. One syllable: VEERTS.",
+    "commonMistakes": [
+      "FLOOR-ee-an WERTS",
+      "floh-ree-AN WIRTZ"
+    ],
+    "funFact": "Became the youngest Bundesliga scorer at 17. His first name Florian derives from Latin 'florens' meaning 'flourishing'.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Bayer Leverkusen"
+  },
+  {
+    "id": "kessie-franck",
+    "name": "Franck Kessié",
+    "country": "cote-divoire",
+    "ipa": "/fʁɑ̃k keˈsje/",
+    "phonetic": "FRAHNK keh-see-AY",
+    "syllables": [
+      "FRAHNK",
+      "keh",
+      "see",
+      "AY"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Kessié: the accent on 'é' gives a clear 'AY' at the end. Three syllables: 'keh-see-AY'.",
+    "commonMistakes": [
+      "FRANK KESS-ee",
+      "FRAHNK keh-SEE"
+    ],
+    "funFact": "Known as 'Il Presidente' (The President) at AC Milan for his commanding midfield presence.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Al-Ahli"
+  },
+  {
+    "id": "de-jong-frenkie",
+    "name": "Frenkie de Jong",
+    "country": "netherlands",
+    "ipa": "/ˈfrɛŋki də ˈjɔŋ/",
+    "phonetic": "FREN-kee duh YONG",
+    "syllables": [
+      "FREN",
+      "kee",
+      "duh",
+      "YONG"
+    ],
+    "stressIndex": 0,
+    "audioHint": "De Jong: the 'J' is pronounced as 'Y' in Dutch. 'Jong' rhymes with 'song' but with a 'Y' start.",
+    "commonMistakes": [
+      "FREN-kee deh JONG",
+      "fren-KEY dee ZHONG"
+    ],
+    "funFact": "'De Jong' means 'the young one' in Dutch — one of the most common Dutch surnames.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Barcelona"
+  },
+  {
+    "id": "gavi",
+    "name": "Gavi",
+    "country": "spain",
+    "ipa": "/ˈɡaβi/",
+    "phonetic": "GAH-vee",
+    "syllables": [
+      "GAH",
+      "vee"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Simple two syllables. The 'v' in Spanish is softer, almost between 'v' and 'b'.",
+    "commonMistakes": [
+      "GAV-ee",
+      "GAH-vy"
+    ],
+    "funFact": "Gavi is a nickname — his full name is Pablo Martín Páez Gavira. 'Gavi' comes from his surname Gavira.",
+    "difficulty": 1,
+    "position": "Midfielder",
+    "club": "Barcelona"
+  },
+  {
+    "id": "donnarumma-gianluigi",
+    "name": "Gianluigi Donnarumma",
+    "country": "italy",
+    "ipa": "/dʒanluˈiːdʒi donnaˈrumma/",
+    "phonetic": "jahn-loo-EE-jee don-nah-ROOM-mah",
+    "syllables": [
+      "jahn",
+      "loo",
+      "EE",
+      "jee",
+      "don",
+      "nah",
+      "ROOM",
+      "mah"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Gianluigi: four syllables, 'Gi' is 'J'. Donnarumma: double 'n' and double 'm' are both fully pronounced.",
+    "commonMistakes": [
+      "jee-an-LOO-ee-jee DON-ah-roo-mah",
+      "JAHN-loo-ee-jee"
+    ],
+    "funFact": "At 196cm, Donnarumma means 'woman of the don' — a Neapolitan surname. Debuted at AC Milan aged 16.",
+    "difficulty": 4,
+    "position": "Goalkeeper",
+    "club": "Paris Saint-Germain"
+  },
+  {
+    "id": "reyna-giovanni",
+    "name": "Giovanni Reyna",
+    "country": "united-states",
+    "ipa": "/dʒoˈvɑːni ˈreɪnə/",
+    "phonetic": "joh-VAH-nee RAY-nuh",
+    "syllables": [
+      "joh",
+      "VAH",
+      "nee",
+      "RAY",
+      "nuh"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Giovanni: Italian pronunciation with 'joh'. Reyna: Americanized to 'RAY-nuh', Spanish would be 'RAY-nah'.",
+    "commonMistakes": [
+      "jee-oh-VAH-nee REE-nah",
+      "GEE-oh-vah-nee"
+    ],
+    "funFact": "Named after his father Claudio Reyna, also a US international. Giovanni means 'God is gracious' in Italian.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Borussia Dortmund"
+  },
+  {
+    "id": "xhaka-granit",
+    "name": "Granit Xhaka",
+    "country": "switzerland",
+    "ipa": "/ˈɡranɪt ˈʒaka/",
+    "phonetic": "GRAH-nit ZHAH-kah",
+    "syllables": [
+      "GRAH",
+      "nit",
+      "ZHAH",
+      "kah"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Xhaka = ZHAH-kah. The 'Xh' in Albanian makes a 'zh' sound (like the 's' in 'measure'). Granit = GRAH-nit. Albanian names, Swiss player.",
+    "commonMistakes": [
+      "ZHAK-uh",
+      "EX-ah-kah",
+      "SHAH-kah"
+    ],
+    "funFact": "Granit Xhaka is of Albanian-Kosovar heritage. 'Xh' in Albanian is always 'zh' — so Xhaka = ZHAH-kah. His brother Taulant also played professional football. He's Switzerland's captain and most capped active player.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Bayer Leverkusen"
+  },
+  {
+    "id": "calhanoglu-hakan",
+    "name": "Hakan Çalhanoğlu",
+    "country": "turkiye",
+    "ipa": "/haˈkan tʃalhaˈnoːlu/",
+    "phonetic": "hah-KAHN chahl-hah-NOH-loo",
+    "syllables": [
+      "hah",
+      "KAHN",
+      "chahl",
+      "hah",
+      "NOH",
+      "loo"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Çalhanoğlu: 'Ç' is 'ch', the 'ğ' (soft g) is silent and lengthens the preceding vowel. Four syllables.",
+    "commonMistakes": [
+      "HAK-an kal-han-OH-loo",
+      "hah-KAHN chal-hah-NOG-loo"
+    ],
+    "funFact": "'Çalhanoğlu' roughly translates to 'son of the herald/announcer' in Turkish.",
+    "difficulty": 5,
+    "position": "Midfielder",
+    "club": "Inter Milan"
+  },
+  {
+    "id": "ziyech-hakim",
+    "name": "Hakim Ziyech",
+    "country": "morocco",
+    "ipa": "/ħaˈkiːm ziˈjɛx/",
+    "phonetic": "hah-KEEM zee-YEKH",
+    "syllables": [
+      "hah",
+      "KEEM",
+      "zee",
+      "YEKH"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Ziyech: the final 'ch' is a guttural 'kh' sound (like the Scottish 'loch'). Not 'zeech' or 'zee-ek'.",
+    "commonMistakes": [
+      "HAK-im ZEE-ech",
+      "hah-KEEM ZY-ek"
+    ],
+    "funFact": "Ziyech is of Amazigh (Berber) origin. The name means 'beautiful' in the Riffian Berber language.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Galatasaray"
+  },
+  {
+    "id": "onyekuru-henry",
+    "name": "Henry Onyekuru",
+    "country": "nigeria",
+    "ipa": "/ˈhɛnri ˌɔnjɛˈkuːruː/",
+    "phonetic": "HEN-ree on-yeh-KOO-roo",
+    "syllables": [
+      "HEN",
+      "ree",
+      "on",
+      "yeh",
+      "KOO",
+      "roo"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Onyekuru = on-yeh-KOO-roo. Igbo name from southeast Nigeria. The 'ony' sounds like 'on-yeh', not 'OHN-ee'.",
+    "commonMistakes": [
+      "ON-ee-ku-roo",
+      "oh-nyeh-KOO-roo"
+    ],
+    "funFact": "Onyekuru is an Igbo name from Nigeria. The Igbo language is tonal — the same word with different tones can have completely different meanings. Many Nigerian names encode blessings or family circumstances at birth.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Various"
+  },
+  {
+    "id": "lozano-hirving",
+    "name": "Hirving Lozano",
+    "country": "mexico",
+    "ipa": "/iɾβiŋ loˈsano/",
+    "phonetic": "EER-veeng loh-SAH-noh",
+    "syllables": [
+      "EER",
+      "veeng",
+      "loh",
+      "SAH",
+      "noh"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Hirving: the 'H' is silent in Spanish. The name is unique — his father invented it. Lozano: stress on 'SAH'.",
+    "commonMistakes": [
+      "HER-ving loh-ZAH-noh",
+      "HIR-ving LOH-zah-noh"
+    ],
+    "funFact": "His father created the name 'Hirving' by combining letters he liked. No one else had this name before him.",
+    "difficulty": 3,
+    "position": "Winger",
+    "club": "San Diego FC"
+  },
+  {
+    "id": "irvine-jackson",
+    "name": "Jackson Irvine",
+    "country": "australia",
+    "ipa": "/ˈdʒæksən ˈɜːvɪn/",
+    "phonetic": "JAK-son ER-vin",
+    "syllables": [
+      "JAK",
+      "son",
+      "ER",
+      "vin"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Straightforward English pronunciation. Irvine: two syllables, 'ER-vin' not 'er-VINE'.",
+    "commonMistakes": [
+      "JAK-son eye-VINE",
+      "JAK-son er-VEEN"
+    ],
+    "funFact": "Born in Melbourne to a Scottish father. Captains the Socceroos with a distinctive headband.",
+    "difficulty": 1,
+    "position": "Midfielder",
+    "club": "St. Pauli"
+  },
+  {
+    "id": "musiala-jamal",
+    "name": "Jamal Musiala",
+    "country": "germany",
+    "ipa": "/dʒəˈmɑːl muˈzjɑːlɑ/",
+    "phonetic": "jah-MAHL moo-zee-AH-lah",
+    "syllables": [
+      "jah",
+      "MAHL",
+      "moo",
+      "zee",
+      "AH",
+      "lah"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Musiala: four syllables, moo-zee-AH-lah. The 's' is voiced like a 'z'. Stress on 'AH'.",
+    "commonMistakes": [
+      "JAM-al moo-see-AH-lah",
+      "jah-MAHL MOO-see-ah-lah"
+    ],
+    "funFact": "Born in Stuttgart to a German-Nigerian family, raised partly in England. Chose Germany over England at youth level.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Bayern Munich"
+  },
+  {
+    "id": "james-rodriguez",
+    "name": "James Rodríguez",
+    "country": "colombia",
+    "ipa": "/ˈxames roˈðɾiɣeθ/",
+    "phonetic": "HAH-mes roh-DREE-geth",
+    "syllables": [
+      "HAH",
+      "mes",
+      "roh",
+      "DREE",
+      "geth"
+    ],
+    "stressIndex": 0,
+    "audioHint": "James: in Spanish it's 'HAH-mes' (two syllables), not the English 'James'. The 'J' is an 'H' sound.",
+    "commonMistakes": [
+      "JAMES rod-REE-guez",
+      "HAH-mez"
+    ],
+    "funFact": "Named after James Bond by his football-loving father. The Spanish pronunciation makes it sound completely different.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "León"
+  },
+  {
+    "id": "david-jonathan",
+    "name": "Jonathan David",
+    "country": "canada",
+    "ipa": "/ˈdʒɑnəθən daˈvid/",
+    "phonetic": "JON-uh-thun dah-VEED",
+    "syllables": [
+      "JON",
+      "uh",
+      "thun",
+      "dah",
+      "VEED"
+    ],
+    "stressIndex": 4,
+    "audioHint": "David: French-Canadian pronunciation is 'dah-VEED', not the English 'DAY-vid'.",
+    "commonMistakes": [
+      "JON-uh-thun DAY-vid",
+      "JON-uh-than dah-VEED"
+    ],
+    "funFact": "Born in Brooklyn to Haitian parents, raised in Ottawa. He speaks English, French, Haitian Creole, and some Portuguese.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Lille"
+  },
+  {
+    "id": "kimmich-joshua",
+    "name": "Joshua Kimmich",
+    "country": "germany",
+    "ipa": "/ˈjoːzu̯a ˈkɪmɪç/",
+    "phonetic": "YOH-zoo-ah KIM-ikh",
+    "syllables": [
+      "YOH",
+      "zoo",
+      "ah",
+      "KIM",
+      "ikh"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Joshua in German starts with a 'Y'. Kimmich: the 'ch' is the soft German 'ich' sound, like a hiss.",
+    "commonMistakes": [
+      "JOSH-oo-ah KIM-itch",
+      "YOH-shoo-ah KIM-ik"
+    ],
+    "funFact": "Despite being only 176cm, Kimmich is known as one of the most aggressive defenders in world football.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Bayern Munich"
+  },
+  {
+    "id": "gvardiol-josko",
+    "name": "Joško Gvardiol",
+    "country": "croatia",
+    "ipa": "/ˈjoʃko ˈɡʋardiol/",
+    "phonetic": "YOSH-koh GVAR-dee-ol",
+    "syllables": [
+      "YOSH",
+      "koh",
+      "GVAR",
+      "dee",
+      "ol"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Joško = YOSH-koh (the 'J' = 'Y' in Croatian, 'š' = 'sh'). Gvardiol = GVAR-dee-ol — stress on first syllable, the 'gv' cluster is unusual in English.",
+    "commonMistakes": [
+      "JO-sko GVAR-dee-ol",
+      "GAR-dee-ol",
+      "guh-VAR-dee-ol"
+    ],
+    "funFact": "The 'gv' consonant cluster in Gvardiol doesn't exist in English. Croatian 'j' is always a 'y' sound. Joško became the world's most expensive defender when Manchester City signed him in 2023.",
+    "difficulty": 4,
+    "position": "Defender",
+    "club": "Manchester City"
+  },
+  {
+    "id": "bellingham-jude",
+    "name": "Jude Bellingham",
+    "country": "england",
+    "ipa": "/dʒuːd ˈbɛlɪŋəm/",
+    "phonetic": "jood BEL-ing-um",
+    "syllables": [
+      "jood",
+      "BEL",
+      "ing",
+      "um"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Bellingham = BEL-ing-um. Simple once you drop the 'h' (it's -ham like Buckingham, Tottenham). Three syllables.",
+    "commonMistakes": [
+      "BEL-ing-ham",
+      "BEL-ing-HAM"
+    ],
+    "funFact": "The '-ham' ending in English place names (Birmingham, Bellingham, Tottenham) comes from Old English 'hām' meaning village or home — it's always pronounced 'um', never 'ham'. Jude turned from teenager to superstar at Real Madrid.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "kounde-jules",
+    "name": "Jules Koundé",
+    "country": "france",
+    "ipa": "/ʒyl kundɛ/",
+    "phonetic": "zhool koon-DAY",
+    "syllables": [
+      "zhool",
+      "koon",
+      "DAY"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Jules = zhool (French 'J' = 'zh' like the 's' in 'measure'). Koundé = koon-DAY.",
+    "commonMistakes": [
+      "joolz KOON-day",
+      "joolz koon-DEH"
+    ],
+    "funFact": "Jules Koundé was born in Paris but represents France, not Benin (his father's heritage). He is known for his versatility — comfortable at centre-back or right-back.",
+    "difficulty": 3,
+    "position": "Defender",
+    "club": "Barcelona"
+  },
+  {
+    "id": "alvarez-julian",
+    "name": "Julián Álvarez",
+    "country": "argentina",
+    "ipa": "/xuˈljan ˈalβaɾeθ/",
+    "phonetic": "hoo-lee-AHN AHL-vah-reth",
+    "syllables": [
+      "hoo",
+      "lee",
+      "AHN",
+      "AHL",
+      "vah",
+      "reth"
+    ],
+    "stressIndex": 2,
+    "audioHint": "The J is an 'h' sound in Spanish. Álvarez ends with a soft 'th' in Castilian Spanish, or an 's' in Latin American Spanish.",
+    "commonMistakes": [
+      "JOO-lee-an AL-vah-rez",
+      "HOO-lee-an al-VAH-rez"
+    ],
+    "funFact": "Nicknamed 'La Araña' (The Spider) for his ability to appear everywhere on the pitch.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Atlético Madrid"
+  },
+  {
+    "id": "doku-jeremy",
+    "name": "Jérémy Doku",
+    "country": "belgium",
+    "ipa": "/ʒeʁemi dɔky/",
+    "phonetic": "zheh-reh-MEE doh-KOO",
+    "syllables": [
+      "zheh",
+      "reh",
+      "MEE",
+      "doh",
+      "KOO"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Jérémy: French pronunciation with the 'zh' sound. Doku: two syllables, stress on 'KOO'.",
+    "commonMistakes": [
+      "JER-eh-mee DOH-koo",
+      "JEH-reh-mee DOK-oo"
+    ],
+    "funFact": "Doku is of Ghanaian descent. The name 'Doku' means 'blessing' in several West African languages.",
+    "difficulty": 2,
+    "position": "Winger",
+    "club": "Manchester City"
+  },
+  {
+    "id": "havertz-kai",
+    "name": "Kai Havertz",
+    "country": "germany",
+    "ipa": "/kaɪ ˈhaːfɛʁts/",
+    "phonetic": "KYE HAH-ferts",
+    "syllables": [
+      "KYE",
+      "HAH",
+      "ferts"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Kai rhymes with 'eye'. Havertz: the 'v' is pronounced as 'f' in German, and the 'tz' is a single 'ts' sound.",
+    "commonMistakes": [
+      "KAY HAV-erts",
+      "KYE hah-VERTS"
+    ],
+    "funFact": "Kai is a name with origins in multiple cultures — Hawaiian (sea), German (warrior), and Chinese (victory).",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Arsenal"
+  },
+  {
+    "id": "koulibaly-kalidou",
+    "name": "Kalidou Koulibaly",
+    "country": "senegal",
+    "ipa": "/kaliˈduː kuliˈbali/",
+    "phonetic": "kah-lee-DOO koo-lee-BAH-lee",
+    "syllables": [
+      "kah",
+      "lee",
+      "DOO",
+      "koo",
+      "lee",
+      "BAH",
+      "lee"
+    ],
+    "stressIndex": 5,
+    "audioHint": "Kalidou = kah-lee-DOO. Koulibaly = koo-lee-BAH-lee. Both names have even, flowing syllables — stress the 'DOO' and 'BAH'.",
+    "commonMistakes": [
+      "KAL-ih-doo KOO-lih-bah-lee",
+      "kah-LID-oo koo-LIB-ah-lee"
+    ],
+    "funFact": "Kalidou Koulibaly is named after the Islamic tradition of strong, meaningful names — Kalidou means 'the eternal' in Pulaar (Fula language). He was considered one of the best defenders in Serie A history during his time at Napoli.",
+    "difficulty": 4,
+    "position": "Defender",
+    "club": "Al-Hilal"
+  },
+  {
+    "id": "mitoma-kaoru",
+    "name": "Kaoru Mitoma",
+    "country": "japan",
+    "ipa": "/kaoɾɯ mitoma/",
+    "phonetic": "kah-OH-roo mee-TOH-mah",
+    "syllables": [
+      "kah",
+      "OH",
+      "roo",
+      "mee",
+      "TOH",
+      "mah"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Kaoru: three syllables with a soft 'r'. Mitoma: even stress, 'mee-TOH-mah'.",
+    "commonMistakes": [
+      "KAH-roo mih-TOH-mah",
+      "KAY-oh-roo"
+    ],
+    "funFact": "Mitoma wrote his university thesis on dribbling technique — then became one of the Premier League's best dribblers.",
+    "difficulty": 2,
+    "position": "Winger",
+    "club": "Brighton"
+  },
+  {
+    "id": "yildiz-kenan",
+    "name": "Kenan Yıldız",
+    "country": "turkiye",
+    "ipa": "/keˈnan ˈjɯldɯz/",
+    "phonetic": "keh-NAHN YULL-duz",
+    "syllables": [
+      "keh",
+      "NAHN",
+      "YULL",
+      "duz"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Yıldız: the 'ı' (dotless i) in Turkish is a back vowel like 'uh'. 'Yıldız' means 'star'.",
+    "commonMistakes": [
+      "KEN-an YILL-diz",
+      "keh-NAN yil-DEEZ"
+    ],
+    "funFact": "'Yıldız' means 'star' in Turkish — a prophetic surname for the young talent at Juventus.",
+    "difficulty": 4,
+    "position": "Forward",
+    "club": "Juventus"
+  },
+  {
+    "id": "de-bruyne-kevin",
+    "name": "Kevin De Bruyne",
+    "country": "belgium",
+    "ipa": "/ˈkɛvɪn dəˈbrœynə/",
+    "phonetic": "KEV-in duh-BROY-nuh",
+    "syllables": [
+      "KEV",
+      "in",
+      "duh",
+      "BROY",
+      "nuh"
+    ],
+    "stressIndex": 3,
+    "audioHint": "De Bruyne: the 'uy' is a unique Flemish/Dutch diphthong, closest to 'oy'. The final 'e' is a schwa.",
+    "commonMistakes": [
+      "KEV-in deh BROON",
+      "KEV-in duh BROO-nee"
+    ],
+    "funFact": "'De Bruyne' means 'the brown one' in Flemish Dutch, likely referring to hair or complexion.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Manchester City"
+  },
+  {
+    "id": "fuller-keysher",
+    "name": "Keysher Fuller",
+    "country": "costa-rica",
+    "ipa": "/ˈkeiʃeɾ ˈfuleɾ/",
+    "phonetic": "KAY-sher FOO-ler",
+    "syllables": [
+      "KAY",
+      "sher",
+      "FOO",
+      "ler"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Keysher: a unique Costa Rican name. 'KAY-sher' with stress on the first syllable.",
+    "commonMistakes": [
+      "KEY-sher FULL-er",
+      "KEESH-er"
+    ],
+    "funFact": "Fuller scored Costa Rica's dramatic last-minute winner against Japan in the 2022 World Cup.",
+    "difficulty": 2,
+    "position": "Defender",
+    "club": "Herediano"
+  },
+  {
+    "id": "kim-min-jae",
+    "name": "Kim Min-jae",
+    "country": "south-korea",
+    "ipa": "/kim mindʑe/",
+    "phonetic": "KIM MIN-jay",
+    "syllables": [
+      "KIM",
+      "MIN",
+      "jay"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Straightforward Korean pronunciation. Min-jae: 'jay' at the end, not 'jye' or 'jeh'.",
+    "commonMistakes": [
+      "KIM min-JAY",
+      "KIM min-JYE"
+    ],
+    "funFact": "Nicknamed 'The Monster' for his imposing defensive presence. Kim (김) is the most common Korean surname.",
+    "difficulty": 1,
+    "position": "Defender",
+    "club": "Bayern Munich"
+  },
+  {
+    "id": "mbappe-kylian",
+    "name": "Kylian Mbappé",
+    "country": "france",
+    "ipa": "/kiˈljɑ̃ mbaˈpe/",
+    "phonetic": "keel-YAHN m-bah-PAY",
+    "syllables": [
+      "keel",
+      "YAHN",
+      "m",
+      "bah",
+      "PAY"
+    ],
+    "stressIndex": 4,
+    "audioHint": "The 'M' in Mbappé is barely voiced — almost silent. 'm-bah-PAY'. The accent on the 'é' means it's a clear 'ay' sound, not dropped.",
+    "commonMistakes": [
+      "m-BAP-ay",
+      "m-BAH-pay",
+      "MBAP-ay"
+    ],
+    "funFact": "Kylian Mbappé's first name is of Celtic/Breton origin, from the name Killian. The 'M' in Mbappé comes from Cameroonian naming tradition — his father is Cameroonian.",
+    "difficulty": 4,
+    "position": "Forward",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "yamal-lamine",
+    "name": "Lamine Yamal",
+    "country": "spain",
+    "ipa": "/laˈmine jaˈmal/",
+    "phonetic": "lah-MEE-neh yah-MAHL",
+    "syllables": [
+      "lah",
+      "MEE",
+      "neh",
+      "yah",
+      "MAHL"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Lamine: French/Arabic origin, three syllables. Yamal: stress on 'MAHL', the 'Y' is clear.",
+    "commonMistakes": [
+      "LAM-in-ay YAH-mal",
+      "LAH-mine yah-MAL"
+    ],
+    "funFact": "Born in 2007, Yamal is of Moroccan and Equatorial Guinean descent. Became Spain's youngest ever player at 15.",
+    "difficulty": 2,
+    "position": "Winger",
+    "club": "Barcelona"
+  },
+  {
+    "id": "martinez-lautaro",
+    "name": "Lautaro Martínez",
+    "country": "argentina",
+    "ipa": "/lawˈtaɾo maɾˈtineθ/",
+    "phonetic": "lah-oo-TAH-roh mar-TEE-neth",
+    "syllables": [
+      "lah",
+      "oo",
+      "TAH",
+      "roh",
+      "mar",
+      "TEE",
+      "neth"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Lautaro: the 'au' diphthong blends into 'ow'. Stress falls on 'TAH'. Martínez stress on 'TEE'.",
+    "commonMistakes": [
+      "LAW-tah-roh",
+      "LOW-tar-oh mar-TIN-ez"
+    ],
+    "funFact": "'Lautaro' is a Mapuche name from Chilean and Argentine indigenous culture, meaning 'swift hawk'.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Inter Milan"
+  },
+  {
+    "id": "trossard-leandro",
+    "name": "Leandro Trossard",
+    "country": "belgium",
+    "ipa": "/leˈɑndro ˈtrɔsɑrt/",
+    "phonetic": "lee-AHN-droh TROSS-art",
+    "syllables": [
+      "lee",
+      "AHN",
+      "droh",
+      "TROSS",
+      "art"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Trossard: Flemish/Belgian pronunciation. The 'd' at the end is silent — 'TROSS-ar'.",
+    "commonMistakes": [
+      "lee-AN-droh troh-SARD",
+      "lee-AHN-droh TROSS-ard"
+    ],
+    "funFact": "Born in Genk, Belgium. Trossard is a Walloon surname, reflecting Belgium's French-Dutch linguistic divide.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Arsenal"
+  },
+  {
+    "id": "lee-kang-in",
+    "name": "Lee Kang-in",
+    "country": "south-korea",
+    "ipa": "/i kaŋin/",
+    "phonetic": "EE KAHNG-in",
+    "syllables": [
+      "EE",
+      "KAHNG",
+      "in"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Lee in Korean is closer to 'EE' than the English 'Lee'. Kang-in: the 'ng' connects smoothly to 'in'.",
+    "commonMistakes": [
+      "LEE KANG-in",
+      "LEE kang-EEN"
+    ],
+    "funFact": "Lee (이) is the second most common Korean surname. He joined Valencia's academy at age 10.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Paris Saint-Germain"
+  },
+  {
+    "id": "sane-leroy",
+    "name": "Leroy Sané",
+    "country": "germany",
+    "ipa": "/ləˈʁɔɪ zaˈneː/",
+    "phonetic": "luh-ROY zah-NAY",
+    "syllables": [
+      "luh",
+      "ROY",
+      "zah",
+      "NAY"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Sané: the accent on the 'é' gives a clear 'ay' sound. The 'S' is voiced like 'Z' in German.",
+    "commonMistakes": [
+      "LEE-roy SAYN",
+      "luh-ROY SAH-nay"
+    ],
+    "funFact": "His father Souleymane Sané was a professional footballer for Senegal. The surname has Senegalese roots.",
+    "difficulty": 2,
+    "position": "Winger",
+    "club": "Bayern Munich"
+  },
+  {
+    "id": "messi-lionel",
+    "name": "Lionel Messi",
+    "country": "argentina",
+    "ipa": "/lioˈnel ˈmesi/",
+    "phonetic": "lee-oh-NEL MEH-see",
+    "syllables": [
+      "lee",
+      "oh",
+      "NEL",
+      "MEH",
+      "see"
+    ],
+    "stressIndex": 2,
+    "audioHint": "In Spanish, it's lee-oh-NEL, not LY-oh-nel. The surname is MEH-see, not MESS-ee.",
+    "commonMistakes": [
+      "LY-oh-nel MESS-ee",
+      "LEE-uh-nel",
+      "lee-oh-NELL"
+    ],
+    "funFact": "The name 'Lionel' was inspired by American singer Lionel Richie. In Argentina, fans call him 'Leo' (LEH-oh).",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Inter Miami"
+  },
+  {
+    "id": "diaz-luis",
+    "name": "Luis Díaz",
+    "country": "colombia",
+    "ipa": "/luˈis ˈdiaθ/",
+    "phonetic": "loo-EES DEE-as",
+    "syllables": [
+      "loo",
+      "EES",
+      "DEE",
+      "as"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Luis = loo-EES (two syllables, stress on EES). Díaz = DEE-as in Colombian Spanish. The accent on 'í' confirms stress.",
+    "commonMistakes": [
+      "LOO-is DY-az",
+      "LOO-ee DEE-az"
+    ],
+    "funFact": "Luis Díaz comes from the Wayuu indigenous community in La Guajira, Colombia. His parents were both kidnapped in 2023 while he was playing in Liverpool's Champions League — one of football's most dramatic and heartbreaking stories.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Liverpool"
+  },
+  {
+    "id": "modric-luka",
+    "name": "Luka Modrić",
+    "country": "croatia",
+    "ipa": "/ˈluːka ˈmoːdrɪtʃ/",
+    "phonetic": "LOO-kah MOH-dritch",
+    "syllables": [
+      "LOO",
+      "kah",
+      "MOH",
+      "dritch"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Modrić = MOH-dritch. The 'ć' in Croatian is a soft 'ch' sound (like 'ch' in 'cheap' but softer). Not 'MOH-drik'.",
+    "commonMistakes": [
+      "moh-DRITCH",
+      "MOH-drick",
+      "MOH-drits"
+    ],
+    "funFact": "Luka Modrić grew up as a refugee during the Croatian War of Independence. He won the Ballon d'Or in 2018 — the first player in 11 years not named Messi or Ronaldo — after leading Croatia to the World Cup final.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "akanji-manuel",
+    "name": "Manuel Akanji",
+    "country": "switzerland",
+    "ipa": "/ˈmaːnuɛl aˈkandʒi/",
+    "phonetic": "MAH-noo-el ah-KAHN-jee",
+    "syllables": [
+      "MAH",
+      "noo",
+      "el",
+      "ah",
+      "KAHN",
+      "jee"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Akanji: stress on 'KAHN'. The 'j' is pronounced as a soft 'j' (like 'jee'). Nigerian-Swiss heritage.",
+    "commonMistakes": [
+      "MAN-yoo-el ah-KAN-jee",
+      "ah-KAHN-yee"
+    ],
+    "funFact": "Born in Switzerland to a Nigerian father and Swiss mother. Akanji is a Yoruba surname meaning 'the one who conquers'.",
+    "difficulty": 2,
+    "position": "Defender",
+    "club": "Manchester City"
+  },
+  {
+    "id": "thuram-marcus",
+    "name": "Marcus Thuram",
+    "country": "france",
+    "ipa": "/maʁkys tyˈʁam/",
+    "phonetic": "mar-KOOS tew-RAHM",
+    "syllables": [
+      "mar",
+      "KOOS",
+      "tew",
+      "RAHM"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Thuram: the 'Th' is just a 'T' in French, and the 'u' is the French 'ew' sound. Stress on 'RAHM'.",
+    "commonMistakes": [
+      "MAR-kus THUR-am",
+      "MAR-kus too-RAHM"
+    ],
+    "funFact": "Son of Lilian Thuram, France's most capped player. The surname has roots in Guadeloupe.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Inter Milan"
+  },
+  {
+    "id": "marquinhos",
+    "name": "Marquinhos",
+    "country": "brazil",
+    "ipa": "/maʁˈkĩɲus/",
+    "phonetic": "mar-KEEN-yos",
+    "syllables": [
+      "mar",
+      "KEEN",
+      "yos"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Marquinhos = mar-KEEN-yos. The '-nhos' ending in Brazilian Portuguese makes a 'ny-os' sound (nasal). This is a mononym (one name).",
+    "commonMistakes": [
+      "MAR-kin-hos",
+      "mar-KIN-ohs",
+      "mar-KEEN-os"
+    ],
+    "funFact": "Marquinhos is a nickname — his real name is Marcos Aoás Corrêa. In Brazilian Portuguese, '-inho/-inha' is an affectionate diminutive suffix, and '-inhos' is plural. Marquinhos = 'Little Marcos.'",
+    "difficulty": 3,
+    "position": "Defender",
+    "club": "Paris Saint-Germain"
+  },
+  {
+    "id": "kovacic-mateo",
+    "name": "Mateo Kovačić",
+    "country": "croatia",
+    "ipa": "/ˈmateo ˈkovatʃitɕ/",
+    "phonetic": "MAH-teh-oh KOH-vah-chich",
+    "syllables": [
+      "MAH",
+      "teh",
+      "oh",
+      "KOH",
+      "vah",
+      "chich"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Kovačić: the 'č' is 'ch' (like 'church') and the final 'ć' is a softer 'ch'. Two distinct sounds.",
+    "commonMistakes": [
+      "mah-TAY-oh ko-VAH-sik",
+      "KOH-vah-chik"
+    ],
+    "funFact": "Kovačić means 'little blacksmith' in Croatian — from 'kovač' (blacksmith) plus the diminutive '-ić'.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Manchester City"
+  },
+  {
+    "id": "de-ligt-matthijs",
+    "name": "Matthijs de Ligt",
+    "country": "netherlands",
+    "ipa": "/mɑˈtɛɪs də ˈlɪxt/",
+    "phonetic": "mah-TICE duh LIKHT",
+    "syllables": [
+      "mah",
+      "TICE",
+      "duh",
+      "LIKHT"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Matthijs: Dutch name where 'ij' sounds like 'ice'. De Ligt: the 'g' is the guttural Dutch sound, 't' is soft.",
+    "commonMistakes": [
+      "mah-THEES deh LEET",
+      "MAT-ijs deh LIGT"
+    ],
+    "funFact": "'De Ligt' means 'the light' in Dutch. Matthijs is the Dutch form of Matthew.",
+    "difficulty": 4,
+    "position": "Defender",
+    "club": "Manchester United"
+  },
+  {
+    "id": "taremi-mehdi",
+    "name": "Mehdi Taremi",
+    "country": "iran",
+    "ipa": "/mehˈdi taˈɾemi/",
+    "phonetic": "meh-DEE tah-REH-mee",
+    "syllables": [
+      "meh",
+      "DEE",
+      "tah",
+      "REH",
+      "mee"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Mehdi: stress on 'DEE'. Taremi: stress on 'REH'. All vowels are clean and distinct.",
+    "commonMistakes": [
+      "MEH-dee TAR-eh-mee",
+      "MAH-dee tah-REH-mee"
+    ],
+    "funFact": "Taremi is from Bushehr, Iran. The name Mehdi (مهدی) means 'guided one' in Arabic, an important name in Islam.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Inter Milan"
+  },
+  {
+    "id": "depay-memphis",
+    "name": "Memphis Depay",
+    "country": "netherlands",
+    "ipa": "/ˈmɛmfɪs dəˈpaɪ/",
+    "phonetic": "MEM-fis duh-PIE",
+    "syllables": [
+      "MEM",
+      "fis",
+      "duh",
+      "PIE"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Depay: stress on the second syllable, rhymes with 'pie'. He prefers to go by just 'Memphis' on his shirt.",
+    "commonMistakes": [
+      "MEM-fis DEE-pay",
+      "MEM-fis deh-PAY"
+    ],
+    "funFact": "Memphis dropped his surname from his shirt because he does not want to be associated with his father's family name.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Corinthians"
+  },
+  {
+    "id": "maignan-mike",
+    "name": "Mike Maignan",
+    "country": "france",
+    "ipa": "/majk mɛɲɑ̃/",
+    "phonetic": "MYKE men-YAHN",
+    "syllables": [
+      "MYKE",
+      "men",
+      "YAHN"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Maignan: the 'gn' in French is the 'ny' sound (like Italian 'gn' in gnocchi). Two syllables: 'men-YAHN'.",
+    "commonMistakes": [
+      "MIKE MAG-nan",
+      "MIKE may-NAHN"
+    ],
+    "funFact": "Maignan means 'tinsmith' in old French. He succeeded Gianluigi Donnarumma at AC Milan.",
+    "difficulty": 3,
+    "position": "Goalkeeper",
+    "club": "AC Milan"
+  },
+  {
+    "id": "salah-mohamed",
+    "name": "Mohamed Salah",
+    "country": "egypt",
+    "ipa": "/moˈhæməd ˈsæˌlɑː/",
+    "phonetic": "moh-HAM-med SAH-lah",
+    "syllables": [
+      "moh",
+      "HAM",
+      "med",
+      "SAH",
+      "lah"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Mohamed = moh-HAM-med (not muh-HAM-id). Salah = SAH-lah (two equal syllables, not SAH-luh). The Arabic 'ح' (H) in Salah is emphatic.",
+    "commonMistakes": [
+      "moh-HAM-id SAL-uh",
+      "MOH-hamed SAH-lah"
+    ],
+    "funFact": "Mohamed in Arabic is the most common name in the world. Salah (صلاح) means 'righteousness' or 'goodness' in Arabic. He's Liverpool's Egyptian King and became Africa's first mega-star of the Premier League era.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Liverpool"
+  },
+  {
+    "id": "kudus-mohammed",
+    "name": "Mohammed Kudus",
+    "country": "ghana",
+    "ipa": "/moˈhæmed kuˈdus/",
+    "phonetic": "moh-HAH-med koo-DOOS",
+    "syllables": [
+      "moh",
+      "HAH",
+      "med",
+      "koo",
+      "DOOS"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Kudus: stress on 'DOOS' with a long 'oo'. Not 'KOO-dus' or 'KUD-us'.",
+    "commonMistakes": [
+      "moh-HAM-ed KOO-dus",
+      "MO-hammed kuh-DUS"
+    ],
+    "funFact": "Born in Nima, a diverse neighborhood in Accra. Kudus means 'holy' in Arabic.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "West Ham United"
+  },
+  {
+    "id": "caicedo-moises",
+    "name": "Moisés Caicedo",
+    "country": "ecuador",
+    "ipa": "/moiˈses kaiˈseðo/",
+    "phonetic": "moy-SES kye-SEH-doh",
+    "syllables": [
+      "moy",
+      "SES",
+      "kye",
+      "SEH",
+      "doh"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Moisés: the Spanish form of Moses, 'moy-SES'. Caicedo: 'kye-SEH-doh', the 'ai' is like 'eye'.",
+    "commonMistakes": [
+      "MOY-ses KAY-seh-doh",
+      "moh-EE-ses kye-SEE-doh"
+    ],
+    "funFact": "Caicedo is an Ecuadorian surname of Afro-Colombian origin, common along the Pacific coast.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Chelsea"
+  },
+  {
+    "id": "kante-ngolo",
+    "name": "N'Golo Kanté",
+    "country": "france",
+    "ipa": "/ŋɡolo kɑ̃ˈte/",
+    "phonetic": "n-GOH-loh kahn-TAY",
+    "syllables": [
+      "n",
+      "GOH",
+      "loh",
+      "kahn",
+      "TAY"
+    ],
+    "stressIndex": 4,
+    "audioHint": "N'Golo: the apostrophe marks a syllabic 'N'. Kanté: nasal 'kahn' and the accent gives a clear 'TAY'.",
+    "commonMistakes": [
+      "en-GOH-loh kan-TEE",
+      "n-GOH-loh KAN-tay"
+    ],
+    "funFact": "His parents were Malian immigrants. The N' prefix in West African names indicates 'child of' or is a nasal consonant.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Al-Ittihad"
+  },
+  {
+    "id": "neymar-jr",
+    "name": "Neymar Jr",
+    "country": "brazil",
+    "ipa": "/nejˈmaʁ/",
+    "phonetic": "nay-MAR",
+    "syllables": [
+      "nay",
+      "MAR"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Neymar: 'nay-MAR' with stress on 'MAR'. The 'R' at the end is the guttural Brazilian sound.",
+    "commonMistakes": [
+      "NEE-mar",
+      "NAY-mar"
+    ],
+    "funFact": "Full name: Neymar da Silva Santos Júnior. Named after his father, also called Neymar.",
+    "difficulty": 1,
+    "position": "Forward",
+    "club": "Santos"
+  },
+  {
+    "id": "barella-nicolo",
+    "name": "Nicolò Barella",
+    "country": "italy",
+    "ipa": "/nikoˈlɔ baˈrɛlla/",
+    "phonetic": "nee-koh-LOH bah-REL-lah",
+    "syllables": [
+      "nee",
+      "koh",
+      "LOH",
+      "bah",
+      "REL",
+      "lah"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Nicolò: stress on the final syllable 'LOH'. Barella: double 'l' is pronounced distinctly in Italian.",
+    "commonMistakes": [
+      "NIK-oh-loh bah-REL-ah",
+      "nik-oh-LOH bar-EL-ah"
+    ],
+    "funFact": "Barella is Sardinian — born in Cagliari. His surname may derive from 'barella' meaning 'stretcher' in Italian.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Inter Milan"
+  },
+  {
+    "id": "dembele-ousmane",
+    "name": "Ousmane Dembélé",
+    "country": "france",
+    "ipa": "/usmɑn dɑ̃bele/",
+    "phonetic": "oos-MAHN dahm-beh-LAY",
+    "syllables": [
+      "oos",
+      "MAHN",
+      "dahm",
+      "beh",
+      "LAY"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Ousmane = oos-MAHN (West African name, stress on second syllable). Dembélé = dahm-beh-LAY — three syllables, stress on final 'LAY'.",
+    "commonMistakes": [
+      "oos-MAN dem-BEL-ay",
+      "OOS-mun DEM-buh-lay"
+    ],
+    "funFact": "Ousmane is a West African form of the Arabic name Uthman. Dembélé is a common Mande surname found across Senegal, Mali, Guinea, and the Gambia. He's known for his blistering pace and unpredictability.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Paris Saint-Germain"
+  },
+  {
+    "id": "pedri",
+    "name": "Pedri",
+    "country": "spain",
+    "ipa": "/ˈpɛðɾi/",
+    "phonetic": "PEH-dree",
+    "syllables": [
+      "PEH",
+      "dree"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Pedri = PEH-dree. In Spanish, the 'd' between vowels is softened. His full name is Pedro González López.",
+    "commonMistakes": [
+      "PEE-dree",
+      "PAY-dree"
+    ],
+    "funFact": "Pedri's real name is Pedro González López — Pedri is a Canarian nickname for Pedro, from his home island of Gran Canaria. He burst onto the scene aged 18 at Barcelona and was immediately compared to Xavi.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Barcelona"
+  },
+  {
+    "id": "leao-rafael",
+    "name": "Rafael Leão",
+    "country": "portugal",
+    "ipa": "/ʁɐfɐˈɛl leˈɐ̃w/",
+    "phonetic": "hah-fah-EL leh-OWN",
+    "syllables": [
+      "hah",
+      "fah",
+      "EL",
+      "leh",
+      "OWN"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Leão: the 'ão' is a nasal diphthong unique to Portuguese — sounds like 'own' spoken through the nose.",
+    "commonMistakes": [
+      "RAH-fah-el LEE-ow",
+      "RAF-ay-el lay-OW"
+    ],
+    "funFact": "'Leão' means 'lion' in Portuguese. Rafael is pronounced with a guttural 'R' in European Portuguese.",
+    "difficulty": 4,
+    "position": "Winger",
+    "club": "AC Milan"
+  },
+  {
+    "id": "guerreiro-raphael",
+    "name": "Raphaël Guerreiro",
+    "country": "portugal",
+    "ipa": "/ʁafaˈɛl ɡeˈʁɐjɾu/",
+    "phonetic": "rah-fah-EL geh-RAY-roo",
+    "syllables": [
+      "rah",
+      "fah",
+      "EL",
+      "geh",
+      "RAY",
+      "roo"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Guerreiro = geh-RAY-roo. In Portuguese the 'ei' diphthong sounds like 'ay' and the final 'ro' is almost swallowed — geh-RAY-roo.",
+    "commonMistakes": [
+      "GWER-ay-roh",
+      "geh-REY-rah",
+      "geh-RAIR-oh"
+    ],
+    "funFact": "Guerreiro is a common Portuguese surname meaning 'warrior' (guerreiro). Born in France to Portuguese parents, he chose Portugal internationally. The French 'Raphaël' (rah-fah-EL) is slightly different from the English 'Rafael' (RAF-ee-el).",
+    "difficulty": 4,
+    "position": "Defender",
+    "club": "Bayern Munich"
+  },
+  {
+    "id": "hojlund-rasmus",
+    "name": "Rasmus Højlund",
+    "country": "denmark",
+    "ipa": "/ˈʁɑsmus ˈhɔɪ̯lɔn/",
+    "phonetic": "RAS-moos HOY-lun",
+    "syllables": [
+      "RAS",
+      "moos",
+      "HOY",
+      "lun"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Højlund: the 'øj' diphthong sounds like 'oy' in 'boy'. The 'd' at the end is silent in Danish.",
+    "commonMistakes": [
+      "RAS-mus HODGE-lund",
+      "RAS-mus HOH-lund"
+    ],
+    "funFact": "'Højlund' means 'high grove' in Danish — from 'høj' (high) and 'lund' (grove/woodland).",
+    "difficulty": 4,
+    "position": "Forward",
+    "club": "Manchester United"
+  },
+  {
+    "id": "richarlison",
+    "name": "Richarlison",
+    "country": "brazil",
+    "ipa": "/ʁitʃaʁliˈzõ/",
+    "phonetic": "hee-shar-lee-ZOHN",
+    "syllables": [
+      "hee",
+      "shar",
+      "lee",
+      "ZOHN"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Richarlison = hee-shar-lee-ZOHN. In Brazilian Portuguese, 'r' at the start = 'h'. The final '-son' is nasalized to 'ZOHN'. This is a single mononym (one name).",
+    "commonMistakes": [
+      "RICH-ar-lee-son",
+      "ree-CHAR-lee-son"
+    ],
+    "funFact": "Like many Brazilian footballers, Richarlison goes by a single name. His full name is Richarlison de Andrade. The initial 'R' in Portuguese is an 'h' sound — Brazilians say 'hee-shar-lee-ZOHN.'",
+    "difficulty": 5,
+    "position": "Forward",
+    "club": "Tottenham Hotspur"
+  },
+  {
+    "id": "lewandowski-robert",
+    "name": "Robert Lewandowski",
+    "country": "poland",
+    "ipa": "/ˈrɔbɛrt lɛvanˈdɔfski/",
+    "phonetic": "ROH-bert leh-van-DOF-skee",
+    "syllables": [
+      "ROH",
+      "bert",
+      "leh",
+      "van",
+      "DOF",
+      "skee"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Lewandowski = leh-van-DOF-skee. The 'w' in Polish is pronounced 'v'. Stress on 'DOF'.",
+    "commonMistakes": [
+      "leh-wan-DOW-ski",
+      "leh-WAN-dow-ski"
+    ],
+    "funFact": "In Polish, 'w' is always pronounced 'v' — so Lewandowski sounds like Leh-van-dov-ski. He scored 41 Bundesliga goals in a single season, breaking a 40-year-old Gerd Müller record.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Barcelona"
+  },
+  {
+    "id": "rodri",
+    "name": "Rodri",
+    "country": "spain",
+    "ipa": "/ˈroðɾi/",
+    "phonetic": "ROH-dree",
+    "syllables": [
+      "ROH",
+      "dree"
+    ],
+    "stressIndex": 0,
+    "audioHint": "The 'd' in Spanish 'Rodri' is soft (like 'th' in 'the'). Two syllables with stress on 'ROH'.",
+    "commonMistakes": [
+      "ROD-ree",
+      "roh-DREE"
+    ],
+    "funFact": "Short for Rodrigo Hernández Cascante. Won the 2024 Ballon d'Or — the first defensive midfielder since Matthias Sammer.",
+    "difficulty": 1,
+    "position": "Midfielder",
+    "club": "Manchester City"
+  },
+  {
+    "id": "rodrygo",
+    "name": "Rodrygo",
+    "country": "brazil",
+    "ipa": "/ʁoˈdɾiɡu/",
+    "phonetic": "hoh-DREE-goo",
+    "syllables": [
+      "hoh",
+      "DREE",
+      "goo"
+    ],
+    "stressIndex": 1,
+    "audioHint": "The 'R' at the start is the guttural Brazilian 'h' sound. The 'y' replaces the 'i' in the traditional spelling Rodrigo.",
+    "commonMistakes": [
+      "rod-REE-goh",
+      "ROD-ree-goh"
+    ],
+    "funFact": "His full name is Rodrygo Silva de Goes. The unusual 'y' spelling was chosen by his parents to be unique.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "araujo-ronald",
+    "name": "Ronald Araújo",
+    "country": "uruguay",
+    "ipa": "/ˈɾonald aɾaˈuxo/",
+    "phonetic": "ROH-nahld ah-RAH-oo-hoh",
+    "syllables": [
+      "ROH",
+      "nahld",
+      "ah",
+      "RAH",
+      "oo",
+      "hoh"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Araújo: the 'ú' is stressed, and the 'j' is an 'h' sound in Spanish/Portuguese. Three syllables: ah-RAH-oo-hoh.",
+    "commonMistakes": [
+      "ROH-nald ah-RAW-joh",
+      "ROH-nald ah-ROW-joh"
+    ],
+    "funFact": "Araújo is a Portuguese/Galician surname meaning 'from Araújo', a place name. Ronald is the English form of Ronaldo.",
+    "difficulty": 3,
+    "position": "Defender",
+    "club": "Barcelona"
+  },
+  {
+    "id": "gravenberch-ryan",
+    "name": "Ryan Gravenberch",
+    "country": "netherlands",
+    "ipa": "/ˈrɑɪ.ən ˈɣraːvənbɛrx/",
+    "phonetic": "RYE-an GHRAH-ven-berkh",
+    "syllables": [
+      "RYE",
+      "an",
+      "GHRAH",
+      "ven",
+      "berkh"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Gravenberch: guttural Dutch 'G', and the final 'ch' is the hard Dutch 'kh' sound.",
+    "commonMistakes": [
+      "RYE-an GRAV-en-berch",
+      "RYE-an grah-ven-BIRCH"
+    ],
+    "funFact": "The Gravenberch name has Surinamese-Dutch origins. Ryan was born in Amsterdam's Ajax academy.",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Liverpool"
+  },
+  {
+    "id": "mane-sadio",
+    "name": "Sadio Mané",
+    "country": "senegal",
+    "ipa": "/ˈsaːdɪoʊ maˈneɪ/",
+    "phonetic": "SAH-dee-oh mah-NAY",
+    "syllables": [
+      "SAH",
+      "dee",
+      "oh",
+      "mah",
+      "NAY"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Mané = mah-NAY — the accent on the 'é' means a clear 'ay' ending, not dropped. Sadio = SAH-dee-oh.",
+    "commonMistakes": [
+      "mah-NEH",
+      "SAY-dee-oh MAN-ay"
+    ],
+    "funFact": "Sadio Mané's name is common across Senegal and Guinea. He grew up in Bambali, a village of 2,000 people. He has built a hospital and school in his hometown with his football earnings.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Al-Nassr"
+  },
+  {
+    "id": "al-dawsari-salem",
+    "name": "Salem Al-Dawsari",
+    "country": "saudi-arabia",
+    "ipa": "/ˈsaːlem ad.dawˈsaːɾi/",
+    "phonetic": "SAH-lem al-dow-SAH-ree",
+    "syllables": [
+      "SAH",
+      "lem",
+      "al",
+      "dow",
+      "SAH",
+      "ree"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Al-Dawsari: 'Al' is the Arabic article 'the'. Dawsari refers to the Dawasir tribe of Saudi Arabia.",
+    "commonMistakes": [
+      "SAY-lem al-DOW-sah-ree",
+      "SAH-lem al-DAW-sah-ree"
+    ],
+    "funFact": "Al-Dawsari scored the winning goal against Argentina in the 2022 World Cup — one of the greatest World Cup upsets.",
+    "difficulty": 3,
+    "position": "Winger",
+    "club": "Al-Hilal"
+  },
+  {
+    "id": "tonali-sandro",
+    "name": "Sandro Tonali",
+    "country": "italy",
+    "ipa": "/ˈsandro toˈnali/",
+    "phonetic": "SAHN-droh toh-NAH-lee",
+    "syllables": [
+      "SAHN",
+      "droh",
+      "toh",
+      "NAH",
+      "lee"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Tonali: stress on the second syllable 'NAH'. Clean Italian pronunciation throughout.",
+    "commonMistakes": [
+      "SAN-droh toh-NAL-ee",
+      "SAN-droh TOH-nah-lee"
+    ],
+    "funFact": "Often compared to Andrea Pirlo due to his playing style and similar long-haired appearance.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Newcastle United"
+  },
+  {
+    "id": "azmoun-sardar",
+    "name": "Sardar Azmoun",
+    "country": "iran",
+    "ipa": "/saɾˈdɑːɾ azˈmuːn/",
+    "phonetic": "sar-DAR az-MOON",
+    "syllables": [
+      "sar",
+      "DAR",
+      "az",
+      "MOON"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Sardar: a Persian title meaning 'commander'. Azmoun: stress on 'MOON' with a long 'oo' sound.",
+    "commonMistakes": [
+      "SAR-dar AZ-mown",
+      "sar-DAR AZ-moon"
+    ],
+    "funFact": "Nicknamed 'The Iranian Messi'. Sardar (سردار) means 'commander' or 'chief' in Persian.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "AS Roma"
+  },
+  {
+    "id": "szymanski-sebastian",
+    "name": "Sebastian Szymański",
+    "country": "poland",
+    "ipa": "/ˌsɛbæsˈtɪən ʃɨˈmanski/",
+    "phonetic": "seh-BAS-chun shih-MAN-skee",
+    "syllables": [
+      "seh",
+      "BAS",
+      "chun",
+      "shih",
+      "MAN",
+      "skee"
+    ],
+    "stressIndex": 4,
+    "audioHint": "Szymański = shih-MAN-skee. The 'sz' in Polish = 'sh', and 'ń' at the end = slightly nasal 'n'. Think 'shih-MAN-ski.'",
+    "commonMistakes": [
+      "sih-MAN-skee",
+      "SZY-man-ski",
+      "ZEE-man-ski"
+    ],
+    "funFact": "Szymański is Poland's most common surname suffix — the '-ski' ending is a hallmark of Polish names. Sebastian plays in Turkey for Fenerbahçe (feh-ner-BAH-cheh).",
+    "difficulty": 4,
+    "position": "Midfielder",
+    "club": "Fenerbahçe"
+  },
+  {
+    "id": "amrabat-sofyan",
+    "name": "Sofyan Amrabat",
+    "country": "morocco",
+    "ipa": "/sofˈjan amˈrabat/",
+    "phonetic": "sof-YAHN ahm-RAH-baht",
+    "syllables": [
+      "sof",
+      "YAHN",
+      "ahm",
+      "RAH",
+      "baht"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Sofyan: the 'y' creates a palatalized sound. Amrabat: stress on 'RAH', all hard consonants.",
+    "commonMistakes": [
+      "SOH-fee-an AM-rah-bat",
+      "SOF-yan am-rah-BAT"
+    ],
+    "funFact": "Born in the Netherlands to Moroccan parents. His brother Nordin Amrabat also plays for Morocco.",
+    "difficulty": 3,
+    "position": "Midfielder",
+    "club": "Fenerbahçe"
+  },
+  {
+    "id": "son-heung-min",
+    "name": "Son Heung-min",
+    "country": "south-korea",
+    "ipa": "/son hɯŋmin/",
+    "phonetic": "SOHN HUNG-min",
+    "syllables": [
+      "SOHN",
+      "HUNG",
+      "min"
+    ],
+    "stressIndex": 0,
+    "audioHint": "In Korean, the family name 'Son' comes first. Heung-min: 'HUNG' with a soft transition to 'min'.",
+    "commonMistakes": [
+      "SON HYUNG-min",
+      "sun HOONG-min"
+    ],
+    "funFact": "Son (손) means 'grandchild' in Korean. His father Son Woong-jung was also a professional footballer.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Tottenham Hotspur"
+  },
+  {
+    "id": "haller-sebastien",
+    "name": "Sébastien Haller",
+    "country": "cote-divoire",
+    "ipa": "/sebastjɛ̃ aˈlɛʁ/",
+    "phonetic": "seh-bahs-tee-AHN ah-LAIR",
+    "syllables": [
+      "seh",
+      "bahs",
+      "tee",
+      "AHN",
+      "ah",
+      "LAIR"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Haller: French pronunciation — the 'H' is silent and the 'er' is 'AIR'. Not 'HAL-er'.",
+    "commonMistakes": [
+      "seh-BAS-tee-an HAL-er",
+      "seh-BASS-chun"
+    ],
+    "funFact": "Born in France to an Ivorian mother. Recovered from testicular cancer in 2022 and returned to professional football.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Borussia Dortmund"
+  },
+  {
+    "id": "kubo-takefusa",
+    "name": "Takefusa Kubo",
+    "country": "japan",
+    "ipa": "/takeɸɯsa kɯbo/",
+    "phonetic": "tah-keh-FOO-sah KOO-boh",
+    "syllables": [
+      "tah",
+      "keh",
+      "FOO",
+      "sah",
+      "KOO",
+      "boh"
+    ],
+    "stressIndex": 2,
+    "audioHint": "Japanese names have even stress across syllables. Kubo: 'KOO-boh' with equal weight on each syllable.",
+    "commonMistakes": [
+      "TAK-eh-FOO-sah KOO-boh",
+      "tah-keh-foo-SAH"
+    ],
+    "funFact": "Kubo joined Barcelona's La Masia academy at age 10, earning the nickname 'the Japanese Messi'.",
+    "difficulty": 2,
+    "position": "Winger",
+    "club": "Real Sociedad"
+  },
+  {
+    "id": "courtois-thibaut",
+    "name": "Thibaut Courtois",
+    "country": "belgium",
+    "ipa": "/tiˈbo kuʁˈtwa/",
+    "phonetic": "tee-BOH koor-TWAH",
+    "syllables": [
+      "tee",
+      "BOH",
+      "koor",
+      "TWAH"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Thibaut: French pronunciation, the 'th' is just a 't', and the final 't' is silent. Courtois: 'TWAH' at the end.",
+    "commonMistakes": [
+      "THIB-oh CORE-toys",
+      "tee-BAWT kor-TWAH"
+    ],
+    "funFact": "'Courtois' means 'courteous' in French. Thibaut is an old French form of Theobald, meaning 'bold people'.",
+    "difficulty": 4,
+    "position": "Goalkeeper",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "kroos-toni",
+    "name": "Toni Kroos",
+    "country": "germany",
+    "ipa": "/ˈtoːni kʁoːs/",
+    "phonetic": "TOH-nee KROHS",
+    "syllables": [
+      "TOH",
+      "nee",
+      "KROHS"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Kroos: one syllable, rhymes with 'gross'. The 'oo' is a long 'oh' sound, not like 'cruise'.",
+    "commonMistakes": [
+      "TOH-nee KROOZ",
+      "TOH-nee KROSS"
+    ],
+    "funFact": "Kroos means 'curly' in Low German dialect — an ironic surname for the famously composed midfielder.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Retired (Real Madrid)"
+  },
+  {
+    "id": "osimhen-victor",
+    "name": "Victor Osimhen",
+    "country": "nigeria",
+    "ipa": "/ˈvɪktɔr oˈsiːmhɛn/",
+    "phonetic": "VIK-tor oh-SEE-m-hen",
+    "syllables": [
+      "VIK",
+      "tor",
+      "oh",
+      "SEE",
+      "m",
+      "hen"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Osimhen = oh-SEE-m-hen. The 'mh' is not silent — say both letters lightly: 'see-m-hen'. Of Edo/Nigerian origin.",
+    "commonMistakes": [
+      "oh-SIM-en",
+      "oz-EE-men",
+      "oh-SEE-men (dropping the h)"
+    ],
+    "funFact": "Victor Osimhen's name is from the Edo language of southern Nigeria. The 'mh' cluster is common in Edo names. He became Serie A's top scorer and one of the most expensive African players ever.",
+    "difficulty": 4,
+    "position": "Forward",
+    "club": "Galatasaray"
+  },
+  {
+    "id": "vinicius-jr",
+    "name": "Vinícius Júnior",
+    "country": "brazil",
+    "ipa": "/viˈnisius ˈʒuniɔr/",
+    "phonetic": "vee-NEE-see-us ZHOO-nyor",
+    "syllables": [
+      "vee",
+      "NEE",
+      "see",
+      "us",
+      "ZHOO",
+      "nyor"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Vinícius = vee-NEE-see-us (4 syllables, stress on 'NEE'). Júnior = ZHOO-nyor in Portuguese. The 'J' in Portuguese = 'zh'.",
+    "commonMistakes": [
+      "vee-NEE-shus JOO-nee-or",
+      "vin-EE-shus"
+    ],
+    "funFact": "Vinícius Júnior's first name comes from Latin 'Vinicius.' In Brazilian Portuguese, the 'J' is always a 'zh' sound — Junior = ZHOO-nyor. He's celebrated for his samba-style dribbling, which he says comes from the baile funk culture.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Real Madrid"
+  },
+  {
+    "id": "van-dijk-virgil",
+    "name": "Virgil van Dijk",
+    "country": "netherlands",
+    "ipa": "/ˈvɪrɣɪl vɑn ˈdɛɪk/",
+    "phonetic": "VEER-ghil vahn DYKE",
+    "syllables": [
+      "VEER",
+      "ghil",
+      "vahn",
+      "DYKE"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Van Dijk: the 'ij' is a Dutch diphthong pronounced like 'eye'. The 'D' is soft. The 'g' in Virgil is a guttural Dutch 'g'.",
+    "commonMistakes": [
+      "VER-jil van DIJK",
+      "VER-jil van DEEK"
+    ],
+    "funFact": "'Dijk' means 'dike/levee' in Dutch — fitting for a defensive wall. The 'ij' digraph is sometimes written as 'ÿ'.",
+    "difficulty": 3,
+    "position": "Defender",
+    "club": "Liverpool"
+  },
+  {
+    "id": "endo-wataru",
+    "name": "Wataru Endō",
+    "country": "japan",
+    "ipa": "/wataɾɯ endoː/",
+    "phonetic": "wah-TAH-roo EN-doh",
+    "syllables": [
+      "wah",
+      "TAH",
+      "roo",
+      "EN",
+      "doh"
+    ],
+    "stressIndex": 1,
+    "audioHint": "Wataru: the 'r' is a soft tap. Endō: the macron on 'ō' means a long 'oh' sound.",
+    "commonMistakes": [
+      "WAH-tah-roo en-DOH",
+      "WAT-ah-roo"
+    ],
+    "funFact": "The surname Endō (遠藤) means 'distant wisteria' — wisteria-based surnames are very common in Japan.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "Liverpool"
+  },
+  {
+    "id": "mckennie-weston",
+    "name": "Weston McKennie",
+    "country": "united-states",
+    "ipa": "/ˈwɛstən məˈkɛni/",
+    "phonetic": "WES-ton muh-KEN-ee",
+    "syllables": [
+      "WES",
+      "ton",
+      "muh",
+      "KEN",
+      "ee"
+    ],
+    "stressIndex": 3,
+    "audioHint": "McKennie: stress on 'KEN', ends with 'ee'. Not 'muh-KEN-eye' or 'MAC-ken-ee'.",
+    "commonMistakes": [
+      "WES-ton MAC-ken-ee",
+      "WES-ton muh-KEN-eye"
+    ],
+    "funFact": "McKennie grew up in a military family, living in Germany as a child — which helped his Bundesliga transition.",
+    "difficulty": 1,
+    "position": "Midfielder",
+    "club": "Juventus"
+  },
+  {
+    "id": "szczensny-wojciech",
+    "name": "Wojciech Szczęsny",
+    "country": "poland",
+    "ipa": "/ˈvɔjtɕɛx ˈʂtʂɛsnɨ/",
+    "phonetic": "VOY-chekh SHCHEN-shnih",
+    "syllables": [
+      "VOY",
+      "chekh",
+      "SHCHEN",
+      "shnih"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Wojciech = VOY-chekh (the 'j' = 'y', 'ci' = 'ch', 'ch' = Scottish 'loch' sound). Szczęsny = SHCHEN-shnih (the 'szcz' cluster = 'shch'). One of the hardest surnames in football.",
+    "commonMistakes": [
+      "WOJ-ee-ech SZCZE-snee",
+      "WOY-check SHCHEZ-knee"
+    ],
+    "funFact": "Szczęsny means 'happy/fortunate' in Polish — 'szczęście' (SHCHEN-shcheh) means happiness. He retired from the Polish national team but came back for the 2026 qualifying cycle.",
+    "difficulty": 5,
+    "position": "Goalkeeper",
+    "club": "Barcelona"
+  },
+  {
+    "id": "simons-xavi",
+    "name": "Xavi Simons",
+    "country": "netherlands",
+    "ipa": "/ˈʃɑːvi ˈsiːmɔns/",
+    "phonetic": "SHAH-vee SEE-mons",
+    "syllables": [
+      "SHAH",
+      "vee",
+      "SEE",
+      "mons"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Xavi: pronounced like the Spanish 'Xavi' (Shah-vee), not 'Zah-vee'. Named after Xavi Hernández.",
+    "commonMistakes": [
+      "ZAH-vee SY-mons",
+      "EX-ah-vee"
+    ],
+    "funFact": "Born in Amsterdam to a Dutch-Spanish family. Named after FC Barcelona legend Xavi Hernández.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "RB Leipzig"
+  },
+  {
+    "id": "shaqiri-xherdan",
+    "name": "Xherdan Shaqiri",
+    "country": "switzerland",
+    "ipa": "/ˈʒɛrdɑn ʃaˈkiːri/",
+    "phonetic": "ZHER-dan shuh-KEER-ee",
+    "syllables": [
+      "ZHER",
+      "dan",
+      "shuh",
+      "KEER",
+      "ee"
+    ],
+    "stressIndex": 3,
+    "audioHint": "Xherdan = ZHER-dan (Albanian 'Xh' = 'zh', like the 's' in 'vision'). Shaqiri = shuh-KEER-ee.",
+    "commonMistakes": [
+      "SHER-dan sha-KEE-ree",
+      "ZER-dan SHA-kir-ee"
+    ],
+    "funFact": "Xherdan Shaqiri is of Kosovar-Albanian heritage, born in Kosovo, raised in Switzerland. He scored one of the most celebrated goals of the 2018 World Cup with a bicycle kick vs Serbia — and celebrated with an Albanian eagle gesture.",
+    "difficulty": 4,
+    "position": "Midfielder/Winger",
+    "club": "Chicago Fire"
+  },
+  {
+    "id": "en-nesyri-youssef",
+    "name": "Youssef En-Nesyri",
+    "country": "morocco",
+    "ipa": "/ˈjuːsef en ˈnesɾi/",
+    "phonetic": "YOO-sef en-NES-ree",
+    "syllables": [
+      "YOO",
+      "sef",
+      "en",
+      "NES",
+      "ree"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Youssef: 'YOO-sef' not 'yoo-SEF'. En-Nesyri: the 'En-' prefix is a Berber family name marker.",
+    "commonMistakes": [
+      "yoo-SEF en-neh-SEE-ree",
+      "YOO-sef EN-nes-ree"
+    ],
+    "funFact": "En-Nesyri scored Morocco's historic goal against Portugal in the 2022 World Cup quarterfinal.",
+    "difficulty": 3,
+    "position": "Forward",
+    "club": "Fenerbahçe"
+  },
+  {
+    "id": "musah-yunus",
+    "name": "Yunus Musah",
+    "country": "united-states",
+    "ipa": "/ˈjuːnʊs ˈmuːsɑː/",
+    "phonetic": "YOO-nus MOO-sah",
+    "syllables": [
+      "YOO",
+      "nus",
+      "MOO",
+      "sah"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Yunus: 'YOO-nus' with the 'Y' pronounced clearly. Musah: 'MOO-sah' with a long 'oo'.",
+    "commonMistakes": [
+      "yoo-NUS moo-SAH",
+      "YOO-nus MYOO-sah"
+    ],
+    "funFact": "Born in New York to Ghanaian parents, raised in Italy and England. Chose the USMNT over England, Italy, and Ghana.",
+    "difficulty": 2,
+    "position": "Midfielder",
+    "club": "AC Milan"
+  },
+  {
+    "id": "di-maria-angel",
+    "name": "Ángel Di María",
+    "country": "argentina",
+    "ipa": "/ˈaŋxel di maˈɾia/",
+    "phonetic": "AHN-hel dee mah-REE-ah",
+    "syllables": [
+      "AHN",
+      "hel",
+      "dee",
+      "mah",
+      "REE",
+      "ah"
+    ],
+    "stressIndex": 0,
+    "audioHint": "Ángel has the stress on the first syllable, with a soft 'h' for the 'g'. Di María stress on 'REE'.",
+    "commonMistakes": [
+      "AN-jel dee mah-REE-ah",
+      "AIN-jel"
+    ],
+    "funFact": "Named 'Ángel' after his birth on Valentine's Day — his mother saw it as a sign from angels.",
+    "difficulty": 2,
+    "position": "Forward",
+    "club": "Benfica"
+  },
+  {
+    "id": "gundogan-ilkay",
+    "name": "İlkay Gündoğan",
+    "country": "germany",
+    "ipa": "/ɪlˈkaɪ ˈɡyndoːan/",
+    "phonetic": "eel-KYE GUEN-doh-ahn",
+    "syllables": [
+      "eel",
+      "KYE",
+      "GUEN",
+      "doh",
+      "ahn"
+    ],
+    "stressIndex": 1,
+    "audioHint": "İlkay: the 'İ' is a dotted i in Turkish, pronounced 'eel'. Gündoğan: the 'ü' is like French 'u', the 'ğ' lengthens the preceding vowel silently.",
+    "commonMistakes": [
+      "ILL-kay GUN-doh-gan",
+      "il-KAY gun-DOH-gan"
+    ],
+    "funFact": "His surname Gündoğan means 'sun-born' in Turkish — from 'gün' (day/sun) and 'doğan' (born).",
+    "difficulty": 5,
+    "position": "Midfielder",
+    "club": "Barcelona"
+  }
+]

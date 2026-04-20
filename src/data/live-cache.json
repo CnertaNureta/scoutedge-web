@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-26T22:00:00.854Z",
+  "fetchedAt": "2026-04-19T22:00:01.091Z",
   "source": "TheSportsDB (thesportsdb.com)",
   "apiVersion": "v1/json/3",
   "wcFixtures2026": [
@@ -13,7 +13,31 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/dzhwsf1775058317.jpg"
+    },
+    {
+      "id": "2461104",
+      "homeTeam": "Canada",
+      "awayTeam": "Bosnia-Herzegovina",
+      "date": "2026-06-12",
+      "time": "19:00:00",
+      "venue": "BMO Field",
+      "round": "1",
+      "homeScore": null,
+      "awayScore": null,
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/nsv3mc1775058372.jpg"
+    },
+    {
+      "id": "2461103",
+      "homeTeam": "South Korea",
+      "awayTeam": "Czech Republic",
+      "date": "2026-06-12",
+      "time": "02:00:00",
+      "venue": "Estadio Akron",
+      "round": "1",
+      "homeScore": null,
+      "awayScore": null,
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7ogw2s1775058371.jpg"
     },
     {
       "id": "2391729",
@@ -25,7 +49,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/zzcn9j1775058318.jpg"
     },
     {
       "id": "2391730",
@@ -37,7 +61,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/mau34u1775058318.jpg"
     },
     {
       "id": "2391732",
@@ -49,7 +73,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/ijfi9n1775058321.jpg"
     },
     {
       "id": "2391731",
@@ -61,7 +85,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/24pszh1775058320.jpg"
     },
     {
       "id": "2391733",
@@ -73,7 +97,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/c58bxh1775058322.jpg"
     },
     {
       "id": "2391734",
@@ -85,7 +109,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/61g7b91775058323.jpg"
     },
     {
       "id": "2391735",
@@ -97,7 +121,19 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/8rj5lv1775058324.jpg"
+    },
+    {
+      "id": "2461105",
+      "homeTeam": "Australia",
+      "awayTeam": "Turkey",
+      "date": "2026-06-14",
+      "time": "04:00:00",
+      "venue": "BC Place",
+      "round": "1",
+      "homeScore": null,
+      "awayScore": null,
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/kgoj1q1775058373.jpg"
     },
     {
       "id": "2391736",
@@ -109,7 +145,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/uejz5h1775058325.jpg"
     },
     {
       "id": "2391738",
@@ -121,7 +157,7 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/zhbzh41775058327.jpg"
     },
     {
       "id": "2391739",
@@ -133,55 +169,19 @@
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/xi9bqn1775058328.jpg"
     },
     {
-      "id": "2391737",
-      "homeTeam": "Iran",
-      "awayTeam": "New Zealand",
-      "date": "2026-06-16",
-      "time": "01:00:00",
-      "venue": "SoFi Stadium",
+      "id": "2461106",
+      "homeTeam": "Sweden",
+      "awayTeam": "Tunisia",
+      "date": "2026-06-15",
+      "time": "02:00:00",
+      "venue": "Estadio BBVA",
       "round": "1",
       "homeScore": null,
       "awayScore": null,
-      "thumb": ""
-    },
-    {
-      "id": "2391742",
-      "homeTeam": "France",
-      "awayTeam": "Senegal",
-      "date": "2026-06-16",
-      "time": "19:00:00",
-      "venue": "MetLife Stadium",
-      "round": "1",
-      "homeScore": null,
-      "awayScore": null,
-      "thumb": ""
-    },
-    {
-      "id": "2391740",
-      "homeTeam": "Argentina",
-      "awayTeam": "Algeria",
-      "date": "2026-06-17",
-      "time": "01:00:00",
-      "venue": "GEHA Field at Arrowhead Stadium",
-      "round": "1",
-      "homeScore": null,
-      "awayScore": null,
-      "thumb": ""
-    },
-    {
-      "id": "2391741",
-      "homeTeam": "Austria",
-      "awayTeam": "Jordan",
-      "date": "2026-06-17",
-      "time": "04:00:00",
-      "venue": "Levi's Stadium",
-      "round": "1",
-      "homeScore": null,
-      "awayScore": null,
-      "thumb": ""
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/hja0ne1775058374.jpg"
     }
   ],
   "wcFixtures2022": [

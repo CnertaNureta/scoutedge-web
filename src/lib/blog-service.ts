@@ -115,7 +115,7 @@ export function getAllPosts(): BlogPost[] {
         keywords: data.keywords ?? [],
         date: data.date ?? '',
         lastUpdated: data.lastUpdated ?? data.date ?? '',
-        author: data.author ?? 'ScoutEdge AI',
+        author: data.author ?? 'KickOracle AI',
         category: data.category ?? 'Article',
         content,
         html,

@@ -113,7 +113,7 @@ function main() {
       alias: row.aliasName,
       normalized_alias: row.aliasKey,
       team_slug: row.teamSlug,
-      source: 'scoutedge-layer1',
+      source: 'worldcapiq-layer1',
     }))
   )
 
