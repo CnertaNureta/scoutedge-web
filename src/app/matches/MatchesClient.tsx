@@ -224,6 +224,10 @@ function TeamRow({
   )
 }
 
+function fixtureToMatchId(fixture: MatchFixture): string {
+  return `${fixture.homeTeamSlug}-vs-${fixture.awayTeamSlug}-${fixture.group.toLowerCase()}`
+}
+
 function MatchCard({
   fixture,
   teamsBySlug,
@@ -247,6 +251,7 @@ function MatchCard({
   const climateLine = venue
     ? `${venue.roofType} roof · ${venue.climate.description}`
     : 'Venue detail unavailable'
+  const matchId = fixtureToMatchId(fixture)
 
   return (
     <GlassCard hover className="h-full p-5 md:p-6">
@@ -297,6 +302,14 @@ function MatchCard({
           </div>
         ))}
       </div>
+
+      <Link
+        href={`/matches/live/${matchId}`}
+        className="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-primary/30 bg-primary/5 px-4 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
+      >
+        <span className="h-2 w-2 rounded-full bg-primary animate-pulse-slow" />
+        Live predictions & leaderboard
+      </Link>
     </GlassCard>
   )
 }
