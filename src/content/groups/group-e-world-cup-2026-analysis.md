@@ -49,7 +49,7 @@ Julian Nagelsmann's appointment as national team coach came with a mandate to br
 
 **Weaknesses**: The psychological burden of underperformance. Germany's squad has the quality but has repeatedly shown an inability to replicate club-level performance at major tournaments.
 
-**ScoutEdge assessment**: Germany should top this group, but "should" has been a dangerous word for German football. Nagelsmann's system is the most coherent coaching appointment since Klinsmann rebuilt the program before 2006. If Musiala can reach his best form early in the tournament, Germany become genuine dark-horse contenders for the title.
+**KickOracle assessment**: Germany should top this group, but "should" has been a dangerous word for German football. Nagelsmann's system is the most coherent coaching appointment since Klinsmann rebuilt the program before 2006. If Musiala can reach his best form early in the tournament, Germany become genuine dark-horse contenders for the title.
 
 ---
 
@@ -65,7 +65,7 @@ The history of Ivory Coast at World Cups is of a team just falling short. They'v
 
 **Weaknesses**: Their defense can be exposed by high-quality attacking transitions. Against Germany's pressing system, the central defenders will be tested.
 
-**ScoutEdge assessment**: Ivory Coast are the group's strongest threat to Germany's dominance. If they can beat Ecuador and take at least a point from Germany, second place is achievable. Their AFCON title showed they can win ugly when needed — a tournament skill of the highest value.
+**KickOracle assessment**: Ivory Coast are the group's strongest threat to Germany's dominance. If they can beat Ecuador and take at least a point from Germany, second place is achievable. Their AFCON title showed they can win ugly when needed — a tournament skill of the highest value.
 
 ---
 
@@ -81,7 +81,7 @@ In four World Cup appearances, Ecuador have reached the Round of 16 once (2006).
 
 **Weaknesses**: Limited creative quality in midfield. Ecuador can struggle to unlock tight defensive shapes without individual brilliance at the top of the pitch.
 
-**ScoutEdge assessment**: Ecuador are a competitive mid-table World Cup group team. They'll make the Ivory Coast match their priority and could frustrate Germany. Second place is possible if the Ivory Coast underperform, but they'll likely finish third with enough quality for potential third-place playoff progression.
+**KickOracle assessment**: Ecuador are a competitive mid-table World Cup group team. They'll make the Ivory Coast match their priority and could frustrate Germany. Second place is possible if the Ivory Coast underperform, but they'll likely finish third with enough quality for potential third-place playoff progression.
 
 ---
 
@@ -95,7 +95,7 @@ With a population of approximately 150,000 people, Curaçao's qualification repr
 
 **Weaknesses**: The talent gap against Germany and Ivory Coast is considerable. Curaçao's World Cup debut is a historic celebration rather than a points campaign.
 
-**ScoutEdge assessment**: Curaçao will compete with everything they have. A point from three matches would be extraordinary. The Ecuador game is their most realistic chance of avoiding defeat. Their story is one of the tournament's most inspiring.
+**KickOracle assessment**: Curaçao will compete with everything they have. A point from three matches would be extraordinary. The Ecuador game is their most realistic chance of avoiding defeat. Their story is one of the tournament's most inspiring.
 
 ---
 

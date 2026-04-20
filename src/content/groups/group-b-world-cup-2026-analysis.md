@@ -51,7 +51,7 @@ The Italian football pyramid has been producing top-quality players again: Feder
 
 **Weaknesses**: Tournament pressure and expectation. Italy can freeze when expectations are at their highest, as their 2022 qualifying campaign demonstrated. Managing squad rotation across a congested schedule will also be tested.
 
-**ScoutEdge assessment**: Italy are the group's most dangerous team on paper. Returning to the World Cup after missing 2022 creates a deep motivational fuel that's hard to quantify but impossible to ignore. They should top the group.
+**KickOracle assessment**: Italy are the group's most dangerous team on paper. Returning to the World Cup after missing 2022 creates a deep motivational fuel that's hard to quantify but impossible to ignore. They should top the group.
 
 ---
 
@@ -67,7 +67,7 @@ Their squad is remarkable for its ethnic and cultural diversity, drawing on Swis
 
 **Weaknesses**: The inability to take the decisive step from quarter-finalists to semi-finalists. Switzerland consistently fall just short of genuine glory.
 
-**ScoutEdge assessment**: Switzerland will be competitive in every group match. They may well end up second in the group behind Italy, but should they top it, nobody will be shocked. Their discipline and game management make them a nightmare opponent in knockout football — and that's where this World Cup could get interesting for Murat Yakin's side.
+**KickOracle assessment**: Switzerland will be competitive in every group match. They may well end up second in the group behind Italy, but should they top it, nobody will be shocked. Their discipline and game management make them a nightmare opponent in knockout football — and that's where this World Cup could get interesting for Murat Yakin's side.
 
 ---
 
@@ -83,7 +83,7 @@ Jesse Marsch's energetic, high-pressing approach suits the young, athletic Canad
 
 **Weaknesses**: Defensive vulnerability when the press is beaten. Canada can concede in transition when high defensive lines are exploited. Closing out tight matches remains a work in progress.
 
-**ScoutEdge assessment**: Canada are the group's most exciting dark horse. If Jonathan David is firing and Alphonso Davies is at his best, they can genuinely compete with Italy and Switzerland. A Round of 32 appearance is the dream, but it's not delusional. Their morale and home support will push this team further than their ranking suggests.
+**KickOracle assessment**: Canada are the group's most exciting dark horse. If Jonathan David is firing and Alphonso Davies is at his best, they can genuinely compete with Italy and Switzerland. A Round of 32 appearance is the dream, but it's not delusional. Their morale and home support will push this team further than their ranking suggests.
 
 ---
 
@@ -99,7 +99,7 @@ Qatar's technical football (developed through their Aspire Academy system) gives
 
 **Weaknesses**: Lack of World Cup experience at major venues, reliance on aging key players from 2022, no home advantage.
 
-**ScoutEdge assessment**: Qatar face a genuine struggle to survive the group stage. Italy, Switzerland, and Canada are all better sides on neutral ground. A point or two from the campaign would represent progress; progression is unlikely.
+**KickOracle assessment**: Qatar face a genuine struggle to survive the group stage. Italy, Switzerland, and Canada are all better sides on neutral ground. A point or two from the campaign would represent progress; progression is unlikely.
 
 ---
 

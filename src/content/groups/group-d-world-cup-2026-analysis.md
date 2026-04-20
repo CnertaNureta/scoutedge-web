@@ -53,7 +53,7 @@ Mauricio Pochettino's appointment brought world-class tactical sophistication to
 
 **Weaknesses**: Experience in tournament knockout football. The USMNT have sometimes struggled to manage games when they're ahead, particularly against physical, organized opponents in their defensive structure.
 
-**ScoutEdge assessment**: The USA should win Group D. Their home advantage is real and their squad quality is the best they've assembled for a generation. Pochettino's pressing system suits the American roster's athleticism. Expect them to top the group, potentially with a perfect nine-point record if Reyna stays fit.
+**KickOracle assessment**: The USA should win Group D. Their home advantage is real and their squad quality is the best they've assembled for a generation. Pochettino's pressing system suits the American roster's athleticism. Expect them to top the group, potentially with a perfect nine-point record if Reyna stays fit.
 
 ---
 
@@ -69,7 +69,7 @@ Hakan Çalhanoğlu's evolution from wide forward to deep-lying playmaker at Inte
 
 **Weaknesses**: Inconsistency. Turkey can produce magnificent performances followed by inexplicable collapses. Their defensive coordination can be broken by sustained wide play.
 
-**ScoutEdge assessment**: Turkey are the group's most dangerous threat to USA's dominance. They have the quality to finish second and the unpredictability to genuinely challenge in the knockout rounds. If Çalhanoğlu controls the tempo against the USA in their group meeting, Turkey could announce themselves as a genuine tournament dark horse.
+**KickOracle assessment**: Turkey are the group's most dangerous threat to USA's dominance. They have the quality to finish second and the unpredictability to genuinely challenge in the knockout rounds. If Çalhanoğlu controls the tempo against the USA in their group meeting, Turkey could announce themselves as a genuine tournament dark horse.
 
 ---
 
@@ -85,7 +85,7 @@ Mitchell Duke's hold-up play and work ethic, combined with Ajdin Hrustic's creat
 
 **Weaknesses**: They lack a world-class creative player who can unlock elite defenses over the course of a tournament. Against Turkey and the USA, Australia may find themselves managing tight margins rather than dominating.
 
-**ScoutEdge assessment**: Australia are the group's most capable of surprising. Their 2022 experience means they know how to peak at tournaments. They'll make life difficult for Turkey in the battle for second place, and if the USA have an off-day, the Socceroos could take maximum points. Advancing as a third-place team is a realistic minimum target.
+**KickOracle assessment**: Australia are the group's most capable of surprising. Their 2022 experience means they know how to peak at tournaments. They'll make life difficult for Turkey in the battle for second place, and if the USA have an off-day, the Socceroos could take maximum points. Advancing as a third-place team is a realistic minimum target.
 
 ---
 
@@ -101,7 +101,7 @@ The current squad is built on defensive discipline and transition football. They
 
 **Weaknesses**: Lack of elite attacking quality. Paraguay struggle to break down organized defenses and rarely create high-volume shooting opportunities.
 
-**ScoutEdge assessment**: Paraguay's path to advancing from this group requires Turkey or Australia to collapse, and Paraguay themselves to find a goal-scoring run that their recent form doesn't suggest is coming. They'll make every match competitive but are the group's most likely fourth-place finisher.
+**KickOracle assessment**: Paraguay's path to advancing from this group requires Turkey or Australia to collapse, and Paraguay themselves to find a goal-scoring run that their recent form doesn't suggest is coming. They'll make every match competitive but are the group's most likely fourth-place finisher.
 
 ---
 

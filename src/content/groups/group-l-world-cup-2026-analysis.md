@@ -49,7 +49,7 @@ Jude Bellingham's emergence as one of the world's best players gives England a c
 
 **Weaknesses**: England have historically underperformed relative to expectation at major tournaments. The psychological weight of 60 years without a World Cup title is real. Their penalty record has been catastrophic at crucial moments.
 
-**ScoutEdge assessment**: England have the squad to go all the way — but so have previous England squads. What's different in 2026 is the combination of tournament experience (they've been to finals and semi-finals without imploding), individual quality at the highest club level, and a coach who has brought genuine tactical clarity. Group L should be won. The knockout rounds are where it gets interesting.
+**KickOracle assessment**: England have the squad to go all the way — but so have previous England squads. What's different in 2026 is the combination of tournament experience (they've been to finals and semi-finals without imploding), individual quality at the highest club level, and a coach who has brought genuine tactical clarity. Group L should be won. The knockout rounds are where it gets interesting.
 
 ---
 
@@ -67,7 +67,7 @@ The transition beyond Modrić has been the question hanging over Croatian footba
 
 **Weaknesses**: Age at the back and in midfield. The transition generation isn't yet at the level of their predecessors. Without Modrić playing 90 minutes at his best, Croatia's creative output is significantly reduced.
 
-**ScoutEdge assessment**: Croatia will likely finish second in Group L. Their experience and organizational quality should see them through, but England's superior squad depth means second place is more realistic than first. In the knockouts, Croatia remain extraordinarily dangerous — their ability to manage games, win penalties, and perform in shootouts is historically proven.
+**KickOracle assessment**: Croatia will likely finish second in Group L. Their experience and organizational quality should see them through, but England's superior squad depth means second place is more realistic than first. In the knockouts, Croatia remain extraordinarily dangerous — their ability to manage games, win penalties, and perform in shootouts is historically proven.
 
 ---
 
@@ -83,7 +83,7 @@ The mix of European-based Ghanaian players — particularly those from Germany, 
 
 **Weaknesses**: Ghana's consistency can be inconsistent — their 2022 campaign started with a famous win over South Korea but ended with a disjointed group-stage exit. Defensive organization can be exposed by quick wide play.
 
-**ScoutEdge assessment**: Ghana have the quality to advance from this group — but England and Croatia are both better on paper. Their target is likely a third-place position that could qualify them through the best third-place route. The Panama match is their most realistic chance of a clear win; competitive performances against England and Croatia could earn the point they need.
+**KickOracle assessment**: Ghana have the quality to advance from this group — but England and Croatia are both better on paper. Their target is likely a third-place position that could qualify them through the best third-place route. The Panama match is their most realistic chance of a clear win; competitive performances against England and Croatia could earn the point they need.
 
 ---
 
@@ -99,7 +99,7 @@ The quality gap between Panama and England or Croatia is significant, but Panama
 
 **Weaknesses**: Attacking quality is limited. Panama struggle to create meaningful chances against organized defenses, and their route to points is narrow — set pieces and counter-attacks are their primary weapons.
 
-**ScoutEdge assessment**: Panama will compete with spirit and organization. The Ghana match is their most realistic chance of points. Against England and Croatia, they'll aim to frustrate and make the match competitive, but the quality gap is difficult to bridge over 90 minutes.
+**KickOracle assessment**: Panama will compete with spirit and organization. The Ghana match is their most realistic chance of points. Against England and Croatia, they'll aim to frustrate and make the match competitive, but the quality gap is difficult to bridge over 90 minutes.
 
 ---
 

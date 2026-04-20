@@ -4,7 +4,7 @@ description: "Argentina, Spain, and Morocco lead today's chemistry board, while 
 keywords: ["World Cup 2026","Daily Briefing","Argentina","Spain","Morocco"]
 date: "2026-04-03"
 lastUpdated: "2026-04-03"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "world-cup-2026-daily-briefing-2026-04-03"
 category: "Daily Briefing"
 contentType: "daily_briefing"
@@ -15,7 +15,7 @@ factCount: 9
 
 # World Cup 2026 Daily Briefing: April 3, 2026
 
-This briefing is fact-anchored to ScoutEdge's stored team, player, and fixture datasets as of April 3, 2026. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.
+This briefing is fact-anchored to KickOracle's stored team, player, and fixture datasets as of April 3, 2026. It is designed to remain publishable even when no live LLM run is available, so every sentence below maps back to the tracked facts listed in the final section.
 
 ## Form Leaders
 

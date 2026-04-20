@@ -4,7 +4,7 @@ description: "Our AI analyzed all 48 World Cup 2026 teams using squad chemistry,
 keywords: ["who will win World Cup 2026", "World Cup 2026 prediction", "World Cup 2026 winner", "World Cup 2026 favorites", "AI World Cup prediction", "World Cup 2026 odds"]
 date: "2026-03-26"
 lastUpdated: "2026-03-26"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "who-will-win-world-cup-2026"
 category: "Prediction"
 ---

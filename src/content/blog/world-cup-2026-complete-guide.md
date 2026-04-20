@@ -4,7 +4,7 @@ description: "The ultimate guide to the 2026 FIFA World Cup. 48 teams, 3 host co
 keywords: ["World Cup 2026 guide", "FIFA World Cup 2026", "World Cup 2026 format", "World Cup 2026 host cities", "World Cup 2026 schedule", "World Cup 2026 explained"]
 date: "2026-03-25"
 lastUpdated: "2026-03-26"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "world-cup-2026-complete-guide"
 category: "Guide"
 ---
@@ -94,7 +94,7 @@ Based on our AI analysis of squad chemistry, form, ranking, and history:
 
 Read our full analysis: [Who Will Win World Cup 2026?](/blog/who-will-win-world-cup-2026)
 
-## How to Follow World Cup 2026 on ScoutEdge
+## How to Follow World Cup 2026 on KickOracle
 
 We've built a complete intelligence platform to help you follow every match, team, and player:
 

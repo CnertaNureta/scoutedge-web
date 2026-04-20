@@ -49,7 +49,7 @@ Lamine Yamal emerged from Euro 2024 as one of football's most extraordinary youn
 
 **Weaknesses**: Spain can be vulnerable to direct, physical opponents who bypass their midfield and attack the space in behind their high defensive line. Their left-back position has been an area of tactical experiment.
 
-**ScoutEdge assessment**: Spain are not just Group H favorites — they are among the three or four teams most likely to win the entire World Cup. They should win this group comfortably, likely with nine points. Their test comes in the knockout rounds when opponents prepare specifically for their system.
+**KickOracle assessment**: Spain are not just Group H favorites — they are among the three or four teams most likely to win the entire World Cup. They should win this group comfortably, likely with nine points. Their test comes in the knockout rounds when opponents prepare specifically for their system.
 
 ---
 
@@ -65,7 +65,7 @@ The challenge for Dragan Stojković is that Serbia's national team performances 
 
 **Weaknesses**: Inconsistency. Serbia's performances are volatile — magnificent against stronger opponents, unexpectedly poor against weaker ones. Defensive coordination needs improvement.
 
-**ScoutEdge assessment**: Serbia should comfortably advance as second in Group H. The question is whether they can maintain performance levels across three group matches or whether the classic inconsistency emerges. If Vlahović is fit and firing, they're a dangerous knockout opponent.
+**KickOracle assessment**: Serbia should comfortably advance as second in Group H. The question is whether they can maintain performance levels across three group matches or whether the classic inconsistency emerges. If Vlahović is fit and firing, they're a dangerous knockout opponent.
 
 ---
 
@@ -81,7 +81,7 @@ The Saudi system under Hervé Renard (returning after his international success)
 
 **Weaknesses**: They cannot sustain the high press for full 90 minutes against teams that circulate possession as well as Spain. When the press breaks down, space opens defensively.
 
-**ScoutEdge assessment**: Saudi Arabia's most realistic target is a win over Cabo Verde and a competitive performance against Serbia that could earn a point. Advancement requires extraordinary circumstances — or another 2022-style shock. Don't rule out their upsetting Serbia entirely, but Spain presents a different challenge level entirely.
+**KickOracle assessment**: Saudi Arabia's most realistic target is a win over Cabo Verde and a competitive performance against Serbia that could earn a point. Advancement requires extraordinary circumstances — or another 2022-style shock. Don't rule out their upsetting Serbia entirely, but Spain presents a different challenge level entirely.
 
 ---
 
@@ -97,7 +97,7 @@ Bebé, the player who had a brief time at Manchester United, represents the kind
 
 **Weaknesses**: The talent gap against Spain, Serbia, and even Saudi Arabia is significant. Managing against high-quality opponents for extended periods will test their fitness and tactical discipline.
 
-**ScoutEdge assessment**: Cabo Verde's World Cup debut is a celebration. Their realistic target is competitive performances and, ideally, a point from the Saudi Arabia match. Any more would be a genuine upset. Their story will capture hearts across the tournament regardless of results.
+**KickOracle assessment**: Cabo Verde's World Cup debut is a celebration. Their realistic target is competitive performances and, ideally, a point from the Saudi Arabia match. Any more would be a genuine upset. Their story will capture hearts across the tournament regardless of results.
 
 ---
 

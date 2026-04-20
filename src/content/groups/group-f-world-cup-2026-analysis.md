@@ -53,7 +53,7 @@ Ronald Koeman's system prioritizes collective defensive organization — built a
 
 **Weaknesses**: Penalty shootout vulnerability — the Netherlands have been eliminated on penalties in multiple major tournaments. Their reliance on Van Dijk means defensive quality drops significantly if he's unavailable.
 
-**ScoutEdge assessment**: Netherlands are Group F's most complete team and should top the group. Their chemistry is built on Premier League and European club experience working together under a clear tactical system. The quarterfinal should be their minimum target.
+**KickOracle assessment**: Netherlands are Group F's most complete team and should top the group. Their chemistry is built on Premier League and European club experience working together under a clear tactical system. The quarterfinal should be their minimum target.
 
 ---
 
@@ -69,7 +69,7 @@ The squad's evolution continues: nearly every Japanese player in the national te
 
 **Weaknesses**: Lack of a reliable goal-scorer who can carry a team through tight periods. Japan's attacks are created collectively — when the system doesn't work, they can struggle to create.
 
-**ScoutEdge assessment**: Japan are the group's definitive dark horse and arguably one of the tournament's most dangerous second-placed teams. Their ability to set up a defensive shape and then explode on transitions could threaten the Netherlands in a direct contest. Advancing from this group is the expectation; how far they go in the knockouts depends on draw fortune.
+**KickOracle assessment**: Japan are the group's definitive dark horse and arguably one of the tournament's most dangerous second-placed teams. Their ability to set up a defensive shape and then explode on transitions could threaten the Netherlands in a direct contest. Advancing from this group is the expectation; how far they go in the knockouts depends on draw fortune.
 
 ---
 
@@ -85,7 +85,7 @@ Football-wise, Ukraine have genuine quality. Mykhailo Mudryk's pace and dribblin
 
 **Weaknesses**: Squad depth — the war's impact on Ukrainian football infrastructure has limited their player pool. Injuries to key players create replacements who are significantly less experienced.
 
-**ScoutEdge assessment**: Ukraine are capable of advancing from this group. Their quality is real — Mudryk vs Netherlands' right-back is a match-defining individual battle. The emotional investment of their squad creates unpredictable peaks of performance that statistics can't capture. Second place is achievable; they could surprise Japan for the second automatic spot.
+**KickOracle assessment**: Ukraine are capable of advancing from this group. Their quality is real — Mudryk vs Netherlands' right-back is a match-defining individual battle. The emotional investment of their squad creates unpredictable peaks of performance that statistics can't capture. Second place is achievable; they could surprise Japan for the second automatic spot.
 
 ---
 
@@ -101,7 +101,7 @@ Their defensive structure is among the most disciplined in this group, which mea
 
 **Weaknesses**: Goal scoring. Tunisia's attacking play is limited, and their inability to create clear chances against elite defenses has consistently left them vulnerable to single goal defeats.
 
-**ScoutEdge assessment**: Tunisia will make every match difficult. They'll target the Ukraine match as a genuine points opportunity. But against the Netherlands and Japan's combined quality, advancing feels like a stretch. A well-drilled group-stage campaign that creates momentum for future qualification cycles is the realistic goal.
+**KickOracle assessment**: Tunisia will make every match difficult. They'll target the Ukraine match as a genuine points opportunity. But against the Netherlands and Japan's combined quality, advancing feels like a stretch. A well-drilled group-stage campaign that creates momentum for future qualification cycles is the realistic goal.
 
 ---
 

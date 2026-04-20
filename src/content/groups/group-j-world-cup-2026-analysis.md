@@ -51,7 +51,7 @@ Julián Álvarez has established himself as one of world football's most dynamic
 
 **Weaknesses**: If Messi is absent or below his best for extended periods, Argentina's creative quality around the penalty area reduces. Their right-back position has been a tactical vulnerability when opponents target wide areas.
 
-**ScoutEdge assessment**: Argentina should win this group with nine points. Their defending champions' mentality and the quality throughout the squad make them favorites to advance deep in the tournament again. Watch for Scaloni managing Messi's minutes across the group stage to keep him fresh for the knockouts.
+**KickOracle assessment**: Argentina should win this group with nine points. Their defending champions' mentality and the quality throughout the squad make them favorites to advance deep in the tournament again. Watch for Scaloni managing Messi's minutes across the group stage to keep him fresh for the knockouts.
 
 ---
 
@@ -67,7 +67,7 @@ Riyad Mahrez's presence remains the squad's defining factor. The Manchester City
 
 **Weaknesses**: Consistency issues — Algeria can be brilliant in one match and disappointing in the next. Their defensive structure is less reliable than Morocco's or Senegal's.
 
-**ScoutEdge assessment**: Algeria are the group's most exciting wildcard. If Mahrez is at his best, they can beat Austria and push Jordan for points, realistically competing for second place. Their World Cup 2026 campaign could be a breakout moment for the next generation of Algerian football — or another qualification campaign squandered by inconsistency.
+**KickOracle assessment**: Algeria are the group's most exciting wildcard. If Mahrez is at his best, they can beat Austria and push Jordan for points, realistically competing for second place. Their World Cup 2026 campaign could be a breakout moment for the next generation of Algerian football — or another qualification campaign squandered by inconsistency.
 
 ---
 
@@ -83,7 +83,7 @@ Marcel Sabitzer's intelligence and work-rate, Marko Arnautović's physical prese
 
 **Weaknesses**: Lack of elite individual quality — Austria don't have a player of Haaland or Mbappé's caliber to change a match alone. Against Argentina's quality, the system alone may not be enough.
 
-**ScoutEdge assessment**: Austria are Group J's most intriguing mid-tier team. Their pressing system can trouble Algeria in a direct contest, and Jordan represents a winnable match. Finishing second requires beating both by comfortable margins and earning something from Argentina. Possible, but unlikely. The third-place playoff slot is the more realistic target.
+**KickOracle assessment**: Austria are Group J's most intriguing mid-tier team. Their pressing system can trouble Algeria in a direct contest, and Jordan represents a winnable match. Finishing second requires beating both by comfortable margins and earning something from Argentina. Possible, but unlikely. The third-place playoff slot is the more realistic target.
 
 ---
 
@@ -99,7 +99,7 @@ Players from the Jordanian Pro League alongside a diaspora of European-based Jor
 
 **Weaknesses**: The gap in tournament experience and individual quality against Argentina, Algeria, and Austria is significant. Jordan will need their best football to earn any points.
 
-**ScoutEdge assessment**: Jordan's World Cup debut is a celebration of Asian football's growth. Points from this group are unlikely given the quality of opponents, but competitive performances — particularly against Austria and Algeria — would represent a significant achievement. Their story will be one of the tournament's warmest narratives.
+**KickOracle assessment**: Jordan's World Cup debut is a celebration of Asian football's growth. Points from this group are unlikely given the quality of opponents, but competitive performances — particularly against Austria and Algeria — would represent a significant achievement. Their story will be one of the tournament's warmest narratives.
 
 ---
 

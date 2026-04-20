@@ -1,6 +1,6 @@
 ---
 title: "Can Portugal Win World Cup 2026? Our AI's Verdict"
-description: "Portugal World Cup 2026 prediction: 6% win probability, Chemistry Index 6.8/10. Ronaldo's farewell tournament? Group G analysis, Leão & Bernardo Silva breakdown from ScoutEdge."
+description: "Portugal World Cup 2026 prediction: 6% win probability, Chemistry Index 6.8/10. Ronaldo's farewell tournament? Group G analysis, Leão & Bernardo Silva breakdown from KickOracle."
 keywords:
   - "Portugal World Cup 2026"
   - "Portugal World Cup 2026 chances"
@@ -9,7 +9,7 @@ keywords:
   - "Portugal World Cup 2026 squad analysis"
 date: "2026-03-27"
 lastUpdated: "2026-03-27"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "portugal-world-cup-2026-analysis"
 category: "Team Analysis"
 contentType: "team_analysis"
@@ -17,7 +17,7 @@ contentType: "team_analysis"
 
 # Can Portugal Win World Cup 2026? Our AI's Verdict
 
-**ScoutEdge gives Portugal a 6% chance of winning World Cup 2026**, placing them 8th in our global prediction model — a rating that reflects a squad caught between two eras and managed by a coach who has shown tactical innovation but not yet the tournament conviction required at this level. Their Chemistry Index of 6.8/10 is the lowest of the eight teams covered in this Phase 1 analysis, reflecting the tension between accommodating Cristiano Ronaldo's reduced physical capacity and building the pressing, dynamic system the younger players thrive in. In Group G alongside Iran, Belgium, and Egypt, our model projects an **86% probability of advancing**. Portugal carry enough talent to go deep. The question is whether they have a clear enough identity to do so.
+**KickOracle gives Portugal a 6% chance of winning World Cup 2026**, placing them 8th in our global prediction model — a rating that reflects a squad caught between two eras and managed by a coach who has shown tactical innovation but not yet the tournament conviction required at this level. Their Chemistry Index of 6.8/10 is the lowest of the eight teams covered in this Phase 1 analysis, reflecting the tension between accommodating Cristiano Ronaldo's reduced physical capacity and building the pressing, dynamic system the younger players thrive in. In Group G alongside Iran, Belgium, and Egypt, our model projects an **86% probability of advancing**. Portugal carry enough talent to go deep. The question is whether they have a clear enough identity to do so.
 
 ## Squad Strength — Who's In and Who's Fit
 
@@ -27,7 +27,7 @@ Portugal's squad in 2026 is one of the most internally contested in recent tourn
 
 **Bernardo Silva (8.1/10)** is the tactical intelligence of the squad — his movement in compressed spaces, pressing leadership, and connection between lines is what allows Portugal to play a higher line than their defensive options would otherwise permit. **Bruno Fernandes (7.8/10)** provides creative depth from midfield; **Vitinha (7.7/10)** has improved significantly and represents the future of Portugal's midfield.
 
-**Cristiano Ronaldo (7.2/10)**: His inclusion is the defining selection question. At 41, Ronaldo's ScoutEdge rating reflects reduced sprint capacity and defensive contribution — but his tournament experience, set-piece quality, and psychological presence in the dressing room remain valuable. Martínez's projected role: Ronaldo starts Group G, rotates in knockouts.
+**Cristiano Ronaldo (7.2/10)**: His inclusion is the defining selection question. At 41, Ronaldo's KickOracle rating reflects reduced sprint capacity and defensive contribution — but his tournament experience, set-piece quality, and psychological presence in the dressing room remain valuable. Martínez's projected role: Ronaldo starts Group G, rotates in knockouts.
 
 **Fitness watch**: Rúben Dias missed significant club time in early 2026 but has been confirmed fit by Portugal's medical staff. His presence at centre-back is essential to Portugal's defensive structure.
 
@@ -38,13 +38,13 @@ See the [full Portugal World Cup 2026 squad and ratings](/teams/portugal).
 Group G is Portugal's most manageable draw in recent tournament history:
 
 ### Match 1: vs Iran — June 14, MetLife Stadium
-ScoutEdge win probability: **78%**. Iran are organised defensively and have tactical discipline, but Portugal's quality in the final third is simply superior. Ronaldo starts. Predicted scoreline: 2-0 Portugal.
+KickOracle win probability: **78%**. Iran are organised defensively and have tactical discipline, but Portugal's quality in the final third is simply superior. Ronaldo starts. Predicted scoreline: 2-0 Portugal.
 
 ### Match 2: vs Egypt — June 18, SoFi Stadium
-ScoutEdge win probability: **74%**. Egypt are improving and Salah — at 33 — remains capable of winning games on his own. A more demanding fixture than the ranking implies. Portugal's 4-3-3 will need to protect the space Salah targets. Predicted scoreline: 2-1 Portugal.
+KickOracle win probability: **74%**. Egypt are improving and Salah — at 33 — remains capable of winning games on his own. A more demanding fixture than the ranking implies. Portugal's 4-3-3 will need to protect the space Salah targets. Predicted scoreline: 2-1 Portugal.
 
 ### Match 3: vs Belgium — June 22, AT&T Stadium
-ScoutEdge win probability: **62%**. Belgium's golden generation has faded, but they retain enough quality to compete — particularly De Bruyne if fit. This will likely determine group leadership. Predicted scoreline: 1-0 Portugal; draw probability 25%.
+KickOracle win probability: **62%**. Belgium's golden generation has faded, but they retain enough quality to compete — particularly De Bruyne if fit. This will likely determine group leadership. Predicted scoreline: 1-0 Portugal; draw probability 25%.
 
 **Bottom line**: Portugal have an **86% chance of qualifying from Group G**. Their Round of 16 opponent is the Group H runner-up — most likely Serbia. See [Group G analysis](/groups/g) for the full fixture breakdown.
 
@@ -74,7 +74,7 @@ The quarterfinal is where Portugal's bracket becomes genuinely difficult. A like
 
 ## Betting Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | ScoutEdge Prob | Edge |
+| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 14.00 | 7.1% | 6.0% | -1.1% |
 | Win Group G | 1.50 | 66.7% | 86.0% | +19.3% |
@@ -87,13 +87,13 @@ The quarterfinal is where Portugal's bracket becomes genuinely difficult. A like
 
 ## FAQ
 ### Can Portugal win World Cup 2026?
-ScoutEdge gives Portugal a 6% chance. Their squad has genuine talent in Leão, Bernardo Silva, and Fernandes, but the Chemistry Index of 6.8/10 and the unresolved question of how to best deploy Ronaldo at 41 create structural constraints that limit the probability ceiling.
+KickOracle gives Portugal a 6% chance. Their squad has genuine talent in Leão, Bernardo Silva, and Fernandes, but the Chemistry Index of 6.8/10 and the unresolved question of how to best deploy Ronaldo at 41 create structural constraints that limit the probability ceiling.
 
 ### What are Portugal's chances at World Cup 2026?
 Our model projects an 86% probability of advancing from Group G and a 44% chance of reaching the quarterfinals. Portugal's most likely outcome is a Round of 16 exit or quarterfinal appearance, depending on the bracket draw.
 
 ### Who is Portugal's best player at World Cup 2026?
-Rafael Leão is Portugal's highest-rated player at 8.2/10 in ScoutEdge's model. At 26, the AC Milan winger has established himself as one of Europe's elite wide forwards and is Portugal's most important attacking asset at this tournament. Bernardo Silva (8.1/10) is equally critical to the system's function.
+Rafael Leão is Portugal's highest-rated player at 8.2/10 in KickOracle's model. At 26, the AC Milan winger has established himself as one of Europe's elite wide forwards and is Portugal's most important attacking asset at this tournament. Bernardo Silva (8.1/10) is equally critical to the system's function.
 
 ### What group is Portugal in at World Cup 2026?
 Portugal are in Group G alongside Iran, Egypt, and Belgium. They open against Iran on June 14 at MetLife Stadium in New York/New Jersey.

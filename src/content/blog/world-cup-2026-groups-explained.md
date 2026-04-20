@@ -4,7 +4,7 @@ description: "A no-nonsense breakdown of every World Cup 2026 group. Who's going
 keywords: ["World Cup 2026 groups", "World Cup 2026 group stage", "World Cup 2026 draw", "World Cup 2026 group analysis", "World Cup 2026 group predictions"]
 date: "2026-03-24"
 lastUpdated: "2026-03-26"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "world-cup-2026-groups-explained"
 category: "Analysis"
 ---

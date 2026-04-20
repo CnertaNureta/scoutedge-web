@@ -4,7 +4,7 @@ description: "Mexico open Group A with a 55% win edge over South Africa, but the
 keywords: ["World Cup 2026","Match Preview","Mexico","South Africa"]
 date: "2026-04-03"
 lastUpdated: "2026-04-03"
-author: "ScoutEdge AI"
+author: "KickOracle AI"
 slug: "mexico-vs-south-africa-match-preview-2026-06-11"
 category: "Match Preview"
 contentType: "match_preview"
@@ -16,7 +16,7 @@ matchKey: "A-mexico-vs-south-africa-2026-06-11"
 
 # Mexico vs South Africa Match Preview
 
-ScoutEdge has this Group A fixture at 55% for Mexico, 25% for the draw, and 20% for South Africa. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.
+KickOracle has this Group A fixture at 55% for Mexico, 25% for the draw, and 20% for South Africa. Every claim below is anchored to the fixture, team, and player facts listed at the end of this preview.
 
 ## Match Snapshot
 

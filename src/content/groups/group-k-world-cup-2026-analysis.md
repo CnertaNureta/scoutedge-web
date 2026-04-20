@@ -49,7 +49,7 @@ Luis Díaz, Liverpool's dynamic left winger, is Colombia's most dangerous attack
 
 **Weaknesses**: Colombia can be inconsistent over extended campaigns. Their defensive shape can be exposed by physical, direct opponents who bypass their midfield press.
 
-**ScoutEdge assessment**: Colombia should top Group K. Their squad quality and tournament mentality built through the 2024 Copa América means they know how to perform in high-pressure moments. A quarter-final run — matching their 2014 best — is the minimum ambition. With this squad and this system, going further is entirely possible.
+**KickOracle assessment**: Colombia should top Group K. Their squad quality and tournament mentality built through the 2024 Copa América means they know how to perform in high-pressure moments. A quarter-final run — matching their 2014 best — is the minimum ambition. With this squad and this system, going further is entirely possible.
 
 ---
 
@@ -65,7 +65,7 @@ The current Cameroon squad, under Rigobert Song's coaching, retains the physical
 
 **Weaknesses**: Tactical inconsistency — Cameroon can produce magnificent performances followed by inexplicable drops in quality. Their defensive organization needs improvement to compete consistently with Colombia's attacking quality.
 
-**ScoutEdge assessment**: Cameroon are the group's second strongest team on paper, but their inconsistency means second place is not guaranteed. They should qualify — but the match against Uzbekistan, which might look straightforward, is where their tendency for complacency could prove costly. Advancement to the Round of 32 is the realistic minimum; a run to the Round of 16 would match their best modern-era achievements.
+**KickOracle assessment**: Cameroon are the group's second strongest team on paper, but their inconsistency means second place is not guaranteed. They should qualify — but the match against Uzbekistan, which might look straightforward, is where their tendency for complacency could prove costly. Advancement to the Round of 32 is the realistic minimum; a run to the Round of 16 would match their best modern-era achievements.
 
 ---
 
@@ -81,7 +81,7 @@ The White Wolves — Uzbekistan's national team — have been growing in AFC com
 
 **Weaknesses**: The gap in tournament experience against Colombia and Cameroon is significant. Uzbekistan's World Cup debut places them against opponents with established international tournament pedigree.
 
-**ScoutEdge assessment**: Uzbekistan's World Cup debut is a celebration for Central Asian football. Points from this group — against Colombia and Cameroon — would be extraordinary achievements. Their most realistic hope is a competitive performance in every match and, potentially, points from the playoff qualifier match. Their story will inspire the next generation of Uzbek footballers regardless of results.
+**KickOracle assessment**: Uzbekistan's World Cup debut is a celebration for Central Asian football. Points from this group — against Colombia and Cameroon — would be extraordinary achievements. Their most realistic hope is a competitive performance in every match and, potentially, points from the playoff qualifier match. Their story will inspire the next generation of Uzbek footballers regardless of results.
 
 ---
 

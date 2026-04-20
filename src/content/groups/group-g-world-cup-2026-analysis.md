@@ -49,7 +49,7 @@ Bernardo Silva's technical brilliance and work ethic make him one of Europe's mo
 
 **Weaknesses**: Portugal have sometimes showed vulnerability against well-organized defensive opponents who drop deep. Their penalty record has been inconsistent. The transition from Ronaldo's era to the next-generation leadership structure is not yet complete.
 
-**ScoutEdge assessment**: Portugal should top Group G, but Belgium will make this genuinely difficult. If Martínez's system clicks with the entire squad performing — not just one or two individuals — Portugal are a genuine semifinal contender. Their World Cup 2026 prediction depends on avoiding Belgium until the knockouts.
+**KickOracle assessment**: Portugal should top Group G, but Belgium will make this genuinely difficult. If Martínez's system clicks with the entire squad performing — not just one or two individuals — Portugal are a genuine semifinal contender. Their World Cup 2026 prediction depends on avoiding Belgium until the knockouts.
 
 ---
 
@@ -65,7 +65,7 @@ Kevin De Bruyne remains the fulcrum: a player who can unlock any defense on his 
 
 **Weaknesses**: Age — several key players are approaching or past 30. Lukaku's fitness has been an ongoing concern. The younger Belgian players haven't yet matched their predecessors' individual quality.
 
-**ScoutEdge assessment**: Belgium will fight Portugal for group leadership but are more likely to finish second. Their chemistry is built on years together, which creates both comfort and potential stagnation. If De Bruyne and Lukaku are both fully fit and firing, Belgium can beat anyone in the tournament. If either is below their best, Belgium's floor is worryingly lower.
+**KickOracle assessment**: Belgium will fight Portugal for group leadership but are more likely to finish second. Their chemistry is built on years together, which creates both comfort and potential stagnation. If De Bruyne and Lukaku are both fully fit and firing, Belgium can beat anyone in the tournament. If either is below their best, Belgium's floor is worryingly lower.
 
 ---
 
@@ -81,7 +81,7 @@ The Iranian system is built on defensive solidity — they are genuinely difficu
 
 **Weaknesses**: Limited quality against world-class opposition. Iran are set up to frustrate, which can earn draws, but creates a challenge in generating the goals needed to advance.
 
-**ScoutEdge assessment**: Iran will make life uncomfortable for Portugal and Belgium but are unlikely to advance from this group. Their target is to take points from Egypt and make the other two matches as uncomfortable as possible. Advancing would require extraordinary circumstances.
+**KickOracle assessment**: Iran will make life uncomfortable for Portugal and Belgium but are unlikely to advance from this group. Their target is to take points from Egypt and make the other two matches as uncomfortable as possible. Advancing would require extraordinary circumstances.
 
 ---
 
@@ -97,7 +97,7 @@ But Salah in a World Cup, fully fit and motivated, remains one of football's mos
 
 **Weaknesses**: The quality drop from Salah to the rest of the squad is significant. Egypt are an overreliance risk on a single player in a way that more balanced squads are not.
 
-**ScoutEdge assessment**: Egypt's World Cup 2026 campaign lives and dies with Salah. If he is fully fit and finds form early, Egypt can cause upsets. If he is managed, rested, or off-form, Egypt struggle. The Iran match is their most realistic chance of a win. Advancing requires Salah at his absolute best.
+**KickOracle assessment**: Egypt's World Cup 2026 campaign lives and dies with Salah. If he is fully fit and finds form early, Egypt can cause upsets. If he is managed, rested, or off-form, Egypt struggle. The Iran match is their most realistic chance of a win. Advancing requires Salah at his absolute best.
 
 ---
 

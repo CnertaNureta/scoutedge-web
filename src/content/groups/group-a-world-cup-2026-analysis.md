@@ -53,7 +53,7 @@ Under Javier Aguirre, Mexico are tactically organized and disciplined. Their 4-3
 
 **Weaknesses**: Chronic lack of a prolific centre-forward. Mexico haven't had a 20-goal international striker in years, and against elite defenses, this goal-scoring deficit can become decisive.
 
-**ScoutEdge assessment**: Mexico's familiarity score (78/100) reflects a squad that has played together through qualifying, and their morale index (82/100) is boosted by home advantage. But their chemistry plateaus unless a genuine goal threat emerges. Expect them to top the group — but don't be surprised if it's by a slimmer margin than their hosts' status suggests.
+**KickOracle assessment**: Mexico's familiarity score (78/100) reflects a squad that has played together through qualifying, and their morale index (82/100) is boosted by home advantage. But their chemistry plateaus unless a genuine goal threat emerges. Expect them to top the group — but don't be surprised if it's by a slimmer margin than their hosts' status suggests.
 
 ---
 
@@ -69,7 +69,7 @@ Christian Eriksen's creative influence from deep midfield positions remains cent
 
 **Weaknesses**: Goal scoring can be laboured without Christian Eriksen at his creative peak. They don't have a consistent 15-goal international striker.
 
-**ScoutEdge assessment**: Denmark qualified via the playoff route but are arguably stronger than their path suggests. Their World Cup 2026 campaign could mirror their extraordinary Euro 2020 run. They are the group's silent danger — the team that looks manageable on paper but consistently overachieves.
+**KickOracle assessment**: Denmark qualified via the playoff route but are arguably stronger than their path suggests. Their World Cup 2026 campaign could mirror their extraordinary Euro 2020 run. They are the group's silent danger — the team that looks manageable on paper but consistently overachieves.
 
 ---
 
@@ -85,7 +85,7 @@ Kim Min-jae's partnership at the heart of defense represents world-class quality
 
 **Weaknesses**: Over-reliance on Son's creative influence in attack. When Son is managed or rested, the attacking output drops sharply.
 
-**ScoutEdge assessment**: South Korea are built for tournament football. Their morale score (75/100) reflects the emotional fuel of a farewell tour for their greatest ever player. They should advance — but expect it to go down to the wire against Denmark or Mexico.
+**KickOracle assessment**: South Korea are built for tournament football. Their morale score (75/100) reflects the emotional fuel of a farewell tour for their greatest ever player. They should advance — but expect it to go down to the wire against Denmark or Mexico.
 
 ---
 
@@ -101,7 +101,7 @@ Percy Tau brings Premier League experience and creativity. Ronwen Williams has e
 
 **Weaknesses**: Lack of top-tier experience at World Cup level. Defending against quality attacking movements for full 90-minute periods will test their young defensive line.
 
-**ScoutEdge assessment**: South Africa are the group's genuine wildcard. Their chemistry score (68/100) reflects a team still bedding in, but their stability metric (70/100) shows they've built a consistent foundation. They could very easily cause an upset. Mexico at altitude? A cautious opponent who drops off. South Africa might do exactly that.
+**KickOracle assessment**: South Africa are the group's genuine wildcard. Their chemistry score (68/100) reflects a team still bedding in, but their stability metric (70/100) shows they've built a consistent foundation. They could very easily cause an upset. Mexico at altitude? A cautious opponent who drops off. South Africa might do exactly that.
 
 ---
 
@@ -136,7 +136,7 @@ South Africa's best chance of an upset. If they can stay compact until the 70th 
 
 Son Heung-min's farewell tournament creates an emotional and tactical catalyst that's genuinely hard to model. South Korea have form upsets against defending World Cup holders (Germany 2018) and 2022's Portugal. Their pressing system at full intensity is genuinely world-class. If Son has even one transcendent performance, they could go deep.
 
-The ScoutEdge signal: South Korea's chemistry index (76) and pressing metrics suggest a team that is more dangerous than their ranking implies — particularly in evening matches when the altitude factor diminishes for Mexico.
+The KickOracle signal: South Korea's chemistry index (76) and pressing metrics suggest a team that is more dangerous than their ranking implies — particularly in evening matches when the altitude factor diminishes for Mexico.
 
 ---
 
@@ -149,7 +149,7 @@ Mexico are the narrow favorites as co-hosts with home advantage and a well-organ
 South Korea have a strong chance of advancing, either as automatic qualifiers in second place or through the best third-place playoff route. Their World Cup experience and pressing system give them an edge over South Africa.
 
 **Who is the dark horse in World Cup 2026 Group A?**
-South Korea are ScoutEdge's dark horse pick, with South Africa as the potential upset story. South Africa's rebuilt young squad under Hugo Broos has genuine potential to cause a major shock.
+South Korea are KickOracle's dark horse pick, with South Africa as the potential upset story. South Africa's rebuilt young squad under Hugo Broos has genuine potential to cause a major shock.
 
 **What is South Africa's World Cup record?**
 South Africa have made four World Cup appearances (1998, 2002, 2010 as hosts, 2026). Their best result was the group stage, but they famously hosted the 2010 tournament with Siphiwe Tshabalala scoring one of the tournament's most iconic goals against Mexico.

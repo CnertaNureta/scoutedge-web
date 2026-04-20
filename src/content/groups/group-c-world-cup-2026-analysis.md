@@ -53,7 +53,7 @@ Vinicius Junior has emerged as arguably the most dangerous individual talent in 
 
 **Weaknesses**: Brazil have shown a tendency to underperform relative to expectation at major tournaments. Their defensive organization can be exposed when high defensive lines are beaten by pace. Penalty shootout composure has historically been a vulnerability.
 
-**ScoutEdge assessment**: Brazil are the tournament favorites and should top this group without dropping points against Scotland or Haiti. The Morocco match is the defining game. Brazil's chemistry index is strong but their tournament history creates uncertainty. They go through — the question is how convincingly.
+**KickOracle assessment**: Brazil are the tournament favorites and should top this group without dropping points against Scotland or Haiti. The Morocco match is the defining game. Brazil's chemistry index is strong but their tournament history creates uncertainty. They go through — the question is how convincingly.
 
 ---
 
@@ -69,7 +69,7 @@ Most of that squad remains. Achraf Hakimi at right wing-back is one of the world
 
 **Weaknesses**: Goal-scoring can be inconsistent. Morocco often rely on set-pieces and transitions rather than sustained possession attacking, which can stall against deep-defensive opponents.
 
-**ScoutEdge assessment**: Morocco are potentially the most complete team in Group C in terms of tactical cohesion. If they can contain Brazil's individual quality (as they've done against elite opponents before), they could top the group. Finishing second is the more likely outcome, but Morocco's ceiling in this tournament is enormous.
+**KickOracle assessment**: Morocco are potentially the most complete team in Group C in terms of tactical cohesion. If they can contain Brazil's individual quality (as they've done against elite opponents before), they could top the group. Finishing second is the more likely outcome, but Morocco's ceiling in this tournament is enormous.
 
 ---
 
@@ -85,7 +85,7 @@ Andrew Robertson at left-back is world-class. Scott McTominay's physicality and 
 
 **Weaknesses**: Scotland don't have a striker capable of taking on Brazil or Morocco's defenses. Their ceiling against elite opposition is limited by their attacking resources.
 
-**ScoutEdge assessment**: Scotland's most realistic target is a respectable campaign — perhaps a draw against Haiti and competitive performances against Morocco and Brazil that don't embarrass. They would need extraordinary circumstances to advance from this group. The 28-year wait makes participation itself meaningful, but Clarke will be targeting specific moments of quality rather than building a points campaign.
+**KickOracle assessment**: Scotland's most realistic target is a respectable campaign — perhaps a draw against Haiti and competitive performances against Morocco and Brazil that don't embarrass. They would need extraordinary circumstances to advance from this group. The 28-year wait makes participation itself meaningful, but Clarke will be targeting specific moments of quality rather than building a points campaign.
 
 ---
 
@@ -101,7 +101,7 @@ Their qualifying campaign was fiercely competitive, reflecting genuine improveme
 
 **Weaknesses**: The gap between #87 and #5 is significant. Against Brazil and Morocco, Haiti will be defending for extended periods and need to be clinical in the rare moments they have possession.
 
-**ScoutEdge assessment**: Haiti are the tournament's most sympathetic story in Group C. A point from three games would be an achievement. Making it past 70 minutes against Brazil without conceding would be celebrated. Their World Cup 2026 journey is about more than football — it's about what football can mean to a nation.
+**KickOracle assessment**: Haiti are the tournament's most sympathetic story in Group C. A point from three games would be an achievement. Making it past 70 minutes against Brazil without conceding would be celebrated. Their World Cup 2026 journey is about more than football — it's about what football can mean to a nation.
 
 ---
 

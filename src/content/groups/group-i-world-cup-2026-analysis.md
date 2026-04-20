@@ -53,7 +53,7 @@ Kylian Mbappé is, by consensus, the world's best player. His pace, finishing, a
 
 **Weaknesses**: France have sometimes been criticized for playing conservatively relative to their talent. Against organized defensive opponents, they can take time to break through. Reliance on Mbappé means if he is managed or off-form, the team's attacking output drops.
 
-**ScoutEdge assessment**: France should win Group I with 9 points. They are one of the two most likely World Cup 2026 champions. The group stage is a warm-up — the real test comes in the quarter-finals and beyond. Watch for Deschamps using this group to rotate and keep the squad fresh for deeper knockout rounds.
+**KickOracle assessment**: France should win Group I with 9 points. They are one of the two most likely World Cup 2026 champions. The group stage is a warm-up — the real test comes in the quarter-finals and beyond. Watch for Deschamps using this group to rotate and keep the squad fresh for deeper knockout rounds.
 
 ---
 
@@ -69,7 +69,7 @@ Sadio Mané's return from a difficult injury period has been monitored carefully
 
 **Weaknesses**: Senegal can be inconsistent — brilliant against elite opponents, occasionally flat against teams they should beat easily. Their attacking cohesion without Mané at his best is less reliable.
 
-**ScoutEdge assessment**: Senegal should advance as second in Group I. Their quality is undeniable, and the expanded format's third-place safety net provides additional security. The France match will be a learning experience; the Norway match determines everything.
+**KickOracle assessment**: Senegal should advance as second in Group I. Their quality is undeniable, and the expanded format's third-place safety net provides additional security. The France match will be a learning experience; the Norway match determines everything.
 
 ---
 
@@ -85,7 +85,7 @@ The challenge forStåle Solbakken is building a team around Haaland that doesn't
 
 **Weaknesses**: Norway's defensive quality is their limitation. When they concede and need to chase the game, they're exposed. Against France's attacking quality, Haaland's individual brilliance won't compensate for defensive vulnerabilities.
 
-**ScoutEdge assessment**: Norway will not beat France — but they don't need to. Their focus is second place, and Haaland at a World Cup, fully fit and motivated, is genuinely unpredictable. If he scores in the Senegal match, Norway's belief will be extraordinary. A place in the Round of 32 is very achievable.
+**KickOracle assessment**: Norway will not beat France — but they don't need to. Their focus is second place, and Haaland at a World Cup, fully fit and motivated, is genuinely unpredictable. If he scores in the Senegal match, Norway's belief will be extraordinary. A place in the Round of 32 is very achievable.
 
 ---
 
