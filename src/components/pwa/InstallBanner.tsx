@@ -74,7 +74,7 @@ export default function InstallBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Install ScoutEdge"
+      aria-label="Install KickOracle"
       className="fixed bottom-0 left-0 right-0 z-50 p-4 safe-area-inset-bottom"
     >
       <div className="max-w-lg mx-auto glass-panel rounded-2xl border border-outline-variant shadow-2xl overflow-hidden">
@@ -91,7 +91,7 @@ export default function InstallBanner() {
           {/* Text */}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-on-surface leading-tight">
-              Install ScoutEdge
+              Install KickOracle
             </p>
             <p className="text-xs text-on-surface-variant mt-0.5 leading-snug">
               {bannerState === 'ios'

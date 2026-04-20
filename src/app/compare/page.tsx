@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Compare any two World Cup 2026 teams head-to-head. AI-powered analysis of 1,128 possible matchups with squad stats, chemistry indexes, key player matchups, and win probability predictions.',
   keywords:
     'World Cup 2026 team comparison, World Cup 2026 head to head, World Cup 2026 vs, compare World Cup teams, World Cup 2026 matchups',
-  alternates: { canonical: 'https://scoutedge.ai/compare' },
+  alternates: { canonical: 'https://kickoracle.com/compare' },
 }
 
 export default function ComparePage() {

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     'Convert all 72 World Cup 2026 group-stage match kick-off times to your local time zone. Filter by group, browse by date, and never miss a game. Supports all major time zones worldwide.',
   keywords:
     'World Cup 2026 schedule, World Cup 2026 time zone, World Cup 2026 kick off time, World Cup 2026 match time converter, World Cup 2026 local time',
-  alternates: { canonical: 'https://scoutedge.ai/schedule/converter' },
+  alternates: { canonical: 'https://kickoracle.com/schedule/converter' },
 }
 
 export default function ConverterPage() {

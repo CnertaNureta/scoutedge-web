@@ -1,4 +1,5 @@
 import { chemistryColor } from '@/lib/utils'
+import { BRAND } from '@/lib/brand-tokens'
 
 interface ChemistryBarProps {
   value: number
@@ -8,10 +9,10 @@ interface ChemistryBarProps {
 }
 
 function barGradient(value: number): string {
-  if (value >= 70) return 'linear-gradient(90deg, #a0d494, #bcf0ae)'
-  if (value >= 50) return 'linear-gradient(90deg, #78a96e, #a0d494)'
-  if (value >= 35) return 'linear-gradient(90deg, #e9c400, #ffe16d)'
-  return 'linear-gradient(90deg, #ffb4aa, #ffdad5)'
+  if (value >= 70) return `linear-gradient(90deg, ${BRAND.primary}, ${BRAND.primaryFixed})`
+  if (value >= 50) return `linear-gradient(90deg, ${BRAND.onPrimaryContainer}, ${BRAND.primary})`
+  if (value >= 35) return `linear-gradient(90deg, ${BRAND.tertiary}, ${BRAND.tertiaryFixed})`
+  return `linear-gradient(90deg, ${BRAND.secondary}, ${BRAND.secondaryFixed})`
 }
 
 export default function ChemistryBar({ value, label, showValue = true, size = 'md' }: ChemistryBarProps) {
@@ -29,7 +30,14 @@ export default function ChemistryBar({ value, label, showValue = true, size = 'm
           )}
         </div>
       )}
-      <div className={`w-full bg-white/[0.06] ${height} rounded-full overflow-hidden`}>
+      <div
+        className={`w-full bg-white/[0.06] ${height} rounded-full overflow-hidden`}
+        role="progressbar"
+        aria-valuenow={value}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-label={label ? `${label}: ${value} out of 100` : `${value} out of 100`}
+      >
         <div
           className={`${height} rounded-full animate-bar-fill`}
           style={{

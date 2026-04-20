@@ -7,6 +7,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+import { BRAND } from '@/lib/brand-tokens'
 
 export const revalidate = 300
 
@@ -16,16 +17,16 @@ export const metadata: Metadata = {
     'Your daily World Cup 2026 intelligence briefing. AI-extracted signals covering injuries, transfers, form, tactical shifts, and sentiment across all 48 teams. Updated daily.',
   keywords: 'World Cup 2026 news, World Cup 2026 daily briefing, World Cup 2026 updates, World Cup 2026 injuries, World Cup 2026 intelligence',
   openGraph: {
-    title: 'Daily Briefing — World Cup 2026 | ScoutEdge',
+    title: 'Daily Briefing — World Cup 2026 | KickOracle',
     description: 'AI-powered daily intelligence on all 48 World Cup 2026 teams.',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'World Cup 2026 Daily Briefing | ScoutEdge',
+    title: 'World Cup 2026 Daily Briefing | KickOracle',
     description: 'Today\'s AI-extracted signals across all 48 teams.',
   },
-  alternates: { canonical: 'https://scoutedge.ai/daily-briefing' },
+  alternates: { canonical: 'https://kickoracle.com/daily-briefing' },
 }
 
 type Signal = DailyBriefingSignal
@@ -101,8 +102,8 @@ export default async function DailyBriefingPage() {
     datePublished: new Date().toISOString(),
     publisher: {
       '@type': 'Organization',
-      name: 'ScoutEdge',
-      url: 'https://scoutedge.ai',
+      name: 'KickOracle',
+      url: 'https://kickoracle.com',
     },
   }
 
@@ -260,7 +261,7 @@ export default async function DailyBriefingPage() {
                 Open Signal Feed
               </h3>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-on-surface-variant">
-                ScoutEdge v1 keeps the briefing open so the core narrative layer stays readable without paywalls or subscription detours.
+                KickOracle v1 keeps the briefing open so the core narrative layer stays readable without paywalls or subscription detours.
               </p>
             </div>
             <Badge variant="primary" size="sm">All signals visible</Badge>
@@ -289,7 +290,7 @@ export default async function DailyBriefingPage() {
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {liveCache.wcFixtures2026.slice(0, 9).map((match) => (
               <GlassCard key={match.id} className="p-5 relative overflow-hidden">
-                <NeonAccentBar color="#a0d494" />
+                <NeonAccentBar color={BRAND.primary} />
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-[10px] font-label font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/15 text-primary">
                     Round {match.round}
@@ -334,13 +335,13 @@ export default async function DailyBriefingPage() {
           <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-5">
             {liveCache.wcFixtures2022.slice(0, 10).map((match) => (
               <GlassCard key={match.id} className="p-4 relative overflow-hidden">
-                <NeonAccentBar color="#e9c400" />
+                <NeonAccentBar color={BRAND.tertiary} />
                 <div className="text-center">
                   <div className="text-[10px] text-on-surface-variant mb-2">
                     {new Date(match.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="font-label text-xs font-semibold text-on-surface">{match.homeTeam}</div>
-                  <div className="font-mono text-lg font-bold my-1" style={{ color: '#e9c400' }}>
+                  <div className="font-mono text-lg font-bold my-1" style={{ color: BRAND.tertiary }}>
                     {match.homeScore} - {match.awayScore}
                   </div>
                   <div className="font-label text-xs font-semibold text-on-surface">{match.awayTeam}</div>
@@ -363,7 +364,7 @@ export default async function DailyBriefingPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {trendingPlayers.map((player) => (
             <GlassCard key={player.playerSlug} className="p-5 relative overflow-hidden">
-              <NeonAccentBar color={player.buzzScore >= 90 ? '#e9c400' : '#a0d494'} />
+              <NeonAccentBar color={player.buzzScore >= 90 ? BRAND.tertiary : BRAND.primary} />
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <span className="font-headline text-base uppercase tracking-tight">
@@ -375,7 +376,7 @@ export default async function DailyBriefingPage() {
                   className="px-2 py-0.5 rounded-full font-mono text-xs font-bold"
                   style={{
                     background: player.buzzScore >= 90 ? 'rgba(233,196,0,0.2)' : 'rgba(160,212,148,0.2)',
-                    color: player.buzzScore >= 90 ? '#e9c400' : '#a0d494',
+                    color: player.buzzScore >= 90 ? BRAND.tertiary : BRAND.primary,
                   }}
                 >
                   {player.buzzScore}/100

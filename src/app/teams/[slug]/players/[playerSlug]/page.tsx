@@ -7,7 +7,7 @@ import { computeDerivedStats } from '@/lib/player-derived-stats'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
-import SeoArticle from '@/components/ui/SeoArticle'
+import PlayerArticle from '@/components/player/PlayerArticle'
 import SectionHeader from '@/components/ui/SectionHeader'
 
 interface PageProps {
@@ -37,17 +37,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: `${player.name} World Cup 2026 scouting report. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} caps, ${player.goals} goals, rating ${player.rating}/10. AI-powered fitness and performance analysis.`,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
     openGraph: {
-      title: `${player.name} — World Cup 2026 | ScoutEdge`,
+      title: `${player.name} — World Cup 2026 | KickOracle`,
       description: `AI-powered intelligence report for ${player.name}. ${team.name} · ${player.position} · ${player.club}.`,
       images: [{ url: getPlayerActionImage(player.name), width: 1200, height: 630 }],
       type: 'profile',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${player.name} — World Cup 2026 | ScoutEdge`,
+      title: `${player.name} — World Cup 2026 | KickOracle`,
       description: `${player.position} · ${team.name} · Rating: ${player.rating}/10`,
     },
-    alternates: { canonical: `https://scoutedge.ai/teams/${slug}/players/${playerSlug}` },
+    alternates: { canonical: `https://kickoracle.com/teams/${slug}/players/${playerSlug}` },
   }
 }
 
@@ -79,7 +79,7 @@ export default async function PlayerPage({ params }: PageProps) {
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
-      <SeoArticle html={player.seoArticle} />
+      <PlayerArticle player={player} team={team} />
 
       <section className="page-container mb-20">
         <div className="flex items-center justify-between mb-6">

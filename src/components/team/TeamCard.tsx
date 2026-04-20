@@ -11,7 +11,7 @@ export default function TeamCard({ team }: TeamCardProps) {
   return (
     <Link
       href={`/teams/${team.slug}`}
-      className="group relative block bg-surface-container rounded-2xl p-6 border border-white/[0.06] hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,255,135,0.1)] overflow-hidden"
+      className="group relative block bg-surface-container rounded-2xl p-6 border border-white/[0.06] hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(160,212,148,0.1)] overflow-hidden"
     >
       {/* Neon top accent */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

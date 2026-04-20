@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import ArchivedPageNotice from '@/components/ui/ArchivedPageNotice'
 
 export const metadata: Metadata = {
-  title: 'Pricing Archive | ScoutEdge',
+  title: 'Pricing Archive | KickOracle',
   description:
-    'Pricing and subscription positioning have been downgraded while ScoutEdge v1 focuses on narrative-first World Cup intelligence.',
+    'Pricing and subscription positioning have been downgraded while KickOracle v1 focuses on narrative-first World Cup intelligence.',
   robots: { index: false, follow: false },
 }
 
@@ -12,9 +12,9 @@ export default function PricingPage() {
   return (
     <ArchivedPageNotice
       title="Pricing Archive"
-      description="Pricing and subscription packaging are no longer leading the ScoutEdge experience while v1 focuses on open, narrative-first World Cup intelligence."
+      description="Pricing and subscription packaging are no longer leading the KickOracle experience while v1 focuses on open, narrative-first World Cup intelligence."
       reasons={[
-        'Sprint2 does not position ScoutEdge v1 as a subscription-led product journey.',
+        'Sprint2 does not position KickOracle v1 as a subscription-led product journey.',
         'Pricing-first messaging was overexposing monetization ahead of the core intelligence surface.',
         'The route remains reachable as an archive marker while navigation and homepage flows stay focused on reading and analysis.',
       ]}

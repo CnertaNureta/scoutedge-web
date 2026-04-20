@@ -11,7 +11,7 @@ interface ShareButtonProps {
 
 export default function ShareButton({
   url,
-  title = 'ScoutEdge — World Cup 2026 Intelligence',
+  title = 'KickOracle — World Cup 2026 Intelligence',
   text,
   className = '',
 }: ShareButtonProps) {

@@ -48,7 +48,7 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
         <div className="bg-surface-container-lowest rounded-xl p-4 max-w-lg mx-auto text-left">
           <p className="font-mono text-xs text-on-surface-variant">
             curl -H &quot;X-API-Key: se_live_your_key&quot; \<br />
-            &nbsp;&nbsp;https://worldcapiq.com/api/v1/predictions
+            &nbsp;&nbsp;https://kickoracle.com/api/v1/predictions
           </p>
         </div>
       </GlassCard>

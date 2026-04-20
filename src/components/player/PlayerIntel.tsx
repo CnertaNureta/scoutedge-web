@@ -44,7 +44,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
 
         <div className="flex items-center gap-3 mb-6">
           <FlaskConical className="w-6 h-6" style={{ color: colors.glow }} />
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">ScoutEdge Intelligence Report</h2>
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">KickOracle Intelligence Report</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
         </div>
 

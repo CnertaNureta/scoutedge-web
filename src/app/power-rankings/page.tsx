@@ -12,16 +12,16 @@ export const metadata: Metadata = {
     'AI-powered World Cup 2026 power rankings updated weekly. All 48 teams ranked by chemistry index, FIFA ranking, squad depth, and predictive signals. Who will win the 2026 World Cup?',
   keywords: 'World Cup 2026 power rankings, World Cup 2026 predictions, who will win World Cup 2026, World Cup 2026 favorites, FIFA World Cup rankings',
   openGraph: {
-    title: 'World Cup 2026 Power Rankings | ScoutEdge',
+    title: 'World Cup 2026 Power Rankings | KickOracle',
     description: 'AI-ranked power standings of all 48 World Cup 2026 teams.',
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'World Cup 2026 Power Rankings | ScoutEdge',
+    title: 'World Cup 2026 Power Rankings | KickOracle',
     description: 'All 48 teams ranked by AI analysis. Who tops the chart?',
   },
-  alternates: { canonical: 'https://scoutedge.ai/power-rankings' },
+  alternates: { canonical: 'https://kickoracle.com/power-rankings' },
 }
 
 function computePowerScore(team: Team): number {
@@ -135,8 +135,8 @@ export default function PowerRankingsPage() {
     datePublished: new Date().toISOString(),
     publisher: {
       '@type': 'Organization',
-      name: 'ScoutEdge',
-      url: 'https://scoutedge.ai',
+      name: 'KickOracle',
+      url: 'https://kickoracle.com',
     },
   }
 

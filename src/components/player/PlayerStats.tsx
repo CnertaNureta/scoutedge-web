@@ -27,7 +27,7 @@ export default function PlayerStats({ player, derivedStats }: PlayerStatsProps) 
     { label: 'Caps', value: player.caps, decimals: 0, hint: 'International appearances' },
     { label: 'Goals', value: player.goals, decimals: 0, hint: 'International goals scored' },
     { label: 'Assists', value: player.assists, decimals: 0, hint: 'Goal assists provided' },
-    { label: 'Rating', value: player.rating, decimals: 1, suffix: '/10', hint: 'ScoutEdge overall rating' },
+    { label: 'Rating', value: player.rating, decimals: 1, suffix: '/10', hint: 'KickOracle overall rating' },
     { label: 'Age', value: player.age, decimals: 0, hint: 'Current age' },
   ]
 

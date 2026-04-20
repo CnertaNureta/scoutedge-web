@@ -13,6 +13,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { BRAND } from '@/lib/brand-tokens'
 import { usePullToRefresh } from '@/hooks/usePullToRefresh'
 import { useSwipeGesture } from '@/hooks/useSwipeGesture'
 import { useWakeLock } from '@/hooks/useWakeLock'
@@ -31,19 +32,19 @@ interface MatchesClientProps {
 
 const ROUND_META: Record<RoundName, { accent: string; eyebrow: string; title: string; description: string }> = {
   'Match Day 1': {
-    accent: '#a0d494',
+    accent: BRAND.primary,
     eyebrow: 'Opening pulse',
     title: 'First reads, first leverage',
     description: 'The opening wave sets the emotional pace of every group before points tables harden.',
   },
   'Match Day 2': {
-    accent: '#e9c400',
+    accent: BRAND.tertiary,
     eyebrow: 'Separation week',
     title: 'Margins widen quickly',
     description: 'Second fixtures decide who can rotate, who must chase, and where the bracket starts to breathe.',
   },
   'Match Day 3': {
-    accent: '#ffb4aa',
+    accent: BRAND.secondary,
     eyebrow: 'Decision night',
     title: 'Qualification pressure peaks',
     description: 'The final group games compress everything into ninety minutes: survival, seeding, and volatility.',
@@ -438,7 +439,7 @@ export default function MatchesClient({
       <section className="relative overflow-hidden px-6 py-24 md:py-32">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute top-1/4 left-[12%] h-[420px] w-[420px] rounded-full bg-primary/10 blur-[150px]" />
-        <div className="absolute bottom-0 right-[10%] h-[320px] w-[320px] rounded-full bg-[#e9c400]/10 blur-[140px]" />
+        <div className="absolute bottom-0 right-[10%] h-[320px] w-[320px] rounded-full bg-tertiary/10 blur-[140px]" />
         <div className="absolute inset-0 pitch-lines opacity-20 pointer-events-none" />
         <div className="absolute inset-0 scanline-overlay pointer-events-none opacity-20" />
 
@@ -454,7 +455,7 @@ export default function MatchesClient({
           </h1>
 
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-on-surface-variant leading-8 mb-10">
-            ScoutEdge&apos;s match board now leads with context instead of clutter: where the leverage sits,
+            KickOracle&apos;s match board now leads with context instead of clutter: where the leverage sits,
             which venues change the conditions, and how probability, travel, and chemistry reshape every group.
           </p>
 
@@ -486,10 +487,10 @@ export default function MatchesClient({
       <section className="page-container -mt-10 relative z-20 mb-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: 'Fixtures on board', value: filteredFixtures.length.toString(), accent: '#a0d494' },
-            { label: 'Groups in focus', value: visibleGroups.length.toString(), accent: '#bcf0ae' },
-            { label: 'Host cities live', value: hostCities.toString(), accent: '#e9c400' },
-            { label: 'Decision cadence', value: activeGroup ? '1 group' : '12 groups', accent: '#ffb4aa' },
+            { label: 'Fixtures on board', value: filteredFixtures.length.toString(), accent: BRAND.primary },
+            { label: 'Groups in focus', value: visibleGroups.length.toString(), accent: BRAND.primaryFixed },
+            { label: 'Host cities live', value: hostCities.toString(), accent: BRAND.tertiary },
+            { label: 'Decision cadence', value: activeGroup ? '1 group' : '12 groups', accent: BRAND.secondary },
           ].map((stat, index) => (
             <div
               key={stat.label}

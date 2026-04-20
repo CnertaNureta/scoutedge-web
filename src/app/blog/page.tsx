@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     'Expert analysis and AI-powered insights for the 2026 FIFA World Cup. In-depth guides, team predictions, group breakdowns, and everything you need to know about the biggest World Cup in history.',
   keywords:
     'World Cup 2026 blog, World Cup 2026 analysis, World Cup 2026 predictions, World Cup 2026 guide, FIFA World Cup 2026 articles',
-  alternates: { canonical: 'https://scoutedge.ai/blog' },
+  alternates: { canonical: 'https://kickoracle.com/blog' },
 }
 
 export default function BlogPage() {

@@ -9,6 +9,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import { BRAND } from '@/lib/brand-tokens'
 
 export function generateStaticParams() {
   return getAllMatchupSlugs().map((matchup) => ({ matchup }))
@@ -29,11 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: { canonical: `https://scoutedge.ai/compare/${matchup}` },
+    alternates: { canonical: `https://kickoracle.com/compare/${matchup}` },
     openGraph: {
       title,
       description,
-      url: `https://scoutedge.ai/compare/${matchup}`,
+      url: `https://kickoracle.com/compare/${matchup}`,
       type: 'article',
     },
     twitter: {
@@ -79,7 +80,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
     '@type': 'Article',
     headline: `${teamA.name} vs ${teamB.name}: World Cup 2026 Head-to-Head`,
     description: `AI comparison of ${teamA.name} and ${teamB.name} for the 2026 World Cup.`,
-    author: { '@type': 'Organization', name: 'ScoutEdge' },
+    author: { '@type': 'Organization', name: 'KickOracle' },
   }
 
   // Related matchups: other comparisons involving either team
@@ -135,7 +136,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
 
         {/* AI Summary — plain language */}
         <GlassCard className="p-6 md:p-8 relative overflow-hidden">
-          <NeonAccentBar color="#a0d494" />
+          <NeonAccentBar color={BRAND.primary} />
           <h3 className="font-headline text-xl uppercase tracking-wide mb-4">The Bottom Line</h3>
           <p className="text-on-surface leading-relaxed text-lg">{verdict}</p>
         </GlassCard>
@@ -227,7 +228,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {keyPlayerMatchups.map((m) => (
                 <GlassCard key={m.position} className="p-5 relative overflow-hidden">
-                  <NeonAccentBar color="#a0d494" />
+                  <NeonAccentBar color={BRAND.primary} />
                   <Badge variant="outline" size="sm">{m.position}</Badge>
                   <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 mt-4">
                     <Link href={`/teams/${teamA.slug}/players/${m.teamAPlayer.slug}`} className="text-center group">
@@ -276,7 +277,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
           const isTeamAFirst = h2h.teamA === teamA.slug
           return (
             <GlassCard className="p-6 md:p-8">
-              <NeonAccentBar color="#e9c400" />
+              <NeonAccentBar color={BRAND.tertiary} />
               <h3 className="font-headline text-xl uppercase tracking-wide mb-2 text-center">All-Time Head-to-Head</h3>
               <p className="text-on-surface-variant text-sm text-center mb-6">
                 {h2h.totalMatches} meetings · Last: {h2h.lastResult}
@@ -303,7 +304,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
               <div className="h-3 rounded-full bg-white/[0.05] overflow-hidden flex mb-6">
                 <div className="h-full bg-primary rounded-l-full" style={{ width: `${((isTeamAFirst ? h2h.teamAWins : h2h.teamBWins) / h2h.totalMatches) * 100}%` }} />
                 <div className="h-full bg-on-surface-variant/30" style={{ width: `${(h2h.draws / h2h.totalMatches) * 100}%` }} />
-                <div className="h-full bg-[#e9c400] rounded-r-full" style={{ width: `${((isTeamAFirst ? h2h.teamBWins : h2h.teamAWins) / h2h.totalMatches) * 100}%` }} />
+                <div className="h-full bg-tertiary rounded-r-full" style={{ width: `${((isTeamAFirst ? h2h.teamBWins : h2h.teamAWins) / h2h.totalMatches) * 100}%` }} />
               </div>
               {/* Goals */}
               <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-3 border-b border-white/[0.04]">
@@ -322,7 +323,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
                   <p className="font-label text-xs text-primary uppercase tracking-widest font-semibold">Key Encounters</p>
                   {h2h.notableMeetings.map((m, i) => (
                     <div key={i} className="flex items-start gap-3 py-2 border-b border-white/[0.03] last:border-0">
-                      <span className="font-mono text-xs text-[#e9c400] font-bold shrink-0">{m.year}</span>
+                      <span className="font-mono text-xs text-tertiary font-bold shrink-0">{m.year}</span>
                       <div>
                         <div className="text-sm text-on-surface">{m.result}</div>
                         <div className="text-xs text-on-surface-variant">{m.event}</div>

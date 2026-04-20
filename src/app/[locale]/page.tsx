@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getAllTeams } from '@/lib/data-service'
 import { SUPPORTED_LOCALES, LOCALE_CONFIGS, TRANSLATIONS } from '@/i18n/locales'
 import type { Locale } from '@/i18n/locales'
+import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -24,24 +25,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const config = LOCALE_CONFIGS[locale as Locale]
 
   // Build hreflang alternates
-  const languages: Record<string, string> = { 'x-default': 'https://scoutedge.ai' }
+  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com' }
   for (const loc of SUPPORTED_LOCALES) {
-    languages[LOCALE_CONFIGS[loc].hreflang] = `https://scoutedge.ai/${loc}`
+    languages[LOCALE_CONFIGS[loc].hreflang] = `https://kickoracle.com/${loc}`
   }
-  languages['en'] = 'https://scoutedge.ai'
+  languages['en'] = 'https://kickoracle.com'
 
   return {
     title: t.metaTitle,
     description: t.metaDescription,
     alternates: {
-      canonical: `https://scoutedge.ai/${locale}`,
+      canonical: `https://kickoracle.com/${locale}`,
       languages,
     },
     openGraph: {
       title: t.metaTitle,
       description: t.metaDescription,
-      url: `https://scoutedge.ai/${locale}`,
-      siteName: 'ScoutEdge',
+      url: `https://kickoracle.com/${locale}`,
+      siteName: 'KickOracle',
       locale: config.hreflang,
       type: 'website',
     },
@@ -130,10 +131,10 @@ export default async function LocalePage({ params }: PageProps) {
       <section className="page-container -mt-16 relative z-20 mb-24">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: t.statsTeams, value: '48', accent: '#a0d494' },
-            { label: t.statsHostCities, value: '16', accent: '#bcf0ae' },
-            { label: t.statsMatches, value: '104', accent: '#e9c400' },
-            { label: t.statsPlayers, value: '1,200+', accent: '#ffb4aa' },
+            { label: t.statsTeams, value: '48', accent: BRAND.primary },
+            { label: t.statsHostCities, value: '16', accent: BRAND.primaryFixed },
+            { label: t.statsMatches, value: '104', accent: BRAND.tertiary },
+            { label: t.statsPlayers, value: '1,200+', accent: BRAND.secondary },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -177,11 +178,11 @@ export default async function LocalePage({ params }: PageProps) {
         <SectionHeader className="mb-8">{t.analysisTitle}</SectionHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {[
-            { title: t.featureTeams, desc: t.featureTeamsDesc, href: '/teams', icon: '\u{1F3C3}', accent: '#a0d494' },
-            { title: t.featureMatches, desc: t.featureMatchesDesc, href: '/matches', icon: '\u{26BD}', accent: '#bcf0ae' },
-            { title: t.featurePowerRankings, desc: t.featurePowerRankingsDesc, href: '/power-rankings', icon: '\u{1F3C6}', accent: '#e9c400' },
-            { title: t.featureDailyBriefing, desc: t.featureDailyBriefingDesc, href: '/daily-briefing', icon: '\u{1F4F0}', accent: '#ffb4aa' },
-            { title: t.featurePredictions, desc: t.featurePredictionsDesc, href: '/predictions', icon: '\u{1F3AF}', accent: '#ffd700' },
+            { title: t.featureTeams, desc: t.featureTeamsDesc, href: '/teams', icon: '\u{1F3C3}', accent: BRAND.primary },
+            { title: t.featureMatches, desc: t.featureMatchesDesc, href: '/matches', icon: '\u{26BD}', accent: BRAND.primaryFixed },
+            { title: t.featurePowerRankings, desc: t.featurePowerRankingsDesc, href: '/power-rankings', icon: '\u{1F3C6}', accent: BRAND.tertiary },
+            { title: t.featureDailyBriefing, desc: t.featureDailyBriefingDesc, href: '/daily-briefing', icon: '\u{1F4F0}', accent: BRAND.secondary },
+            { title: t.featurePredictions, desc: t.featurePredictionsDesc, href: '/predictions', icon: '\u{1F3AF}', accent: BRAND.tertiaryFixed },
           ].map((feature) => (
             <Link
               key={feature.href}
@@ -211,7 +212,7 @@ export default async function LocalePage({ params }: PageProps) {
           <p className="text-on-surface-variant text-lg max-w-xl mx-auto mb-10">
             {t.ctaDescription}
           </p>
-          <button className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(255,215,0,0.3)]">
+          <button className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(233,196,0,0.3)]">
             {t.ctaButton}
           </button>
         </div>

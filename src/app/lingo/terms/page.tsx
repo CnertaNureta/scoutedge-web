@@ -1,0 +1,129 @@
+import type { Metadata } from 'next'
+import { lingoTermsData } from '@/data/lingo-data'
+
+export const metadata: Metadata = {
+  title: 'Football Terms in 10 Languages — World Cup 2026 Glossary',
+  description:
+    'How to say goal, penalty, offside, red card and more in Spanish, French, German, Arabic, Japanese and 6 other languages. The fan\'s World Cup vocabulary guide.',
+}
+
+const LANGUAGE_LABELS: Record<string, string> = {
+  spanish: 'Spanish',
+  portuguese: 'Portuguese',
+  french: 'French',
+  german: 'German',
+  italian: 'Italian',
+  arabic: 'Arabic',
+  japanese: 'Japanese',
+  chinese: 'Chinese',
+  russian: 'Russian',
+  dutch: 'Dutch',
+  turkish: 'Turkish',
+  korean: 'Korean',
+  portuguese_br: 'Brazilian Portuguese',
+}
+
+export default function LingoTermsPage() {
+  return (
+    <div className="mx-auto max-w-6xl px-6 py-12">
+      <div className="mb-10">
+        <h1 className="text-3xl font-bold text-lingo-text sm:text-4xl">
+          Football Terms in 10 Languages
+        </h1>
+        <p className="mt-2 text-base text-lingo-text-muted">
+          The fan&apos;s World Cup glossary — how to say goal, penalty, offside, and more in every
+          major football language.
+        </p>
+      </div>
+
+      <section className="mb-16">
+        <h2 className="mb-6 text-2xl font-bold text-lingo-text">Essential Terms</h2>
+        <div className="space-y-8">
+          {lingoTermsData.terms.map((term) => {
+            const translations = Object.entries(term.translations).filter(
+              ([key]) => key !== 'note',
+            )
+            return (
+              <div
+                key={term.id}
+                className="overflow-hidden rounded-2xl border border-lingo-border/50 bg-lingo-surface"
+              >
+                <div className="border-b border-lingo-border/30 bg-lingo-bg/50 px-6 py-4">
+                  <h3 className="text-lg font-semibold text-lingo-text">{term.english}</h3>
+                  <p className="mt-0.5 text-sm text-lingo-text-muted">{term.definition}</p>
+                </div>
+                <div className="grid gap-px bg-lingo-border/20 sm:grid-cols-2 lg:grid-cols-3">
+                  {translations.map(([lang, translation]) => {
+                    if (typeof translation !== 'object' || !translation.word) return null
+                    return (
+                      <div key={lang} className="bg-lingo-surface px-5 py-3.5">
+                        <p className="text-xs font-medium uppercase tracking-wider text-lingo-text-muted">
+                          {LANGUAGE_LABELS[lang] ?? lang}
+                        </p>
+                        <p className="mt-1 text-base font-semibold text-lingo-text">
+                          {translation.word}
+                        </p>
+                        <p className="font-mono text-sm text-lingo-phonetic">
+                          {translation.phonetic}
+                        </p>
+                        {translation.note && (
+                          <p className="mt-1 text-xs text-lingo-text-muted">{translation.note}</p>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <h2 className="mb-6 text-2xl font-bold text-lingo-text">Chants From Around the World</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {lingoTermsData.chants.map((chant) => (
+            <div
+              key={chant.team}
+              className="rounded-2xl border border-lingo-border/50 bg-lingo-surface p-5"
+            >
+              <p className="mb-2 text-xs font-medium uppercase tracking-wider text-lingo-accent">
+                {chant.team}
+              </p>
+              <p className="text-xl font-bold text-lingo-text">{chant.chant}</p>
+              <p className="mt-1 font-mono text-sm text-lingo-phonetic">{chant.phonetic}</p>
+              <p className="mt-2 text-sm text-lingo-text-muted">{chant.meaning}</p>
+              <p className="mt-2 text-xs text-lingo-text-muted">{chant.context}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Lingo',
+                item: 'https://kickoracle.com/lingo/',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Football Terms',
+                item: 'https://kickoracle.com/lingo/terms/',
+              },
+            ],
+          }),
+        }}
+      />
+    </div>
+  )
+}

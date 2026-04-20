@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service',
   description:
-    'ScoutEdge terms of service. Rules and guidelines for using our World Cup 2026 AI intelligence platform.',
-  alternates: { canonical: 'https://scoutedge.ai/terms-of-service' },
+    'KickOracle terms of service. Rules and guidelines for using our World Cup 2026 AI intelligence platform.',
+  alternates: { canonical: 'https://kickoracle.com/terms-of-service' },
 }
 
 export default function TermsOfServicePage() {
@@ -18,19 +18,19 @@ export default function TermsOfServicePage() {
       <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant [&_h2]:text-on-surface [&_h2]:font-headline [&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-on-surface [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:mb-4 [&_li]:mb-2">
         <h2>1. Agreement to Terms</h2>
         <p>
-          By accessing or using ScoutEdge (scoutedge.ai), you agree to be bound by these Terms of Service.
+          By accessing or using KickOracle (kickoracle.com), you agree to be bound by these Terms of Service.
           If you do not agree to these terms, please do not use our website.
         </p>
 
         <h2>2. Description of Service</h2>
         <p>
-          ScoutEdge is an AI-powered intelligence platform providing analysis, predictions, and data
+          KickOracle is an AI-powered intelligence platform providing analysis, predictions, and data
           related to the 2026 FIFA World Cup. Our content includes team analysis, player profiles,
           match predictions, power rankings, and daily briefings.
         </p>
 
         <h2>3. Use of Content</h2>
-        <p>All content on ScoutEdge is for informational and entertainment purposes only.</p>
+        <p>All content on KickOracle is for informational and entertainment purposes only.</p>
         <ul>
           <li>Predictions and analysis are generated using AI models and statistical methods and are not guaranteed to be accurate.</li>
           <li>Content should not be relied upon as the sole basis for betting, gambling, or financial decisions.</li>
@@ -39,8 +39,8 @@ export default function TermsOfServicePage() {
 
         <h2>4. Intellectual Property</h2>
         <p>
-          All content, features, and functionality on ScoutEdge — including text, graphics, logos, data, and software —
-          are the exclusive property of ScoutEdge and are protected by international copyright, trademark, and other intellectual property laws.
+          All content, features, and functionality on KickOracle — including text, graphics, logos, data, and software —
+          are the exclusive property of KickOracle and are protected by international copyright, trademark, and other intellectual property laws.
         </p>
         <p>You may not:</p>
         <ul>
@@ -67,7 +67,7 @@ export default function TermsOfServicePage() {
 
         <h2>7. Limitation of Liability</h2>
         <p>
-          In no event shall ScoutEdge, its owners, or contributors be liable for any indirect, incidental,
+          In no event shall KickOracle, its owners, or contributors be liable for any indirect, incidental,
           special, consequential, or punitive damages arising out of or related to your use of the website,
           including but not limited to losses from betting or gambling activities based on our content.
         </p>
@@ -92,7 +92,7 @@ export default function TermsOfServicePage() {
 
         <h2>11. Contact</h2>
         <p>
-          For questions about these Terms of Service, please contact us at legal@scoutedge.ai.
+          For questions about these Terms of Service, please contact us at legal@kickoracle.com.
         </p>
       </div>
     </div>

@@ -5,7 +5,9 @@ import ChatWidget from '@/components/chat/ChatWidget'
 import InstallBanner from '@/components/pwa/InstallBanner'
 import { bebasNeue, epilogue, jetbrainsMono, manrope, oswald, plusJakartaSans } from './fonts'
 import { Providers } from './providers'
+import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import '@/styles/globals.css'
+import { BRAND, SURFACE } from '@/lib/brand-tokens'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -13,38 +15,38 @@ export const viewport: Viewport = {
   minimumScale: 1,
   viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#121412' },
-    { media: '(prefers-color-scheme: light)', color: '#a0d494' },
+    { media: '(prefers-color-scheme: dark)', color: SURFACE.background },
+    { media: '(prefers-color-scheme: light)', color: BRAND.primary },
   ],
 }
 
 export const metadata: Metadata = {
   title: {
-    default: 'World Cup 2026 Narratives, Squad Analysis & Match Intelligence | ScoutEdge',
-    template: '%s | ScoutEdge',
+    default: 'World Cup 2026 AI Predictions, City Guides & Fan Intelligence | KickOracle',
+    template: '%s | KickOracle',
   },
   description:
-    'Narrative-first World Cup 2026 intelligence for all 48 teams. Team identity, squad chemistry, player reports, and match context across the USA, Canada, and Mexico.',
-  keywords: 'World Cup 2026, World Cup intelligence, World Cup narratives, football analysis, squad chemistry, player reports, World Cup 2026 schedule',
+    'AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams. Win probabilities, squad analysis, travel planning, and match insights across the USA, Canada, and Mexico.',
+  keywords: 'World Cup 2026, World Cup predictions, World Cup 2026 host cities, football analysis, squad chemistry, World Cup 2026 schedule, World Cup 2026 travel',
   manifest: '/manifest.json',
   appleWebApp: {
     capable: true,
-    title: 'ScoutEdge',
+    title: 'KickOracle',
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
     type: 'website',
-    siteName: 'ScoutEdge',
+    siteName: 'KickOracle',
     locale: 'en_US',
-    title: 'World Cup 2026 Narratives & Squad Analysis | ScoutEdge',
-    description: 'Narrative-first intelligence and deep-dive analysis for all 48 teams competing in the 2026 FIFA World Cup.',
+    title: 'World Cup 2026 AI Predictions & Fan Intelligence | KickOracle',
+    description: 'AI-powered predictions, city guides, and deep analysis for all 48 teams competing in the 2026 World Cup.',
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@scoutedge_ai',
-    creator: '@scoutedge_ai',
+    site: '@KickOracle',
+    creator: '@KickOracle',
   },
-  metadataBase: new URL('https://scoutedge.ai'),
+  metadataBase: new URL('https://kickoracle.com'),
   robots: {
     index: true,
     follow: true,
@@ -58,16 +60,18 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32' },
       { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
       { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
     ],
-    apple: [{ url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   other: {
     'mobile-web-app-capable': 'yes',
-    'msapplication-TileColor': '#121412',
+    'msapplication-TileColor': SURFACE.background,
     'msapplication-TileImage': '/icons/icon-192.png',
-    'theme-color': '#a0d494',
+    'theme-color': BRAND.primary,
   },
 }
 
@@ -78,9 +82,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`dark ${epilogue.variable} ${manrope.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${oswald.variable} ${bebasNeue.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <GoogleTagManagerNoScript />
+        <GoogleTagManagerScript />
         <Providers>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
+          >
+            Skip to main content
+          </a>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <ChatWidget />
           <InstallBanner />

@@ -19,9 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   }
 
   return {
-    title: `${cat.title} Archive | ScoutEdge`,
-    description: `${cat.title} is archived while ScoutEdge narrows v1 around narrative-first World Cup intelligence.`,
-    alternates: { canonical: `https://scoutedge.ai/community/${category}` },
+    title: `${cat.title} Archive | KickOracle`,
+    description: `${cat.title} is archived while KickOracle narrows v1 around narrative-first World Cup intelligence.`,
+    alternates: { canonical: `https://kickoracle.com/community/${category}` },
     robots: { index: false, follow: false },
   }
 }
@@ -38,7 +38,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
     <ArchivedPageNotice
       badge="Archived Forum Category"
       title={`${cat.title} Archive`}
-      description={`${cat.title} is no longer an active discussion surface. ScoutEdge v1 is concentrating its primary experience around narrative-first World Cup intelligence instead of forum-first engagement.`}
+      description={`${cat.title} is no longer an active discussion surface. KickOracle v1 is concentrating its primary experience around narrative-first World Cup intelligence instead of forum-first engagement.`}
       reasons={[
         `${cat.title} used to be part of the legacy community/forum graph, which is now outside the Sprint2 product boundary.`,
         'The active v1 journey prioritizes reading team, match, and player context instead of comment threads or discussion mechanics.',

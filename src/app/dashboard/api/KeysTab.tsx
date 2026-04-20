@@ -53,7 +53,7 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
           <p className="text-4xl mb-4">🔑</p>
           <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">No API keys yet</h3>
           <p className="font-body text-sm text-on-surface-variant mb-6 max-w-sm mx-auto">
-            Create your first key to start using the WorldCapIQ API.
+            Create your first key to start using the KickOracle API.
           </p>
           <button onClick={() => setShowCreate(true)} className="btn-primary">
             + Create API Key

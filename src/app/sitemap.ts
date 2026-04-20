@@ -3,10 +3,11 @@ import { getAllTeams, getPlayersByTeam, getAllGroups } from '@/lib/data-service'
 import { getAllMatchupSlugs } from '@/lib/compare-utils'
 import { getAllPosts } from '@/lib/blog-service'
 import { SUPPORTED_LOCALES } from '@/i18n/locales'
+import { lingoCountries, lingoPlayers } from '@/data/lingo-data'
 
 export const dynamic = 'force-static'
 
-const BASE = 'https://scoutedge.ai'
+const BASE = 'https://kickoracle.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const teams = getAllTeams()
@@ -52,6 +53,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }))
 
+  // Lingo pages
+  const lingoCountryUrls: MetadataRoute.Sitemap = lingoCountries.map((c) => ({
+    url: `${BASE}/lingo/countries/${c.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+  const lingoPlayerUrls: MetadataRoute.Sitemap = lingoPlayers.map((p) => ({
+    url: `${BASE}/lingo/players/${p.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
   // Blog posts
   const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${BASE}/blog/${post.slug}`,
@@ -74,6 +89,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/schedule/converter`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
     { url: `${BASE}/compare`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/blog`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.8 },
+
+    // Lingo module
+    { url: `${BASE}/lingo`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
+    { url: `${BASE}/lingo/countries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/lingo/players`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${BASE}/lingo/terms`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
+    ...lingoCountryUrls,
+    ...lingoPlayerUrls,
 
     // Localized homepages (8 languages)
     ...SUPPORTED_LOCALES.map((locale) => ({

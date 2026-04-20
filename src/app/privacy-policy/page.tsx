@@ -3,8 +3,8 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
-    'ScoutEdge privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
-  alternates: { canonical: 'https://scoutedge.ai/privacy-policy' },
+    'KickOracle privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
+  alternates: { canonical: 'https://kickoracle.com/privacy-policy' },
 }
 
 export default function PrivacyPolicyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
       <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant [&_h2]:text-on-surface [&_h2]:font-headline [&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-on-surface [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:mb-4 [&_li]:mb-2">
         <h2>1. Introduction</h2>
         <p>
-          ScoutEdge (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website scoutedge.ai (the &ldquo;Service&rdquo;).
+          KickOracle (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) operates the website kickoracle.com (the &ldquo;Service&rdquo;).
           This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
         </p>
 
@@ -91,7 +91,7 @@ export default function PrivacyPolicyPage() {
 
         <h2>10. Contact Us</h2>
         <p>
-          If you have questions about this Privacy Policy, please contact us at privacy@scoutedge.ai.
+          If you have questions about this Privacy Policy, please contact us at privacy@kickoracle.com.
         </p>
       </div>
     </div>

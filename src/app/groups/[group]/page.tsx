@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const teamNames = teams.map((t) => t.name).join(', ')
   const seo = GROUP_SEO_META[group.toUpperCase()]
-  const seoTitle = seo?.title?.replace(/ \| ScoutEdge$/, '') ?? null
+  const seoTitle = seo?.title?.replace(/ \| KickOracle$/, '') ?? null
 
   return {
     title: seoTitle ?? `Group ${group} Analysis — World Cup 2026 | ${teamNames}`,
@@ -39,10 +39,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: `World Cup 2026 Group ${group} | ScoutEdge`,
+      title: `World Cup 2026 Group ${group} | KickOracle`,
       description: `AI analysis of Group ${group}: ${teamNames}.`,
     },
-    alternates: { canonical: `https://scoutedge.ai/groups/${group}` },
+    alternates: { canonical: `https://kickoracle.com/groups/${group}` },
   }
 }
 
@@ -121,7 +121,7 @@ export default async function GroupPage({ params }: PageProps) {
     hasPart: teams.map((t) => ({
       '@type': 'SportsTeam',
       name: t.name,
-      url: `https://scoutedge.ai/teams/${t.slug}`,
+      url: `https://kickoracle.com/teams/${t.slug}`,
     })),
   }
 

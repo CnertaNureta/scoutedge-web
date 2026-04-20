@@ -4,6 +4,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import { BRAND } from '@/lib/brand-tokens'
 
 interface CoachProfileProps {
   coach: CoachData
@@ -19,7 +20,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
       <p className="text-on-surface-variant text-sm mb-6">The man in charge of tactics, squad selection, and matchday decisions.</p>
 
       <GlassCard className="p-6 md:p-8 relative overflow-hidden">
-        <NeonAccentBar color="#a0d494" />
+        <NeonAccentBar color={BRAND.primary} />
 
         {/* Coach header */}
         <div className="flex flex-col sm:flex-row gap-5 mb-6">

@@ -1,7 +1,9 @@
 import type { Team } from '@/lib/types'
 import Image from 'next/image'
+import Link from 'next/link'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { getLiveTeamDetails } from '@/lib/live-data-service'
+import { getTeamColors } from '@/lib/team-colors'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import Badge from '@/components/ui/Badge'
 
@@ -12,75 +14,113 @@ interface TeamHeroProps {
 export default function TeamHero({ team }: TeamHeroProps) {
   const heroImage = getTeamHeroImage(team.slug)
   const liveDetails = getLiveTeamDetails(team.name)
+  const colors = getTeamColors(team.slug)
 
   return (
-    <section className="relative h-[75vh] min-h-[520px] w-full overflow-hidden flex items-end">
-      {/* Background image — LCP element */}
+    <section className="relative h-[85vh] min-h-[580px] w-full overflow-hidden flex items-end">
+      {/* Background image -- LCP element */}
       <Image
         src={heroImage}
         alt={`${team.name} football atmosphere`}
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 object-cover brightness-[0.35] saturate-[1.2] scale-105"
+        className="absolute inset-0 object-cover brightness-[0.3] saturate-[1.2] scale-105"
       />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 hero-gradient z-10" />
-      <div className="absolute inset-0 hero-gradient-left z-10" />
+      {/* Team color overlay gradient — left to right */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background: `linear-gradient(to right, ${colors.primary}40 0%, transparent 60%)`,
+        }}
+      />
 
-      {/* Scanline overlay */}
-      <div className="absolute inset-0 scanline-overlay pointer-events-none opacity-20 z-10" />
+      {/* Bottom gradient for readability */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-background/30 to-background" />
 
-      {/* Vignette */}
-      <div className="absolute inset-0 vignette pointer-events-none z-10" />
+      {/* Left gradient for text area */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-background/70 via-background/30 to-transparent" />
 
       {/* Content */}
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 pb-16 md:pb-24">
-        <div className="space-y-4">
+        <div className="space-y-4 max-w-3xl">
           {team.isPlayoff && (
             <Badge variant="tertiary" size="md">Subject to UEFA Playoff Results (March 26-31, 2026)</Badge>
           )}
+
+          {/* Flag + Badge */}
           <div className="flex items-center gap-4 mb-2">
-            <span className="text-7xl md:text-8xl">{team.flag}</span>
+            <span className="text-6xl md:text-7xl">{team.flag}</span>
             {liveDetails?.badge && (
               <Image
                 src={liveDetails.badge}
                 alt={`${team.name} official badge`}
-                width={80}
-                height={80}
-                sizes="(min-width: 768px) 80px, 64px"
-                className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-lg"
+                width={72}
+                height={72}
+                sizes="(max-width: 768px) 56px, 72px"
+                className="object-contain drop-shadow-lg"
               />
             )}
           </div>
-          <h1 className="font-headline text-6xl md:text-8xl tracking-wide text-on-surface uppercase leading-none">
+
+          {/* Team Name */}
+          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-wide text-on-surface uppercase leading-[0.9]">
             {team.name}
           </h1>
-          <div className="flex flex-wrap items-center gap-4 md:gap-8 mt-4">
-            {[
-              { label: 'FIFA Ranking', value: `#${team.fifaRanking}` },
-              { label: 'Group', value: team.group },
-              { label: 'Coach', value: team.coachName },
-              { label: 'Confederation', value: team.confederation },
-            ].map((item) => (
-              <div key={item.label} className="flex flex-col">
-                <span className="font-label text-xs text-primary font-semibold tracking-widest uppercase">{item.label}</span>
-                <span className="font-headline text-2xl">{item.value}</span>
-              </div>
-            ))}
+
+          {/* Metadata badges */}
+          <div className="flex flex-wrap items-center gap-3 mt-4">
+            <Badge variant="primary" size="md">#{team.fifaRanking} FIFA</Badge>
+            <Badge variant="outline" size="md">Group {team.group}</Badge>
+            <Badge variant="outline" size="md">{team.confederation}</Badge>
+            <span className="font-label text-sm text-on-surface-variant">{team.coachName}</span>
           </div>
-          <div className="max-w-md mt-6">
-            <ChemistryBar value={team.chemistry} label="Chemistry Index" />
+
+          {/* Chemistry — prominent */}
+          <div className="flex items-center gap-6 mt-6">
+            <span
+              className="font-headline text-5xl md:text-6xl tracking-tight"
+              style={{ color: colors.glow }}
+            >
+              {team.chemistry}
+            </span>
+            <div className="flex-1 max-w-sm">
+              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium mb-1 block">
+                Chemistry Index
+              </span>
+              <ChemistryBar value={team.chemistry} showValue={false} size="md" />
+            </div>
           </div>
-          <p className="text-on-surface-variant italic max-w-xl mt-4 text-lg leading-relaxed">
+
+          {/* Key Insight — pull quote style */}
+          <p
+            className="text-on-surface-variant italic max-w-xl mt-4 text-base md:text-lg leading-relaxed pl-4 border-l-2"
+            style={{ borderColor: `${colors.primary}60` }}
+          >
             &ldquo;{team.keyInsight}&rdquo;
           </p>
+
+          {/* Registration CTA — above fold */}
+          <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
+            <p className="font-label text-sm text-on-surface-variant">Free daily AI predictions for all 48 teams.</p>
+            <Link
+              href="/auth/register"
+              className="shrink-0 bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 active:scale-95 transition-all min-h-[44px] flex items-center"
+            >
+              Create Free Account
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Bottom neon line */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] z-30 bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+      {/* Bottom accent line in team color */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[3px] z-30"
+        style={{
+          background: `linear-gradient(to right, ${colors.primary}, ${colors.primary}80, transparent)`,
+        }}
+      />
     </section>
   )
 }

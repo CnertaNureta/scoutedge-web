@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     'Browse all 48 teams competing in the 2026 FIFA World Cup. Organized by group with AI-powered chemistry indexes, FIFA rankings, squad depth analysis, and win probability predictions.',
   keywords: 'World Cup 2026 teams, World Cup 2026 groups, World Cup 2026 squads, FIFA World Cup 2026 predictions, World Cup 2026 analysis',
-  alternates: { canonical: 'https://scoutedge.ai/teams' },
+  alternates: { canonical: 'https://kickoracle.com/teams' },
 }
 
 export default async function TeamsPage() {

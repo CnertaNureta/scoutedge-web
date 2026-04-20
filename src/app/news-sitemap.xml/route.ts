@@ -1,6 +1,6 @@
 import { getAllPosts } from '@/lib/blog-service'
 
-const BASE = 'https://scoutedge.ai'
+const BASE = 'https://kickoracle.com'
 
 export const dynamic = 'force-static'
 
@@ -22,7 +22,7 @@ ${recentPosts
     <loc>${BASE}/blog/${post.slug}</loc>
     <news:news>
       <news:publication>
-        <news:name>ScoutEdge</news:name>
+        <news:name>KickOracle</news:name>
         <news:language>en</news:language>
       </news:publication>
       <news:publication_date>${new Date(post.date).toISOString()}</news:publication_date>

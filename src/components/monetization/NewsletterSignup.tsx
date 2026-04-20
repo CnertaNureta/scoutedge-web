@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import { BRAND } from '@/lib/brand-tokens'
 
 /**
  * Email newsletter signup component.
@@ -11,7 +12,7 @@ import NeonAccentBar from '@/components/ui/NeonAccentBar'
  * replace the localStorage logic with an API call.
  */
 
-const STORAGE_KEY = 'scoutedge-newsletter-email'
+const STORAGE_KEY = 'kickoracle-newsletter-email'
 
 export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'inline' | 'banner' }) {
   const [email, setEmail] = useState('')
@@ -29,10 +30,10 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
 
     // Store locally until a real provider is configured
     try {
-      const existing = JSON.parse(localStorage.getItem('scoutedge-subscribers') || '[]')
+      const existing = JSON.parse(localStorage.getItem('kickoracle-subscribers') || '[]')
       if (!existing.includes(email)) {
         existing.push(email)
-        localStorage.setItem('scoutedge-subscribers', JSON.stringify(existing))
+        localStorage.setItem('kickoracle-subscribers', JSON.stringify(existing))
       }
       localStorage.setItem(STORAGE_KEY, email)
     } catch {}
@@ -43,7 +44,7 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
   if (submitted) {
     return (
       <GlassCard className={`${variant === 'banner' ? 'p-8 md:p-12' : 'p-6'} text-center relative overflow-hidden`}>
-        <NeonAccentBar color="#a0d494" />
+        <NeonAccentBar color={BRAND.primary} />
         <div className="text-2xl mb-2">{'\u2705'}</div>
         <h3 className="font-headline text-lg uppercase tracking-tight mb-1">You&apos;re In!</h3>
         <p className="text-on-surface-variant text-sm">
@@ -56,7 +57,7 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
   if (variant === 'banner') {
     return (
       <GlassCard className="p-8 md:p-12 relative overflow-hidden">
-        <NeonAccentBar color="#e9c400" />
+        <NeonAccentBar color={BRAND.tertiary} />
         <div className="md:flex items-center gap-8">
           <div className="flex-1 mb-6 md:mb-0">
             <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mb-2">
@@ -91,7 +92,7 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
   // Inline compact variant
   return (
     <GlassCard className="p-5 relative overflow-hidden">
-      <NeonAccentBar color="#e9c400" />
+      <NeonAccentBar color={BRAND.tertiary} />
       <h3 className="font-headline text-base uppercase tracking-tight mb-2">Daily Briefing Email</h3>
       <p className="text-on-surface-variant text-xs mb-3">
         AI intelligence delivered daily. Free.

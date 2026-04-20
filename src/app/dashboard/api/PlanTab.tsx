@@ -48,7 +48,7 @@ export default function PlanTab({ currentTier }: Props) {
 
   async function handleUpgrade(tierId: string) {
     if (tierId === 'whitelabel') {
-      window.open('mailto:api@worldcapiq.com?subject=White Label API Inquiry', '_blank')
+      window.open('mailto:api@kickoracle.com?subject=White Label API Inquiry', '_blank')
       return
     }
     setCheckingOut(tierId)

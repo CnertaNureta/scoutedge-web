@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import SectionHeader from '@/components/ui/SectionHeader'
+import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import ScheduleClient from './ScheduleClient'
+import ScheduleLoading from './loading'
 
 export const metadata: Metadata = {
   title: 'World Cup 2026 Full Schedule: All 104 Matches from Groups to Final',
@@ -9,11 +12,11 @@ export const metadata: Metadata = {
     'Complete World Cup 2026 schedule timeline covering all 104 matches — 72 group-stage fixtures plus 32 knockout rounds including Round of 32, Round of 16, Quarterfinals, Semifinals, and the Final at MetLife Stadium.',
   keywords:
     'World Cup 2026 schedule, World Cup 2026 full calendar, World Cup 2026 knockout stage, World Cup 2026 final, World Cup 2026 all matches',
-  alternates: { canonical: 'https://scoutedge.ai/schedule' },
+  alternates: { canonical: 'https://kickoracle.com/schedule' },
   ...buildOGMeta({
     title: 'World Cup 2026 Full Schedule — All 104 Matches',
     description: 'Complete tournament timeline from group stage through the Final at MetLife Stadium.',
-    url: 'https://scoutedge.ai/schedule',
+    url: 'https://kickoracle.com/schedule',
   }),
 }
 
@@ -30,15 +33,15 @@ export default function SchedulePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: 'https://scoutedge.ai' },
-        { name: 'Schedule', url: 'https://scoutedge.ai/schedule' },
+        { name: 'Home', url: 'https://kickoracle.com' },
+        { name: 'Schedule', url: 'https://kickoracle.com/schedule' },
       ])) }} />
 
       {/* Hero */}
       <section className="relative py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[160px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full bg-[#e9c400]/6 blur-[120px] animate-float" style={{ animationDelay: '3s' }} />
+        <div className="hidden sm:block absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[160px]" aria-hidden="true" />
+        <div className="hidden sm:block absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full bg-tertiary/6 blur-[120px]" aria-hidden="true" />
         <div className="absolute inset-0 pitch-lines opacity-20 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
@@ -51,17 +54,25 @@ export default function SchedulePage() {
             <span className="block gradient-text">Schedule</span>
           </h1>
 
-          <p className="text-on-surface-variant text-lg max-w-xl mx-auto mb-8">
+          <p className="text-on-surface-variant text-lg max-w-xl mx-auto mb-6">
             All 104 matches across 39 days — from the opening game at Estadio Azteca
             to the Final at MetLife Stadium. Group stage, Round of 32, knockout rounds, and beyond.
           </p>
+
+          <HeroRegistrationCta
+            headline="Get AI match alerts for every game — free."
+            cta="Create Free Account"
+            className="justify-center"
+          />
         </div>
       </section>
 
       {/* Schedule Content */}
       <section className="page-container pb-24">
         <SectionHeader className="mb-8">Match Timeline</SectionHeader>
-        <ScheduleClient />
+        <Suspense fallback={<ScheduleLoading />}>
+          <ScheduleClient />
+        </Suspense>
       </section>
     </>
   )

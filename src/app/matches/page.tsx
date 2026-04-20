@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     'Complete World Cup 2026 match schedule with all 72 group-stage fixtures. AI-powered win probability predictions, venues, and kick-off times across 16 host cities in the USA, Canada & Mexico.',
   keywords:
     'World Cup 2026 schedule, World Cup 2026 fixtures, World Cup 2026 matches, World Cup 2026 kick off times, World Cup 2026 predictions',
-  alternates: { canonical: 'https://scoutedge.ai/matches' },
+  alternates: { canonical: 'https://kickoracle.com/matches' },
 }
 
 export default async function MatchesPage() {

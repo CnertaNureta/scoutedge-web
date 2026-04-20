@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { generateAnswer, getSuggestions, type ChatMessage } from '@/lib/chat-engine'
+import { trackEvent } from '@/lib/analytics'
 
 function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user'
@@ -84,7 +85,7 @@ export default function ChatWidget() {
         {
           id: 'welcome',
           role: 'assistant',
-          content: `Welcome to **ScoutEdge AI**. I know everything about World Cup 2026 — all 48 teams, 1,200+ players, match schedules, and AI predictions.
+          content: `Welcome to **KickOracle AI**. I know everything about World Cup 2026 — all 48 teams, 1,200+ players, match schedules, and AI predictions.
 
 What would you like to know?`,
           timestamp: Date.now(),
@@ -105,7 +106,12 @@ What would you like to know?`,
         timestamp: Date.now(),
       }
 
-      setMessages((prev) => [...prev, userMessage])
+      setMessages((prev) => {
+        if (prev.filter((m) => m.role === 'user').length === 0) {
+          trackEvent({ event: 'tool_engaged', tool_name: 'chat_widget' })
+        }
+        return [...prev, userMessage]
+      })
       setInput('')
       setIsTyping(true)
 
@@ -164,7 +170,7 @@ What would you like to know?`,
               <span className="text-lg">&#x26BD;</span>
             </div>
             <div>
-              <h3 className="font-headline text-sm uppercase tracking-wide text-primary">ScoutEdge AI</h3>
+              <h3 className="font-headline text-sm uppercase tracking-wide text-primary">KickOracle AI</h3>
               <p className="text-xs text-on-surface-variant">World Cup 2026 Intelligence</p>
             </div>
             <div className="ml-auto flex items-center gap-1">

@@ -25,14 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.date,
       modifiedTime: post.lastUpdated,
       authors: [post.author],
-      siteName: 'ScoutEdge',
+      siteName: 'KickOracle',
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
     },
-    alternates: { canonical: `https://scoutedge.ai/blog/${slug}` },
+    alternates: { canonical: `https://kickoracle.com/blog/${slug}` },
   }
 }
 
@@ -52,9 +52,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     datePublished: post.date,
     dateModified: post.lastUpdated,
     wordCount: post.wordCount,
-    author: { '@type': 'Organization', name: 'ScoutEdge', url: 'https://scoutedge.ai' },
-    publisher: { '@type': 'Organization', name: 'ScoutEdge', url: 'https://scoutedge.ai' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://scoutedge.ai/blog/${slug}` },
+    author: { '@type': 'Organization', name: 'KickOracle', url: 'https://kickoracle.com' },
+    publisher: { '@type': 'Organization', name: 'KickOracle', url: 'https://kickoracle.com' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://kickoracle.com/blog/${slug}` },
     keywords: post.keywords.join(', '),
   }
 
@@ -74,9 +74,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://scoutedge.ai' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://scoutedge.ai/blog' },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `https://scoutedge.ai/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://kickoracle.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://kickoracle.com/blog/${slug}` },
     ],
   }
 

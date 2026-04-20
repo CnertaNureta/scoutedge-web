@@ -10,8 +10,9 @@ import StatRadar from '@/components/player/StatRadar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
+import PositionBadge from '@/components/ui/PositionBadge'
 import Link from 'next/link'
-import { Heart, MapPin, Hash, Shield, ChevronLeft } from 'lucide-react'
+import { Heart, MapPin, Hash, ChevronLeft } from 'lucide-react'
 
 const PILL_CLASS = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-white/20 transition-colors'
 
@@ -198,10 +199,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                   <Hash className="w-3.5 h-3.5" style={{ color: colors.glow }} />
                   <span className="font-mono text-sm font-bold">{player.number}</span>
                 </span>
-                <span className={PILL_CLASS}>
-                  <Shield className="w-3.5 h-3.5" style={{ color: colors.glow }} />
-                  <span className="font-body text-sm">{player.position}</span>
-                </span>
+                <PositionBadge position={player.position} variant="pill" />
                 <span className={PILL_CLASS}>
                   <MapPin className="w-3.5 h-3.5" style={{ color: colors.glow }} />
                   <span className="font-body text-sm">{player.club}</span>

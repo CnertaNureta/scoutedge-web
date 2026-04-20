@@ -6,8 +6,8 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: { userAgent: '*', allow: '/' },
     sitemap: [
-      'https://scoutedge.ai/sitemap.xml',
-      'https://scoutedge.ai/news-sitemap.xml',
+      'https://kickoracle.com/sitemap.xml',
+      'https://kickoracle.com/news-sitemap.xml',
     ],
   }
 }

@@ -3,6 +3,7 @@ import type { BlogPost } from '@/lib/blog-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import { BRAND } from '@/lib/brand-tokens'
 
 interface BlogCardProps {
   post: BlogPost
@@ -12,7 +13,7 @@ export default function BlogCard({ post }: BlogCardProps) {
   return (
     <Link href={`/blog/${post.slug}`}>
       <GlassCard hover className="p-6 relative overflow-hidden h-full">
-        <NeonAccentBar color="#a0d494" />
+        <NeonAccentBar color={BRAND.primary} />
         <div className="flex items-center gap-3 mb-3">
           <Badge variant="primary" size="sm">{post.category}</Badge>
           <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">

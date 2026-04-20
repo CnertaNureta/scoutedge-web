@@ -10,6 +10,8 @@ import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
+import IntelligenceReport from '@/components/team/IntelligenceReport'
+import MatchSchedule from '@/components/team/MatchSchedule'
 import GlassCard from '@/components/ui/GlassCard'
 
 interface PageProps {
@@ -29,7 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!pageData) return { title: 'Team Not Found' }
 
   const { team, seoMeta } = pageData
-  const seoTitle = seoMeta?.title?.replace(/ \| ScoutEdge$/, '') ?? null
+  const seoTitle = seoMeta?.title?.replace(/ \| KickOracle$/, '') ?? null
 
   return {
     title: seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`,
@@ -43,10 +45,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${team.name} — World Cup 2026 | ScoutEdge`,
+      title: `${team.name} — World Cup 2026 | KickOracle`,
       description: `AI analysis: ${team.name} in Group ${team.group}. Chemistry Index: ${team.chemistry}/100.`,
     },
-    alternates: { canonical: `https://scoutedge.ai/teams/${slug}` },
+    alternates: { canonical: `https://kickoracle.com/teams/${slug}` },
   }
 }
 
@@ -105,13 +107,8 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Historical Performance */}
       {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
 
-      {/* SEO Content Block */}
-      <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <article
-          className="prose prose-invert prose-lg max-w-none bg-surface-container-low p-8 md:p-12 rounded-xl"
-          dangerouslySetInnerHTML={{ __html: team.seoArticle }}
-        />
-      </section>
+      {/* Intelligence Report — Editorial AI Analysis */}
+      <IntelligenceReport team={team} />
 
       {/* FAQ Section */}
       {teamFaq && teamFaq.faqs.length > 0 && (

@@ -12,6 +12,11 @@ interface AnimatedNumberProps {
   style?: React.CSSProperties
 }
 
+function prefersReducedMotion(): boolean {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export default function AnimatedNumber({
   value,
   duration = 1200,
@@ -26,6 +31,12 @@ export default function AnimatedNumber({
   const hasAnimated = useRef(false)
 
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      setDisplayed(value)
+      hasAnimated.current = true
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {

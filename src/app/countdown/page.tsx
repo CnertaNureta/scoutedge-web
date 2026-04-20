@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Live countdown to the 2026 FIFA World Cup opening match. Mexico vs South Africa kicks off June 11, 2026 at Estadio Azteca. Track every day, hour, minute, and second until the biggest World Cup in history.',
   keywords:
     'World Cup 2026 countdown, FIFA World Cup 2026 countdown, days until World Cup 2026, World Cup 2026 start date, World Cup 2026 opening match',
-  alternates: { canonical: 'https://scoutedge.ai/countdown' },
+  alternates: { canonical: 'https://kickoracle.com/countdown' },
 }
 
 const KEY_DATES = [

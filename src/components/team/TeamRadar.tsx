@@ -158,7 +158,7 @@ export default function TeamRadar({ stats, teamGlow, teamPrimary }: TeamRadarPro
             y={item.y - 7}
             textAnchor="middle"
             dominantBaseline="middle"
-            className="fill-[#c2c9bb] text-xs font-bold tracking-widest"
+            className="fill-on-surface-variant text-xs font-bold tracking-widest"
             style={{ fontFamily: 'var(--font-label)' }}
           >
             {item.label}

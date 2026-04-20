@@ -8,17 +8,20 @@ import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { KNOCKOUT_FIXTURES, getKnockoutTeamLabel, KNOCKOUT_ROUNDS } from '@/data/knockout-fixtures'
 import { getAllTeams } from '@/lib/data-service'
 import type { MatchFixture } from '@/lib/types'
+import { BRAND } from '@/lib/brand-tokens'
 
 const ALL_FIXTURES: MatchFixture[] = [...MATCH_FIXTURES, ...KNOCKOUT_FIXTURES]
+
+const ALL_TEAMS = getAllTeams()
 
 type Phase = 'all' | 'group' | 'knockout'
 
 const PHASE_COLORS: Record<string, string> = {
-  'Match Day 1': '#a0d494',
-  'Match Day 2': '#bcf0ae',
-  'Match Day 3': '#a0d494',
-  'Round of 32': '#e9c400',
-  'Round of 16': '#ffb4aa',
+  'Match Day 1': BRAND.primary,
+  'Match Day 2': BRAND.primaryFixed,
+  'Match Day 3': BRAND.primary,
+  'Round of 32': BRAND.tertiary,
+  'Round of 16': BRAND.secondary,
   Quarterfinal: '#ff8a65',
   Semifinal: '#ce93d8',
   'Third Place': '#90caf9',
@@ -29,8 +32,7 @@ function getTeamInfo(slug: string) {
   if (slug.startsWith('tbd-')) {
     return { name: getKnockoutTeamLabel(slug), flag: '🏳️' }
   }
-  const teams = getAllTeams()
-  const team = teams.find((t) => t.slug === slug)
+  const team = ALL_TEAMS.find((t) => t.slug === slug)
   return team ? { name: team.name, flag: team.flag } : { name: slug, flag: '🏳️' }
 }
 
@@ -47,7 +49,7 @@ function formatTime(utc: string) {
 function MatchCard({ match }: { match: MatchFixture }) {
   const home = getTeamInfo(match.homeTeamSlug)
   const away = getTeamInfo(match.awayTeamSlug)
-  const color = PHASE_COLORS[match.round] || '#a0d494'
+  const color = PHASE_COLORS[match.round] || BRAND.primary
   const isKnockout = match.group === ''
   const maxProb = Math.max(match.homeWinProb, match.awayWinProb, match.drawProb)
 
@@ -160,9 +162,9 @@ export default function ScheduleClient() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mb-8">
         {[
-          { label: 'Total Matches', value: totalMatches.toString(), accent: '#a0d494' },
-          { label: 'Match Days', value: matchDates.toString(), accent: '#e9c400' },
-          { label: 'Host Cities', value: '16', accent: '#ffb4aa' },
+          { label: 'Total Matches', value: totalMatches.toString(), accent: BRAND.primary },
+          { label: 'Match Days', value: matchDates.toString(), accent: BRAND.tertiary },
+          { label: 'Host Cities', value: '16', accent: BRAND.secondary },
         ].map((stat) => (
           <div key={stat.label} className="relative glass-panel p-4 rounded-2xl border border-white/[0.08] text-center overflow-hidden group">
             <NeonAccentBar color={stat.accent} />
@@ -191,7 +193,7 @@ export default function ScheduleClient() {
       <div className="flex flex-wrap items-center gap-2 mb-8">
         <button
           onClick={() => setSelectedRound(null)}
-          className={`px-3 py-1.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wider transition-all ${
+          className={`px-3 py-2.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wider transition-all ${
             !selectedRound ? 'bg-primary/20 text-primary' : 'bg-white/[0.04] text-on-surface-variant hover:bg-white/[0.06]'
           }`}
         >
@@ -207,13 +209,13 @@ export default function ScheduleClient() {
             <button
               key={round}
               onClick={() => setSelectedRound(round === selectedRound ? null : round)}
-              className={`px-3 py-1.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wider transition-all ${
+              className={`px-3 py-2.5 rounded-full text-[10px] font-label font-bold uppercase tracking-wider transition-all ${
                 selectedRound === round ? 'text-on-primary' : 'text-on-surface-variant hover:bg-white/[0.06]'
               }`}
               style={
                 selectedRound === round
-                  ? { background: PHASE_COLORS[round] || '#a0d494' }
-                  : { background: `${PHASE_COLORS[round] || '#a0d494'}15` }
+                  ? { background: PHASE_COLORS[round] || BRAND.primary }
+                  : { background: `${PHASE_COLORS[round] || BRAND.primary}15` }
               }
             >
               {round}
@@ -227,7 +229,7 @@ export default function ScheduleClient() {
         <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/20 to-transparent" />
 
         {grouped.map(([date, matches]) => {
-          const color = PHASE_COLORS[matches[0].round] || '#a0d494'
+          const color = PHASE_COLORS[matches[0].round] || BRAND.primary
           return (
             <div key={date} className="relative mb-10">
               {/* Date marker */}
