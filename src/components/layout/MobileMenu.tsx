@@ -1,63 +1,64 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
-
-const NAV_SECTIONS = [
-  {
-    title: 'Predictions',
-    links: [
-      { label: 'AI Predictions', href: '/predictions' },
-      { label: 'Bracket Predictor', href: '/bracket' },
-      { label: 'Power Rankings', href: '/power-rankings' },
-      { label: 'Odds Comparison', href: '/odds' },
-      { label: 'Compare Teams', href: '/compare' },
-    ],
-  },
-  {
-    title: 'Tournament',
-    links: [
-      { label: 'All Teams', href: '/teams' },
-      { label: 'Match Board', href: '/matches' },
-      { label: 'Full Schedule', href: '/schedule' },
-      { label: 'Group Analysis', href: '/groups/A' },
-      { label: 'Countdown', href: '/countdown' },
-      { label: 'Time Converter', href: '/schedule/converter' },
-    ],
-  },
-  {
-    title: 'Cities & Travel',
-    links: [
-      { label: 'Host Cities', href: '/cities' },
-      { label: 'Travel Guide', href: '/travel' },
-      { label: 'Visa Info', href: '/travel/visa' },
-      { label: 'Budget Calculator', href: '/travel/budget-calculator' },
-    ],
-  },
-  {
-    title: 'Play',
-    links: [
-      { label: 'Predict Matches', href: '/predict' },
-      { label: 'Daily Challenge', href: '/challenges' },
-      { label: 'My Leagues', href: '/leagues' },
-      { label: 'Leaderboard', href: '/leaderboard' },
-      { label: 'Group Simulator', href: '/simulator' },
-    ],
-  },
-  {
-    title: 'Fan Zone',
-    links: [
-      { label: 'Sticker Tracker', href: '/stickers' },
-      { label: 'Jerseys & Gear', href: '/gear' },
-      { label: 'Match Ball', href: '/gear/ball' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'Daily Briefing', href: '/daily-briefing' },
-    ],
-  },
-] as const
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
+  const t = useTranslations('nav')
+
+  const NAV_SECTIONS = [
+    {
+      title: t('predictions'),
+      links: [
+        { label: t('aiPredictions'), href: '/predictions' as const },
+        { label: t('bracketPredictor'), href: '/bracket' as const },
+        { label: t('powerRankings'), href: '/power-rankings' as const },
+        { label: t('oddsComparison'), href: '/odds' as const },
+        { label: t('compareTeams'), href: '/compare' as const },
+      ],
+    },
+    {
+      title: t('tournament'),
+      links: [
+        { label: t('teams'), href: '/teams' as const },
+        { label: t('matchBoard'), href: '/matches' as const },
+        { label: t('fullSchedule'), href: '/schedule' as const },
+        { label: t('groupAnalysis'), href: '/groups/A' as const },
+        { label: t('countdown'), href: '/countdown' as const },
+        { label: t('timeConverter'), href: '/schedule/converter' as const },
+      ],
+    },
+    {
+      title: t('citiesTravel'),
+      links: [
+        { label: t('hostCities'), href: '/cities' as const },
+        { label: t('travelGuide'), href: '/travel' as const },
+        { label: t('visaInfo'), href: '/travel/visa' as const },
+        { label: t('budgetCalculator'), href: '/travel/budget-calculator' as const },
+      ],
+    },
+    {
+      title: t('play'),
+      links: [
+        { label: t('predictMatches'), href: '/predict' as const },
+        { label: t('dailyChallenge'), href: '/challenges' as const },
+        { label: t('myLeagues'), href: '/leagues' as const },
+        { label: t('leaderboard'), href: '/leaderboard' as const },
+      ],
+    },
+    {
+      title: t('fanZone'),
+      links: [
+        { label: t('stickerTracker'), href: '/stickers' as const },
+        { label: t('jerseysGear'), href: '/gear' as const },
+        { label: t('matchBall'), href: '/gear/ball' as const },
+        { label: t('blog'), href: '/blog' as const },
+        { label: t('dailyBriefing'), href: '/daily-briefing' as const },
+      ],
+    },
+  ]
 
   useEffect(() => {
     if (open) {
@@ -67,6 +68,8 @@ export default function MobileMenu() {
     }
     return () => { document.body.style.overflow = '' }
   }, [open])
+
+  const common = useTranslations('common')
 
   return (
     <>
@@ -86,7 +89,7 @@ export default function MobileMenu() {
           </svg>
         )}
         <span className="text-[11px] font-label uppercase font-bold tracking-widest mt-1">
-          {open ? 'Close' : 'More'}
+          {open ? common('close') : '...'}
         </span>
       </button>
 

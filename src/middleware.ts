@@ -1,5 +1,7 @@
+import createMiddleware from 'next-intl/middleware'
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { routing } from './i18n/routing'
 
 const ALLOWED_API_ORIGINS = new Set(
   [
@@ -33,6 +35,8 @@ function addSecurityHeaders(response: NextResponse): NextResponse {
   return response
 }
 
+const intlMiddleware = createMiddleware(routing)
+
 export function middleware(req: NextRequest) {
   if (req.nextUrl.pathname.startsWith('/api/webhooks/')) {
     return addSecurityHeaders(NextResponse.next())
@@ -57,12 +61,17 @@ export function middleware(req: NextRequest) {
     return response
   }
 
-  return addSecurityHeaders(NextResponse.next())
+  if (req.nextUrl.pathname.startsWith('/api/')) {
+    return addSecurityHeaders(NextResponse.next())
+  }
+
+  const response = intlMiddleware(req)
+  addSecurityHeaders(response as NextResponse)
+  return response
 }
 
 export const config = {
   matcher: [
-    // Match API routes and premium pages, skip static assets
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|manifest.json|sw.js|icons/|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|woff|woff2)$).*)',
   ],
 }

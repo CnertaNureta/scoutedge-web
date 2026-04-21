@@ -1,169 +1,131 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { getAllTeams } from '@/lib/data-service'
-import { SUPPORTED_LOCALES, LOCALE_CONFIGS, TRANSLATIONS } from '@/i18n/locales'
-import type { Locale } from '@/i18n/locales'
+import Image from 'next/image'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
+import { getHomePageData } from '@/lib/site-data'
+import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
+import { HOMEPAGE_HERO_IMAGE } from '@/lib/unsplash'
 import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
-import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import SectionHeader from '@/components/ui/SectionHeader'
+import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
-interface PageProps {
-  params: Promise<{ locale: string }>
-}
+export const revalidate = 300
 
-export function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({ locale }))
-}
+type Props = { params: Promise<{ locale: string }> }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
-  if (!SUPPORTED_LOCALES.includes(locale as Locale)) return { title: 'Not Found' }
-
-  const t = TRANSLATIONS[locale as Locale]
-  const config = LOCALE_CONFIGS[locale as Locale]
-
-  // Build hreflang alternates
-  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com' }
-  for (const loc of SUPPORTED_LOCALES) {
-    languages[LOCALE_CONFIGS[loc].hreflang] = `https://kickoracle.com/${loc}`
-  }
-  languages['en'] = 'https://kickoracle.com'
+  const t = await getTranslations({ locale, namespace: 'meta' })
 
   return {
-    title: t.metaTitle,
-    description: t.metaDescription,
+    title: t('title'),
+    description: t('description'),
+    keywords:
+      'World Cup 2026, World Cup intelligence, World Cup narratives, football analysis, team chemistry, player reports, World Cup 2026 schedule',
     alternates: {
-      canonical: `https://kickoracle.com/${locale}`,
-      languages,
+      canonical: 'https://kickoracle.com',
+      languages: {
+        'x-default': 'https://kickoracle.com',
+        en: 'https://kickoracle.com',
+        es: 'https://kickoracle.com/es',
+        'zh-Hans': 'https://kickoracle.com/zh',
+        pt: 'https://kickoracle.com/pt',
+        ar: 'https://kickoracle.com/ar',
+        fr: 'https://kickoracle.com/fr',
+        ja: 'https://kickoracle.com/ja',
+        ko: 'https://kickoracle.com/ko',
+        de: 'https://kickoracle.com/de',
+      },
     },
-    openGraph: {
-      title: t.metaTitle,
-      description: t.metaDescription,
-      url: `https://kickoracle.com/${locale}`,
-      siteName: 'KickOracle',
-      locale: config.hreflang,
-      type: 'website',
-    },
+    ...buildOGMeta({
+      title: t('title'),
+      description: t('description'),
+      url: 'https://kickoracle.com',
+    }),
   }
 }
 
-export default async function LocalePage({ params }: PageProps) {
+export default async function HomePage({ params }: Props) {
   const { locale } = await params
-  if (!SUPPORTED_LOCALES.includes(locale as Locale)) notFound()
+  setRequestLocale(locale)
 
-  const loc = locale as Locale
-  const t = TRANSLATIONS[loc]
-  const config = LOCALE_CONFIGS[loc]
-  const teams = getAllTeams()
-  const topTeams = teams.filter((t) => t.fifaRanking <= 10).slice(0, 6)
-
-  const isRTL = config.dir === 'rtl'
+  const [{ topTeams }, hero, sections, features, home] = await Promise.all([
+    getHomePageData(),
+    getTranslations('hero'),
+    getTranslations('sections'),
+    getTranslations('features'),
+    getTranslations('home'),
+  ])
 
   return (
-    <div dir={config.dir}>
-      {/* Language Bar */}
-      <div className="bg-surface-container-low border-b border-white/[0.06] py-2 px-6">
-        <div className="max-w-[1440px] mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-lg">{config.flag}</span>
-            <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">
-              {config.nativeName}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 flex-wrap">
-            <Link href="/" className="text-[10px] font-label text-primary uppercase tracking-widest hover:underline">EN</Link>
-            {SUPPORTED_LOCALES.filter((l) => l !== loc).map((l) => (
-              <Link
-                key={l}
-                href={`/${l}`}
-                className="text-[10px] font-label text-on-surface-variant uppercase tracking-widest hover:text-primary hover:underline"
-              >
-                {LOCALE_CONFIGS[l].code.toUpperCase()}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
 
-      {/* Hero */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
-        <div className="absolute inset-0 mesh-gradient" />
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[180px] animate-float" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/8 blur-[150px] animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute inset-0 pitch-lines opacity-30 pointer-events-none" />
+      {/* ─── Cinematic Hero ─── */}
+      <section className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">
+        <Image
+          src={HOMEPAGE_HERO_IMAGE}
+          alt="Football players in action — passionate World Cup moment"
+          fill
+          priority
+          className="object-cover brightness-[0.25] saturate-[1.4] contrast-[1.1] scale-105"
+          sizes="100vw"
+        />
 
-        <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-secondary-container/20 border border-secondary/30 font-label text-xs font-semibold tracking-widest uppercase mb-8 text-secondary">
-            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse-slow" />
-            {t.heroDateRange}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-transparent to-background/40 z-10" />
+        <div className="absolute inset-0 vignette z-10 opacity-60" />
+        <div className="absolute inset-0 pitch-lines opacity-10 pointer-events-none z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.06] blur-[150px] z-15 pointer-events-none" />
+
+        <div className="relative z-20 max-w-[1440px] w-full mx-auto px-6 text-center flex flex-col items-center">
+          <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-secondary/10 border border-secondary/20 font-label text-xs font-semibold tracking-widest uppercase mb-8 text-secondary animate-fade-in-up opacity-0">
+            <span className="w-2 h-2 rounded-full bg-secondary animate-pulse-slow" aria-hidden="true" />
+            {hero('locationBadge')}
           </span>
 
-          <h1 className="font-headline text-[clamp(3rem,10vw,9rem)] leading-[0.85] tracking-wide uppercase mb-6">
-            <span className="block text-on-surface">{t.heroTitle1}</span>
-            <span className="block gradient-text">{t.heroTitle2}</span>
-            <span className="block text-on-surface text-[clamp(1.5rem,4vw,4rem)]">{t.heroTitle3}</span>
+          <h1 className="font-headline text-[clamp(3rem,10vw,9rem)] leading-[0.85] tracking-wide uppercase mb-4 animate-fade-in-up opacity-0 stagger-1">
+            <span className="block text-on-surface">{hero('title1')}</span>
+            <span className="block gradient-text">{hero('title2')}</span>
           </h1>
 
-          <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12">
-            {t.heroDescription}
+          <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 animate-fade-in-up opacity-0 stagger-2">
+            {hero('subtitle')}
           </p>
 
-          <div className={`flex flex-wrap justify-center gap-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up opacity-0 stagger-3">
             <Link
               href="/teams"
               className="bg-primary text-on-primary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all animate-neon-glow"
             >
-              {t.heroCTA}
+              {hero('cta')}
             </Link>
-            <a
-              href="#top-teams"
+            <Link
+              href="/daily-briefing"
               className="border border-white/20 text-on-surface px-10 py-4 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] hover:border-primary/40 transition-all"
             >
-              {t.heroSecondaryCTA}
-            </a>
+              {hero('ctaSecondary')}
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="page-container -mt-16 relative z-20 mb-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { label: t.statsTeams, value: '48', accent: BRAND.primary },
-            { label: t.statsHostCities, value: '16', accent: BRAND.primaryFixed },
-            { label: t.statsMatches, value: '104', accent: BRAND.tertiary },
-            { label: t.statsPlayers, value: '1,200+', accent: BRAND.secondary },
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="relative glass-panel p-6 rounded-2xl border border-white/[0.08] text-center overflow-hidden group hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
-            >
-              <NeonAccentBar color={stat.accent} />
-              <div className="font-headline text-4xl md:text-5xl tracking-wide" style={{ color: stat.accent }}>
-                {stat.value}
-              </div>
-              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Top Contenders */}
+      {/* ─── Top Contenders — Editorial Hierarchy ─── */}
       <section id="top-teams" className="page-container mb-24">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <SectionHeader className="mb-3">{t.topContendersTitle}</SectionHeader>
-            <p className="text-on-surface-variant mt-2 ml-4">{t.topContendersSubtitle}</p>
+            <SectionHeader className="mb-3">{sections('topContendersTitle')}</SectionHeader>
+            <p className="text-on-surface-variant mt-2 ml-4">
+              {sections('topContendersSubtitle')}
+            </p>
           </div>
           <Link
             href="/teams"
             className="font-label text-sm font-semibold text-primary uppercase tracking-widest hover:underline hidden md:block"
           >
-            {t.viewAllTeams}
+            {home('viewAllTeams')} &rarr;
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -173,50 +135,129 @@ export default async function LocalePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Analysis Hub */}
+      {/* Feature Hub — Analysis */}
       <section className="page-container mb-16">
-        <SectionHeader className="mb-8">{t.analysisTitle}</SectionHeader>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {[
-            { title: t.featureTeams, desc: t.featureTeamsDesc, href: '/teams', icon: '\u{1F3C3}', accent: BRAND.primary },
-            { title: t.featureMatches, desc: t.featureMatchesDesc, href: '/matches', icon: '\u{26BD}', accent: BRAND.primaryFixed },
-            { title: t.featurePowerRankings, desc: t.featurePowerRankingsDesc, href: '/power-rankings', icon: '\u{1F3C6}', accent: BRAND.tertiary },
-            { title: t.featureDailyBriefing, desc: t.featureDailyBriefingDesc, href: '/daily-briefing', icon: '\u{1F4F0}', accent: BRAND.secondary },
-            { title: t.featurePredictions, desc: t.featurePredictionsDesc, href: '/predictions', icon: '\u{1F3AF}', accent: BRAND.tertiaryFixed },
-          ].map((feature) => (
+        <SectionHeader className="mb-8">{sections('analysisTitle')}</SectionHeader>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {([
+            {
+              titleKey: 'teams' as const,
+              descKey: 'teamsDesc' as const,
+              href: '/teams',
+              icon: '\u{1F3C3}',
+              accent: BRAND.primary,
+            },
+            {
+              titleKey: 'matches' as const,
+              descKey: 'matchesDesc' as const,
+              href: '/matches',
+              icon: '\u{26BD}',
+              accent: BRAND.primaryFixed,
+            },
+            {
+              titleKey: 'powerRankings' as const,
+              descKey: 'powerRankingsDesc' as const,
+              href: '/power-rankings',
+              icon: '\u{1F3C6}',
+              accent: BRAND.tertiary,
+            },
+            {
+              titleKey: 'dailyBriefing' as const,
+              descKey: 'dailyBriefingDesc' as const,
+              href: '/daily-briefing',
+              icon: '\u{1F4F0}',
+              accent: BRAND.secondary,
+            },
+            {
+              titleKey: 'narrativeLibrary' as const,
+              descKey: 'narrativeLibraryDesc' as const,
+              href: '/blog',
+              icon: '\u{1F4DD}',
+              accent: BRAND.tertiaryFixed,
+              ns: 'home' as const,
+            },
+          ]).map((feature) => (
             <Link
               key={feature.href}
               href={feature.href}
               className="relative glass-panel p-6 rounded-2xl border border-white/[0.08] overflow-hidden group hover:border-white/20 hover:-translate-y-1 transition-all duration-300"
             >
-              <NeonAccentBar color={feature.accent} />
               <div className="text-3xl mb-3">{feature.icon}</div>
               <h3 className="font-headline text-lg uppercase tracking-wide mb-2" style={{ color: feature.accent }}>
-                {feature.title}
+                {'ns' in feature ? home(feature.titleKey) : features(feature.titleKey)}
               </h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{feature.desc}</p>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {'ns' in feature ? home(feature.descKey) : features(feature.descKey)}
+              </p>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative w-full py-24 px-6 mb-0 overflow-hidden">
+      {/* ─── Tools & Resources ─── */}
+      <section className="page-container mb-24">
+        <SectionHeader className="mb-8">{sections('toolsTitle')}</SectionHeader>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {([
+            { titleKey: 'countdownTitle', descKey: 'countdownDesc', href: '/countdown', icon: '\u{23F3}', accent: BRAND.secondary },
+            { titleKey: 'timeConverterTitle', descKey: 'timeConverterDesc', href: '/schedule/converter', icon: '\u{1F30D}', accent: BRAND.tertiary },
+            { titleKey: 'groupAnalysisTitle', descKey: 'groupAnalysisDesc', href: '/groups/A', icon: '\u{1F4CA}', accent: BRAND.primaryFixed },
+            { titleKey: 'compareTeamsTitle', descKey: 'compareTeamsDesc', href: '/compare', icon: '\u{2694}\u{FE0F}', accent: BRAND.primary },
+            { titleKey: 'fullScheduleTitle', descKey: 'fullScheduleDesc', href: '/schedule', icon: '\u{1F5D3}\u{FE0F}', accent: BRAND.primaryFixed },
+            { titleKey: 'blogTitle', descKey: 'blogDesc', href: '/blog', icon: '\u{1F4DD}', accent: BRAND.tertiary },
+            { titleKey: 'playerIntelTitle', descKey: 'playerIntelDesc', href: '/teams', icon: '\u{1F9E0}', accent: BRAND.primary },
+          ] as const).map((feature) => (
+            <Link
+              key={feature.titleKey}
+              href={feature.href}
+              className="group relative block rounded-xl bg-surface-container-low border border-white/[0.04] hover:border-white/10 transition-all p-5"
+            >
+              <div className="text-2xl mb-2">{feature.icon}</div>
+              <h3 className="font-headline text-sm uppercase tracking-wide mb-1" style={{ color: feature.accent }}>
+                {home(feature.titleKey)}
+              </h3>
+              <p className="text-on-surface-variant text-xs leading-relaxed line-clamp-2">
+                {home(feature.descKey)}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ─── Newsletter ─── */}
+      <section className="page-container mb-24">
+        <NewsletterSignup variant="banner" />
+      </section>
+
+      {/* ─── CTA Section ─── */}
+      <section className="relative w-full py-24 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-container via-background to-background" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-primary/10 blur-[200px]" />
+        <div className="absolute inset-0 pitch-lines opacity-15 pointer-events-none" />
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <h2 className="font-headline text-4xl md:text-6xl tracking-wide uppercase mb-6">
-            {t.ctaTitle}
+            {home('ctaHeadline')}
           </h2>
           <p className="text-on-surface-variant text-lg max-w-xl mx-auto mb-10">
-            {t.ctaDescription}
+            {home('ctaBody')}
           </p>
-          <button className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(233,196,0,0.3)]">
-            {t.ctaButton}
-          </button>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/daily-briefing"
+              className="bg-tertiary text-on-tertiary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-[0_0_30px_rgba(233,196,0,0.3)] hover:shadow-[0_0_50px_rgba(233,196,0,0.5)]"
+            >
+              {home('ctaPrimary')}
+            </Link>
+            <Link
+              href="/matches"
+              className="border border-white/20 text-on-surface px-10 py-4 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] hover:border-primary/40 transition-all"
+            >
+              {home('ctaSecondary')}
+            </Link>
+          </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

@@ -98,8 +98,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...lingoCountryUrls,
     ...lingoPlayerUrls,
 
-    // Localized homepages (8 languages)
-    ...SUPPORTED_LOCALES.map((locale) => ({
+    // Localized homepages (non-default locales)
+    ...SUPPORTED_LOCALES.filter((l) => l !== 'en').map((locale) => ({
       url: `${BASE}/${locale}`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,

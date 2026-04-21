@@ -1,7 +1,11 @@
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import KickOracleLogo from '../ui/ScoutEdgeLogo'
 
 export default function Footer() {
+  const t = useTranslations('footer')
+  const nav = useTranslations('nav')
+
   return (
     <footer className="bg-surface-container-lowest py-20 px-6 border-t border-outline-variant/10 pb-32 md:pb-20">
       <div className="max-w-[1440px] mx-auto">
@@ -11,65 +15,65 @@ export default function Footer() {
               <KickOracleLogo variant="stacked" />
             </div>
             <p className="text-on-surface-variant max-w-sm leading-relaxed">
-              AI-powered prediction and intelligence platform for the 2026 World Cup.
-              Independent analysis, squad chemistry, and predictive insights for all 48 nations.
+              {t('tagline')}
             </p>
           </div>
           <div>
-            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">Predictions</h6>
+            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('predictionsHeading')}</h6>
             <ul className="space-y-4 text-on-surface-variant">
-              <li><Link href="/predictions" className="hover:text-on-surface transition-colors">AI Predictions</Link></li>
-              <li><Link href="/bracket" className="hover:text-on-surface transition-colors">Bracket Predictor</Link></li>
-              <li><Link href="/power-rankings" className="hover:text-on-surface transition-colors">Power Rankings</Link></li>
-              <li><Link href="/odds" className="hover:text-on-surface transition-colors">Odds Comparison</Link></li>
-              <li><Link href="/compare" className="hover:text-on-surface transition-colors">Compare Teams</Link></li>
+              <li><Link href="/predictions" className="hover:text-on-surface transition-colors">{nav('aiPredictions')}</Link></li>
+              <li><Link href="/bracket" className="hover:text-on-surface transition-colors">{nav('bracketPredictor')}</Link></li>
+              <li><Link href="/power-rankings" className="hover:text-on-surface transition-colors">{nav('powerRankings')}</Link></li>
+              <li><Link href="/odds" className="hover:text-on-surface transition-colors">{nav('oddsComparison')}</Link></li>
+              <li><Link href="/compare" className="hover:text-on-surface transition-colors">{nav('compareTeams')}</Link></li>
             </ul>
           </div>
           <div>
-            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">Tournament</h6>
+            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('tournamentHeading')}</h6>
             <ul className="space-y-4 text-on-surface-variant">
-              <li><Link href="/teams" className="hover:text-on-surface transition-colors">All Teams</Link></li>
-              <li><Link href="/matches" className="hover:text-on-surface transition-colors">Match Board</Link></li>
-              <li><Link href="/schedule" className="hover:text-on-surface transition-colors">Full Schedule</Link></li>
-              <li><Link href="/countdown" className="hover:text-on-surface transition-colors">Countdown</Link></li>
-              <li><Link href="/blog" className="hover:text-on-surface transition-colors">Blog</Link></li>
+              <li><Link href="/teams" className="hover:text-on-surface transition-colors">{t('allTeams')}</Link></li>
+              <li><Link href="/matches" className="hover:text-on-surface transition-colors">{nav('matchBoard')}</Link></li>
+              <li><Link href="/schedule" className="hover:text-on-surface transition-colors">{nav('fullSchedule')}</Link></li>
+              <li><Link href="/countdown" className="hover:text-on-surface transition-colors">{nav('countdown')}</Link></li>
+              <li><Link href="/blog" className="hover:text-on-surface transition-colors">{nav('blog')}</Link></li>
             </ul>
           </div>
           <div>
-            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">Cities & Travel</h6>
+            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('citiesTravelHeading')}</h6>
             <ul className="space-y-4 text-on-surface-variant">
-              <li><Link href="/cities" className="hover:text-on-surface transition-colors">Host Cities</Link></li>
-              <li><Link href="/travel" className="hover:text-on-surface transition-colors">Travel Guide</Link></li>
-              <li><Link href="/travel/visa" className="hover:text-on-surface transition-colors">Visa Info</Link></li>
-              <li><Link href="/travel/budget-calculator" className="hover:text-on-surface transition-colors">Budget Calculator</Link></li>
-              <li><Link href="/stickers" className="hover:text-on-surface transition-colors">Sticker Tracker</Link></li>
-              <li><Link href="/gear" className="hover:text-on-surface transition-colors">Gear & Jerseys</Link></li>
+              <li><Link href="/cities" className="hover:text-on-surface transition-colors">{nav('hostCities')}</Link></li>
+              <li><Link href="/travel" className="hover:text-on-surface transition-colors">{nav('travelGuide')}</Link></li>
+              <li><Link href="/travel/visa" className="hover:text-on-surface transition-colors">{nav('visaInfo')}</Link></li>
+              <li><Link href="/travel/budget-calculator" className="hover:text-on-surface transition-colors">{nav('budgetCalculator')}</Link></li>
+              <li><Link href="/stickers" className="hover:text-on-surface transition-colors">{nav('stickerTracker')}</Link></li>
+              <li><Link href="/gear" className="hover:text-on-surface transition-colors">{t('gearJerseys')}</Link></li>
             </ul>
           </div>
           <div>
-            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">About</h6>
+            <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('aboutHeading')}</h6>
             <ul className="space-y-4 text-on-surface-variant">
-              <li><Link href="/developers" className="hover:text-on-surface transition-colors">API Access</Link></li>
-              <li><Link href="/pricing" className="hover:text-on-surface transition-colors">Pricing</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-on-surface transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service" className="hover:text-on-surface transition-colors">Terms of Service</Link></li>
+              <li><Link href="/developers" className="hover:text-on-surface transition-colors">{t('apiAccess')}</Link></li>
+              <li><Link href="/pricing" className="hover:text-on-surface transition-colors">{t('pricing')}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-on-surface transition-colors">{t('privacyPolicy')}</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-on-surface transition-colors">{t('termsOfService')}</Link></li>
             </ul>
           </div>
         </div>
 
-        {/* Trademark Disclaimers */}
         <div className="mt-12 pt-8 border-t border-outline-variant/10 space-y-3">
           <p className="text-xs text-on-surface-variant/60 leading-relaxed max-w-4xl">
-            This is an independent, unofficial fan-made resource and is not affiliated with or endorsed by FIFA or the FIFA World Cup.
-            All team names, logos, and related marks are trademarks of their respective owners and are used here for identification purposes only.
+            {t('disclaimer')}
+          </p>
+          <p className="text-xs text-on-surface-variant/60 leading-relaxed max-w-4xl">
+            {t('affiliateDisclosure')}
           </p>
         </div>
 
         <div className="mt-8 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
-          <span>&copy; 2026 KickOracle. AI-Powered World Cup Intelligence. All rights reserved.</span>
+          <span>&copy; {t('copyright')}</span>
           <div className="flex space-x-8">
-            <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">Privacy Policy</Link>
-            <Link href="/terms-of-service" className="hover:text-on-surface transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">{t('privacyPolicy')}</Link>
+            <Link href="/terms-of-service" className="hover:text-on-surface transition-colors">{t('termsOfService')}</Link>
           </div>
         </div>
       </div>
