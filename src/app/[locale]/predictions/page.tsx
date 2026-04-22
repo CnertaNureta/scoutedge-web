@@ -1,24 +1,29 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { getAllTeams } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import Paywall from '@/components/monetization/Paywall'
 import type { Team } from '@/lib/types'
 
-export const metadata: Metadata = {
-  title: 'AI Predictions: World Cup 2026 Win Probabilities for All 48 Teams',
-  description:
-    'AI-powered World Cup 2026 predictions updated daily. Win probabilities, chemistry analysis, and intelligence signals for all 48 teams. Who will lift the trophy?',
-  keywords:
-    'World Cup 2026 predictions, AI football predictions, World Cup 2026 winner, World Cup 2026 probabilities, who will win World Cup 2026',
-  alternates: { canonical: 'https://kickoracle.com/predictions' },
-  ...buildOGMeta({
-    title: 'AI Predictions — World Cup 2026',
-    description: 'Win probabilities for all 48 teams, powered by AI analysis.',
-    url: 'https://kickoracle.com/predictions',
-  }),
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'predictionsPage' })
+  return {
+    title: t('heading'),
+    description: t('description'),
+    alternates: { canonical: 'https://kickoracle.com/predictions' },
+    ...buildOGMeta({
+      title: t('heading'),
+      description: t('description'),
+      url: 'https://kickoracle.com/predictions',
+    }),
+  }
 }
 
 export const revalidate = 300
@@ -39,15 +44,15 @@ interface PredictedTeam extends Team {
   rank: number
 }
 
-function getTierInfo(rank: number): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
-  if (rank <= 5) return { name: 'Title Favorites', variant: 'primary' }
-  if (rank <= 12) return { name: 'Contenders', variant: 'tertiary' }
-  if (rank <= 24) return { name: 'Dark Horses', variant: 'secondary' }
-  return { name: 'Long Shots', variant: 'outline' }
+function getTierInfo(rank: number, t: (key: string) => string): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
+  if (rank <= 5) return { name: t('titleFavorites'), variant: 'primary' }
+  if (rank <= 12) return { name: t('contenders'), variant: 'tertiary' }
+  if (rank <= 24) return { name: t('darkHorses'), variant: 'secondary' }
+  return { name: t('longShots'), variant: 'outline' }
 }
 
-function TeamPredictionCard({ team }: { team: PredictedTeam }) {
-  const tier = getTierInfo(team.rank)
+function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string) => string }) {
+  const tier = getTierInfo(team.rank, t)
 
   return (
     <Link href={`/teams/${team.slug}`} className="block group">
@@ -73,7 +78,7 @@ function TeamPredictionCard({ team }: { team: PredictedTeam }) {
         <div className="space-y-3">
           <div>
             <div className="flex justify-between items-baseline mb-1">
-              <span className="font-label text-xs text-on-surface-variant uppercase tracking-wider">Win Probability</span>
+              <span className="font-label text-xs text-on-surface-variant uppercase tracking-wider">{t('winProbability')}</span>
               <span className="font-mono text-sm font-bold text-primary">
                 {team.winProbability.toFixed(1)}%
               </span>
@@ -89,15 +94,15 @@ function TeamPredictionCard({ team }: { team: PredictedTeam }) {
           <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/5">
             <div className="text-center">
               <span className="block font-mono text-sm font-bold text-on-surface">{team.chemistry}</span>
-              <span className="font-label text-[10px] text-on-surface-variant uppercase">Chemistry</span>
+              <span className="font-label text-[10px] text-on-surface-variant uppercase">{t('chemistry')}</span>
             </div>
             <div className="text-center">
               <span className="block font-mono text-sm font-bold text-on-surface">{team.morale}</span>
-              <span className="font-label text-[10px] text-on-surface-variant uppercase">Morale</span>
+              <span className="font-label text-[10px] text-on-surface-variant uppercase">{t('morale')}</span>
             </div>
             <div className="text-center">
               <span className="block font-mono text-sm font-bold text-on-surface">{team.stability}</span>
-              <span className="font-label text-[10px] text-on-surface-variant uppercase">Stability</span>
+              <span className="font-label text-[10px] text-on-surface-variant uppercase">{t('stability')}</span>
             </div>
           </div>
         </div>
@@ -106,12 +111,15 @@ function TeamPredictionCard({ team }: { team: PredictedTeam }) {
   )
 }
 
-export default function PredictionsPage() {
+export default async function PredictionsPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('predictionsPage')
   const teams = getAllTeams()
   const predicted: PredictedTeam[] = teams
-    .map((t) => ({ ...t, winProbability: computeWinProbability(t), rank: 0 }))
+    .map((team) => ({ ...team, winProbability: computeWinProbability(team), rank: 0 }))
     .sort((a, b) => b.winProbability - a.winProbability)
-    .map((t, i) => ({ ...t, rank: i + 1 }))
+    .map((team, i) => ({ ...team, rank: i + 1 }))
 
   const topContenders = predicted.slice(0, 5)
   const remaining = predicted.slice(5)
@@ -139,34 +147,32 @@ export default function PredictionsPage() {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary-container/20 border border-primary/30 font-label text-xs font-semibold tracking-widest uppercase mb-6 text-primary">
-            AI-Powered Analysis
+            {t('badge')}
           </span>
 
           <h1 className="font-headline text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-wide uppercase mb-4">
-            <span className="block text-on-surface">World Cup</span>
-            <span className="block text-primary">Predictions</span>
+            <span className="block text-on-surface">{t('heading')}</span>
           </h1>
 
           <p className="font-body text-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
-            AI-computed win probabilities for all 48 teams, combining chemistry index, form analysis,
-            FIFA ranking, and intelligence signals updated daily.
+            {t('description')}
           </p>
 
           <HeroRegistrationCta
-            headline="Get daily win probability updates — free."
-            cta="Create Free Account"
+            headline={t('ctaText')}
+            cta={t('ctaButton')}
             className="justify-center mb-6"
           />
 
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="/power-rankings" className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all">
-              Power Rankings
+              {t('powerRankings')}
             </Link>
             <Link href="/bracket" className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all">
-              Bracket Predictor
+              {t('bracketPredictor')}
             </Link>
             <Link href="/odds" className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all">
-              Odds Comparison
+              {t('oddsComparison')}
             </Link>
           </div>
         </div>
@@ -175,11 +181,11 @@ export default function PredictionsPage() {
       {/* Top 5 Contenders */}
       <section className="max-w-[1440px] mx-auto px-6 pb-12">
         <h2 className="font-headline text-3xl uppercase tracking-wide text-on-surface mb-8">
-          Top Contenders
+          {t('topContenders')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           {topContenders.map((team) => (
-            <TeamPredictionCard key={team.slug} team={team} />
+            <TeamPredictionCard key={team.slug} team={team} t={t} />
           ))}
         </div>
       </section>
@@ -187,40 +193,41 @@ export default function PredictionsPage() {
       {/* All Teams */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <h2 className="font-headline text-3xl uppercase tracking-wide text-on-surface mb-8">
-          All 48 Teams
+          {t('allTeams')}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {remaining.map((team) => (
-            <TeamPredictionCard key={team.slug} team={team} />
-          ))}
-        </div>
+        <Paywall contentType="prediction" previewLines={12}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {remaining.map((team) => (
+              <TeamPredictionCard key={team.slug} team={team} t={t} />
+            ))}
+          </div>
+        </Paywall>
       </section>
 
       {/* Premium upgrade CTA */}
       <section className="max-w-[1440px] mx-auto px-6 pb-12">
         <GlassCard className="p-8 md:p-12 text-center border-primary/20">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 font-label text-xs font-semibold tracking-widest uppercase mb-4 text-primary">
-            Premium Intelligence
+            {t('premiumBadge')}
           </span>
           <h2 className="font-headline text-2xl md:text-3xl uppercase tracking-wide text-on-surface mb-3">
-            Unlock Full Tournament Pass
+            {t('premiumHeading')}
           </h2>
           <p className="font-body text-on-surface-variant max-w-lg mx-auto mb-6 text-sm md:text-base">
-            Get match-level AI predictions for all 104 fixtures, injury impact scores, live formation
-            analysis, and early-access predictions before each match.
+            {t('premiumDescription')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/pricing"
               className="bg-primary text-on-primary font-label font-bold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:opacity-90 active:scale-95 transition-all min-h-[48px] flex items-center justify-center"
             >
-              Get Tournament Pass — $29.99
+              {t('premiumButton')}
             </Link>
             <Link
               href="/auth/register"
               className="border border-white/20 text-on-surface font-label font-semibold uppercase tracking-widest text-sm px-8 py-4 rounded-full hover:bg-white/[0.06] transition-colors min-h-[48px] flex items-center justify-center"
             >
-              Start Free
+              {t('startFree')}
             </Link>
           </div>
         </GlassCard>
@@ -230,24 +237,24 @@ export default function PredictionsPage() {
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <GlassCard className="p-8">
           <h2 className="font-headline text-2xl uppercase tracking-wide text-on-surface mb-4">
-            Methodology
+            {t('methodology')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-body text-sm text-on-surface-variant">
             <div>
-              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">FIFA Ranking (40%)</h3>
-              <p>Official FIFA world ranking as a baseline measure of team strength and recent form.</p>
+              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodFifa')}</h3>
+              <p>{t('methodFifa')}</p>
             </div>
             <div>
-              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">Chemistry Index (30%)</h3>
-              <p>AI-derived measure of squad cohesion, based on club connections, language groups, and playing-time overlap.</p>
+              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodChemistry')}</h3>
+              <p>{t('methodChemistry')}</p>
             </div>
             <div>
-              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">Morale Score (15%)</h3>
-              <p>Sentiment analysis of player interviews, social media, and press coverage over the past 30 days.</p>
+              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodMorale')}</h3>
+              <p>{t('methodMorale')}</p>
             </div>
             <div>
-              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">Stability &amp; Familiarity (15%)</h3>
-              <p>Manager tenure, tactical consistency, and how well the squad knows each other from recent camps.</p>
+              <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodStability')}</h3>
+              <p>{t('methodStability')}</p>
             </div>
           </div>
         </GlassCard>

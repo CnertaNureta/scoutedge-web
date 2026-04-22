@@ -1,17 +1,24 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { lingoCountries, lingoPlayers, lingoTermsData } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 import { LingoSearchBar } from '@/components/lingo/LingoSearchBar'
 
-export const metadata: Metadata = {
-  title: 'Lingo — World Cup Pronunciation Guide',
-  description: `IPA transcriptions, phonetic guides, and cultural context for ${lingoCountries.length} teams and ${lingoPlayers.length}+ star players. Sound like an expert before kickoff.`,
-  openGraph: {
-    title: 'KickOracle Lingo — World Cup 2026 Pronunciation Guide',
-    description: `How to say every country, player & football term. ${lingoCountries.length} teams, ${lingoPlayers.length}+ players.`,
-  },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'lingoPage' })
+  return {
+    title: t('heading'),
+    description: t('description', { countryCount: lingoCountries.length, playerCount: lingoPlayers.length }),
+    openGraph: {
+      title: 'KickOracle Lingo — World Cup 2026 Pronunciation Guide',
+      description: `How to say every country, player & football term. ${lingoCountries.length} teams, ${lingoPlayers.length}+ players.`,
+    },
+  }
 }
 
 const FEATURED_COUNTRIES = [
@@ -32,7 +39,11 @@ const FEATURED_PLAYERS = [
   'vinicius-jr',
 ]
 
-export default function LingoPage() {
+export default async function LingoPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('lingoPage')
+
   const featuredCountries = FEATURED_COUNTRIES.map((id) =>
     lingoCountries.find((c) => c.id === id),
   ).filter(Boolean)
@@ -47,28 +58,26 @@ export default function LingoPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,oklch(72%_0.18_160_/_0.06),transparent_50%)]" />
         <div className="relative mx-auto max-w-3xl text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-widest text-lingo-accent">
-            FIFA World Cup 2026 · KickOracle Lingo
+            {t('header')}
           </p>
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-lingo-text sm:text-5xl lg:text-6xl">
-            How to Say Every Country, Player &amp; Term
+            {t('heading')}
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-lingo-text-muted sm:text-lg">
-            IPA transcriptions, phonetic guides, and cultural context for{' '}
-            {lingoCountries.length} teams and {lingoPlayers.length}+ star players. Sound
-            like an expert before kickoff.
+            {t('description', { countryCount: lingoCountries.length, playerCount: lingoPlayers.length })}
           </p>
           <div className="mt-8 flex justify-center">
             <LingoSearchBar countries={lingoCountries} players={lingoPlayers} />
           </div>
           <div className="mt-6 flex justify-center gap-4 text-sm">
             <Link href="/lingo/countries" className="text-lingo-accent hover:underline">
-              All {lingoCountries.length} countries →
+              {t('allCountries', { count: lingoCountries.length })} →
             </Link>
             <Link href="/lingo/players" className="text-lingo-accent hover:underline">
-              All {lingoPlayers.length} players →
+              {t('allPlayers', { count: lingoPlayers.length })} →
             </Link>
             <Link href="/lingo/terms" className="text-lingo-accent hover:underline">
-              Football terms →
+              {t('footballTerms')} →
             </Link>
           </div>
         </div>
@@ -77,13 +86,13 @@ export default function LingoPage() {
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-lingo-text">Hardest Country Names</h2>
+            <h2 className="text-2xl font-bold text-lingo-text">{t('hardestCountries')}</h2>
             <p className="mt-1 text-sm text-lingo-text-muted">
-              The ones commentators get wrong the most
+              {t('hardestCountriesDesc')}
             </p>
           </div>
           <Link href="/lingo/countries" className="text-sm font-medium text-lingo-accent hover:underline">
-            All {lingoCountries.length} countries →
+            {t('allCountries', { count: lingoCountries.length })} →
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -97,13 +106,13 @@ export default function LingoPage() {
         <div className="mx-auto max-w-6xl px-6 py-16">
           <div className="mb-8 flex items-end justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-lingo-text">Trickiest Player Names</h2>
+              <h2 className="text-2xl font-bold text-lingo-text">{t('trickiestPlayers')}</h2>
               <p className="mt-1 text-sm text-lingo-text-muted">
-                Mbappé, Szczęsny, Tchouaméni — get them right
+                {t('trickiestPlayersDesc')}
               </p>
             </div>
             <Link href="/lingo/players" className="text-sm font-medium text-lingo-accent hover:underline">
-              All {lingoPlayers.length} players →
+              {t('allPlayers', { count: lingoPlayers.length })} →
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -116,8 +125,8 @@ export default function LingoPage() {
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-lingo-text">Football Chants from Around the World</h2>
-          <p className="mt-1 text-sm text-lingo-text-muted">Learn how fans cheer in every language</p>
+          <h2 className="text-2xl font-bold text-lingo-text">{t('chantsHeading')}</h2>
+          <p className="mt-1 text-sm text-lingo-text-muted">{t('chantsDesc')}</p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {lingoTermsData.chants.slice(0, 6).map((chant) => (
@@ -136,23 +145,22 @@ export default function LingoPage() {
         </div>
         <div className="mt-6 text-center">
           <Link href="/lingo/terms" className="text-sm font-medium text-lingo-accent hover:underline">
-            See all football terms &amp; chants →
+            {t('seeAllTerms')} →
           </Link>
         </div>
       </section>
 
       <section className="border-t border-lingo-border/30 bg-gradient-to-b from-lingo-accent/5 to-lingo-bg px-6 py-16">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold text-lingo-text">Want AI-Powered Predictions?</h2>
+          <h2 className="text-2xl font-bold text-lingo-text">{t('wantPredictions')}</h2>
           <p className="mt-3 text-sm leading-relaxed text-lingo-text-muted">
-            KickOracle uses AI to analyze team chemistry, player fitness, and social signals. Get
-            win probability predictions for every match.
+            {t('wantPredictionsDesc')}
           </p>
           <Link
             href="/predictions"
             className="mt-6 inline-flex items-center rounded-xl bg-lingo-accent px-6 py-3 text-sm font-semibold text-lingo-bg transition-opacity hover:opacity-90"
           >
-            Explore Predictions →
+            {t('explorePredictions')} →
           </Link>
         </div>
       </section>

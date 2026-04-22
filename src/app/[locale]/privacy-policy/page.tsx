@@ -1,19 +1,30 @@
 import type { Metadata } from 'next'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description:
-    'KickOracle privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
-  alternates: { canonical: 'https://kickoracle.com/privacy-policy' },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'privacyPage' })
+  return {
+    title: t('heading'),
+    description:
+      'KickOracle privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
+    alternates: { canonical: 'https://kickoracle.com/privacy-policy' },
+  }
 }
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('privacyPage')
+
   return (
     <div className="max-w-[900px] mx-auto px-6 py-20 pb-32 md:pb-20">
       <h1 className="font-headline text-4xl md:text-5xl font-bold text-on-surface mb-4">
-        Privacy Policy
+        {t('heading')}
       </h1>
-      <p className="text-on-surface-variant mb-12">Last updated: March 25, 2026</p>
+      <p className="text-on-surface-variant mb-12">{t('lastUpdated')}</p>
 
       <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant [&_h2]:text-on-surface [&_h2]:font-headline [&_h2]:text-2xl [&_h2]:mt-12 [&_h2]:mb-4 [&_h3]:text-on-surface [&_h3]:text-xl [&_h3]:mt-8 [&_h3]:mb-3 [&_p]:leading-relaxed [&_p]:mb-4 [&_ul]:mb-4 [&_li]:mb-2">
         <h2>1. Introduction</h2>

@@ -1,10 +1,16 @@
 import type { Metadata } from 'next'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoTermsData } from '@/data/lingo-data'
 
-export const metadata: Metadata = {
-  title: 'Football Terms in 10 Languages — World Cup 2026 Glossary',
-  description:
-    'How to say goal, penalty, offside, red card and more in Spanish, French, German, Arabic, Japanese and 6 other languages. The fan\'s World Cup vocabulary guide.',
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'lingoPage' })
+  return {
+    title: t('termsHeading'),
+    description: t('termsDesc'),
+  }
 }
 
 const LANGUAGE_LABELS: Record<string, string> = {
@@ -23,21 +29,24 @@ const LANGUAGE_LABELS: Record<string, string> = {
   portuguese_br: 'Brazilian Portuguese',
 }
 
-export default function LingoTermsPage() {
+export default async function LingoTermsPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('lingoPage')
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-12">
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-lingo-text sm:text-4xl">
-          Football Terms in 10 Languages
+          {t('termsHeading')}
         </h1>
         <p className="mt-2 text-base text-lingo-text-muted">
-          The fan&apos;s World Cup glossary — how to say goal, penalty, offside, and more in every
-          major football language.
+          {t('termsDesc')}
         </p>
       </div>
 
       <section className="mb-16">
-        <h2 className="mb-6 text-2xl font-bold text-lingo-text">Essential Terms</h2>
+        <h2 className="mb-6 text-2xl font-bold text-lingo-text">{t('essentialTerms')}</h2>
         <div className="space-y-8">
           {lingoTermsData.terms.map((term) => {
             const translations = Object.entries(term.translations).filter(
@@ -80,7 +89,7 @@ export default function LingoTermsPage() {
       </section>
 
       <section className="mb-16">
-        <h2 className="mb-6 text-2xl font-bold text-lingo-text">Chants From Around the World</h2>
+        <h2 className="mb-6 text-2xl font-bold text-lingo-text">{t('chantsFromWorld')}</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {lingoTermsData.chants.map((chant) => (
             <div

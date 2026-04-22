@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import GlassCard from '@/components/ui/GlassCard'
 
@@ -19,6 +20,7 @@ interface LeaderboardEntry {
 }
 
 export default function LeaderboardPage() {
+  const t = useTranslations('leaderboardPage')
   const { user } = useAuth()
   const [entries, setEntries] = useState<LeaderboardEntry[]>([])
   const [loading, setLoading] = useState(true)
@@ -37,16 +39,16 @@ export default function LeaderboardPage() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center justify-between mb-10">
         <div>
-          <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">Global Leaderboard</h1>
+          <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">{t('heading')}</h1>
           <p className="text-on-surface-variant mt-2">
-            Top prediction masters across all leagues.
+            {t('description')}
           </p>
         </div>
         <Link
           href="/predict"
           className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all whitespace-nowrap"
         >
-          Make Predictions
+          {t('makePredictions')}
         </Link>
       </div>
 
@@ -62,8 +64,8 @@ export default function LeaderboardPage() {
 
       {!loading && entries.length === 0 && (
         <GlassCard className="p-12 text-center">
-          <p className="text-on-surface-variant text-lg mb-4">No one has scored yet. Be the first!</p>
-          <Link href="/predict" className="text-primary font-bold hover:underline">Start Predicting</Link>
+          <p className="text-on-surface-variant text-lg mb-4">{t('emptyState')}</p>
+          <Link href="/predict" className="text-primary font-bold hover:underline">{t('startPredicting')}</Link>
         </GlassCard>
       )}
 
@@ -82,7 +84,7 @@ export default function LeaderboardPage() {
                     <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-sm mt-2">
                       {(entry.display_name ?? '?')[0].toUpperCase()}
                     </div>
-                    <p className="text-on-surface font-bold text-sm mt-1 truncate w-full">{entry.display_name ?? 'Anonymous'}</p>
+                    <p className="text-on-surface font-bold text-sm mt-1 truncate w-full">{entry.display_name ?? t('anonymous')}</p>
                     <p className="text-primary font-bold">{entry.total_points} pts</p>
                   </GlassCard>
                 )
@@ -96,11 +98,11 @@ export default function LeaderboardPage() {
                 <thead>
                   <tr className="text-xs text-on-surface-variant uppercase tracking-widest border-b border-white/[0.06]">
                     <th className="text-left py-4 px-6">#</th>
-                    <th className="text-left py-4 px-4">Player</th>
-                    <th className="text-right py-4 px-4">Points</th>
-                    <th className="text-right py-4 px-4 hidden sm:table-cell">Accuracy</th>
-                    <th className="text-right py-4 px-4 hidden md:table-cell">Exact</th>
-                    <th className="text-right py-4 px-6 hidden md:table-cell">Predictions</th>
+                    <th className="text-left py-4 px-4">{t('player')}</th>
+                    <th className="text-right py-4 px-4">{t('points')}</th>
+                    <th className="text-right py-4 px-4 hidden sm:table-cell">{t('accuracy')}</th>
+                    <th className="text-right py-4 px-4 hidden md:table-cell">{t('exact')}</th>
+                    <th className="text-right py-4 px-6 hidden md:table-cell">{t('predictions')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -122,7 +124,7 @@ export default function LeaderboardPage() {
                             {(entry.display_name ?? '?')[0].toUpperCase()}
                           </div>
                           <div>
-                            <p className="text-on-surface font-medium">{entry.display_name ?? 'Anonymous'}</p>
+                            <p className="text-on-surface font-medium">{entry.display_name ?? t('anonymous')}</p>
                             {entry.favorite_team_slug && (
                               <p className="text-xs text-on-surface-variant">{entry.favorite_team_slug}</p>
                             )}

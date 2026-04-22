@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { getAllTeams, getMarketIntel } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
@@ -9,21 +10,24 @@ import type { Team, MarketIntelData, ValueBet } from '@/lib/types'
 
 export const revalidate = 300
 
-const ogMeta = buildOGMeta({
-  title: 'World Cup 2026 Odds Comparison — Latest Betting Lines | KickOracle',
-  description:
-    'Compare World Cup 2026 outright winner odds across Bet365, Betfair, William Hill, Betway & Unibet. AI-detected value bets, implied probabilities, and market movement updated every 5 minutes.',
-  url: 'https://kickoracle.com/odds',
-})
+type Props = { params: Promise<{ locale: string }> }
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Odds Comparison — Latest Betting Lines | KickOracle',
-  description:
-    'Compare World Cup 2026 outright winner odds across Bet365, Betfair, William Hill, Betway & Unibet. AI-detected value bets, implied probabilities, and market movement updated every 5 minutes.',
-  keywords:
-    'World Cup 2026 odds, World Cup 2026 betting odds, World Cup 2026 outright winner odds, World Cup 2026 odds comparison, football betting odds 2026, World Cup value bets, best World Cup odds, FIFA World Cup 2026 sportsbook odds',
-  alternates: { canonical: 'https://kickoracle.com/odds' },
-  ...ogMeta,
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'oddsPage' })
+  const ogMeta = buildOGMeta({
+    title: t('heading'),
+    description: t('description'),
+    url: 'https://kickoracle.com/odds',
+  })
+  return {
+    title: t('heading'),
+    description: t('description'),
+    keywords:
+      'World Cup 2026 odds, World Cup 2026 betting odds, World Cup 2026 outright winner odds, World Cup 2026 odds comparison, football betting odds 2026, World Cup value bets, best World Cup odds, FIFA World Cup 2026 sportsbook odds',
+    alternates: { canonical: 'https://kickoracle.com/odds' },
+    ...ogMeta,
+  }
 }
 
 const BOOKMAKERS = ['Bet365', 'Betfair', 'William Hill', 'Betway', 'Unibet'] as const
@@ -70,7 +74,14 @@ function MovementIndicator({ movement }: { movement: MarketIntelData['movement']
   }
 }
 
-function ValueBetCard({ team, intel }: TeamWithOdds) {
+interface ValueBetLabels {
+  aiModel: string
+  market: string
+  edge: string
+  bestOdds: string
+}
+
+function ValueBetCard({ team, intel, labels }: TeamWithOdds & { labels: ValueBetLabels }) {
   const vb = intel.valueBet
   if (!vb) return null
 
@@ -97,25 +108,25 @@ function ValueBetCard({ team, intel }: TeamWithOdds) {
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="space-y-1">
-          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">AI Model</p>
+          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">{labels.aiModel}</p>
           <p className="font-mono text-lg font-bold text-primary">
             {(vb.ourProbability * 100).toFixed(1)}%
           </p>
         </div>
         <div className="space-y-1">
-          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Market</p>
+          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">{labels.market}</p>
           <p className="font-mono text-lg font-bold">
             {(vb.marketProbability * 100).toFixed(1)}%
           </p>
         </div>
         <div className="space-y-1">
-          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Edge</p>
+          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">{labels.edge}</p>
           <p className={`font-mono text-lg font-bold ${isPositive ? 'text-primary' : 'text-secondary'}`}>
             {isPositive ? '+' : ''}{edgePercent}%
           </p>
         </div>
         <div className="space-y-1">
-          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Best Odds</p>
+          <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">{labels.bestOdds}</p>
           <p className="font-mono text-lg font-bold">
             {vb.bestOdds.toFixed(2)}
           </p>
@@ -178,7 +189,10 @@ function OddsTableRow({ team, intel }: TeamWithOdds) {
   )
 }
 
-export default function OddsPage() {
+export default async function OddsPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('oddsPage')
   const teams = getAllTeams()
 
   const teamsWithOdds: TeamWithOdds[] = teams
@@ -246,30 +260,28 @@ export default function OddsPage() {
         <div className="absolute top-2/3 left-2/3 w-[400px] h-[400px] rounded-full bg-tertiary/5 blur-[160px]" />
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="secondary" size="md">Updated Every 5 min</Badge>
+          <Badge variant="secondary" size="md">{t('badge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter uppercase mt-4 mb-4">
-            Betting<br />
-            <span className="text-primary">Odds</span>
+            {t('heading')}
           </h1>
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto mb-4">
-            Compare outright winner odds across 5 major sportsbooks for all 48 World Cup 2026 teams.
-            AI-powered value detection highlights where the market diverges from our model.
+            {t('description')}
           </p>
           <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-8">
-            Last updated: {lastUpdated} &middot; {teamsWithOdds.length} teams tracked
+            {t('lastUpdated', { date: lastUpdated, count: teamsWithOdds.length })}
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
             <Link
               href="/predictions"
               className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
             >
-              AI Predictions
+              {t('aiPredictions')}
             </Link>
             <Link
               href="/power-rankings"
               className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:bg-surface-container-high transition-colors"
             >
-              Power Rankings
+              {t('powerRankings')}
             </Link>
           </div>
         </div>
@@ -280,17 +292,26 @@ export default function OddsPage() {
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-              Value Bets
+              {t('valueBets')}
             </h2>
-            <Badge variant="primary" size="sm">AI Detected</Badge>
+            <Badge variant="primary" size="sm">{t('aiDetected')}</Badge>
           </div>
           <p className="text-on-surface-variant text-sm max-w-3xl mb-6">
-            Teams where our AI probability model diverges significantly from the consensus market odds.
-            A positive edge means our model rates the team higher than bookmakers do.
+            {t('valueBetsDesc')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
             {valueBets.map(({ team, intel }) => (
-              <ValueBetCard key={team.slug} team={team} intel={intel} />
+              <ValueBetCard
+                key={team.slug}
+                team={team}
+                intel={intel}
+                labels={{
+                  aiModel: t('aiModel'),
+                  market: t('market'),
+                  edge: t('edge'),
+                  bestOdds: t('bestOdds'),
+                }}
+              />
             ))}
           </div>
         </section>
@@ -300,9 +321,9 @@ export default function OddsPage() {
       <section className="max-w-[1440px] mx-auto px-6 mb-16">
         <div className="flex items-center gap-3 mb-6">
           <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-            Full Odds Table
+            {t('fullOddsTable')}
           </h2>
-          <Badge variant="outline" size="sm">{teamsWithOdds.length} Teams</Badge>
+          <Badge variant="outline" size="sm">{t('teamsBadge', { count: teamsWithOdds.length })}</Badge>
         </div>
 
         <GlassCard className="overflow-hidden">
@@ -311,7 +332,7 @@ export default function OddsPage() {
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest px-3 md:px-5 py-3 text-left min-w-[160px]">
-                    Team
+                    {t('team')}
                   </th>
                   {BOOKMAKERS.map((bk) => (
                     <th
@@ -322,16 +343,16 @@ export default function OddsPage() {
                     </th>
                   ))}
                   <th className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest px-3 md:px-5 py-3 text-center whitespace-nowrap">
-                    Avg Odds
+                    {t('avgOdds')}
                   </th>
                   <th className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest px-3 md:px-5 py-3 text-center whitespace-nowrap hidden md:table-cell">
-                    Impl. Prob.
+                    {t('implProb')}
                   </th>
                   <th className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest px-3 md:px-5 py-3 text-center whitespace-nowrap w-14">
-                    Move
+                    {t('move')}
                   </th>
                   <th className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest px-3 md:px-5 py-3 text-center whitespace-nowrap hidden lg:table-cell">
-                    Edge
+                    {t('edge')}
                   </th>
                 </tr>
               </thead>
@@ -350,62 +371,54 @@ export default function OddsPage() {
         <GlassCard className="p-6 md:p-10">
           <div className="flex items-center gap-3 mb-4">
             <h2 className="font-headline text-xl md:text-2xl font-bold uppercase tracking-tight">
-              How Odds Work
+              {t('howOddsWork')}
             </h2>
-            <Badge variant="outline" size="sm">Methodology</Badge>
+            <Badge variant="outline" size="sm">{t('methodologyBadge')}</Badge>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-on-surface-variant text-sm leading-relaxed">
             <div className="space-y-4">
               <div>
                 <h3 className="font-label text-xs text-on-surface uppercase tracking-widest font-bold mb-1">
-                  Decimal Odds
+                  {t('decimalOdds')}
                 </h3>
                 <p>
-                  Decimal odds represent the total payout per unit staked, including your original stake.
-                  For example, odds of 6.00 mean a $10 bet returns $60 total ($50 profit + $10 stake)
-                  if successful.
+                  {t('methodDecimalOddsDesc')}
                 </p>
               </div>
               <div>
                 <h3 className="font-label text-xs text-on-surface uppercase tracking-widest font-bold mb-1">
-                  Implied Probability
+                  {t('impliedProbability')}
                 </h3>
                 <p>
-                  The market&apos;s estimate of a team&apos;s chance of winning, derived from odds.
-                  Calculated as 1 / decimal odds. Lower odds = higher implied probability. Note that the sum
-                  of all implied probabilities exceeds 100% due to the bookmaker&apos;s margin (overround).
+                  {t('methodImpliedProbDesc')}
                 </p>
               </div>
             </div>
             <div className="space-y-4">
               <div>
                 <h3 className="font-label text-xs text-on-surface uppercase tracking-widest font-bold mb-1">
-                  Market Movement
+                  {t('marketMovement')}
                 </h3>
                 <p>
-                  <span className="text-primary">&#9650; Shortening</span> means odds are decreasing (more money
-                  backing this team).{' '}
-                  <span className="text-secondary">&#9660; Drifting</span> means odds are increasing (less
-                  market confidence).{' '}
-                  <span>&#9644; Stable</span> means no significant change.
+                  {t.rich('methodMarketMovementDesc', {
+                    shortening: (chunks) => <span className="text-primary">{chunks}</span>,
+                    drifting: (chunks) => <span className="text-secondary">{chunks}</span>,
+                  })}
                 </p>
               </div>
               <div>
                 <h3 className="font-label text-xs text-on-surface uppercase tracking-widest font-bold mb-1">
-                  Value Bets (AI Edge)
+                  {t('valueBetsAiEdge')}
                 </h3>
                 <p>
-                  Our AI model independently estimates each team&apos;s tournament win probability using
-                  squad chemistry, form signals, and historical performance data. When our model&apos;s probability
-                  diverges significantly from the market&apos;s implied probability, we flag it as a potential
-                  value bet. A positive edge means our model is more bullish than the market.
+                  {t('methodValueBetsDesc')}
                 </p>
               </div>
             </div>
           </div>
           <div className="mt-6 pt-4 border-t border-white/[0.08]">
             <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">
-              Disclaimer: Odds are for informational purposes only. KickOracle does not facilitate betting. Always gamble responsibly.
+              {t('disclaimer')}
             </p>
           </div>
         </GlassCard>

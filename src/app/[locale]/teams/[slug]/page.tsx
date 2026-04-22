@@ -13,6 +13,7 @@ import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
 import MatchSchedule from '@/components/team/MatchSchedule'
 import GlassCard from '@/components/ui/GlassCard'
+import Paywall from '@/components/monetization/Paywall'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -100,15 +101,23 @@ export default async function TeamPage({ params }: PageProps) {
 
       <SquadRoster players={players} teamSlug={slug} />
 
-      <TacticalDNA team={team} players={players} />
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <TacticalDNA team={team} players={players} />
+      </Paywall>
 
-      <SquadDepth players={players} />
+      <Paywall contentType="team" scope={slug} previewLines={4}>
+        <SquadDepth players={players} />
+      </Paywall>
 
-      {/* Historical Performance */}
-      {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
+      {worldCupHistory && (
+        <Paywall contentType="team" scope={slug} previewLines={5}>
+          <HistoricalPerformance history={worldCupHistory} />
+        </Paywall>
+      )}
 
-      {/* Intelligence Report — Editorial AI Analysis */}
-      <IntelligenceReport team={team} />
+      <Paywall contentType="team" scope={slug} previewLines={4}>
+        <IntelligenceReport team={team} />
+      </Paywall>
 
       {/* FAQ Section */}
       {teamFaq && teamFaq.faqs.length > 0 && (

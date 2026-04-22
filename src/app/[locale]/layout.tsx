@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ChatWidget from '@/components/chat/ChatWidget'
 import InstallBanner from '@/components/pwa/InstallBanner'
+import UpsellBanner from '@/components/monetization/UpsellBanner'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -115,6 +116,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
             <ChatWidget />
+            <UpsellBanner />
             <InstallBanner />
           </div>
         </Providers>

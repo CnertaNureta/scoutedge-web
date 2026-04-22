@@ -92,6 +92,9 @@ export default function Header() {
                 { label: t('leaderboard'), href: '/leaderboard' },
               ]}
             />
+            <Link href="/pricing" className="font-headline font-bold tracking-tight text-tertiary hover:text-tertiary-fixed transition-colors">
+              Pricing
+            </Link>
             <NavDropdown
               label={t('fanZone')}
               items={[

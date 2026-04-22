@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -34,6 +35,7 @@ interface PredictionForm {
 }
 
 export default function PredictPage() {
+  const t = useTranslations('predictPage')
   const { user, loading: authLoading } = useAuth()
   const { apiFetch, isAuthenticated } = useApi()
   const [matches, setMatches] = useState<Match[]>([])
@@ -129,10 +131,10 @@ export default function PredictPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-12">
         <GlassCard className="p-8 text-center">
-          <h1 className="font-display text-3xl text-primary mb-3">Match Predictions</h1>
-          <p className="text-on-surface-variant mb-6">Sign in to make your predictions for upcoming matches.</p>
+          <h1 className="font-display text-3xl text-primary mb-3">{t('heading')}</h1>
+          <p className="text-on-surface-variant mb-6">{t('authMessage')}</p>
           <Link href="/auth/login" className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all">
-            Sign In
+            {t('signIn')}
           </Link>
         </GlassCard>
       </div>
@@ -142,9 +144,9 @@ export default function PredictPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="mb-10">
-        <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">Predict</h1>
+        <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">{t('predictHeading')}</h1>
         <p className="text-on-surface-variant mt-2">
-          Pick your scores for upcoming matches. Predictions lock at kickoff.
+          {t('predictDescription')}
         </p>
       </div>
 
@@ -161,7 +163,7 @@ export default function PredictPage() {
 
       {!loading && matches.length === 0 && (
         <GlassCard className="p-12 text-center">
-          <p className="text-on-surface-variant text-lg">No upcoming matches available for predictions.</p>
+          <p className="text-on-surface-variant text-lg">{t('noMatches')}</p>
         </GlassCard>
       )}
 
@@ -245,18 +247,18 @@ export default function PredictPage() {
               <div className="flex items-center justify-between">
                 {existing && (
                   <span className="text-xs text-emerald-400 font-bold">
-                    Prediction saved
+                    {t('saved')}
                   </span>
                 )}
                 {isLocked ? (
-                  <span className="text-xs text-amber-400 font-bold ml-auto">Locked</span>
+                  <span className="text-xs text-amber-400 font-bold ml-auto">{t('locked')}</span>
                 ) : (
                   <button
                     onClick={() => submitPrediction(match.id)}
                     disabled={!form.outcome || submitting === match.id}
                     className="ml-auto px-5 py-2 rounded-lg bg-primary text-on-primary font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50"
                   >
-                    {submitting === match.id ? 'Saving...' : existing ? 'Update' : 'Submit'}
+                    {submitting === match.id ? t('saving') : existing ? t('update') : t('submit')}
                   </button>
                 )}
               </div>

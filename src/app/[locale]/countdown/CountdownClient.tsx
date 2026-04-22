@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 
 const TARGET = new Date('2026-06-11T18:00:00Z').getTime()
 
@@ -37,6 +38,7 @@ function Digit({ value, label }: { value: number; label: string }) {
 }
 
 export default function CountdownClient() {
+  const t = useTranslations('countdownPage')
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
 
   useEffect(() => {
@@ -45,11 +47,18 @@ export default function CountdownClient() {
     return () => clearInterval(id)
   }, [])
 
+  const labels = [
+    { key: 'days' as const, label: t('days') },
+    { key: 'hours' as const, label: t('hours') },
+    { key: 'minutes' as const, label: t('minutes') },
+    { key: 'seconds' as const, label: t('seconds') },
+  ]
+
   if (!timeLeft) {
     return (
       <div className="flex justify-center gap-3 md:gap-6">
-        {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
-          <Digit key={label} value={0} label={label} />
+        {labels.map(({ key, label }) => (
+          <Digit key={key} value={0} label={label} />
         ))}
       </div>
     )
@@ -57,10 +66,10 @@ export default function CountdownClient() {
 
   return (
     <div className="flex justify-center gap-3 md:gap-6">
-      <Digit value={timeLeft.days} label="Days" />
-      <Digit value={timeLeft.hours} label="Hours" />
-      <Digit value={timeLeft.minutes} label="Minutes" />
-      <Digit value={timeLeft.seconds} label="Seconds" />
+      <Digit value={timeLeft.days} label={t('days')} />
+      <Digit value={timeLeft.hours} label={t('hours')} />
+      <Digit value={timeLeft.minutes} label={t('minutes')} />
+      <Digit value={timeLeft.seconds} label={t('seconds')} />
     </div>
   )
 }

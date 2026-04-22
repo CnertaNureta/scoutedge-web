@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState, useCallback } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -69,7 +70,7 @@ const TYPE_LABELS: Record<string, string> = {
   both_teams_score: 'Both Teams Score',
 }
 
-function StreakBadge({ streak }: { streak: Streak }) {
+function StreakBadge({ streak, t }: { streak: Streak; t: ReturnType<typeof useTranslations> }) {
   return (
     <div className="flex items-center gap-6">
       <div className="text-center">
@@ -77,7 +78,7 @@ function StreakBadge({ streak }: { streak: Streak }) {
           {streak.current_streak}
         </div>
         <div className="text-[11px] font-label uppercase tracking-widest text-on-surface-variant mt-1">
-          Streak
+          {t('streak')}
         </div>
       </div>
       <div className="w-px h-10 bg-white/[0.08]" />
@@ -86,7 +87,7 @@ function StreakBadge({ streak }: { streak: Streak }) {
           {streak.longest_streak}
         </div>
         <div className="text-[11px] font-label uppercase tracking-widest text-on-surface-variant mt-1">
-          Best
+          {t('best')}
         </div>
       </div>
       <div className="w-px h-10 bg-white/[0.08]" />
@@ -95,7 +96,7 @@ function StreakBadge({ streak }: { streak: Streak }) {
           {streak.total_points_earned}
         </div>
         <div className="text-[11px] font-label uppercase tracking-widest text-on-surface-variant mt-1">
-          Points
+          {t('points')}
         </div>
       </div>
     </div>
@@ -107,11 +108,13 @@ function QuestionCard({
   attempt,
   onSubmit,
   submitting,
+  t,
 }: {
   question: Question
   attempt: Attempt | undefined
   onSubmit: (questionId: string, answer: string) => void
   submitting: string | null
+  t: ReturnType<typeof useTranslations>
 }) {
   const [selected, setSelected] = useState<string | null>(null)
   const isAnswered = !!attempt
@@ -169,8 +172,8 @@ function QuestionCard({
             >
               <div className="flex items-center justify-between">
                 <span>{option}</span>
-                {isCorrect && <span className="text-emerald-400 font-bold text-xs">CORRECT</span>}
-                {isWrong && <span className="text-red-400 font-bold text-xs">WRONG</span>}
+                {isCorrect && <span className="text-emerald-400 font-bold text-xs">{t('correct')}</span>}
+                {isWrong && <span className="text-red-400 font-bold text-xs">{t('wrong')}</span>}
               </div>
             </button>
           )
@@ -183,20 +186,20 @@ function QuestionCard({
           disabled={isSubmitting}
           className="mt-4 w-full py-3 rounded-xl bg-primary text-on-primary font-bold text-sm hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50"
         >
-          {isSubmitting ? 'Submitting...' : 'Lock In Answer'}
+          {isSubmitting ? t('submitting') : t('lockInAnswer')}
         </button>
       )}
 
       {isAnswered && (
         <div className="mt-4 flex items-center gap-2">
           {attempt.is_correct === true && (
-            <span className="text-sm font-bold text-emerald-400">+{attempt.points_earned}pt earned</span>
+            <span className="text-sm font-bold text-emerald-400">{t('pointsEarned', { count: attempt.points_earned })}</span>
           )}
           {attempt.is_correct === false && (
-            <span className="text-sm font-bold text-red-400">Wrong answer</span>
+            <span className="text-sm font-bold text-red-400">{t('wrongAnswer')}</span>
           )}
           {attempt.is_correct === null && (
-            <span className="text-sm text-on-surface-variant">Answer locked — awaiting settlement</span>
+            <span className="text-sm text-on-surface-variant">{t('answerLocked')}</span>
           )}
         </div>
       )}
@@ -204,12 +207,12 @@ function QuestionCard({
   )
 }
 
-function MiniLeaderboard({ entries, userRank }: { entries: LeaderboardEntry[]; userRank: number | null }) {
+function MiniLeaderboard({ entries, userRank, t }: { entries: LeaderboardEntry[]; userRank: number | null; t: ReturnType<typeof useTranslations> }) {
   if (entries.length === 0) return null
 
   return (
     <GlassCard className="p-6">
-      <h2 className="font-headline text-xl text-primary mb-4">Challenge Leaders</h2>
+      <h2 className="font-headline text-xl text-primary mb-4">{t('challengeLeaders')}</h2>
       <div className="space-y-2">
         {entries.slice(0, 10).map(entry => (
           <div key={entry.user_id} className="flex items-center gap-3 py-2">
@@ -224,7 +227,7 @@ function MiniLeaderboard({ entries, userRank }: { entries: LeaderboardEntry[]; u
                 {entry.display_name ?? 'Anonymous'}
               </div>
               <div className="text-[11px] text-on-surface-variant">
-                {entry.current_streak} day streak
+                {t('dayStreak', { count: entry.current_streak })}
               </div>
             </div>
             <span className="font-mono text-sm font-bold text-primary tabular-nums">
@@ -235,7 +238,7 @@ function MiniLeaderboard({ entries, userRank }: { entries: LeaderboardEntry[]; u
       </div>
       {userRank && userRank > 10 && (
         <div className="mt-3 pt-3 border-t border-white/[0.08] text-sm text-on-surface-variant text-center">
-          Your rank: <span className="font-mono font-bold text-primary">#{userRank}</span>
+          {'Your Rank:'} <span className="font-mono font-bold text-primary">#{userRank}</span>
         </div>
       )}
     </GlassCard>
@@ -243,6 +246,7 @@ function MiniLeaderboard({ entries, userRank }: { entries: LeaderboardEntry[]; u
 }
 
 export default function ChallengesPage() {
+  const t = useTranslations('challengesPage')
   const { user, loading: authLoading } = useAuth()
   const { apiFetch, isAuthenticated } = useApi()
   const [challenge, setChallenge] = useState<Challenge | null>(null)
@@ -309,10 +313,10 @@ export default function ChallengesPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-12">
         <GlassCard className="p-8 text-center">
-          <h1 className="font-display text-3xl text-primary mb-3">Daily Challenge</h1>
-          <p className="text-on-surface-variant mb-6">Sign in to take on today&apos;s prediction challenge and build your streak.</p>
+          <h1 className="font-display text-3xl text-primary mb-3">{t('heading')}</h1>
+          <p className="text-on-surface-variant mb-6">{t('authMessage')}</p>
           <Link href="/auth/login" className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all">
-            Sign In
+            {t('signIn')}
           </Link>
         </GlassCard>
       </div>
@@ -327,21 +331,21 @@ export default function ChallengesPage() {
     <div className="max-w-4xl mx-auto px-4 py-12 pb-28 md:pb-12">
       <div className="mb-10">
         <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">
-          Daily Challenge
+          {t('heading')}
         </h1>
         <p className="text-on-surface-variant mt-2">
-          Answer today&apos;s prediction questions. Build your streak. Climb the leaderboard.
+          {t('description')}
         </p>
       </div>
 
       {isAuthenticated && (
         <GlassCard className="p-6 mb-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <StreakBadge streak={streak} />
+            <StreakBadge streak={streak} t={t} />
             {challenge && totalQuestions > 0 && (
               <div className="w-full sm:w-48">
                 <div className="flex items-center justify-between text-xs text-on-surface-variant mb-1.5">
-                  <span>{answeredCount}/{totalQuestions} answered</span>
+                  <span>{t('answered', { answeredCount, totalQuestions })}</span>
                   <span>{Math.round(progress)}%</span>
                 </div>
                 <div className="h-2 rounded-full bg-white/[0.06] overflow-hidden">
@@ -375,9 +379,9 @@ export default function ChallengesPage() {
       {!loading && !challenge && (
         <GlassCard className="p-12 text-center">
           <div className="text-5xl mb-4">&#9917;</div>
-          <h2 className="font-headline text-xl text-on-surface mb-2">No Challenge Today</h2>
+          <h2 className="font-headline text-xl text-on-surface mb-2">{t('noChallenge')}</h2>
           <p className="text-on-surface-variant">
-            Today&apos;s challenge hasn&apos;t been generated yet. Check back soon!
+            {t('noChallengeDesc')}
           </p>
         </GlassCard>
       )}
@@ -399,6 +403,7 @@ export default function ChallengesPage() {
                 attempt={attempts.get(q.id)}
                 onSubmit={handleSubmit}
                 submitting={submitting}
+                t={t}
               />
             ))}
           </div>
@@ -406,19 +411,19 @@ export default function ChallengesPage() {
           {answeredCount === totalQuestions && totalQuestions > 0 && (
             <GlassCard className="p-8 text-center mb-10">
               <div className="text-4xl mb-3">&#127942;</div>
-              <h2 className="font-headline text-2xl text-primary mb-2">Challenge Complete!</h2>
+              <h2 className="font-headline text-2xl text-primary mb-2">{t('challengeComplete')}</h2>
               <p className="text-on-surface-variant">
-                You&apos;ve answered all {totalQuestions} questions.
+                {t('challengeCompleteDesc', { count: totalQuestions })}
                 {challenge.settled
-                  ? ` You earned ${Array.from(attempts.values()).reduce((sum, a) => sum + a.points_earned, 0)} points today!`
-                  : ' Results will be settled after the matches finish.'}
+                  ? ` ${t('pointsEarned', { count: Array.from(attempts.values()).reduce((sum, a) => sum + a.points_earned, 0) })}`
+                  : ` ${t('answerLocked')}`}
               </p>
             </GlassCard>
           )}
         </>
       )}
 
-      <MiniLeaderboard entries={leaderboard} userRank={userRank} />
+      <MiniLeaderboard entries={leaderboard} userRank={userRank} t={t} />
     </div>
   )
 }

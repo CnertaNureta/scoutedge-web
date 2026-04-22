@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -10,19 +11,23 @@ import type { MatchFixture } from '@/lib/types'
 
 export const revalidate = 3600
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Bracket — Complete Knockout Stage Visualization',
-  description:
-    'Full World Cup 2026 bracket from the Round of 32 through the Final at MetLife Stadium. AI-powered probabilities for every knockout match across 32 fixtures.',
-  keywords:
-    'World Cup 2026 bracket, World Cup 2026 knockout stage, World Cup bracket 2026, tournament bracket, World Cup 2026 draw, Round of 32',
-  alternates: { canonical: 'https://kickoracle.com/bracket' },
-  ...buildOGMeta({
-    title: 'World Cup 2026 Bracket — Knockout Stage',
-    description:
-      'Complete tournament bracket from Round of 32 to the Final. AI probabilities for all 32 knockout matches.',
-    url: 'https://kickoracle.com/bracket',
-  }),
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'bracketPage' })
+  return {
+    title: t('metaTitle'),
+    description: t('metaDescription'),
+    keywords:
+      'World Cup 2026 bracket, World Cup 2026 knockout stage, World Cup bracket 2026, tournament bracket, World Cup 2026 draw, Round of 32',
+    alternates: { canonical: 'https://kickoracle.com/bracket' },
+    ...buildOGMeta({
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      url: 'https://kickoracle.com/bracket',
+    }),
+  }
 }
 
 /* ───────── Round metadata ───────── */
@@ -349,7 +354,10 @@ function RoadToFinal() {
 
 /* ───────── Page ───────── */
 
-export default function BracketPage() {
+export default async function BracketPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('bracketPage')
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -376,22 +384,21 @@ export default function BracketPage() {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-tertiary/10 border border-tertiary/30 font-label text-xs font-semibold tracking-widest uppercase mb-6 text-tertiary">
-            32 Knockout Matches
+            {t('knockoutBadge')}
           </span>
 
           <h1 className="font-headline text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-wide uppercase mb-4">
-            <span className="block text-on-surface">Tournament</span>
-            <span className="block gradient-text">Bracket</span>
+            <span className="block text-on-surface">{t('headingLine1')}</span>
+            <span className="block gradient-text">{t('headingLine2')}</span>
           </h1>
 
           <p className="font-body text-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
-            The complete World Cup 2026 knockout stage. From 48 teams in the Round of 32 down to
-            the Final at MetLife Stadium on July 19. AI-powered probabilities for every fixture.
+            {t('description')}
           </p>
 
           <HeroRegistrationCta
-            headline="Build your bracket and track every match — free."
-            cta="Create Free Account"
+            headline={t('ctaHeadline')}
+            cta={t('ctaButton')}
             className="justify-center mb-6"
           />
 
@@ -400,19 +407,19 @@ export default function BracketPage() {
               href="/predictions"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              AI Predictions
+              {t('linkPredictions')}
             </Link>
             <Link
               href="/schedule"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              Full Schedule
+              {t('linkSchedule')}
             </Link>
             <Link
               href="/groups"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              Group Stage
+              {t('linkGroups')}
             </Link>
           </div>
         </div>
@@ -431,7 +438,7 @@ export default function BracketPage() {
       {/* ── Bracket Visualization ── */}
       <section className="max-w-[1920px] mx-auto px-4 xl:px-8 pb-20">
         <SectionHeader className="mb-8" withRule>
-          Knockout Bracket
+          {t('sectionKnockout')}
         </SectionHeader>
 
         {/* Desktop: horizontal bracket flow */}
@@ -444,7 +451,7 @@ export default function BracketPage() {
       {/* ── Key Venues ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <SectionHeader className="mb-8" accentColor="#e9c400">
-          Key Venues
+          {t('sectionKeyVenues')}
         </SectionHeader>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -479,24 +486,23 @@ export default function BracketPage() {
       <section className="max-w-[1440px] mx-auto px-6 pb-24">
         <GlassCard className="p-8 md:p-12 text-center">
           <h2 className="font-headline text-3xl md:text-4xl uppercase tracking-wide text-on-surface mb-4">
-            Explore the Full Tournament
+            {t('ctaExploreHeading')}
           </h2>
           <p className="font-body text-on-surface-variant max-w-xl mx-auto mb-8">
-            Dive deeper with AI-powered team profiles, head-to-head comparisons, and daily updated predictions
-            for all 48 competing nations.
+            {t('ctaExploreDescription')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/teams"
               className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
             >
-              Browse All Teams
+              {t('linkBrowseTeams')}
             </Link>
             <Link
               href="/simulator"
               className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
             >
-              Tournament Simulator
+              {t('linkSimulator')}
             </Link>
           </div>
         </GlassCard>

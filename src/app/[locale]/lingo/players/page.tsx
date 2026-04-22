@@ -1,13 +1,23 @@
 import type { Metadata } from 'next'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoPlayers, lingoCountries } from '@/data/lingo-data'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Player Pronunciation Guide',
-  description: `How to pronounce ${lingoPlayers.length}+ World Cup 2026 player names. Mbappé, Szczęsny, Tchouaméni — get every name right with IPA and phonetic guides.`,
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'lingoPage' })
+  return {
+    title: t('playerGuide'),
+    description: t('playerGuideDesc', { count: lingoPlayers.length }),
+  }
 }
 
-export default function LingoPlayersPage() {
+export default async function LingoPlayersPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('lingoPage')
   const playersByCountry = new Map<string, typeof lingoPlayers>()
   for (const player of lingoPlayers) {
     const existing = playersByCountry.get(player.country) ?? []
@@ -23,11 +33,10 @@ export default function LingoPlayersPage() {
     <div className="mx-auto max-w-6xl px-6 py-12">
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-lingo-text sm:text-4xl">
-          Player Pronunciation Guide
+          {t('playerGuide')}
         </h1>
         <p className="mt-2 text-base text-lingo-text-muted">
-          {lingoPlayers.length} star players with step-by-step phonetic breakdowns, IPA
-          transcriptions, and name origins.
+          {t('playerGuideDesc', { count: lingoPlayers.length })}
         </p>
       </div>
 

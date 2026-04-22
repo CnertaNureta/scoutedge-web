@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -35,6 +36,7 @@ const EARNING_OPPORTUNITIES = [
 ]
 
 export default function PointsPage() {
+  const t = useTranslations('pointsPage')
   const { user, loading: authLoading } = useAuth()
   const { apiFetch } = useApi()
 
@@ -89,10 +91,10 @@ export default function PointsPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-12 pb-28 md:pb-12">
         <GlassCard className="p-8 text-center">
-          <h2 className="font-headline text-xl text-on-surface mb-3">Sign in to earn ScoutCoins</h2>
-          <p className="text-on-surface-variant mb-6">Make predictions, complete challenges, and earn rewards.</p>
+          <h2 className="font-headline text-xl text-on-surface mb-3">{t('authHeading')}</h2>
+          <p className="text-on-surface-variant mb-6">{t('authDescription')}</p>
           <Link href="/auth/login" className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all inline-block">
-            Sign In
+            {t('signIn')}
           </Link>
         </GlassCard>
       </div>
@@ -124,10 +126,10 @@ export default function PointsPage() {
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="font-display text-4xl md:text-5xl text-on-surface tracking-wide">
-          ScoutCoins
+          {t('heading')}
         </h1>
         <p className="text-on-surface-variant mt-2 font-body">
-          Earn coins. Unlock rewards. Climb the leaderboard.
+          {t('description')}
         </p>
       </div>
 
@@ -139,7 +141,7 @@ export default function PointsPage() {
             {(balance?.balance ?? 0).toLocaleString()}
           </div>
           <div className="text-[11px] font-label uppercase tracking-widest text-on-surface-variant mt-2">
-            Available ScoutCoins
+            {t('available')}
           </div>
 
           <div className="flex items-center justify-center gap-6 mt-6">
@@ -148,7 +150,7 @@ export default function PointsPage() {
                 {(balance?.lifetime_earned ?? 0).toLocaleString()}
               </div>
               <div className="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">
-                Total Earned
+                {t('totalEarned')}
               </div>
             </div>
             <div className="w-px h-10 bg-white/[0.08]" />
@@ -157,7 +159,7 @@ export default function PointsPage() {
                 {(balance?.lifetime_spent ?? 0).toLocaleString()}
               </div>
               <div className="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">
-                Total Spent
+                {t('totalSpent')}
               </div>
             </div>
             <div className="w-px h-10 bg-white/[0.08]" />
@@ -166,7 +168,7 @@ export default function PointsPage() {
                 {streakDays}
               </div>
               <div className="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">
-                Day Streak
+                {t('dayStreak')}
               </div>
             </div>
           </div>
@@ -178,10 +180,10 @@ export default function PointsPage() {
         {/* Daily Check-in */}
         <GlassCard className="p-6">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-headline text-lg text-on-surface">Daily Check-in</h2>
+            <h2 className="font-headline text-lg text-on-surface">{t('dailyCheckin')}</h2>
             {streakDays > 0 && (
               <span className="text-xs font-label uppercase tracking-widest bg-tertiary/15 text-tertiary px-2 py-1 rounded-full">
-                {streakDays} day streak
+                {t('streakBadge', { count: streakDays })}
               </span>
             )}
           </div>
@@ -189,7 +191,7 @@ export default function PointsPage() {
           {checkinResult?.success && (
             <div className="mb-3 p-3 rounded-lg bg-primary/10 border border-primary/20">
               <p className="text-primary font-bold text-sm">
-                +{checkinResult.points_earned} ScoutCoins earned!
+                {t('checkinSuccess', { count: checkinResult.points_earned ?? 0 })}
               </p>
               {checkinResult.bonus_description && (
                 <p className="text-primary/80 text-xs mt-1">{checkinResult.bonus_description}</p>
@@ -198,7 +200,7 @@ export default function PointsPage() {
           )}
           {checkinResult && !checkinResult.success && checkinResult.reason === 'already_checked_in' && (
             <div className="mb-3 p-3 rounded-lg bg-white/[0.04] border border-white/[0.08]">
-              <p className="text-on-surface-variant text-sm">Already checked in today. Come back tomorrow!</p>
+              <p className="text-on-surface-variant text-sm">{t('checkedIn')}</p>
             </div>
           )}
 
@@ -211,7 +213,7 @@ export default function PointsPage() {
                 : 'bg-white/[0.06] text-on-surface-variant cursor-default'
             }`}
           >
-            {checkingIn ? 'Checking in...' : canCheckin ? 'Check In (+10 coins)' : 'Checked In Today'}
+            {checkingIn ? t('checkinButton') : canCheckin ? t('checkinButton') : t('checkedIn')}
           </button>
         </GlassCard>
 
@@ -219,15 +221,15 @@ export default function PointsPage() {
         <GlassCard className="p-6 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-tertiary/[0.06] to-transparent" />
           <div className="relative">
-            <h2 className="font-headline text-lg text-on-surface mb-2">Rewards Store</h2>
+            <h2 className="font-headline text-lg text-on-surface mb-2">{t('rewardsStore')}</h2>
             <p className="text-on-surface-variant text-sm mb-4">
-              Redeem coins for Premium trials, AI analysis, wallpapers & more.
+              {t('rewardsStoreDesc')}
             </p>
             <Link
               href="/store"
               className="inline-block px-6 py-3 rounded-xl bg-tertiary text-on-tertiary font-bold text-sm hover:brightness-110 transition-all"
             >
-              Browse Store
+              {t('browseStore')}
             </Link>
           </div>
         </GlassCard>
@@ -236,7 +238,7 @@ export default function PointsPage() {
       {/* Recent Transactions */}
       {transactions.length > 0 && (
         <GlassCard className="p-6 mb-8">
-          <h2 className="font-headline text-lg text-on-surface mb-4">Recent Activity</h2>
+          <h2 className="font-headline text-lg text-on-surface mb-4">{t('recentActivity')}</h2>
           <div className="space-y-3">
             {transactions.map(tx => (
               <div key={tx.id} className="flex items-center justify-between py-2 border-b border-white/[0.04] last:border-0">
@@ -261,14 +263,14 @@ export default function PointsPage() {
 
       {/* Earning Guide */}
       <GlassCard className="p-6 mb-8">
-        <h2 className="font-headline text-lg text-on-surface mb-4">How to Earn ScoutCoins</h2>
+        <h2 className="font-headline text-lg text-on-surface mb-4">{t('howToEarn')}</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.08]">
-                <th className="text-left py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest">Action</th>
-                <th className="text-right py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest">Coins</th>
-                <th className="text-right py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest hidden sm:table-cell">Frequency</th>
+                <th className="text-left py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest">{t('action')}</th>
+                <th className="text-right py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest">{t('coins')}</th>
+                <th className="text-right py-2 text-on-surface-variant font-label text-xs uppercase tracking-widest hidden sm:table-cell">{t('frequency')}</th>
               </tr>
             </thead>
             <tbody>
@@ -294,16 +296,16 @@ export default function PointsPage() {
       {/* Quick Links */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         {[
-          { href: '/predict', label: 'Predictions', icon: '\u26BD' },
-          { href: '/challenges', label: 'Challenges', icon: '\uD83E\uDDE9' },
-          { href: '/leaderboard', label: 'Leaderboard', icon: '\uD83C\uDFC6' },
-          { href: '/store', label: 'Store', icon: '\uD83D\uDED2' },
+          { href: '/predict', labelKey: 'predictions' as const, icon: '\u26BD' },
+          { href: '/challenges', labelKey: 'challenges' as const, icon: '\uD83E\uDDE9' },
+          { href: '/leaderboard', labelKey: 'leaderboard' as const, icon: '\uD83C\uDFC6' },
+          { href: '/store', labelKey: 'store' as const, icon: '\uD83D\uDED2' },
         ].map(link => (
           <Link key={link.href} href={link.href}>
             <GlassCard className="p-4 text-center hover:translate-y-[-2px] transition-transform">
               <div className="text-2xl mb-1">{link.icon}</div>
               <div className="text-xs font-label uppercase tracking-widest text-on-surface-variant">
-                {link.label}
+                {t(link.labelKey)}
               </div>
             </GlassCard>
           </Link>

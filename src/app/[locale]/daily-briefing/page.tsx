@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
 import { getLatestNarrativePost } from '@/lib/blog-service'
@@ -7,26 +8,31 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+import Paywall from '@/components/monetization/Paywall'
 import { BRAND } from '@/lib/brand-tokens'
 
-export const revalidate = 300
+export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Daily Briefing: Latest News & AI Intelligence Updates',
-  description:
-    'Your daily World Cup 2026 intelligence briefing. AI-extracted signals covering injuries, transfers, form, tactical shifts, and sentiment across all 48 teams. Updated daily.',
-  keywords: 'World Cup 2026 news, World Cup 2026 daily briefing, World Cup 2026 updates, World Cup 2026 injuries, World Cup 2026 intelligence',
-  openGraph: {
-    title: 'Daily Briefing — World Cup 2026 | KickOracle',
-    description: 'AI-powered daily intelligence on all 48 World Cup 2026 teams.',
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'World Cup 2026 Daily Briefing | KickOracle',
-    description: 'Today\'s AI-extracted signals across all 48 teams.',
-  },
-  alternates: { canonical: 'https://kickoracle.com/daily-briefing' },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'dailyBriefingPage' })
+  return {
+    title: t('heading'),
+    description: t('description'),
+    openGraph: {
+      title: t('heading'),
+      description: t('description'),
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('heading'),
+      description: t('description'),
+    },
+    alternates: { canonical: 'https://kickoracle.com/daily-briefing' },
+  }
 }
 
 type Signal = DailyBriefingSignal
@@ -78,7 +84,10 @@ function SignalCard({ signal }: { signal: Signal }) {
   )
 }
 
-export default async function DailyBriefingPage() {
+export default async function DailyBriefingPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('dailyBriefingPage')
   const [briefingData, news] = await Promise.all([
     getDailyBriefingPageData(),
     fetchWorldCupNews(20),
@@ -121,13 +130,12 @@ export default async function DailyBriefingPage() {
           <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-3xl" />
         </div>
         <div className="max-w-[1440px] mx-auto text-center relative">
-          <Badge variant="secondary" size="md">Daily Intelligence</Badge>
+          <Badge variant="secondary" size="md">{t('badge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter uppercase mt-4 mb-4">
-            Daily<br />
-            <span className="text-primary">Briefing</span>
+            {t('heading')}
           </h1>
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto mb-6">
-            AI-extracted signals from news, social media, and data sources across all 48 World Cup 2026 teams.
+            {t('description')}
           </p>
           <p className="font-label text-sm text-on-surface-variant uppercase tracking-widest mb-8">
             {today}
@@ -137,21 +145,21 @@ export default async function DailyBriefingPage() {
           <div className="flex flex-wrap justify-center gap-3">
             <GlassCard className="px-5 py-3 flex items-center gap-2">
               <span className="font-mono text-lg font-bold text-primary">{signals.length}</span>
-              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Signals</span>
+              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('signals')}</span>
             </GlassCard>
             {news.length > 0 && (
               <GlassCard className="px-5 py-3 flex items-center gap-2">
                 <span className="font-mono text-lg font-bold text-primary">{news.length}</span>
-                <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Live News</span>
+                <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('liveNews')}</span>
               </GlassCard>
             )}
             <GlassCard className="px-5 py-3 flex items-center gap-2">
               <span className="font-mono text-lg font-bold text-red-400">{highCount}</span>
-              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">High Impact</span>
+              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('highImpact')}</span>
             </GlassCard>
             <GlassCard className="px-5 py-3 flex items-center gap-2">
               <span className="font-mono text-lg font-bold text-yellow-400">{mediumCount}</span>
-              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Medium Impact</span>
+              <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('mediumImpact')}</span>
             </GlassCard>
           </div>
         </div>
@@ -159,29 +167,31 @@ export default async function DailyBriefingPage() {
 
       {publishedBriefing && (
         <section className="max-w-[1440px] mx-auto px-6 mb-12">
-          <GlassCard className="p-6 md:p-7 border-primary/20">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div className="max-w-3xl">
-                <Badge variant="primary" size="sm">Published Narrative</Badge>
-                <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mt-3 mb-3">
-                  {publishedBriefing.title}
-                </h2>
-                <p className="text-on-surface-variant leading-relaxed mb-4">
-                  {publishedBriefing.description}
-                </p>
-                <div className="flex flex-wrap gap-3 text-xs font-label uppercase tracking-widest text-on-surface-variant">
-                  {publishedBriefing.publishedAt && <span>Published {publishedBriefing.publishedAt}</span>}
-                  {publishedBriefing.factCount && <span>{publishedBriefing.factCount} anchored facts</span>}
+          <Paywall contentType="daily_briefing" previewLines={5}>
+            <GlassCard className="p-6 md:p-7 border-primary/20">
+              <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="max-w-3xl">
+                  <Badge variant="primary" size="sm">{t('publishedNarrative')}</Badge>
+                  <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mt-3 mb-3">
+                    {publishedBriefing.title}
+                  </h2>
+                  <p className="text-on-surface-variant leading-relaxed mb-4">
+                    {publishedBriefing.description}
+                  </p>
+                  <div className="flex flex-wrap gap-3 text-xs font-label uppercase tracking-widest text-on-surface-variant">
+                    {publishedBriefing.publishedAt && <span>Published {publishedBriefing.publishedAt}</span>}
+                    {publishedBriefing.factCount && <span>{publishedBriefing.factCount} anchored facts</span>}
+                  </div>
                 </div>
+                <Link
+                  href={`/blog/${publishedBriefing.slug}`}
+                  className="inline-flex items-center rounded-full border border-primary/40 px-5 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
+                >
+                  {t('readFullBriefing')}
+                </Link>
               </div>
-              <Link
-                href={`/blog/${publishedBriefing.slug}`}
-                className="inline-flex items-center rounded-full border border-primary/40 px-5 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
-              >
-                Read Full Briefing
-              </Link>
-            </div>
-          </GlassCard>
+            </GlassCard>
+          </Paywall>
         </section>
       )}
 
@@ -191,9 +201,9 @@ export default async function DailyBriefingPage() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
             <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-              Live News Feed
+              {t('liveNewsFeed')}
             </h2>
-            <Badge variant="primary" size="sm">Real-time</Badge>
+            <Badge variant="primary" size="sm">{t('realTime')}</Badge>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
             {news.map((item, i) => (
@@ -235,7 +245,7 @@ export default async function DailyBriefingPage() {
       {/* Signal Type Filter Labels */}
       <section className="max-w-[1440px] mx-auto px-6 mb-4">
         <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mb-6">
-          Intelligence Signals
+          {t('intelligenceSignals')}
         </h2>
         <div className="flex flex-wrap gap-2">
           {signalTypes.map((type) => (
@@ -258,13 +268,13 @@ export default async function DailyBriefingPage() {
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div>
               <h3 className="font-headline text-xl uppercase tracking-tight text-on-surface">
-                Open Signal Feed
+                {t('openSignalFeed')}
               </h3>
               <p className="mt-2 max-w-2xl text-sm leading-6 text-on-surface-variant">
-                KickOracle v1 keeps the briefing open so the core narrative layer stays readable without paywalls or subscription detours.
+                {t('freeSignalsNote')}
               </p>
             </div>
-            <Badge variant="primary" size="sm">All signals visible</Badge>
+            <Badge variant="primary" size="sm">{t('freeSignals')}</Badge>
           </div>
         </GlassCard>
         <div className="space-y-3">
@@ -279,9 +289,9 @@ export default async function DailyBriefingPage() {
         <section className="max-w-[1440px] mx-auto px-6 mb-12">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-              Confirmed 2026 Fixtures
+              {t('confirmedFixtures')}
             </h2>
-            <Badge variant="primary" size="sm">Live API</Badge>
+            <Badge variant="primary" size="sm">{t('liveApi')}</Badge>
           </div>
           <p className="text-on-surface-variant text-sm mb-6">
             Real match data from <span className="text-primary">TheSportsDB</span> — updated{' '}
@@ -317,7 +327,7 @@ export default async function DailyBriefingPage() {
               href="/schedule"
               className="inline-flex items-center gap-2 text-primary font-label text-xs font-bold uppercase tracking-widest hover:underline"
             >
-              View Full Schedule ({liveCache.wcFixtures2026.length}+ matches) →
+              {t('confirmedFixtures')}
             </Link>
           </div>
         </section>
@@ -328,9 +338,9 @@ export default async function DailyBriefingPage() {
         <section className="max-w-[1440px] mx-auto px-6 mb-12">
           <div className="flex items-center gap-3 mb-6">
             <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-              2022 WC Flashbacks
+              {t('flashbacks')}
             </h2>
-            <Badge variant="outline" size="sm">Historical</Badge>
+            <Badge variant="outline" size="sm">{t('historical')}</Badge>
           </div>
           <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-5">
             {liveCache.wcFixtures2022.slice(0, 10).map((match) => (
@@ -357,10 +367,11 @@ export default async function DailyBriefingPage() {
       <section className="max-w-[1440px] mx-auto px-6 mb-12">
         <div className="flex items-center gap-3 mb-6">
           <h2 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight">
-            Social Buzz
+            {t('socialBuzz')}
           </h2>
-          <Badge variant="primary" size="sm">Trending</Badge>
+          <Badge variant="primary" size="sm">{t('trending')}</Badge>
         </div>
+        <Paywall contentType="prediction" previewLines={8}>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {trendingPlayers.map((player) => (
             <GlassCard key={player.playerSlug} className="p-5 relative overflow-hidden">
@@ -408,6 +419,7 @@ export default async function DailyBriefingPage() {
             </GlassCard>
           ))}
         </div>
+        </Paywall>
       </section>
 
       {/* Newsletter */}
@@ -419,23 +431,23 @@ export default async function DailyBriefingPage() {
       <section className="max-w-[1440px] mx-auto px-6 mb-20 text-center">
         <GlassCard className="p-8 md:p-12">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-3">
-            Explore Team Intelligence
+            {t('exploreTeamIntel')}
           </h2>
           <p className="text-on-surface-variant mb-6 max-w-lg mx-auto">
-            Dive deeper into individual team analysis, squad chemistry breakdowns, and player-level intelligence reports.
+            {t('exploreTeamDesc')}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="/teams"
               className="inline-flex items-center gap-2 bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
             >
-              Browse All Teams
+              {t('browseAllTeams')}
             </Link>
             <Link
               href="/power-rankings"
               className="inline-flex items-center gap-2 bg-surface-container-high text-on-surface font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-surface-container-highest transition-colors"
             >
-              Power Rankings
+              {t('powerRankings')}
             </Link>
           </div>
         </GlassCard>
