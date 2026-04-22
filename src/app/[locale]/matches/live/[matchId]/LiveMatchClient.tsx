@@ -4,6 +4,7 @@ import { useMemo } from 'react'
 import Link from 'next/link'
 import { useMatchLive } from '@/hooks/useMatchLive'
 import { usePredictions } from '@/hooks/usePredictions'
+import { useMatchStats } from '@/hooks/useMatchStats'
 import {
   LiveMatchHeader,
   PredictionVoting,
@@ -11,8 +12,8 @@ import {
   MatchTimeline,
   LiveMatchStats,
 } from '@/components/live-match'
-import type { MatchStat } from '@/components/live-match/LiveMatchStats'
 import type { Team, MatchFixture } from '@/lib/types'
+import SignalsFeed from '@/components/signals/SignalsFeed'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 
@@ -22,15 +23,6 @@ interface LiveMatchClientProps {
   homeTeam: Team
   awayTeam: Team
 }
-
-const DEMO_STATS: MatchStat[] = [
-  { label: 'Possession', home: 58, away: 42 },
-  { label: 'Shots', home: 12, away: 7 },
-  { label: 'Shots on Target', home: 5, away: 3 },
-  { label: 'Corners', home: 6, away: 2 },
-  { label: 'Fouls', home: 8, away: 11 },
-  { label: 'Passes', home: 412, away: 298 },
-]
 
 export default function LiveMatchClient({
   matchId,
@@ -55,6 +47,8 @@ export default function LiveMatchClient({
   } = usePredictions(matchId)
 
   const isLive = matchState.status && !['not_started', 'finished'].includes(matchState.status)
+
+  const { stats: liveStats } = useMatchStats(matchId, !!isLive)
 
   const matchInfo = useMemo(() => ({
     venue: fixture.venue,
@@ -121,7 +115,7 @@ export default function LiveMatchClient({
                 Match Flow
               </h2>
               <LiveMatchStats
-                stats={isLive ? DEMO_STATS : []}
+                stats={liveStats}
                 homeTeamName={homeTeam.name}
                 awayTeamName={awayTeam.name}
               />
@@ -137,6 +131,8 @@ export default function LiveMatchClient({
               homeTeamName={homeTeam.name}
               awayTeamName={awayTeam.name}
             />
+
+            <SignalsFeed maxVisible={5} />
 
             <GlassCard className="p-5">
               <h3 className="font-headline text-base uppercase tracking-wide text-on-surface mb-3">

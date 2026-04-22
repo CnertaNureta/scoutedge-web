@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback, useMemo } from 'react'
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react'
 import { useRealtimeChannel, type ConnectionStatus } from './useRealtimeChannel'
 import { channels, RealtimeEvent, type PollVoteUpdatePayload } from '@/lib/realtime-channels'
 
@@ -57,6 +57,55 @@ export function usePredictions(matchId: string | null): UsePredictionsReturn {
   const [userPredictions, setUserPredictions] = useState<UserPrediction[]>([])
   const [leaderboard, setLeaderboard] = useState<LeaderboardEntry[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const fetchedRef = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (!matchId || fetchedRef.current === matchId) return
+    fetchedRef.current = matchId
+
+    const controller = new AbortController()
+
+    fetch(`/api/v1/predictions/live?matchId=${encodeURIComponent(matchId)}`, {
+      signal: controller.signal,
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!data) return
+        if (data.markets) {
+          setMarkets(
+            data.markets.map((m: Record<string, unknown>) => ({
+              id: m.id as string,
+              matchId: m.match_id as string,
+              type: m.type as PredictionType,
+              question: m.question as string,
+              options: (m.options ?? []) as PredictionOption[],
+              closesAt: (m.closes_at as string) ?? null,
+              status: (m.status as PredictionMarket['status']) ?? 'open',
+              totalVotes: (m.total_votes as number) ?? 0,
+              votes: (m.votes ?? {}) as Record<string, number>,
+              resolvedOptionId: (m.resolved_option_id as string) ?? null,
+            })),
+          )
+        }
+        if (data.leaderboard) {
+          setLeaderboard(
+            data.leaderboard.map((e: Record<string, unknown>, i: number) => ({
+              userId: e.user_id as string,
+              displayName: (e.display_name as string) ?? 'Anonymous',
+              avatarUrl: (e.avatar_url as string) ?? null,
+              points: (e.points as number) ?? 0,
+              correctPredictions: (e.correct_predictions as number) ?? 0,
+              totalPredictions: (e.total_predictions as number) ?? 0,
+              rank: (e.rank as number) ?? i + 1,
+              streak: (e.streak as number) ?? 0,
+            })),
+          )
+        }
+      })
+      .catch(() => {})
+
+    return () => controller.abort()
+  }, [matchId])
 
   const topic = useMemo(
     () => (matchId ? channels.matchPolls(matchId) : ''),
