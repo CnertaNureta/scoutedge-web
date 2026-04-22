@@ -12,6 +12,7 @@ import InstallBanner from '@/components/pwa/InstallBanner'
 import UpsellBanner from '@/components/monetization/UpsellBanner'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
+import { AdSenseScript } from '@/components/analytics/AdSenseScript'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
 
 interface LocaleLayoutProps {
@@ -103,6 +104,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     <>
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
+      <AdSenseScript />
       <NextIntlClientProvider messages={messages}>
         <Providers>
           <div dir={config?.dir ?? 'ltr'} lang={locale}>

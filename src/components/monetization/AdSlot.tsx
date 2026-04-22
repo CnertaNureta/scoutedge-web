@@ -1,24 +1,14 @@
 'use client'
 
-/**
- * Ad slot placeholder component.
- * When AdSense/Mediavine is activated, replace the placeholder
- * content with the actual ad script tags.
- *
- * Slots:
- * - leaderboard: 728x90 (top of page, between sections)
- * - sidebar: 300x250 (sidebar, within content)
- * - in-feed: 336x280 (between content cards)
- * - sticky-footer: 320x50 mobile sticky bottom
- */
+import { useEffect, useRef } from 'react'
 
 type AdFormat = 'leaderboard' | 'sidebar' | 'in-feed' | 'sticky-footer'
 
-const AD_DIMENSIONS: Record<AdFormat, { w: string; h: string; label: string }> = {
-  leaderboard: { w: '728px', h: '90px', label: 'Ad' },
-  sidebar: { w: '300px', h: '250px', label: 'Ad' },
-  'in-feed': { w: '100%', h: '280px', label: 'Sponsored' },
-  'sticky-footer': { w: '320px', h: '50px', label: 'Ad' },
+const AD_CONFIG: Record<AdFormat, { w: string; h: string; label: string; adFormat: string }> = {
+  leaderboard: { w: '728px', h: '90px', label: 'Ad', adFormat: 'horizontal' },
+  sidebar: { w: '300px', h: '250px', label: 'Ad', adFormat: 'rectangle' },
+  'in-feed': { w: '100%', h: '280px', label: 'Sponsored', adFormat: 'fluid' },
+  'sticky-footer': { w: '320px', h: '50px', label: 'Ad', adFormat: 'horizontal' },
 }
 
 interface AdSlotProps {
@@ -26,24 +16,39 @@ interface AdSlotProps {
   className?: string
 }
 
-export default function AdSlot({ format, className = '' }: AdSlotProps) {
-  const dims = AD_DIMENSIONS[format]
+const PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
 
-  // In production with real ads, this component would render the ad script.
-  // For now, render a styled placeholder that shows where ads will appear.
-  // Set NEXT_PUBLIC_ADS_ENABLED=true to show placeholders during development.
-  if (process.env.NEXT_PUBLIC_ADS_ENABLED !== 'true') {
-    return null // Hidden in production until ads are configured
-  }
+export default function AdSlot({ format, className = '' }: AdSlotProps) {
+  const adRef = useRef<HTMLModElement>(null)
+  const pushed = useRef(false)
+  const config = AD_CONFIG[format]
+
+  useEffect(() => {
+    if (!PUBLISHER_ID || pushed.current || !adRef.current) return
+    try {
+      const adsbygoogle = (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || []
+      adsbygoogle.push({})
+      pushed.current = true
+    } catch {
+      // AdSense not loaded yet or blocked by adblocker
+    }
+  }, [])
+
+  if (!PUBLISHER_ID) return null
 
   return (
     <div
-      className={`flex items-center justify-center rounded-lg border border-dashed border-white/10 bg-white/[0.02] ${className}`}
-      style={{ maxWidth: dims.w, height: dims.h, width: '100%', margin: '0 auto' }}
+      className={`flex items-center justify-center ${className}`}
+      style={{ maxWidth: config.w, width: '100%', margin: '0 auto' }}
     >
-      <span className="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest">
-        {dims.label} — {format}
-      </span>
+      <ins
+        ref={adRef}
+        className="adsbygoogle"
+        style={{ display: 'block', width: '100%', height: config.h }}
+        data-ad-client={PUBLISHER_ID}
+        data-ad-format={config.adFormat === 'fluid' ? 'fluid' : 'auto'}
+        data-full-width-responsive="true"
+      />
     </div>
   )
 }
