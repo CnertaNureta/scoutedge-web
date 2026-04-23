@@ -23,7 +23,7 @@ export const PRICING = {
 export const PRO_FEATURES = [
   'AI-powered match predictions with confidence scores',
   'Tactical deep-dive analysis for every match',
-  'Real-time market intelligence & value bets',
+  'Real-time market intelligence & AI edges',
   'Player fitness & sentiment tracking',
   'Team chemistry index breakdowns',
   'Premium daily briefings',

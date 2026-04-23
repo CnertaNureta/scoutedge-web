@@ -26,7 +26,7 @@ export interface ForumTopic {
 export const FORUM_CATEGORIES: ForumCategory[] = [
   {
     slug: 'predictions',
-    title: 'Predictions & Betting',
+    title: 'Predictions & Forecasts',
     description: 'Share your World Cup 2026 predictions, group stage picks, and Golden Boot tips.',
     icon: '🔮',
     accent: BRAND.tertiary,

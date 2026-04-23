@@ -44,7 +44,7 @@ export default async function TermsOfServicePage({ params }: Props) {
         <p>All content on KickOracle is for informational and entertainment purposes only.</p>
         <ul>
           <li>Predictions and analysis are generated using AI models and statistical methods and are not guaranteed to be accurate.</li>
-          <li>Content should not be relied upon as the sole basis for betting, gambling, or financial decisions.</li>
+          <li>Content should not be relied upon as the sole basis for financial or other high-stakes decisions.</li>
           <li>We make no representations or warranties regarding the accuracy, completeness, or reliability of any predictions.</li>
         </ul>
 
@@ -80,7 +80,7 @@ export default async function TermsOfServicePage({ params }: Props) {
         <p>
           In no event shall KickOracle, its owners, or contributors be liable for any indirect, incidental,
           special, consequential, or punitive damages arising out of or related to your use of the website,
-          including but not limited to losses from betting or gambling activities based on our content.
+          including but not limited to financial losses from decisions based on our content.
         </p>
 
         <h2>8. Third-Party Links</h2>

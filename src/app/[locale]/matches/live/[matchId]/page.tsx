@@ -12,12 +12,6 @@ function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
   return `${fixture.homeTeamSlug}-vs-${fixture.awayTeamSlug}-${fixture.group.toLowerCase()}`
 }
 
-export async function generateStaticParams() {
-  return MATCH_FIXTURES.map((fixture) => ({
-    matchId: fixtureToMatchId(fixture),
-  }))
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { matchId } = await params
   const fixture = MATCH_FIXTURES.find((f) => fixtureToMatchId(f) === matchId)

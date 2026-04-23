@@ -601,7 +601,13 @@ function normalizeLiveCache(rawData: unknown): LiveCacheSnapshot {
 }
 
 function buildMarketIntel(team: Team): MarketIntelData {
-  const bookmakers = ['Bet365', 'Betfair', 'William Hill', 'Betway', 'Unibet']
+  const consensusSources = [
+    'Consensus A',
+    'Consensus B',
+    'Consensus C',
+    'Consensus D',
+    'Consensus E',
+  ]
   const rng = seededRandom(hashCode(team.slug))
   const rank = team.fifaRanking
 
@@ -612,17 +618,17 @@ function buildMarketIntel(team: Team): MarketIntelData {
   else if (rank <= 30) baseOdds = 60 + rng() * 80
   else baseOdds = 150 + rng() * 350
 
-  const tournamentOdds = bookmakers.map((bookmaker) => {
+  const tournamentPrices = consensusSources.map((source) => {
     const variance = 0.9 + rng() * 0.2
     const decimalOdds = Math.round(baseOdds * variance * 100) / 100
     const impliedProbability = Math.round((1 / decimalOdds) * 1000) / 10
-    return { bookmaker, decimalOdds, impliedProbability }
+    return { source, decimalOdds, impliedProbability }
   })
 
   const averageOdds =
     Math.round(
-      (tournamentOdds.reduce((sum, odds) => sum + odds.decimalOdds, 0) /
-        tournamentOdds.length) *
+      (tournamentPrices.reduce((sum, odds) => sum + odds.decimalOdds, 0) /
+        tournamentPrices.length) *
         100
     ) / 100
   const impliedProbability = Math.round((1 / averageOdds) * 1000) / 10
@@ -631,7 +637,7 @@ function buildMarketIntel(team: Team): MarketIntelData {
   const movement: MarketIntelData['movement'] =
     movementRoll < 0.3 ? 'shortening' : movementRoll < 0.6 ? 'drifting' : 'stable'
 
-  let valueBet: MarketIntelData['valueBet'] = null
+  let modelEdge: MarketIntelData['modelEdge'] = null
   const ourProb = Math.min(
     40,
     Math.max(0.5, (team.chemistry / 100) * (50 / Math.max(rank, 1)))
@@ -639,24 +645,24 @@ function buildMarketIntel(team: Team): MarketIntelData {
   const edge = ourProb - impliedProbability
 
   if (Math.abs(edge) > 1.5) {
-    const bestIdx = tournamentOdds.reduce(
+    const bestIdx = tournamentPrices.reduce(
       (best, odds, index) =>
-        odds.decimalOdds > tournamentOdds[best].decimalOdds ? index : best,
+        odds.decimalOdds > tournamentPrices[best].decimalOdds ? index : best,
       0
     )
 
-    valueBet = {
+    modelEdge = {
       ourProbability: ourProb / 100,
       marketProbability: impliedProbability / 100,
       edge: edge / 100,
-      bestOdds: tournamentOdds[bestIdx].decimalOdds,
-      bestBookmaker: tournamentOdds[bestIdx].bookmaker,
+      bestOdds: tournamentPrices[bestIdx].decimalOdds,
+      bestSource: tournamentPrices[bestIdx].source,
       signalStrength:
         Math.abs(edge) > 5 ? 'strong' : Math.abs(edge) > 3 ? 'moderate' : 'weak',
     }
   }
 
-  return { tournamentOdds, averageOdds, impliedProbability, movement, valueBet }
+  return { tournamentPrices, averageOdds, impliedProbability, movement, modelEdge }
 }
 
 function seededRandom(seed: number): () => number {

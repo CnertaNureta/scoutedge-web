@@ -11,10 +11,6 @@ import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import { BRAND } from '@/lib/brand-tokens'
 
-export function generateStaticParams() {
-  return getAllMatchupSlugs().map((matchup) => ({ matchup }))
-}
-
 export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
   const { matchup } = await params
   const parts = matchup.split('-vs-')

@@ -69,6 +69,35 @@ export async function POST(req: NextRequest) {
           break
         }
 
+        // v4 pass purchase (match, team, tournament, scout)
+        if (session.metadata?.type === 'pass_purchase') {
+          const passType = session.metadata.pass_type
+          const scope = session.metadata.scope || null
+          const paymentIntentId = session.payment_intent as string
+
+          if (passType && paymentIntentId) {
+            const { data: existing } = await admin
+              .from('user_entitlements')
+              .select('id')
+              .eq('stripe_checkout_session_id', session.id)
+              .maybeSingle()
+
+            if (!existing) {
+              await admin.from('user_entitlements').insert({
+                user_id: userId,
+                entitlement_type: passType,
+                scope,
+                stripe_checkout_session_id: session.id,
+                stripe_payment_intent_id: paymentIntentId,
+                amount_paid_cents: session.amount_total ?? 0,
+                valid_from: new Date().toISOString(),
+                valid_until: '2026-07-25T23:59:59Z',
+              })
+            }
+          }
+          break
+        }
+
         // Booster pack purchase (one-time payment, non-subscription)
         if (session.metadata?.type === 'booster_purchase') {
           const storeItemId = session.metadata.store_item_id

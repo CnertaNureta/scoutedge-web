@@ -17,6 +17,15 @@ export default function Footer() {
             <p className="text-on-surface-variant max-w-sm leading-relaxed">
               {t('tagline')}
             </p>
+            <a
+              href="https://kickoracle.beehiiv.com/subscribe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              <span>📬</span>
+              <span>Get free World Cup predictions →</span>
+            </a>
           </div>
           <div>
             <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('predictionsHeading')}</h6>
@@ -24,7 +33,6 @@ export default function Footer() {
               <li><Link href="/predictions" className="hover:text-on-surface transition-colors">{nav('aiPredictions')}</Link></li>
               <li><Link href="/bracket" className="hover:text-on-surface transition-colors">{nav('bracketPredictor')}</Link></li>
               <li><Link href="/power-rankings" className="hover:text-on-surface transition-colors">{nav('powerRankings')}</Link></li>
-              <li><Link href="/odds" className="hover:text-on-surface transition-colors">{nav('oddsComparison')}</Link></li>
               <li><Link href="/compare" className="hover:text-on-surface transition-colors">{nav('compareTeams')}</Link></li>
             </ul>
           </div>

@@ -4,7 +4,7 @@ info:
   version: "1.0"
   description: |
     Real-time World Cup 2026 intelligence — matches, predictions, signals,
-    odds, value bets, team chemistry, and player intel.
+    odds, AI edges, team chemistry, and player intel.
 
     ## Authentication
 
@@ -22,7 +22,7 @@ info:
     | Tier | Endpoints | Rate Limit |
     |------|-----------|------------|
     | **Basic** | matches, standings, predictions, teams | Per plan |
-    | **Advanced** | All Basic + odds, signals, value-bets, players, chemistry | Per plan |
+    | **Advanced** | All Basic + odds, signals, AI edges, players, chemistry | Per plan |
     | **Event** | All Advanced + real-time websocket (coming soon) | Per plan |
     | **White Label** | Full platform embed | Custom |
 
@@ -101,11 +101,11 @@ tags:
   - name: Predictions
     description: AI-generated win probabilities
   - name: Odds
-    description: Bookmaker odds snapshots (Advanced tier)
+    description: Consensus probability snapshots (Advanced tier)
   - name: Signals
     description: AI-extracted intelligence signals (Advanced tier)
-  - name: Value Bets
-    description: Identified betting value edges (Advanced tier)
+  - name: AI Edges
+    description: Identified model edges (Advanced tier)
 
 paths:
   /matches:
@@ -499,14 +499,14 @@ paths:
       operationId: listOdds
       summary: List odds snapshots
       description: |
-        Returns paginated bookmaker odds snapshots.
+        Returns paginated consensus probability snapshots.
         **Requires Advanced tier or above.**
       tags: [Odds]
       x-codeSamples:
         - lang: cURL
           source: |
             curl -H "X-API-Key: se_live_YOUR_KEY" \
-              "https://scoutedge.com/api/v1/odds?market=1x2&bookmaker=bet365"
+              "https://scoutedge.com/api/v1/odds?market=1x2&source=consensus-a"
         - lang: Python
           source: |
             import httpx
@@ -514,13 +514,13 @@ paths:
             resp = httpx.get(
                 "https://scoutedge.com/api/v1/odds",
                 headers={"X-API-Key": "se_live_YOUR_KEY"},
-                params={"market": "1x2", "bookmaker": "bet365"},
+                params={"market": "1x2", "source": "consensus-a"},
             )
             odds = resp.json()["data"]
         - lang: JavaScript
           source: |
             const res = await fetch(
-              "https://scoutedge.com/api/v1/odds?market=1x2&bookmaker=bet365",
+              "https://scoutedge.com/api/v1/odds?market=1x2&source=consensus-a",
               { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
             );
             const { data: odds } = await res.json();
@@ -530,15 +530,15 @@ paths:
         - name: market
           in: query
           schema: { type: string, example: "1x2" }
-          description: Filter by betting market
+          description: Filter by market type
         - name: team_id
           in: query
           schema: { type: string, format: uuid, example: "550e8400-e29b-41d4-a716-446655440002" }
           description: Filter by team ID
-        - name: bookmaker
+        - name: source
           in: query
-          schema: { type: string, example: "bet365" }
-          description: Filter by bookmaker name
+          schema: { type: string, example: "consensus-a" }
+          description: Filter by source name
       responses:
         "200":
           description: Paginated odds list
@@ -562,10 +562,10 @@ paths:
         - $ref: '#/components/parameters/matchId'
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/limit'
-        - name: bookmaker
+        - name: source
           in: query
-          schema: { type: string, example: "pinnacle" }
-          description: Filter by bookmaker name
+          schema: { type: string, example: "consensus-a" }
+          description: Filter by source name
       responses:
         "200":
           description: Match odds list
@@ -670,12 +670,12 @@ paths:
 
   /value-bets:
     get:
-      operationId: listValueBets
-      summary: List value bets
+      operationId: listModelEdges
+      summary: List model edges
       description: |
-        Returns identified betting value edges where model probability exceeds market odds.
+        Returns identified model edges where model probability exceeds market odds.
         **Requires Advanced tier or above.**
-      tags: [Value Bets]
+      tags: [AI Edges]
       x-codeSamples:
         - lang: cURL
           source: |
@@ -690,14 +690,14 @@ paths:
                 headers={"X-API-Key": "se_live_YOUR_KEY"},
                 params={"min_edge": 0.05, "signal_strength": "high"},
             )
-            bets = resp.json()["data"]
+            edges = resp.json()["data"]
         - lang: JavaScript
           source: |
             const res = await fetch(
               "https://scoutedge.com/api/v1/value-bets?min_edge=0.05&signal_strength=high",
               { headers: { "X-API-Key": "se_live_YOUR_KEY" } }
             );
-            const { data: bets } = await res.json();
+            const { data: edges } = await res.json();
       parameters:
         - $ref: '#/components/parameters/page'
         - $ref: '#/components/parameters/limit'
@@ -708,7 +708,7 @@ paths:
         - name: market
           in: query
           schema: { type: string, example: "1x2" }
-          description: Filter by betting market
+          description: Filter by market type
         - name: min_edge
           in: query
           schema: { type: number, format: float, minimum: 0, maximum: 1, example: 0.05 }
@@ -719,7 +719,7 @@ paths:
           description: Filter by signal strength
       responses:
         "200":
-          description: Paginated value bet list
+          description: Paginated model edge list
           content:
             application/json:
               schema:
@@ -1014,7 +1014,7 @@ components:
         team_name: { type: string, example: "Brazil" }
         outcome: { type: string, example: "home_win" }
         market: { type: string, example: "1x2" }
-        bookmaker: { type: string, example: "bet365" }
+        source: { type: string, example: "consensus-a" }
         decimal_odds: { type: number, format: float, example: 2.40 }
         implied_probability: { type: number, format: float, example: 0.42 }
         snapshot_at: { type: string, format: date-time }
@@ -1046,7 +1046,7 @@ components:
         market: { type: string, example: "1x2" }
         edge: { type: number, format: float, example: 0.08 }
         signal_strength: { type: string, enum: [low, medium, high] }
-        best_bookmaker: { type: string, example: "pinnacle" }
+        best_source: { type: string, example: "consensus-a" }
         best_odds: { type: number, format: float, example: 2.55 }
         our_probability: { type: number, format: float, example: 0.47 }
         market_probability: { type: number, format: float, example: 0.39 }

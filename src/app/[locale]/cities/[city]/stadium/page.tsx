@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { getAllCities, getCityBySlug } from '@/data/cities-data'
+import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues, getVenueById } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
@@ -12,10 +12,6 @@ export const revalidate = 3600
 
 interface StadiumPageProps {
   params: Promise<{ city: string }>
-}
-
-export function generateStaticParams() {
-  return getAllCities().map((city) => ({ city: city.slug }))
 }
 
 export async function generateMetadata({ params }: StadiumPageProps): Promise<Metadata> {

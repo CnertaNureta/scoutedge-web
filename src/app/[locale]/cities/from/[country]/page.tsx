@@ -15,10 +15,6 @@ interface FromCountryPageProps {
   params: Promise<{ country: string }>
 }
 
-export function generateStaticParams() {
-  return getAllOriginCountries().map((c) => ({ country: c.slug }))
-}
-
 export async function generateMetadata({ params }: FromCountryPageProps): Promise<Metadata> {
   const { country: slug } = await params
   const origin = getOriginCountry(slug)

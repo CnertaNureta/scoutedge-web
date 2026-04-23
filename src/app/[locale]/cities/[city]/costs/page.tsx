@@ -14,10 +14,6 @@ interface CostsPageProps {
   params: Promise<{ city: string }>
 }
 
-export function generateStaticParams() {
-  return getAllCities().map((city) => ({ city: city.slug }))
-}
-
 export async function generateMetadata({ params }: CostsPageProps): Promise<Metadata> {
   const { city: slug } = await params
   const city = getCityBySlug(slug)

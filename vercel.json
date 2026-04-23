@@ -15,36 +15,5 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/tools/schedule",
-      "destination": "https://schedule.worldcupiq.com",
-      "permanent": true
-    },
-    {
-      "source": "/tools/bracket",
-      "destination": "https://bracket.worldcupiq.com",
-      "permanent": true
-    },
-    {
-      "source": "/tools/countdown",
-      "destination": "https://countdown.worldcupiq.com",
-      "permanent": true
-    },
-    {
-      "source": "/tools/formation",
-      "destination": "https://formation.worldcupiq.com",
-      "permanent": true
-    },
-    {
-      "source": "/tools/quiz",
-      "destination": "https://quiz.worldcupiq.com",
-      "permanent": true
-    },
-    {
-      "source": "/tools/wallpaper",
-      "destination": "https://wallpaper.worldcupiq.com",
-      "permanent": true
-    }
-  ]
+  "redirects": []
 }

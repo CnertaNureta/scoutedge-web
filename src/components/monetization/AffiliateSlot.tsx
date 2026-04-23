@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export type AffiliateSlotId = 'hotel' | 'esim' | 'insurance' | 'tickets' | 'visa' | 'flights' | 'betting'
+export type AffiliateSlotId = 'hotel' | 'esim' | 'insurance' | 'tickets' | 'visa' | 'flights'
 
 interface AffiliateSlotProps {
   id: AffiliateSlotId
@@ -60,13 +60,6 @@ const SLOT_CONFIG: Record<AffiliateSlotId, SlotConfig> = {
     pitch: 'Compare airline prices for every host-country gateway.',
     cta: 'Search Flights',
     href: '#affiliate-flights',
-  },
-  betting: {
-    icon: '🎲',
-    title: 'Compare Sportsbooks',
-    pitch: 'Shop outright winner odds across Bet365, FanDuel, and DraftKings. 21+. Bet responsibly.',
-    cta: 'Compare Bookmakers',
-    href: '#affiliate-betting',
   },
 }
 

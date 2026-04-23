@@ -397,11 +397,6 @@ interface PageProps {
   params: Promise<{ team: string }>
 }
 
-export async function generateStaticParams() {
-  const teams = getAllTeams()
-  return teams.map((team) => ({ team: team.slug }))
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { team: slug } = await params
   const team = getTeamBySlug(slug)

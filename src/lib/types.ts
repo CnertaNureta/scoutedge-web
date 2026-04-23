@@ -165,25 +165,25 @@ export interface TeamTimezone {
   notes: string
 }
 
-export interface BookmakerOdds {
-  bookmaker: string
+export interface ConsensusPrice {
+  source: string
   decimalOdds: number
   impliedProbability: number
 }
 
-export interface ValueBet {
+export interface ModelEdge {
   ourProbability: number
   marketProbability: number
   edge: number
   bestOdds: number
-  bestBookmaker: string
+  bestSource: string
   signalStrength: 'strong' | 'moderate' | 'weak'
 }
 
 export interface MarketIntelData {
-  tournamentOdds: BookmakerOdds[]
+  tournamentPrices: ConsensusPrice[]
   averageOdds: number
   impliedProbability: number
   movement: 'shortening' | 'drifting' | 'stable'
-  valueBet: ValueBet | null
+  modelEdge: ModelEdge | null
 }

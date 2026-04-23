@@ -18,12 +18,28 @@ export function getStripe(): Stripe {
 }
 
 export const STRIPE_CONFIG = {
+  matchPassPriceId: process.env.STRIPE_MATCH_PASS_PRICE_ID ?? '',
+  teamPassPriceId: process.env.STRIPE_TEAM_PASS_PRICE_ID ?? '',
+  tournamentPassPriceId: process.env.STRIPE_TOURNAMENT_PASS_PRICE_ID ?? '',
+  scoutPassPriceId: process.env.STRIPE_SCOUT_PASS_PRICE_ID ?? '',
+  apiDeveloperPriceId: process.env.STRIPE_API_DEVELOPER_PRICE_ID ?? '',
+  apiProfessionalPriceId: process.env.STRIPE_API_PROFESSIONAL_PRICE_ID ?? '',
+  /** @deprecated kept for webhook backward compat with old subscriptions */
   proMonthlyPriceId: process.env.STRIPE_PRO_MONTHLY_PRICE_ID ?? '',
   proTournamentPriceId: process.env.STRIPE_PRO_TOURNAMENT_PRICE_ID ?? '',
   apiBasicPriceId: process.env.STRIPE_API_BASIC_PRICE_ID ?? '',
   apiAdvancedPriceId: process.env.STRIPE_API_ADVANCED_PRICE_ID ?? '',
   apiEventPriceId: process.env.STRIPE_API_EVENT_PRICE_ID ?? '',
 } as const
+
+export type PassType = 'match_pass' | 'team_pass' | 'tournament_pass' | 'scout_pass'
+
+export const PASS_PRICE_MAP: Record<PassType, string> = {
+  match_pass: STRIPE_CONFIG.matchPassPriceId,
+  team_pass: STRIPE_CONFIG.teamPassPriceId,
+  tournament_pass: STRIPE_CONFIG.tournamentPassPriceId,
+  scout_pass: STRIPE_CONFIG.scoutPassPriceId,
+}
 
 export function getWebhookSecret(): string {
   const secret = process.env.STRIPE_WEBHOOK_SECRET

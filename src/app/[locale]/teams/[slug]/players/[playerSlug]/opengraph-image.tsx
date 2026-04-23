@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
+import { getTeamBySlug, getPlayerBySlug } from '@/lib/data-service'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
 
 export const runtime = 'nodejs'
@@ -10,16 +10,6 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 const fontsDir = join(process.cwd(), 'public', 'fonts')
-
-export async function generateStaticParams() {
-  const params: { slug: string; playerSlug: string }[] = []
-  for (const team of getAllTeams()) {
-    for (const player of getPlayersByTeam(team.slug)) {
-      params.push({ slug: team.slug, playerSlug: player.slug })
-    }
-  }
-  return params
-}
 
 const POSITION_LABELS: Record<string, string> = {
   GK: 'GOALKEEPER',

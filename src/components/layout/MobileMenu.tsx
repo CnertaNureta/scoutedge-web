@@ -15,7 +15,6 @@ export default function MobileMenu() {
         { label: t('aiPredictions'), href: '/predictions' as const },
         { label: t('bracketPredictor'), href: '/bracket' as const },
         { label: t('powerRankings'), href: '/power-rankings' as const },
-        { label: t('oddsComparison'), href: '/odds' as const },
         { label: t('compareTeams'), href: '/compare' as const },
       ],
     },

@@ -67,9 +67,9 @@ Our AI flagged several teams that could seriously disrupt the bracket:
 - **[Morocco](/teams/morocco) (4%)** — 2022 semi-finalists with even more experience now. Regragui is a master tactician
 - **[Colombia](/teams/colombia) (3%)** — The most in-form South American team outside Argentina
 
-## World Cup 2026 Odds: What the Bookmakers Think
+## World Cup 2026 Odds: What Market Consensus Thinks
 
-The betting market largely agrees with our AI, with one notable difference: bookmakers have France slightly ahead of Argentina. That's because markets weight individual star power heavily, and Mbappé is the most marketable asset in world football.
+Market consensus largely agrees with our AI, with one notable difference: consensus markets have France slightly ahead of Argentina. That's because markets weight individual star power heavily, and Mbappé is the most marketable asset in world football.
 
 Our AI weights **team cohesion** more heavily — and that's where Argentina's advantage lies. Football is a team sport, and 11 players who read each other perfectly will beat 11 individuals who don't. Check our [Power Rankings](/power-rankings) for the complete breakdown.
 

@@ -1,6 +1,6 @@
 ---
 title: "Can Spain Win World Cup 2026? Our AI's Verdict"
-description: "Spain's World Cup 2026 prediction: 13% win probability, highest Chemistry Index (8.5/10) of any top team. Reigning Euro champions. Group H analysis, Yamal breakdown, and betting value from KickOracle."
+description: "Spain's World Cup 2026 prediction: 13% win probability, highest Chemistry Index (8.5/10) of any top team. Reigning Euro champions. Group H analysis, Yamal breakdown, and model edge from KickOracle."
 keywords:
   - "Spain World Cup 2026"
   - "Spain World Cup 2026 chances"
@@ -72,18 +72,18 @@ The quarterfinal presents the real test. A likely opponent from Group D or E (US
 
 **Floor**: Quarterfinal exit if Rodri's fitness declines mid-tournament and a physically dominant opponent (Brazil, Argentina) exploits the structural vulnerability his absence creates.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 7.00 | 14.3% | 13.0% | -1.3% |
 | Win Group H | 1.18 | 84.7% | 91.0% | +6.3% |
 | Reach QF | 1.95 | 51.3% | 66.0% | +14.7% |
 | Reach SF | 3.00 | 33.3% | 44.0% | +10.7% |
 
-**Value assessment**: The group winner market at 1.18 is the clearest value — our model projects a 91% probability vs the market's 84.7%. Spain's quarterfinal probability (66%) is also significantly higher than the bookmaker's implied 51.3%. Both markets represent genuine positive edge based on KickOracle's Chemistry Index data.
+**Value assessment**: The group winner market at 1.18 is the clearest value — our model projects a 91% probability vs the market's 84.7%. Spain's quarterfinal probability (66%) is also significantly higher than the consensus implied 51.3%. Both markets represent genuine positive edge based on KickOracle's Chemistry Index data.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Spain win World Cup 2026?
@@ -99,7 +99,7 @@ Lamine Yamal is Spain's highest-rated player at 8.9/10, matched only by Kylian M
 Spain are in Group H with Saudi Arabia, Serbia, and Cabo Verde. They open against Saudi Arabia on June 12 at MetLife Stadium in New York/New Jersey.
 
 ### Is Spain the most dangerous dark horse at World Cup 2026?
-Spain are not a dark horse — they are a genuine favourite. But at 7/1 with some bookmakers, the market may be underweighting their Chemistry Index advantage and squad depth relative to Brazil (6.50) and Argentina (6.50). The case for Spain as the best-value tournament winner among the top six is strong.
+Spain are not a dark horse — they are a genuine favourite. But at 7/1 in some market snapshots, the consensus may be underweighting their Chemistry Index advantage and squad depth relative to Brazil (6.50) and Argentina (6.50). The case for Spain as the best-value tournament winner among the top six is strong.
 
 ---
 

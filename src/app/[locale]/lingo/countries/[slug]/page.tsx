@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import {
-  lingoCountries,
   getLingoCountryBySlug,
   getLingoPlayersByCountry,
   getLingoCountriesByRegion,
@@ -14,10 +13,6 @@ import { PlayerCard } from '@/components/lingo/PlayerCard'
 
 interface CountryPageProps {
   params: Promise<{ slug: string }>
-}
-
-export async function generateStaticParams() {
-  return lingoCountries.map((c) => ({ slug: c.id }))
 }
 
 export async function generateMetadata({ params }: CountryPageProps): Promise<Metadata> {

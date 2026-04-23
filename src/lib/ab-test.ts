@@ -7,8 +7,8 @@ type TestId = 'cta-position' | 'cta-copy' | 'cta-partner-primary'
 
 const TEST_CONFIG: Record<TestId, string[]> = {
   'cta-position': ['below-ai-insight', 'card-footer'],
-  'cta-copy': ['bet-now', 'see-odds', 'back-team'],
-  'cta-partner-primary': ['fanduel', 'draftkings'],
+  'cta-copy': ['view-forecast', 'see-probabilities', 'back-team'],
+  'cta-partner-primary': ['travel-packages', 'ticket-alerts'],
 }
 
 function getCookie(name: string): string | null {

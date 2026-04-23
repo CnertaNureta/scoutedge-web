@@ -53,7 +53,7 @@ Norway have confirmed Erling Haaland is being managed carefully ahead of the Wor
 - **Brazil** to top Group C: 1/2 → 4/9 (shortened) — market responding to Brazil's forward depth concerns, compressing their margin vs Morocco
 - **Erling Haaland** Golden Boot: 9/1 → 12/1 (drifted) — knee management news creating uncertainty around his group-stage starts
 
-*Odds are indicative and subject to change. Gamble responsibly. For support: [GambleAware.org](https://www.begambleaware.org)*
+*Market prices are indicative probability signals and subject to change.*
 
 ---
 

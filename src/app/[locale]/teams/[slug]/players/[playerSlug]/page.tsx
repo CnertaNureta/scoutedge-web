@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getAllTeams, getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
+import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
 import PlayerHero from '@/components/player/PlayerHero'
@@ -12,18 +12,6 @@ import SectionHeader from '@/components/ui/SectionHeader'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
-}
-
-export async function generateStaticParams() {
-  const teams = getAllTeams()
-  const params: { slug: string; playerSlug: string }[] = []
-  for (const team of teams) {
-    const players = getPlayersByTeam(team.slug)
-    for (const player of players) {
-      params.push({ slug: team.slug, playerSlug: player.slug })
-    }
-  }
-  return params
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

@@ -72,18 +72,18 @@ A likely quarterfinal against Germany (Group E winner) would be a genuine test �
 
 **Floor**: Round of 16 exit if De Jong's fitness fails and Japan prove better than the ranking suggests.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 13.00 | 7.7% | 7.0% | -0.7% |
 | Win Group F | 1.30 | 76.9% | 90.0% | +13.1% |
 | Reach QF | 2.50 | 40.0% | 55.0% | +15.0% |
 | Gakpo Top Scorer | 15.00 | 6.7% | 12.0% | +5.3% |
 
-**Value assessment**: Netherlands' group winner market at 1.30 is the most underpriced position in Phase 1 — our model projects 90% vs the implied 76.9%. Their quarterfinal probability (55%) is also significantly higher than the bookmakers' 40%. Both markets represent meaningful positive edge.
+**Value assessment**: Netherlands' group winner market at 1.30 is the most underpriced position in Phase 1 — our model projects 90% vs the implied 76.9%. Their quarterfinal probability (55%) is also significantly higher than the consensus 40%. Both markets represent meaningful positive edge.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Netherlands win World Cup 2026?

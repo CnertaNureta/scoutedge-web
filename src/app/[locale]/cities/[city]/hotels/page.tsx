@@ -1,19 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
+import { getCityBySlug, type HostCity } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 
 export const revalidate = 3600
-
-/* ---------- Static params ---------- */
-
-export function generateStaticParams() {
-  return getAllCities().map((city) => ({ city: city.slug }))
-}
 
 /* ---------- Metadata ---------- */
 

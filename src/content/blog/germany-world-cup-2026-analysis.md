@@ -72,9 +72,9 @@ A quarterfinal against a Group D or G team — potentially Portugal, USA, or Tur
 
 **Floor**: Quarterfinal exit if the defensive vulnerability is exposed by a transition-heavy opponent with elite pace.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 11.00 | 9.1% | 8.0% | -1.1% |
 | Win Group E | 1.22 | 82.0% | 92.0% | +10.0% |
@@ -83,7 +83,7 @@ A quarterfinal against a Group D or G team — potentially Portugal, USA, or Tur
 
 **Value assessment**: Germany's group winner price at 1.22 is the biggest gap in the market — our model projects 92% vs the implied 82%. Their quarterfinal probability (58%) is also significantly above the market's 41.7%. Both represent actionable value. Wirtz at 12/1 for top scorer reflects his shot volume and tournament scoring potential.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Germany win World Cup 2026?

@@ -3,7 +3,7 @@ import { getSupabaseAdmin } from '@/lib/supabase-server'
 import { withAdvancedTier } from '@/lib/api-v1/middleware'
 import { apiSuccess, apiError, parsePagination, parseUuid, parseFloat01 } from '@/lib/api-v1/response'
 
-const VALUE_BET_COLUMNS = 'id, match_id, team_id, team_name, market, our_probability, market_probability, edge, best_odds, best_bookmaker, signal_strength, computed_at'
+const VALUE_BET_COLUMNS = 'id, match_id, team_id, team_name, market, our_probability, market_probability, edge, best_odds, best_source:best_bookmaker, signal_strength, computed_at'
 const VALID_STRENGTHS = new Set(['low', 'medium', 'high'])
 
 export const GET = withAdvancedTier(async (req: NextRequest) => {
@@ -38,7 +38,7 @@ export const GET = withAdvancedTier(async (req: NextRequest) => {
 
   if (error) {
     if (error.code === 'PGRST205') return apiSuccess([], { total: 0, page, limit })
-    return apiError('Failed to fetch value bets', 500)
+    return apiError('Failed to fetch model edges', 500)
   }
 
   return apiSuccess(data ?? [], { total: count ?? 0, page, limit })

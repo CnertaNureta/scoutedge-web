@@ -14,10 +14,6 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-export function generateStaticParams() {
-  return getAllPlayers().map((p) => ({ slug: p.slug }))
-}
-
 function formatUpdated(iso: string): string {
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return iso

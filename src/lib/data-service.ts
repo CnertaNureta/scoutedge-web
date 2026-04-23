@@ -110,7 +110,13 @@ export function getJetLagTier(teamSlug: string): string | undefined {
   return tier?.tier
 }
 
-const BOOKMAKERS = ['Bet365', 'Betfair', 'William Hill', 'Betway', 'Unibet']
+const CONSENSUS_SOURCES = [
+  'Consensus A',
+  'Consensus B',
+  'Consensus C',
+  'Consensus D',
+  'Consensus E',
+]
 
 function seededRandom(seed: number): () => number {
   let s = seed
@@ -135,38 +141,38 @@ export function getMarketIntel(teamSlug: string): MarketIntelData | undefined {
   else if (rank <= 30) baseOdds = 60 + rng() * 80
   else baseOdds = 150 + rng() * 350
 
-  const tournamentOdds = BOOKMAKERS.map((bookmaker) => {
+  const tournamentPrices = CONSENSUS_SOURCES.map((source) => {
     const variance = 0.9 + rng() * 0.2
     const decimalOdds = Math.round(baseOdds * variance * 100) / 100
     const impliedProbability = Math.round((1 / decimalOdds) * 1000) / 10
-    return { bookmaker, decimalOdds, impliedProbability }
+    return { source, decimalOdds, impliedProbability }
   })
 
-  const averageOdds = Math.round((tournamentOdds.reduce((s, o) => s + o.decimalOdds, 0) / tournamentOdds.length) * 100) / 100
+  const averageOdds = Math.round((tournamentPrices.reduce((s, o) => s + o.decimalOdds, 0) / tournamentPrices.length) * 100) / 100
   const impliedProbability = Math.round((1 / averageOdds) * 1000) / 10
 
   const movementRoll = rng()
   const movement: MarketIntelData['movement'] =
     movementRoll < 0.3 ? 'shortening' : movementRoll < 0.6 ? 'drifting' : 'stable'
 
-  // Value bet when our chemistry model diverges meaningfully from market
-  let valueBet: MarketIntelData['valueBet'] = null
+  // Signal an edge when our chemistry model diverges meaningfully from market consensus.
+  let modelEdge: MarketIntelData['modelEdge'] = null
   const ourProb = Math.min(40, Math.max(0.5, (team.chemistry / 100) * (50 / Math.max(rank, 1))))
   const marketProb = impliedProbability
   const edge = ourProb - marketProb
   if (Math.abs(edge) > 1.5) {
-    const bestIdx = tournamentOdds.reduce((best, o, i) => o.decimalOdds > tournamentOdds[best].decimalOdds ? i : best, 0)
-    valueBet = {
+    const bestIdx = tournamentPrices.reduce((best, o, i) => o.decimalOdds > tournamentPrices[best].decimalOdds ? i : best, 0)
+    modelEdge = {
       ourProbability: ourProb / 100,
       marketProbability: marketProb / 100,
       edge: edge / 100,
-      bestOdds: tournamentOdds[bestIdx].decimalOdds,
-      bestBookmaker: tournamentOdds[bestIdx].bookmaker,
+      bestOdds: tournamentPrices[bestIdx].decimalOdds,
+      bestSource: tournamentPrices[bestIdx].source,
       signalStrength: Math.abs(edge) > 5 ? 'strong' : Math.abs(edge) > 3 ? 'moderate' : 'weak',
     }
   }
 
-  return { tournamentOdds, averageOdds, impliedProbability, movement, valueBet }
+  return { tournamentPrices, averageOdds, impliedProbability, movement, modelEdge }
 }
 
 function hashCode(str: string): number {

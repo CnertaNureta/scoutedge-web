@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AffiliateSlot from '@/components/monetization/AffiliateSlot'
-import { getAllOriginCountries, getOriginCountry } from '@/data/travel-data'
+import { getOriginCountry } from '@/data/travel-data'
 import { getCityBySlug } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
@@ -13,10 +13,6 @@ export const revalidate = 86400
 
 interface TravelFromCountryPageProps {
   params: Promise<{ country: string }>
-}
-
-export function generateStaticParams() {
-  return getAllOriginCountries().map((c) => ({ country: c.slug }))
 }
 
 export async function generateMetadata({ params }: TravelFromCountryPageProps): Promise<Metadata> {

@@ -72,9 +72,9 @@ The quarterfinal bracket opens up a potential clash with Brazil or England — b
 
 **Floor**: Quarterfinal exit if the team's Chemistry Index disadvantage compounds against a more cohesive opponent at full intensity.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 5.50 | 18.2% | 16.0% | -2.2% |
 | Win Group I | 1.12 | 89.3% | 93.0% | +3.7% |
@@ -83,7 +83,7 @@ The quarterfinal bracket opens up a potential clash with Brazil or England — b
 
 **Value assessment**: The outright market slightly overprices France given their Chemistry Index data. The best value is in Mbappé for top scorer — our model's 28% probability reflects his exceptional form, tournament track record, and the number of games France are projected to play. At 5/1, this represents clear positive edge.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can France win World Cup 2026?

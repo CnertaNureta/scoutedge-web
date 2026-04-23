@@ -334,7 +334,7 @@ export default function ChallengesPage() {
           {t('heading')}
         </h1>
         <p className="text-on-surface-variant mt-2">
-          {t('description')}
+          {t('heroDescription')}
         </p>
       </div>
 

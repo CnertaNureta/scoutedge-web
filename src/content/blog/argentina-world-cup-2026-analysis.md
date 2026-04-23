@@ -70,9 +70,9 @@ The quarterfinal is where Argentina's bracket becomes genuinely difficult. A pot
 
 **Floor**: Round of 16 exit if an injury to Messi early in the tournament cascades through the whole system.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 6.50 | 15.4% | 14.0% | -1.4% |
 | Win Group J | 1.15 | 87.0% | 91.0% | +4.0% |
@@ -81,7 +81,7 @@ The quarterfinal is where Argentina's bracket becomes genuinely difficult. A pot
 
 **Value assessment**: The market fairly prices Argentina's outright chance given the Messi age factor. The best value in the Argentine markets is in Julián Álvarez for top scorer — our model's 18% probability is based on his qualifying output and the number of games Argentina are projected to play. At 8/1, there is clear edge.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Argentina win World Cup 2026?

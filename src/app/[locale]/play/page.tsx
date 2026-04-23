@@ -20,6 +20,7 @@ export default async function PlayPage({ params }: Props) {
   const t = await getTranslations('playPage')
 
   const features = [
+    { href: '/play/pk-battle', emoji: '⚔️', title: t('pkBattle'), desc: t('pkBattleDesc'), badge: t('pkBattleBadge') },
     { href: '/play/quiz', emoji: '🧠', title: t('quiz'), desc: t('quizDesc'), badge: t('quizBadge') },
     { href: '/formations', emoji: '⚽', title: t('formations'), desc: t('formationsDesc'), badge: t('formationsBadge') },
     { href: '/gear/wallpapers', emoji: '🖼️', title: t('wallpapers'), desc: t('wallpapersDesc'), badge: t('wallpapersBadge') },

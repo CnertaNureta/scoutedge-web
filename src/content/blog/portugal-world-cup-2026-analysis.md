@@ -72,18 +72,18 @@ The quarterfinal is where Portugal's bracket becomes genuinely difficult. A like
 
 **Floor**: Group stage exit if Belgium produce an upset in the third match and Egypt have beaten Portugal in the second.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 14.00 | 7.1% | 6.0% | -1.1% |
 | Win Group G | 1.50 | 66.7% | 86.0% | +19.3% |
 | Reach QF | 3.20 | 31.3% | 44.0% | +12.7% |
 | Leão Top Scorer | 18.00 | 5.6% | 11.0% | +5.4% |
 
-**Value assessment**: The group winner market at 1.50 represents significant positive edge — our model projects 86% vs the bookmaker's implied 66.7%. This is the largest gap among Phase 1 team markets and reflects market uncertainty about Portugal's internal dynamics. The outright market is slightly overpriced; Leão at 18/1 for top scorer is the most interesting speculative bet.
+**Value assessment**: The group winner market at 1.50 represents significant positive edge — our model projects 86% vs the consensus implied 66.7%. This is the largest gap among Phase 1 team markets and reflects market uncertainty about Portugal's internal dynamics. The outright market is slightly overpriced; Leão at 18/1 for top scorer is the most interesting speculative scenario.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Portugal win World Cup 2026?

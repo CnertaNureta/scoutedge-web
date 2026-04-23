@@ -17,14 +17,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'bracketPage' })
   return {
-    title: t('metaTitle'),
-    description: t('metaDescription'),
+    title: t('heading'),
+    description: t('description'),
     keywords:
       'World Cup 2026 bracket, World Cup 2026 knockout stage, World Cup bracket 2026, tournament bracket, World Cup 2026 draw, Round of 32',
     alternates: { canonical: 'https://kickoracle.com/bracket' },
     ...buildOGMeta({
-      title: t('ogTitle'),
-      description: t('ogDescription'),
+      title: t('heading'),
+      description: t('description'),
       url: 'https://kickoracle.com/bracket',
     }),
   }
@@ -384,12 +384,12 @@ export default async function BracketPage({ params }: Props) {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-tertiary/10 border border-tertiary/30 font-label text-xs font-semibold tracking-widest uppercase mb-6 text-tertiary">
-            {t('knockoutBadge')}
+            {t('badge')}
           </span>
 
           <h1 className="font-headline text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-wide uppercase mb-4">
-            <span className="block text-on-surface">{t('headingLine1')}</span>
-            <span className="block gradient-text">{t('headingLine2')}</span>
+            <span className="block text-on-surface">{t('heading')}</span>
+            <span className="block gradient-text">{t('knockoutBracket')}</span>
           </h1>
 
           <p className="font-body text-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
@@ -397,7 +397,7 @@ export default async function BracketPage({ params }: Props) {
           </p>
 
           <HeroRegistrationCta
-            headline={t('ctaHeadline')}
+            headline={t('ctaText')}
             cta={t('ctaButton')}
             className="justify-center mb-6"
           />
@@ -407,19 +407,19 @@ export default async function BracketPage({ params }: Props) {
               href="/predictions"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              {t('linkPredictions')}
+              {t('aiPredictions')}
             </Link>
             <Link
               href="/schedule"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              {t('linkSchedule')}
+              {t('fullSchedule')}
             </Link>
             <Link
               href="/groups"
               className="px-6 py-3 rounded-xl bg-surface-container-high border border-white/10 font-label text-sm font-semibold text-on-surface hover:bg-surface-container-highest hover:border-white/20 transition-all"
             >
-              {t('linkGroups')}
+              {t('groupStage')}
             </Link>
           </div>
         </div>
@@ -438,7 +438,7 @@ export default async function BracketPage({ params }: Props) {
       {/* ── Bracket Visualization ── */}
       <section className="max-w-[1920px] mx-auto px-4 xl:px-8 pb-20">
         <SectionHeader className="mb-8" withRule>
-          {t('sectionKnockout')}
+          {t('knockoutBracket')}
         </SectionHeader>
 
         {/* Desktop: horizontal bracket flow */}
@@ -451,7 +451,7 @@ export default async function BracketPage({ params }: Props) {
       {/* ── Key Venues ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <SectionHeader className="mb-8" accentColor="#e9c400">
-          {t('sectionKeyVenues')}
+          {t('keyVenues')}
         </SectionHeader>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -486,23 +486,23 @@ export default async function BracketPage({ params }: Props) {
       <section className="max-w-[1440px] mx-auto px-6 pb-24">
         <GlassCard className="p-8 md:p-12 text-center">
           <h2 className="font-headline text-3xl md:text-4xl uppercase tracking-wide text-on-surface mb-4">
-            {t('ctaExploreHeading')}
+            {t('exploreTournament')}
           </h2>
           <p className="font-body text-on-surface-variant max-w-xl mx-auto mb-8">
-            {t('ctaExploreDescription')}
+            {t('exploreTournamentDesc')}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/teams"
               className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
             >
-              {t('linkBrowseTeams')}
+              {t('browseAllTeams')}
             </Link>
             <Link
               href="/simulator"
               className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
             >
-              {t('linkSimulator')}
+              {t('tournamentSimulator')}
             </Link>
           </div>
         </GlassCard>

@@ -1,6 +1,6 @@
 ---
 title: "Can England Win World Cup 2026? Our AI's Verdict"
-description: "England World Cup 2026 chances analyzed: 9% win probability, Chemistry Index 7.5/10. Group L prediction, Bellingham's role, knockout path, and KickOracle betting market analysis."
+description: "England World Cup 2026 chances analyzed: 9% win probability, Chemistry Index 7.5/10. Group L prediction, Bellingham's role, knockout path, and KickOracle market consensus analysis."
 keywords:
   - "England World Cup 2026"
   - "England World Cup 2026 chances"
@@ -72,18 +72,18 @@ The quarterfinal is where England's tournament becomes genuinely interesting. A 
 
 **Floor**: Group stage exit if Serbia win the opener and England's tournament psychology derails — a scenario the model gives an 11% probability.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 9.00 | 11.1% | 9.0% | -2.1% |
 | Win Group L | 1.35 | 74.1% | 84.0% | +9.9% |
 | Reach QF | 2.25 | 44.4% | 56.0% | +11.6% |
 | Reach SF | 4.00 | 25.0% | 32.0% | +7.0% |
 
-**Value assessment**: The group winner market at 1.35 represents the clearest value — our model projects an 84% probability against the bookmaker's implied 74%. England are more likely to top Group L than the market implies. The tournament winner market is slightly overpriced against our model given the structural concerns.
+**Value assessment**: The group winner market at 1.35 represents the clearest value — our model projects an 84% probability against the consensus implied 74%. England are more likely to top Group L than the market implies. The tournament winner market is slightly overpriced against our model given the structural concerns.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can England win World Cup 2026?

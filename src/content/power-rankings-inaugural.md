@@ -19,7 +19,7 @@ schema:
 
 **Published: March 25, 2026 | Edition #1 | 93 days to kick-off**
 
-Welcome to the first KickOracle World Cup 2026 Power Rankings — the weekly intelligence report that cuts through the noise, the hype, and the bookmaker odds to give you the most data-driven assessment of where every team in the tournament stands right now.
+Welcome to the first KickOracle World Cup 2026 Power Rankings — the weekly intelligence report that cuts through the noise, the hype, and the market consensus to give you the most data-driven assessment of where every team in the tournament stands right now.
 
 Our composite Power Score combines five factors: FIFA ranking (35% weight), squad chemistry index (30%), squad morale (15%), tactical stability (10%), and squad familiarity (10%). The result is a score that captures not just how good a team is on paper, but how well they are functioning as a unit — because at a World Cup, chemistry often matters more than individual star power.
 
@@ -147,7 +147,7 @@ The Chemistry Index is our proprietary composite metric. It measures how well a 
 
 **What we'll track:**
 - Teams whose chemistry/morale scores shift based on training camp reports, injury news, or match results
-- Bookmaker odds movements (smart money signals)
+- Market probability movements (consensus signals)
 - KickOracle signal extraction from team press conferences and news
 
 **Watch for next week:** Spain's Rodri injury status (could drop their score by 3-4 points), Brazil's Dorival tactical confirmation (could raise stability scores), and England's first Tuchel match results.

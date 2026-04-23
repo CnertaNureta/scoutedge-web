@@ -57,7 +57,6 @@ export default function Header() {
                 { label: t('aiPredictions'), href: '/predictions' },
                 { label: t('bracketPredictor'), href: '/bracket' },
                 { label: t('powerRankings'), href: '/power-rankings' },
-                { label: t('oddsComparison'), href: '/odds' },
                 { label: t('compareTeams'), href: '/compare' },
               ]}
             />

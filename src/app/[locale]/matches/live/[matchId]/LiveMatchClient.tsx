@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useMatchLive } from '@/hooks/useMatchLive'
 import { usePredictions } from '@/hooks/usePredictions'
 import { useMatchStats } from '@/hooks/useMatchStats'
+import { useEntitlements } from '@/hooks/useEntitlements'
 import {
   LiveMatchHeader,
   PredictionVoting,
@@ -14,6 +15,8 @@ import {
 } from '@/components/live-match'
 import type { Team, MatchFixture } from '@/lib/types'
 import SignalsFeed from '@/components/signals/SignalsFeed'
+import OddsTracker from '@/components/odds/OddsTracker'
+import Paywall from '@/components/monetization/Paywall'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 
@@ -45,6 +48,9 @@ export default function LiveMatchClient({
     submitPrediction,
     isSubmitting,
   } = usePredictions(matchId)
+
+  const { hasAccess } = useEntitlements()
+  const hasPremium = hasAccess('match', matchId)
 
   const isLive = matchState.status && !['not_started', 'finished'].includes(matchState.status)
 
@@ -111,14 +117,26 @@ export default function LiveMatchClient({
             </section>
 
             <section>
-              <h2 className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-3 px-1">
-                Match Flow
-              </h2>
-              <LiveMatchStats
-                stats={liveStats}
-                homeTeamName={homeTeam.name}
-                awayTeamName={awayTeam.name}
-              />
+              <div className="flex items-center gap-2 mb-3 px-1">
+                <h2 className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant">
+                  Match Flow
+                </h2>
+                {!hasPremium && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-tertiary/10 border border-tertiary/20 px-2 py-0.5">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="text-tertiary">
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+                    </svg>
+                    <span className="text-tertiary font-label text-[9px] font-bold uppercase tracking-widest">VIP</span>
+                  </span>
+                )}
+              </div>
+              <Paywall contentType="match" scope={matchId} previewLines={4}>
+                <LiveMatchStats
+                  stats={liveStats}
+                  homeTeamName={homeTeam.name}
+                  awayTeamName={awayTeam.name}
+                />
+              </Paywall>
             </section>
           </div>
 
@@ -132,41 +150,49 @@ export default function LiveMatchClient({
               awayTeamName={awayTeam.name}
             />
 
-            <SignalsFeed maxVisible={5} />
+            <Paywall contentType="match" scope={matchId} previewLines={3}>
+              <OddsTracker matchId={matchId} />
+            </Paywall>
 
-            <GlassCard className="p-5">
-              <h3 className="font-headline text-base uppercase tracking-wide text-on-surface mb-3">
-                Model Edge
-              </h3>
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-on-surface">{homeTeam.name} win</span>
-                  <span className="font-mono text-sm font-bold text-primary">
-                    {Math.round(fixture.homeWinProb * 100)}%
-                  </span>
+            <Paywall contentType="match" scope={matchId} previewLines={2}>
+              <SignalsFeed maxVisible={5} />
+            </Paywall>
+
+            <Paywall contentType="match" scope={matchId} previewLines={3}>
+              <GlassCard className="p-5">
+                <h3 className="font-headline text-base uppercase tracking-wide text-on-surface mb-3">
+                  Model Edge
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-on-surface">{homeTeam.name} win</span>
+                    <span className="font-mono text-sm font-bold text-primary">
+                      {Math.round(fixture.homeWinProb * 100)}%
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-on-surface">Draw</span>
+                    <span className="font-mono text-sm font-bold text-on-surface-variant">
+                      {Math.round(fixture.drawProb * 100)}%
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-on-surface">{awayTeam.name} win</span>
+                    <span className="font-mono text-sm font-bold text-secondary">
+                      {Math.round(fixture.awayWinProb * 100)}%
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-on-surface">Draw</span>
-                  <span className="font-mono text-sm font-bold text-on-surface-variant">
-                    {Math.round(fixture.drawProb * 100)}%
-                  </span>
+                <div className="mt-4 flex h-2 w-full overflow-hidden rounded-full">
+                  <div className="bg-primary" style={{ width: `${fixture.homeWinProb * 100}%` }} />
+                  <div className="bg-on-surface-variant/30" style={{ width: `${fixture.drawProb * 100}%` }} />
+                  <div className="bg-secondary" style={{ width: `${fixture.awayWinProb * 100}%` }} />
                 </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-on-surface">{awayTeam.name} win</span>
-                  <span className="font-mono text-sm font-bold text-secondary">
-                    {Math.round(fixture.awayWinProb * 100)}%
-                  </span>
-                </div>
-              </div>
-              <div className="mt-4 flex h-2 w-full overflow-hidden rounded-full">
-                <div className="bg-primary" style={{ width: `${fixture.homeWinProb * 100}%` }} />
-                <div className="bg-on-surface-variant/30" style={{ width: `${fixture.drawProb * 100}%` }} />
-                <div className="bg-secondary" style={{ width: `${fixture.awayWinProb * 100}%` }} />
-              </div>
-              <p className="mt-3 text-xs text-on-surface-variant">
-                Pre-match model. Live odds may differ during play.
-              </p>
-            </GlassCard>
+                <p className="mt-3 text-xs text-on-surface-variant">
+                  Pre-match model. Live odds may differ during play.
+                </p>
+              </GlassCard>
+            </Paywall>
           </aside>
         </div>
       </div>

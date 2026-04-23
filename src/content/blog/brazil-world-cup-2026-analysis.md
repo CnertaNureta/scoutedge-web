@@ -1,6 +1,6 @@
 ---
 title: "Can Brazil Win World Cup 2026? Our AI's Verdict"
-description: "Brazil's World Cup 2026 chances analyzed: 14% win probability, Chemistry Index 7.8/10, squad breakdown by KickOracle. Group C prediction, knockout path, and betting value assessment."
+description: "Brazil's World Cup 2026 chances analyzed: 14% win probability, Chemistry Index 7.8/10, squad breakdown by KickOracle. Group C prediction, knockout path, and model edge assessment."
 keywords:
   - "Brazil World Cup 2026"
   - "Brazil World Cup 2026 chances"
@@ -70,18 +70,18 @@ A quarterfinal against either England (Group L) or Argentina (Group J) would be 
 
 **Floor**: Quarterfinal exit. A Morocco upset in the group stage could disrupt momentum; a knockout draw against peak Argentina could end it there.
 
-## Betting Market vs Our Model
+## Consensus Market vs Our Model
 
-| Market | Bookmaker Odds | Implied Prob | KickOracle Prob | Edge |
+| Market | Consensus Price | Implied Prob | KickOracle Prob | Edge |
 |--------|---------------|--------------|----------------|------|
 | Win World Cup | 6.50 | 15.4% | 14.0% | -1.4% |
 | Win Group C | 1.20 | 83.3% | 89.0% | +5.7% |
 | Reach QF | 2.10 | 47.6% | 61.0% | +13.4% |
 | Reach SF | 3.20 | 31.3% | 38.0% | +6.7% |
 
-**Value assessment**: The tournament winner market is fairly priced. The real value is in the quarterfinal and group winner markets — our model has Brazil's QF probability at 61%, a 13-point gap over the bookmakers' implied 47.6%. The group winner price at 1.20 is also tighter than KickOracle data supports.
+**Value assessment**: The tournament winner market is fairly priced. The real value is in the quarterfinal and group winner markets — our model has Brazil's QF probability at 61%, a 13-point gap over the consensus implied 47.6%. The group winner price at 1.20 is also tighter than KickOracle data supports.
 
-*Bet responsibly. For support: [GambleAware.org](https://www.begambleaware.org). Odds are indicative and subject to change.*
+*Market prices are indicative probability signals and subject to change.*
 
 ## FAQ
 ### Can Brazil win World Cup 2026?

@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { getAllTeams, getTeamBySlug } from '@/lib/data-service'
+import { getTeamBySlug } from '@/lib/data-service'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
 
 export const runtime = 'nodejs'
@@ -10,10 +10,6 @@ export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 const fontsDir = join(process.cwd(), 'public', 'fonts')
-
-export async function generateStaticParams() {
-  return getAllTeams().map((team) => ({ slug: team.slug }))
-}
 
 export default async function TeamOGImage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

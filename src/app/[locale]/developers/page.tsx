@@ -7,7 +7,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 export const metadata: Metadata = {
   title: 'Developer Portal — KickOracle B2B Data API',
   description:
-    'Access World Cup 2026 match data, AI predictions, team signals, and odds through the KickOracle API. Built for sports media, analytics platforms, and betting operators.',
+    'Access World Cup 2026 match data, AI predictions, team signals, and market probabilities through the KickOracle API. Built for sports media, analytics platforms, and intelligence teams.',
   openGraph: {
     title: 'KickOracle Developer Portal',
     description: 'World Cup 2026 intelligence API for sports media and analytics.',
@@ -37,8 +37,8 @@ const ENDPOINTS = [
   },
   {
     method: 'GET',
-    path: '/v1/odds/markets',
-    description: 'Aggregated odds across sportsbooks with movement history',
+    path: '/v1/market-probabilities',
+    description: 'Aggregated consensus probabilities with movement history',
   },
   {
     method: 'GET',
@@ -86,7 +86,7 @@ const TIERS: TierInfo[] = [
       'Everything in Basic',
       'AI prediction models',
       'News & social signals',
-      'Odds aggregation',
+      'Market probability aggregation',
       'Historical data access',
       'Webhook notifications',
     ],
@@ -126,9 +126,9 @@ export default function DevelopersPage() {
             <span className="gradient-text">Intelligence API</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg md:text-xl text-on-surface-variant font-body leading-relaxed">
-            Match data, AI predictions, team signals, and aggregated odds — delivered
+            Match data, AI predictions, team signals, and market probabilities — delivered
             through a single REST API built for sports media, analytics platforms,
-            and betting operators.
+            and sports intelligence teams.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -338,8 +338,8 @@ export default function DevelopersPage() {
             />
             <FeatureCard
               icon={'\u{1F4CA}'}
-              title="Odds Aggregation"
-              description="Pre-match and in-play odds from major sportsbooks with movement history and value detection."
+              title="Consensus Probability Signals"
+              description="Pre-match and in-play probability signals from market consensus sources with movement history and edge detection."
             />
             <FeatureCard
               icon={'\u26A1'}

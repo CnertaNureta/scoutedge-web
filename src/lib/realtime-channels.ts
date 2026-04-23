@@ -84,7 +84,7 @@ export interface MatchIncidentPayload {
 export interface OddsShiftPayload {
   match_id: string
   market: string
-  bookmaker: string
+  source: string
   previous_odds: Record<string, number>
   current_odds: Record<string, number>
   shift_pct: number
@@ -96,7 +96,7 @@ export interface OddsSharpMovePayload {
   market: string
   direction: 'home' | 'away' | 'draw' | 'over' | 'under'
   magnitude: number
-  bookmaker_count: number
+  source_count: number
   timestamp: string
 }
 

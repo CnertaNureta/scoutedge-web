@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getAllPlayers, getAllTeams, getTeamBySlug } from '@/lib/data-service'
+import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -11,10 +11,6 @@ export const revalidate = 3600
 
 interface Props {
   params: Promise<{ player: string }>
-}
-
-export function generateStaticParams() {
-  return getAllPlayers().map((p) => ({ player: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

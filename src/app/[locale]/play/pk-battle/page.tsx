@@ -1,0 +1,50 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import PKBattleApp from '@/components/pk-battle/PKBattleApp'
+
+export const metadata: Metadata = {
+  title: 'PK Battle — Player vs Player Duel | World Cup 2026',
+  description:
+    'Pit any two World Cup 2026 players against each other. AI-powered comparison weighs rating, experience, fitness, morale, and positional matchup.',
+  keywords:
+    'World Cup 2026 player comparison, player vs player, PK battle, football duel, World Cup 2026 players',
+  alternates: { canonical: 'https://kickoracle.com/play/pk-battle' },
+  ...buildOGMeta({
+    title: 'PK Battle — Player vs Player Duel | World Cup 2026',
+    description:
+      'Pit any two World Cup 2026 players against each other in an AI-powered head-to-head duel.',
+    url: 'https://kickoracle.com/play/pk-battle',
+  }),
+}
+
+export default function PKBattlePage() {
+  const jsonLd = breadcrumbJsonLd([
+    { name: 'Home', url: 'https://kickoracle.com' },
+    { name: 'Fan Zone', url: 'https://kickoracle.com/play' },
+    { name: 'PK Battle', url: 'https://kickoracle.com/play/pk-battle' },
+  ])
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <main className="mx-auto w-full max-w-5xl px-4 py-12 sm:px-6">
+        <div className="mb-6 flex items-center gap-2 text-sm text-on-surface-variant">
+          <Link
+            href="/play"
+            className="hover:text-on-surface transition-colors"
+          >
+            Fan Zone
+          </Link>
+          <span>/</span>
+          <span>PK Battle</span>
+        </div>
+
+        <PKBattleApp />
+      </main>
+    </>
+  )
+}

@@ -682,7 +682,7 @@ export const PLAYER_STATUS_OVERLAY: PlayerStatusRecord[] = [
     "slug": "sandro-tonali",
     "teamSlug": "italy",
     "status": "confirmed",
-    "reason": "Returned from a betting ban and re-established himself as a key midfielder for Italy and Newcastle.",
+    "reason": "Returned from a regulatory suspension and re-established himself as a key midfielder for Italy and Newcastle.",
     "updated": "2026-04-01"
   },
   {
