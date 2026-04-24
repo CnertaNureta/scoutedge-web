@@ -109,14 +109,9 @@ export async function checkMinuteLimit(keyId: string, limitPerMinute: number): P
         resetAt: new Date(reset),
         retryAfterSec: success ? undefined : Math.ceil((reset - Date.now()) / 1000),
       }
-    } catch {
-      return {
-        allowed: false,
-        limit: limitPerMinute,
-        remaining: 0,
-        resetAt: new Date(Date.now() + WINDOW_MS),
-        retryAfterSec: 60,
-      }
+    } catch (err) {
+      console.warn('[rate-limiter] Upstash unreachable, failing open:', err)
+      return checkMinuteLimitInMemory(keyId, limitPerMinute)
     }
   }
 

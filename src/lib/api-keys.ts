@@ -31,7 +31,7 @@ const TIER_DEFAULTS: Record<ApiTier, { ratePerMin: number; ratePerMonth: number 
   whitelabel: { ratePerMin: 300, ratePerMonth: 999_999_999 },
 }
 
-function hashKey(raw: string): string {
+export function hashKey(raw: string): string {
   const pepper = process.env.API_KEY_PEPPER
   if (pepper) {
     return createHmac('sha256', pepper).update(raw).digest('hex')

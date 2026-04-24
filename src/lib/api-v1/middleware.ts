@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSupabaseAdmin } from '@/lib/supabase-server'
-import { createHash, createHmac } from 'crypto'
+import { hashKey } from '@/lib/api-keys'
 import { apiError } from './response'
 import { checkMinuteLimit, checkMonthLimit, type RateLimitResult } from './rate-limiter'
 import { logApiUsage } from './usage-logger'
@@ -8,7 +8,6 @@ import { logApiUsage } from './usage-logger'
 export type ApiTier = 'basic' | 'advanced' | 'event' | 'whitelabel'
 
 const ADVANCED_TIERS: ApiTier[] = ['advanced', 'event', 'whitelabel']
-
 
 export interface ApiKeyContext {
   keyId: string
@@ -21,14 +20,6 @@ export type ApiHandler = (
   req: NextRequest,
   ctx: ApiKeyContext
 ) => Promise<NextResponse>
-
-function hashKey(raw: string): string {
-  const pepper = process.env.API_KEY_PEPPER
-  if (pepper) {
-    return createHmac('sha256', pepper).update(raw).digest('hex')
-  }
-  return createHash('sha256').update(raw).digest('hex')
-}
 
 async function validateApiKey(raw: string): Promise<ApiKeyContext | null> {
   const admin = getSupabaseAdmin()
