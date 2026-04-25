@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -62,6 +63,8 @@ export default async function PlayerPage({ params }: Props) {
   const team = getTeamBySlug(player.teamSlug)
   const teamName = team?.name ?? player.teamSlug.replace(/-/g, ' ')
   const teamFlag = team?.flag ?? ''
+  const resolved = resolvePlayerStatus(player)
+  const statusConfig = STATUS_CONFIG[resolved.status]
 
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: 'https://kickoracle.com' },
@@ -93,6 +96,21 @@ export default async function PlayerPage({ params }: Props) {
           <p className="text-on-surface-variant text-base">
             {player.club} &middot; Age {player.age}
           </p>
+          <Link
+            href={`/players/is-playing/${slug}`}
+            className={`inline-flex items-center gap-2 px-5 py-2 rounded-full ring-1 mt-6 transition-transform hover:scale-105 ${
+              statusConfig.tone === 'positive'
+                ? 'ring-green-500/40 bg-green-500/10'
+                : statusConfig.tone === 'cautious'
+                  ? 'ring-amber-500/40 bg-amber-500/10'
+                  : 'ring-red-500/40 bg-red-500/10'
+            }`}
+          >
+            <span className="text-lg" aria-hidden>{statusConfig.emoji}</span>
+            <span className="font-label text-sm uppercase tracking-wide">
+              WC 2026: {statusConfig.label}
+            </span>
+          </Link>
         </div>
       </section>
 
@@ -167,8 +185,14 @@ export default async function PlayerPage({ params }: Props) {
       <section className="max-w-[1440px] mx-auto px-6 pb-24">
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href={`/teams/${player.teamSlug}/players/${slug}`}
+            href={`/players/is-playing/${slug}`}
             className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
+          >
+            Is {player.name} Playing?
+          </Link>
+          <Link
+            href={`/teams/${player.teamSlug}/players/${slug}`}
+            className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
             Full Profile on {teamName}
           </Link>

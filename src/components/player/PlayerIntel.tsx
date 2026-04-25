@@ -5,6 +5,7 @@ import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import Badge from '@/components/ui/Badge'
 import { Newspaper, MessageSquare, BarChart3, FlaskConical, AlertTriangle, Clock3 } from 'lucide-react'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 interface PlayerIntelProps {
   player: Player
@@ -22,10 +23,12 @@ function getRiskVariant(risk: Player['selectionRisk']) {
   return 'primary'
 }
 
-export default function PlayerIntel({ player }: PlayerIntelProps) {
+export default async function PlayerIntel({ player }: PlayerIntelProps) {
+  const locale = await getLocale()
+  const t = await getTranslations('playerIntel')
   const colors = getTeamColors(player.teamSlug)
   const lastUpdatedLabel = player.intelLastUpdated
-    ? new Date(player.intelLastUpdated).toLocaleDateString('en-US', {
+    ? new Date(player.intelLastUpdated).toLocaleDateString(locale, {
       timeZone: 'UTC',
       month: 'short',
       day: 'numeric',
@@ -44,7 +47,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
 
         <div className="flex items-center gap-3 mb-6">
           <FlaskConical className="w-6 h-6" style={{ color: colors.glow }} />
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">KickOracle Intelligence Report</h2>
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight">{t('intelligenceReport')}</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
         </div>
 
@@ -53,7 +56,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
             {/* Fitness */}
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">Fitness Status</span>
+                <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">{t('fitnessStatus')}</span>
                 <FitnessIndicator status={player.fitnessStatus} showLabel size="md" />
               </div>
               <p className="text-on-surface-variant italic">&ldquo;{player.fitnessNote}&rdquo;</p>
@@ -62,10 +65,10 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
             {/* Sentiment */}
             <div>
               <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest block mb-2">
-                Sentiment Analysis
+                {t('sentimentAnalysis')}
               </span>
               <ChemistryBar value={player.sentimentScore} label={player.sentimentLabel} />
-              <p className="text-on-surface-variant text-xs mt-2">How positive the media and fans are about this player right now. Based on AI analysis of recent news, social media, and press conferences.</p>
+              <p className="text-on-surface-variant text-xs mt-2">{t('sentimentDescription')}</p>
             </div>
 
             {(player.selectionRisk || player.tacticalRisk) && (
@@ -73,7 +76,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
                 <div className="flex items-center gap-3">
                   <AlertTriangle className="w-4 h-4 text-on-surface-variant" />
                   <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">
-                    Selection Risk
+                    {t('selectionRisk')}
                   </span>
                   {player.selectionRisk && (
                     <Badge variant={getRiskVariant(player.selectionRisk)} size="md">
@@ -86,7 +89,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
                 )}
                 {player.tacticalNote && (
                   <p className="text-on-surface-variant text-xs leading-relaxed">
-                    Tactical read: {player.tacticalNote}
+                    {t('tacticalRead', { note: player.tacticalNote })}
                   </p>
                 )}
               </div>
@@ -96,7 +99,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
           {/* Recent signals */}
           <div className="space-y-4">
             <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest block">
-              Recent Signals
+              {t('recentSignals')}
             </span>
             <div className="space-y-3">
               {player.recentSignals && player.recentSignals.length > 0 ? (
@@ -122,7 +125,7 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
               ) : (
                 <div className="flex items-center gap-3 p-4 bg-surface-container-low rounded-lg border border-white/5">
                   <Newspaper className="w-5 h-5 text-on-surface-variant/50 shrink-0" />
-                  <p className="text-sm text-on-surface-variant italic">No recent signals. Check back as the tournament approaches.</p>
+                  <p className="text-sm text-on-surface-variant italic">{t('noSignals')}</p>
                 </div>
               )}
             </div>
@@ -132,13 +135,13 @@ export default function PlayerIntel({ player }: PlayerIntelProps) {
         <div className="mt-8 pt-6 border-t border-outline-variant/20">
           <p className="text-on-surface-variant text-sm">
             {player.recentSignals && player.recentSignals.length > 0
-              ? 'Signals refresh as new reporting and performance context arrive.'
-              : 'This panel expands as more reporting and team context are gathered.'}
+              ? t('signalsRefresh')
+              : t('panelExpands')}
           </p>
           {lastUpdatedLabel && (
             <p className="text-on-surface-variant text-xs mt-1 inline-flex items-center gap-1.5">
               <Clock3 className="w-3.5 h-3.5" />
-              Updated {lastUpdatedLabel} UTC
+              {t('updated', { date: lastUpdatedLabel })}
             </p>
           )}
         </div>

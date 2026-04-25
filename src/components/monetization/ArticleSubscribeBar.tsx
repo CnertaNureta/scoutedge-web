@@ -1,8 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 export default function ArticleSubscribeBar() {
+  const t = useTranslations('articleSubscribe')
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [dismissed, setDismissed] = useState(false)
@@ -14,7 +16,7 @@ export default function ArticleSubscribeBar() {
     setError('')
 
     if (!email || !email.includes('@')) {
-      setError('Please enter a valid email.')
+      setError(t('errorEmail'))
       return
     }
 
@@ -30,13 +32,13 @@ export default function ArticleSubscribeBar() {
       const data = await res.json()
 
       if (!res.ok) {
-        setError(data.error === 'Already subscribed' ? 'Already subscribed!' : data.error || 'Something went wrong.')
+        setError(data.error === 'Already subscribed' ? t('alreadySubscribed') : data.error || t('networkError'))
         return
       }
 
       setSubmitted(true)
     } catch {
-      setError('Network error. Please try again.')
+      setError(t('networkError'))
     } finally {
       setLoading(false)
     }
@@ -49,22 +51,22 @@ export default function ArticleSubscribeBar() {
       <div className="max-w-[800px] mx-auto px-4 py-3">
         {submitted ? (
           <div className="flex items-center justify-center gap-2 text-sm">
-            <span className="text-primary font-semibold">Check your inbox to confirm!</span>
+            <span className="text-primary font-semibold">{t('confirmInbox')}</span>
             <button
               onClick={() => setDismissed(true)}
               className="text-on-surface-variant/60 hover:text-on-surface text-xs ml-4"
-              aria-label="Dismiss"
+              aria-label={t('dismiss')}
             >
-              Dismiss
+              {t('dismiss')}
             </button>
           </div>
         ) : (
           <div className="flex items-center gap-3">
             <span className="text-on-surface-variant text-sm shrink-0 hidden sm:inline">
-              Get daily predictions in your inbox
+              {t('desktopCta')}
             </span>
             <span className="text-on-surface-variant text-xs shrink-0 sm:hidden">
-              Daily predictions
+              {t('mobileCta')}
             </span>
             <form onSubmit={handleSubmit} className="flex gap-2 flex-1 min-w-0">
               <input
@@ -80,7 +82,7 @@ export default function ArticleSubscribeBar() {
                 disabled={loading}
                 className="bg-primary text-on-primary font-label text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full hover:opacity-90 transition-opacity shrink-0 disabled:opacity-50"
               >
-                {loading ? '...' : 'Subscribe'}
+                {loading ? '...' : t('subscribe')}
               </button>
             </form>
             <button

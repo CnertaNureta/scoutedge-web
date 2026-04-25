@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useLocale } from 'next-intl'
 import { useApi } from '@/hooks/useApi'
 import { useToast } from '@/components/ui/Toast'
 import GlassCard from '@/components/ui/GlassCard'
@@ -26,6 +27,7 @@ interface Props {
 }
 
 export default function KeysTab({ keys, loading, onRefresh }: Props) {
+  const locale = useLocale()
   const [showCreate, setShowCreate] = useState(false)
   const [showConfirm, setShowConfirm] = useState<{ action: 'rotate' | 'revoke'; key: ApiKey } | null>(null)
   const [showRename, setShowRename] = useState<ApiKey | null>(null)
@@ -99,8 +101,8 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
               >
                 <td className="px-5 py-3 font-body text-sm font-medium text-on-surface">{k.name}</td>
                 <td className="px-5 py-3 font-mono text-sm text-on-surface-variant">{k.keyPrefix}...</td>
-                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{formatDate(k.createdAt)}</td>
-                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{k.lastUsedAt ? formatDate(k.lastUsedAt) : 'Never'}</td>
+                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{formatDate(k.createdAt, locale)}</td>
+                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{k.lastUsedAt ? formatDate(k.lastUsedAt, locale) : 'Never'}</td>
                 <td className="px-5 py-3">
                   <Badge variant={k.isActive ? 'primary' : 'secondary'} size="sm">
                     {k.isActive ? 'Active' : 'Revoked'}
@@ -145,7 +147,7 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
             </div>
             <p className="font-mono text-sm text-on-surface-variant mb-2">{k.keyPrefix}...</p>
             <div className="flex items-center justify-between">
-              <span className="font-body text-xs text-on-surface-variant">Created {formatDate(k.createdAt)}</span>
+              <span className="font-body text-xs text-on-surface-variant">Created {formatDate(k.createdAt, locale)}</span>
               {k.isActive && (
                 <div className="relative">
                   <button
@@ -455,7 +457,7 @@ function Modal({ children, onClose }: { children: React.ReactNode; onClose: () =
   )
 }
 
-function formatDate(iso: string): string {
+function formatDate(iso: string, locale: string): string {
   const d = new Date(iso)
   const now = new Date()
   const diffMs = now.getTime() - d.getTime()
@@ -463,5 +465,5 @@ function formatDate(iso: string): string {
   if (diffDays === 0) return 'Today'
   if (diffDays === 1) return 'Yesterday'
   if (diffDays < 30) return `${diffDays}d ago`
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  return d.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })
 }

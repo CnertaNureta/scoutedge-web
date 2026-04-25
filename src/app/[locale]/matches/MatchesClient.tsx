@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState, useCallback, useRef } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import {
   getAllVenues,
@@ -30,25 +31,26 @@ interface MatchesClientProps {
   teamsBySlug: Record<string, Team>
 }
 
-const ROUND_META: Record<RoundName, { accent: string; eyebrow: string; title: string; description: string }> = {
-  'Match Day 1': {
-    accent: BRAND.primary,
-    eyebrow: 'Opening pulse',
-    title: 'First reads, first leverage',
-    description: 'The opening wave sets the emotional pace of every group before points tables harden.',
-  },
-  'Match Day 2': {
-    accent: BRAND.tertiary,
-    eyebrow: 'Separation week',
-    title: 'Margins widen quickly',
-    description: 'Second fixtures decide who can rotate, who must chase, and where the bracket starts to breathe.',
-  },
-  'Match Day 3': {
-    accent: BRAND.secondary,
-    eyebrow: 'Decision night',
-    title: 'Qualification pressure peaks',
-    description: 'The final group games compress everything into ninety minutes: survival, seeding, and volatility.',
-  },
+const ROUND_ACCENT: Record<RoundName, string> = {
+  'Match Day 1': BRAND.primary,
+  'Match Day 2': BRAND.tertiary,
+  'Match Day 3': BRAND.secondary,
+}
+
+const ROUND_META_KEYS: Record<RoundName, string> = {
+  'Match Day 1': 'matchDay1',
+  'Match Day 2': 'matchDay2',
+  'Match Day 3': 'matchDay3',
+}
+
+function getRoundMeta(round: RoundName, t: (key: string) => string) {
+  const key = ROUND_META_KEYS[round]
+  return {
+    accent: ROUND_ACCENT[round],
+    eyebrow: t(`roundMeta.${key}.eyebrow`),
+    title: t(`roundMeta.${key}.title`),
+    description: t(`roundMeta.${key}.description`),
+  }
 }
 
 const venueLookup = new Map(getAllVenues().map((venue) => [venue.name, venue]))
@@ -60,24 +62,21 @@ const jetLagSeverity: Record<JetLagTier, number> = {
   extreme: 3,
 }
 
-const jetLagCopy: Record<JetLagTier, string> = {
-  none: 'minimal adjustment',
-  moderate: 'manageable adjustment',
-  significant: 'high-travel adjustment',
-  extreme: 'major jet-lag risk',
+function getJetLagCopy(tier: JetLagTier, t: (key: string) => string): string {
+  return t(`jetLag.${tier}`)
 }
 
-function formatKickoff(utc: string, timeZone = 'America/New_York') {
+function formatKickoff(utc: string, locale: string, timeZone = 'America/New_York') {
   const kickoff = new Date(utc)
 
   return {
-    date: kickoff.toLocaleDateString('en-US', {
+    date: kickoff.toLocaleDateString(locale, {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
       timeZone,
     }),
-    time: kickoff.toLocaleTimeString('en-US', {
+    time: kickoff.toLocaleTimeString(locale, {
       hour: 'numeric',
       minute: '2-digit',
       timeZone,
@@ -86,21 +85,20 @@ function formatKickoff(utc: string, timeZone = 'America/New_York') {
   }
 }
 
-function getConfidenceLabel(fixture: MatchFixture) {
+function getConfidenceLabel(fixture: MatchFixture, t: (key: string) => string) {
   const strongestEdge = Math.max(fixture.homeWinProb, fixture.awayWinProb)
 
-  if (strongestEdge >= 0.64) return 'Heavy model edge'
-  if (strongestEdge >= 0.54) return 'Clear lean'
-  return 'Balanced read'
+  if (strongestEdge >= 0.64) return t('confidence.heavy')
+  if (strongestEdge >= 0.54) return t('confidence.clear')
+  return t('confidence.balanced')
 }
 
-function getPressureLabel(round: RoundName) {
-  if (round === 'Match Day 1') return 'Opening leverage'
-  if (round === 'Match Day 2') return 'Table-shaping ninety'
-  return 'Qualification pressure'
+function getPressureLabel(round: RoundName, t: (key: string) => string) {
+  const key = ROUND_META_KEYS[round]
+  return t(`pressure.${key}`)
 }
 
-function getTravelContext(home: Team, away: Team) {
+function getTravelContext(home: Team, away: Team, t: (key: string, values?: Record<string, string | number>) => string) {
   const teamContexts = [home, away]
     .map((team) => ({
       team,
@@ -110,7 +108,7 @@ function getTravelContext(home: Team, away: Team) {
     .filter((entry) => entry.tier)
 
   if (teamContexts.length === 0) {
-    return 'Travel load is relatively neutral for both squads.'
+    return t('travelNeutral')
   }
 
   const highest = teamContexts.reduce((current, entry) => (
@@ -127,10 +125,10 @@ function getTravelContext(home: Team, away: Team) {
     typeof adjustmentHours === 'number' ? Math.abs(adjustmentHours) : undefined
 
   if (absoluteAdjustmentHours && absoluteAdjustmentHours > 0) {
-    return `${impactedTeams} arrive with ${absoluteAdjustmentHours}-hour body-clock shift and ${jetLagCopy[highest.tier!]}.`
+    return t('travelShift', { teams: impactedTeams, hours: absoluteAdjustmentHours, adjustment: getJetLagCopy(highest.tier!, t) })
   }
 
-  return `${impactedTeams} carry ${jetLagCopy[highest.tier!]} into kickoff.`
+  return t('travelCarry', { teams: impactedTeams, adjustment: getJetLagCopy(highest.tier!, t) })
 }
 
 function buildMatchStory(fixture: MatchFixture, home: Team, away: Team, venue?: Venue) {
@@ -192,10 +190,12 @@ function TeamRow({
   team,
   role,
   probability,
+  t,
 }: {
   team: Team
   role: 'home' | 'away'
   probability: number
+  t: (key: string) => string
 }) {
   return (
     <Link
@@ -209,7 +209,7 @@ function TeamRow({
             {team.name}
           </div>
           <div className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
-            #{team.fifaRanking} FIFA rank · {team.confederation}
+            #{team.fifaRanking} {t('fifaRank')} · {team.confederation}
           </div>
         </div>
       </div>
@@ -218,7 +218,7 @@ function TeamRow({
         <div className={`font-label text-xs font-semibold uppercase tracking-widest ${role === 'home' ? 'text-primary' : 'text-secondary'}`}>
           {Math.round(probability * 100)}%
         </div>
-        <div className="text-[11px] text-on-surface-variant">Chemistry {team.chemistry}</div>
+        <div className="text-[11px] text-on-surface-variant">{t('chemistry')} {team.chemistry}</div>
       </div>
     </Link>
   )
@@ -232,10 +232,14 @@ function MatchCard({
   fixture,
   teamsBySlug,
   accent,
+  locale,
+  t,
 }: {
   fixture: MatchFixture
   teamsBySlug: Record<string, Team>
   accent: string
+  locale: string
+  t: (key: string, values?: Record<string, string | number>) => string
 }) {
   const home = teamsBySlug[fixture.homeTeamSlug]
   const away = teamsBySlug[fixture.awayTeamSlug]
@@ -243,14 +247,14 @@ function MatchCard({
   if (!home || !away) return null
 
   const venue = venueLookup.get(fixture.venue)
-  const kickoff = formatKickoff(fixture.kickoffUtc, venue?.timezone)
+  const kickoff = formatKickoff(fixture.kickoffUtc, locale, venue?.timezone)
   const story = buildMatchStory(fixture, home, away, venue)
   const venueLine = venue
-    ? `${venue.metro}, ${venue.country} · ${venue.capacity.toLocaleString('en-US')} seats`
+    ? `${venue.metro}, ${venue.country} · ${t('seats', { capacity: venue.capacity.toLocaleString(locale) })}`
     : `${fixture.venue}, ${fixture.city}`
   const climateLine = venue
     ? `${venue.roofType} roof · ${venue.climate.description}`
-    : 'Venue detail unavailable'
+    : t('venueDetailUnavailable')
   const matchId = fixtureToMatchId(fixture)
 
   return (
@@ -259,20 +263,20 @@ function MatchCard({
 
       <div className="flex flex-wrap items-center justify-between gap-3 mb-5">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="primary" size="sm">Group {fixture.group}</Badge>
+          <Badge variant="primary" size="sm">{t('groupBadge', { group: fixture.group })}</Badge>
           <Badge variant="outline" size="sm">{fixture.round}</Badge>
         </div>
         <span
           className="rounded-full px-3 py-1 font-label text-[10px] font-semibold uppercase tracking-widest"
           style={{ backgroundColor: `${accent}20`, color: accent }}
         >
-          {getConfidenceLabel(fixture)}
+          {getConfidenceLabel(fixture, t)}
         </span>
       </div>
 
       <div className="space-y-3 mb-5">
-        <TeamRow team={home} role="home" probability={fixture.homeWinProb} />
-        <TeamRow team={away} role="away" probability={fixture.awayWinProb} />
+        <TeamRow team={home} role="home" probability={fixture.homeWinProb} t={t} />
+        <TeamRow team={away} role="away" probability={fixture.awayWinProb} t={t} />
       </div>
 
       <p className="text-sm leading-7 text-on-surface mb-5">{story}</p>
@@ -287,12 +291,12 @@ function MatchCard({
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5">
         {[
-          { label: 'Kickoff', value: `${kickoff.date} · ${kickoff.time}` },
-          { label: 'Venue', value: venueLine },
-          { label: 'Narrative', value: getPressureLabel(fixture.round as RoundName) },
-          { label: 'Travel watch', value: getTravelContext(home, away) },
-          { label: 'Climate', value: climateLine },
-          { label: 'Key insight', value: `${home.name}: ${home.keyInsight}` },
+          { label: t('kickoff'), value: `${kickoff.date} · ${kickoff.time}` },
+          { label: t('venue'), value: venueLine },
+          { label: t('narrative'), value: getPressureLabel(fixture.round as RoundName, t) },
+          { label: t('travelWatch'), value: getTravelContext(home, away, t) },
+          { label: t('climate'), value: climateLine },
+          { label: t('keyInsight'), value: `${home.name}: ${home.keyInsight}` },
         ].map((item) => (
           <div key={item.label} className="rounded-2xl border border-white/[0.06] bg-black/10 px-4 py-3">
             <div className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">
@@ -308,7 +312,7 @@ function MatchCard({
         className="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-primary/30 bg-primary/5 px-4 py-3 font-label text-xs font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-colors"
       >
         <span className="h-2 w-2 rounded-full bg-primary animate-pulse-slow" />
-        Live predictions & leaderboard
+        {t('livePredictions')}
       </Link>
     </GlassCard>
   )
@@ -320,6 +324,8 @@ export default function MatchesClient({
   teamsByGroup,
   teamsBySlug,
 }: MatchesClientProps) {
+  const locale = useLocale()
+  const t = useTranslations('matchesPage')
   const [activeGroup, setActiveGroup] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
   const filterRef = useRef<HTMLDivElement>(null)
@@ -443,7 +449,7 @@ export default function MatchesClient({
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
             <span className="font-label text-xs text-primary font-bold">
-              {isRefreshing ? 'Refreshing…' : 'Pull to refresh'}
+              {isRefreshing ? t('refreshing') : t('pullToRefresh')}
             </span>
           </div>
         </div>
@@ -459,24 +465,23 @@ export default function MatchesClient({
         <div className="relative z-10 mx-auto max-w-[1440px] text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary-container/20 px-5 py-2 font-label text-xs font-semibold uppercase tracking-widest text-secondary mb-8">
             <span className="h-2 w-2 rounded-full bg-secondary animate-pulse-slow" />
-            Narrative-first match board
+            {t('narrativeBadge')}
           </span>
 
           <h1 className="font-headline text-[clamp(3rem,9vw,7.5rem)] leading-[0.9] tracking-wide uppercase mb-6">
-            <span className="block text-on-surface">World Cup 2026</span>
-            <span className="block gradient-text">Group-Stage Stories</span>
+            <span className="block text-on-surface">{t('heroTitle1')}</span>
+            <span className="block gradient-text">{t('heroTitle2')}</span>
           </h1>
 
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-on-surface-variant leading-8 mb-10">
-            KickOracle&apos;s match board now leads with context instead of clutter: where the leverage sits,
-            which venues change the conditions, and how probability, travel, and chemistry reshape every group.
+            {t('heroDescription')}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Badge variant="primary" size="md">72 fixtures</Badge>
-            <Badge variant="outline" size="md">12 groups</Badge>
-            <Badge variant="outline" size="md">16 host cities</Badge>
-            <Badge variant="outline" size="md">3 match days</Badge>
+            <Badge variant="primary" size="md">{t('heroBadgeFixtures')}</Badge>
+            <Badge variant="outline" size="md">{t('heroBadgeGroups')}</Badge>
+            <Badge variant="outline" size="md">{t('heroBadgeCities')}</Badge>
+            <Badge variant="outline" size="md">{t('heroBadgeMatchDays')}</Badge>
           </div>
 
           {/* Watch Mode toggle */}
@@ -488,10 +493,10 @@ export default function MatchesClient({
                   ? 'bg-primary text-on-primary'
                   : 'bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant/20'
               }`}
-              aria-label={watchMode ? 'Disable watch mode' : 'Enable watch mode — keep screen on'}
+              aria-label={watchMode ? t('watchModeDisable') : t('watchModeEnable')}
             >
               <span>{watchMode ? '📺' : '👁'}</span>
-              {watchMode ? 'Watch Mode On' : 'Watch Mode'}
+              {watchMode ? t('watchModeOn') : t('watchMode')}
             </button>
           )}
         </div>
@@ -500,10 +505,10 @@ export default function MatchesClient({
       <section className="page-container -mt-10 relative z-20 mb-20">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { label: 'Fixtures on board', value: filteredFixtures.length.toString(), accent: BRAND.primary },
-            { label: 'Groups in focus', value: visibleGroups.length.toString(), accent: BRAND.primaryFixed },
-            { label: 'Host cities live', value: hostCities.toString(), accent: BRAND.tertiary },
-            { label: 'Decision cadence', value: activeGroup ? '1 group' : '12 groups', accent: BRAND.secondary },
+            { label: t('fixturesOnBoard'), value: filteredFixtures.length.toString(), accent: BRAND.primary },
+            { label: t('groupsInFocus'), value: visibleGroups.length.toString(), accent: BRAND.primaryFixed },
+            { label: t('hostCitiesLive'), value: hostCities.toString(), accent: BRAND.tertiary },
+            { label: t('decisionCadence'), value: activeGroup ? t('oneGroup') : t('twelveGroups'), accent: BRAND.secondary },
           ].map((stat, index) => (
             <div
               key={stat.label}
@@ -524,19 +529,19 @@ export default function MatchesClient({
       <section className="page-container mb-20">
         <div className="flex items-end justify-between gap-6 mb-8">
           <div>
-            <SectionHeader className="mb-3">Matchday Narratives</SectionHeader>
+            <SectionHeader className="mb-3">{t('matchdayNarratives')}</SectionHeader>
             <p className="ml-4 max-w-3xl text-on-surface-variant">
-              Read the tournament by rhythm: first impressions, second-match separation, then final-day pressure.
+              {t('matchdayNarrativesDesc')}
             </p>
           </div>
           <div className="hidden lg:block text-right text-sm text-on-surface-variant">
-            {activeGroup ? `Focused on Group ${activeGroup}` : 'Scanning the full group-stage board'}
+            {activeGroup ? t('focusedOnGroup', { group: activeGroup }) : t('scanningFullBoard')}
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {roundBriefings.map((briefing) => {
-            const meta = ROUND_META[briefing.round]
+            const meta = getRoundMeta(briefing.round, t)
 
             return (
               <GlassCard key={briefing.round} hover className="h-full p-6">
@@ -551,8 +556,8 @@ export default function MatchesClient({
 
                 <div className="grid grid-cols-2 gap-3 mb-5">
                   {[
-                    { label: 'Fixtures', value: briefing.fixtures.toString() },
-                    { label: 'Cities', value: briefing.cities.toString() },
+                    { label: t('fixtures'), value: briefing.fixtures.toString() },
+                    { label: t('cities'), value: briefing.cities.toString() },
                   ].map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/[0.06] bg-black/10 px-4 py-3">
                       <div className="font-headline text-2xl" style={{ color: meta.accent }}>{item.value}</div>
@@ -575,14 +580,13 @@ export default function MatchesClient({
         <GlassCard className="p-6 md:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <SectionHeader className="mb-3">Group Board</SectionHeader>
+              <SectionHeader className="mb-3">{t('groupBoard')}</SectionHeader>
               <p className="ml-4 max-w-3xl text-on-surface-variant">
-                Filters stay available, but the board is framed as a reading surface for leverage, venue context,
-                travel load, and chemistry rather than a bare schedule table.
+                {t('groupBoardDesc')}
               </p>
             </div>
             <div className="font-label text-xs uppercase tracking-widest text-on-surface-variant">
-              {activeGroup ? `Showing Group ${activeGroup} only` : 'Showing all groups'}
+              {activeGroup ? t('showingGroupOnly', { group: activeGroup }) : t('showingAllGroups')}
             </div>
           </div>
 
@@ -595,7 +599,7 @@ export default function MatchesClient({
                   : 'border border-white/[0.08] bg-white/[0.03] text-on-surface-variant hover:border-white/20 hover:bg-white/[0.06]'
               }`}
             >
-              All Groups
+              {t('allGroups')}
             </button>
             {groups.map((group) => {
               const groupTeams = teamsByGroup[group] ?? []
@@ -612,7 +616,7 @@ export default function MatchesClient({
                   title={groupTeams.map((team) => team.name).join(', ')}
                 >
                   <span className="hidden sm:inline">{groupTeams.map((team) => team.flag).join(' ')}</span>
-                  <span className="sm:ml-2">Group {group}</span>
+                  <span className="sm:ml-2">{t('groupBadge', { group })}</span>
                 </button>
               )
             })}
@@ -631,7 +635,7 @@ export default function MatchesClient({
               <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                 <div>
                   <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <Badge variant="primary" size="md">Group {group}</Badge>
+                    <Badge variant="primary" size="md">{t('groupBadge', { group })}</Badge>
                     <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant">
                       {groupTeams.map((team) => `${team.flag} ${team.name}`).join(' · ')}
                     </span>
@@ -644,10 +648,10 @@ export default function MatchesClient({
 
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                   {[
-                    { label: 'Favorite', value: `#${Math.min(...groupTeams.map((team) => team.fifaRanking))}` },
-                    { label: 'Top chemistry', value: `${Math.max(...groupTeams.map((team) => team.chemistry))}` },
-                    { label: 'Fixtures', value: `${Object.values(groupFixtures).flat().length}` },
-                    { label: 'Cities', value: `${new Set(Object.values(groupFixtures).flat().map((fixture) => fixture.city)).size}` },
+                    { label: t('favorite'), value: `#${Math.min(...groupTeams.map((team) => team.fifaRanking))}` },
+                    { label: t('topChemistry'), value: `${Math.max(...groupTeams.map((team) => team.chemistry))}` },
+                    { label: t('fixtures'), value: `${Object.values(groupFixtures).flat().length}` },
+                    { label: t('cities'), value: `${new Set(Object.values(groupFixtures).flat().map((fixture) => fixture.city)).size}` },
                   ].map((item) => (
                     <div key={item.label} className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-center">
                       <div className="font-headline text-2xl text-primary">{item.value}</div>
@@ -662,7 +666,7 @@ export default function MatchesClient({
               <div className="space-y-8">
                 {rounds.map((round) => {
                   const matches = groupFixtures?.[round] ?? []
-                  const meta = ROUND_META[round]
+                  const meta = getRoundMeta(round, t)
 
                   if (!matches.length) return null
 
@@ -685,6 +689,8 @@ export default function MatchesClient({
                             fixture={fixture}
                             teamsBySlug={teamsBySlug}
                             accent={meta.accent}
+                            locale={locale}
+                            t={t}
                           />
                         ))}
                       </div>

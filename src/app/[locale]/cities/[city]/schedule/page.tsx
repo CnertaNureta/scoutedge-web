@@ -15,7 +15,7 @@ export const revalidate = 3600
 /* ---------- Metadata ---------- */
 
 interface SchedulePageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: SchedulePageProps): Promise<Metadata> {
@@ -46,8 +46,8 @@ export async function generateMetadata({ params }: SchedulePageProps): Promise<M
 
 /* ---------- Helpers ---------- */
 
-function formatMatchDate(utc: string, tz: string): string {
-  return new Date(utc).toLocaleDateString('en-US', {
+function formatMatchDate(utc: string, tz: string, locale: string): string {
+  return new Date(utc).toLocaleDateString(locale, {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -56,8 +56,8 @@ function formatMatchDate(utc: string, tz: string): string {
   })
 }
 
-function formatMatchTime(utc: string, tz: string): string {
-  return new Date(utc).toLocaleTimeString('en-US', {
+function formatMatchTime(utc: string, tz: string, locale: string): string {
+  return new Date(utc).toLocaleTimeString(locale, {
     hour: 'numeric',
     minute: '2-digit',
     timeZoneName: 'short',
@@ -91,7 +91,8 @@ function enrichFixture(fixture: MatchFixture): EnrichedFixture {
 
 function groupFixturesByDate(
   fixtures: EnrichedFixture[],
-  tz: string
+  tz: string,
+  locale: string
 ): Map<string, { label: string; matches: EnrichedFixture[] }> {
   const groups = new Map<string, { label: string; matches: EnrichedFixture[] }>()
 
@@ -99,7 +100,7 @@ function groupFixturesByDate(
     const key = formatDateKey(fixture.kickoffUtc, tz)
     if (!groups.has(key)) {
       groups.set(key, {
-        label: formatMatchDate(fixture.kickoffUtc, tz),
+        label: formatMatchDate(fixture.kickoffUtc, tz, locale),
         matches: [],
       })
     }
@@ -152,16 +153,18 @@ function ProbabilityBar({
 function MatchCard({
   fixture,
   timezone,
+  locale,
 }: {
   fixture: EnrichedFixture
   timezone: string
+  locale: string
 }) {
   return (
     <GlassCard className="p-5 md:p-6" hover>
       {/* Top row: time + group + round */}
       <div className="flex items-center justify-between mb-4">
         <span className="font-mono text-sm text-primary">
-          {formatMatchTime(fixture.kickoffUtc, timezone)}
+          {formatMatchTime(fixture.kickoffUtc, timezone, locale)}
         </span>
         <div className="flex items-center gap-2">
           <Badge variant="outline" size="sm">{fixture.round}</Badge>
@@ -221,7 +224,7 @@ function MatchCard({
 /* ---------- Page ---------- */
 
 export default async function CitySchedulePage({ params }: SchedulePageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -237,7 +240,7 @@ export default async function CitySchedulePage({ params }: SchedulePageProps) {
     .sort((a, b) => new Date(a.kickoffUtc).getTime() - new Date(b.kickoffUtc).getTime())
 
   const enrichedFixtures = cityFixtures.map(enrichFixture)
-  const dateGroups = groupFixturesByDate(enrichedFixtures, city.timezone)
+  const dateGroups = groupFixturesByDate(enrichedFixtures, city.timezone, locale)
   const matchCount = enrichedFixtures.length
 
   const breadcrumbs = breadcrumbJsonLd([
@@ -336,6 +339,7 @@ export default async function CitySchedulePage({ params }: SchedulePageProps) {
                       key={`${fixture.homeTeamSlug}-${fixture.awayTeamSlug}`}
                       fixture={fixture}
                       timezone={city.timezone}
+                      locale={locale}
                     />
                   ))}
                 </div>

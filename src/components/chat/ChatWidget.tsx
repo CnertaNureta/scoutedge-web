@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { generateAnswer, getSuggestions, type ChatMessage } from '@/lib/chat-engine'
 import { trackEvent } from '@/lib/analytics'
+import { useTranslations } from 'next-intl'
 
 function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user'
@@ -61,6 +62,7 @@ export default function ChatWidget() {
   const [isTyping, setIsTyping] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const t = useTranslations('chat')
 
   const scrollToBottom = useCallback(() => {
     if (scrollRef.current) {
@@ -85,14 +87,12 @@ export default function ChatWidget() {
         {
           id: 'welcome',
           role: 'assistant',
-          content: `Welcome to **KickOracle AI**. I know everything about World Cup 2026 — all 48 teams, 1,200+ players, match schedules, and AI predictions.
-
-What would you like to know?`,
+          content: t('welcomeMessage'),
           timestamp: Date.now(),
         },
       ])
     }
-  }, [isOpen, messages.length])
+  }, [isOpen, messages.length, t])
 
   const handleSend = useCallback(
     (text?: string) => {
@@ -143,7 +143,7 @@ What would you like to know?`,
             ? 'bg-surface-container-high text-on-surface rotate-0'
             : 'bg-primary text-on-primary hover:scale-110 animate-pulse-slow'
         }`}
-        aria-label={isOpen ? 'Close chat' : 'Open AI assistant'}
+        aria-label={isOpen ? t('closeChat') : t('openChat')}
       >
         {isOpen ? (
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -170,12 +170,12 @@ What would you like to know?`,
               <span className="text-lg">&#x26BD;</span>
             </div>
             <div>
-              <h3 className="font-headline text-sm uppercase tracking-wide text-primary">KickOracle AI</h3>
-              <p className="text-xs text-on-surface-variant">World Cup 2026 Intelligence</p>
+              <h3 className="font-headline text-sm uppercase tracking-wide text-primary">{t('title')}</h3>
+              <p className="text-xs text-on-surface-variant">{t('subtitle')}</p>
             </div>
             <div className="ml-auto flex items-center gap-1">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse-slow" />
-              <span className="text-xs text-on-surface-variant">Online</span>
+              <span className="text-xs text-on-surface-variant">{t('online')}</span>
             </div>
           </div>
 
@@ -227,7 +227,7 @@ What would you like to know?`,
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about any team, player, or match..."
+                placeholder={t('placeholder')}
                 className="flex-1 bg-surface-container rounded-xl px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/50 border border-white/[0.06] focus:border-primary/40 focus:outline-none transition-colors"
               />
               <button

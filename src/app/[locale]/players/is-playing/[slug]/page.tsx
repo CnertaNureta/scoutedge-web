@@ -11,16 +11,16 @@ import SectionHeader from '@/components/ui/SectionHeader'
 export const revalidate = 3600
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
-function formatUpdated(iso: string): string {
+function formatUpdated(iso: string, locale: string): string {
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return iso
-  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+  return d.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })
 }
 
-function buildFaq(playerName: string, teamName: string, status: PlayerStatus, reason: string, updated: string) {
+function buildFaq(playerName: string, teamName: string, status: PlayerStatus, reason: string, updated: string, locale: string) {
   const answer = STATUS_CONFIG[status]
   return [
     {
@@ -29,7 +29,7 @@ function buildFaq(playerName: string, teamName: string, status: PlayerStatus, re
     },
     {
       q: `When was ${playerName}'s 2026 World Cup status last updated?`,
-      a: `The last editorial update to ${playerName}'s status was on ${formatUpdated(updated)}.`,
+      a: `The last editorial update to ${playerName}'s status was on ${formatUpdated(updated, locale)}.`,
     },
     {
       q: `Which team does ${playerName} play for?`,
@@ -39,7 +39,7 @@ function buildFaq(playerName: string, teamName: string, status: PlayerStatus, re
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { locale, slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) return {}
 
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const status = STATUS_CONFIG[resolved.status]
 
   const title = `Is ${player.name} Playing in the 2026 World Cup? ${status.label} | KickOracle`
-  const description = `${player.name} (${teamName}) 2026 World Cup status: ${status.label}. ${resolved.reason} Updated ${formatUpdated(resolved.updated)}.`
+  const description = `${player.name} (${teamName}) 2026 World Cup status: ${status.label}. ${resolved.reason} Updated ${formatUpdated(resolved.updated, locale)}.`
   const url = `https://kickoracle.com/players/is-playing/${slug}`
 
   return {
@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function IsPlayingPage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) notFound()
 
@@ -80,7 +80,7 @@ export default async function IsPlayingPage({ params }: Props) {
     { name: `Is ${player.name} Playing?`, url },
   ])
 
-  const faq = buildFaq(player.name, teamName, resolved.status, resolved.reason, resolved.updated)
+  const faq = buildFaq(player.name, teamName, resolved.status, resolved.reason, resolved.updated, locale)
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -122,7 +122,7 @@ export default async function IsPlayingPage({ params }: Props) {
             <span className="font-headline text-xl uppercase tracking-wide">{config.label}</span>
           </div>
           <p className="text-on-surface-variant text-base mt-4">
-            {teamFlag} {teamName} &middot; {player.position} &middot; Age {player.age} &middot; Updated {formatUpdated(resolved.updated)}
+            {teamFlag} {teamName} &middot; {player.position} &middot; Age {player.age} &middot; Updated {formatUpdated(resolved.updated, locale)}
           </p>
         </div>
       </section>

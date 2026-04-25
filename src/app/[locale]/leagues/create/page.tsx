@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
 
 export default function CreateLeaguePage() {
+  const t = useTranslations('leaguesCreatePage')
   const { user, loading: authLoading } = useAuth()
   const { apiFetch } = useApi()
   const router = useRouter()
@@ -22,8 +24,8 @@ export default function CreateLeaguePage() {
     return (
       <div className="max-w-lg mx-auto px-4 py-12">
         <GlassCard className="p-8 text-center">
-          <p className="text-on-surface-variant mb-4">You need to sign in to create a league.</p>
-          <Link href="/auth/login" className="text-primary font-bold hover:underline">Sign In</Link>
+          <p className="text-on-surface-variant mb-4">{t('signInRequired')}</p>
+          <Link href="/auth/login" className="text-primary font-bold hover:underline">{t('signIn')}</Link>
         </GlassCard>
       </div>
     )
@@ -45,7 +47,7 @@ export default function CreateLeaguePage() {
       })
       router.push(`/leagues/${data.league.id}`)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create league')
+      setError(err instanceof Error ? err.message : t('createFailed'))
       setLoading(false)
     }
   }
@@ -53,13 +55,13 @@ export default function CreateLeaguePage() {
   return (
     <div className="max-w-lg mx-auto px-4 py-12">
       <Link href="/leagues" className="text-sm text-on-surface-variant hover:text-primary transition-colors mb-6 inline-block">
-        &larr; Back to Leagues
+        &larr; {t('backToLeagues')}
       </Link>
 
       <GlassCard className="p-8">
-        <h1 className="font-display text-3xl tracking-tight text-primary mb-2">Create League</h1>
+        <h1 className="font-display text-3xl tracking-tight text-primary mb-2">{t('heading')}</h1>
         <p className="text-on-surface-variant text-sm mb-8">
-          Set up a prediction league and invite friends to compete.
+          {t('description')}
         </p>
 
         {error && (
@@ -71,7 +73,7 @@ export default function CreateLeaguePage() {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="name" className="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">
-              League Name
+              {t('leagueName')}
             </label>
             <input
               id="name"
@@ -81,13 +83,13 @@ export default function CreateLeaguePage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-3 rounded-xl bg-surface-container-high border border-white/[0.08] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors"
-              placeholder="e.g. The Prediction Pundits"
+              placeholder={t('leagueNamePlaceholder')}
             />
           </div>
 
           <div>
             <label htmlFor="desc" className="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">
-              Description (optional)
+              {t('descriptionLabel')}
             </label>
             <textarea
               id="desc"
@@ -96,13 +98,13 @@ export default function CreateLeaguePage() {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="w-full px-4 py-3 rounded-xl bg-surface-container-high border border-white/[0.08] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-colors resize-none"
-              placeholder="What's your league about?"
+              placeholder={t('descriptionPlaceholder')}
             />
           </div>
 
           <div>
             <label className="block text-xs font-label uppercase tracking-widest text-on-surface-variant mb-3">
-              League Type
+              {t('leagueType')}
             </label>
             <div className="grid grid-cols-2 gap-3">
               {(['public', 'private'] as const).map(type => (
@@ -116,9 +118,9 @@ export default function CreateLeaguePage() {
                       : 'border-white/[0.08] hover:border-white/[0.15]'
                   }`}
                 >
-                  <span className="block font-headline text-sm text-on-surface capitalize">{type}</span>
+                  <span className="block font-headline text-sm text-on-surface">{t(type)}</span>
                   <span className="block text-xs text-on-surface-variant mt-1">
-                    {type === 'public' ? 'Anyone can join' : 'Invite code required'}
+                    {type === 'public' ? t('publicDesc') : t('privateDesc')}
                   </span>
                 </button>
               ))}
@@ -130,7 +132,7 @@ export default function CreateLeaguePage() {
             disabled={loading || !name.trim()}
             className="w-full py-3 rounded-xl bg-primary text-on-primary font-headline font-bold tracking-tight text-lg hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Creating...' : 'Create League'}
+            {loading ? t('creating') : t('createLeague')}
           </button>
         </form>
       </GlassCard>

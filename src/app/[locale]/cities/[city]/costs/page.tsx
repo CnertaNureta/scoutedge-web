@@ -11,7 +11,7 @@ import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 export const revalidate = 3600
 
 interface CostsPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: CostsPageProps): Promise<Metadata> {
@@ -36,12 +36,12 @@ function parseMinUsd(range: string): number {
   return match ? Number.parseInt(match[1], 10) : 0
 }
 
-function fmt(n: number): string {
-  return n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+function fmt(n: number, locale: string): string {
+  return n.toLocaleString(locale, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
 }
 
 export default async function CityCostsPage({ params }: CostsPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -132,18 +132,18 @@ export default async function CityCostsPage({ params }: CostsPageProps) {
                 {breakdown.map((row) => (
                   <tr key={row.label} className="border-b border-white/[0.04] hover:bg-white/[0.02]">
                     <td className="px-4 py-3 text-on-surface">{row.label}</td>
-                    <td className="px-4 py-3 text-right font-mono text-primary">{fmt(row.budget)}</td>
-                    <td className="px-4 py-3 text-right font-mono text-tertiary">{fmt(row.mid)}</td>
-                    <td className="px-4 py-3 text-right font-mono text-secondary">{fmt(row.lux)}</td>
+                    <td className="px-4 py-3 text-right font-mono text-primary">{fmt(row.budget, locale)}</td>
+                    <td className="px-4 py-3 text-right font-mono text-tertiary">{fmt(row.mid, locale)}</td>
+                    <td className="px-4 py-3 text-right font-mono text-secondary">{fmt(row.lux, locale)}</td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
                 <tr className="border-t-2 border-white/20 bg-white/[0.03]">
                   <td className="px-4 py-3 font-bold text-on-surface">Total (excl. flights & tickets)</td>
-                  <td className="px-4 py-3 text-right font-mono font-bold text-primary">{fmt(totals.budget)}</td>
-                  <td className="px-4 py-3 text-right font-mono font-bold text-tertiary">{fmt(totals.mid)}</td>
-                  <td className="px-4 py-3 text-right font-mono font-bold text-secondary">{fmt(totals.lux)}</td>
+                  <td className="px-4 py-3 text-right font-mono font-bold text-primary">{fmt(totals.budget, locale)}</td>
+                  <td className="px-4 py-3 text-right font-mono font-bold text-tertiary">{fmt(totals.mid, locale)}</td>
+                  <td className="px-4 py-3 text-right font-mono font-bold text-secondary">{fmt(totals.lux, locale)}</td>
                 </tr>
               </tfoot>
             </table>

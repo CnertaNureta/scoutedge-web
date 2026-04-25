@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
@@ -36,17 +37,17 @@ function getTeamInfo(slug: string) {
   return team ? { name: team.name, flag: team.flag } : { name: slug, flag: '🏳️' }
 }
 
-function formatDate(utc: string) {
+function formatDate(utc: string, locale: string) {
   const d = new Date(utc)
-  return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  return d.toLocaleDateString(locale, { weekday: 'short', month: 'short', day: 'numeric' })
 }
 
-function formatTime(utc: string) {
+function formatTime(utc: string, locale: string) {
   const d = new Date(utc)
-  return d.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })
+  return d.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', hour12: true })
 }
 
-function MatchCard({ match }: { match: MatchFixture }) {
+function MatchCard({ match, locale, t }: { match: MatchFixture; locale: string; t: (key: string, values?: Record<string, string | number>) => string }) {
   const home = getTeamInfo(match.homeTeamSlug)
   const away = getTeamInfo(match.awayTeamSlug)
   const color = PHASE_COLORS[match.round] || BRAND.primary
@@ -64,7 +65,7 @@ function MatchCard({ match }: { match: MatchFixture }) {
           style={{ background: `${color}20`, color }}
         >
           {match.round}
-          {match.group && ` · Group ${match.group}`}
+          {match.group && ` · ${t('groupBadge', { group: match.group })}`}
         </span>
         <span className="text-[10px] text-on-surface-variant truncate ml-2">{match.city}</span>
       </div>
@@ -118,7 +119,7 @@ function MatchCard({ match }: { match: MatchFixture }) {
 
       {/* Time + Venue */}
       <div className="flex items-center justify-between mt-3 text-[11px] text-on-surface-variant">
-        <span>{formatTime(match.kickoffUtc)}</span>
+        <span>{formatTime(match.kickoffUtc, locale)}</span>
         <span className="truncate mx-2">{match.venue}</span>
       </div>
     </div>
@@ -126,6 +127,8 @@ function MatchCard({ match }: { match: MatchFixture }) {
 }
 
 export default function ScheduleClient() {
+  const locale = useLocale()
+  const t = useTranslations('schedulePage')
   const [phase, setPhase] = useState<Phase>('all')
   const [selectedRound, setSelectedRound] = useState<string | null>(null)
 
@@ -138,7 +141,7 @@ export default function ScheduleClient() {
 
     const byDate: Record<string, MatchFixture[]> = {}
     for (const f of fixtures) {
-      const dateKey = formatDate(f.kickoffUtc)
+      const dateKey = formatDate(f.kickoffUtc, locale)
       if (!byDate[dateKey]) byDate[dateKey] = []
       byDate[dateKey].push(f)
     }
@@ -146,7 +149,7 @@ export default function ScheduleClient() {
     return Object.entries(byDate).sort(
       ([, a], [, b]) => new Date(a[0].kickoffUtc).getTime() - new Date(b[0].kickoffUtc).getTime()
     )
-  }, [phase, selectedRound])
+  }, [phase, selectedRound, locale])
 
   const totalMatches = phase === 'group' ? 72 : phase === 'knockout' ? 32 : 104
   const matchDates = grouped.length
@@ -162,9 +165,9 @@ export default function ScheduleClient() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4 mb-8">
         {[
-          { label: 'Total Matches', value: totalMatches.toString(), accent: BRAND.primary },
-          { label: 'Match Days', value: matchDates.toString(), accent: BRAND.tertiary },
-          { label: 'Host Cities', value: '16', accent: BRAND.secondary },
+          { label: t('totalMatches'), value: totalMatches.toString(), accent: BRAND.primary },
+          { label: t('matchDays'), value: matchDates.toString(), accent: BRAND.tertiary },
+          { label: t('hostCities'), value: '16', accent: BRAND.secondary },
         ].map((stat) => (
           <div key={stat.label} className="relative glass-panel p-4 rounded-2xl border border-white/[0.08] text-center overflow-hidden group">
             <NeonAccentBar color={stat.accent} />
@@ -184,7 +187,7 @@ export default function ScheduleClient() {
               phase === p ? 'bg-primary text-on-primary' : 'bg-white/[0.05] text-on-surface-variant hover:bg-white/[0.08]'
             }`}
           >
-            {p === 'all' ? `All 104` : p === 'group' ? '🏟️ Group Stage' : '🏆 Knockout'}
+            {p === 'all' ? t('filterAll') : p === 'group' ? t('filterGroupStage') : t('filterKnockout')}
           </button>
         ))}
       </div>
@@ -197,7 +200,7 @@ export default function ScheduleClient() {
             !selectedRound ? 'bg-primary/20 text-primary' : 'bg-white/[0.04] text-on-surface-variant hover:bg-white/[0.06]'
           }`}
         >
-          All Rounds
+          {t('allRounds')}
         </button>
         {allRounds
           .filter((r) => {
@@ -245,7 +248,7 @@ export default function ScheduleClient() {
                 <div>
                   <h3 className="font-headline text-lg md:text-xl uppercase tracking-wide text-on-surface">{date}</h3>
                   <span className="text-xs text-on-surface-variant">
-                    {matches.length} match{matches.length !== 1 ? 'es' : ''}
+                    {matches.length !== 1 ? t('matchCountPlural', { count: matches.length }) : t('matchCount', { count: matches.length })}
                   </span>
                 </div>
               </div>
@@ -253,7 +256,7 @@ export default function ScheduleClient() {
               {/* Match cards for this date */}
               <div className="ml-12 md:ml-16 grid grid-cols-1 md:grid-cols-2 gap-3">
                 {matches.map((match, i) => (
-                  <MatchCard key={`${match.homeTeamSlug}-${match.awayTeamSlug}-${i}`} match={match} />
+                  <MatchCard key={`${match.homeTeamSlug}-${match.awayTeamSlug}-${i}`} match={match} locale={locale} t={t} />
                 ))}
               </div>
             </div>
@@ -263,7 +266,7 @@ export default function ScheduleClient() {
 
       {/* Legend */}
       <GlassCard className="p-6 mt-8">
-        <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-4">Tournament Phases</h3>
+        <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-4">{t('tournamentPhases')}</h3>
         <div className="flex flex-wrap gap-3">
           {Object.entries(PHASE_COLORS).map(([round, color]) => (
             <span

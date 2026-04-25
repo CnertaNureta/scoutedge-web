@@ -4,21 +4,22 @@ import { getTeamColors } from '@/lib/team-colors'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { SURFACE } from '@/lib/brand-tokens'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 interface MatchScheduleProps {
   fixtures: MatchFixture[]
   teamSlug: string
 }
 
-function formatDate(utc: string): { date: string; time: string } {
+function formatDate(utc: string, locale: string): { date: string; time: string } {
   const d = new Date(utc)
-  const date = d.toLocaleDateString('en-US', {
+  const date = d.toLocaleDateString(locale, {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
     year: 'numeric',
   })
-  const time = d.toLocaleTimeString('en-US', {
+  const time = d.toLocaleTimeString(locale, {
     hour: '2-digit',
     minute: '2-digit',
     timeZoneName: 'short',
@@ -26,15 +27,17 @@ function formatDate(utc: string): { date: string; time: string } {
   return { date, time }
 }
 
-export default function MatchSchedule({ fixtures, teamSlug }: MatchScheduleProps) {
+export default async function MatchSchedule({ fixtures, teamSlug }: MatchScheduleProps) {
   if (fixtures.length === 0) return null
 
+  const locale = await getLocale()
+  const t = await getTranslations('teamSchedule')
   const colors = getTeamColors(teamSlug)
   const team = getTeamBySlug(teamSlug)
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-16">
-      <SectionHeader className="mb-8">Group Stage Schedule</SectionHeader>
+      <SectionHeader className="mb-8">{t('groupStageSchedule')}</SectionHeader>
 
       <div className="relative" role="list" aria-label={`${team?.name ?? teamSlug} group stage matches`}>
         {/* Vertical timeline line */}
@@ -48,7 +51,7 @@ export default function MatchSchedule({ fixtures, teamSlug }: MatchScheduleProps
 
         <div className="space-y-6">
           {fixtures.map((fixture, idx) => {
-            const { date, time } = formatDate(fixture.kickoffUtc)
+            const { date, time } = formatDate(fixture.kickoffUtc, locale)
             const isHome = fixture.homeTeamSlug === teamSlug
             const opponent = getTeamBySlug(isHome ? fixture.awayTeamSlug : fixture.homeTeamSlug)
             const opponentColors = getTeamColors(isHome ? fixture.awayTeamSlug : fixture.homeTeamSlug)

@@ -55,7 +55,7 @@ function getImpactClass(impact: Signal['impact']): string {
   }
 }
 
-function SignalCard({ signal }: { signal: Signal }) {
+function SignalCard({ signal, impactLabel }: { signal: Signal; impactLabel: string }) {
   return (
     <GlassCard className="p-5 md:p-6">
       <div className="flex items-start gap-4">
@@ -69,7 +69,7 @@ function SignalCard({ signal }: { signal: Signal }) {
               {signal.team.flag} {signal.team.name}
             </Link>
             <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-label font-bold uppercase tracking-widest border ${getImpactClass(signal.impact)}`}>
-              {signal.impact}
+              {impactLabel}
             </span>
           </div>
           <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-1">
@@ -95,8 +95,13 @@ export default async function DailyBriefingPage({ params }: Props) {
 
   const { signals, signalTypes, highCount, mediumCount, trendingPlayers, liveCache } =
     briefingData
+  const impactLabels: Record<Signal['impact'], string> = {
+    high: t('impactHigh'),
+    medium: t('impactMedium'),
+    low: t('impactLow'),
+  }
   const publishedBriefing = getLatestNarrativePost('daily_briefing')
-  const today = new Date().toLocaleDateString('en-US', {
+  const today = new Date().toLocaleDateString(locale, {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -179,8 +184,8 @@ export default async function DailyBriefingPage({ params }: Props) {
                     {publishedBriefing.description}
                   </p>
                   <div className="flex flex-wrap gap-3 text-xs font-label uppercase tracking-widest text-on-surface-variant">
-                    {publishedBriefing.publishedAt && <span>Published {publishedBriefing.publishedAt}</span>}
-                    {publishedBriefing.factCount && <span>{publishedBriefing.factCount} anchored facts</span>}
+                    {publishedBriefing.publishedAt && <span>{t('publishedAt', { date: publishedBriefing.publishedAt })}</span>}
+                    {publishedBriefing.factCount && <span>{t('anchoredFacts', { count: publishedBriefing.factCount })}</span>}
                   </div>
                 </div>
                 <Link
@@ -279,7 +284,7 @@ export default async function DailyBriefingPage({ params }: Props) {
         </GlassCard>
         <div className="space-y-3">
           {signals.map((signal, i) => (
-            <SignalCard key={i} signal={signal} />
+            <SignalCard key={i} signal={signal} impactLabel={impactLabels[signal.impact]} />
           ))}
         </div>
       </section>
@@ -294,8 +299,7 @@ export default async function DailyBriefingPage({ params }: Props) {
             <Badge variant="primary" size="sm">{t('liveApi')}</Badge>
           </div>
           <p className="text-on-surface-variant text-sm mb-6">
-            Real match data from <span className="text-primary">TheSportsDB</span> — updated{' '}
-            {new Date(liveCache.fetchedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+            {t('liveDataAttribution', { source: 'TheSportsDB', date: new Date(liveCache.fetchedAt).toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' }) })}
           </p>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {liveCache.wcFixtures2026.slice(0, 9).map((match) => (
@@ -303,10 +307,10 @@ export default async function DailyBriefingPage({ params }: Props) {
                 <NeonAccentBar color={BRAND.primary} />
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-[10px] font-label font-bold uppercase tracking-widest px-2 py-0.5 rounded-full bg-primary/15 text-primary">
-                    Round {match.round}
+                    {t('round', { round: match.round })}
                   </span>
                   <span className="text-[10px] text-on-surface-variant">
-                    {new Date(match.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    {new Date(match.date + 'T00:00:00').toLocaleDateString(locale, { month: 'short', day: 'numeric' })}
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-2 mb-3">
@@ -348,7 +352,7 @@ export default async function DailyBriefingPage({ params }: Props) {
                 <NeonAccentBar color={BRAND.tertiary} />
                 <div className="text-center">
                   <div className="text-[10px] text-on-surface-variant mb-2">
-                    {new Date(match.date + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    {new Date(match.date + 'T00:00:00').toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })}
                   </div>
                   <div className="font-label text-xs font-semibold text-on-surface">{match.homeTeam}</div>
                   <div className="font-mono text-lg font-bold my-1" style={{ color: BRAND.tertiary }}>

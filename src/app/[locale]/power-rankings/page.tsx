@@ -76,7 +76,7 @@ function groupIntoTiers(rankedTeams: RankedTeam[], t: (key: string) => string): 
   return tiers.filter((tier) => tier.teams.length > 0)
 }
 
-function RankingRow({ team }: { team: RankedTeam }) {
+function RankingRow({ team, t }: { team: RankedTeam; t: (key: string) => string }) {
   const movement = getMovement(team.rank, team.fifaRanking)
 
   return (
@@ -102,9 +102,9 @@ function RankingRow({ team }: { team: RankedTeam }) {
         <span className="font-mono text-sm font-bold">{team.powerScore}</span>
       </td>
       <td className="px-4 md:px-6 py-3 text-center">
-        {movement === 'up' && <span className="text-green-400" aria-label="Trending up">&#9650;</span>}
-        {movement === 'down' && <span className="text-red-400" aria-label="Trending down">&#9660;</span>}
-        {movement === 'same' && <span className="text-on-surface-variant" aria-label="No change">&#9644;</span>}
+        {movement === 'up' && <span className="text-green-400" aria-label={t('trendUp')}>&#9650;</span>}
+        {movement === 'down' && <span className="text-red-400" aria-label={t('trendDown')}>&#9660;</span>}
+        {movement === 'same' && <span className="text-on-surface-variant" aria-label={t('trendSame')}>&#9644;</span>}
       </td>
       <td className="px-4 md:px-6 py-3 hidden lg:table-cell">
         <ChemistryBar value={team.chemistry} showValue={false} size="sm" />
@@ -129,7 +129,7 @@ export default async function PowerRankingsPage({ params }: Props) {
 
   const tiers = groupIntoTiers(rankedTeams, t)
 
-  const lastUpdated = new Date().toLocaleDateString('en-US', {
+  const lastUpdated = new Date().toLocaleDateString(locale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -191,7 +191,7 @@ export default async function PowerRankingsPage({ params }: Props) {
                   {team.name}
                 </h2>
                 <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1 mb-4">
-                  Group {team.group} &middot; FIFA #{team.fifaRanking}
+                  {t('groupLabel', { group: team.group })} &middot; {t('fifaRank', { rank: `#${team.fifaRanking}` })}
                 </p>
                 <div className="text-center mb-2">
                   <span className="font-mono text-4xl font-bold text-primary">{team.powerScore}</span>
@@ -227,7 +227,7 @@ export default async function PowerRankingsPage({ params }: Props) {
                   </thead>
                   <tbody>
                     {tier.teams.map((team) => (
-                      <RankingRow key={team.slug} team={team} />
+                      <RankingRow key={team.slug} team={team} t={t} />
                     ))}
                   </tbody>
                 </table>

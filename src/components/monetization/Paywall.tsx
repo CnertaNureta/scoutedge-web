@@ -3,6 +3,7 @@
 import { useAuth } from '@/contexts/AuthContext'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { PASS_PRICES, type ContentType, type EntitlementType } from '@/lib/entitlements'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 interface PaywallProps {
@@ -22,6 +23,7 @@ export default function Paywall({
 }: PaywallProps) {
   const { user } = useAuth()
   const { hasAccess, loading, suggestUpgrade } = useEntitlements()
+  const t = useTranslations('paywall')
 
   if (loading) return <div className={className}>{children}</div>
 
@@ -50,12 +52,12 @@ export default function Paywall({
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
             </svg>
             <span className="text-tertiary font-label text-[11px] font-bold uppercase tracking-widest">
-              Premium
+              {t('premiumBadge')}
             </span>
           </div>
 
           <h3 className="text-on-surface font-headline text-lg font-bold mb-2">
-            {getGateHeadline(contentType, target)}
+            {getGateHeadline(contentType, t)}
           </h3>
 
           <p className="text-on-surface-variant text-sm mb-5 leading-relaxed">
@@ -69,19 +71,23 @@ export default function Paywall({
               href="/auth/register"
               className="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
             >
-              Sign up to unlock
+              {t('signUpToUnlock')}
             </Link>
           )}
 
           {target !== 'tournament_pass' && target !== 'scout_pass' && (
             <p className="text-on-surface-variant/60 text-xs mt-3">
-              or get <Link href="/pricing" className="text-primary hover:underline">Tournament Pass</Link> for all content
+              {t.rich('tournamentPassUpsell', {
+                link: (chunks) => <Link href="/pricing" className="text-primary hover:underline">{chunks}</Link>,
+              })}
             </p>
           )}
 
           {target === 'tournament_pass' && (
             <p className="text-on-surface-variant/60 text-xs mt-3">
-              Want real-time analytics? <Link href="/pricing" className="text-primary hover:underline">See Scout Pass</Link>
+              {t.rich('scoutPassUpsell', {
+                link: (chunks) => <Link href="/pricing" className="text-primary hover:underline">{chunks}</Link>,
+              })}
             </p>
           )}
         </div>
@@ -93,6 +99,7 @@ export default function Paywall({
 function PassPurchaseButton({ passType, scope }: { passType: EntitlementType; scope?: string }) {
   const { session } = useAuth()
   const pass = PASS_PRICES[passType]
+  const t = useTranslations('paywall')
 
   async function handlePurchase() {
     if (!session?.access_token) return
@@ -117,22 +124,25 @@ function PassPurchaseButton({ passType, scope }: { passType: EntitlementType; sc
       onClick={handlePurchase}
       className="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
     >
-      Unlock — ${(pass.amount / 100).toFixed(2)}
+      {t('unlockButton', { amount: (pass.amount / 100).toFixed(2) })}
     </button>
   )
 }
 
-function getGateHeadline(contentType: ContentType, target: EntitlementType): string {
+function getGateHeadline(
+  contentType: ContentType,
+  t: ReturnType<typeof useTranslations<'paywall'>>,
+): string {
   switch (contentType) {
-    case 'match': return 'Unlock Live Match Data'
-    case 'team': return 'Unlock Complete Team Intel'
-    case 'prediction': return 'Unlock AI Predictions'
-    case 'daily_briefing': return 'Unlock Daily Briefing'
-    case 'blog': return 'Unlock Full Article'
-    case 'live_analytics': return 'Real-Time Match Intelligence'
-    case 'bracket_simulator': return 'Tournament Bracket Simulator'
-    case 'scout_report': return 'Scout-Grade Match Report'
-    case 'player_intel': return 'Player Intelligence Suite'
-    default: return 'Unlock Premium Content'
+    case 'match': return t('headlineMatch')
+    case 'team': return t('headlineTeam')
+    case 'prediction': return t('headlinePrediction')
+    case 'daily_briefing': return t('headlineDailyBriefing')
+    case 'blog': return t('headlineBlog')
+    case 'live_analytics': return t('headlineLiveAnalytics')
+    case 'bracket_simulator': return t('headlineBracketSimulator')
+    case 'scout_report': return t('headlineScoutReport')
+    case 'player_intel': return t('headlinePlayerIntel')
+    default: return t('headlineDefault')
   }
 }

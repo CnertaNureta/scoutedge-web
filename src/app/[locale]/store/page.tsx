@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -20,6 +21,7 @@ export default function StorePage() {
   const [loading, setLoading] = useState(true)
   const [purchasing, setPurchasing] = useState<string | null>(null)
   const [purchaseResult, setPurchaseResult] = useState<{ itemId: string; success: boolean; message: string } | null>(null)
+  const t = useTranslations('storePage')
 
   const loadData = useCallback(async () => {
     try {
@@ -59,7 +61,7 @@ export default function StorePage() {
       setPurchaseResult({ itemId: item.id, success: true, message: `${result.item_name} purchased!` })
       setBalance(prev => prev ? { ...prev, balance: result.new_balance } : prev)
     } catch (err) {
-      const msg = err instanceof Error ? err.message : 'Purchase failed'
+      const msg = err instanceof Error ? err.message : t('purchaseFailed')
       setPurchaseResult({ itemId: item.id, success: false, message: msg })
     } finally {
       setPurchasing(null)
@@ -78,7 +80,7 @@ export default function StorePage() {
         window.location.href = result.checkout_url
       }
     } catch {
-      setPurchaseResult({ itemId: item.id, success: false, message: 'Checkout failed' })
+      setPurchaseResult({ itemId: item.id, success: false, message: t('checkoutFailed') })
     } finally {
       setPurchasing(null)
     }
@@ -111,10 +113,10 @@ export default function StorePage() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="font-display text-4xl md:text-5xl text-on-surface tracking-wide">
-          Rewards Store
+          {t('heading')}
         </h1>
         <p className="text-on-surface-variant mt-2 font-body">
-          Redeem your ScoutCoins for exclusive rewards
+          {t('description')}
         </p>
       </div>
 
@@ -127,14 +129,14 @@ export default function StorePage() {
                 {(balance?.balance ?? 0).toLocaleString()}
               </div>
               <div className="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">
-                ScoutCoins
+                {t('scoutCoins')}
               </div>
             </div>
             <Link
               href="/points"
               className="text-xs font-label uppercase tracking-widest text-primary hover:text-primary/80 transition-colors"
             >
-              Earn More
+              {t('earnMore')}
             </Link>
           </div>
         </GlassCard>
@@ -152,7 +154,7 @@ export default function StorePage() {
                 : 'bg-white/[0.06] text-on-surface-variant hover:bg-white/[0.1]'
             }`}
           >
-            {cat === 'all' ? 'All' : `${CATEGORY_ICONS[cat]} ${CATEGORY_LABELS[cat]}`}
+            {cat === 'all' ? t('all') : `${CATEGORY_ICONS[cat]} ${CATEGORY_LABELS[cat]}`}
           </button>
         ))}
       </div>
@@ -161,14 +163,14 @@ export default function StorePage() {
       {moneyItems.length > 0 && (
         <div className="mb-10">
           <h2 className="font-headline text-xl text-on-surface mb-4 flex items-center gap-2">
-            <span className="text-tertiary">&#x26A1;</span> Point Boosters
+            <span className="text-tertiary">&#x26A1;</span> {t('pointBoosters')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {moneyItems.map(item => (
               <GlassCard key={item.id} className="p-6 relative overflow-hidden">
                 {item.is_featured && (
                   <div className="absolute top-3 right-3 text-[10px] font-label uppercase tracking-widest bg-tertiary/15 text-tertiary px-2 py-0.5 rounded-full">
-                    Popular
+                    {t('popular')}
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-br from-tertiary/[0.04] to-transparent" />
@@ -186,7 +188,7 @@ export default function StorePage() {
                       disabled={!user || purchasing === item.id}
                       className="px-4 py-2 rounded-lg bg-tertiary text-on-tertiary font-bold text-sm hover:brightness-110 transition-all disabled:opacity-50 disabled:cursor-default"
                     >
-                      {purchasing === item.id ? 'Loading...' : 'Buy Now'}
+                      {purchasing === item.id ? t('loading') : t('buyNow')}
                     </button>
                   </div>
 
@@ -208,7 +210,7 @@ export default function StorePage() {
       {pointItems.length > 0 && (
         <div>
           <h2 className="font-headline text-xl text-on-surface mb-4">
-            {moneyItems.length > 0 ? 'Redeem with ScoutCoins' : 'Store Items'}
+            {moneyItems.length > 0 ? t('redeemWithCoins') : t('storeItems')}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {pointItems.map(item => {
@@ -224,13 +226,13 @@ export default function StorePage() {
 
                   {item.stock !== null && item.stock <= 10 && (
                     <div className="text-[10px] font-label uppercase tracking-widest text-secondary mb-2">
-                      Only {item.stock} left
+                      {t('onlyLeft', { count: item.stock })}
                     </div>
                   )}
 
                   <div className="flex items-center justify-between mt-auto">
                     <div className="font-mono text-lg font-bold text-primary tabular-nums">
-                      {item.point_cost.toLocaleString()} coins
+                      {t('coins', { count: item.point_cost.toLocaleString() })}
                     </div>
                     <button
                       onClick={() => handlePointPurchase(item)}
@@ -244,12 +246,12 @@ export default function StorePage() {
                       }`}
                     >
                       {purchasing === item.id
-                        ? 'Buying...'
+                        ? t('buying')
                         : !user
-                          ? 'Sign In'
+                          ? t('signIn')
                           : affordable
-                            ? 'Redeem'
-                            : 'Not Enough'}
+                            ? t('redeem')
+                            : t('notEnough')}
                     </button>
                   </div>
 
@@ -269,20 +271,20 @@ export default function StorePage() {
 
       {filteredItems.length === 0 && (
         <GlassCard className="p-8 text-center">
-          <p className="text-on-surface-variant">No items in this category yet. Check back soon!</p>
+          <p className="text-on-surface-variant">{t('emptyCategory')}</p>
         </GlassCard>
       )}
 
       {/* Sign In CTA for non-authenticated */}
       {!user && (
         <GlassCard className="p-8 text-center mt-8">
-          <h2 className="font-headline text-xl text-on-surface mb-3">Start Earning ScoutCoins</h2>
-          <p className="text-on-surface-variant mb-6">Sign in to earn coins and redeem rewards.</p>
+          <h2 className="font-headline text-xl text-on-surface mb-3">{t('startEarning')}</h2>
+          <p className="text-on-surface-variant mb-6">{t('signInToEarn')}</p>
           <Link
             href="/auth/login"
             className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all inline-block"
           >
-            Sign In
+            {t('signIn')}
           </Link>
         </GlassCard>
       )}

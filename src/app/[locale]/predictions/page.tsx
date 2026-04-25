@@ -68,7 +68,7 @@ function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string)
                 {team.name}
               </h3>
               <span className="font-label text-xs text-on-surface-variant">
-                FIFA #{team.fifaRanking} · {team.confederation}
+                {`${t('fifaRank')} #${team.fifaRanking}`} · {team.confederation}
               </span>
             </div>
           </div>
@@ -242,19 +242,19 @@ export default async function PredictionsPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-body text-sm text-on-surface-variant">
             <div>
               <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodFifa')}</h3>
-              <p>{t('methodFifa')}</p>
+              <p>{t('methodFifaDesc')}</p>
             </div>
             <div>
               <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodChemistry')}</h3>
-              <p>{t('methodChemistry')}</p>
+              <p>{t('methodChemistryDesc')}</p>
             </div>
             <div>
               <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodMorale')}</h3>
-              <p>{t('methodMorale')}</p>
+              <p>{t('methodMoraleDesc')}</p>
             </div>
             <div>
               <h3 className="font-label text-xs uppercase tracking-wider text-primary mb-2">{t('methodStability')}</h3>
-              <p>{t('methodStability')}</p>
+              <p>{t('methodStabilityDesc')}</p>
             </div>
           </div>
         </GlassCard>

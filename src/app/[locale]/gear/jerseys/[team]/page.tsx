@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { getAllTeams, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, canonical, breadcrumbJsonLd } from '@/lib/og-utils'
 import Badge from '@/components/ui/Badge'
@@ -394,16 +395,17 @@ function JerseySilhouette({ primary, secondary, accent }: { primary: string; sec
 /* ------------------------------------------------------------------ */
 
 interface PageProps {
-  params: Promise<{ team: string }>
+  params: Promise<{ team: string; locale: string }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { team: slug } = await params
+  const { team: slug, locale } = await params
   const team = getTeamBySlug(slug)
   if (!team) {
     return { title: 'Team Not Found' }
   }
 
+  const t = await getTranslations({ locale, namespace: 'jerseyPage' })
   const kitData = getTeamKits(slug)
   const title = `${team.name} Jersey — World Cup 2026 Kit | Home, Away & Third`
   const description = `${team.name} World Cup 2026 home, away, and third kits by ${kitData.manufacturer}. Buy authentic ${team.name} jerseys from trusted retailers. Size guide, color details, and where to buy.`
@@ -419,7 +421,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       url,
       type: 'article',
-      section: 'Gear',
+      section: t('gearBadge'),
     }),
   }
 }
@@ -429,7 +431,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 /* ------------------------------------------------------------------ */
 
 export default async function TeamJerseyPage({ params }: PageProps) {
-  const { team: slug } = await params
+  const { team: slug, locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('jerseyPage')
+
   const team = getTeamBySlug(slug)
   if (!team) notFound()
 
@@ -438,12 +443,12 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
   // Gather a few neighbor teams from the same group for navigation
   const allTeams = getAllTeams()
-  const groupTeams = allTeams.filter((t) => t.group === team.group && t.slug !== slug).slice(0, 3)
+  const groupTeams = allTeams.filter((gt) => gt.group === team.group && gt.slug !== slug).slice(0, 3)
 
   const crumbs = breadcrumbJsonLd([
-    { name: 'Home', url: canonical('/') },
-    { name: 'Gear', url: canonical('/gear') },
-    { name: 'Jerseys', url: canonical('/gear/jerseys') },
+    { name: t('homeBreadcrumb'), url: canonical('/') },
+    { name: t('gearBreadcrumb'), url: canonical('/gear') },
+    { name: t('jerseysBreadcrumb'), url: canonical('/gear/jerseys') },
     { name: `${team.name} Kit`, url: canonical(`/gear/jerseys/${slug}`) },
   ])
 
@@ -459,23 +464,24 @@ export default async function TeamJerseyPage({ params }: PageProps) {
       <section className="relative py-24 md:py-36 px-6 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="secondary" size="md">Gear</Badge>
+          <Badge variant="secondary" size="md">{t('gearBadge')}</Badge>
           <p className="text-7xl mt-6 mb-2" aria-label={`${team.name} flag`}>{team.flag}</p>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mb-3">
-            {team.name} <span className="text-primary">Jerseys</span>
+            {team.name} <span className="text-primary">{t('jerseys')}</span>
           </h1>
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
-            World Cup 2026 home, away, and third kits
-            {manufacturer !== 'TBC' ? ` by ${manufacturer}` : ''}.
+            {manufacturer !== 'TBC'
+              ? t('kitDescriptionBy', { manufacturer })
+              : t('kitDescription')}
           </p>
 
           {/* Breadcrumb nav */}
           <nav aria-label="Breadcrumb" className="mt-6 flex items-center justify-center gap-2 text-xs font-mono text-on-surface-variant">
-            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+            <Link href="/" className="hover:text-primary transition-colors">{t('homeBreadcrumb')}</Link>
             <span className="opacity-40">/</span>
-            <Link href="/gear" className="hover:text-primary transition-colors">Gear</Link>
+            <Link href="/gear" className="hover:text-primary transition-colors">{t('gearBreadcrumb')}</Link>
             <span className="opacity-40">/</span>
-            <Link href="/gear/jerseys" className="hover:text-primary transition-colors">Jerseys</Link>
+            <Link href="/gear/jerseys" className="hover:text-primary transition-colors">{t('jerseysBreadcrumb')}</Link>
             <span className="opacity-40">/</span>
             <span className="text-on-surface">{team.name}</span>
           </nav>
@@ -484,7 +490,7 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
       {/* ── Kit display ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-16">
-        <SectionHeader className="mb-10">2026 Kit Collection</SectionHeader>
+        <SectionHeader className="mb-10">{t('kitCollection')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {kits.map((kit) => (
             <GlassCard key={kit.label} className="p-6 md:p-8 flex flex-col items-center gap-6" hover>
@@ -497,7 +503,9 @@ export default async function TeamJerseyPage({ params }: PageProps) {
               {/* Kit info */}
               <div className="w-full space-y-4">
                 <div className="flex items-center justify-between">
-                  <h3 className="font-headline text-2xl tracking-wide uppercase">{kit.label} Kit</h3>
+                  <h3 className="font-headline text-2xl tracking-wide uppercase">
+                    {t(kit.label === 'Home' ? 'homeKit' : kit.label === 'Away' ? 'awayKit' : 'thirdKit')}
+                  </h3>
                   <Badge variant={kit.label === 'Home' ? 'primary' : kit.label === 'Away' ? 'secondary' : 'tertiary'} size="sm">
                     {kit.label}
                   </Badge>
@@ -505,7 +513,7 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
                 {/* Color swatches */}
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Colors</span>
+                  <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('colors')}</span>
                   <div className="flex gap-2">
                     {[kit.primary, kit.secondary, kit.accent].map((color, i) => (
                       <div key={i} className="relative group">
@@ -524,7 +532,7 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
                 {/* Manufacturer */}
                 <div className="flex items-center gap-2 text-xs font-mono text-on-surface-variant">
-                  <span className="uppercase tracking-wider">Manufacturer</span>
+                  <span className="uppercase tracking-wider">{t('manufacturer')}</span>
                   <span className="text-on-surface">{kit.manufacturer}</span>
                 </div>
               </div>
@@ -535,7 +543,7 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
       {/* ── Kit manufacturer info ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-16">
-        <SectionHeader className="mb-8">Kit Manufacturer</SectionHeader>
+        <SectionHeader className="mb-8">{t('kitManufacturer')}</SectionHeader>
         <GlassCard className="p-6 md:p-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
@@ -549,24 +557,24 @@ export default async function TeamJerseyPage({ params }: PageProps) {
             </div>
             <div className="space-y-3">
               <div className="flex items-center justify-between py-2 border-b border-white/[0.06]">
-                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Brand</span>
+                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('brand')}</span>
                 <span className="font-label text-on-surface">{manufacturer}</span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-white/[0.06]">
-                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Tournament</span>
-                <span className="font-label text-on-surface">FIFA World Cup 2026</span>
+                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('tournament')}</span>
+                <span className="font-label text-on-surface">{t('tournament')}</span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-white/[0.06]">
-                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Team</span>
+                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('teamLabel')}</span>
                 <span className="font-label text-on-surface">{team.flag} {team.name}</span>
               </div>
               <div className="flex items-center justify-between py-2 border-b border-white/[0.06]">
-                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Confederation</span>
+                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('confederation')}</span>
                 <span className="font-label text-on-surface">{team.confederation}</span>
               </div>
               <div className="flex items-center justify-between py-2">
-                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">Group</span>
-                <span className="font-label text-on-surface">Group {team.group}</span>
+                <span className="text-xs font-mono text-on-surface-variant uppercase tracking-wider">{t('groupLabel', { group: team.group })}</span>
+                <span className="font-label text-on-surface">{t('groupLabel', { group: team.group })}</span>
               </div>
             </div>
           </div>
@@ -575,51 +583,51 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
       {/* ── Where to buy ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-16">
-        <SectionHeader className="mb-8">Where to Buy</SectionHeader>
+        <SectionHeader className="mb-8">{t('whereToBuy')}</SectionHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { retailer: 'Official FIFA Store', tag: 'Official', url: '#', variant: 'primary' as const },
-            { retailer: `${manufacturer} Store`, tag: 'Manufacturer', url: '#', variant: 'secondary' as const },
-            { retailer: 'World Soccer Shop', tag: 'Specialist', url: '#', variant: 'tertiary' as const },
-            { retailer: 'Soccer.com', tag: 'Wide Selection', url: '#', variant: 'outline' as const },
+            { retailer: 'Official FIFA Store', tag: t('official'), url: '#', variant: 'primary' as const },
+            { retailer: `${manufacturer} Store`, tag: t('manufacturerStore'), url: '#', variant: 'secondary' as const },
+            { retailer: 'World Soccer Shop', tag: t('specialist'), url: '#', variant: 'tertiary' as const },
+            { retailer: 'Soccer.com', tag: t('wideSelection'), url: '#', variant: 'outline' as const },
           ].map((store) => (
             <GlassCard key={store.retailer} className="p-5 flex flex-col gap-3" hover>
               <Badge variant={store.variant} size="sm">{store.tag}</Badge>
               <h3 className="font-label text-sm uppercase tracking-wider text-on-surface">{store.retailer}</h3>
               <p className="text-xs text-on-surface-variant leading-relaxed flex-1">
-                Authentic {team.name} World Cup 2026 jerseys. Verify authenticity hologram on arrival.
+                {t('authenticJerseys', { team: team.name })}
               </p>
               <a
                 href={store.url}
                 data-affiliate={`${slug}-${store.retailer.toLowerCase().replace(/\s+/g, '-')}`}
                 className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary/10 text-primary text-xs font-label uppercase tracking-widest hover:bg-primary/20 transition-colors border border-primary/20"
               >
-                Shop Now
+                {t('shopNow')}
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </GlassCard>
           ))}
         </div>
         <p className="text-[10px] text-on-surface-variant/60 mt-4 font-mono">
-          Links may contain affiliate references. Prices and availability subject to change. Always verify authenticity.
+          {t('affiliateDisclaimer')}
         </p>
       </section>
 
       {/* ── Size guide ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-16">
-        <SectionHeader className="mb-8">Size Guide</SectionHeader>
+        <SectionHeader className="mb-8">{t('sizeGuide')}</SectionHeader>
         <GlassCard className="p-6 md:p-8 overflow-x-auto">
           <p className="text-on-surface-variant text-sm mb-6">
-            Measurements are approximate and may vary by manufacturer. When in doubt, size up for a relaxed fit or check {manufacturer}&apos;s specific sizing chart.
+            {t('sizeGuideDesc')}
           </p>
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-white/[0.08]">
-                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Size</th>
-                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Chest (in)</th>
-                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Waist (in)</th>
-                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">Chest (cm)</th>
-                <th className="text-left py-3 font-label text-xs uppercase tracking-widest text-on-surface-variant">Waist (cm)</th>
+                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">{t('sizeLabel')}</th>
+                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">{t('chestIn')}</th>
+                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">{t('waistIn')}</th>
+                <th className="text-left py-3 pr-4 font-label text-xs uppercase tracking-widest text-on-surface-variant">{t('chestCm')}</th>
+                <th className="text-left py-3 font-label text-xs uppercase tracking-widest text-on-surface-variant">{t('waistCm')}</th>
               </tr>
             </thead>
             <tbody>
@@ -639,36 +647,36 @@ export default async function TeamJerseyPage({ params }: PageProps) {
 
       {/* ── Navigation ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-24">
-        <SectionHeader className="mb-8">Explore More</SectionHeader>
+        <SectionHeader className="mb-8">{t('exploreMore')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Team page link */}
           <Link href={`/teams/${slug}`} className="group">
             <GlassCard className="p-6 hover:bg-surface-bright transition-all h-full" hover>
-              <Badge variant="primary" size="sm">Team</Badge>
+              <Badge variant="primary" size="sm">{t('teamBadge')}</Badge>
               <p className="text-5xl mt-4 mb-3">{team.flag}</p>
               <h3 className="font-headline text-xl tracking-wide uppercase group-hover:text-primary transition-colors">
                 {team.name} Squad
               </h3>
               <p className="text-xs text-on-surface-variant mt-2">
-                Full squad, AI analysis, and match predictions
+                {t('fullSquad')}
               </p>
             </GlassCard>
           </Link>
 
           {/* Other team jerseys from same group */}
           <GlassCard className="p-6">
-            <Badge variant="secondary" size="sm">Group {team.group}</Badge>
-            <h3 className="font-headline text-xl tracking-wide uppercase mt-4 mb-4">Group Kits</h3>
+            <Badge variant="secondary" size="sm">{t('groupLabel', { group: team.group })}</Badge>
+            <h3 className="font-headline text-xl tracking-wide uppercase mt-4 mb-4">{t('groupKits')}</h3>
             <div className="space-y-2">
-              {groupTeams.map((t) => (
+              {groupTeams.map((gt) => (
                 <Link
-                  key={t.slug}
-                  href={`/gear/jerseys/${t.slug}`}
+                  key={gt.slug}
+                  href={`/gear/jerseys/${gt.slug}`}
                   className="flex items-center gap-3 py-2 px-3 rounded-lg hover:bg-white/[0.04] transition-colors group"
                 >
-                  <span className="text-xl">{t.flag}</span>
+                  <span className="text-xl">{gt.flag}</span>
                   <span className="font-label text-xs uppercase tracking-widest text-on-surface-variant group-hover:text-primary transition-colors">
-                    {t.name}
+                    {gt.name}
                   </span>
                 </Link>
               ))}
@@ -679,16 +687,16 @@ export default async function TeamJerseyPage({ params }: PageProps) {
           <Link href="/gear/jerseys" className="group">
             <GlassCard className="p-6 hover:bg-surface-bright transition-all h-full flex flex-col justify-between" hover>
               <div>
-                <Badge variant="outline" size="sm">All Teams</Badge>
+                <Badge variant="outline" size="sm">{t('allTeams')}</Badge>
                 <h3 className="font-headline text-xl tracking-wide uppercase mt-4 mb-2 group-hover:text-primary transition-colors">
-                  All 48 Team Kits
+                  {t('allTeamKits')}
                 </h3>
                 <p className="text-xs text-on-surface-variant">
-                  Browse jerseys for every World Cup 2026 team
+                  {t('browseAllJerseys')}
                 </p>
               </div>
               <span className="text-primary text-sm font-label uppercase tracking-widest mt-4 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                View All <span aria-hidden="true">&rarr;</span>
+                {t('viewAll')} <span aria-hidden="true">&rarr;</span>
               </span>
             </GlassCard>
           </Link>

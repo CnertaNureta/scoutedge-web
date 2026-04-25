@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>
@@ -29,6 +30,7 @@ export default function InstallBanner() {
   const [bannerState, setBannerState] = useState<BannerState>('hidden')
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null)
   const [showIOSGuide, setShowIOSGuide] = useState(false)
+  const t = useTranslations('pwa')
 
   useEffect(() => {
     if (isInStandaloneMode()) return
@@ -74,7 +76,7 @@ export default function InstallBanner() {
   return (
     <div
       role="dialog"
-      aria-label="Install KickOracle"
+      aria-label={t('installTitle')}
       className="fixed bottom-0 left-0 right-0 z-50 p-4 safe-area-inset-bottom"
     >
       <div className="max-w-lg mx-auto glass-panel rounded-2xl border border-outline-variant shadow-2xl overflow-hidden">
@@ -91,12 +93,12 @@ export default function InstallBanner() {
           {/* Text */}
           <div className="flex-1 min-w-0">
             <p className="text-sm font-semibold text-on-surface leading-tight">
-              Install KickOracle
+              {t('installTitle')}
             </p>
             <p className="text-xs text-on-surface-variant mt-0.5 leading-snug">
               {bannerState === 'ios'
-                ? 'Add to your Home Screen for offline access'
-                : 'Get instant access & offline predictions'}
+                ? t('iosDescription')
+                : t('androidDescription')}
             </p>
           </div>
 
@@ -107,7 +109,7 @@ export default function InstallBanner() {
                 onClick={handleInstall}
                 className="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-xs font-semibold transition-opacity hover:opacity-90 active:opacity-80"
               >
-                Install
+                {t('install')}
               </button>
             )}
             {bannerState === 'ios' && (
@@ -115,7 +117,7 @@ export default function InstallBanner() {
                 onClick={() => setShowIOSGuide(!showIOSGuide)}
                 className="px-3 py-1.5 rounded-lg bg-primary text-on-primary text-xs font-semibold transition-opacity hover:opacity-90 active:opacity-80"
               >
-                How?
+                {t('how')}
               </button>
             )}
             <button
@@ -134,13 +136,13 @@ export default function InstallBanner() {
         {bannerState === 'ios' && showIOSGuide && (
           <div className="border-t border-outline-variant px-4 pb-4 pt-3">
             <p className="text-xs font-semibold text-on-surface-variant uppercase tracking-wide mb-3">
-              Add to Home Screen
+              {t('addToHomeScreen')}
             </p>
             <ol className="space-y-2">
               {[
-                { icon: '⬆️', text: 'Tap the Share button in Safari' },
-                { icon: '📲', text: 'Scroll down and tap "Add to Home Screen"' },
-                { icon: '✅', text: 'Tap "Add" to confirm' },
+                { icon: '⬆️', text: t('iosStep1') },
+                { icon: '📲', text: t('iosStep2') },
+                { icon: '✅', text: t('iosStep3') },
               ].map(({ icon, text }, i) => (
                 <li key={i} className="flex items-start gap-2 text-xs text-on-surface-variant">
                   <span className="text-base leading-none mt-0.5" aria-hidden="true">{icon}</span>

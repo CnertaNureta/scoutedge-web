@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 import { TEAMS, GROUPS, getTeamsByGroup } from "@/data/wallpaper-teams";
 import type { WallpaperTeam, GroupLetter } from "@/data/wallpaper-teams";
 
@@ -46,6 +47,7 @@ function drawWallpaper(
   canvas: HTMLCanvasElement,
   config: WallpaperConfig,
   preview = false,
+  locale = 'en',
 ) {
   const { team, deviceSize, template, playerName, matchDate, showBranding } = config;
   const { width, height } = DEVICE_SIZES[deviceSize];
@@ -140,7 +142,7 @@ function drawWallpaper(
 
   if (matchDate) {
     const d = new Date(matchDate + "T00:00:00");
-    const dateStr = d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+    const dateStr = d.toLocaleDateString(locale, { month: "long", day: "numeric", year: "numeric" });
     const dFontSize = Math.round(H * 0.025);
     ctx.font = `400 ${dFontSize}px Inter, system-ui, sans-serif`;
     ctx.fillStyle = template === "minimal" ? "#6b7280" : "rgba(255,255,255,0.65)";
@@ -174,6 +176,7 @@ function drawWallpaper(
 }
 
 export default function WallpaperGenerator() {
+  const locale = useLocale();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [config, setConfig] = useState<WallpaperConfig>({
     team: TEAMS[32],
@@ -188,8 +191,8 @@ export default function WallpaperGenerator() {
 
   const redraw = useCallback(() => {
     if (!canvasRef.current) return;
-    drawWallpaper(canvasRef.current, config, true);
-  }, [config]);
+    drawWallpaper(canvasRef.current, config, true, locale);
+  }, [config, locale]);
 
   useEffect(() => {
     redraw();
@@ -203,7 +206,7 @@ export default function WallpaperGenerator() {
     setDownloading(true);
     try {
       const fullCanvas = document.createElement("canvas");
-      drawWallpaper(fullCanvas, config, false);
+      drawWallpaper(fullCanvas, config, false, locale);
       const dataUrl = fullCanvas.toDataURL("image/png");
       const a = document.createElement("a");
       a.href = dataUrl;

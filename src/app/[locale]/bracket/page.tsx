@@ -47,18 +47,18 @@ function getFixturesByRound(round: string): MatchFixture[] {
   return KNOCKOUT_FIXTURES.filter((f) => f.round === round)
 }
 
-function formatDate(utc: string): string {
+function formatDate(utc: string, locale: string): string {
   const d = new Date(utc)
-  return d.toLocaleDateString('en-US', {
+  return d.toLocaleDateString(locale, {
     month: 'short',
     day: 'numeric',
     timeZone: 'UTC',
   })
 }
 
-function formatTime(utc: string): string {
+function formatTime(utc: string, locale: string): string {
   const d = new Date(utc)
-  return d.toLocaleTimeString('en-US', {
+  return d.toLocaleTimeString(locale, {
     hour: '2-digit',
     minute: '2-digit',
     hour12: true,
@@ -74,7 +74,7 @@ function highestProb(fixture: MatchFixture): 'home' | 'draw' | 'away' {
 
 /* ───────── Match Card ───────── */
 
-function MatchCard({ fixture, compact }: { fixture: MatchFixture; compact?: boolean }) {
+function MatchCard({ fixture, compact, locale }: { fixture: MatchFixture; compact?: boolean; locale: string }) {
   const homeLabel = getKnockoutTeamLabel(fixture.homeTeamSlug)
   const awayLabel = getKnockoutTeamLabel(fixture.awayTeamSlug)
   const favored = highestProb(fixture)
@@ -87,7 +87,7 @@ function MatchCard({ fixture, compact }: { fixture: MatchFixture; compact?: bool
           {fixture.venue}
         </span>
         <span className="font-mono text-[10px] text-on-surface-variant/70 shrink-0">
-          {formatDate(fixture.kickoffUtc)}
+          {formatDate(fixture.kickoffUtc, locale)}
         </span>
       </div>
 
@@ -161,7 +161,7 @@ function BracketConnector({ matchCount }: { matchCount: number }) {
 
 /* ───────── Round Column ───────── */
 
-function RoundColumn({ round, fixtures, compact }: { round: string; fixtures: MatchFixture[]; compact?: boolean }) {
+function RoundColumn({ round, fixtures, compact, locale }: { round: string; fixtures: MatchFixture[]; compact?: boolean; locale: string }) {
   const meta = ROUND_META[round]
   const isFinalRounds = round === 'Third Place' || round === 'Final'
 
@@ -181,7 +181,7 @@ function RoundColumn({ round, fixtures, compact }: { round: string; fixtures: Ma
       {/* Match cards in the column */}
       <div className={`flex flex-col justify-around flex-1 ${isFinalRounds ? 'gap-4' : 'gap-2'}`}>
         {fixtures.map((fixture, idx) => (
-          <MatchCard key={`${round}-${idx}`} fixture={fixture} compact={compact} />
+          <MatchCard key={`${round}-${idx}`} fixture={fixture} compact={compact} locale={locale} />
         ))}
       </div>
     </div>
@@ -190,7 +190,7 @@ function RoundColumn({ round, fixtures, compact }: { round: string; fixtures: Ma
 
 /* ───────── Desktop Bracket View (horizontal flow) ───────── */
 
-function DesktopBracket() {
+function DesktopBracket({ locale }: { locale: string }) {
   const r32 = getFixturesByRound('Round of 32')
   const r16 = getFixturesByRound('Round of 16')
   const qf = getFixturesByRound('Quarterfinal')
@@ -202,24 +202,24 @@ function DesktopBracket() {
     <div className="hidden xl:block">
       <div className="flex items-stretch gap-0 overflow-x-auto pb-4 scrollbar-thin">
         {/* Round of 32 */}
-        <RoundColumn round="Round of 32" fixtures={r32} compact />
+        <RoundColumn round="Round of 32" fixtures={r32} compact locale={locale} />
         <BracketConnector matchCount={r32.length} />
 
         {/* Round of 16 */}
-        <RoundColumn round="Round of 16" fixtures={r16} compact />
+        <RoundColumn round="Round of 16" fixtures={r16} compact locale={locale} />
         <BracketConnector matchCount={r16.length} />
 
         {/* Quarterfinals */}
-        <RoundColumn round="Quarterfinal" fixtures={qf} />
+        <RoundColumn round="Quarterfinal" fixtures={qf} locale={locale} />
         <BracketConnector matchCount={qf.length} />
 
         {/* Semifinals */}
-        <RoundColumn round="Semifinal" fixtures={sf} />
+        <RoundColumn round="Semifinal" fixtures={sf} locale={locale} />
 
         {/* Final rounds */}
         <div className="flex flex-col gap-6 ml-6 justify-center shrink-0">
-          <RoundColumn round="Final" fixtures={final_} />
-          <RoundColumn round="Third Place" fixtures={thirdPlace} />
+          <RoundColumn round="Final" fixtures={final_} locale={locale} />
+          <RoundColumn round="Third Place" fixtures={thirdPlace} locale={locale} />
         </div>
       </div>
     </div>
@@ -228,7 +228,7 @@ function DesktopBracket() {
 
 /* ───────── Mobile Bracket View (stacked rounds) ───────── */
 
-function MobileBracket() {
+function MobileBracket({ locale }: { locale: string }) {
   const rounds = KNOCKOUT_ROUNDS.filter((r) => r !== 'Third Place')
   const thirdPlace = getFixturesByRound('Third Place')
 
@@ -258,7 +258,7 @@ function MobileBracket() {
             {/* Grid of match cards */}
             <div className={`grid gap-3 ${isEarlyRound ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-2'}`}>
               {fixtures.map((fixture, idx) => (
-                <MatchCard key={`mobile-${round}-${idx}`} fixture={fixture} />
+                <MatchCard key={`mobile-${round}-${idx}`} fixture={fixture} locale={locale} />
               ))}
             </div>
           </div>
@@ -279,7 +279,7 @@ function MobileBracket() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {thirdPlace.map((fixture, idx) => (
-            <MatchCard key={`mobile-3rd-${idx}`} fixture={fixture} />
+            <MatchCard key={`mobile-3rd-${idx}`} fixture={fixture} locale={locale} />
           ))}
         </div>
       </div>
@@ -442,10 +442,10 @@ export default async function BracketPage({ params }: Props) {
         </SectionHeader>
 
         {/* Desktop: horizontal bracket flow */}
-        <DesktopBracket />
+        <DesktopBracket locale={locale} />
 
         {/* Mobile/Tablet: stacked rounds */}
-        <MobileBracket />
+        <MobileBracket locale={locale} />
       </section>
 
       {/* ── Key Venues ── */}

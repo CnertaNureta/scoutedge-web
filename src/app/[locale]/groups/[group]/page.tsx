@@ -12,7 +12,7 @@ import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 
 interface PageProps {
-  params: Promise<{ group: string }>
+  params: Promise<{ locale: string; group: string }>
 }
 
 export async function generateStaticParams() {
@@ -55,14 +55,14 @@ function getGroupStats(group: string) {
   return { avgChemistry, avgRanking, totalPlayers, topRanked }
 }
 
-function MatchFixtureCard({ fixture }: { fixture: MatchFixture }) {
+function MatchFixtureCard({ fixture, locale }: { fixture: MatchFixture; locale: string }) {
   const homeTeam = getTeamBySlug(fixture.homeTeamSlug)
   const awayTeam = getTeamBySlug(fixture.awayTeamSlug)
   if (!homeTeam || !awayTeam) return null
 
   const date = new Date(fixture.kickoffUtc)
-  const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-  const timeStr = date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
+  const dateStr = date.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })
+  const timeStr = date.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })
 
   return (
     <GlassCard className="p-4">
@@ -101,7 +101,7 @@ function getCompetitivenessLabel(avgRanking: number): string {
 }
 
 export default async function GroupPage({ params }: PageProps) {
-  const { group } = await params
+  const { locale, group } = await params
   const teams = getTeamsByGroup(group)
   if (teams.length === 0) notFound()
 
@@ -260,7 +260,7 @@ export default async function GroupPage({ params }: PageProps) {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-4">
                     {roundFixtures.map((fixture) => (
-                      <MatchFixtureCard key={`${fixture.homeTeamSlug}-${fixture.awayTeamSlug}`} fixture={fixture} />
+                      <MatchFixtureCard key={`${fixture.homeTeamSlug}-${fixture.awayTeamSlug}`} fixture={fixture} locale={locale} />
                     ))}
                   </div>
                 </div>

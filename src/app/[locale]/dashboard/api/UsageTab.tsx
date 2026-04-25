@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
+import { useLocale } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 
 interface DailyUsage {
@@ -106,6 +107,7 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
 }
 
 function UsageChart({ data }: { data: DailyUsage[] }) {
+  const locale = useLocale()
   const svgRef = useRef<SVGSVGElement>(null)
   const [visible, setVisible] = useState(false)
   const [tooltip, setTooltip] = useState<{ x: number; date: string; value: number } | null>(null)
@@ -184,7 +186,7 @@ function UsageChart({ data }: { data: DailyUsage[] }) {
 
         {points.filter((_, i) => i % Math.max(1, Math.floor(data.length / 7)) === 0 || i === data.length - 1).map((p) => (
           <text key={p.date} x={p.x} y={H - 8} textAnchor="middle" className="fill-on-surface-variant" style={{ fontSize: 10, fontFamily: 'var(--font-label)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            {new Date(p.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            {new Date(p.date).toLocaleDateString(locale, { month: 'short', day: 'numeric' })}
           </text>
         ))}
 
@@ -223,7 +225,7 @@ function UsageChart({ data }: { data: DailyUsage[] }) {
             marginTop: '-2rem',
           }}
         >
-          <p className="font-label text-on-surface-variant">{new Date(tooltip.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          <p className="font-label text-on-surface-variant">{new Date(tooltip.date).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}</p>
           <p className="font-mono font-bold text-on-surface">{tooltip.value.toLocaleString()} requests</p>
         </div>
       )}

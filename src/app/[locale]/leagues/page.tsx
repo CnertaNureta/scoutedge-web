@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -21,6 +22,7 @@ interface League {
 }
 
 export default function LeaguesPage() {
+  const t = useTranslations('leaguesPage')
   const { user, loading: authLoading } = useAuth()
   const { apiFetch, isAuthenticated } = useApi()
   const [myLeagues, setMyLeagues] = useState<League[]>([])
@@ -48,10 +50,10 @@ export default function LeaguesPage() {
       <div className="flex items-center justify-between mb-10">
         <div>
           <h1 className="font-display text-4xl md:text-5xl tracking-tight text-primary">
-            Prediction Leagues
+            {t('heading')}
           </h1>
           <p className="text-on-surface-variant mt-2">
-            Compete with friends and fans. Predict match outcomes, earn points, climb the leaderboard.
+            {t('description')}
           </p>
         </div>
         {user && (
@@ -59,29 +61,29 @@ export default function LeaguesPage() {
             href="/leagues/create"
             className="px-6 py-3 rounded-xl bg-primary text-on-primary font-headline font-bold tracking-tight hover:brightness-110 active:scale-[0.98] transition-all whitespace-nowrap"
           >
-            Create League
+            {t('createLeague')}
           </Link>
         )}
       </div>
 
       {!user && !authLoading && (
         <GlassCard className="p-8 text-center mb-10">
-          <h2 className="font-display text-2xl text-primary mb-3">Join the Competition</h2>
+          <h2 className="font-display text-2xl text-primary mb-3">{t('joinCompetition')}</h2>
           <p className="text-on-surface-variant mb-6 max-w-md mx-auto">
-            Sign in to create or join prediction leagues and compete for the top spot on the leaderboard.
+            {t('joinDescription')}
           </p>
           <div className="flex gap-4 justify-center">
             <Link
               href="/auth/login"
               className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all"
             >
-              Sign In
+              {t('signIn')}
             </Link>
             <Link
               href="/auth/register"
               className="px-6 py-3 rounded-xl border border-white/[0.08] text-on-surface font-bold hover:bg-white/[0.04] transition-all"
             >
-              Create Account
+              {t('createAccount')}
             </Link>
           </div>
         </GlassCard>
@@ -102,7 +104,7 @@ export default function LeaguesPage() {
       {!loading && myLeagues.length > 0 && (
         <section className="mb-12">
           <h2 className="font-headline text-xl uppercase tracking-widest text-on-surface-variant mb-6">
-            My Leagues
+            {t('myLeagues')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {myLeagues.map(league => (
@@ -115,7 +117,7 @@ export default function LeaguesPage() {
       {!loading && publicLeagues.length > 0 && (
         <section>
           <h2 className="font-headline text-xl uppercase tracking-widest text-on-surface-variant mb-6">
-            Public Leagues
+            {t('publicLeagues')}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {publicLeagues.map(league => (
@@ -127,12 +129,12 @@ export default function LeaguesPage() {
 
       {!loading && !myLeagues.length && !publicLeagues.length && user && (
         <GlassCard className="p-12 text-center">
-          <p className="text-on-surface-variant text-lg mb-4">No leagues yet. Be the first to create one!</p>
+          <p className="text-on-surface-variant text-lg mb-4">{t('noLeagues')}</p>
           <Link
             href="/leagues/create"
             className="inline-block px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 transition-all"
           >
-            Create Your First League
+            {t('createFirstLeague')}
           </Link>
         </GlassCard>
       )}
@@ -141,6 +143,7 @@ export default function LeaguesPage() {
 }
 
 function LeagueCard({ league, isMember }: { league: League; isMember?: boolean }) {
+  const t = useTranslations('leaguesPage')
   const tierColors: Record<string, string> = {
     free: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30',
     premium: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
@@ -166,7 +169,7 @@ function LeagueCard({ league, isMember }: { league: League; isMember?: boolean }
         <div className="flex items-center gap-4 text-xs text-on-surface-variant mt-auto pt-4 border-t border-white/[0.06]">
           <span className="flex items-center gap-1.5">
             <span className={`w-2 h-2 rounded-full ${league.league_type === 'public' ? 'bg-emerald-400' : 'bg-amber-400'}`} />
-            {league.league_type}
+            {t(league.league_type)}
           </span>
           <span>{league.season}</span>
           {isMember && league.role && (

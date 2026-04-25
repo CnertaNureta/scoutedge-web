@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useLocale } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 
@@ -94,22 +95,23 @@ function calculateResults(
 
 /* ── Format helpers ── */
 
-function formatCurrency(value: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(value)
-}
-
-function formatNumber(value: number): string {
-  return new Intl.NumberFormat('en-US').format(value)
-}
-
 /* ── Component ── */
 
 export default function CostCalculator() {
+  const locale = useLocale()
+
+  function formatCurrency(value: number): string {
+    return new Intl.NumberFormat(locale, {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(value)
+  }
+
+  function formatNumber(value: number): string {
+    return new Intl.NumberFormat(locale).format(value)
+  }
   const [totalStickers, setTotalStickers] = useState(700)
   const [stickersPerPack, setStickersPerPack] = useState(5)
   const [packPrice, setPackPrice] = useState(1.5)

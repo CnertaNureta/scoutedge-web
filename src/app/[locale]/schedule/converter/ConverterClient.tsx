@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
+import { useLocale } from 'next-intl'
 import Link from 'next/link'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getAllGroups, getTeamBySlug, getTeamsByGroup } from '@/lib/data-service'
@@ -29,32 +30,32 @@ const COMMON_TIMEZONES = [
 
 const groups = getAllGroups()
 
-function formatInTz(utc: string, tz: string): { date: string; time: string; tzAbbr: string } {
+function formatInTz(utc: string, tz: string, locale: string): { date: string; time: string; tzAbbr: string } {
   const d = new Date(utc)
-  const date = d.toLocaleDateString('en-US', {
+  const date = d.toLocaleDateString(locale, {
     weekday: 'short',
     month: 'short',
     day: 'numeric',
     timeZone: tz,
   })
-  const time = d.toLocaleTimeString('en-US', {
+  const time = d.toLocaleTimeString(locale, {
     hour: 'numeric',
     minute: '2-digit',
     timeZone: tz,
   })
-  const tzAbbr = d.toLocaleTimeString('en-US', {
+  const tzAbbr = d.toLocaleTimeString(locale, {
     timeZoneName: 'short',
     timeZone: tz,
   }).split(' ').pop() || ''
   return { date, time, tzAbbr }
 }
 
-function MatchCard({ fixture, tz }: { fixture: MatchFixture; tz: string }) {
+function MatchCard({ fixture, tz, locale }: { fixture: MatchFixture; tz: string; locale: string }) {
   const home = getTeamBySlug(fixture.homeTeamSlug)
   const away = getTeamBySlug(fixture.awayTeamSlug)
   if (!home || !away) return null
 
-  const { date, time, tzAbbr } = formatInTz(fixture.kickoffUtc, tz)
+  const { date, time, tzAbbr } = formatInTz(fixture.kickoffUtc, tz, locale)
 
   return (
     <GlassCard className="p-4 md:p-5">
@@ -92,6 +93,7 @@ function MatchCard({ fixture, tz }: { fixture: MatchFixture; tz: string }) {
 }
 
 export default function ConverterClient() {
+  const locale = useLocale()
   const [tz, setTz] = useState('America/New_York')
   const [filterGroup, setFilterGroup] = useState<string | null>(null)
 
@@ -112,12 +114,12 @@ export default function ConverterClient() {
   const byDate = useMemo(() => {
     const map: Record<string, MatchFixture[]> = {}
     for (const f of filteredFixtures) {
-      const { date } = formatInTz(f.kickoffUtc, tz)
+      const { date } = formatInTz(f.kickoffUtc, tz, locale)
       if (!map[date]) map[date] = []
       map[date].push(f)
     }
     return map
-  }, [filteredFixtures, tz])
+  }, [filteredFixtures, tz, locale])
 
   const isCustomTz = !COMMON_TIMEZONES.some((t) => t.value === tz)
 
@@ -203,7 +205,7 @@ export default function ConverterClient() {
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {fixtures.map((f) => (
-                <MatchCard key={`${f.homeTeamSlug}-${f.awayTeamSlug}`} fixture={f} tz={tz} />
+                <MatchCard key={`${f.homeTeamSlug}-${f.awayTeamSlug}`} fixture={f} tz={tz} locale={locale} />
               ))}
             </div>
           </div>

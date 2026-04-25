@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface ShareButtonProps {
   url?: string
@@ -16,6 +17,7 @@ export default function ShareButton({
   className = '',
 }: ShareButtonProps) {
   const [copied, setCopied] = useState(false)
+  const t = useTranslations('share')
 
   const handleShare = useCallback(async () => {
     const shareUrl = url || window.location.href
@@ -56,14 +58,14 @@ export default function ShareButton({
         bg-white/[0.06] border border-white/10 text-on-surface-variant text-xs
         font-label uppercase tracking-widest
         hover:border-primary/30 hover:text-primary transition-all ${className}`}
-      aria-label="Share this page"
+      aria-label={t('shareThisPage')}
     >
       {copied ? (
         <>
           <svg className="w-4 h-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8.5L6.5 12L13 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Copied
+          {t('copied')}
         </>
       ) : (
         <>
@@ -75,7 +77,7 @@ export default function ShareButton({
               strokeLinecap="round"
             />
           </svg>
-          Share
+          {t('share')}
         </>
       )}
     </button>

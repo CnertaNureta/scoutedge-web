@@ -3,9 +3,11 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from '@/i18n/navigation'
 import { useAuth } from '@/contexts/AuthContext'
+import { useTranslations } from 'next-intl'
 
 export default function AuthButton() {
   const { user, loading, signOut } = useAuth()
+  const t = useTranslations('auth')
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +31,7 @@ export default function AuthButton() {
         href="/auth/login"
         className="px-4 py-2 rounded-xl bg-primary text-on-primary font-label font-bold text-sm tracking-tight hover:brightness-110 active:scale-[0.98] transition-all"
       >
-        Sign In
+        {t('signIn')}
       </Link>
     )
   }
@@ -61,7 +63,7 @@ export default function AuthButton() {
             }}
             className="w-full text-left px-4 py-2.5 text-sm text-on-surface-variant hover:text-red-400 hover:bg-white/[0.04] transition-colors"
           >
-            Sign Out
+            {t('signOut')}
           </button>
         </div>
       )}

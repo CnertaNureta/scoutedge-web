@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
+import { useLocale } from 'next-intl'
 import Link from 'next/link'
 import { useMatchLive } from '@/hooks/useMatchLive'
 import { usePredictions } from '@/hooks/usePredictions'
@@ -33,6 +34,7 @@ export default function LiveMatchClient({
   homeTeam,
   awayTeam,
 }: LiveMatchClientProps) {
+  const locale = useLocale()
   const { state: matchState, connectionStatus, lastUpdatedAt } = useMatchLive(matchId, {
     status: 'not_started',
     homeScore: 0,
@@ -59,7 +61,7 @@ export default function LiveMatchClient({
   const matchInfo = useMemo(() => ({
     venue: fixture.venue,
     city: fixture.city,
-    kickoff: new Date(fixture.kickoffUtc).toLocaleString('en-US', {
+    kickoff: new Date(fixture.kickoffUtc).toLocaleString(locale, {
       weekday: 'short',
       month: 'short',
       day: 'numeric',
@@ -67,7 +69,7 @@ export default function LiveMatchClient({
       minute: '2-digit',
       timeZoneName: 'short',
     }),
-  }), [fixture])
+  }), [fixture, locale])
 
   return (
     <div className="min-h-screen bg-surface">

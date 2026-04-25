@@ -1,51 +1,24 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 
-export const metadata: Metadata = {
-  title: 'Developer Portal — KickOracle B2B Data API',
-  description:
-    'Access World Cup 2026 match data, AI predictions, team signals, and market probabilities through the KickOracle API. Built for sports media, analytics platforms, and intelligence teams.',
-  openGraph: {
-    title: 'KickOracle Developer Portal',
-    description: 'World Cup 2026 intelligence API for sports media and analytics.',
-  },
-}
+type Props = { params: Promise<{ locale: string }> }
 
-const ENDPOINTS = [
-  {
-    method: 'GET',
-    path: '/v1/matches',
-    description: 'Live & upcoming match schedules with venue, broadcast, and status',
-  },
-  {
-    method: 'GET',
-    path: '/v1/matches/:id/predictions',
-    description: 'AI-generated match outcome probabilities and score projections',
-  },
-  {
-    method: 'GET',
-    path: '/v1/standings',
-    description: 'Group and knockout stage standings with tiebreaker detail',
-  },
-  {
-    method: 'GET',
-    path: '/v1/teams/:slug/signals',
-    description: 'Real-time news, social sentiment, and injury signals per team',
-  },
-  {
-    method: 'GET',
-    path: '/v1/market-probabilities',
-    description: 'Aggregated consensus probabilities with movement history',
-  },
-  {
-    method: 'GET',
-    path: '/v1/predictions/rankings',
-    description: 'Tournament power rankings with Elo and composite scoring',
-  },
-] as const
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'developersPage' })
+  return {
+    title: t('heroTitle1') + ' ' + t('heroTitle2'),
+    description: t('heroDescription'),
+    openGraph: {
+      title: t('heroTitle1') + ' ' + t('heroTitle2'),
+      description: t('heroDescription'),
+    },
+  }
+}
 
 interface TierInfo {
   name: string
@@ -58,58 +31,71 @@ interface TierInfo {
   features: string[]
 }
 
-const TIERS: TierInfo[] = [
-  {
-    name: 'Basic',
-    price: '$5,000',
-    period: '/mo',
-    badge: 'outline',
-    limits: '10K requests/mo',
-    rateLimit: '60 req/min',
-    popular: false,
-    features: [
-      'Match schedules & results',
-      'Standings & group tables',
-      'Team profiles & rosters',
-      'Basic predictions',
-    ],
-  },
-  {
-    name: 'Advanced',
-    price: '$15,000',
-    period: '/mo',
-    badge: 'primary',
-    limits: '100K requests/mo',
-    rateLimit: '120 req/min',
-    popular: true,
-    features: [
-      'Everything in Basic',
-      'AI prediction models',
-      'News & social signals',
-      'Market probability aggregation',
-      'Historical data access',
-      'Webhook notifications',
-    ],
-  },
-  {
-    name: 'Event Pass',
-    price: '$25,000',
-    period: ' one-time',
-    badge: 'tertiary',
-    limits: 'Unlimited requests',
-    rateLimit: '200 req/min',
-    popular: false,
-    features: [
-      'Everything in Advanced',
-      'Full tournament coverage',
-      'No monthly commitment',
-      'Valid through July 20, 2026',
-      'Priority support',
-    ],
-  },
-]
+export default async function DevelopersPage({ params }: Props) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('developersPage')
 
-export default function DevelopersPage() {
+  const ENDPOINTS = [
+    { method: 'GET', path: '/v1/matches', description: t('endpointMatches') },
+    { method: 'GET', path: '/v1/matches/:id/predictions', description: t('endpointPredictions') },
+    { method: 'GET', path: '/v1/standings', description: t('endpointStandings') },
+    { method: 'GET', path: '/v1/teams/:slug/signals', description: t('endpointSignals') },
+    { method: 'GET', path: '/v1/market-probabilities', description: t('endpointMarket') },
+    { method: 'GET', path: '/v1/predictions/rankings', description: t('endpointRankings') },
+  ] as const
+
+  const TIERS: TierInfo[] = [
+    {
+      name: t('tierBasic'),
+      price: '$5,000',
+      period: '/mo',
+      badge: 'outline',
+      limits: '10K requests/mo',
+      rateLimit: '60 req/min',
+      popular: false,
+      features: [
+        t('tierBasicFeature1'),
+        t('tierBasicFeature2'),
+        t('tierBasicFeature3'),
+        t('tierBasicFeature4'),
+      ],
+    },
+    {
+      name: t('tierAdvanced'),
+      price: '$15,000',
+      period: '/mo',
+      badge: 'primary',
+      limits: '100K requests/mo',
+      rateLimit: '120 req/min',
+      popular: true,
+      features: [
+        t('tierAdvancedFeature1'),
+        t('tierAdvancedFeature2'),
+        t('tierAdvancedFeature3'),
+        t('tierAdvancedFeature4'),
+        t('tierAdvancedFeature5'),
+        t('tierAdvancedFeature6'),
+      ],
+    },
+    {
+      name: t('tierEventPass'),
+      price: '$25,000',
+      period: ' one-time',
+      badge: 'tertiary',
+      limits: 'Unlimited requests',
+      rateLimit: '200 req/min',
+      popular: false,
+      features: [
+        t('tierEventPassFeature1'),
+        t('tierEventPassFeature2'),
+        t('tierEventPassFeature3'),
+        t('tierEventPassFeature4'),
+        t('tierEventPassFeature5'),
+      ],
+    },
+  ]
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -119,40 +105,38 @@ export default function DevelopersPage() {
         <div className="absolute bottom-1/3 left-1/3 w-[400px] h-[400px] rounded-full bg-tertiary/6 blur-[140px]" />
         <div className="absolute inset-0 pitch-lines opacity-15 pointer-events-none" />
         <div className="page-container relative">
-          <Badge variant="primary" size="md">B2B DATA API</Badge>
+          <Badge variant="primary" size="md">{t('badge')}</Badge>
           <h1 className="mt-6 font-headline text-5xl md:text-7xl lg:text-8xl tracking-wide uppercase text-on-surface">
-            World Cup 2026
+            {t('heroTitle1')}
             <br />
-            <span className="gradient-text">Intelligence API</span>
+            <span className="gradient-text">{t('heroTitle2')}</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg md:text-xl text-on-surface-variant font-body leading-relaxed">
-            Match data, AI predictions, team signals, and market probabilities — delivered
-            through a single REST API built for sports media, analytics platforms,
-            and sports intelligence teams.
+            {t('heroDescription')}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/docs/api"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-label font-bold text-sm uppercase tracking-widest hover:bg-primary-fixed transition-colors"
             >
-              View API Reference
+              {t('viewApiReference')}
               <span aria-hidden="true">&rarr;</span>
             </Link>
             <Link
               href="/dashboard/api"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-on-surface rounded-xl font-label font-bold text-sm uppercase tracking-widest hover:border-primary/40 hover:text-primary transition-colors"
             >
-              Get API Key
+              {t('getApiKey')}
             </Link>
           </div>
 
           {/* Trust signals */}
           <div className="mt-16 flex flex-wrap gap-6 md:gap-10">
             {[
-              { value: '99.9%', label: 'Uptime SLA' },
-              { value: '<100ms', label: 'P95 Latency' },
-              { value: '50+', label: 'Data Sources' },
-              { value: '104', label: 'Matches Covered' },
+              { value: '99.9%', label: t('uptimeSla') },
+              { value: '<100ms', label: t('p95Latency') },
+              { value: '50+', label: t('dataSources') },
+              { value: '104', label: t('matchesCovered') },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <span className="block font-mono text-2xl md:text-3xl font-bold text-primary">{stat.value}</span>
@@ -166,23 +150,17 @@ export default function DevelopersPage() {
       {/* Quick Start */}
       <section className="py-16 md:py-24">
         <div className="page-container">
-          <SectionHeader as="h2" withRule>Quick Start</SectionHeader>
+          <SectionHeader as="h2" withRule>{t('quickStart')}</SectionHeader>
           <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div className="space-y-6">
-              <StepCard step={1} title="Get your API key">
-                Sign up and generate a key from the{' '}
-                <Link href="/dashboard/api" className="text-primary hover:underline">
-                  API dashboard
-                </Link>
-                . Keys are provisioned instantly after checkout.
+              <StepCard step={1} title={t('step1Title')}>
+                {t('step1Desc')}
               </StepCard>
-              <StepCard step={2} title="Make your first request">
-                All endpoints require a Bearer token. Responses are JSON with
-                consistent envelope format.
+              <StepCard step={2} title={t('step2Title')}>
+                {t('step2Desc')}
               </StepCard>
-              <StepCard step={3} title="Go live">
-                Monitor usage, rotate keys, and manage billing from the dashboard.
-                Rate limits scale with your tier.
+              <StepCard step={3} title={t('step3Title')}>
+                {t('step3Desc')}
               </StepCard>
             </div>
             <GlassCard className="p-0 overflow-hidden">
@@ -221,10 +199,9 @@ export default function DevelopersPage() {
       {/* Endpoints */}
       <section className="py-16 md:py-24 bg-surface-container-lowest/50">
         <div className="page-container">
-          <SectionHeader as="h2" withRule>Endpoints</SectionHeader>
+          <SectionHeader as="h2" withRule>{t('endpoints')}</SectionHeader>
           <p className="mt-4 text-on-surface-variant font-body max-w-2xl">
-            15 endpoints covering the complete World Cup 2026 data surface.
-            All responses follow a consistent JSON envelope.
+            {t('endpointsDesc')}
           </p>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-4">
             {ENDPOINTS.map((ep) => (
@@ -248,7 +225,7 @@ export default function DevelopersPage() {
               href="/docs/api"
               className="inline-flex items-center gap-2 text-primary font-label font-bold text-sm uppercase tracking-widest hover:underline"
             >
-              See full API reference
+              {t('seeFullApiRef')}
               <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
@@ -258,10 +235,9 @@ export default function DevelopersPage() {
       {/* Pricing */}
       <section className="py-16 md:py-24">
         <div className="page-container">
-          <SectionHeader as="h2" withRule>Pricing</SectionHeader>
+          <SectionHeader as="h2" withRule>{t('pricing')}</SectionHeader>
           <p className="mt-4 text-on-surface-variant font-body max-w-2xl">
-            Transparent pricing with no hidden fees. All plans include full API access
-            at their tier level with instant key provisioning.
+            {t('pricingDesc')}
           </p>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
             {TIERS.map((tier) => (
@@ -276,7 +252,7 @@ export default function DevelopersPage() {
                   <Badge variant={tier.badge} size="md">{tier.name}</Badge>
                   {tier.popular && (
                     <span className="text-[10px] font-label font-bold uppercase tracking-widest text-primary">
-                      Popular
+                      {t('popular')}
                     </span>
                   )}
                 </div>
@@ -307,15 +283,15 @@ export default function DevelopersPage() {
                       : 'border border-white/20 text-on-surface hover:border-primary/40 hover:text-primary'
                   }`}
                 >
-                  Get Started
+                  {t('getStarted')}
                 </Link>
               </GlassCard>
             ))}
           </div>
           <p className="mt-6 text-center text-sm text-on-surface-variant font-body">
-            Need a custom plan or white-label solution?{' '}
+            {t('customPlanText')}{' '}
             <a href="mailto:api@kickoracle.com" className="text-primary hover:underline">
-              Contact our team
+              {t('contactTeam')}
             </a>
           </p>
         </div>
@@ -324,37 +300,37 @@ export default function DevelopersPage() {
       {/* Features */}
       <section className="py-16 md:py-24 bg-surface-container-lowest/50">
         <div className="page-container">
-          <SectionHeader as="h2" withRule>Built for Production</SectionHeader>
+          <SectionHeader as="h2" withRule>{t('builtForProduction')}</SectionHeader>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard
               icon={'\u{1F9E0}'}
-              title="AI Predictions"
-              description="Composite models blending Elo, form, and social signals for match outcome probabilities updated in real time."
+              title={t('featureAiPredictions')}
+              description={t('featureAiPredictionsDesc')}
             />
             <FeatureCard
               icon={'\u{1F4E1}'}
-              title="Real-Time Signals"
-              description="Injury reports, lineup changes, news sentiment, and social buzz aggregated from 50+ sources per team."
+              title={t('featureRealTimeSignals')}
+              description={t('featureRealTimeSignalsDesc')}
             />
             <FeatureCard
               icon={'\u{1F4CA}'}
-              title="Consensus Probability Signals"
-              description="Pre-match and in-play probability signals from market consensus sources with movement history and edge detection."
+              title={t('featureConsensusProbability')}
+              description={t('featureConsensusProbabilityDesc')}
             />
             <FeatureCard
-              icon={'\u26A1'}
-              title="Low Latency"
-              description="Edge-cached responses with sub-100ms P95 latency. Rate limits scale with your tier."
+              icon={'⚡'}
+              title={t('featureLowLatency')}
+              description={t('featureLowLatencyDesc')}
             />
             <FeatureCard
               icon={'\u{1F514}'}
-              title="Webhook Events"
-              description="Subscribe to match kickoff, goal, lineup, and prediction update events via webhooks."
+              title={t('featureWebhookEvents')}
+              description={t('featureWebhookEventsDesc')}
             />
             <FeatureCard
               icon={'\u{1F4D6}'}
-              title="OpenAPI 3.1"
-              description="Full OpenAPI spec with interactive Redoc documentation. Generate typed clients in any language."
+              title={t('featureOpenApi')}
+              description={t('featureOpenApiDesc')}
             />
           </div>
         </div>
@@ -364,24 +340,23 @@ export default function DevelopersPage() {
       <section className="py-20 md:py-32">
         <div className="page-container text-center">
           <h2 className="font-display text-4xl md:text-6xl text-on-surface">
-            Start building <span className="text-primary">today</span>
+            {t('startBuildingToday')}
           </h2>
           <p className="mt-4 text-on-surface-variant font-body text-lg max-w-xl mx-auto">
-            Free sandbox key available for evaluation. Production keys provisioned
-            instantly after checkout.
+            {t('startBuildingDesc')}
           </p>
           <div className="mt-10 flex justify-center gap-4 flex-wrap">
             <Link
               href="/dashboard/api"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-on-primary rounded-xl font-label font-bold text-sm uppercase tracking-widest hover:bg-primary-fixed transition-colors"
             >
-              Get API Key
+              {t('getApiKey')}
             </Link>
             <Link
               href="/docs/api"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-on-surface rounded-xl font-label font-bold text-sm uppercase tracking-widest hover:border-primary/40 hover:text-primary transition-colors"
             >
-              Read the Docs
+              {t('readTheDocs')}
             </Link>
           </div>
         </div>

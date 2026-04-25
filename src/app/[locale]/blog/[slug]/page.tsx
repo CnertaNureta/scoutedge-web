@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
+export default async function BlogPostPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
+  const { locale, slug } = await params
   const post = getPostBySlug(slug)
   if (!post) notFound()
 
@@ -117,13 +117,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <span>By <span className="text-on-surface font-semibold">{post.author}</span></span>
             <span>·</span>
             <time dateTime={post.date}>
-              Published {new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+              Published {new Date(post.date).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}
             </time>
             {post.lastUpdated !== post.date && (
               <>
                 <span>·</span>
                 <time dateTime={post.lastUpdated}>
-                  Updated {new Date(post.lastUpdated).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                  Updated {new Date(post.lastUpdated).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}
                 </time>
               </>
             )}
