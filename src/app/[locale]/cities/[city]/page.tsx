@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
-import { getAllVenues } from '@/lib/data-service'
+import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
+import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -203,6 +204,18 @@ export default async function CityPage({ params }: CityPageProps) {
     .filter((v): v is Venue => v !== undefined)
 
   const flag = COUNTRY_FLAG[city.countryCode] ?? ''
+
+  // Cross-section linking data
+  const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
+  const teamSlugsAtCity = Array.from(
+    new Set(cityFixtures.flatMap((f) => [f.homeTeamSlug, f.awayTeamSlug]))
+  )
+  const teamsAtCity = teamSlugsAtCity
+    .map((s) => getTeamBySlug(s))
+    .filter((t): t is NonNullable<typeof t> => t !== undefined)
+  const otherCities = getAllCities()
+    .filter((c) => c.slug !== slug)
+    .slice(0, 6)
 
   const cityUrl = `https://kickoracle.com/cities/${slug}`
   const touristDestinationLd = {
@@ -472,6 +485,48 @@ export default async function CityPage({ params }: CityPageProps) {
           <QuickFactsSidebar city={city} />
         </div>
       </section>
+
+      {/* Teams playing at this city — cross-link to team pages */}
+      {teamsAtCity.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <SectionHeader className="mb-6">Teams playing in {city.name}</SectionHeader>
+          <div className="flex flex-wrap gap-3">
+            {teamsAtCity.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/teams/${t.slug}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary inline-flex items-center gap-2"
+              >
+                <span className="text-base" aria-hidden="true">{t.flag}</span>
+                <span>{t.name} squad &amp; predictions</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Other host cities — cross-link to /cities/[city] siblings */}
+      {otherCities.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <SectionHeader className="mb-6">Other World Cup 2026 host cities</SectionHeader>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {otherCities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cities/${c.slug}`}
+                className="block p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group text-center"
+              >
+                <p className="font-headline text-sm font-bold tracking-tight group-hover:text-tertiary transition-colors">
+                  {c.name}
+                </p>
+                <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">
+                  {c.country}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Bottom nav */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
