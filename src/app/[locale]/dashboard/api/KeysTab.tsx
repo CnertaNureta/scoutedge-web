@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useApi } from '@/hooks/useApi'
 import { useToast } from '@/components/ui/Toast'
 import GlassCard from '@/components/ui/GlassCard'
@@ -27,6 +27,7 @@ interface Props {
 }
 
 export default function KeysTab({ keys, loading, onRefresh }: Props) {
+  const t = useTranslations('apiKeys')
   const locale = useLocale()
   const [showCreate, setShowCreate] = useState(false)
   const [showConfirm, setShowConfirm] = useState<{ action: 'rotate' | 'revoke'; key: ApiKey } | null>(null)
@@ -53,12 +54,12 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
       <>
         <GlassCard className="p-12 text-center">
           <p className="text-4xl mb-4">🔑</p>
-          <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">No API keys yet</h3>
+          <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">{t('emptyTitle')}</h3>
           <p className="font-body text-sm text-on-surface-variant mb-6 max-w-sm mx-auto">
-            Create your first key to start using the KickOracle API.
+            {t('emptyDescription')}
           </p>
           <button onClick={() => setShowCreate(true)} className="btn-primary">
-            + Create API Key
+            {t('createFirst')}
           </button>
         </GlassCard>
         {showCreate && (
@@ -74,9 +75,9 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
   return (
     <>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="font-headline text-lg font-bold uppercase tracking-tight text-on-surface">API Keys</h2>
+        <h2 className="font-headline text-lg font-bold uppercase tracking-tight text-on-surface">{t('heading')}</h2>
         <button onClick={() => setShowCreate(true)} className="btn-primary text-sm">
-          + Create New Key
+          {t('createNew')}
         </button>
       </div>
 
@@ -85,11 +86,11 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
         <table className="w-full">
           <thead>
             <tr className="border-b border-outline-variant">
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Name</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Key Prefix</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Created</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Last Used</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Status</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableName')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableKeyPrefix')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableCreated')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableLastUsed')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableStatus')}</th>
               <th className="px-5 py-3" />
             </tr>
           </thead>
@@ -101,11 +102,11 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
               >
                 <td className="px-5 py-3 font-body text-sm font-medium text-on-surface">{k.name}</td>
                 <td className="px-5 py-3 font-mono text-sm text-on-surface-variant">{k.keyPrefix}...</td>
-                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{formatDate(k.createdAt, locale)}</td>
-                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{k.lastUsedAt ? formatDate(k.lastUsedAt, locale) : 'Never'}</td>
+                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{formatDate(k.createdAt, locale, t)}</td>
+                <td className="px-5 py-3 font-body text-sm text-on-surface-variant">{k.lastUsedAt ? formatDate(k.lastUsedAt, locale, t) : t('never')}</td>
                 <td className="px-5 py-3">
                   <Badge variant={k.isActive ? 'primary' : 'secondary'} size="sm">
-                    {k.isActive ? 'Active' : 'Revoked'}
+                    {k.isActive ? t('statusActive') : t('statusRevoked')}
                   </Badge>
                 </td>
                 <td className="px-5 py-3 text-right relative">
@@ -114,7 +115,7 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
                       <button
                         onClick={() => setMenuOpen(menuOpen === k.id ? null : k.id)}
                         className="p-2 hover:bg-white/[0.06] rounded-lg transition-colors text-on-surface-variant"
-                        aria-label="Key actions"
+                        aria-label={t('actionsAriaLabel')}
                       >
                         ···
                       </button>
@@ -142,18 +143,18 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
             <div className="flex items-start justify-between mb-1">
               <span className="font-body text-sm font-medium text-on-surface">{k.name}</span>
               <Badge variant={k.isActive ? 'primary' : 'secondary'} size="sm">
-                {k.isActive ? 'Active' : 'Revoked'}
+                {k.isActive ? t('statusActive') : t('statusRevoked')}
               </Badge>
             </div>
             <p className="font-mono text-sm text-on-surface-variant mb-2">{k.keyPrefix}...</p>
             <div className="flex items-center justify-between">
-              <span className="font-body text-xs text-on-surface-variant">Created {formatDate(k.createdAt, locale)}</span>
+              <span className="font-body text-xs text-on-surface-variant">{t('createdLabel', { date: formatDate(k.createdAt, locale, t) })}</span>
               {k.isActive && (
                 <div className="relative">
                   <button
                     onClick={() => setMenuOpen(menuOpen === k.id ? null : k.id)}
                     className="p-2 hover:bg-white/[0.06] rounded-lg transition-colors text-on-surface-variant text-sm"
-                    aria-label="Key actions"
+                    aria-label={t('actionsAriaLabel')}
                   >
                     ···
                   </button>
@@ -173,7 +174,7 @@ export default function KeysTab({ keys, loading, onRefresh }: Props) {
       </div>
 
       <p className="mt-4 font-body text-xs text-on-surface-variant">
-        ⚠️ Revoked keys cannot be reactivated. Create a new key instead.
+        {t('revokedNotice')}
       </p>
 
       {showCreate && (
@@ -218,19 +219,20 @@ function ActionMenu({
   onRevoke: () => void
   onClose: () => void
 }) {
+  const t = useTranslations('apiKeys')
   return (
     <>
       <div className="fixed inset-0 z-40" onClick={onClose} />
       <div className="absolute right-0 top-full mt-1 z-50 glass-panel rounded-xl p-1 min-w-[160px] shadow-lg border border-white/[0.08]">
         <button onClick={onRename} className="w-full text-left px-3 py-2 text-sm font-body rounded-lg hover:bg-white/[0.06] transition-colors flex items-center gap-2">
-          ✏️ Rename
+          {t('rename')}
         </button>
         <button onClick={onRotate} className="w-full text-left px-3 py-2 text-sm font-body rounded-lg hover:bg-white/[0.06] transition-colors flex items-center gap-2">
-          🔄 Rotate
+          {t('rotate')}
         </button>
         <div className="h-px bg-outline-variant/50 my-1" />
         <button onClick={onRevoke} className="w-full text-left px-3 py-2 text-sm font-body rounded-lg hover:bg-secondary/10 transition-colors flex items-center gap-2 text-secondary">
-          🗑️ Revoke
+          {t('revoke')}
         </button>
       </div>
     </>
@@ -238,6 +240,7 @@ function ActionMenu({
 }
 
 function CreateKeyModal({ onClose, onCreated }: { onClose: () => void; onCreated: (rawKey: string) => void }) {
+  const t = useTranslations('apiKeys')
   const { apiFetch } = useApi()
   const { toast } = useToast()
   const [name, setName] = useState('')
@@ -251,10 +254,10 @@ function CreateKeyModal({ onClose, onCreated }: { onClose: () => void; onCreated
         method: 'POST',
         body: JSON.stringify({ name: name.trim() }),
       })
-      toast('API key created', 'success')
+      toast(t('createSuccess'), 'success')
       onCreated(data.key)
     } catch {
-      toast('Failed to create key', 'destructive')
+      toast(t('createFailed'), 'destructive')
     } finally {
       setSubmitting(false)
     }
@@ -262,24 +265,24 @@ function CreateKeyModal({ onClose, onCreated }: { onClose: () => void; onCreated
 
   return (
     <Modal onClose={onClose}>
-      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-on-surface mb-6">Create API Key</h3>
+      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-on-surface mb-6">{t('createTitle')}</h3>
       <label className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">
-        Key Name
+        {t('keyName')}
       </label>
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="e.g. Production, Staging..."
+        placeholder={t('keyNamePlaceholder')}
         className="input-field mb-6"
         maxLength={64}
         autoFocus
         onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
       />
       <div className="flex justify-end gap-3">
-        <button onClick={onClose} className="btn-secondary">Cancel</button>
+        <button onClick={onClose} className="btn-secondary">{t('cancel')}</button>
         <button onClick={handleCreate} disabled={!name.trim() || submitting} className="btn-primary">
-          {submitting ? 'Creating...' : 'Create Key'}
+          {submitting ? t('creating') : t('createKey')}
         </button>
       </div>
     </Modal>
@@ -287,34 +290,35 @@ function CreateKeyModal({ onClose, onCreated }: { onClose: () => void; onCreated
 }
 
 function KeyRevealModal({ rawKey, onClose }: { rawKey: string; onClose: () => void }) {
+  const t = useTranslations('apiKeys')
   const { toast } = useToast()
   const [copied, setCopied] = useState(false)
 
   async function copyKey() {
     await navigator.clipboard.writeText(rawKey)
     setCopied(true)
-    toast('Copied to clipboard', 'info')
+    toast(t('copied'), 'info')
     setTimeout(() => setCopied(false), 2000)
   }
 
   return (
     <Modal onClose={onClose}>
-      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-primary mb-4">✅ Key Created</h3>
+      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-primary mb-4">{t('revealTitle')}</h3>
       <div className="bg-tertiary/10 border border-tertiary/30 rounded-xl p-3 mb-4">
-        <p className="font-body text-sm text-tertiary">⚠️ Copy this key now. It won&apos;t be shown again.</p>
+        <p className="font-body text-sm text-tertiary">{t('revealWarning')}</p>
       </div>
       <div className="relative bg-surface-container-lowest rounded-xl p-4 border border-outline-variant mb-6">
         <p className="font-mono text-sm text-on-surface break-all pr-10">{rawKey}</p>
         <button
           onClick={copyKey}
           className="absolute top-3 right-3 p-2 hover:bg-white/[0.06] rounded-lg transition-colors"
-          aria-label="Copy key"
+          aria-label={t('copyKeyAria')}
         >
           {copied ? '✓' : '📋'}
         </button>
       </div>
       <div className="flex justify-end">
-        <button onClick={onClose} className="btn-primary">Done</button>
+        <button onClick={onClose} className="btn-primary">{t('done')}</button>
       </div>
     </Modal>
   )
@@ -333,6 +337,7 @@ function ConfirmModal({
   onClose: () => void
   onDone: (rawKey?: string) => void
 }) {
+  const t = useTranslations('apiKeys')
   const { apiFetch } = useApi()
   const { toast } = useToast()
   const [submitting, setSubmitting] = useState(false)
@@ -346,14 +351,14 @@ function ConfirmModal({
         body: JSON.stringify({ action }),
       })
       if (action === 'rotate') {
-        toast('Key rotated. Grace period: 24h', 'warning')
+        toast(t('rotateSuccess'), 'warning')
         onDone(data.key)
       } else {
-        toast('API key revoked', 'destructive')
+        toast(t('revokeSuccess'), 'destructive')
         onDone()
       }
     } catch {
-      toast(`Failed to ${action} key`, 'destructive')
+      toast(isRevoke ? t('revokeFailed') : t('rotateFailed'), 'destructive')
     } finally {
       setSubmitting(false)
     }
@@ -362,21 +367,21 @@ function ConfirmModal({
   return (
     <Modal onClose={onClose}>
       <h3 className={`font-headline text-xl font-bold uppercase tracking-tight mb-4 ${isRevoke ? 'text-secondary' : 'text-on-surface'}`}>
-        {isRevoke ? 'Revoke API Key' : 'Rotate API Key'}
+        {isRevoke ? t('revokeTitle') : t('rotateTitle')}
       </h3>
       <p className="font-body text-sm text-on-surface-variant leading-relaxed mb-6">
         {isRevoke
-          ? `This will permanently deactivate "${keyName}". This action cannot be undone.`
-          : `This will generate a new key and invalidate "${keyName}" after a 24h grace period. During the grace period, both keys will work.`}
+          ? t('revokeBody', { name: keyName })
+          : t('rotateBody', { name: keyName })}
       </p>
       <div className="flex justify-end gap-3">
-        <button onClick={onClose} className="btn-secondary">Cancel</button>
+        <button onClick={onClose} className="btn-secondary">{t('cancel')}</button>
         <button
           onClick={handleConfirm}
           disabled={submitting}
           className={isRevoke ? 'btn-destructive' : 'btn-primary'}
         >
-          {submitting ? 'Processing...' : isRevoke ? 'Revoke Key' : 'Rotate Key'}
+          {submitting ? t('processing') : isRevoke ? t('revokeButton') : t('rotateButton')}
         </button>
       </div>
     </Modal>
@@ -394,6 +399,7 @@ function RenameModal({
   onClose: () => void
   onDone: () => void
 }) {
+  const t = useTranslations('apiKeys')
   const { apiFetch } = useApi()
   const { toast } = useToast()
   const [name, setName] = useState(currentName)
@@ -407,10 +413,10 @@ function RenameModal({
         method: 'PATCH',
         body: JSON.stringify({ action: 'rename', name: name.trim() }),
       })
-      toast('Key renamed', 'success')
+      toast(t('renameSuccess'), 'success')
       onDone()
     } catch {
-      toast('Failed to rename key', 'destructive')
+      toast(t('renameFailed'), 'destructive')
     } finally {
       setSubmitting(false)
     }
@@ -418,8 +424,8 @@ function RenameModal({
 
   return (
     <Modal onClose={onClose}>
-      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-on-surface mb-6">Rename API Key</h3>
-      <label className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">Key Name</label>
+      <h3 className="font-headline text-xl font-bold uppercase tracking-tight text-on-surface mb-6">{t('renameTitle')}</h3>
+      <label className="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 block">{t('keyName')}</label>
       <input
         type="text"
         value={name}
@@ -430,9 +436,9 @@ function RenameModal({
         onKeyDown={(e) => e.key === 'Enter' && handleRename()}
       />
       <div className="flex justify-end gap-3">
-        <button onClick={onClose} className="btn-secondary">Cancel</button>
+        <button onClick={onClose} className="btn-secondary">{t('cancel')}</button>
         <button onClick={handleRename} disabled={!name.trim() || submitting} className="btn-primary">
-          {submitting ? 'Saving...' : 'Save'}
+          {submitting ? t('saving') : t('save')}
         </button>
       </div>
     </Modal>
@@ -440,6 +446,7 @@ function RenameModal({
 }
 
 function Modal({ children, onClose }: { children: React.ReactNode; onClose: () => void }) {
+  const t = useTranslations('apiKeys')
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[20vh]" role="dialog" aria-modal="true">
       <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
@@ -447,7 +454,7 @@ function Modal({ children, onClose }: { children: React.ReactNode; onClose: () =
         <button
           onClick={onClose}
           className="absolute top-4 right-4 p-1 text-on-surface-variant hover:text-on-surface transition-colors"
-          aria-label="Close"
+          aria-label={t('closeAria')}
         >
           ✕
         </button>
@@ -457,13 +464,13 @@ function Modal({ children, onClose }: { children: React.ReactNode; onClose: () =
   )
 }
 
-function formatDate(iso: string, locale: string): string {
+function formatDate(iso: string, locale: string, t: (k: string, v?: Record<string, string | number>) => string): string {
   const d = new Date(iso)
   const now = new Date()
   const diffMs = now.getTime() - d.getTime()
   const diffDays = Math.floor(diffMs / 86_400_000)
-  if (diffDays === 0) return 'Today'
-  if (diffDays === 1) return 'Yesterday'
-  if (diffDays < 30) return `${diffDays}d ago`
+  if (diffDays === 0) return t('today')
+  if (diffDays === 1) return t('yesterday')
+  if (diffDays < 30) return t('daysAgo', { days: diffDays })
   return d.toLocaleDateString(locale, { month: 'short', day: 'numeric', year: 'numeric' })
 }
