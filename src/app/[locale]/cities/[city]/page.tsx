@@ -3,11 +3,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd, jsonLdGraph } from '@/lib/og-utils'
+import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 export const revalidate = 3600
 
@@ -204,12 +205,6 @@ export default async function CityPage({ params }: CityPageProps) {
   const flag = COUNTRY_FLAG[city.countryCode] ?? ''
 
   const cityUrl = `https://kickoracle.com/cities/${slug}`
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: cityUrl },
-  ])
-
   const touristDestinationLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
@@ -239,13 +234,20 @@ export default async function CityPage({ params }: CityPageProps) {
     })),
   }
 
-  const graph = jsonLdGraph([breadcrumbs, touristDestinationLd])
+  const graph = jsonLdGraph([touristDestinationLd])
 
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Host Cities', href: '/cities' },
+          { name: city.name, href: `/cities/${slug}` },
+        ]}
       />
 
       {/* Hero */}

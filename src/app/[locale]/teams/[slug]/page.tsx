@@ -15,6 +15,7 @@ import IntelligenceReport from '@/components/team/IntelligenceReport'
 import MatchSchedule from '@/components/team/MatchSchedule'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -106,6 +107,13 @@ export default async function TeamPage({ params }: PageProps) {
       />
 
       <TeamHero team={team} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Teams', href: '/teams' },
+          { name: team.name, href: `/teams/${slug}` },
+        ]}
+      />
       <TeamStats team={team} />
 
       {/* Head Coach */}

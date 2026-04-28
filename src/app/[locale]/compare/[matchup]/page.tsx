@@ -12,6 +12,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
 
 export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
@@ -113,6 +114,14 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Predictions', href: '/predictions' },
+          { name: 'Compare', href: '/compare' },
+          { name: `${teamA.name} vs ${teamB.name}`, href: `/compare/${matchup}` },
+        ]}
+      />
 
       {/* Hero */}
       <section className="relative py-20 md:py-32 px-6 overflow-hidden">

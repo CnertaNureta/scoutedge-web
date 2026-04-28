@@ -9,6 +9,7 @@ import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import SectionHeader from '@/components/ui/SectionHeader'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
@@ -76,6 +77,14 @@ export default async function PlayerPage({ params }: PageProps) {
       />
 
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Teams', href: '/teams' },
+          { name: team.name, href: `/teams/${slug}` },
+          { name: player.name, href: `/teams/${slug}/players/${playerSlug}` },
+        ]}
+      />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} />
