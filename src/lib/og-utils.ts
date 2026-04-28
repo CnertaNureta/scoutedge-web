@@ -8,10 +8,34 @@
 
 const BASE_URL = 'https://kickoracle.com'
 
+const OG_LOCALES: Record<string, string> = {
+  en: 'en_US',
+  es: 'es_ES',
+  zh: 'zh_CN',
+  pt: 'pt_BR',
+  ar: 'ar_AR',
+  fr: 'fr_FR',
+  ja: 'ja_JP',
+  ko: 'ko_KR',
+  de: 'de_DE',
+  it: 'it_IT',
+  nl: 'nl_NL',
+  tr: 'tr_TR',
+  pl: 'pl_PL',
+  id: 'id_ID',
+  ru: 'ru_RU',
+  fa: 'fa_IR',
+  th: 'th_TH',
+  vi: 'vi_VN',
+  hu: 'hu_HU',
+}
+
 export interface OGMeta {
   title: string
   description: string
   url: string
+  /** Page locale code (e.g. 'en', 'zh', 'ar') — maps to the correct OG locale */
+  locale?: string
   type?: 'website' | 'article'
   section?: string
   publishedTime?: string
@@ -32,7 +56,7 @@ export function buildOGMeta(meta: OGMeta) {
       url: meta.url,
       siteName: 'KickOracle',
       type: meta.type ?? 'website',
-      locale: 'en_US',
+      locale: OG_LOCALES[meta.locale ?? 'en'] ?? 'en_US',
       ...(images && { images }),
       ...(meta.section && { section: meta.section }),
       ...(meta.publishedTime && { publishedTime: meta.publishedTime }),
@@ -92,6 +116,27 @@ export function organizationJsonLd() {
 }
 
 /**
+ * SoftwareApplication structured data — eligible for the "Apps" knowledge panel
+ * and AI-search citation for "AI football prediction tool" queries.
+ */
+export function softwareApplicationJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'KickOracle',
+    applicationCategory: 'SportsApplication',
+    operatingSystem: 'Web, iOS, Android',
+    url: BASE_URL,
+    description: 'AI-powered World Cup 2026 predictions, host city guides, and fan intelligence in 19 languages.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+  }
+}
+
+/**
  * BreadcrumbList structured data for improved navigation display in search results.
  */
 export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
@@ -113,24 +158,65 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
 export function sportsEventJsonLd(match: {
   homeName: string
   awayName: string
+  homeSlug?: string
+  awaySlug?: string
   venue: string
   city: string
+  countryCode?: 'US' | 'MX' | 'CA'
   kickoffUtc: string
+  status?: 'EventScheduled' | 'EventPostponed' | 'EventCancelled' | 'EventCompleted'
+  homeScore?: number
+  awayScore?: number
 }) {
-  return {
+  const event: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'SportsEvent',
     name: `${match.homeName} vs ${match.awayName} — FIFA World Cup 2026`,
     startDate: match.kickoffUtc,
+    eventStatus: `https://schema.org/${match.status ?? 'EventScheduled'}`,
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
       '@type': 'Place',
       name: match.venue,
-      address: { '@type': 'PostalAddress', addressLocality: match.city },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: match.city,
+        ...(match.countryCode && { addressCountry: match.countryCode }),
+      },
     },
     competitor: [
-      { '@type': 'SportsTeam', name: match.homeName },
-      { '@type': 'SportsTeam', name: match.awayName },
+      {
+        '@type': 'SportsTeam',
+        name: match.homeName,
+        ...(match.homeSlug && { url: `${BASE_URL}/teams/${match.homeSlug}` }),
+      },
+      {
+        '@type': 'SportsTeam',
+        name: match.awayName,
+        ...(match.awaySlug && { url: `${BASE_URL}/teams/${match.awaySlug}` }),
+      },
     ],
-    organizer: { '@type': 'Organization', name: 'FIFA' },
+    organizer: { '@type': 'Organization', name: 'FIFA', url: 'https://www.fifa.com' },
+    superEvent: {
+      '@type': 'SportsEvent',
+      name: 'FIFA World Cup 2026',
+      startDate: '2026-06-11',
+      endDate: '2026-07-19',
+    },
+  }
+  return event
+}
+
+/**
+ * Helper to consolidate multiple JSON-LD blocks into a single `@graph` script.
+ * Cleaner output than rendering many <script> tags separately.
+ */
+export function jsonLdGraph(blocks: Record<string, unknown>[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': blocks.map((b) => {
+      const { ['@context']: _ctx, ...rest } = b as Record<string, unknown>
+      return rest
+    }),
   }
 }
