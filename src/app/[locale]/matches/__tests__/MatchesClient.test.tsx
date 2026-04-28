@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { NextIntlClientProvider } from 'next-intl'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { TEAMS } from '@/data/teams-meta'
 import MatchesClient from '../MatchesClient'
+import enMessages from '../../../../../messages/en.json'
 
 const groups = [...new Set(TEAMS.map((team) => team.group))].sort()
 const teamsBySlug = Object.fromEntries(TEAMS.map((team) => [team.slug, team]))
@@ -18,9 +20,17 @@ const props = {
   teamsBySlug,
 }
 
+function renderWithIntl(ui: React.ReactElement) {
+  return render(
+    <NextIntlClientProvider locale="en" messages={enMessages}>
+      {ui}
+    </NextIntlClientProvider>
+  )
+}
+
 describe('MatchesClient', () => {
   it('renders the narrative-first match board sections', () => {
-    render(<MatchesClient {...props} />)
+    renderWithIntl(<MatchesClient {...props} />)
 
     expect(screen.getByText('Narrative-first match board')).toBeInTheDocument()
     expect(screen.getByText('Matchday Narratives')).toBeInTheDocument()
@@ -33,7 +43,7 @@ describe('MatchesClient', () => {
   it('filters the board down to a single group', async () => {
     const user = userEvent.setup()
 
-    render(<MatchesClient {...props} />)
+    renderWithIntl(<MatchesClient {...props} />)
     await user.click(screen.getByRole('button', { name: /group a/i }))
 
     expect(screen.getByText('Showing Group A only')).toBeInTheDocument()
