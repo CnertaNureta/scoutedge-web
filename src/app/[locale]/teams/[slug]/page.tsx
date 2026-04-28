@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
+import { jsonLdGraph } from '@/lib/og-utils'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
@@ -60,38 +61,49 @@ export default async function TeamPage({ params }: PageProps) {
 
   const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
 
-  const jsonLd = {
+  const teamUrl = `https://kickoracle.com/teams/${slug}`
+  const sportsTeamLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsTeam',
     name: team.name,
-    sport: 'Football',
+    alternateName: `${team.name} national football team`,
+    url: teamUrl,
+    sport: 'Association Football',
+    image: getTeamHeroImage(slug),
     coach: { '@type': 'Person', name: team.coachName },
-    memberOf: { '@type': 'SportsOrganization', name: 'FIFA World Cup 2026' },
+    memberOf: [
+      { '@type': 'SportsOrganization', name: 'FIFA' },
+      { '@type': 'SportsOrganization', name: team.confederation },
+    ],
+    athlete: players.slice(0, 23).map((p) => ({
+      '@type': 'Person',
+      name: p.name,
+      url: `${teamUrl}/players/${p.slug}`,
+      ...(p.position && { jobTitle: p.position }),
+    })),
     location: { '@type': 'Country', name: team.name },
   }
 
-  const faqJsonLd = teamFaq ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: teamFaq.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  } : null
+  const faqLd = teamFaq
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: teamFaq.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null
+
+  const graph = jsonLdGraph(faqLd ? [sportsTeamLd, faqLd] : [sportsTeamLd])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
-      {faqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
 
       <TeamHero team={team} />
       <TeamStats team={team} />

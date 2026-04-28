@@ -48,13 +48,24 @@ export default async function PlayerPage({ params }: PageProps) {
   const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== playerSlug).slice(0, 5)
   const derivedStats = computeDerivedStats(player)
 
+  const playerUrl = `https://kickoracle.com/teams/${slug}/players/${playerSlug}`
+  const teamUrl = `https://kickoracle.com/teams/${slug}`
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: player.name,
+    url: playerUrl,
+    image: getPlayerActionImage(player.name),
     jobTitle: `Professional Football Player (${player.position})`,
-    memberOf: { '@type': 'SportsTeam', name: team.name },
     nationality: { '@type': 'Country', name: team.name },
+    affiliation: {
+      '@type': 'SportsTeam',
+      name: team.name,
+      url: teamUrl,
+    },
+    ...(player.club && {
+      worksFor: { '@type': 'SportsTeam', name: player.club },
+    }),
   }
 
   return (
