@@ -11,7 +11,7 @@ A focused, evidence-based marketing/SEO package for **KickOracle** (kickoracle.c
 
 **Methodology**: Built on the `marketingskills` (corey) and `marketing-skills` (kostja) skill libraries — specifically `launch-strategy`, `seo-audit`, `schema-markup`, `site-architecture`, `programmatic-seo`, `content-strategy`, and `ai-seo`.
 
-**Tournament context**: FIFA World Cup 2026 runs **June 11 – July 19, 2026** across 16 host cities in the US, Canada, and Mexico. The marketing window is **~14 months** from today (April 2026), with the highest-leverage period being the **30 days pre-kickoff**.
+**Tournament context**: FIFA World Cup 2026 runs **June 11 – July 19, 2026** across 16 host cities in the US, Canada, and Mexico. As of writing (late April 2026), kickoff is **~6 weeks away** — this plan is a pre-tournament sprint, the 39-day tournament window, and a post-tournament wind-down, not a slow build.
 
 ## Quick start
 

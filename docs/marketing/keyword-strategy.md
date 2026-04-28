@@ -135,17 +135,18 @@ Per `seo-audit`: AI translation alone is fine (Google's 2025 stance), but main c
 - Show "Last updated: [date]" at top.
 - FAQ schema with 4–6 questions matching real query phrasing.
 
-## 7. Editorial calendar through tournament
+## 7. Editorial calendar (kickoff is ~6 weeks out)
 
-| Month | Top priority keywords | Posts/week | Theme |
+Today is late April 2026. The calendar below is calibrated for the actual remaining window — there is no time for "foundation evergreen" or qualification-news cycles, those windows have closed. Lean into the highest-intent commercial and squad-announcement keywords now.
+
+| Window | Top priority keywords | Posts/week | Theme |
 |---|---|---|---|
-| 2025 May–Jul | "world cup 2026 host cities", "world cup 2026 format" | 2 | Foundation evergreen |
-| 2025 Aug–Oct | "[team] qualified", "world cup 2026 qualifying" | 2 | Qualification news |
-| 2025 Nov–Dec | "world cup 2026 draw", "group [X] world cup" | 3 | Draw moment (peak interest spike) |
-| 2026 Jan–Feb | "[team] world cup chances", "[team] vs [team]" | 3 | Pre-tournament analysis |
-| 2026 Mar–Apr | "world cup 2026 stickers", "world cup 2026 budget", "[city] hotels" | 4 | Travel + commerce intent |
-| 2026 May | "world cup 2026 squad", "[player] world cup", final predictions | 4 | Squads + predictions |
-| 2026 Jun–Jul | Daily match preview/recap; live blog | 7+ | Real-time |
+| **Now → May 11** *(weeks 1–2)* | "world cup 2026 stickers", "world cup 2026 budget", "[city] hotels", "[city] tickets" | 4 | Travel + commerce intent — highest converting commercial queries |
+| **May 12 – Jun 1** *(weeks 3–5, squad-announcement window)* | "[team] world cup squad", "[team] world cup roster", "[player] world cup", "is [player] playing" | 5–7 (one templated post per team within 1h of announcement) | Squad reactions — every squad drop = a fresh long-tail spike to capture |
+| **Jun 2 – Jun 10** *(week 6, kickoff eve)* | "world cup 2026 predictions", "[team] vs [team] prediction", "world cup 2026 bracket" | 4–5 | Final predictions + bracket-fill push |
+| **Jun 11 – Jun 27** *(group stage)* | Daily match previews/recaps; "[team] vs [team] result" | 7+ daily | Real-time match coverage |
+| **Jun 28 – Jul 19** *(knockouts)* | "[team] vs [team] prediction", "world cup 2026 final prediction" | 7+ daily, plus 2x per knockout match (preview + recap) | Real-time, escalating intensity |
+| **Jul 20+** *(post-mortem)* | "world cup 2026 predictions accuracy", "best ai world cup predictor" | 3 (transitioning) | Post-mortem + retention pivot to club football |
 
 ## 8. Brand vs. category focus
 

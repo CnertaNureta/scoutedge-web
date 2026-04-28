@@ -17,14 +17,13 @@
 
 ## 2. Stage of launch (per `launch-strategy` 5-phase framework)
 
-The product is already deployed (kickoracle.com is live, 19 locales, hundreds of pages). You are in **Phase 4 → Phase 5**: from controlled growth to full launch. Your "launch event" is **the tournament itself**, not a single Product Hunt day.
+The product is already deployed (kickoracle.com is live, 19 locales, hundreds of pages). You are deep in **Phase 5 — full launch**. Your "launch event" is **the tournament itself**, not a single Product Hunt day. As of late April 2026, kickoff is ~6 weeks away — there is no time left for "build authority over 10 months." Every week now is execution.
 
 | Phase | Window | Focus |
 |---|---|---|
-| **Phase 4 — Build authority** | now → Feb 2026 (~10 mo) | SEO compounding, content depth, distribution partnerships |
-| **Phase 5a — Pre-tournament push** | Mar – May 2026 | Sticker/jersey/qualification SEO; press; influencer seeding |
-| **Phase 5b — In-tournament** | Jun 11 – Jul 19, 2026 | Real-time engagement, daily briefing, social-first |
-| **Phase 6 — Post-tournament** | Jul 20+ | Retention pivot to Copa America 2027, Euro qualifiers, club football |
+| **Phase 5a — Pre-tournament sprint** | now → Jun 10, 2026 (~6 wk) | Ship the schema/sitemap/breadcrumb fixes from `schema-audit.md` so the tournament traffic spike captures localized URLs. Squad-announcement coverage. Daily social cadence. |
+| **Phase 5b — In-tournament** | Jun 11 – Jul 19, 2026 (39 days) | Real-time engagement, daily briefing, social-first, push notifications |
+| **Phase 6 — Post-tournament** | Jul 20+ 2026 | Retention pivot to Copa America 2027, Euro qualifiers, club football |
 
 ## 3. ORB channel strategy
 
@@ -34,7 +33,7 @@ Distribution model from `launch-strategy`. Owned ⟵ feed every Rented and Borro
 
 | Asset | Status | Action |
 |---|---|---|
-| **Newsletter** (Beehiiv at `kickoracle.beehiiv.com`) | Live | Make it the #1 CTA. Sticky exit-intent on every locale homepage. Goal: **10k subs by May 2026**. |
+| **Newsletter** (Beehiiv at `kickoracle.beehiiv.com`) | Live | Make it the #1 CTA. Sticky exit-intent on every locale homepage. Goal: **double subscriber count by Jun 11 kickoff**, then convert tournament spike to email at the highest possible rate. |
 | **Daily Briefing** (`/daily-briefing`) | Live | Anchor the email — 1 paragraph + 1 prediction + 1 link. Drives habit. |
 | **Blog** (`/blog/[slug]`) | Live | 2 posts/week through Feb; 4/week Mar–Jul. See `keyword-strategy.md` for topics. |
 | **PWA** (manifest live in `layout.tsx:45`) | Live | Push the install banner harder during qualifiers. Push notifications via `web-push` (already a dep) for kickoff alerts. |
@@ -57,28 +56,30 @@ Pick **two** platforms maximum and own them. Football audiences cluster on:
 
 ### 3.3 Borrowed (highest-leverage, lowest-frequency)
 
-Pre-tournament window is when football media will publish *anything* World Cup. Pitch in **Jan–Apr 2026**.
+You're inside the 6-week window where football media will publish *anything* World Cup. Tier-1 long-leads (The Athletic, ESPN FC features) are likely too late for a pre-tournament feature placement, but daily/weekly desks are still publishing constantly. Pitch this week.
 
-| Borrowed channel | Pitch angle |
-|---|---|
-| **Football podcasts** (Men in Blazers, The Athletic FC, Tifo Football) | "We have AI predictions on all 48 teams — here are the 3 surprise picks." Bring data, not opinions. |
-| **Tier-1 publications** (The Athletic, ESPN FC, BBC Sport) | "Exclusive: AI model picks the 2026 dark horse" — give them a one-week embargo + raw numbers. |
-| **Country-specific media** (one per locale) | Pitch the local-language host city guide + national team page in their language. Easy to publish. |
-| **YouTube creators** (Tifo, Athletic Bilbao, COPA90) | Free Pro accounts + custom data exports → they make a video. No payment. (Pattern: TRMNL → Snazzy Labs in `launch-strategy` skill.) |
-| **Reddit AMA** | "I built an AI World Cup predictor — AMA" in `/r/IAmA` or `/r/worldcup` ~30 days pre-kickoff. |
+| Borrowed channel | Realistic in 6 weeks? | Pitch angle |
+|---|---|---|
+| **Football podcasts** (Men in Blazers, The Athletic FC, Tifo Football) | Yes — they're booking weekly preview episodes now | "We ran 10k Monte Carlo sims on all 48 teams — here are 3 picks the consensus is wrong about." Lead with data, not interview. |
+| **Tier-1 publications, daily desks** (The Athletic, ESPN FC) | Maybe — long features no, but data-led news yes | "Exclusive: our AI says [counter-intuitive pick]." Give them numbers + chart, not a press release. |
+| **Country-specific media** (one per locale) | Yes — easiest fit | Pitch the local-language host city guide + national team page. They publish in 24-48h. |
+| **YouTube creators** (Tifo, Athletic Bilbao, COPA90) | Yes for short-form; long-form maybe too late | DM them: free Pro account + raw data export. They make a video. No payment. Pattern: TRMNL → Snazzy Labs in `launch-strategy`. |
+| **Reddit AMA** | Yes — schedule for ~2 weeks pre-kickoff | "I built an AI World Cup predictor — AMA" in `/r/soccer` or `/r/worldcup`. Country subs (`/r/Brasil`, `/r/argentina`) are even higher-converting but require local-language fluency. |
 
-## 4. 14-month calendar (high-level)
+## 4. Six-week sprint + tournament calendar
 
-| Month | Owned | Rented | Borrowed |
+Today is late April 2026. Kickoff Jun 11. Final Jul 19. This is a 6-week sprint into a 39-day tournament window, then post-tournament wind-down.
+
+| Window | Owned | Rented | Borrowed |
 |---|---|---|---|
-| **Apr–Jun 2025** *(now)* | Fix internal links + schema (this package). Publish 2 posts/week. | X: 1 post/day. TikTok: 2/week. | — |
-| **Jul–Sep 2025** | Build `/cities/[city]` depth. Newsletter to 2.5k. | Reddit AMA in country subs around qualifiers. | Pitch 5 podcasts. |
-| **Oct–Dec 2025** | "Year ahead" pillar content. Newsletter to 5k. | Increase X to 3/day during fixture release (Dec). | Pitch The Athletic / ESPN. |
-| **Jan–Feb 2026** | Group-stage draw (Dec '25) → publish "Group X breakdown" × 12 immediately. | TikTok daily during draw week. | Influencer seeding — send Pro accounts to 20 creators. |
-| **Mar–Apr 2026** | Pre-tournament push: sticker tracker, budget calculator, host-city guides spike. | Reddit AMA (high effort, one shot). | Press release: "AI vs. bookmakers" comparison. |
-| **May 2026** | Email cadence → 2x/week. Final predictions live. | Daily X threads. | Coverage in football mags. |
-| **Jun 11 – Jul 19, 2026** *(tournament)* | Daily briefing + push notifications for every match. | Live-tweet every match (auto-scheduled). TikTok recap 30min after every game. | "Real-time AI predictions" — pitch to FiveThirtyEight-style bloggers. |
-| **Jul 20+ 2026** | Pivot retention email sequence to Copa America 2027 + club football. | Wind down to 1/day. | "What our AI got right/wrong" post-mortem → very shareable. |
+| **Week 1** *(Apr 28 – May 4, this week)* | **Ship the P0 fixes from `schema-audit.md`**: localized sitemap (the single biggest pre-tournament SEO move — currently 27k URLs invisible), OG locale, breadcrumbs, SoftwareApplication schema. Newsletter exit-intent live. 3 blog posts. | X: 2/day. TikTok: 4/week. Pin pre-tournament prediction thread. | DM 10 YouTube creators with free Pro accounts. Pitch 5 podcasts for May recording. |
+| **Weeks 2–3** *(May 5 – May 18)* | Squad-announcement landing pattern ready for every team (mostly announced May 14–Jun 1). Daily Briefing → daily, not weekly. SportsEvent + Person schema shipped (P1 fixes). | X: 3/day. Reddit: prep AMA for week 5. Email cadence → 2x/week. | First podcast appearances. Country-language press: pitch one outlet per top-10 locale. |
+| **Weeks 4–5** *(May 19 – Jun 1)* | Squads land — react within 1 hour per team with locale-specific posts. Final pre-tournament predictions go live. Push-notification opt-in campaign. | X: 4-5/day. TikTok: daily. Newsletter: 3x/week. | Reddit AMA mid-window in `/r/soccer` or `/r/worldcup`. Tier-1 daily-desk pitch with the "AI vs. consensus" angle. |
+| **Week 6** *(Jun 2 – Jun 10, kickoff eve)* | "100 hours to kickoff" countdown campaign. Bracket predictor (`/bracket`) push. Email blast: "Make your final predictions." | X: 5+/day. Live-tweet schedule prepared. TikTok: daily preview reels. | Country-language press: every locale's national team gets a pitch. |
+| **Group stage** *(Jun 11 – Jun 27)* | Daily briefing email day-of every match. Push notification 1h before kickoff. Prediction-vs-result share cards. | Auto-tweet every match preview/recap. TikTok recap < 30min after every full-time. Reddit: data-rich post-match comments. | "Real-time AI predictions" — feed live data to a FiveThirtyEight-style blogger / Athletic data desk. |
+| **Knockouts** *(Jun 28 – Jul 18)* | Bracket-update emails after each round. Quarterfinal-onward: 2 emails per match (preview + recap). | X live-thread every knockout. TikTok recap. | Embargoed final-prediction exclusive to one tier-1 outlet 24h before final. |
+| **Final & post-mortem** *(Jul 19 – Jul 26)* | Final-day live blog. "What our AI got right/wrong" data post within 48h of final whistle (very shareable per `content-strategy`). Begin Copa America 2027 / Euro qualifiers content for retention. | Wind down to 2/day. Repurpose tournament best-of into evergreen TikTok library. | Pitch the post-mortem to The Athletic / FiveThirtyEight as a data feature. |
+| **Aug 2026+** | Pivot retention email sequence to club football + Copa America 2027 / 2028 Euros. Document playbook for next tournament. | 1-2/day on club football angles. | — |
 
 ## 5. Email & onboarding
 
@@ -98,12 +99,14 @@ Per `launch-strategy`, momentum compounds. Manufacture publishable events:
 
 | Moment | When | Asset |
 |---|---|---|
-| **Group-stage draw** (FIFA-set, ~Dec 2025) | Dec 2025 | 12 hub pages + 1 mega-thread per locale |
-| **100 days to kickoff** | ~Mar 3, 2026 | Countdown lands; sticker album page peaks; press release |
-| **Squad announcements** (May–Jun 2026) | Rolling | A SquadAnnouncement post per team within 1h of release |
-| **Opening match (Jun 11)** | Jun 11, 2026 | Live AI prediction page → push notification → newsletter blast |
-| **Knockouts begin** (Jun 30) | Jun 30, 2026 | Bracket predictor (`/bracket`) campaign |
-| **Final** (Jul 19) | Jul 19, 2026 | Final prediction post; collect email from every visitor |
+| ~~Group-stage draw~~ ~~100 days to kickoff~~ | (already passed — Dec 2025 / early Mar 2026) | If you missed publishing during these moments, refresh the existing group/countdown pages now with fresh stats and republish to your existing audience. |
+| **Squad announcements** (rolling) | May 14 – Jun 1, 2026 | Templated SquadAnnouncement post per team within 1h of release. Drives 48 spikes of branded long-tail. |
+| **30 days to kickoff** | May 12, 2026 | "30 days out" newsletter + countdown campaign |
+| **Reddit AMA** | ~May 28, 2026 | "I built an AI World Cup predictor — AMA" — single big Reddit moment |
+| **Opening match** | Jun 11, 2026 | Live AI prediction page → push notification → newsletter blast. The signup-conversion peak. |
+| **Knockouts begin** | Jun 28, 2026 (last group fixtures Jun 27) | Bracket predictor (`/bracket`) campaign — predictions reset, second engagement peak |
+| **Final** | Jul 19, 2026 | Final prediction post; collect email from every visitor |
+| **Post-mortem** | Jul 21–22, 2026 | "What our AI got right/wrong" data post — very shareable |
 
 ## 7. Product Hunt: skip or strategic?
 
@@ -111,22 +114,26 @@ Per `launch-strategy`, momentum compounds. Manufacture publishable events:
 
 ## 8. KPIs (what to actually measure)
 
-| KPI | Baseline | Target by May 2026 | Stretch |
+| KPI | Baseline | Target by Jun 11 (kickoff) | Target by Jul 19 (final) |
 |---|---|---|---|
-| Organic traffic (monthly) | TBD (instrument GA4 + GSC) | 250k | 1M |
-| Newsletter subscribers | TBD | 10k | 25k |
-| Indexed pages (GSC) | ~1,500 (sitemap) | 8,000+ (with localized URLs added — see `schema-audit.md`) | — |
-| Predictions made (signed-in) | TBD | 50k | 200k |
-| Top-10 keyword rankings | TBD | 200 | 500 |
-| AI Overview citations | unmeasured | track in Otterly/Peec | 50+ queries citing kickoracle |
+| Organic traffic (monthly) | TBD (instrument GA4 + GSC) | +50% over baseline | 5–10x baseline (tournament spike) |
+| Newsletter subscribers | TBD (current) | 2x current | 5x current |
+| Indexed pages (GSC) | ~1,500 (English-only sitemap) | 8,000+ (after localized sitemap ships — see `schema-audit.md`) | 10k+ steady-state |
+| Predictions made (signed-in, weekly) | TBD | 5x baseline | 20x baseline (peaks during knockouts) |
+| Top-10 keyword rankings | TBD | +50 | +150 |
+| AI Overview citations | unmeasured | instrument now (Otterly/Peec) | 30+ queries citing kickoracle |
 
-## 9. Quick-win priority list (do this week)
+## 9. Quick-win priority list (the next 14 days are decisive)
 
-1. Fix the OG-locale bug in `src/lib/og-utils.ts:35` (hardcoded `'en_US'`) → see `schema-audit.md` §2.
-2. Add localized URLs to `src/app/sitemap.ts` (currently only English URLs are indexed; you're invisible in 18 languages) → see `schema-audit.md` §6.
-3. Implement breadcrumb component + render `BreadcrumbList` JSON-LD → see `internal-linking.md` §3.
-4. Add `SoftwareApplication` schema on homepage to surface in "AI football prediction" queries → see `schema-audit.md` §3.
-5. Stand up the Beehiiv exit-intent popup (off the footer link is not enough).
+With 6 weeks to kickoff, anything that doesn't ship by **mid-May** won't have time for Google to crawl, index, and start ranking before the tournament traffic spike. In priority order:
+
+1. **Localized sitemap** — `src/app/sitemap.ts` currently emits English URLs only. 27,000 indexable URLs in 18 languages are invisible to Google. Highest-leverage single change in this whole package. See `schema-audit.md` §6.
+2. **OG-locale bug** — `src/lib/og-utils.ts:35` is hardcoded `'en_US'`. Social shares of every non-English page misrepresent the language. See `schema-audit.md` §2.1.
+3. **Breadcrumbs + `BreadcrumbList` JSON-LD** — render visible breadcrumbs and the schema. See `internal-linking.md` §3.
+4. **`SoftwareApplication` schema** on homepage — leaves "AI football prediction" AI Overview citations on the table. See `schema-audit.md` §2.3.
+5. **Beehiiv exit-intent popup** — footer link is not enough; tournament traffic without conversion is wasted spend.
+6. **`SportsEvent` schema on match/compare pages** — eligible for Google's live-event rich result *during* the tournament, but only if Google has already indexed the markup before kickoff. Ship by May 25. See `schema-audit.md` §3.1.
+7. **Push-notification opt-in flow** — `web-push` is already a dep; make sure the install banner converts during squad-announcement spikes.
 
 ## 10. Risk register
 
