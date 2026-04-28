@@ -151,7 +151,9 @@
   "teamsPage": {
     "heading": "2026世界杯 全部48支球队",
     "description": "AI分析史上规模最大的FIFA世界杯每一支参赛球队。探索阵容化学反应、战术档案和胜率预测。",
-    "group": "{group}组"
+    "group": "{group}组",
+    "frequentlyAsked": "常见问题",
+    "moreFromGroup": "{group}组更多内容"
   },
   "matchesPage": {
     "featuredPreview": "精选赛事预览",
@@ -741,7 +743,21 @@
     "fitnessStatus": "体能状态",
     "scoutingReport": "球探报告",
     "tacticalRisk": "战术风险",
-    "selectionRisk": "入选风险"
+    "selectionRisk": "入选风险",
+    "positionGK": "门将",
+    "positionDEF": "后卫",
+    "positionMID": "中场",
+    "positionFWD": "前锋",
+    "metaSubtitle": "{flag} {team} · #{number}",
+    "clubAndAge": "{club} · {age}岁",
+    "wc2026Status": "2026世界杯：{label}",
+    "fullyFit": "完全健康",
+    "minorConcern": "轻微隐患",
+    "injuryRisk": "伤病风险",
+    "isPlaying": "{name} 是否参赛？",
+    "fullProfileOn": "{team} 完整档案",
+    "teamSquad": "{flag} {team} 阵容",
+    "allTeams": "所有球队"
   },
   "playerStatusPage": {
     "badge": "阵容追踪",
@@ -887,5 +903,103 @@
   },
   "blog": {
     "minRead": "{time}分钟阅读"
+  },
+  "archivedPage": {
+    "defaultBadge": "已归档板块",
+    "whyArchived": "为什么这个页面被归档",
+    "narrativePaths": "推荐前往",
+    "communityArchive": {
+      "title": "社区已归档",
+      "description": "KickOracle v1 正聚焦于以叙事为核心的世界杯情报，旧的社区/论坛入口已从主要产品路径下线。",
+      "reason1": "Sprint2 将 v1 定位为情报产品，而非社交平台。",
+      "reason2": "评论、球迷论坛与讨论循环分散了对核心球队、比赛与球员叙事的关注。",
+      "reason3": "归档页面保留以便参考，主要体验仍专注于阅读与分析。",
+      "primaryAction": "打开每日简报",
+      "secondaryAction": "阅读叙事库",
+      "note": "如需当前产品体验，请前往每日简报、比赛看板或球队档案。"
+    },
+    "communityCategory": {
+      "badge": "已归档论坛分类",
+      "title": "{title} 已归档",
+      "description": "{title} 已不再是活跃的讨论入口。KickOracle v1 正将主要体验聚焦于以叙事为核心的世界杯情报，而非论坛互动。",
+      "reason1": "{title} 原属旧的社区/论坛体系，已不在 Sprint2 产品边界之内。",
+      "reason2": "活跃的 v1 体验优先呈现球队、比赛与球员的阅读上下文，而非评论与讨论机制。",
+      "reason3": "此分类仅作为归档路由保留，主体验保持聚焦与可持续构建。",
+      "primaryAction": "打开比赛看板",
+      "secondaryAction": "浏览球队档案",
+      "note": "如需当前产品流程，请使用比赛看板、每日简报与球队页面。"
+    }
+  },
+  "countdown": {
+    "days": "天",
+    "hours": "小时",
+    "minutes": "分",
+    "seconds": "秒",
+    "ariaLabel": "倒计时: {time}"
+  },
+  "coachProfile": {
+    "headCoach": "主教练",
+    "headCoachDescription": "负责战术安排、阵容选择与比赛日决策。",
+    "ageBadge": "{age}岁",
+    "winRate": "胜率",
+    "tacticalStyle": "战术风格",
+    "coachingPhilosophy": "执教理念",
+    "appointed": "上任时间",
+    "contractUntil": "合同截止",
+    "careerHighlights": "执教荣誉",
+    "managerialCareer": "执教生涯",
+    "portraitAlt": "{name} 头像"
+  },
+  "offlinePage": {
+    "title": "您当前处于离线状态",
+    "description": "未检测到网络连接。此前缓存的比赛数据与球队页面仍可访问 — 联网后即可获取最新的 2026 世界杯预测。",
+    "tryAgain": "重试"
+  },
+  "sharePage": {
+    "heroBadge": "分享你的选择",
+    "heroTitle1": "选择 &",
+    "heroTitle2": "分享",
+    "heroDescription": "选择你心目中的 2026 世界杯冠军，生成可分享的预测卡片，并在社交媒体上挑战好友。"
+  },
+  "simulatorPage": {
+    "heroBadge": "12个小组 · 48支球队",
+    "heroTitle1": "小组",
+    "heroTitle2": "模拟器",
+    "heroDescription": "拖动球队为全部12个小组排出你预测的出线顺序，看你的选择与AI预测有何差异并分享你的预测。"
+  },
+  "stickerCostCalculatorPage": {
+    "badge": "贴纸",
+    "heroTitle1": "费用",
+    "heroTitle2": "计算器",
+    "heroDescription1": "完成 2026 世界杯帕尼尼贴纸册",
+    "heroDescriptionEmphasis": "实际",
+    "heroDescription2": "需要多少钱？数字可能让你大吃一惊。",
+    "allStickerTools": "全部贴纸工具",
+    "collectionTracker": "收集追踪"
+  },
+  "stickerTrackerPage": {
+    "badge": "收集工具",
+    "heroTitle1": "收集",
+    "heroTitle2": "追踪",
+    "heroDescription": "追踪你的 2026 世界杯帕尼尼贴纸收集进度。标记已有贴纸、查看完成度并找出还缺哪些。",
+    "allStickerTools": "全部贴纸工具",
+    "costCalculator": "费用计算器"
+  },
+  "citiesPage": {
+    "heroBadge": "16座主办城市",
+    "heroTitle": "主办城市",
+    "heroDescription": "了解承办史上最大规模世界杯的16座主办城市，覆盖美国、墨西哥与加拿大。",
+    "country": {
+      "US": "美国",
+      "MX": "墨西哥",
+      "CA": "加拿大"
+    },
+    "cityCount": "({count, plural, one {#座城市} other {#座城市}})",
+    "travelGuide": "出行指南",
+    "fullSchedule": "完整赛程",
+    "safetyVerySafe": "非常安全",
+    "safetySafe": "安全",
+    "safetyModerate": "中等",
+    "safetyCaution": "需谨慎"
   }
 }

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -18,8 +19,8 @@ interface ArchivedPageNoticeProps {
   note?: string
 }
 
-export default function ArchivedPageNotice({
-  badge = 'Archived Surface',
+export default async function ArchivedPageNotice({
+  badge,
   title,
   description,
   reasons,
@@ -27,6 +28,8 @@ export default function ArchivedPageNotice({
   secondaryAction,
   note,
 }: ArchivedPageNoticeProps) {
+  const t = await getTranslations('archivedPage')
+
   return (
     <section className="relative overflow-hidden px-6 py-20 md:py-24">
       <div className="absolute inset-0 mesh-gradient opacity-60" />
@@ -36,7 +39,7 @@ export default function ArchivedPageNotice({
 
       <div className="relative z-10 mx-auto max-w-[960px]">
         <div className="mb-8 text-center">
-          <Badge variant="outline" size="md">{badge}</Badge>
+          <Badge variant="outline" size="md">{badge ?? t('defaultBadge')}</Badge>
           <SectionHeader as="h1" className="mt-6 justify-center">
             {title}
           </SectionHeader>
@@ -49,7 +52,7 @@ export default function ArchivedPageNotice({
           <div className="grid gap-8 md:grid-cols-[1.4fr_1fr]">
             <div>
               <h2 className="font-headline text-2xl uppercase tracking-wide text-on-surface mb-4">
-                Why This Route Was Archived
+                {t('whyArchived')}
               </h2>
               <div className="space-y-3">
                 {reasons.map((reason) => (
@@ -65,7 +68,7 @@ export default function ArchivedPageNotice({
 
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5">
               <h3 className="font-label text-xs font-bold uppercase tracking-widest text-primary mb-4">
-                Narrative-First Paths
+                {t('narrativePaths')}
               </h3>
               <div className="space-y-3">
                 <Link

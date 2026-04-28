@@ -1,6 +1,9 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 export default function OfflinePage() {
+  const t = useTranslations('offlinePage')
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-6">
       <div className="text-center max-w-md">
@@ -31,12 +34,10 @@ export default function OfflinePage() {
         </div>
 
         <h1 className="text-2xl font-bold text-on-surface mb-3">
-          You&apos;re Offline
+          {t('title')}
         </h1>
         <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">
-          No internet connection detected. Previously cached match data and
-          team pages are still available — reconnect to get the latest
-          World Cup 2026 predictions.
+          {t('description')}
         </p>
 
         <button
@@ -57,7 +58,7 @@ export default function OfflinePage() {
               d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
             />
           </svg>
-          Try Again
+          {t('tryAgain')}
         </button>
       </div>
     </div>

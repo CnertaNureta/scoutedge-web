@@ -151,7 +151,9 @@
   "teamsPage": {
     "heading": "World Cup 2026 All 48 Teams",
     "description": "AI-powered analysis of every nation competing in the most expansive FIFA World Cup in history. Explore squad chemistry, tactical profiles, and win probability predictions.",
-    "group": "Group {group}"
+    "group": "Group {group}",
+    "frequentlyAsked": "Frequently Asked Questions",
+    "moreFromGroup": "More from Group {group}"
   },
   "matchesPage": {
     "featuredPreview": "Featured Match Preview",
@@ -878,7 +880,21 @@
     "fitnessStatus": "Fitness Status",
     "scoutingReport": "Scouting Report",
     "tacticalRisk": "Tactical Risk",
-    "selectionRisk": "Selection Risk"
+    "selectionRisk": "Selection Risk",
+    "positionGK": "Goalkeeper",
+    "positionDEF": "Defender",
+    "positionMID": "Midfielder",
+    "positionFWD": "Forward",
+    "metaSubtitle": "{flag} {team} · #{number}",
+    "clubAndAge": "{club} · Age {age}",
+    "wc2026Status": "WC 2026: {label}",
+    "fullyFit": "Fully Fit",
+    "minorConcern": "Minor Concern",
+    "injuryRisk": "Injury Risk",
+    "isPlaying": "Is {name} Playing?",
+    "fullProfileOn": "Full Profile on {team}",
+    "teamSquad": "{flag} {team} Squad",
+    "allTeams": "All Teams"
   },
   "playerStatusPage": {
     "badge": "Squad Tracker",
@@ -1007,5 +1023,103 @@
   },
   "blog": {
     "minRead": "{time} min read"
+  },
+  "archivedPage": {
+    "defaultBadge": "Archived Surface",
+    "whyArchived": "Why This Route Was Archived",
+    "narrativePaths": "Narrative-First Paths",
+    "communityArchive": {
+      "title": "Community Archive",
+      "description": "KickOracle v1 is being narrowed back to narrative-first World Cup intelligence, so the old community/forum surface has been downgraded out of the main product path.",
+      "reason1": "Sprint2 defines v1 as an intelligence product, not a social platform.",
+      "reason2": "Comments, fan forums, and discussion-first loops were pulling attention away from the core team, match, and player narratives.",
+      "reason3": "The archive remains reachable for reference while the main journey stays focused on reading and analysis.",
+      "primaryAction": "Open Daily Briefing",
+      "secondaryAction": "Read Narrative Library",
+      "note": "If you are looking for the current product surface, start with the daily briefing, match board, or team dossiers."
+    },
+    "communityCategory": {
+      "badge": "Archived Forum Category",
+      "title": "{title} Archive",
+      "description": "{title} is no longer an active discussion surface. KickOracle v1 is concentrating its primary experience around narrative-first World Cup intelligence instead of forum-first engagement.",
+      "reason1": "{title} used to be part of the legacy community/forum graph, which is now outside the Sprint2 product boundary.",
+      "reason2": "The active v1 journey prioritizes reading team, match, and player context instead of comment threads or discussion mechanics.",
+      "reason3": "This category remains addressable only as an archived reference route while the main surface stays focused and buildable.",
+      "primaryAction": "Open Match Board",
+      "secondaryAction": "Browse Team Dossiers",
+      "note": "For current product flows, use the match board, daily briefing, and team pages."
+    }
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec",
+    "ariaLabel": "Countdown: {time}"
+  },
+  "coachProfile": {
+    "headCoach": "Head Coach",
+    "headCoachDescription": "The man in charge of tactics, squad selection, and matchday decisions.",
+    "ageBadge": "Age {age}",
+    "winRate": "Win Rate",
+    "tacticalStyle": "Tactical Style",
+    "coachingPhilosophy": "Coaching Philosophy",
+    "appointed": "Appointed",
+    "contractUntil": "Contract Until",
+    "careerHighlights": "Career Highlights",
+    "managerialCareer": "Managerial Career",
+    "portraitAlt": "{name} portrait"
+  },
+  "offlinePage": {
+    "title": "You're Offline",
+    "description": "No internet connection detected. Previously cached match data and team pages are still available — reconnect to get the latest World Cup 2026 predictions.",
+    "tryAgain": "Try Again"
+  },
+  "sharePage": {
+    "heroBadge": "Share Your Pick",
+    "heroTitle1": "Pick &",
+    "heroTitle2": "Share",
+    "heroDescription": "Choose your 2026 World Cup champion, generate a shareable prediction card, and challenge your friends on social media."
+  },
+  "simulatorPage": {
+    "heroBadge": "12 Groups · 48 Teams",
+    "heroTitle1": "Group",
+    "heroTitle2": "Simulator",
+    "heroDescription": "Drag teams to set your predicted advancement order for all 12 groups. See how your picks diverge from the AI and share your bracket."
+  },
+  "stickerCostCalculatorPage": {
+    "badge": "Stickers",
+    "heroTitle1": "Cost",
+    "heroTitle2": "Calculator",
+    "heroDescription1": "How much will it",
+    "heroDescriptionEmphasis": "really",
+    "heroDescription2": "cost to complete the 2026 World Cup Panini album? The math might surprise you.",
+    "allStickerTools": "All Sticker Tools",
+    "collectionTracker": "Collection Tracker"
+  },
+  "stickerTrackerPage": {
+    "badge": "Collection Tool",
+    "heroTitle1": "Collection",
+    "heroTitle2": "Tracker",
+    "heroDescription": "Track your 2026 World Cup Panini sticker collection. Mark stickers you have, monitor completion, and find what you still need.",
+    "allStickerTools": "All Sticker Tools",
+    "costCalculator": "Cost Calculator"
+  },
+  "citiesPage": {
+    "heroBadge": "16 Host Cities",
+    "heroTitle": "Host Cities",
+    "heroDescription": "Everything you need to know about the 16 cities hosting the biggest World Cup in history across the USA, Mexico, and Canada.",
+    "country": {
+      "US": "United States",
+      "MX": "Mexico",
+      "CA": "Canada"
+    },
+    "cityCount": "({count, plural, one {# city} other {# cities}})",
+    "travelGuide": "Travel Guide",
+    "fullSchedule": "Full Schedule",
+    "safetyVerySafe": "very safe",
+    "safetySafe": "safe",
+    "safetyModerate": "moderate",
+    "safetyCaution": "caution"
   }
 }

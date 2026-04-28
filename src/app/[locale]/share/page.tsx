@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { buildOGMeta } from '@/lib/og-utils'
 import { getAllTeams } from '@/lib/data-service'
 import { TOP_CONTENDERS } from '@/data/prediction-matches'
@@ -19,7 +20,8 @@ export const metadata: Metadata = {
   }),
 }
 
-export default function SharePage() {
+export default async function SharePage() {
+  const t = await getTranslations('sharePage')
   const allTeams = getAllTeams()
 
   const contenders = TOP_CONTENDERS.map((slug) => {
@@ -45,17 +47,16 @@ export default function SharePage() {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <span className="inline-flex items-center gap-2 bg-primary/15 text-primary border border-primary/20 font-label font-semibold uppercase tracking-widest rounded-full px-4 py-1 text-xs mb-4">
-            Share Your Pick
+            {t('heroBadge')}
           </span>
 
           <h1 className="font-headline text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-wide uppercase mt-4 mb-4">
-            <span className="block text-on-surface">Pick &amp;</span>
-            <span className="block gradient-text">Share</span>
+            <span className="block text-on-surface">{t('heroTitle1')}</span>
+            <span className="block gradient-text">{t('heroTitle2')}</span>
           </h1>
 
           <p className="text-on-surface-variant text-lg max-w-xl mx-auto">
-            Choose your 2026 World Cup champion, generate a shareable prediction card,
-            and challenge your friends on social media.
+            {t('heroDescription')}
           </p>
         </div>
       </section>

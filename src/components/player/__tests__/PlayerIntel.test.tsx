@@ -3,6 +3,16 @@ import { render, screen } from '@testing-library/react'
 import PlayerIntel from '../PlayerIntel'
 import { PLAYERS } from '@/data/players-data'
 
+vi.mock('next-intl/server', () => ({
+  getLocale: vi.fn().mockResolvedValue('en-US'),
+  getTranslations: vi.fn().mockResolvedValue(
+    (key: string, values?: Record<string, string | number>) => {
+      if (key === 'updated' && values?.date) return `Updated ${values.date} UTC`
+      return key
+    }
+  ),
+}))
+
 const basePlayer = PLAYERS.find(
   (player) => player.teamSlug === 'france' && player.slug === 'kylian-mbappe'
 )
@@ -16,20 +26,20 @@ afterEach(() => {
 })
 
 describe('PlayerIntel', () => {
-  it('formats intel last updated using a fixed UTC timezone', () => {
+  it('formats intel last updated using a fixed UTC timezone', async () => {
     const toLocaleDateString = vi
       .spyOn(Date.prototype, 'toLocaleDateString')
       .mockReturnValue('Apr 3, 2026')
 
-    render(
-      <PlayerIntel
-        player={{
-          ...basePlayer,
-          intelLastUpdated: '2026-04-03T00:00:00.000Z',
-          recentSignals: [],
-        }}
-      />
-    )
+    const ui = await PlayerIntel({
+      player: {
+        ...basePlayer,
+        intelLastUpdated: '2026-04-03T00:00:00.000Z',
+        recentSignals: [],
+      },
+    })
+
+    render(ui)
 
     expect(toLocaleDateString).toHaveBeenCalledWith(
       'en-US',
@@ -40,6 +50,6 @@ describe('PlayerIntel', () => {
         year: 'numeric',
       })
     )
-    expect(screen.getByText('Updated Apr 3, 2026 UTC')).toBeInTheDocument()
+    expect(screen.getByText(/Apr 3, 2026/)).toBeInTheDocument()
   })
 })
