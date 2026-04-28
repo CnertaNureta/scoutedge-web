@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { jsonLdGraph } from '@/lib/og-utils'
+import { getFixturesByTeam } from '@/lib/data-service'
+import { HOST_CITIES } from '@/data/cities-data'
+import { lingoPlayers } from '@/data/lingo-data'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
@@ -61,6 +65,14 @@ export default async function TeamPage({ params }: PageProps) {
   if (!pageData) notFound()
 
   const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
+
+  // Cross-section linking data
+  const fixtures = getFixturesByTeam(slug)
+  const teamCityNames = Array.from(new Set(fixtures.map((f) => f.city)))
+  const teamCities = teamCityNames
+    .map((name) => HOST_CITIES.find((c) => c.name === name))
+    .filter((c): c is NonNullable<typeof c> => c !== undefined)
+  const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
 
   const teamUrl = `https://kickoracle.com/teams/${slug}`
   const sportsTeamLd = {
@@ -169,6 +181,71 @@ export default async function TeamPage({ params }: PageProps) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {groupTeams.map((t) => (
               <TeamCard key={t.slug} team={t} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Group rivals — direct compare links */}
+      {groupTeams.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            Compare {team.name} vs Group {team.group} rivals
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {groupTeams.map((rival) => (
+              <Link
+                key={rival.slug}
+                href={`/compare/${slug}-vs-${rival.slug}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
+              >
+                {team.name} vs {rival.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Where they play — host cities for this team's fixtures */}
+      {teamCities.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            Where {team.name} plays — World Cup 2026 host cities
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {teamCities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cities/${c.slug}`}
+                className="block p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group"
+              >
+                <p className="font-headline text-base font-bold tracking-tight group-hover:text-tertiary transition-colors">
+                  {c.name}
+                </p>
+                <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
+                  {c.country} guide
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Pronunciation links — connect to /lingo/players */}
+      {pronunciationLinks.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-20">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            How to pronounce {team.name} player names
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {pronunciationLinks.map((lp) => (
+              <Link
+                key={lp.id}
+                href={`/lingo/players/${lp.id}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-secondary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-secondary"
+              >
+                Pronounce {lp.name}
+              </Link>
             ))}
           </div>
         </section>
