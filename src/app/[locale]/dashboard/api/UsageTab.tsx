@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 
 interface DailyUsage {
@@ -24,6 +24,8 @@ interface Props {
 }
 
 export default function UsageTab({ daily, summary, quota, loading }: Props) {
+  const t = useTranslations('apiUsageTab')
+
   if (loading) {
     return (
       <div className="space-y-4">
@@ -42,9 +44,9 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
     return (
       <GlassCard className="p-12 text-center">
         <p className="text-4xl mb-4">📊</p>
-        <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">No usage data yet</h3>
+        <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">{t('noDataTitle')}</h3>
         <p className="font-body text-sm text-on-surface-variant mb-4 max-w-sm mx-auto">
-          Make your first API request to see usage data here.
+          {t('noDataDescription')}
         </p>
         <div className="bg-surface-container-lowest rounded-xl p-4 max-w-lg mx-auto text-left">
           <p className="font-mono text-xs text-on-surface-variant">
@@ -68,7 +70,7 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <GlassCard className="p-5">
           <p className="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-            Monthly Quota
+            {t('monthlyQuota')}
           </p>
           <p className="font-mono text-xl font-bold text-on-surface">
             {summary.totalRequests.toLocaleString()} / {quota.toLocaleString()}
@@ -80,16 +82,16 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
             />
           </div>
           <p className="font-body text-xs text-on-surface-variant">
-            Resets on the 1st of next month
+            {t('quotaResets')}
           </p>
         </GlassCard>
 
         <GlassCard className="p-5">
           <p className="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-3">
-            Errors (30 days)
+            {t('errorsLast30')}
           </p>
           <p className={`font-mono text-xl font-bold ${errorColor}`}>
-            {summary.totalErrors.toLocaleString()} errors ({errorRate.toFixed(2)}%)
+            {t('errorsValue', { count: summary.totalErrors.toLocaleString(), rate: errorRate.toFixed(2) })}
           </p>
           <div className="h-2 rounded-full bg-surface-container-high mt-3 mb-2">
             <div
@@ -98,7 +100,7 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
             />
           </div>
           <p className="font-body text-xs text-on-surface-variant">
-            Avg response time: {summary.avgResponseTime}ms
+            {t('avgResponseTime', { ms: summary.avgResponseTime })}
           </p>
         </GlassCard>
       </div>
@@ -107,6 +109,7 @@ export default function UsageTab({ daily, summary, quota, loading }: Props) {
 }
 
 function UsageChart({ data }: { data: DailyUsage[] }) {
+  const t = useTranslations('apiUsageTab')
   const locale = useLocale()
   const svgRef = useRef<SVGSVGElement>(null)
   const [visible, setVisible] = useState(false)
@@ -226,7 +229,7 @@ function UsageChart({ data }: { data: DailyUsage[] }) {
           }}
         >
           <p className="font-label text-on-surface-variant">{new Date(tooltip.date).toLocaleDateString(locale, { month: 'long', day: 'numeric', year: 'numeric' })}</p>
-          <p className="font-mono font-bold text-on-surface">{tooltip.value.toLocaleString()} requests</p>
+          <p className="font-mono font-bold text-on-surface">{t('tooltipRequests', { count: tooltip.value.toLocaleString() })}</p>
         </div>
       )}
     </GlassCard>

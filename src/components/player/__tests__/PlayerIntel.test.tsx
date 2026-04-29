@@ -1,7 +1,9 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { NextIntlClientProvider } from 'next-intl'
 import PlayerIntel from '../PlayerIntel'
 import { PLAYERS } from '@/data/players-data'
+import messages from '../../../../messages/en.json'
 
 vi.mock('next-intl/server', () => ({
   getLocale: vi.fn().mockResolvedValue('en-US'),
@@ -39,7 +41,11 @@ describe('PlayerIntel', () => {
       },
     })
 
-    render(ui)
+    render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        {ui}
+      </NextIntlClientProvider>
+    )
 
     expect(toLocaleDateString).toHaveBeenCalledWith(
       'en-US',
