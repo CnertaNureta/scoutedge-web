@@ -151,7 +151,9 @@
   "teamsPage": {
     "heading": "Copa del Mundo 2026 — Las 48 Selecciones",
     "description": "Análisis con IA de cada selección que compite en la Copa del Mundo FIFA más grande de la historia. Explora la química de equipo, perfiles tácticos y predicciones de probabilidad de victoria.",
-    "group": "Grupo {group}"
+    "group": "Grupo {group}",
+    "frequentlyAsked": "Preguntas frecuentes",
+    "moreFromGroup": "Más del Grupo {group}"
   },
   "matchesPage": {
     "featuredPreview": "Previa Destacada del Partido",
@@ -741,7 +743,21 @@
     "fitnessStatus": "Estado Físico",
     "scoutingReport": "Informe de Scout",
     "tacticalRisk": "Riesgo Táctico",
-    "selectionRisk": "Riesgo de Selección"
+    "selectionRisk": "Riesgo de Selección",
+    "positionGK": "Portero",
+    "positionDEF": "Defensa",
+    "positionMID": "Mediocampista",
+    "positionFWD": "Delantero",
+    "metaSubtitle": "{flag} {team} · #{number}",
+    "clubAndAge": "{club} · {age} años",
+    "wc2026Status": "Mundial 2026: {label}",
+    "fullyFit": "Totalmente en forma",
+    "minorConcern": "Preocupación menor",
+    "injuryRisk": "Riesgo de lesión",
+    "isPlaying": "¿Juega {name}?",
+    "fullProfileOn": "Perfil completo en {team}",
+    "teamSquad": "{flag} {team} Plantilla",
+    "allTeams": "Todas las selecciones"
   },
   "playerStatusPage": {
     "badge": "Seguimiento de Plantilla",
