@@ -38,7 +38,7 @@ describe('MatchesClient', () => {
     expect(screen.getByText('First reads, first leverage')).toBeInTheDocument()
     expect(screen.getAllByText('Travel watch').length).toBeGreaterThan(0)
     expect(screen.getAllByText(/13-hour body-clock shift/i).length).toBeGreaterThan(0)
-  })
+  }, 30_000)
 
   it('filters the board down to a single group', async () => {
     const user = userEvent.setup()

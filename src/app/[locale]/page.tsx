@@ -3,7 +3,13 @@ import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getHomePageData } from '@/lib/site-data'
-import { buildOGMeta, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
+import {
+  buildOGMeta,
+  websiteJsonLd,
+  organizationJsonLd,
+  softwareApplicationJsonLd,
+  jsonLdGraph,
+} from '@/lib/og-utils'
 import { HOMEPAGE_HERO_IMAGE } from '@/lib/unsplash'
 import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
@@ -52,6 +58,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('title'),
       description: t('description'),
       url: 'https://kickoracle.com',
+      locale,
     }),
   }
 }
@@ -70,8 +77,14 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            jsonLdGraph([websiteJsonLd(), organizationJsonLd(), softwareApplicationJsonLd()])
+          ),
+        }}
+      />
 
       {/* ─── Cinematic Hero ─── */}
       <section className="relative min-h-[100vh] flex flex-col items-center justify-center overflow-hidden">

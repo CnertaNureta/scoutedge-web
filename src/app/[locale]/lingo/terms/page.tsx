@@ -114,20 +114,26 @@ export default async function LingoTermsPage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+            '@graph': [
               {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Lingo',
-                item: 'https://kickoracle.com/lingo/',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+                  { '@type': 'ListItem', position: 2, name: 'Lingo', item: 'https://kickoracle.com/lingo/' },
+                  { '@type': 'ListItem', position: 3, name: 'Football Terms', item: 'https://kickoracle.com/lingo/terms/' },
+                ],
               },
               {
-                '@type': 'ListItem',
-                position: 3,
-                name: 'Football Terms',
-                item: 'https://kickoracle.com/lingo/terms/',
+                '@type': 'DefinedTermSet',
+                name: 'KickOracle Football Lingo',
+                url: 'https://kickoracle.com/lingo/terms',
+                description: 'Football terminology defined and translated for World Cup 2026 fans across 19 languages.',
+                hasDefinedTerm: lingoTermsData.terms.map((term) => ({
+                  '@type': 'DefinedTerm',
+                  name: term.english,
+                  description: term.definition,
+                  termCode: term.id,
+                })),
               },
             ],
           }),

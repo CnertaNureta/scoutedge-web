@@ -9,6 +9,7 @@ import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import SectionHeader from '@/components/ui/SectionHeader'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string }>
@@ -48,13 +49,24 @@ export default async function PlayerPage({ params }: PageProps) {
   const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== playerSlug).slice(0, 5)
   const derivedStats = computeDerivedStats(player)
 
+  const playerUrl = `https://kickoracle.com/teams/${slug}/players/${playerSlug}`
+  const teamUrl = `https://kickoracle.com/teams/${slug}`
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: player.name,
+    url: playerUrl,
+    image: getPlayerActionImage(player.name),
     jobTitle: `Professional Football Player (${player.position})`,
-    memberOf: { '@type': 'SportsTeam', name: team.name },
     nationality: { '@type': 'Country', name: team.name },
+    affiliation: {
+      '@type': 'SportsTeam',
+      name: team.name,
+      url: teamUrl,
+    },
+    ...(player.club && {
+      worksFor: { '@type': 'SportsTeam', name: player.club },
+    }),
   }
 
   return (
@@ -65,6 +77,14 @@ export default async function PlayerPage({ params }: PageProps) {
       />
 
       <PlayerHero player={player} team={team} derivedStats={derivedStats} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Teams', href: '/teams' },
+          { name: team.name, href: `/teams/${slug}` },
+          { name: player.name, href: `/teams/${slug}/players/${playerSlug}` },
+        ]}
+      />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} />
