@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import GlassCard from '@/components/ui/GlassCard'
@@ -41,6 +42,7 @@ interface LeagueDetail {
 }
 
 export default function LeagueDetailPage() {
+  const t = useTranslations('leagueDetail')
   const params = useParams()
   const { user } = useAuth()
   const { apiFetch, isAuthenticated } = useApi()
@@ -59,9 +61,9 @@ export default function LeagueDetailPage() {
     }
     apiFetch(`/api/leagues/${leagueId}`)
       .then(setData)
-      .catch(() => setError('Failed to load league'))
+      .catch(() => setError(t('loadFailed')))
       .finally(() => setLoading(false))
-  }, [leagueId, isAuthenticated, apiFetch])
+  }, [leagueId, isAuthenticated, apiFetch, t])
 
   async function handleJoin() {
     setJoining(true)
@@ -74,7 +76,7 @@ export default function LeagueDetailPage() {
       const refreshed = await apiFetch(`/api/leagues/${leagueId}`)
       setData(refreshed)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to join')
+      setError(err instanceof Error ? err.message : t('joinFailed'))
     } finally {
       setJoining(false)
     }
@@ -100,8 +102,8 @@ export default function LeagueDetailPage() {
     return (
       <div className="max-w-4xl mx-auto px-4 py-12">
         <GlassCard className="p-8 text-center">
-          <p className="text-on-surface-variant">{error || 'League not found'}</p>
-          <Link href="/leagues" className="text-primary font-bold mt-4 inline-block">Back to Leagues</Link>
+          <p className="text-on-surface-variant">{error || t('leagueNotFound')}</p>
+          <Link href="/leagues" className="text-primary font-bold mt-4 inline-block">{t('backToLeagues')}</Link>
         </GlassCard>
       </div>
     )
@@ -113,7 +115,7 @@ export default function LeagueDetailPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       <Link href="/leagues" className="text-sm text-on-surface-variant hover:text-primary transition-colors mb-6 inline-block">
-        &larr; Back to Leagues
+        {t('back')}
       </Link>
 
       <GlassCard className="p-8 mb-8">
@@ -135,13 +137,13 @@ export default function LeagueDetailPage() {
         </div>
 
         <div className="flex items-center gap-6 text-sm text-on-surface-variant">
-          <span>{members.length} / {league.max_members} members</span>
-          <span>Season {league.season}</span>
+          <span>{t('membersOf', { members: members.length, max: league.max_members })}</span>
+          <span>{t('season', { season: league.season })}</span>
         </div>
 
         {league.league_type === 'private' && isOwner && league.invite_code && (
           <div className="mt-4 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-            <span className="text-xs text-amber-400 font-bold uppercase tracking-widest">Invite Code: </span>
+            <span className="text-xs text-amber-400 font-bold uppercase tracking-widest">{t('inviteCode')} </span>
             <code className="text-amber-300 font-mono ml-2">{league.invite_code}</code>
           </div>
         )}
@@ -155,12 +157,12 @@ export default function LeagueDetailPage() {
 
       {!is_member && user && (
         <GlassCard className="p-6 mb-8">
-          <h2 className="font-headline text-lg text-on-surface mb-4">Join This League</h2>
+          <h2 className="font-headline text-lg text-on-surface mb-4">{t('joinThisLeague')}</h2>
           {league.league_type === 'private' && (
             <div className="mb-4">
               <input
                 type="text"
-                placeholder="Enter invite code"
+                placeholder={t('enterInviteCode')}
                 value={inviteCode}
                 onChange={(e) => setInviteCode(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl bg-surface-container-high border border-white/[0.08] text-on-surface placeholder:text-on-surface-variant/50 focus:outline-none focus:border-primary/50 transition-colors"
@@ -172,7 +174,7 @@ export default function LeagueDetailPage() {
             disabled={joining}
             className="px-6 py-3 rounded-xl bg-primary text-on-primary font-bold hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50"
           >
-            {joining ? 'Joining...' : 'Join League'}
+            {joining ? t('joining') : t('joinLeague')}
           </button>
         </GlassCard>
       )}
@@ -186,31 +188,31 @@ export default function LeagueDetailPage() {
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            Make Predictions
+            {t('makePredictions')}
           </Link>
         </div>
       )}
 
       <GlassCard className="p-6">
         <h2 className="font-headline text-xl uppercase tracking-widest text-on-surface-variant mb-6">
-          Leaderboard
+          {t('leaderboard')}
         </h2>
 
         {standings.length === 0 ? (
           <p className="text-on-surface-variant text-center py-8">
-            No scores yet. Make predictions and wait for matches to finish!
+            {t('noScoresYet')}
           </p>
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="text-xs text-on-surface-variant uppercase tracking-widest border-b border-white/[0.06]">
-                  <th className="text-left py-3 pr-4">#</th>
-                  <th className="text-left py-3 pr-4">Player</th>
-                  <th className="text-right py-3 pr-4">Points</th>
-                  <th className="text-right py-3 pr-4">Correct</th>
-                  <th className="text-right py-3 pr-4">Exact</th>
-                  <th className="text-right py-3">Total</th>
+                  <th className="text-left py-3 pr-4">{t('tableHash')}</th>
+                  <th className="text-left py-3 pr-4">{t('tablePlayer')}</th>
+                  <th className="text-right py-3 pr-4">{t('tablePoints')}</th>
+                  <th className="text-right py-3 pr-4">{t('tableCorrect')}</th>
+                  <th className="text-right py-3 pr-4">{t('tableExact')}</th>
+                  <th className="text-right py-3">{t('tableTotal')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -230,7 +232,7 @@ export default function LeagueDetailPage() {
                           {(row.display_name ?? '?')[0].toUpperCase()}
                         </div>
                         <span className="text-on-surface font-medium">
-                          {row.display_name ?? 'Anonymous'}
+                          {row.display_name ?? t('anonymous')}
                         </span>
                       </div>
                     </td>

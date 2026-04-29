@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 interface TeamOption {
   slug: string
@@ -12,6 +13,8 @@ interface TeamOption {
 }
 
 export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
+  const t = useTranslations('compareSelector')
+  const tTeams = useTranslations('teamsPage')
   const [teamA, setTeamA] = useState('')
   const [teamB, setTeamB] = useState('')
   const [searchA, setSearchA] = useState('')
@@ -72,10 +75,10 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
             <span className="flex items-center gap-2">
               <span className="text-xl">{selected.flag}</span>
               <span className="font-headline text-sm uppercase tracking-tight">{selected.name}</span>
-              <span className="text-xs text-on-surface-variant">(Group {selected.group})</span>
+              <span className="text-xs text-on-surface-variant">({tTeams('group', { group: selected.group })})</span>
             </span>
           ) : (
-            <span className="text-on-surface-variant/50 text-sm">Select a team...</span>
+            <span className="text-on-surface-variant/50 text-sm">{t('selectTeam')}</span>
           )}
           <svg className={`w-4 h-4 text-on-surface-variant transition-transform ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -91,27 +94,27 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
                   type="text"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  placeholder="Search team or group..."
+                  placeholder={t('selectTeam')}
                   className="w-full bg-surface-container-high rounded-lg px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/40 border border-white/[0.04] focus:border-primary/30 focus:outline-none"
                   autoFocus
                 />
               </div>
               <div className="overflow-y-auto flex-1">
                 {filtered.length === 0 ? (
-                  <div className="px-4 py-6 text-center text-sm text-on-surface-variant/50">No teams found</div>
+                  <div className="px-4 py-6 text-center text-sm text-on-surface-variant/50">{t('noTeamsFound')}</div>
                 ) : (
-                  filtered.map((t) => (
+                  filtered.map((tm) => (
                     <button
-                      key={t.slug}
-                      onClick={() => { onSelect(t.slug); setOpen(false) }}
+                      key={tm.slug}
+                      onClick={() => { onSelect(tm.slug); setOpen(false) }}
                       className="w-full px-4 py-2.5 flex items-center gap-3 hover:bg-white/[0.04] transition-colors text-left"
                     >
-                      <span className="text-lg">{t.flag}</span>
+                      <span className="text-lg">{tm.flag}</span>
                       <span className="flex-1">
-                        <span className="font-headline text-sm uppercase tracking-tight">{t.name}</span>
-                        <span className="text-xs text-on-surface-variant ml-2">Group {t.group}</span>
+                        <span className="font-headline text-sm uppercase tracking-tight">{tm.name}</span>
+                        <span className="text-xs text-on-surface-variant ml-2">{tTeams('group', { group: tm.group })}</span>
                       </span>
-                      <span className="text-xs text-on-surface-variant/60">#{t.fifaRanking}</span>
+                      <span className="text-xs text-on-surface-variant/60">#{tm.fifaRanking}</span>
                     </button>
                   ))
                 )}
@@ -127,7 +130,7 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
     <div className="glass-panel rounded-2xl border border-white/[0.08] p-6 md:p-8">
       <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-end">
         <TeamDropdown
-          label="Team A"
+          label={t('teamA')}
           selected={selectedA}
           search={searchA}
           setSearch={setSearchA}
@@ -138,11 +141,11 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
         />
 
         <div className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-surface-container-high border border-white/[0.08] shrink-0 mb-0.5">
-          <span className="font-headline text-sm text-on-surface-variant">VS</span>
+          <span className="font-headline text-sm text-on-surface-variant">{t('vs')}</span>
         </div>
 
         <TeamDropdown
-          label="Team B"
+          label={t('teamB')}
           selected={selectedB}
           search={searchB}
           setSearch={setSearchB}
@@ -157,14 +160,14 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
             href={compareUrl}
             className="bg-primary text-on-primary px-8 py-3 rounded-xl font-label font-bold uppercase tracking-widest text-sm hover:brightness-110 transition-all shrink-0 text-center"
           >
-            Compare
+            {t('compare')}
           </Link>
         ) : (
           <button
             disabled
             className="bg-surface-container-high text-on-surface-variant/40 px-8 py-3 rounded-xl font-label font-bold uppercase tracking-widest text-sm cursor-not-allowed shrink-0"
           >
-            Compare
+            {t('compare')}
           </button>
         )}
       </div>
@@ -178,7 +181,7 @@ export default function CompareSelector({ teams }: { teams: TeamOption[] }) {
               <div className="text-xs text-on-surface-variant">FIFA #{selectedA.fifaRanking}</div>
             </div>
             <div className="flex items-center justify-center">
-              <span className="font-headline text-2xl text-on-surface-variant/30">VS</span>
+              <span className="font-headline text-2xl text-on-surface-variant/30">{t('vs')}</span>
             </div>
             <div>
               <div className="text-2xl mb-1">{selectedB.flag}</div>

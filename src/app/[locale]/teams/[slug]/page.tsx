@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import TeamHero from '@/components/team/TeamHero'
@@ -58,6 +59,7 @@ export default async function TeamPage({ params }: PageProps) {
   const pageData = await getTeamPageData(slug)
   if (!pageData) notFound()
 
+  const t = await getTranslations('teamsPage')
   const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
 
   const jsonLd = {
@@ -123,7 +125,7 @@ export default async function TeamPage({ params }: PageProps) {
       {teamFaq && teamFaq.faqs.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Frequently Asked Questions
+            {t('frequentlyAsked')}
           </h2>
           <div className="space-y-3">
             {teamFaq.faqs.map((faq, i) => (
@@ -144,11 +146,11 @@ export default async function TeamPage({ params }: PageProps) {
       {groupTeams.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-20">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            More from Group {team.group}
+            {t('moreFromGroup', { group: team.group })}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {groupTeams.map((t) => (
-              <TeamCard key={t.slug} team={t} />
+            {groupTeams.map((groupTeam) => (
+              <TeamCard key={groupTeam.slug} team={groupTeam} />
             ))}
           </div>
         </section>

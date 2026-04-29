@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { NextIntlClientProvider } from 'next-intl'
 import PlayerIntel from '../PlayerIntel'
 import { PLAYERS } from '@/data/players-data'
 import enMessages from '../../../../messages/en.json'
@@ -45,7 +46,11 @@ describe('PlayerIntel', () => {
         recentSignals: [],
       },
     })
-    render(ui)
+    render(
+      <NextIntlClientProvider locale="en" messages={enMessages}>
+        {ui}
+      </NextIntlClientProvider>
+    )
 
     expect(toLocaleDateString).toHaveBeenCalledWith(
       'en-US',

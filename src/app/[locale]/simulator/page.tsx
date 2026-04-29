@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { buildOGMeta } from '@/lib/og-utils'
 import { getAllGroups, getTeamsByGroup } from '@/lib/data-service'
 import SimulatorClient from './SimulatorClient'
@@ -30,7 +31,8 @@ export interface GroupData {
   teams: TeamEntry[]
 }
 
-export default function SimulatorPage() {
+export default async function SimulatorPage() {
+  const t = await getTranslations('simulatorPage')
   const groups: GroupData[] = getAllGroups().map((g) => ({
     group: g,
     teams: getTeamsByGroup(g)
@@ -56,17 +58,16 @@ export default function SimulatorPage() {
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
           <span className="inline-flex items-center gap-2 bg-tertiary/15 text-tertiary border border-tertiary/20 font-label font-semibold uppercase tracking-widest rounded-full px-4 py-1 text-xs mb-4">
-            12 Groups · 48 Teams
+            {t('heroBadge')}
           </span>
 
           <h1 className="font-headline text-[clamp(2.5rem,8vw,7rem)] leading-[0.9] tracking-wide uppercase mt-4 mb-4">
-            <span className="block text-on-surface">Group</span>
-            <span className="block gradient-text">Simulator</span>
+            <span className="block text-on-surface">{t('heroTitle1')}</span>
+            <span className="block gradient-text">{t('heroTitle2')}</span>
           </h1>
 
           <p className="text-on-surface-variant text-lg max-w-xl mx-auto">
-            Drag teams to set your predicted advancement order for all 12 groups.
-            See how your picks diverge from the AI and share your bracket.
+            {t('heroDescription')}
           </p>
         </div>
       </section>

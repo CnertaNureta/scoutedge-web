@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import ArchivedPageNotice from '@/components/ui/ArchivedPageNotice'
 
 export const metadata: Metadata = {
@@ -9,19 +10,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
-export default function CommunityPage() {
+export default async function CommunityPage() {
+  const t = await getTranslations('archivedPage.communityArchive')
   return (
     <ArchivedPageNotice
-      title="Community Archive"
-      description="KickOracle v1 is being narrowed back to narrative-first World Cup intelligence, so the old community/forum surface has been downgraded out of the main product path."
-      reasons={[
-        'Sprint2 defines v1 as an intelligence product, not a social platform.',
-        'Comments, fan forums, and discussion-first loops were pulling attention away from the core team, match, and player narratives.',
-        'The archive remains reachable for reference while the main journey stays focused on reading and analysis.',
-      ]}
-      primaryAction={{ href: '/daily-briefing', label: 'Open Daily Briefing' }}
-      secondaryAction={{ href: '/blog', label: 'Read Narrative Library' }}
-      note="If you are looking for the current product surface, start with the daily briefing, match board, or team dossiers."
+      title={t('title')}
+      description={t('description')}
+      reasons={[t('reason1'), t('reason2'), t('reason3')]}
+      primaryAction={{ href: '/daily-briefing', label: t('primaryAction') }}
+      secondaryAction={{ href: '/blog', label: t('secondaryAction') }}
+      note={t('note')}
     />
   )
 }

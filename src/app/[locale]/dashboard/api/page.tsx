@@ -2,6 +2,7 @@
 
 import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useApi } from '@/hooks/useApi'
 import { useToast, ToastProvider } from '@/components/ui/Toast'
@@ -15,13 +16,6 @@ import PlanTab from './PlanTab'
 
 const TABS = ['keys', 'usage', 'endpoints', 'billing'] as const
 type Tab = (typeof TABS)[number]
-
-const TAB_LABELS: Record<Tab, string> = {
-  keys: 'Keys',
-  usage: 'Usage',
-  endpoints: 'Endpoints',
-  billing: 'Plan & Billing',
-}
 
 interface ApiKey {
   id: string
@@ -57,6 +51,7 @@ interface EndpointUsage {
 }
 
 function DashboardContent() {
+  const t = useTranslations('apiDashboardClient')
   const searchParams = useSearchParams()
   const router = useRouter()
   const { user, loading: authLoading } = useAuth()
@@ -77,22 +72,22 @@ function DashboardContent() {
     const success = searchParams.get('success')
     const tier = searchParams.get('tier')
     if (success === 'true' && tier) {
-      toast(`API subscription activated: ${tier}`, 'success')
+      toast(t('subscriptionActivated', { tier }), 'success')
     }
     const canceled = searchParams.get('canceled')
     if (canceled === 'true') {
-      toast('Checkout canceled', 'info')
+      toast(t('checkoutCanceled'), 'info')
     }
-  }, [searchParams, toast])
+  }, [searchParams, toast, t])
 
   useEffect(() => {
     if (!user) return
     setLoadingKeys(true)
     apiFetch('/api/dashboard/keys')
       .then((data) => setKeys(data.keys ?? []))
-      .catch(() => toast('Failed to load API keys', 'destructive'))
+      .catch(() => toast(t('loadKeysFailed'), 'destructive'))
       .finally(() => setLoadingKeys(false))
-  }, [user, apiFetch, toast])
+  }, [user, apiFetch, toast, t])
 
   useEffect(() => {
     if (!user) return
@@ -103,9 +98,9 @@ function DashboardContent() {
         setDailyUsage(data.daily ?? [])
         setEndpoints(data.endpoints ?? [])
       })
-      .catch(() => toast('Failed to load usage data', 'destructive'))
+      .catch(() => toast(t('loadUsageFailed'), 'destructive'))
       .finally(() => setLoadingUsage(false))
-  }, [user, apiFetch, toast])
+  }, [user, apiFetch, toast, t])
 
   function setTab(tab: Tab) {
     const params = new URLSearchParams(searchParams.toString())
@@ -137,8 +132,8 @@ function DashboardContent() {
       <div className="max-w-[1440px] mx-auto px-6 py-24 text-center">
         <GlassCard className="p-12 max-w-md mx-auto">
           <p className="text-4xl mb-4">🔒</p>
-          <h2 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">Sign in required</h2>
-          <p className="font-body text-sm text-on-surface-variant">Sign in to manage your API keys and view usage.</p>
+          <h2 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">{t('signInRequiredHeading')}</h2>
+          <p className="font-body text-sm text-on-surface-variant">{t('signInRequiredDescription')}</p>
         </GlassCard>
       </div>
     )
@@ -153,7 +148,7 @@ function DashboardContent() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <h1 className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight text-on-surface">
-          API Dashboard
+          {t('title')}
         </h1>
         {currentTier !== 'none' && (
           <Badge variant="primary" size="md">
@@ -166,24 +161,25 @@ function DashboardContent() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
         <StatCard
           value={usageSummary.totalRequests}
-          label="Requests"
-          sublabel="Last 30 days"
+          label={t('stats.requests')}
+          sublabel={t('stats.last30Days')}
           loading={loadingUsage}
         />
         <QuotaCard
           used={usageSummary.totalRequests}
           total={monthlyQuota}
           loading={loadingUsage}
+          quotaLabel={t('stats.quotaUsed')}
         />
         <StatCard
           value={activeKeys.length}
-          label="Active Keys"
+          label={t('stats.activeKeys')}
           loading={loadingKeys}
         />
         <StatCard
           value={usageSummary.avgResponseTime}
-          label="Avg Latency"
-          sublabel="Last 30 days"
+          label={t('stats.avgLatency')}
+          sublabel={t('stats.last30Days')}
           suffix="ms"
           loading={loadingUsage}
         />
@@ -201,7 +197,7 @@ function DashboardContent() {
                 : 'text-on-surface-variant hover:text-on-surface'
             }`}
           >
-            {TAB_LABELS[tab]}
+            {t(`tabs.${tab}`)}
           </button>
         ))}
       </div>
@@ -263,7 +259,7 @@ function StatCard({
   )
 }
 
-function QuotaCard({ used, total, loading }: { used: number; total: number; loading?: boolean }) {
+function QuotaCard({ used, total, loading, quotaLabel }: { used: number; total: number; loading?: boolean; quotaLabel: string }) {
   if (loading) {
     return (
       <GlassCard className="p-4 md:p-5">
@@ -281,7 +277,7 @@ function QuotaCard({ used, total, loading }: { used: number; total: number; load
         {pct.toFixed(1)}%
       </p>
       <p className="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mt-1">
-        Quota Used
+        {quotaLabel}
       </p>
       <p className="font-body text-xs text-on-surface-variant">
         {used.toLocaleString()} / {total.toLocaleString()}

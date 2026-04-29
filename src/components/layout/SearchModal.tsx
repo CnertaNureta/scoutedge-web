@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { useRouter } from '@/i18n/navigation'
 import { TEAMS } from '@/data/teams-meta'
 
@@ -10,6 +11,8 @@ interface SearchModalProps {
 }
 
 export default function SearchModal({ open, onClose }: SearchModalProps) {
+  const t = useTranslations('search')
+  const tTeams = useTranslations('teamsPage')
   const [query, setQuery] = useState('')
   const [selectedIndex, setSelectedIndex] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -91,9 +94,9 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Search teams by name, group, or confederation..."
+            placeholder={t('modalPlaceholder')}
             className="flex-1 bg-transparent text-on-surface placeholder:text-on-surface-variant/60 text-base outline-none font-body"
-            aria-label="Search teams"
+            aria-label={t('buttonPlaceholder')}
           />
           <kbd className="hidden sm:inline-flex text-[11px] font-mono text-on-surface-variant/50 border border-outline-variant rounded px-1.5 py-0.5">
             ESC
@@ -104,7 +107,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
         <ul className="max-h-[50vh] overflow-y-auto py-2" role="listbox" aria-label="Search results">
           {filtered.length === 0 ? (
             <li className="px-4 py-6 text-center text-on-surface-variant/60 text-sm font-body">
-              No teams found for &ldquo;{query}&rdquo;
+              {t('noResultsFor')} &ldquo;{query}&rdquo;
             </li>
           ) : (
             filtered.map((team, i) => (
@@ -125,7 +128,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                   {team.name}
                 </span>
                 <span className="text-[11px] font-label text-on-surface-variant/60 uppercase tracking-wider">
-                  Group {team.group}
+                  {tTeams('group', { group: team.group })}
                 </span>
                 <span className="text-[11px] font-label text-on-surface-variant/40 uppercase tracking-wider">
                   {team.confederation}
@@ -140,11 +143,11 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
           <span className="flex items-center gap-1">
             <kbd className="font-mono border border-outline-variant rounded px-1 py-0.5">&uarr;</kbd>
             <kbd className="font-mono border border-outline-variant rounded px-1 py-0.5">&darr;</kbd>
-            navigate
+            {t('navigate')}
           </span>
           <span className="flex items-center gap-1">
             <kbd className="font-mono border border-outline-variant rounded px-1 py-0.5">&crarr;</kbd>
-            select
+            {t('select')}
           </span>
         </div>
       </div>

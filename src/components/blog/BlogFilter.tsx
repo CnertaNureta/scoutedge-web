@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import type { BlogPost } from '@/lib/blog-service'
 import BlogCard from './BlogCard'
 
@@ -11,6 +12,7 @@ interface BlogFilterProps {
 }
 
 export default function BlogFilter({ posts }: BlogFilterProps) {
+  const t = useTranslations('blogFilter')
   const categories = Array.from(new Set(posts.map((p) => p.category))).sort()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
   const [page, setPage] = useState(1)
@@ -36,7 +38,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
               : 'border-white/[0.08] text-on-surface-variant hover:border-white/20'
           }`}
         >
-          All
+          {t('all')}
         </button>
         {categories.map((cat) => (
           <button
@@ -61,7 +63,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
       </div>
 
       {paginated.length === 0 && (
-        <p className="text-center text-on-surface-variant py-12">No articles in this category yet.</p>
+        <p className="text-center text-on-surface-variant py-12">{t('noArticles')}</p>
       )}
 
       {/* Load more */}
@@ -71,7 +73,7 @@ export default function BlogFilter({ posts }: BlogFilterProps) {
             onClick={() => setPage((p) => p + 1)}
             className="inline-block border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            Load More
+            {t('loadMore')}
           </button>
         </div>
       )}

@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import type { LingoCountry, LingoPlayer } from '@/types/lingo'
 
 interface LingoSearchBarProps {
@@ -19,6 +20,7 @@ interface SearchResult {
 }
 
 export function LingoSearchBar({ countries, players }: LingoSearchBarProps) {
+  const t = useTranslations('lingoSearch')
   const [query, setQuery] = useState('')
 
   const results = useMemo<SearchResult[]>(() => {
@@ -77,9 +79,9 @@ export function LingoSearchBar({ countries, players }: LingoSearchBarProps) {
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search countries, players..."
+          placeholder={t('placeholder')}
           className="w-full rounded-xl border border-lingo-border/50 bg-lingo-surface py-3 pl-11 pr-4 text-sm text-lingo-text placeholder:text-lingo-text-muted focus:border-lingo-accent/50 focus:outline-none focus:ring-1 focus:ring-lingo-accent/30"
-          aria-label="Search pronunciation guides"
+          aria-label={t('ariaLabel')}
         />
       </div>
       {results.length > 0 && (

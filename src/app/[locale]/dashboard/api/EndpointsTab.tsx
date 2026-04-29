@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 
 interface EndpointUsage {
@@ -16,6 +17,8 @@ interface Props {
 }
 
 export default function EndpointsTab({ endpoints, loading }: Props) {
+  const t = useTranslations('apiEndpointsTab')
+
   if (loading) {
     return (
       <GlassCard className="p-6">
@@ -34,8 +37,8 @@ export default function EndpointsTab({ endpoints, loading }: Props) {
     return (
       <GlassCard className="p-12 text-center">
         <p className="text-4xl mb-4">🔗</p>
-        <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">No endpoint data</h3>
-        <p className="font-body text-sm text-on-surface-variant">Make API requests to see per-endpoint breakdown here.</p>
+        <h3 className="font-headline text-lg font-bold uppercase text-on-surface mb-2">{t('noDataTitle')}</h3>
+        <p className="font-body text-sm text-on-surface-variant">{t('noDataDescription')}</p>
       </GlassCard>
     )
   }
@@ -49,18 +52,18 @@ export default function EndpointsTab({ endpoints, loading }: Props) {
         <table className="w-full">
           <thead>
             <tr className="border-b border-outline-variant">
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Endpoint</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Requests</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Avg Time</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Error %</th>
-              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Volume</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableEndpoint')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableRequests')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableAvgTime')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableErrorRate')}</th>
+              <th className="text-left px-5 py-3 font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">{t('tableVolume')}</th>
             </tr>
           </thead>
           <tbody>
             {endpoints.map((ep) => (
               <tr key={ep.endpoint} className="border-b border-outline-variant/30 hover:bg-white/[0.02] transition-colors">
                 <td className="px-5 py-3">
-                  <span className="font-mono text-xs text-on-surface-variant mr-1.5">GET</span>
+                  <span className="font-mono text-xs text-on-surface-variant mr-1.5">{t('method')}</span>
                   <span className="font-mono text-sm text-on-surface">{ep.endpoint}</span>
                 </td>
                 <td className="px-5 py-3 font-mono text-sm font-bold text-on-surface">
@@ -95,12 +98,12 @@ export default function EndpointsTab({ endpoints, loading }: Props) {
         {endpoints.map((ep) => (
           <GlassCard key={ep.endpoint} className="p-4">
             <p className="font-mono text-sm text-on-surface mb-2">
-              <span className="text-on-surface-variant">GET</span> {ep.endpoint}
+              <span className="text-on-surface-variant">{t('method')}</span> {ep.endpoint}
             </p>
             <div className="flex items-center gap-4 text-xs">
-              <span className="font-mono font-bold text-on-surface">{ep.requests.toLocaleString()} req</span>
+              <span className="font-mono font-bold text-on-surface">{ep.requests.toLocaleString()} {t('reqShort')}</span>
               <span className={`font-mono ${latencyColor(ep.avgResponseTime)}`}>{ep.avgResponseTime}ms</span>
-              <span className={`font-mono ${errorColor(ep.errorRate)}`}>{ep.errorRate.toFixed(1)}% err</span>
+              <span className={`font-mono ${errorColor(ep.errorRate)}`}>{ep.errorRate.toFixed(1)}% {t('errShort')}</span>
             </div>
             <div className="h-1 rounded-full bg-surface-container-high mt-3">
               <div

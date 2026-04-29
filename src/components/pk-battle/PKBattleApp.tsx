@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useMemo, useCallback, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { PLAYERS } from '@/data/players-data'
 import { TEAMS } from '@/data/teams-meta'
 import { computeBattle, computeBo5, getRandomPair, getPositionPair, getDailyDuel, buildShareText, saveBattleToHistory, loadBattleHistory, getBattleStats, logBattleToServer, fetchLeaderboard, fetchCommunityStats, canBattleFree, getRemainingFree, incrementDailyUsage } from '@/lib/pk-battle'
@@ -28,6 +29,7 @@ function PlayerSelector({
   onSelect: (p: Player) => void
   otherSelected: Player | null
 }) {
+  const t = useTranslations('pkBattle')
   const [teamFilter, setTeamFilter] = useState<string>('')
   const [posFilter, setPosFilter] = useState<string>('')
   const [search, setSearch] = useState('')
@@ -77,7 +79,7 @@ function PlayerSelector({
               onClick={() => onSelect(null as unknown as Player)}
               className="text-xs text-on-surface-variant hover:text-secondary transition-colors"
             >
-              Change
+              {t('change')}
             </button>
           </div>
         </GlassCard>
@@ -89,7 +91,7 @@ function PlayerSelector({
               onChange={(e) => setTeamFilter(e.target.value)}
               className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-on-surface outline-none focus:border-primary/50"
             >
-              <option value="">All Teams</option>
+              <option value="">{t('allTeams')}</option>
               {teamOptions.map((t) => (
                 <option key={t.slug} value={t.slug}>
                   {t.flag} {t.name}
@@ -101,7 +103,7 @@ function PlayerSelector({
               onChange={(e) => setPosFilter(e.target.value)}
               className="rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-on-surface outline-none focus:border-primary/50"
             >
-              <option value="">All Positions</option>
+              <option value="">{t('allPositions')}</option>
               {POSITION_ORDER.map((pos) => (
                 <option key={pos} value={pos}>
                   {pos}
@@ -112,13 +114,13 @@ function PlayerSelector({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search player or club..."
+              placeholder={t('searchPlayerClub')}
               className="flex-1 min-w-[140px] rounded-lg border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-on-surface placeholder:text-on-surface-variant/50 outline-none focus:border-primary/50"
             />
           </div>
           <div className="max-h-[240px] overflow-y-auto rounded-xl border border-white/[0.06] bg-white/[0.02]">
             {filtered.length === 0 ? (
-              <div className="p-4 text-center text-xs text-on-surface-variant">No players match</div>
+              <div className="p-4 text-center text-xs text-on-surface-variant">{t('noPlayersMatch')}</div>
             ) : (
               filtered.map((p) => {
                 const team = TEAMS.find((t) => t.slug === p.teamSlug)
@@ -136,7 +138,7 @@ function PlayerSelector({
                       </div>
                     </div>
                     <Badge variant={p.fitnessStatus === 'green' ? 'primary' : p.fitnessStatus === 'amber' ? 'tertiary' : 'secondary'} size="sm">
-                      {p.fitnessStatus === 'green' ? 'FIT' : p.fitnessStatus === 'amber' ? 'DOUBT' : 'OUT'}
+                      {p.fitnessStatus === 'green' ? t('fitnessFit') : p.fitnessStatus === 'amber' ? t('fitnessDoubt') : t('fitnessOut')}
                     </Badge>
                   </button>
                 )
@@ -199,6 +201,7 @@ function FactorBar({ factor, flip }: { factor: BattleFactor; flip?: boolean }) {
 }
 
 function ShareButtons({ result }: { result: BattleResult }) {
+  const t = useTranslations('pkBattle')
   const [copied, setCopied] = useState(false)
   const text = buildShareText(result)
 
@@ -220,15 +223,15 @@ function ShareButtons({ result }: { result: BattleResult }) {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <span className="text-xs text-on-surface-variant mr-1">Share:</span>
-      <button onClick={shareTwitter} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label="Share on X/Twitter">
+      <span className="text-xs text-on-surface-variant mr-1">{t('share')}</span>
+      <button onClick={shareTwitter} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label={t('shareTwitterAria')}>
         X
       </button>
-      <button onClick={shareWhatsApp} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label="Share on WhatsApp">
+      <button onClick={shareWhatsApp} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label={t('shareWhatsAppAria')}>
         WhatsApp
       </button>
-      <button onClick={copyLink} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label="Copy result text">
-        {copied ? 'Copied!' : 'Copy'}
+      <button onClick={copyLink} className="rounded-lg border border-white/10 px-3 py-1.5 text-xs text-on-surface hover:bg-white/[0.06] transition-colors" aria-label={t('copyAria')}>
+        {copied ? t('copied') : t('copy')}
       </button>
     </div>
   )
@@ -243,6 +246,7 @@ function BattleResultView({
   onRematch: () => void
   onNewBattle: () => void
 }) {
+  const t = useTranslations('pkBattle')
   const { playerA, playerB, scoreA, scoreB, winnerSlug, verdict, factors } = result
   const teamA = TEAMS.find((t) => t.slug === playerA.teamSlug)
   const teamB = TEAMS.find((t) => t.slug === playerB.teamSlug)
@@ -268,11 +272,11 @@ function BattleResultView({
         />
         <div className="text-center">
           <Badge variant={isDraw ? 'tertiary' : 'primary'} size="md">
-            {isDraw ? 'DRAW' : 'WINNER'}
+            {isDraw ? t('draw') : t('winner')}
           </Badge>
           <h2 className="font-headline text-3xl md:text-5xl uppercase tracking-wide mt-4">
             {isDraw
-              ? 'Dead Heat'
+              ? t('deadHeat')
               : winnerSlug === playerA.slug
                 ? playerA.name
                 : playerB.name}
@@ -296,7 +300,7 @@ function BattleResultView({
           </div>
         </div>
         <div className="flex flex-col items-center gap-2">
-          <span className="font-headline text-2xl text-on-surface-variant">VS</span>
+          <span className="font-headline text-2xl text-on-surface-variant">{t('vs').toUpperCase()}</span>
         </div>
         <div className="text-center">
           <span className="text-3xl">{teamB?.flag}</span>
@@ -330,7 +334,7 @@ function BattleResultView({
 
       {/* Factor breakdown */}
       <GlassCard className="p-6">
-        <h3 className="font-headline text-lg uppercase tracking-wide mb-4 text-center">Battle Breakdown</h3>
+        <h3 className="font-headline text-lg uppercase tracking-wide mb-4 text-center">{t('battleBreakdown')}</h3>
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 mb-3">
           <div className="text-right font-headline text-xs uppercase tracking-wide text-primary">{playerA.name}</div>
           <div />
@@ -349,13 +353,13 @@ function BattleResultView({
           onClick={onRematch}
           className="rounded-2xl border border-white/20 px-8 py-3 font-label font-semibold uppercase tracking-widest text-on-surface hover:bg-white/[0.06] transition-colors"
         >
-          Rematch
+          {t('rematch')}
         </button>
         <button
           onClick={onNewBattle}
           className="rounded-2xl bg-primary/15 border border-primary/30 px-8 py-3 font-label font-semibold uppercase tracking-widest text-primary hover:bg-primary/25 transition-colors"
         >
-          New Battle
+          {t('newBattle')}
         </button>
       </div>
 
@@ -372,6 +376,7 @@ function Bo5ResultView({
   result: Bo5Result
   onNewBattle: () => void
 }) {
+  const t = useTranslations('pkBattle')
   const { playerA, playerB, rounds, winsA, winsB, seriesWinner, verdict } = result
   const teamA = TEAMS.find((t) => t.slug === playerA.teamSlug)
   const teamB = TEAMS.find((t) => t.slug === playerB.teamSlug)
@@ -391,9 +396,9 @@ function Bo5ResultView({
           }}
         />
         <div className="text-center">
-          <Badge variant="tertiary" size="md">BEST OF 5</Badge>
+          <Badge variant="tertiary" size="md">{t('bestOfFiveBadge')}</Badge>
           <h2 className="font-headline text-3xl md:text-5xl uppercase tracking-wide mt-4">
-            {isDraw ? 'Dead Heat' : seriesWinner === playerA.slug ? playerA.name : playerB.name}
+            {isDraw ? t('deadHeat') : seriesWinner === playerA.slug ? playerA.name : playerB.name}
           </h2>
           <div className="mt-3 flex items-center justify-center gap-4">
             <div className="text-center">
@@ -411,7 +416,7 @@ function Bo5ResultView({
       </GlassCard>
 
       <GlassCard className="p-6">
-        <h3 className="font-headline text-lg uppercase tracking-wide mb-4 text-center">Round by Round</h3>
+        <h3 className="font-headline text-lg uppercase tracking-wide mb-4 text-center">{t('roundByRound')}</h3>
         <div className="space-y-2">
           {rounds.map((r, i) => (
             <div
@@ -446,7 +451,7 @@ function Bo5ResultView({
           onClick={onNewBattle}
           className="rounded-2xl bg-primary/15 border border-primary/30 px-10 py-3 font-label font-bold uppercase tracking-widest text-primary hover:bg-primary/25 transition-colors"
         >
-          New Battle
+          {t('newBattle')}
         </button>
       </div>
     </div>
@@ -454,6 +459,7 @@ function Bo5ResultView({
 }
 
 function FreemiumBanner({ remaining, isPremium }: { remaining: number; isPremium: boolean }) {
+  const t = useTranslations('pkBattle')
   if (isPremium) return null
 
   return (
@@ -470,7 +476,7 @@ function FreemiumBanner({ remaining, isPremium }: { remaining: number; isPremium
             ))}
           </div>
           <span className="text-xs text-on-surface-variant">
-            {remaining > 0 ? `${remaining} free battle${remaining === 1 ? '' : 's'} left today` : 'Daily limit reached'}
+            {remaining > 0 ? t('battlesLeft', { count: remaining }) : t('dailyLimitReached')}
           </span>
         </div>
         {remaining <= 2 && (
@@ -478,7 +484,7 @@ function FreemiumBanner({ remaining, isPremium }: { remaining: number; isPremium
             href="/pricing"
             className="rounded-full bg-tertiary/15 border border-tertiary/30 px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-tertiary hover:bg-tertiary/25 transition-colors"
           >
-            Go Unlimited
+            {t('goUnlimited')}
           </Link>
         )}
       </div>
@@ -487,16 +493,17 @@ function FreemiumBanner({ remaining, isPremium }: { remaining: number; isPremium
 }
 
 function CommunityStatsBar({ stats }: { stats: CommunityStats | null }) {
+  const t = useTranslations('pkBattle')
   if (!stats || stats.totalBattles === 0) return null
 
   return (
     <div className="rounded-xl border border-white/[0.06] bg-gradient-to-r from-primary/[0.04] to-secondary/[0.04] px-5 py-4">
       <div className="flex items-center justify-center gap-6 sm:gap-10 flex-wrap">
         {[
-          { label: 'Global Battles', value: stats.totalBattles.toLocaleString(), accent: BRAND.primary },
-          { label: 'Commanders', value: stats.uniqueSessions.toLocaleString(), accent: BRAND.secondary },
-          { label: 'Players Used', value: stats.uniquePlayersUsed.toLocaleString(), accent: BRAND.tertiary },
-          { label: 'Dead Heats', value: stats.totalDraws.toLocaleString(), accent: SURFACE.onSurfaceVariant },
+          { label: t('globalBattles'), value: stats.totalBattles.toLocaleString(), accent: BRAND.primary },
+          { label: t('commanders'), value: stats.uniqueSessions.toLocaleString(), accent: BRAND.secondary },
+          { label: t('playersUsed'), value: stats.uniquePlayersUsed.toLocaleString(), accent: BRAND.tertiary },
+          { label: t('deadHeats'), value: stats.totalDraws.toLocaleString(), accent: SURFACE.onSurfaceVariant },
         ].map((s) => (
           <div key={s.label} className="text-center">
             <div className="text-xl font-bold font-mono tabular-nums" style={{ color: s.accent }}>{s.value}</div>
@@ -509,15 +516,16 @@ function CommunityStatsBar({ stats }: { stats: CommunityStats | null }) {
 }
 
 function GlobalLeaderboard({ entries, onChallenge }: { entries: LeaderboardEntry[]; onChallenge: (slug: string) => void }) {
+  const t = useTranslations('pkBattle')
   if (entries.length === 0) return null
 
   return (
     <GlassCard className="p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-headline text-sm uppercase tracking-widest text-on-surface-variant">
-          Global Leaderboard
+          {t('globalLeaderboard')}
         </h3>
-        <Badge variant="primary" size="sm">TOP {entries.length}</Badge>
+        <Badge variant="primary" size="sm">{t('top', { count: entries.length })}</Badge>
       </div>
       <div className="space-y-1">
         {entries.slice(0, 10).map((entry) => {
@@ -555,7 +563,7 @@ function GlobalLeaderboard({ entries, onChallenge }: { entries: LeaderboardEntry
                 onClick={() => onChallenge(entry.slug)}
                 className="shrink-0 opacity-0 group-hover:opacity-100 rounded-lg border border-primary/30 px-2 py-1 text-[9px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 transition-all"
               >
-                Battle
+                {t('battle')}
               </button>
             </div>
           )
@@ -566,6 +574,7 @@ function GlobalLeaderboard({ entries, onChallenge }: { entries: LeaderboardEntry
 }
 
 function BattleHistory({ history }: { history: BattleHistoryEntry[] }) {
+  const t = useTranslations('pkBattle')
   const stats = getBattleStats(history)
   if (history.length === 0) return null
 
@@ -581,18 +590,18 @@ function BattleHistory({ history }: { history: BattleHistoryEntry[] }) {
     <GlassCard className="p-6">
       <div className="flex items-center justify-between mb-5">
         <h3 className="font-headline text-sm uppercase tracking-widest text-on-surface-variant">
-          Battle History
+          {t('battleHistory')}
         </h3>
-        <Badge variant="tertiary" size="sm">{stats.totalBattles} played</Badge>
+        <Badge variant="tertiary" size="sm">{t('played', { count: stats.totalBattles })}</Badge>
       </div>
 
       {/* Stats strip */}
       <div className="grid grid-cols-4 gap-3 mb-5">
         {[
-          { label: 'Decisive', value: String(decisive), accent: BRAND.primary },
-          { label: 'Draws', value: String(stats.draws), accent: BRAND.secondary },
-          { label: 'Win Rate', value: stats.winRate, accent: BRAND.tertiary },
-          { label: 'Closest', value: closest ? Math.abs(closest.scoreA - closest.scoreB).toFixed(1) : '—', accent: SURFACE.onSurfaceVariant },
+          { label: t('decisive'), value: String(decisive), accent: BRAND.primary },
+          { label: t('draws'), value: String(stats.draws), accent: BRAND.secondary },
+          { label: t('winRate'), value: stats.winRate, accent: BRAND.tertiary },
+          { label: t('closest'), value: closest ? Math.abs(closest.scoreA - closest.scoreB).toFixed(1) : '—', accent: SURFACE.onSurfaceVariant },
         ].map((s) => (
           <div key={s.label} className="rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2.5 text-center">
             <div className="text-lg font-bold tabular-nums" style={{ color: s.accent }}>{s.value}</div>
@@ -610,8 +619,8 @@ function BattleHistory({ history }: { history: BattleHistoryEntry[] }) {
           />
         </div>
         <div className="flex justify-between mt-1 text-[10px] text-on-surface-variant">
-          <span>{stats.wins} decisive</span>
-          <span>{stats.draws} draws</span>
+          <span>{t('decisiveLower', { count: stats.wins })}</span>
+          <span>{t('drawsLower', { count: stats.draws })}</span>
         </div>
       </div>
 
@@ -634,8 +643,8 @@ function BattleHistory({ history }: { history: BattleHistoryEntry[] }) {
               <span className={`font-medium truncate max-w-[120px] text-right ${h.winnerSlug === h.playerBSlug ? 'text-secondary' : 'text-on-surface'}`}>
                 {h.playerBName}
               </span>
-              {isDraw && <Badge variant="tertiary" size="sm">DRAW</Badge>}
-              {!isDraw && gap > 10 && <Badge variant="primary" size="sm">KO</Badge>}
+              {isDraw && <Badge variant="tertiary" size="sm">{t('draw')}</Badge>}
+              {!isDraw && gap > 10 && <Badge variant="primary" size="sm">{t('knockout')}</Badge>}
             </div>
           )
         })}
@@ -645,6 +654,7 @@ function BattleHistory({ history }: { history: BattleHistoryEntry[] }) {
 }
 
 export default function PKBattleApp() {
+  const t = useTranslations('pkBattle')
   const [screen, setScreen] = useState<Screen>('select')
   const [playerA, setPlayerA] = useState<Player | null>(null)
   const [playerB, setPlayerB] = useState<Player | null>(null)
@@ -755,18 +765,17 @@ export default function PKBattleApp() {
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
-        <Badge variant="secondary" size="md">PK BATTLE</Badge>
+        <Badge variant="secondary" size="md">{t('badge')}</Badge>
         <h1 className="mt-4 font-headline text-4xl md:text-6xl uppercase tracking-wide">
-          Player<br />
-          <span className="gradient-text">vs Player</span>
+          {t('heroTitle1')}<br />
+          <span className="gradient-text">{t('heroTitle2')}</span>
         </h1>
         <p className="mt-3 text-on-surface-variant text-base max-w-lg mx-auto">
-          Pick two players from any of the 48 World Cup squads and see who comes out on top.
-          Rating, experience, fitness, morale, and positional matchup all factor in.
+          {t('heroDescription')}
         </p>
         {battleCount > 0 && (
           <div className="mt-2 text-xs text-on-surface-variant">
-            {battleCount} {battleCount === 1 ? 'battle' : 'battles'} this session
+            {t('battlesThisSession', { count: battleCount })}
           </div>
         )}
       </div>
@@ -786,20 +795,20 @@ export default function PKBattleApp() {
           />
           <div className="flex items-center justify-between">
             <div>
-              <Badge variant="tertiary" size="sm">DAILY DUEL</Badge>
+              <Badge variant="tertiary" size="sm">{t('dailyDuel')}</Badge>
               <div className="mt-2 flex items-center gap-3">
-                <span className="text-xl">{TEAMS.find((t) => t.slug === dailyDuel.playerA.teamSlug)?.flag}</span>
+                <span className="text-xl">{TEAMS.find((tm) => tm.slug === dailyDuel.playerA.teamSlug)?.flag}</span>
                 <span className="font-headline text-sm uppercase tracking-tight text-on-surface">{dailyDuel.playerA.name}</span>
-                <span className="text-xs text-on-surface-variant">vs</span>
+                <span className="text-xs text-on-surface-variant">{t('vs')}</span>
                 <span className="font-headline text-sm uppercase tracking-tight text-on-surface">{dailyDuel.playerB.name}</span>
-                <span className="text-xl">{TEAMS.find((t) => t.slug === dailyDuel.playerB.teamSlug)?.flag}</span>
+                <span className="text-xl">{TEAMS.find((tm) => tm.slug === dailyDuel.playerB.teamSlug)?.flag}</span>
               </div>
             </div>
             <button
               onClick={() => { setPlayerA(dailyDuel.playerA); setPlayerB(dailyDuel.playerB) }}
               className="shrink-0 rounded-xl bg-tertiary/15 border border-tertiary/30 px-5 py-2 font-label text-xs font-semibold uppercase tracking-widest text-tertiary hover:bg-tertiary/25 transition-colors"
             >
-              Play
+              {t('play')}
             </button>
           </div>
         </GlassCard>
@@ -808,7 +817,7 @@ export default function PKBattleApp() {
       {/* Quick Mode Buttons */}
       <div>
         <h3 className="font-headline text-sm uppercase tracking-widest text-on-surface-variant mb-3 text-center">
-          Quick Modes
+          {t('quickModes')}
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {QUICK_MODES.map((mode) => (
@@ -829,13 +838,13 @@ export default function PKBattleApp() {
       {/* Player selectors */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <PlayerSelector
-          label="Player A"
+          label={t('playerA')}
           selected={playerA}
           onSelect={setPlayerA}
           otherSelected={playerB}
         />
         <PlayerSelector
-          label="Player B"
+          label={t('playerB')}
           selected={playerB}
           onSelect={setPlayerB}
           otherSelected={playerA}
@@ -848,37 +857,37 @@ export default function PKBattleApp() {
           onClick={handleRandomize}
           className="rounded-2xl border border-white/20 px-8 py-3 font-label font-semibold uppercase tracking-widest text-on-surface hover:bg-white/[0.06] transition-colors"
         >
-          Random Matchup
+          {t('randomMatchup')}
         </button>
         <button
           onClick={handleFight}
           disabled={!playerA || !playerB || (!isPremium && !canBattleFree())}
           className="rounded-2xl bg-gradient-to-r from-primary to-primaryFixed px-10 py-3 font-label font-bold uppercase tracking-widest text-on-primary transition-all hover:shadow-[0_0_30px_rgba(160,212,148,0.3)] disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none"
         >
-          {!isPremium && !canBattleFree() ? 'Limit Reached' : 'Fight!'}
+          {!isPremium && !canBattleFree() ? t('limitReached') : t('fight')}
         </button>
         <button
           onClick={handleBo5}
           disabled={!playerA || !playerB || !isPremium}
           className="rounded-2xl border border-tertiary/30 bg-tertiary/10 px-8 py-3 font-label font-semibold uppercase tracking-widest text-tertiary transition-all hover:bg-tertiary/20 disabled:opacity-30 disabled:cursor-not-allowed"
-          title={!isPremium ? 'Premium feature — upgrade to unlock' : undefined}
+          title={!isPremium ? t('bestOfFiveTooltip') : undefined}
         >
-          Best of 5
+          {t('bestOfFive')}
         </button>
       </div>
 
       {/* Featured Duels */}
       <GlassCard className="p-6">
         <h3 className="font-headline text-sm uppercase tracking-widest text-on-surface-variant mb-4 text-center">
-          Featured Duels
+          {t('featuredDuels')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {FEATURED_DUELS.map(([slugA, slugB]) => {
             const pA = PLAYERS.find((p) => p.slug === slugA)
             const pB = PLAYERS.find((p) => p.slug === slugB)
             if (!pA || !pB) return null
-            const tA = TEAMS.find((t) => t.slug === pA.teamSlug)
-            const tB = TEAMS.find((t) => t.slug === pB.teamSlug)
+            const teamA = TEAMS.find((tm) => tm.slug === pA.teamSlug)
+            const teamB = TEAMS.find((tm) => tm.slug === pB.teamSlug)
             return (
               <button
                 key={`${slugA}-${slugB}`}
@@ -886,12 +895,12 @@ export default function PKBattleApp() {
                 className="flex items-center justify-between rounded-xl border border-white/[0.06] px-4 py-3 text-left transition-all hover:border-primary/30 hover:bg-white/[0.03]"
               >
                 <span className="flex items-center gap-2 min-w-0">
-                  <span>{tA?.flag}</span>
+                  <span>{teamA?.flag}</span>
                   <span className="font-headline text-xs uppercase tracking-tight truncate">{pA.name}</span>
                 </span>
-                <span className="text-[10px] text-on-surface-variant mx-2 shrink-0">vs</span>
+                <span className="text-[10px] text-on-surface-variant mx-2 shrink-0">{t('vs')}</span>
                 <span className="flex items-center gap-2 min-w-0 flex-row-reverse">
-                  <span>{tB?.flag}</span>
+                  <span>{teamB?.flag}</span>
                   <span className="font-headline text-xs uppercase tracking-tight truncate text-right">{pB.name}</span>
                 </span>
               </button>
