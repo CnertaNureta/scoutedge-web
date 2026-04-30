@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
-import { jsonLdGraph } from '@/lib/og-utils'
+import { jsonLdGraph, buildOGMeta } from '@/lib/og-utils'
 import { getFixturesByTeam } from '@/lib/data-service'
 import { HOST_CITIES } from '@/data/cities-data'
 import { lingoPlayers } from '@/data/lingo-data'
@@ -22,7 +22,7 @@ import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export const revalidate = 300
@@ -33,29 +33,29 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params
+  const { slug, locale } = await params
   const pageData = await getTeamPageData(slug)
   if (!pageData) return { title: 'Team Not Found' }
 
   const { team, seoMeta } = pageData
   const seoTitle = seoMeta?.title?.replace(/ \| KickOracle$/, '') ?? null
+  const title = seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`
+  const description = seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`
+  const url = `https://kickoracle.com/teams/${slug}`
 
   return {
-    title: seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`,
-    description: seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`,
+    title,
+    description,
     keywords: `${team.name} World Cup 2026, ${team.name} squad, ${team.name} World Cup roster, World Cup 2026 Group ${team.group}`,
-    openGraph: {
+    alternates: { canonical: url },
+    ...buildOGMeta({
       title: `${team.name} — World Cup 2026 AI Analysis`,
       description: `Deep-dive into ${team.name}'s World Cup 2026 campaign. AI-powered predictions and player intelligence.`,
-      images: [{ url: getTeamHeroImage(slug), width: 1200, height: 630 }],
+      url,
+      locale,
       type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${team.name} — World Cup 2026 | KickOracle`,
-      description: `AI analysis: ${team.name} in Group ${team.group}. Chemistry Index: ${team.chemistry}/100.`,
-    },
-    alternates: { canonical: `https://kickoracle.com/teams/${slug}` },
+      image: getTeamHeroImage(slug),
+    }),
   }
 }
 

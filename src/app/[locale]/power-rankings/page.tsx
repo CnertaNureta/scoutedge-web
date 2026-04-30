@@ -6,6 +6,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import type { Team } from '@/lib/types'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -19,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
