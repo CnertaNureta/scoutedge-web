@@ -1,4 +1,5 @@
 import type { Team } from '@/lib/types'
+import { getTranslations } from 'next-intl/server'
 import { getTeamColors } from '@/lib/team-colors'
 import PullQuote from '@/components/ui/PullQuote'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -8,7 +9,8 @@ interface IntelligenceReportProps {
   team: Team
 }
 
-export default function IntelligenceReport({ team }: IntelligenceReportProps) {
+export default async function IntelligenceReport({ team }: IntelligenceReportProps) {
+  const t = await getTranslations('intelligenceReport')
   const colors = getTeamColors(team.slug)
 
   return (
@@ -20,9 +22,9 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
           style={{ backgroundColor: colors.primary }}
         />
         <div>
-          <SectionHeader className="!mb-0">Intelligence Report</SectionHeader>
+          <SectionHeader className="!mb-0">{t('title')}</SectionHeader>
           <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
-            AI-Powered Analysis
+            {t('subtitle')}
           </p>
         </div>
       </div>
@@ -33,7 +35,7 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
           {/* Key Insight pull quote */}
           {team.keyInsight && (
             <div className="mb-8">
-              <PullQuote accentColor={colors.primary} source="AI Analysis Engine">
+              <PullQuote accentColor={colors.primary} source={t('aiAnalysisEngine')}>
                 {team.keyInsight}
               </PullQuote>
             </div>
@@ -54,7 +56,7 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
         </div>
 
         {/* Sidebar — quick reference card */}
-        <aside className="space-y-6" aria-label="Team quick reference">
+        <aside className="space-y-6" aria-label={t('ariaQuickReference')}>
           {/* Quick Stats card */}
           <div
             className="rounded-2xl p-6 border"
@@ -67,31 +69,31 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
               className="font-label text-xs font-bold uppercase tracking-[0.15em] mb-4"
               style={{ color: colors.glow }}
             >
-              Quick Reference
+              {t('quickReference')}
             </h4>
             <dl className="space-y-3">
               <div className="flex justify-between items-baseline">
-                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">FIFA Rank</dt>
+                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('fifaRank')}</dt>
                 <dd className="font-headline text-lg">#{team.fifaRanking}</dd>
               </div>
               <div className="h-px bg-white/[0.06]" />
               <div className="flex justify-between items-baseline">
-                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Group</dt>
+                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('group')}</dt>
                 <dd className="font-headline text-lg">{team.group}</dd>
               </div>
               <div className="h-px bg-white/[0.06]" />
               <div className="flex justify-between items-baseline">
-                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Chemistry</dt>
+                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('chemistry')}</dt>
                 <dd className="font-headline text-lg" style={{ color: colors.glow }}>{team.chemistry}</dd>
               </div>
               <div className="h-px bg-white/[0.06]" />
               <div className="flex justify-between items-baseline">
-                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Coach</dt>
+                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('coach')}</dt>
                 <dd className="font-body text-sm text-on-surface">{team.coachName}</dd>
               </div>
               <div className="h-px bg-white/[0.06]" />
               <div className="flex justify-between items-baseline">
-                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">Confederation</dt>
+                <dt className="font-label text-xs text-on-surface-variant uppercase tracking-widest">{t('confederation')}</dt>
                 <dd className="font-body text-sm text-on-surface">{team.confederation}</dd>
               </div>
             </dl>
@@ -116,13 +118,13 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
                 className="font-label text-xs font-bold uppercase tracking-[0.15em] mb-3"
                 style={{ color: colors.glow }}
               >
-                Historical Archetype
+                {t('historicalArchetype')}
               </h4>
               <p className="font-body text-base text-on-surface leading-relaxed">
                 {team.archetypeMatch}
               </p>
               <p className="font-label text-[10px] text-on-surface-variant/60 mt-3 uppercase tracking-widest">
-                Past World Cup team with closest style match
+                {t('archetypeNote')}
               </p>
             </div>
           )}
@@ -130,7 +132,7 @@ export default function IntelligenceReport({ team }: IntelligenceReportProps) {
           {/* Source attribution */}
           <div className="text-center py-4">
             <p className="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-[0.2em]">
-              AI analysis based on 50,000+ data points
+              {t('aiSourceAttribution')}
             </p>
           </div>
         </aside>

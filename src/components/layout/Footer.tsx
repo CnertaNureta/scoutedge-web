@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
+import { SUPPORTED_LOCALES, LOCALE_CONFIGS } from '@/i18n/locales'
 import KickOracleLogo from '../ui/ScoutEdgeLogo'
 
 export default function Footer() {
@@ -65,6 +66,32 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Language picker — passes link equity to all locale homepages
+            and helps Google discover the localized URL space */}
+        <div className="mt-12 pt-8 border-t border-outline-variant/10">
+          <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-4">
+            Languages
+          </h6>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-on-surface-variant">
+            {SUPPORTED_LOCALES.map((loc) => {
+              const cfg = LOCALE_CONFIGS[loc]
+              const href = loc === 'en' ? 'https://kickoracle.com/' : `https://kickoracle.com/${loc}`
+              return (
+                <li key={loc}>
+                  <a
+                    href={href}
+                    hrefLang={cfg.hreflang}
+                    className="hover:text-on-surface transition-colors text-sm"
+                  >
+                    <span aria-hidden="true" className="mr-1.5">{cfg.flag}</span>
+                    {cfg.nativeName}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+
         <div className="mt-12 pt-8 border-t border-outline-variant/10 space-y-3">
           <p className="text-xs text-on-surface-variant/60 leading-relaxed max-w-4xl">
             {t('disclaimer')}
@@ -76,9 +103,10 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center text-xs text-on-surface-variant gap-4">
           <span>&copy; {t('copyright')}</span>
-          <div className="flex space-x-8">
+          <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center">
             <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">{t('privacyPolicy')}</Link>
             <Link href="/terms-of-service" className="hover:text-on-surface transition-colors">{t('termsOfService')}</Link>
+            <a href="/sitemap.xml" className="hover:text-on-surface transition-colors">Sitemap</a>
           </div>
         </div>
       </div>

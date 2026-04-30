@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
+import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
+import { jsonLdGraph } from '@/lib/og-utils'
+import { getFixturesByTeam } from '@/lib/data-service'
+import { HOST_CITIES } from '@/data/cities-data'
+import { lingoPlayers } from '@/data/lingo-data'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
@@ -13,6 +19,7 @@ import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -57,42 +64,69 @@ export default async function TeamPage({ params }: PageProps) {
   const pageData = await getTeamPageData(slug)
   if (!pageData) notFound()
 
+  const t = await getTranslations('teamsPage')
   const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
 
-  const jsonLd = {
+  // Cross-section linking data
+  const fixtures = getFixturesByTeam(slug)
+  const teamCityNames = Array.from(new Set(fixtures.map((f) => f.city)))
+  const teamCities = teamCityNames
+    .map((name) => HOST_CITIES.find((c) => c.name === name))
+    .filter((c): c is NonNullable<typeof c> => c !== undefined)
+  const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
+
+  const teamUrl = `https://kickoracle.com/teams/${slug}`
+  const sportsTeamLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsTeam',
     name: team.name,
-    sport: 'Football',
+    alternateName: `${team.name} national football team`,
+    url: teamUrl,
+    sport: 'Association Football',
+    image: getTeamHeroImage(slug),
     coach: { '@type': 'Person', name: team.coachName },
-    memberOf: { '@type': 'SportsOrganization', name: 'FIFA World Cup 2026' },
+    memberOf: [
+      { '@type': 'SportsOrganization', name: 'FIFA' },
+      { '@type': 'SportsOrganization', name: team.confederation },
+    ],
+    athlete: players.slice(0, 23).map((p) => ({
+      '@type': 'Person',
+      name: p.name,
+      url: `${teamUrl}/players/${p.slug}`,
+      ...(p.position && { jobTitle: p.position }),
+    })),
     location: { '@type': 'Country', name: team.name },
   }
 
-  const faqJsonLd = teamFaq ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: teamFaq.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  } : null
+  const faqLd = teamFaq
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: teamFaq.faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: { '@type': 'Answer', text: f.answer },
+        })),
+      }
+    : null
+
+  const graph = jsonLdGraph(faqLd ? [sportsTeamLd, faqLd] : [sportsTeamLd])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
-      {faqJsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      )}
 
       <TeamHero team={team} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Teams', href: '/teams' },
+          { name: team.name, href: `/teams/${slug}` },
+        ]}
+      />
       <TeamStats team={team} />
 
       {/* Head Coach */}
@@ -111,7 +145,7 @@ export default async function TeamPage({ params }: PageProps) {
       {teamFaq && teamFaq.faqs.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Frequently Asked Questions
+            {t('frequentlyAsked')}
           </h2>
           <div className="space-y-3">
             {teamFaq.faqs.map((faq, i) => (
@@ -132,11 +166,76 @@ export default async function TeamPage({ params }: PageProps) {
       {groupTeams.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-20">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            More from Group {team.group}
+            {t('moreFromGroup', { group: team.group })}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {groupTeams.map((t) => (
-              <TeamCard key={t.slug} team={t} />
+            {groupTeams.map((groupTeam) => (
+              <TeamCard key={groupTeam.slug} team={groupTeam} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Group rivals — direct compare links */}
+      {groupTeams.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            Compare {team.name} vs Group {team.group} rivals
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {groupTeams.map((rival) => (
+              <Link
+                key={rival.slug}
+                href={`/compare/${slug}-vs-${rival.slug}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
+              >
+                {team.name} vs {rival.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Where they play — host cities for this team's fixtures */}
+      {teamCities.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            Where {team.name} plays — World Cup 2026 host cities
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {teamCities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cities/${c.slug}`}
+                className="block p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group"
+              >
+                <p className="font-headline text-base font-bold tracking-tight group-hover:text-tertiary transition-colors">
+                  {c.name}
+                </p>
+                <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
+                  {c.country} guide
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Pronunciation links — connect to /lingo/players */}
+      {pronunciationLinks.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-20">
+          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
+            How to pronounce {team.name} player names
+          </h2>
+          <div className="flex flex-wrap gap-3">
+            {pronunciationLinks.map((lp) => (
+              <Link
+                key={lp.id}
+                href={`/lingo/players/${lp.id}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-secondary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-secondary"
+              >
+                Pronounce {lp.name}
+              </Link>
             ))}
           </div>
         </section>

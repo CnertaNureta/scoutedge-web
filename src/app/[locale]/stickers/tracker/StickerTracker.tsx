@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
+import { useTranslations } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 
 /* ─── Types ───────────────────────────────────────────────────── */
@@ -28,12 +29,12 @@ const TOTAL_SPECIAL_STICKERS = 76
 const TOTAL_STICKERS = TOTAL_TEAM_STICKERS + TOTAL_SPECIAL_STICKERS
 
 const SPECIAL_CATEGORIES = [
-  { name: 'Tournament Logo & Branding', start: 1, count: 10 },
-  { name: 'Host Cities', start: 11, count: 16 },
-  { name: 'Stadiums', start: 27, count: 16 },
-  { name: 'Legends', start: 43, count: 20 },
-  { name: 'Trophy & Mascot', start: 63, count: 8 },
-  { name: 'Fair Play & Moments', start: 71, count: 6 },
+  { id: 'logos', start: 1, count: 10 },
+  { id: 'hostCities', start: 11, count: 16 },
+  { id: 'stadiums', start: 27, count: 16 },
+  { id: 'legends', start: 43, count: 20 },
+  { id: 'trophyMascot', start: 63, count: 8 },
+  { id: 'fairPlay', start: 71, count: 6 },
 ] as const
 
 const GROUP_COLORS: Record<string, string> = {
@@ -90,10 +91,12 @@ function ProgressRing({
   percentage,
   size = 160,
   strokeWidth = 10,
+  completeLabel,
 }: {
   percentage: number
   size?: number
   strokeWidth?: number
+  completeLabel: string
 }) {
   const radius = (size - strokeWidth) / 2
   const circumference = 2 * Math.PI * radius
@@ -134,7 +137,7 @@ function ProgressRing({
         <span className="font-mono text-3xl font-bold text-on-surface tabular-nums">
           {percentage.toFixed(1)}%
         </span>
-        <span className="text-xs text-on-surface-variant uppercase tracking-wider mt-0.5">Complete</span>
+        <span className="text-xs text-on-surface-variant uppercase tracking-wider mt-0.5">{completeLabel}</span>
       </div>
     </div>
   )
@@ -168,12 +171,14 @@ function StickerSlot({
   teamColor,
   teamSlug,
   onToggle,
+  ariaLabel,
 }: {
   index: number
   collected: boolean
   teamColor: string
   teamSlug: string
   onToggle: (slug: string, index: number) => void
+  ariaLabel: string
 }) {
   const [bursting, setBursting] = useState(false)
   const prevCollected = useRef(collected)
@@ -203,7 +208,7 @@ function StickerSlot({
         background: teamColor,
         boxShadow: `0 0 12px ${teamColor}40`,
       } : undefined}
-      aria-label={`Sticker ${index + 1} ${collected ? '(collected)' : '(missing)'}`}
+      aria-label={ariaLabel}
     >
       {index + 1}
       <CollectBurst active={bursting} color={teamColor} />
@@ -217,10 +222,12 @@ function SpecialSlot({
   index,
   collected,
   onToggle,
+  ariaLabel,
 }: {
   index: number
   collected: boolean
   onToggle: (index: number) => void
+  ariaLabel: string
 }) {
   const [bursting, setBursting] = useState(false)
   const prevCollected = useRef(collected)
@@ -250,7 +257,7 @@ function SpecialSlot({
         background: 'linear-gradient(135deg, #e9c400, #ffb4aa)',
         boxShadow: '0 0 12px rgba(233,196,0,0.3)',
       } : undefined}
-      aria-label={`Special sticker ${index + 1} ${collected ? '(collected)' : '(missing)'}`}
+      aria-label={ariaLabel}
     >
       S{index + 1}
       <CollectBurst active={bursting} color="#e9c400" />
@@ -269,6 +276,7 @@ function TeamCard({
   onToggleSticker,
   onMarkAll,
   onClearAll,
+  labels,
 }: {
   team: TeamData
   collected: number[]
@@ -278,6 +286,12 @@ function TeamCard({
   onToggleSticker: (slug: string, index: number) => void
   onMarkAll: (slug: string) => void
   onClearAll: (slug: string) => void
+  labels: {
+    done: string
+    markAll: string
+    clearAll: string
+    stickerLabel: (n: number, collected: boolean) => string
+  }
 }) {
   const count = collected.length
   const pct = (count / STICKERS_PER_TEAM) * 100
@@ -311,7 +325,7 @@ function TeamCard({
             </span>
             {isComplete && (
               <span className="shrink-0 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/15 px-1.5 py-0.5 rounded-full">
-                Done
+                {labels.done}
               </span>
             )}
           </div>
@@ -358,7 +372,7 @@ function TeamCard({
                          bg-primary/10 text-primary border border-primary/20
                          hover:bg-primary/20 transition-colors"
             >
-              Mark All
+              {labels.markAll}
             </button>
             <button
               type="button"
@@ -367,7 +381,7 @@ function TeamCard({
                          bg-white/[0.04] text-on-surface-variant border border-white/[0.08]
                          hover:bg-white/[0.08] transition-colors"
             >
-              Clear All
+              {labels.clearAll}
             </button>
           </div>
 
@@ -380,6 +394,7 @@ function TeamCard({
                 teamColor={groupColor}
                 teamSlug={team.slug}
                 onToggle={onToggleSticker}
+                ariaLabel={labels.stickerLabel(i + 1, collected.includes(i))}
               />
             ))}
           </div>
@@ -392,6 +407,7 @@ function TeamCard({
 /* ─── Main Tracker Component ──────────────────────────────────── */
 
 export default function StickerTracker({ teams }: { teams: TeamData[] }) {
+  const t = useTranslations('stickerTracker')
   const [state, setState] = useState<TrackerState>(createEmptyState)
   const [hydrated, setHydrated] = useState(false)
   const [expandedTeam, setExpandedTeam] = useState<string | null>(null)
@@ -507,15 +523,29 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
     return sorted
   }, [teams, search, sortMode, state])
 
+  const teamCardLabels = useMemo(
+    () => ({
+      done: t('done'),
+      markAll: t('markAll'),
+      clearAll: t('clearAll'),
+      stickerLabel: (n: number, collected: boolean) =>
+        t('stickerLabel', {
+          n,
+          status: collected ? t('stickerStatusCollected') : t('stickerStatusMissing'),
+        }),
+    }),
+    [t]
+  )
+
   /* ─── Group boundaries for headers ─── */
 
   const teamsWithGroupHeaders = useMemo(() => {
-    if (sortMode !== 'group') return sortedTeams.map((t) => ({ team: t, isGroupStart: false }))
+    if (sortMode !== 'group') return sortedTeams.map((tm) => ({ team: tm, isGroupStart: false }))
     let lastGroup = ''
-    return sortedTeams.map((t) => {
-      const isGroupStart = t.group !== lastGroup
-      lastGroup = t.group
-      return { team: t, isGroupStart }
+    return sortedTeams.map((tm) => {
+      const isGroupStart = tm.group !== lastGroup
+      lastGroup = tm.group
+      return { team: tm, isGroupStart }
     })
   }, [sortedTeams, sortMode])
 
@@ -523,37 +553,41 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
 
   const exportProgress = useCallback(() => {
     const lines: string[] = [
-      `World Cup 2026 Sticker Album Progress`,
-      `Total: ${stats.totalOwned}/${stats.totalPossible} (${stats.pct.toFixed(1)}%)`,
-      `Team stickers: ${stats.teamCollected}/${TOTAL_TEAM_STICKERS}`,
-      `Special stickers: ${stats.specialCollected}/${TOTAL_SPECIAL_STICKERS}`,
+      t('exportHeading'),
+      t('exportTotal', {
+        owned: stats.totalOwned,
+        total: stats.totalPossible,
+        pct: stats.pct.toFixed(1),
+      }),
+      t('exportTeam', { owned: stats.teamCollected, total: TOTAL_TEAM_STICKERS }),
+      t('exportSpecial', { owned: stats.specialCollected, total: TOTAL_SPECIAL_STICKERS }),
       '',
     ]
 
-    const groups = Array.from(new Set(teams.map((t) => t.group))).sort()
+    const groups = Array.from(new Set(teams.map((tm) => tm.group))).sort()
     for (const g of groups) {
-      const groupTeams = teams.filter((t) => t.group === g)
-      lines.push(`Group ${g}:`)
-      for (const t of groupTeams) {
-        const c = getTeamCollected(state, t.slug)
+      const groupTeams = teams.filter((tm) => tm.group === g)
+      lines.push(t('exportGroup', { group: g }))
+      for (const tm of groupTeams) {
+        const c = getTeamCollected(state, tm.slug)
         const bar = Array.from({ length: STICKERS_PER_TEAM }, (_, i) =>
           c.includes(i) ? '#' : '.'
         ).join('')
-        lines.push(`  ${t.flag} ${t.name}: [${bar}] ${c.length}/${STICKERS_PER_TEAM}`)
+        lines.push(`  ${tm.flag} ${tm.name}: [${bar}] ${c.length}/${STICKERS_PER_TEAM}`)
       }
       lines.push('')
     }
 
     const missing = TOTAL_STICKERS - stats.totalOwned
-    lines.push(`Missing: ${missing} stickers`)
-    lines.push(`kickoracle.com/stickers/tracker`)
+    lines.push(t('exportMissing', { count: missing }))
+    lines.push('kickoracle.com/stickers/tracker')
 
     const text = lines.join('\n')
     navigator.clipboard.writeText(text).then(
-      () => setToastMsg('Progress copied to clipboard!'),
-      () => setToastMsg('Could not copy — check clipboard permissions')
+      () => setToastMsg(t('copySuccess')),
+      () => setToastMsg(t('copyFailed'))
     )
-  }, [state, stats, teams])
+  }, [state, stats, teams, t])
 
   /* ─── Render ────────────────────────────────────────────────── */
 
@@ -569,7 +603,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
     <div className="space-y-10">
       {/* ── Overview Stats ── */}
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-        <ProgressRing percentage={stats.pct} />
+        <ProgressRing percentage={stats.pct} completeLabel={t('complete')} />
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 flex-1 w-full">
           <GlassCard className="p-4 text-center">
@@ -577,7 +611,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
               {stats.totalOwned}
             </span>
             <span className="text-[11px] text-on-surface-variant uppercase tracking-wider">
-              Collected
+              {t('collected')}
             </span>
           </GlassCard>
           <GlassCard className="p-4 text-center">
@@ -585,7 +619,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
               {stats.totalPossible}
             </span>
             <span className="text-[11px] text-on-surface-variant uppercase tracking-wider">
-              Total
+              {t('total')}
             </span>
           </GlassCard>
           <GlassCard className="p-4 text-center">
@@ -593,7 +627,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
               {stats.pct.toFixed(1)}%
             </span>
             <span className="text-[11px] text-on-surface-variant uppercase tracking-wider">
-              Complete
+              {t('complete')}
             </span>
           </GlassCard>
           <GlassCard className="p-4 text-center">
@@ -601,7 +635,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
               {stats.duplicates}
             </span>
             <span className="text-[11px] text-on-surface-variant uppercase tracking-wider">
-              Duplicates
+              {t('duplicates')}
             </span>
           </GlassCard>
         </div>
@@ -621,7 +655,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search teams or group..."
+            placeholder={t('searchPlaceholder')}
             className="w-full pl-9 pr-4 py-2.5 rounded-xl bg-surface-container border border-white/[0.08]
                        text-sm text-on-surface placeholder:text-on-surface-variant/50
                        focus:outline-none focus:border-primary/40 transition-colors"
@@ -631,14 +665,14 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
         {/* Sort */}
         <div className="flex gap-1 bg-surface-container rounded-xl border border-white/[0.08] p-1">
           {([
-            ['group', 'Group'],
-            ['completion', 'Progress'],
-            ['alpha', 'A-Z'],
+            ['group', t('sortGroup')],
+            ['completion', t('sortProgress')],
+            ['alpha', t('sortAlpha')],
           ] as const).map(([key, label]) => (
             <button
               key={key}
               type="button"
-              onClick={() => setSortMode(key)}
+              onClick={() => setSortMode(key as SortMode)}
               className={`
                 text-[11px] font-label font-bold uppercase tracking-wider px-3 py-1.5 rounded-lg transition-all
                 ${sortMode === key
@@ -662,14 +696,14 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
             <path strokeLinecap="round" strokeLinejoin="round"
               d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
           </svg>
-          Export
+          {t('export')}
         </button>
       </div>
 
       {/* ── Team Grid ── */}
       <section>
         <h2 className="font-headline text-2xl uppercase tracking-tight text-on-surface mb-6">
-          Teams <span className="text-on-surface-variant font-mono text-base">({sortedTeams.length})</span>
+          {t('teams')} <span className="text-on-surface-variant font-mono text-base">{t('teamCount', { count: sortedTeams.length })}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
@@ -682,7 +716,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
                   <div className="col-span-full flex items-center gap-2 mb-2 mt-4 first:mt-0">
                     <div className="w-2 h-2 rounded-full" style={{ background: groupColor }} />
                     <span className="font-headline text-sm uppercase tracking-wider text-on-surface-variant">
-                      Group {team.group}
+                      {t('group', { group: team.group })}
                     </span>
                     <div className="flex-1 h-px bg-white/[0.06]" />
                   </div>
@@ -696,6 +730,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
                   onToggleSticker={toggleTeamSticker}
                   onMarkAll={markAllForTeam}
                   onClearAll={clearAllForTeam}
+                  labels={teamCardLabels}
                 />
               </div>
             )
@@ -704,7 +739,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
 
         {sortedTeams.length === 0 && (
           <div className="text-center py-12 text-on-surface-variant">
-            No teams match &ldquo;{search}&rdquo;
+            {t('noTeamsMatch', { query: search })}
           </div>
         )}
       </section>
@@ -718,7 +753,7 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
         >
           <div className="w-1 h-8 rounded-full bg-tertiary shrink-0" />
           <h2 className="font-headline text-2xl uppercase tracking-tight text-on-surface">
-            Tournament Specials
+            {t('tournamentSpecials')}
           </h2>
           <span className="font-mono text-sm text-on-surface-variant tabular-nums">
             {state.specials.length}/{TOTAL_SPECIAL_STICKERS}
@@ -735,10 +770,10 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
         {showSpecials && (
           <div className="mt-4 space-y-6 animate-fade-in-up" style={{ animationDuration: '0.25s' }}>
             {SPECIAL_CATEGORIES.map((cat) => (
-              <GlassCard key={cat.name} className="p-4">
+              <GlassCard key={cat.id} className="p-4">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-headline text-sm uppercase tracking-tight text-on-surface">
-                    {cat.name}
+                    {t(`categories.${cat.id}`)}
                   </h3>
                   <span className="font-mono text-xs text-on-surface-variant tabular-nums">
                     {Array.from({ length: cat.count }, (_, i) => cat.start + i - 1).filter((idx) =>
@@ -756,6 +791,12 @@ export default function StickerTracker({ teams }: { teams: TeamData[] }) {
                         index={idx}
                         collected={state.specials.includes(idx)}
                         onToggle={toggleSpecialSticker}
+                        ariaLabel={t('specialStickerLabel', {
+                          n: idx + 1,
+                          status: state.specials.includes(idx)
+                            ? t('stickerStatusCollected')
+                            : t('stickerStatusMissing'),
+                        })}
                       />
                     )
                   })}

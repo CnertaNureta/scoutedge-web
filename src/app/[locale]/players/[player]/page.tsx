@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
@@ -33,11 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-const POSITION_LABELS: Record<string, string> = {
-  GK: 'Goalkeeper',
-  DEF: 'Defender',
-  MID: 'Midfielder',
-  FWD: 'Forward',
+const POSITION_KEYS: Record<string, 'positionGK' | 'positionDEF' | 'positionMID' | 'positionFWD'> = {
+  GK: 'positionGK',
+  DEF: 'positionDEF',
+  MID: 'positionMID',
+  FWD: 'positionFWD',
 }
 
 const FITNESS_VARIANT: Record<string, 'primary' | 'secondary' | 'outline'> = {
@@ -60,11 +61,19 @@ export default async function PlayerPage({ params }: Props) {
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) notFound()
 
+  const t = await getTranslations('playerPage')
   const team = getTeamBySlug(player.teamSlug)
   const teamName = team?.name ?? player.teamSlug.replace(/-/g, ' ')
   const teamFlag = team?.flag ?? ''
   const resolved = resolvePlayerStatus(player)
   const statusConfig = STATUS_CONFIG[resolved.status]
+  const positionKey = POSITION_KEYS[player.position]
+  const fitnessLabel =
+    player.fitnessStatus === 'green'
+      ? t('fullyFit')
+      : player.fitnessStatus === 'amber'
+        ? t('minorConcern')
+        : t('injuryRisk')
 
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: 'https://kickoracle.com' },
@@ -86,15 +95,15 @@ export default async function PlayerPage({ params }: Props) {
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/8 blur-[180px]" />
         <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full bg-tertiary/6 blur-[160px]" />
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="primary" size="md">{POSITION_LABELS[player.position] ?? player.position}</Badge>
+          <Badge variant="primary" size="md">{positionKey ? t(positionKey) : player.position}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mt-4 mb-2">
             {player.name}
           </h1>
           <p className="text-on-surface-variant text-xl mb-1">
-            {teamFlag} {teamName} &middot; #{player.number}
+            {t('metaSubtitle', { flag: teamFlag, team: teamName, number: player.number })}
           </p>
           <p className="text-on-surface-variant text-base">
-            {player.club} &middot; Age {player.age}
+            {t('clubAndAge', { club: player.club, age: player.age })}
           </p>
           <Link
             href={`/players/is-playing/${slug}`}
@@ -108,7 +117,7 @@ export default async function PlayerPage({ params }: Props) {
           >
             <span className="text-lg" aria-hidden>{statusConfig.emoji}</span>
             <span className="font-label text-sm uppercase tracking-wide">
-              WC 2026: {statusConfig.label}
+              {t('wc2026Status', { label: statusConfig.label })}
             </span>
           </Link>
         </div>
@@ -117,12 +126,12 @@ export default async function PlayerPage({ params }: Props) {
       {/* Stats */}
       <section className="max-w-[1440px] mx-auto px-6 pb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          <StatBox value={player.caps} label="Caps" />
-          <StatBox value={player.goals} label="Goals" />
-          <StatBox value={player.assists} label="Assists" />
-          <StatBox value={player.rating.toFixed(1)} label="Rating" />
-          <StatBox value={player.sentimentScore.toFixed(0)} label="Sentiment" />
-          <StatBox value={player.number} label="Squad #" />
+          <StatBox value={player.caps} label={t('caps')} />
+          <StatBox value={player.goals} label={t('goals')} />
+          <StatBox value={player.assists} label={t('assists')} />
+          <StatBox value={player.rating.toFixed(1)} label={t('rating')} />
+          <StatBox value={player.sentimentScore.toFixed(0)} label={t('sentiment')} />
+          <StatBox value={player.number} label={t('squadNumber')} />
         </div>
       </section>
 
@@ -131,7 +140,7 @@ export default async function PlayerPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Fitness */}
           <div>
-            <SectionHeader className="mb-6">Fitness Status</SectionHeader>
+            <SectionHeader className="mb-6">{t('fitnessStatus')}</SectionHeader>
             <GlassCard className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className={`w-3 h-3 rounded-full ${
@@ -140,8 +149,7 @@ export default async function PlayerPage({ params }: Props) {
                   'bg-red-500 animate-pulse'
                 }`} />
                 <Badge variant={FITNESS_VARIANT[player.fitnessStatus] ?? 'outline'}>
-                  {player.fitnessStatus === 'green' ? 'Fully Fit' :
-                   player.fitnessStatus === 'amber' ? 'Minor Concern' : 'Injury Risk'}
+                  {fitnessLabel}
                 </Badge>
               </div>
               <p className="text-on-surface-variant leading-relaxed">{player.fitnessNote}</p>
@@ -150,11 +158,11 @@ export default async function PlayerPage({ params }: Props) {
 
           {/* Tactical */}
           <div>
-            <SectionHeader className="mb-6">Scouting Report</SectionHeader>
+            <SectionHeader className="mb-6">{t('scoutingReport')}</SectionHeader>
             <GlassCard className="p-6 md:p-8">
               <div className="space-y-4">
                 <div className="flex justify-between items-baseline py-2 border-b border-white/[0.06]">
-                  <span className="text-on-surface-variant text-sm">Tactical Risk</span>
+                  <span className="text-on-surface-variant text-sm">{t('tacticalRisk')}</span>
                   <Badge variant={player.tacticalRisk === 'low' ? 'primary' : player.tacticalRisk === 'medium' ? 'secondary' : 'outline'}>
                     {player.tacticalRisk ?? 'unknown'}
                   </Badge>
@@ -163,7 +171,7 @@ export default async function PlayerPage({ params }: Props) {
                   <p className="text-on-surface-variant text-sm leading-relaxed">{player.tacticalNote}</p>
                 )}
                 <div className="flex justify-between items-baseline py-2 border-b border-white/[0.06]">
-                  <span className="text-on-surface-variant text-sm">Selection Risk</span>
+                  <span className="text-on-surface-variant text-sm">{t('selectionRisk')}</span>
                   <Badge variant={player.selectionRisk === 'low' ? 'primary' : player.selectionRisk === 'medium' ? 'secondary' : 'outline'}>
                     {player.selectionRisk ?? 'unknown'}
                   </Badge>
@@ -172,7 +180,7 @@ export default async function PlayerPage({ params }: Props) {
                   <p className="text-on-surface-variant text-sm leading-relaxed">{player.selectionNote}</p>
                 )}
                 <div className="flex justify-between items-baseline py-2 border-b border-white/[0.06]">
-                  <span className="text-on-surface-variant text-sm">Sentiment</span>
+                  <span className="text-on-surface-variant text-sm">{t('sentiment')}</span>
                   <span className="text-on-surface font-label text-sm">{player.sentimentLabel}</span>
                 </div>
               </div>
@@ -188,25 +196,25 @@ export default async function PlayerPage({ params }: Props) {
             href={`/players/is-playing/${slug}`}
             className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
           >
-            Is {player.name} Playing?
+            {t('isPlaying', { name: player.name })}
           </Link>
           <Link
             href={`/teams/${player.teamSlug}/players/${slug}`}
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            Full Profile on {teamName}
+            {t('fullProfileOn', { team: teamName })}
           </Link>
           <Link
             href={`/teams/${player.teamSlug}`}
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            {teamFlag} {teamName} Squad
+            {t('teamSquad', { flag: teamFlag, team: teamName })}
           </Link>
           <Link
             href="/teams"
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            All Teams
+            {t('allTeams')}
           </Link>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
@@ -15,10 +16,11 @@ const COUNTRY_FLAG: Record<string, string> = {
   CA: '\u{1F1E8}\u{1F1E6}',
 }
 
-const COUNTRY_LABELS: Record<string, string> = {
-  US: 'United States',
-  MX: 'Mexico',
-  CA: 'Canada',
+const SAFETY_KEYS: Record<HostCity['safety']['level'], 'safetyVerySafe' | 'safetySafe' | 'safetyModerate' | 'safetyCaution'> = {
+  'very safe': 'safetyVerySafe',
+  safe: 'safetySafe',
+  moderate: 'safetyModerate',
+  caution: 'safetyCaution',
 }
 
 export const metadata: Metadata = {
@@ -36,14 +38,14 @@ export const metadata: Metadata = {
   }),
 }
 
-function SafetyBadge({ level }: { level: HostCity['safety']['level'] }) {
+function SafetyBadge({ level, label }: { level: HostCity['safety']['level']; label: string }) {
   const variant: Record<string, 'primary' | 'tertiary' | 'secondary' | 'outline'> = {
     'very safe': 'primary',
     safe: 'tertiary',
     moderate: 'secondary',
     caution: 'outline',
   }
-  return <Badge variant={variant[level] ?? 'outline'}>{level}</Badge>
+  return <Badge variant={variant[level] ?? 'outline'}>{label}</Badge>
 }
 
 function PriceIndicator({ level }: { level: HostCity['food']['priceLevel'] }) {
@@ -57,7 +59,15 @@ function PriceIndicator({ level }: { level: HostCity['food']['priceLevel'] }) {
   )
 }
 
-function CityCard({ city, venueName }: { city: HostCity; venueName: string | undefined }) {
+function CityCard({
+  city,
+  venueName,
+  safetyLabel,
+}: {
+  city: HostCity
+  venueName: string | undefined
+  safetyLabel: string
+}) {
   const flag = COUNTRY_FLAG[city.countryCode] ?? ''
 
   return (
@@ -111,7 +121,7 @@ function CityCard({ city, venueName }: { city: HostCity; venueName: string | und
         </div>
 
         <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between">
-          <SafetyBadge level={city.safety.level} />
+          <SafetyBadge level={city.safety.level} label={safetyLabel} />
           <PriceIndicator level={city.food.priceLevel} />
         </div>
       </GlassCard>
@@ -119,10 +129,12 @@ function CityCard({ city, venueName }: { city: HostCity; venueName: string | und
   )
 }
 
-export default function CitiesPage() {
+export default async function CitiesPage() {
+  const t = await getTranslations('citiesPage')
   const allCities = getAllCities()
   const venues = getAllVenues()
   const venueMap = new Map(venues.map((v) => [v.id, v]))
+  void allCities
 
   const groups: Array<{ code: 'US' | 'MX' | 'CA'; count: number }> = [
     { code: 'US', count: getCitiesByCountry('US').length },
@@ -154,13 +166,12 @@ export default function CitiesPage() {
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-tertiary/8 blur-[180px]" />
         <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/6 blur-[160px]" />
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="tertiary" size="md">16 Host Cities</Badge>
+          <Badge variant="tertiary" size="md">{t('heroBadge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mt-4 mb-4">
-            Host Cities
+            {t('heroTitle')}
           </h1>
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
-            Everything you need to know about the 16 cities hosting the biggest World Cup
-            in history across the USA, Mexico, and Canada.
+            {t('heroDescription')}
           </p>
 
           {/* Country count pills */}
@@ -171,7 +182,7 @@ export default function CitiesPage() {
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-white/[0.08] text-sm font-label"
               >
                 <span>{COUNTRY_FLAG[code]}</span>
-                <span className="text-on-surface">{COUNTRY_LABELS[code]}</span>
+                <span className="text-on-surface">{t(`country.${code}`)}</span>
                 <span className="font-mono text-primary">({count})</span>
               </span>
             ))}
@@ -185,9 +196,9 @@ export default function CitiesPage() {
         return (
           <section key={code} className="max-w-[1440px] mx-auto px-6 pb-16">
             <SectionHeader className="mb-8">
-              {COUNTRY_FLAG[code]} {COUNTRY_LABELS[code]}{' '}
+              {COUNTRY_FLAG[code]} {t(`country.${code}`)}{' '}
               <span className="text-on-surface-variant text-2xl font-body font-normal normal-case tracking-normal">
-                ({count} {count === 1 ? 'city' : 'cities'})
+                {t('cityCount', { count })}
               </span>
             </SectionHeader>
 
@@ -197,6 +208,7 @@ export default function CitiesPage() {
                   key={city.slug}
                   city={city}
                   venueName={getVenueName(city)}
+                  safetyLabel={t(SAFETY_KEYS[city.safety.level])}
                 />
               ))}
             </div>
@@ -211,13 +223,13 @@ export default function CitiesPage() {
             href="/travel"
             className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
           >
-            Travel Guide
+            {t('travelGuide')}
           </Link>
           <Link
             href="/schedule"
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            Full Schedule
+            {t('fullSchedule')}
           </Link>
         </div>
       </section>

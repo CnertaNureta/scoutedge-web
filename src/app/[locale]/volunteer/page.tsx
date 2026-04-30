@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -7,44 +8,28 @@ import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
-const VOLUNTEER_PROGRAM = {
-  description:
-    'FIFA is recruiting over 30,000 volunteers across all 16 host cities for the 2026 World Cup. Volunteers play a vital role in delivering the tournament experience — from welcoming fans at airports to assisting with stadium operations.',
-  deadline: 'Applications expected to open late 2025 — register on FIFA+ for notifications.',
-  link: 'https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/canadamexicousa2026',
-  requirements: [
-    'Must be 18+ by June 2026',
-    'Fluency in English required; Spanish and French are strong advantages',
-    'Available for at least 10 days during the tournament (June 11 – July 19, 2026)',
-    'Background check required for all positions',
-    'Legally authorized to volunteer in the host country (USA, Canada, or Mexico)',
-    'Previous event or sports volunteer experience preferred but not required',
-  ],
-  benefits: [
-    'Official FIFA volunteer uniform and accreditation',
-    'Free meals during shifts',
-    'Free public transit pass for match days in your city',
-    'FIFA World Cup 2026 volunteer certificate',
-    'Access to volunteer celebration events',
-    'Once-in-a-lifetime experience at the largest World Cup in history',
-  ],
-  roles: [
-    { name: 'Spectator Services', description: 'Welcome fans, assist with wayfinding, answer questions at stadiums and fan zones.', commitment: '8-hour shifts on match days' },
-    { name: 'Transport & Logistics', description: 'Help manage fan flows at transit hubs, airports, and parking areas near venues.', commitment: '8-hour shifts, match & travel days' },
-    { name: 'Media Operations', description: 'Assist media representatives, manage press areas, support broadcast operations.', commitment: '10-hour shifts, full tournament' },
-    { name: 'Protocol & Hospitality', description: 'Support VIP and hospitality areas, assist with ceremonies and official events.', commitment: '10-hour shifts on event days' },
-    { name: 'Technology & IT Support', description: 'Assist with Wi-Fi, digital signage, VAR systems, and fan app troubleshooting.', commitment: '8-hour shifts + pre-tournament training' },
-    { name: 'Language Services', description: 'Provide interpretation and translation for international fans and delegations.', commitment: '8-hour shifts on match days' },
-  ],
-  faqs: [
-    { question: 'When do volunteer applications open?', answer: 'FIFA has not announced the exact date, but based on previous tournaments (Qatar 2022 opened 18 months before), applications are expected to open in late 2025. Register on FIFA+ to be notified.' },
-    { question: "Can I volunteer if I'm not a US/Canada/Mexico citizen?", answer: 'You must be legally authorized to volunteer in the host country. Check with your embassy for specifics on visa requirements for volunteer activity.' },
-    { question: 'Do volunteers get free tickets?', answer: 'Volunteers do not receive free match tickets, but you will be inside the stadium during matches in your assigned role.' },
-    { question: 'Can I choose which city to volunteer in?', answer: 'You can indicate your preferred city during the application, but assignments are based on need. Living near your chosen city improves your chances.' },
-    { question: 'Is accommodation provided?', answer: 'FIFA does not provide accommodation for volunteers. You are responsible for your own housing. Some cities may organize volunteer housing networks closer to the event.' },
-    { question: 'What training is provided?', answer: 'All volunteers receive online training modules and in-person orientation sessions 2-4 weeks before the tournament begins. Role-specific training is provided for specialized positions.' },
-  ],
-}
+const FIFA_LINK = 'https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/canadamexicousa2026'
+
+const REQUIREMENT_KEYS = ['requirement1', 'requirement2', 'requirement3', 'requirement4', 'requirement5', 'requirement6'] as const
+const BENEFIT_KEYS = ['benefit1', 'benefit2', 'benefit3', 'benefit4', 'benefit5', 'benefit6'] as const
+
+const ROLE_KEYS = [
+  { name: 'spectatorName', description: 'spectatorDescription', commitment: 'spectatorCommitment' },
+  { name: 'transportName', description: 'transportDescription', commitment: 'transportCommitment' },
+  { name: 'mediaName', description: 'mediaDescription', commitment: 'mediaCommitment' },
+  { name: 'protocolName', description: 'protocolDescription', commitment: 'protocolCommitment' },
+  { name: 'techName', description: 'techDescription', commitment: 'techCommitment' },
+  { name: 'languageName', description: 'languageDescription', commitment: 'languageCommitment' },
+] as const
+
+const FAQ_KEYS = [
+  { question: 'q1', answer: 'a1' },
+  { question: 'q2', answer: 'a2' },
+  { question: 'q3', answer: 'a3' },
+  { question: 'q4', answer: 'a4' },
+  { question: 'q5', answer: 'a5' },
+  { question: 'q6', answer: 'a6' },
+] as const
 
 const ogData = buildOGMeta({
   title: 'World Cup 2026 Volunteer Guide — How to Apply',
@@ -62,14 +47,9 @@ export const metadata: Metadata = {
   ...ogData,
 }
 
-const QUICK_STATS = [
-  { label: 'Volunteers Needed', value: '30,000+', sub: 'across all venues' },
-  { label: 'Host Cities', value: '16', sub: 'USA, Canada, Mexico' },
-  { label: 'Tournament Dates', value: 'Jun 11 – Jul 19', sub: '2026' },
-  { label: 'Min. Age', value: '18+', sub: 'by June 2026' },
-]
+export default async function VolunteerPage() {
+  const t = await getTranslations('volunteerPage')
 
-export default function VolunteerPage() {
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: 'https://kickoracle.com' },
     { name: 'Volunteer', url: 'https://kickoracle.com/volunteer' },
@@ -78,12 +58,19 @@ export default function VolunteerPage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: VOLUNTEER_PROGRAM.faqs.map((faq) => ({
+    mainEntity: FAQ_KEYS.map((faq) => ({
       '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      name: t(`faq.${faq.question}`),
+      acceptedAnswer: { '@type': 'Answer', text: t(`faq.${faq.answer}`) },
     })),
   }
+
+  const quickStats = [
+    { label: t('stats.volunteersNeeded'), value: '30,000+', sub: t('stats.volunteersSub') },
+    { label: t('stats.hostCities'), value: '16', sub: t('stats.hostCitiesSub') },
+    { label: t('stats.tournamentDates'), value: t('stats.tournamentDatesValue'), sub: t('stats.tournamentDatesSub') },
+    { label: t('stats.minAge'), value: t('stats.minAgeValue'), sub: t('stats.minAgeSub') },
+  ]
 
   return (
     <>
@@ -95,12 +82,12 @@ export default function VolunteerPage() {
         <div className="absolute inset-0 mesh-gradient" />
         <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-tertiary/8 blur-[180px]" />
         <div className="relative z-10 max-w-[1100px] mx-auto text-center">
-          <Badge variant="tertiary" size="md">Get Involved</Badge>
+          <Badge variant="tertiary" size="md">{t('heroBadge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mt-4 mb-4">
-            Volunteer<br /><span className="gradient-text">World Cup 2026</span>
+            {t('heroTitle1')}<br /><span className="gradient-text">{t('heroTitle2')}</span>
           </h1>
           <p className="text-on-surface-variant text-lg md:text-xl max-w-3xl mx-auto">
-            {VOLUNTEER_PROGRAM.description}
+            {t('description')}
           </p>
         </div>
       </section>
@@ -108,7 +95,7 @@ export default function VolunteerPage() {
       {/* Quick stats */}
       <section className="max-w-[1100px] mx-auto px-6 -mt-8 relative z-20 mb-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {QUICK_STATS.map((stat) => (
+          {quickStats.map((stat) => (
             <GlassCard key={stat.label} className="p-5 text-center">
               <p className="font-mono text-2xl md:text-3xl text-primary font-bold">{stat.value}</p>
               <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">{stat.label}</p>
@@ -124,15 +111,15 @@ export default function VolunteerPage() {
           <div className="flex items-start gap-4">
             <span className="text-4xl">📅</span>
             <div className="flex-1">
-              <h2 className="font-headline text-xl uppercase tracking-tight mb-1">Application Timeline</h2>
-              <p className="text-on-surface-variant text-sm mb-4">{VOLUNTEER_PROGRAM.deadline}</p>
+              <h2 className="font-headline text-xl uppercase tracking-tight mb-1">{t('applicationTimeline')}</h2>
+              <p className="text-on-surface-variant text-sm mb-4">{t('deadline')}</p>
               <a
-                href={VOLUNTEER_PROGRAM.link}
+                href={FIFA_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary text-on-primary px-5 py-2.5 rounded-xl font-label text-xs font-semibold uppercase tracking-widest hover:scale-105 transition-transform"
               >
-                Register on FIFA+ →
+                {t('registerCta')}
               </a>
             </div>
           </div>
@@ -141,26 +128,26 @@ export default function VolunteerPage() {
 
       {/* Requirements & Benefits */}
       <section className="max-w-[1100px] mx-auto px-6 mb-16">
-        <SectionHeader className="mb-10">Requirements & Benefits</SectionHeader>
+        <SectionHeader className="mb-10">{t('requirementsAndBenefits')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <GlassCard className="p-6 md:p-8">
-            <h3 className="font-headline text-lg uppercase tracking-tight mb-4">Requirements</h3>
+            <h3 className="font-headline text-lg uppercase tracking-tight mb-4">{t('requirements')}</h3>
             <ul className="space-y-3">
-              {VOLUNTEER_PROGRAM.requirements.map((req) => (
-                <li key={req} className="flex items-start gap-2 text-on-surface-variant text-sm">
+              {REQUIREMENT_KEYS.map((key) => (
+                <li key={key} className="flex items-start gap-2 text-on-surface-variant text-sm">
                   <span className="text-primary mt-0.5">●</span>
-                  {req}
+                  {t(key)}
                 </li>
               ))}
             </ul>
           </GlassCard>
           <GlassCard className="p-6 md:p-8">
-            <h3 className="font-headline text-lg uppercase tracking-tight mb-4">Benefits</h3>
+            <h3 className="font-headline text-lg uppercase tracking-tight mb-4">{t('benefits')}</h3>
             <ul className="space-y-3">
-              {VOLUNTEER_PROGRAM.benefits.map((b) => (
-                <li key={b} className="flex items-start gap-2 text-on-surface-variant text-sm">
+              {BENEFIT_KEYS.map((key) => (
+                <li key={key} className="flex items-start gap-2 text-on-surface-variant text-sm">
                   <span className="text-tertiary mt-0.5">✓</span>
-                  {b}
+                  {t(key)}
                 </li>
               ))}
             </ul>
@@ -170,13 +157,13 @@ export default function VolunteerPage() {
 
       {/* Roles */}
       <section className="max-w-[1100px] mx-auto px-6 mb-16">
-        <SectionHeader className="mb-10">Volunteer Roles</SectionHeader>
+        <SectionHeader className="mb-10">{t('rolesHeading')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {VOLUNTEER_PROGRAM.roles.map((role) => (
+          {ROLE_KEYS.map((role) => (
             <GlassCard key={role.name} className="p-6" hover>
-              <h3 className="font-headline text-base uppercase tracking-tight mb-2">{role.name}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed mb-3">{role.description}</p>
-              <Badge variant="outline" size="sm">{role.commitment}</Badge>
+              <h3 className="font-headline text-base uppercase tracking-tight mb-2">{t(`roles.${role.name}`)}</h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed mb-3">{t(`roles.${role.description}`)}</p>
+              <Badge variant="outline" size="sm">{t(`roles.${role.commitment}`)}</Badge>
             </GlassCard>
           ))}
         </div>
@@ -184,12 +171,12 @@ export default function VolunteerPage() {
 
       {/* FAQs */}
       <section className="max-w-[1100px] mx-auto px-6 mb-16">
-        <SectionHeader className="mb-10">Frequently Asked Questions</SectionHeader>
+        <SectionHeader className="mb-10">{t('faqHeading')}</SectionHeader>
         <div className="space-y-4">
-          {VOLUNTEER_PROGRAM.faqs.map((faq) => (
+          {FAQ_KEYS.map((faq) => (
             <GlassCard key={faq.question} className="p-6 md:p-7">
-              <h3 className="font-headline text-base uppercase tracking-tight mb-2">{faq.question}</h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">{faq.answer}</p>
+              <h3 className="font-headline text-base uppercase tracking-tight mb-2">{t(`faq.${faq.question}`)}</h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{t(`faq.${faq.answer}`)}</p>
             </GlassCard>
           ))}
         </div>
@@ -198,16 +185,16 @@ export default function VolunteerPage() {
       {/* CTA */}
       <section className="max-w-[1100px] mx-auto px-6 pb-20">
         <GlassCard className="p-8 md:p-12 text-center">
-          <h2 className="font-headline text-3xl md:text-4xl uppercase tracking-tight mb-4">Planning Your Trip Too?</h2>
+          <h2 className="font-headline text-3xl md:text-4xl uppercase tracking-tight mb-4">{t('ctaHeading')}</h2>
           <p className="text-on-surface-variant text-sm max-w-xl mx-auto mb-8">
-            Explore travel guides, visa requirements, and budget tools for all 16 host cities.
+            {t('ctaDescription')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link href="/travel" className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform inline-block">
-              Travel Guide
+              {t('travelGuide')}
             </Link>
             <Link href="/cities" className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:bg-white/5 transition-colors inline-block">
-              Host Cities
+              {t('hostCities')}
             </Link>
           </div>
         </GlassCard>

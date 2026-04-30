@@ -1,10 +1,11 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface TimeUnit {
   value: number
-  label: string
+  labelKey: 'days' | 'hours' | 'minutes' | 'seconds'
 }
 
 interface CountdownTimerProps {
@@ -22,14 +23,15 @@ function getTimeRemaining(target: Date): TimeUnit[] {
   const seconds = Math.floor((diff / 1000) % 60)
 
   return [
-    { value: days, label: 'Days' },
-    { value: hours, label: 'Hours' },
-    { value: minutes, label: 'Min' },
-    { value: seconds, label: 'Sec' },
+    { value: days, labelKey: 'days' },
+    { value: hours, labelKey: 'hours' },
+    { value: minutes, labelKey: 'minutes' },
+    { value: seconds, labelKey: 'seconds' },
   ]
 }
 
 export default function CountdownTimer({ targetDate, className = '' }: CountdownTimerProps) {
+  const t = useTranslations('countdown')
   const target = useMemo(() => new Date(targetDate), [targetDate])
   const [units, setUnits] = useState<TimeUnit[]>(getTimeRemaining(target))
 
@@ -40,18 +42,18 @@ export default function CountdownTimer({ targetDate, className = '' }: Countdown
     return () => clearInterval(interval)
   }, [target])
 
-  const ariaText = units.map((u) => `${u.value} ${u.label}`).join(', ')
+  const ariaText = units.map((u) => `${u.value} ${t(u.labelKey)}`).join(', ')
 
   return (
-    <div className={`flex items-center gap-3 sm:gap-5 ${className}`} role="timer" aria-label={`Countdown: ${ariaText}`}>
+    <div className={`flex items-center gap-3 sm:gap-5 ${className}`} role="timer" aria-label={t('ariaLabel', { time: ariaText })}>
       {units.map((unit, i) => (
-        <div key={unit.label} className="flex items-center gap-3 sm:gap-5">
+        <div key={unit.labelKey} className="flex items-center gap-3 sm:gap-5">
           <div className="flex flex-col items-center">
             <span className="font-headline text-3xl sm:text-5xl md:text-6xl tracking-tight text-on-surface tabular-nums leading-none">
               {String(unit.value).padStart(2, '0')}
             </span>
             <span className="font-label text-[10px] sm:text-xs text-on-surface-variant uppercase tracking-widest font-medium mt-1">
-              {unit.label}
+              {t(unit.labelKey)}
             </span>
           </div>
           {i < units.length - 1 && (

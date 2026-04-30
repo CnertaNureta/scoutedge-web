@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
-import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
+import { MATCH_FIXTURES } from '@/data/match-fixtures'
+import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 export const revalidate = 3600
 
@@ -49,6 +52,19 @@ const COUNTRY_FLAG: Record<string, string> = {
   CA: '\u{1F1E8}\u{1F1E6}',
 }
 
+const SAFETY_KEYS: Record<HostCity['safety']['level'], 'safetyVerySafe' | 'safetySafe' | 'safetyModerate' | 'safetyCaution'> = {
+  'very safe': 'safetyVerySafe',
+  safe: 'safetySafe',
+  moderate: 'safetyModerate',
+  caution: 'safetyCaution',
+}
+
+const PRICE_KEYS: Record<HostCity['food']['priceLevel'], 'priceBudget' | 'priceModerate' | 'priceExpensive'> = {
+  budget: 'priceBudget',
+  moderate: 'priceModerate',
+  expensive: 'priceExpensive',
+}
+
 function safetyVariant(
   level: HostCity['safety']['level']
 ): 'primary' | 'tertiary' | 'secondary' | 'outline' {
@@ -81,7 +97,20 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
   )
 }
 
-function VenueCard({ venue }: { venue: Venue }) {
+interface VenueCardProps {
+  venue: Venue
+  labels: {
+    venueBadge: string
+    capacity: string
+    opened: string
+    surface: string
+    roof: string
+    hostingRounds: string
+    altitudeWarning: React.ReactNode
+  }
+}
+
+function VenueCard({ venue, labels }: VenueCardProps) {
   return (
     <GlassCard className="p-6 md:p-8">
       <div className="flex items-start justify-between mb-4">
@@ -91,32 +120,32 @@ function VenueCard({ venue }: { venue: Venue }) {
             {venue.city}, {venue.state}
           </p>
         </div>
-        <Badge variant="primary" size="md">Venue</Badge>
+        <Badge variant="primary" size="md">{labels.venueBadge}</Badge>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
         <div className="glass-panel rounded-xl border border-white/[0.08] p-4 text-center">
           <p className="font-mono text-2xl text-primary">{venue.capacity.toLocaleString()}</p>
-          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">Capacity</p>
+          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">{labels.capacity}</p>
         </div>
         <div className="glass-panel rounded-xl border border-white/[0.08] p-4 text-center">
           <p className="font-mono text-2xl text-tertiary">{venue.yearOpened}</p>
-          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">Opened</p>
+          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">{labels.opened}</p>
         </div>
         <div className="glass-panel rounded-xl border border-white/[0.08] p-4 text-center">
           <p className="font-mono text-lg text-on-surface">{venue.surface}</p>
-          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">Surface</p>
+          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">{labels.surface}</p>
         </div>
         <div className="glass-panel rounded-xl border border-white/[0.08] p-4 text-center">
           <p className="font-mono text-lg text-on-surface">{venue.roofType}</p>
-          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">Roof</p>
+          <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">{labels.roof}</p>
         </div>
       </div>
 
       {venue.hostingRounds.length > 0 && (
         <div>
           <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mb-2">
-            Hosting Rounds
+            {labels.hostingRounds}
           </p>
           <div className="flex flex-wrap gap-2">
             {venue.hostingRounds.map((round) => (
@@ -134,8 +163,7 @@ function VenueCard({ venue }: { venue: Venue }) {
       {venue.altitudeMeters > 500 && (
         <div className="mt-4 p-3 rounded-xl bg-secondary/10 border border-secondary/20">
           <p className="text-secondary text-sm font-label">
-            <span className="font-bold">Altitude warning:</span> {venue.altitudeMeters}m above sea level.
-            Players and fans may notice the thin air.
+            {labels.altitudeWarning}
           </p>
         </div>
       )}
@@ -143,27 +171,47 @@ function VenueCard({ venue }: { venue: Venue }) {
   )
 }
 
-function QuickFactsSidebar({ city }: { city: HostCity }) {
+interface QuickFactsProps {
+  city: HostCity
+  labels: {
+    quickFacts: string
+    country: string
+    population: string
+    currency: string
+    language: string
+    timezone: string
+    safety: string
+    safetyLevel: string
+    priceLevel: string
+    esim: string
+    esimAvailable: string
+    esimLimited: string
+    findHotels: string
+    getEsim: string
+  }
+}
+
+function QuickFactsSidebar({ city, labels }: QuickFactsProps) {
   return (
     <GlassCard className="p-6 sticky top-24">
-      <h3 className="font-headline text-lg uppercase tracking-tight mb-4">Quick Facts</h3>
+      <h3 className="font-headline text-lg uppercase tracking-tight mb-4">{labels.quickFacts}</h3>
 
-      <InfoRow label="Country" value={
+      <InfoRow label={labels.country} value={
         <span className="inline-flex items-center gap-1.5">
           {COUNTRY_FLAG[city.countryCode]} {city.country}
         </span>
       } />
-      <InfoRow label="Population" value={city.population} />
-      <InfoRow label="Currency" value={city.currency} />
-      <InfoRow label="Language" value={city.language} />
-      <InfoRow label="Timezone" value={
+      <InfoRow label={labels.population} value={city.population} />
+      <InfoRow label={labels.currency} value={city.currency} />
+      <InfoRow label={labels.language} value={city.language} />
+      <InfoRow label={labels.timezone} value={
         <span className="font-mono text-xs">{city.timezone} (UTC{city.utcOffset >= 0 ? '+' : ''}{city.utcOffset})</span>
       } />
-      <InfoRow label="Safety" value={<Badge variant={safetyVariant(city.safety.level)}>{city.safety.level}</Badge>} />
-      <InfoRow label="Price Level" value={
+      <InfoRow label={labels.safety} value={<Badge variant={safetyVariant(city.safety.level)}>{labels.safetyLevel}</Badge>} />
+      <InfoRow label={labels.priceLevel} value={
         <span className="font-mono text-tertiary">{priceSymbol(city.food.priceLevel)}</span>
       } />
-      <InfoRow label="eSIM" value={city.esimAvailable ? 'Available' : 'Limited'} />
+      <InfoRow label={labels.esim} value={city.esimAvailable ? labels.esimAvailable : labels.esimLimited} />
 
       <div className="mt-6 space-y-3">
         <a
@@ -172,7 +220,7 @@ function QuickFactsSidebar({ city }: { city: HostCity }) {
           data-city={city.slug}
           className="block w-full text-center bg-primary text-on-primary py-2.5 rounded-xl font-label font-bold uppercase tracking-widest text-sm hover:scale-[1.02] transition-transform"
         >
-          Find Hotels
+          {labels.findHotels}
         </a>
         {city.esimAvailable && (
           <a
@@ -181,7 +229,7 @@ function QuickFactsSidebar({ city }: { city: HostCity }) {
             data-city={city.slug}
             className="block w-full text-center border border-primary/30 text-primary py-2.5 rounded-xl font-label font-semibold uppercase tracking-widest text-sm hover:bg-primary/10 transition-colors"
           >
-            Get eSIM
+            {labels.getEsim}
           </a>
         )}
       </div>
@@ -196,24 +244,89 @@ export default async function CityPage({ params }: CityPageProps) {
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
+  const t = await getTranslations('cityDetailPage')
   const venues = getAllVenues()
   const cityVenues = city.venueIds
     .map((id) => venues.find((v) => v.id === id))
     .filter((v): v is Venue => v !== undefined)
 
   const flag = COUNTRY_FLAG[city.countryCode] ?? ''
+  const safetyLabel = t(SAFETY_KEYS[city.safety.level])
+  const priceLabel = t(PRICE_KEYS[city.food.priceLevel])
 
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-  ])
+  const sidebarLabels = {
+    quickFacts: t('quickFacts'),
+    country: t('country'),
+    population: t('population'),
+    currency: t('currency'),
+    language: t('language'),
+    timezone: t('timezone'),
+    safety: t('safety'),
+    safetyLevel: safetyLabel,
+    priceLevel: t('priceLevel'),
+    esim: t('esim'),
+    esimAvailable: t('esimAvailable'),
+    esimLimited: t('esimLimited'),
+    findHotels: t('findHotels'),
+    getEsim: t('getEsim'),
+  }
+
+  // Cross-section linking data
+  const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
+  const teamSlugsAtCity = Array.from(
+    new Set(cityFixtures.flatMap((f) => [f.homeTeamSlug, f.awayTeamSlug]))
+  )
+  const teamsAtCity = teamSlugsAtCity
+    .map((s) => getTeamBySlug(s))
+    .filter((t): t is NonNullable<typeof t> => t !== undefined)
+  const otherCities = getAllCities()
+    .filter((c) => c.slug !== slug)
+    .slice(0, 6)
+
+  const cityUrl = `https://kickoracle.com/cities/${slug}`
+  const touristDestinationLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristDestination',
+    name: `${city.name} — World Cup 2026 Host City`,
+    url: cityUrl,
+    description: city.description,
+    containedInPlace: {
+      '@type': 'Country',
+      name: city.country,
+      identifier: city.countryCode,
+    },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: city.name,
+      addressRegion: city.state,
+      addressCountry: city.countryCode,
+    },
+    touristType: 'Football fans, World Cup 2026 attendees',
+    includesAttraction: cityVenues.map((v) => ({
+      '@type': 'StadiumOrArena',
+      name: v.name,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: city.name,
+        addressCountry: city.countryCode,
+      },
+    })),
+  }
+
+  const graph = jsonLdGraph([touristDestinationLd])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Host Cities', href: '/cities' },
+          { name: city.name, href: `/cities/${slug}` },
+        ]}
       />
 
       {/* Hero */}
@@ -222,7 +335,7 @@ export default async function CityPage({ params }: CityPageProps) {
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-tertiary/8 blur-[180px]" />
         <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] rounded-full bg-primary/6 blur-[160px]" />
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="tertiary" size="md">Host City</Badge>
+          <Badge variant="tertiary" size="md">{t('heroBadge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mt-4 mb-2">
             {city.name}
           </h1>
@@ -242,7 +355,7 @@ export default async function CityPage({ params }: CityPageProps) {
           <div className="space-y-12">
             {/* Highlights */}
             <div>
-              <SectionHeader className="mb-6">Highlights</SectionHeader>
+              <SectionHeader className="mb-6">{t('highlights')}</SectionHeader>
               <div className="flex flex-wrap gap-2">
                 {city.highlights.map((h) => (
                   <span
@@ -259,11 +372,28 @@ export default async function CityPage({ params }: CityPageProps) {
             {cityVenues.length > 0 && (
               <div>
                 <SectionHeader className="mb-6">
-                  {cityVenues.length === 1 ? 'Stadium' : 'Stadiums'}
+                  {cityVenues.length === 1 ? t('stadium') : t('stadiums')}
                 </SectionHeader>
                 <div className="space-y-6">
                   {cityVenues.map((venue) => (
-                    <VenueCard key={venue.id} venue={venue} />
+                    <VenueCard
+                      key={venue.id}
+                      venue={venue}
+                      labels={{
+                        venueBadge: t('venueBadge'),
+                        capacity: t('capacity'),
+                        opened: t('opened'),
+                        surface: t('surface'),
+                        roof: t('roof'),
+                        hostingRounds: t('hostingRounds'),
+                        altitudeWarning: (
+                          <>
+                            <span className="font-bold">{t('altitudeWarningPrefix')}</span>{' '}
+                            {t('altitudeWarning', { meters: venue.altitudeMeters }).replace(/^[^:]*:\s*/, '')}
+                          </>
+                        ),
+                      }}
+                    />
                   ))}
                 </div>
               </div>
@@ -271,11 +401,11 @@ export default async function CityPage({ params }: CityPageProps) {
 
             {/* Transport */}
             <div>
-              <SectionHeader className="mb-6">Getting Around</SectionHeader>
+              <SectionHeader className="mb-6">{t('gettingAround')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">Airport</h4>
+                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">{t('airport')}</h4>
                     <p className="text-on-surface font-body">
                       {city.transport.airport}{' '}
                       <span className="font-mono text-on-surface-variant text-sm">
@@ -284,19 +414,17 @@ export default async function CityPage({ params }: CityPageProps) {
                     </p>
                   </div>
                   <div>
-                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">Public Transit</h4>
+                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">{t('publicTransit')}</h4>
                     <p className="text-on-surface font-body">{city.transport.publicTransit}</p>
                   </div>
                   <div>
-                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">Walkability</h4>
+                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">{t('walkability')}</h4>
                     <p className="text-on-surface font-body">{city.transport.walkability}</p>
                   </div>
                   <div>
-                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">Rideshare</h4>
+                    <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">{t('rideshare')}</h4>
                     <p className="text-on-surface font-body">
-                      {city.transport.rideshare
-                        ? 'Uber & Lyft available'
-                        : 'Limited rideshare availability'}
+                      {city.transport.rideshare ? t('rideshareAvailable') : t('rideshareLimited')}
                     </p>
                   </div>
                 </div>
@@ -305,30 +433,32 @@ export default async function CityPage({ params }: CityPageProps) {
 
             {/* Accommodation */}
             <div>
-              <SectionHeader className="mb-6">Where to Stay</SectionHeader>
+              <SectionHeader className="mb-6">{t('whereToStay')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
                   <div className="glass-panel rounded-xl border border-white/[0.08] p-5">
-                    <p className="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">Budget</p>
+                    <p className="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-2">{t('budget')}</p>
                     <p className="font-mono text-lg text-on-surface">{city.accommodation.budgetRange}</p>
                   </div>
                   <div className="glass-panel rounded-xl border border-primary/20 p-5">
-                    <p className="text-xs font-label uppercase tracking-widest text-primary mb-2">Mid-Range</p>
+                    <p className="text-xs font-label uppercase tracking-widest text-primary mb-2">{t('midRange')}</p>
                     <p className="font-mono text-lg text-on-surface">{city.accommodation.midRange}</p>
                   </div>
                   <div className="glass-panel rounded-xl border border-tertiary/20 p-5">
-                    <p className="text-xs font-label uppercase tracking-widest text-tertiary mb-2">Luxury</p>
+                    <p className="text-xs font-label uppercase tracking-widest text-tertiary mb-2">{t('luxury')}</p>
                     <p className="font-mono text-lg text-on-surface">{city.accommodation.luxury}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-on-surface-variant">
-                    Average nightly rate:{' '}
-                    <span className="font-mono text-on-surface">${city.accommodation.avgNightlyUsd}</span>
+                    {t.rich('averageNightly', {
+                      amount: city.accommodation.avgNightlyUsd,
+                      amt: (chunks) => <span className="font-mono text-on-surface">{chunks}</span>,
+                    })}
                   </span>
                   {city.accommodation.fanZoneNearby && (
-                    <Badge variant="primary">Fan Zone Nearby</Badge>
+                    <Badge variant="primary">{t('fanZoneNearby')}</Badge>
                   )}
                 </div>
 
@@ -338,19 +468,19 @@ export default async function CityPage({ params }: CityPageProps) {
                   data-city={city.slug}
                   className="mt-6 block w-full text-center bg-primary text-on-primary py-3 rounded-xl font-label font-bold uppercase tracking-widest text-sm hover:scale-[1.02] transition-transform"
                 >
-                  Search Hotels in {city.name}
+                  {t('searchHotelsIn', { city: city.name })}
                 </a>
               </GlassCard>
             </div>
 
             {/* Food & Dining */}
             <div>
-              <SectionHeader className="mb-6">Food &amp; Dining</SectionHeader>
+              <SectionHeader className="mb-6">{t('foodDining')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h4 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
-                      Local Specialties
+                      {t('localSpecialties')}
                     </h4>
                     <p className="text-on-surface font-body text-lg">{city.food.localSpecialty}</p>
                   </div>
@@ -358,10 +488,16 @@ export default async function CityPage({ params }: CityPageProps) {
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center gap-6 text-sm text-on-surface-variant">
                   <span>
-                    Price level: <span className="text-on-surface capitalize">{city.food.priceLevel}</span>
+                    {t.rich('priceLevelLabel', {
+                      level: priceLabel,
+                      val: (chunks) => <span className="text-on-surface">{chunks}</span>,
+                    })}
                   </span>
                   <span>
-                    Tip: <span className="font-mono text-on-surface">{city.food.tipPercentage}%</span>
+                    {t.rich('tipLabel', {
+                      amount: city.food.tipPercentage,
+                      val: (chunks) => <span className="font-mono text-on-surface">{chunks}</span>,
+                    })}
                   </span>
                 </div>
               </GlassCard>
@@ -369,7 +505,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
             {/* Weather */}
             <div>
-              <SectionHeader className="mb-6">Summer Weather</SectionHeader>
+              <SectionHeader className="mb-6">{t('summerWeather')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                   <div className="text-center">
@@ -377,7 +513,7 @@ export default async function CityPage({ params }: CityPageProps) {
                       {city.weather.summerHighC}&deg;
                     </p>
                     <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">
-                      High ({celsiusToFahrenheit(city.weather.summerHighC)}&deg;F)
+                      {t('high', { f: celsiusToFahrenheit(city.weather.summerHighC) })}
                     </p>
                   </div>
                   <div className="text-center">
@@ -385,19 +521,19 @@ export default async function CityPage({ params }: CityPageProps) {
                       {city.weather.summerLowC}&deg;
                     </p>
                     <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">
-                      Low ({celsiusToFahrenheit(city.weather.summerLowC)}&deg;F)
+                      {t('low', { f: celsiusToFahrenheit(city.weather.summerLowC) })}
                     </p>
                   </div>
                   <div className="text-center">
                     <p className="font-mono text-lg text-on-surface">{city.weather.humidity}</p>
                     <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">
-                      Humidity
+                      {t('humidity')}
                     </p>
                   </div>
                   <div className="text-center">
                     <p className="font-mono text-lg text-on-surface">{city.weather.rainChance}</p>
                     <p className="text-on-surface-variant text-xs font-label uppercase tracking-widest mt-1">
-                      Rain
+                      {t('rain')}
                     </p>
                   </div>
                 </div>
@@ -406,11 +542,11 @@ export default async function CityPage({ params }: CityPageProps) {
 
             {/* Safety */}
             <div>
-              <SectionHeader className="mb-6">Safety</SectionHeader>
+              <SectionHeader className="mb-6">{t('safety')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-3">
                   <Badge variant={safetyVariant(city.safety.level)} size="md">
-                    {city.safety.level}
+                    {safetyLabel}
                   </Badge>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed">{city.safety.notes}</p>
@@ -419,7 +555,7 @@ export default async function CityPage({ params }: CityPageProps) {
 
             {/* Visa note */}
             <div>
-              <SectionHeader className="mb-6">Visa &amp; Entry</SectionHeader>
+              <SectionHeader className="mb-6">{t('visaEntry')}</SectionHeader>
               <GlassCard className="p-6 md:p-8">
                 <p className="text-on-surface leading-relaxed">{city.visaNote}</p>
               </GlassCard>
@@ -428,16 +564,58 @@ export default async function CityPage({ params }: CityPageProps) {
 
           {/* Right sidebar */}
           <aside className="hidden lg:block">
-            <QuickFactsSidebar city={city} />
+            <QuickFactsSidebar city={city} labels={sidebarLabels} />
           </aside>
         </div>
 
         {/* Mobile quick facts (shown below content on small screens) */}
         <div className="lg:hidden mt-12">
-          <SectionHeader className="mb-6">Quick Facts</SectionHeader>
-          <QuickFactsSidebar city={city} />
+          <SectionHeader className="mb-6">{t('quickFacts')}</SectionHeader>
+          <QuickFactsSidebar city={city} labels={sidebarLabels} />
         </div>
       </section>
+
+      {/* Teams playing at this city — cross-link to team pages */}
+      {teamsAtCity.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <SectionHeader className="mb-6">Teams playing in {city.name}</SectionHeader>
+          <div className="flex flex-wrap gap-3">
+            {teamsAtCity.map((t) => (
+              <Link
+                key={t.slug}
+                href={`/teams/${t.slug}`}
+                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary inline-flex items-center gap-2"
+              >
+                <span className="text-base" aria-hidden="true">{t.flag}</span>
+                <span>{t.name} squad &amp; predictions</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Other host cities — cross-link to /cities/[city] siblings */}
+      {otherCities.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-16">
+          <SectionHeader className="mb-6">Other World Cup 2026 host cities</SectionHeader>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {otherCities.map((c) => (
+              <Link
+                key={c.slug}
+                href={`/cities/${c.slug}`}
+                className="block p-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group text-center"
+              >
+                <p className="font-headline text-sm font-bold tracking-tight group-hover:text-tertiary transition-colors">
+                  {c.name}
+                </p>
+                <p className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">
+                  {c.country}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Bottom nav */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
@@ -446,19 +624,19 @@ export default async function CityPage({ params }: CityPageProps) {
             href="/cities"
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            All Host Cities
+            {t('allHostCities')}
           </Link>
           <Link
             href="/travel"
             className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform"
           >
-            Travel Guide
+            {t('travelGuide')}
           </Link>
           <Link
             href="/schedule"
             className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] transition-colors"
           >
-            Match Schedule
+            {t('matchSchedule')}
           </Link>
         </div>
       </section>

@@ -3,14 +3,17 @@ import Link from 'next/link'
 import { getAllMatchupSlugs, getHeadToHead } from '@/lib/compare-utils'
 import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
+import { MATCH_FIXTURES } from '@/data/match-fixtures'
+import { HOST_CITIES } from '@/data/cities-data'
+import { jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
+import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
-import { breadcrumbJsonLd } from '@/lib/og-utils'
 
 export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
   const { matchup } = await params
@@ -72,7 +75,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
 
   const { teamA, teamB, prediction, statDeltas, squadA, squadB, keyPlayerMatchups, historyA, historyB, verdict } = data
 
-  const jsonLd = {
+  const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `${teamA.name} vs ${teamB.name}: World Cup 2026 Head-to-Head`,
@@ -80,11 +83,27 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
     author: { '@type': 'Organization', name: 'KickOracle' },
   }
 
-  const breadcrumbLd = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Compare', url: 'https://kickoracle.com/compare' },
-    { name: `${teamA.name} vs ${teamB.name}`, url: `https://kickoracle.com/compare/${matchup}` },
-  ])
+  // Look for an actual scheduled fixture between the two teams (group stage)
+  const scheduledFixture = MATCH_FIXTURES.find(
+    (f) =>
+      (f.homeTeamSlug === teamA.slug && f.awayTeamSlug === teamB.slug) ||
+      (f.homeTeamSlug === teamB.slug && f.awayTeamSlug === teamA.slug)
+  )
+
+  const sportsEventLd = scheduledFixture
+    ? sportsEventJsonLd({
+        homeName: scheduledFixture.homeTeamSlug === teamA.slug ? teamA.name : teamB.name,
+        awayName: scheduledFixture.homeTeamSlug === teamA.slug ? teamB.name : teamA.name,
+        homeSlug: scheduledFixture.homeTeamSlug,
+        awaySlug: scheduledFixture.awayTeamSlug,
+        venue: scheduledFixture.venue,
+        city: scheduledFixture.city,
+        countryCode: HOST_CITIES.find((c) => c.name === scheduledFixture.city)?.countryCode,
+        kickoffUtc: scheduledFixture.kickoffUtc,
+      })
+    : null
+
+  const jsonLd = jsonLdGraph(sportsEventLd ? [articleLd, sportsEventLd] : [articleLd])
 
   // Related matchups: other comparisons involving either team
   const allSlugs = getAllMatchupSlugs()
@@ -95,7 +114,14 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <Breadcrumbs
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Predictions', href: '/predictions' },
+          { name: 'Compare', href: '/compare' },
+          { name: `${teamA.name} vs ${teamB.name}`, href: `/compare/${matchup}` },
+        ]}
+      />
 
       {/* Hero */}
       <section className="relative py-20 md:py-32 px-6 overflow-hidden">

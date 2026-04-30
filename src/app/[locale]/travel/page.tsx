@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -24,43 +25,72 @@ export const metadata: Metadata = {
   ...ogData,
 }
 
-const QUICK_FACTS = [
-  { label: 'Host Countries', value: '3', detail: 'USA, Mexico, Canada' },
-  { label: 'Host Cities', value: '16', detail: 'Across North America' },
-  { label: 'Stadiums', value: '16', detail: 'World-class venues' },
-  { label: 'Tournament Dates', value: 'Jun–Jul', detail: '11 June – 19 July 2026' },
-  { label: 'Total Matches', value: '104', detail: '48-team format' },
-  { label: 'Currencies', value: '3', detail: 'USD, MXN, CAD' },
-]
+export default async function TravelPage() {
+  const t = await getTranslations('travelPage')
 
-const TRAVEL_SECTIONS = [
-  {
-    href: '/travel/visa',
-    icon: '🛂',
-    title: 'Visa Information',
-    description: 'ESTA, eTA, and visa requirements for all three host countries. Find out what documents you need.',
-    badge: 'Essential',
-    badgeVariant: 'secondary' as const,
-  },
-  {
-    href: '/travel/budget-calculator',
-    icon: '💰',
-    title: 'Budget Calculator',
-    description: 'Estimate your total trip cost. Interactive tool covering accommodation, food, transport, and match tickets.',
-    badge: 'Interactive',
-    badgeVariant: 'primary' as const,
-  },
-  {
-    href: '/cities',
-    icon: '🏙️',
-    title: 'Host Cities',
-    description: 'Detailed guides for all 16 host cities. Local tips, transport, accommodation, food, and safety info.',
-    badge: '16 Cities',
-    badgeVariant: 'tertiary' as const,
-  },
-]
+  const quickFacts = [
+    { label: t('facts.hostCountries'), value: '3', detail: t('facts.hostCountriesDetail') },
+    { label: t('facts.hostCities'), value: '16', detail: t('facts.hostCitiesDetail') },
+    { label: t('facts.stadiums'), value: '16', detail: t('facts.stadiumsDetail') },
+    { label: t('facts.tournamentDates'), value: t('facts.tournamentDatesValue'), detail: t('facts.tournamentDatesDetail') },
+    { label: t('facts.totalMatches'), value: '104', detail: t('facts.totalMatchesDetail') },
+    { label: t('facts.currencies'), value: '3', detail: t('facts.currenciesDetail') },
+  ]
 
-export default function TravelPage() {
+  const travelSections = [
+    {
+      href: '/travel/visa',
+      icon: '🛂',
+      title: t('sections.visaTitle'),
+      description: t('sections.visaDescription'),
+      badge: t('sections.visaBadge'),
+      badgeVariant: 'secondary' as const,
+    },
+    {
+      href: '/travel/budget-calculator',
+      icon: '💰',
+      title: t('sections.budgetTitle'),
+      description: t('sections.budgetDescription'),
+      badge: t('sections.budgetBadge'),
+      badgeVariant: 'primary' as const,
+    },
+    {
+      href: '/cities',
+      icon: '🏙️',
+      title: t('sections.citiesTitle'),
+      description: t('sections.citiesDescription'),
+      badge: t('sections.citiesBadge'),
+      badgeVariant: 'tertiary' as const,
+    },
+  ]
+
+  const countries = [
+    {
+      flag: '🇺🇸',
+      name: t('country.usName'),
+      cities: 11,
+      currency: 'USD',
+      visa: t('country.usVisa'),
+      highlights: [t('country.usHighlight1'), t('country.usHighlight2'), t('country.usHighlight3')],
+    },
+    {
+      flag: '🇲🇽',
+      name: t('country.mxName'),
+      cities: 3,
+      currency: 'MXN',
+      visa: t('country.mxVisa'),
+      highlights: [t('country.mxHighlight1'), t('country.mxHighlight2'), t('country.mxHighlight3')],
+    },
+    {
+      flag: '🇨🇦',
+      name: t('country.caName'),
+      cities: 2,
+      currency: 'CAD',
+      visa: t('country.caVisa'),
+      highlights: [t('country.caHighlight1'), t('country.caHighlight2'), t('country.caHighlight3')],
+    },
+  ]
+
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: 'https://kickoracle.com' },
     { name: 'Travel Guide', url: 'https://kickoracle.com/travel' },
@@ -80,14 +110,13 @@ export default function TravelPage() {
         <div className="absolute bottom-1/4 left-1/3 w-[400px] h-[400px] rounded-full bg-primary/6 blur-[160px]" />
 
         <div className="relative z-10 max-w-[1440px] mx-auto text-center">
-          <Badge variant="tertiary" size="md">Fan Guide</Badge>
+          <Badge variant="tertiary" size="md">{t('heroBadge')}</Badge>
           <h1 className="font-headline text-5xl md:text-8xl tracking-wide uppercase mt-4 mb-4">
-            Travel<br />
-            <span className="gradient-text">Guide</span>
+            {t('heroTitle1')}<br />
+            <span className="gradient-text">{t('heroTitle2')}</span>
           </h1>
           <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto">
-            Everything you need to plan your World Cup 2026 trip across the USA, Mexico, and Canada.
-            Visa info, budget tools, and city-by-city recommendations.
+            {t('heroDescription')}
           </p>
         </div>
       </section>
@@ -95,7 +124,7 @@ export default function TravelPage() {
       {/* ── Quick Facts ────────────────────────────────────── */}
       <section className="max-w-[1440px] mx-auto px-6 -mt-8 relative z-20 mb-16">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {QUICK_FACTS.map((fact) => (
+          {quickFacts.map((fact) => (
             <GlassCard key={fact.label} className="p-5 text-center">
               <p className="font-mono text-2xl md:text-3xl text-primary font-bold">{fact.value}</p>
               <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">
@@ -109,9 +138,9 @@ export default function TravelPage() {
 
       {/* ── Travel Resources ────────────────────────────────── */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <SectionHeader className="mb-10">Travel Resources</SectionHeader>
+        <SectionHeader className="mb-10">{t('resources')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TRAVEL_SECTIONS.map((section) => (
+          {travelSections.map((section) => (
             <Link key={section.href} href={section.href} className="group">
               <GlassCard className="p-8 h-full flex flex-col" hover>
                 <div className="flex items-start justify-between mb-4">
@@ -125,7 +154,7 @@ export default function TravelPage() {
                   {section.description}
                 </p>
                 <div className="mt-4 font-label text-xs uppercase tracking-widest text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  Explore &rarr;
+                  {t('explore')}
                 </div>
               </GlassCard>
             </Link>
@@ -135,17 +164,16 @@ export default function TravelPage() {
 
       {/* ── Travel Essentials ────────────────────────────────── */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <SectionHeader accentColor="#e9c400" className="mb-10">Travel Essentials</SectionHeader>
+        <SectionHeader accentColor="#e9c400" className="mb-10">{t('essentials')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* eSIM */}
           <GlassCard className="p-6 md:p-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">📱</span>
-              <h3 className="font-headline text-xl uppercase tracking-tight">Stay Connected</h3>
+              <h3 className="font-headline text-xl uppercase tracking-tight">{t('esimTitle')}</h3>
             </div>
             <p className="text-on-surface-variant text-sm leading-relaxed mb-5">
-              An eSIM is the easiest way to get data across all three countries. Avoid roaming charges
-              and stay connected for live scores, maps, and ride-hailing apps.
+              {t('esimDescription')}
             </p>
             <a
               href="#"
@@ -153,7 +181,7 @@ export default function TravelPage() {
               data-placement="travel-hub"
               className="inline-flex items-center gap-2 bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-label text-xs font-semibold uppercase tracking-widest hover:bg-primary/25 transition-colors"
             >
-              Compare eSIM Deals
+              {t('esimCta')}
             </a>
           </GlassCard>
 
@@ -161,11 +189,10 @@ export default function TravelPage() {
           <GlassCard className="p-6 md:p-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">🏨</span>
-              <h3 className="font-headline text-xl uppercase tracking-tight">Book Accommodation</h3>
+              <h3 className="font-headline text-xl uppercase tracking-tight">{t('hotelsTitle')}</h3>
             </div>
             <p className="text-on-surface-variant text-sm leading-relaxed mb-5">
-              Hotels near stadiums fill up fast during the World Cup. Book early for the best rates,
-              especially in New York, Los Angeles, and Mexico City.
+              {t('hotelsDescription')}
             </p>
             <a
               href="#"
@@ -173,7 +200,7 @@ export default function TravelPage() {
               data-placement="travel-hub"
               className="inline-flex items-center gap-2 bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-label text-xs font-semibold uppercase tracking-widest hover:bg-primary/25 transition-colors"
             >
-              Search Hotels
+              {t('hotelsCta')}
             </a>
           </GlassCard>
         </div>
@@ -181,41 +208,16 @@ export default function TravelPage() {
 
       {/* ── Country Overview ────────────────────────────────── */}
       <section className="max-w-[1440px] mx-auto px-6 mb-16">
-        <SectionHeader className="mb-10">Host Countries</SectionHeader>
+        <SectionHeader className="mb-10">{t('hostCountries')}</SectionHeader>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            {
-              flag: '🇺🇸',
-              name: 'United States',
-              cities: 11,
-              currency: 'USD',
-              visa: 'ESTA / B1-B2 Visa',
-              highlights: ['Final venue (MetLife)', 'Most host cities', 'Major airline hubs'],
-            },
-            {
-              flag: '🇲🇽',
-              name: 'Mexico',
-              cities: 3,
-              currency: 'MXN',
-              visa: 'FMM Tourist Permit',
-              highlights: ['Azteca (3rd World Cup)', 'Affordable prices', 'Rich football culture'],
-            },
-            {
-              flag: '🇨🇦',
-              name: 'Canada',
-              cities: 2,
-              currency: 'CAD',
-              visa: 'eTA / Visitor Visa',
-              highlights: ['Safest host cities', 'Mild summer climate', 'Multicultural atmosphere'],
-            },
-          ].map((country) => (
+          {countries.map((country) => (
             <GlassCard key={country.name} className="p-6 md:p-8">
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-4xl">{country.flag}</span>
                 <div>
                   <h3 className="font-headline text-lg uppercase tracking-tight">{country.name}</h3>
                   <p className="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
-                    {country.cities} {country.cities === 1 ? 'City' : 'Cities'} &middot; {country.currency}
+                    {t('cityCount', { count: country.cities })} &middot; {country.currency}
                   </p>
                 </div>
               </div>
@@ -239,24 +241,23 @@ export default function TravelPage() {
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <GlassCard className="p-8 md:p-12 text-center">
           <h2 className="font-headline text-3xl md:text-4xl uppercase tracking-tight mb-4">
-            Start Planning Your Trip
+            {t('ctaHeading')}
           </h2>
           <p className="text-on-surface-variant text-sm max-w-xl mx-auto mb-8">
-            Use our budget calculator to estimate costs, check visa requirements, and explore
-            all 16 host cities with detailed local guides.
+            {t('ctaDescription')}
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/travel/budget-calculator"
               className="bg-primary text-on-primary px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-transform inline-block"
             >
-              Budget Calculator
+              {t('budgetCalculator')}
             </Link>
             <Link
               href="/travel/visa"
               className="border border-white/20 text-on-surface px-8 py-3 rounded-2xl font-label font-bold uppercase tracking-widest hover:bg-white/5 transition-colors inline-block"
             >
-              Visa Guide
+              {t('visaGuide')}
             </Link>
           </div>
         </GlassCard>

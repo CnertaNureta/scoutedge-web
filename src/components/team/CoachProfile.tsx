@@ -1,8 +1,8 @@
 import type { CoachProfile as CoachData } from '@/data/coaches-data'
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
-import ChemistryBar from '@/components/ui/ChemistryBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import { BRAND } from '@/lib/brand-tokens'
 
@@ -10,14 +10,16 @@ interface CoachProfileProps {
   coach: CoachData
 }
 
-export default function CoachProfile({ coach }: CoachProfileProps) {
+export default async function CoachProfile({ coach }: CoachProfileProps) {
+  const t = await getTranslations('coachProfile')
+
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-12">
       <h2 className="font-headline text-xl font-bold uppercase tracking-tight mb-2 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true" />
-        Head Coach
+        {t('headCoach')}
       </h2>
-      <p className="text-on-surface-variant text-sm mb-6">The man in charge of tactics, squad selection, and matchday decisions.</p>
+      <p className="text-on-surface-variant text-sm mb-6">{t('headCoachDescription')}</p>
 
       <GlassCard className="p-6 md:p-8 relative overflow-hidden">
         <NeonAccentBar color={BRAND.primary} />
@@ -29,7 +31,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {coach.photo ? (
               <Image
                 src={coach.photo}
-                alt={`${coach.name} portrait`}
+                alt={t('portraitAlt', { name: coach.name })}
                 width={144}
                 height={144}
                 sizes="(min-width: 768px) 144px, 112px"
@@ -48,12 +50,12 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
               <h3 className="font-headline text-3xl md:text-4xl uppercase tracking-wide">{coach.name}</h3>
               <div className="flex flex-wrap items-center gap-3 mt-2">
                 <Badge variant="primary" size="sm">{coach.nationality}</Badge>
-                <Badge variant="outline" size="sm">Age {coach.age}</Badge>
+                <Badge variant="outline" size="sm">{t('ageBadge', { age: coach.age })}</Badge>
                 <Badge variant="tertiary" size="sm">{coach.formation}</Badge>
               </div>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-1">
-              <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Win Rate</span>
+              <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">{t('winRate')}</span>
               <span className="font-headline text-3xl text-primary">{coach.winRate}%</span>
             </div>
           </div>
@@ -68,7 +70,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {/* Tactical Style */}
             <div>
               <span className="font-label text-xs font-semibold text-primary uppercase tracking-widest block mb-2">
-                Tactical Style
+                {t('tacticalStyle')}
               </span>
               <p className="text-on-surface-variant leading-relaxed">{coach.tacticalStyle}</p>
             </div>
@@ -76,7 +78,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {/* Philosophy */}
             <div>
               <span className="font-label text-xs font-semibold text-tertiary uppercase tracking-widest block mb-2">
-                Coaching Philosophy
+                {t('coachingPhilosophy')}
               </span>
               <p className="text-on-surface-variant leading-relaxed">{coach.philosophy}</p>
             </div>
@@ -84,11 +86,11 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {/* Appointment info */}
             <div className="flex flex-wrap gap-4">
               <div>
-                <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest block">Appointed</span>
+                <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest block">{t('appointed')}</span>
                 <span className="font-body text-sm text-on-surface font-semibold">{coach.appointedDate}</span>
               </div>
               <div>
-                <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest block">Contract Until</span>
+                <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest block">{t('contractUntil')}</span>
                 <span className="font-body text-sm text-on-surface font-semibold">{coach.contractUntil}</span>
               </div>
             </div>
@@ -99,7 +101,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {/* Career Highlights */}
             <div>
               <span className="font-label text-xs font-semibold text-primary uppercase tracking-widest block mb-2">
-                Career Highlights
+                {t('careerHighlights')}
               </span>
               <ul className="space-y-2">
                 {coach.careerHighlights.map((highlight, i) => (
@@ -114,7 +116,7 @@ export default function CoachProfile({ coach }: CoachProfileProps) {
             {/* Previous Clubs */}
             <div>
               <span className="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-widest block mb-2">
-                Managerial Career
+                {t('managerialCareer')}
               </span>
               <div className="flex flex-wrap gap-2">
                 {coach.previousClubs.map((club, i) => (
