@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getCityBySlug } from '@/data/cities-data'
+import { getCityByFixtureCityName, getCityBySlug } from '@/data/cities-data'
 import { getPlayerBySlug } from '@/lib/data-service'
 import { getSitemapEntries } from '@/lib/sitemap-utils'
 
@@ -16,6 +16,18 @@ describe('routing aliases', () => {
 
     expect(city?.slug).toBe('new-york')
     expect(city?.name).toBe('New York / New Jersey')
+  })
+
+  it.each([
+    ['Arlington', 'dallas'],
+    ['East Rutherford', 'new-york'],
+    ['Foxborough', 'boston'],
+    ['Inglewood', 'los-angeles'],
+    ['Santa Clara', 'san-francisco'],
+  ])('maps fixture venue city %s to canonical host city %s', (fixtureCity, citySlug) => {
+    const city = getCityByFixtureCityName(fixtureCity)
+
+    expect(city?.slug).toBe(citySlug)
   })
 
   it('publishes canonical host city pages in the sitemap', () => {

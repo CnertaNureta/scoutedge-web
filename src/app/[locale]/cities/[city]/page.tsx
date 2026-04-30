@@ -23,11 +23,11 @@ export function generateStaticParams() {
 /* ---------- Metadata ---------- */
 
 interface CityPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     description,
     keywords: `${city.name} World Cup 2026, ${city.name} stadium, ${city.name} hotels, ${city.name} travel`,
     alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    ...buildOGMeta({ title, description, url, locale }),
   }
 }
 
@@ -272,10 +272,17 @@ export default async function CityPage({ params }: CityPageProps) {
   }
 
   // Cross-section linking data
-  const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
+  const cityFixtureNames = new Set([
+    city.name,
+    city.metro,
+    ...cityVenues.map((v) => v.city),
+    ...cityVenues.map((v) => v.metro),
+  ])
+  const cityFixtures = MATCH_FIXTURES.filter((f) => cityFixtureNames.has(f.city))
   const teamSlugsAtCity = Array.from(
     new Set(cityFixtures.flatMap((f) => [f.homeTeamSlug, f.awayTeamSlug]))
   )
+  const fixtureCityLabel = cityVenues.length === 1 ? cityVenues[0].city : city.name
   const teamsAtCity = teamSlugsAtCity
     .map((s) => getTeamBySlug(s))
     .filter((t): t is NonNullable<typeof t> => t !== undefined)
@@ -580,7 +587,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* Teams playing at this city — cross-link to team pages */}
       {teamsAtCity.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
-          <SectionHeader className="mb-6">Teams playing in {city.name}</SectionHeader>
+          <SectionHeader className="mb-6">Teams playing in {fixtureCityLabel}</SectionHeader>
           <div className="flex flex-wrap gap-3">
             {teamsAtCity.map((t) => (
               <Link
