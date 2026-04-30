@@ -1,6 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { NextIntlClientProvider } from 'next-intl'
+import enMessages from '../../../../messages/en.json'
 
 vi.mock('@/hooks/useEntitlements', () => ({
   useEntitlements: vi.fn(() => ({ tier: 'free', hasAccess: () => false, suggestUpgrade: () => 'match_pass', loading: false, error: null })),
@@ -30,6 +32,14 @@ import { useEntitlements } from '@/hooks/useEntitlements'
 import PKBattleApp from '../PKBattleApp'
 
 const mockUseEntitlements = vi.mocked(useEntitlements)
+
+function renderApp() {
+  return render(
+    <NextIntlClientProvider locale="en" messages={enMessages}>
+      <PKBattleApp />
+    </NextIntlClientProvider>,
+  )
+}
 
 const localStorageMock = (() => {
   let store: Record<string, string> = {}
@@ -63,28 +73,28 @@ beforeEach(() => {
 
 describe('PKBattleApp', () => {
   it('renders the PK BATTLE header', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText('PK BATTLE')).toBeInTheDocument()
   })
 
   it('renders Player vs Player headline', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText('vs Player')).toBeInTheDocument()
   })
 
   it('renders FreemiumBanner for free users', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText(/free battle.*left today/i)).toBeInTheDocument()
   })
 
   it('hides FreemiumBanner for premium users', () => {
     mockUseEntitlements.mockReturnValue({ entitlements: [], tier: 'tournament_pass', hasAccess: () => true, suggestUpgrade: () => 'scout_pass' as const, loading: false, error: null })
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.queryByText(/free battle.*left today/i)).not.toBeInTheDocument()
   })
 
   it('renders Quick Modes buttons', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText('Quick Modes')).toBeInTheDocument()
     expect(screen.getByText('FWD vs GK')).toBeInTheDocument()
     expect(screen.getByText('FWD vs DEF')).toBeInTheDocument()
@@ -93,24 +103,24 @@ describe('PKBattleApp', () => {
   })
 
   it('renders Fight button as disabled when no players selected', () => {
-    render(<PKBattleApp />)
+    renderApp()
     const fightBtn = screen.getByText('Fight!')
     expect(fightBtn).toBeDisabled()
   })
 
   it('renders Best of 5 button disabled for free users', () => {
-    render(<PKBattleApp />)
+    renderApp()
     const bo5Btn = screen.getByText('Best of 5')
     expect(bo5Btn).toBeDisabled()
   })
 
   it('renders Random Matchup button', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText('Random Matchup')).toBeInTheDocument()
   })
 
   it('selects random players when Random Matchup is clicked', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     const randomBtn = screen.getByText('Random Matchup')
     fireEvent.click(randomBtn)
 
@@ -121,7 +131,7 @@ describe('PKBattleApp', () => {
   })
 
   it('enables Fight button after Random Matchup', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
 
     await waitFor(() => {
@@ -131,12 +141,12 @@ describe('PKBattleApp', () => {
   })
 
   it('renders Featured Duels section', () => {
-    render(<PKBattleApp />)
+    renderApp()
     expect(screen.getByText('Featured Duels')).toBeInTheDocument()
   })
 
   it('transitions to result screen after Fight', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
 
     await waitFor(() => {
@@ -151,7 +161,7 @@ describe('PKBattleApp', () => {
   })
 
   it('shows Rematch and New Battle buttons on result screen', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
     await waitFor(() => expect(screen.getByText('Fight!')).not.toBeDisabled())
     fireEvent.click(screen.getByText('Fight!'))
@@ -163,7 +173,7 @@ describe('PKBattleApp', () => {
   })
 
   it('returns to select screen on New Battle', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
     await waitFor(() => expect(screen.getByText('Fight!')).not.toBeDisabled())
     fireEvent.click(screen.getByText('Fight!'))
@@ -178,7 +188,7 @@ describe('PKBattleApp', () => {
   })
 
   it('shows share buttons on result screen', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
     await waitFor(() => expect(screen.getByText('Fight!')).not.toBeDisabled())
     fireEvent.click(screen.getByText('Fight!'))
@@ -192,7 +202,7 @@ describe('PKBattleApp', () => {
 
   it('shows "Go Unlimited" link when remaining <= 2', async () => {
     localStorageMock.setItem('pk-battle-daily', JSON.stringify({ date: new Date().toISOString().slice(0, 10), count: 3 }))
-    render(<PKBattleApp />)
+    renderApp()
     await waitFor(() => {
       expect(screen.getByText('Go Unlimited')).toBeInTheDocument()
     })
@@ -200,7 +210,7 @@ describe('PKBattleApp', () => {
 
   it('displays "Limit Reached" when free battles exhausted', async () => {
     localStorageMock.setItem('pk-battle-daily', JSON.stringify({ date: new Date().toISOString().slice(0, 10), count: 5 }))
-    render(<PKBattleApp />)
+    renderApp()
     await waitFor(() => {
       expect(screen.getByText('Limit Reached')).toBeInTheDocument()
       expect(screen.getByText('Daily limit reached')).toBeInTheDocument()
@@ -208,7 +218,7 @@ describe('PKBattleApp', () => {
   })
 
   it('shows factor breakdown with all 6 factors on result screen', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
     await waitFor(() => expect(screen.getByText('Fight!')).not.toBeDisabled())
     fireEvent.click(screen.getByText('Fight!'))
@@ -225,7 +235,7 @@ describe('PKBattleApp', () => {
   })
 
   it('increments battle count after each fight', async () => {
-    render(<PKBattleApp />)
+    renderApp()
     fireEvent.click(screen.getByText('Random Matchup'))
     await waitFor(() => expect(screen.getByText('Fight!')).not.toBeDisabled())
     fireEvent.click(screen.getByText('Fight!'))
