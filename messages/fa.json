@@ -79,7 +79,9 @@
     "successTitle": "عضو شدید!",
     "successMessage": "خلاصه روزانه جام جهانی ارسال خواهد شد به",
     "errorEmail": "لطفاً یک آدرس ایمیل معتبر وارد کنید.",
-    "go": "برو"
+    "go": "برو",
+    "alreadySubscribed": "این ایمیل قبلاً مشترک شده است.",
+    "errorGeneric": "مشکلی پیش آمد. دوباره تلاش کنید."
   },
   "nav": {
     "predictions": "پیش‌بینی‌ها",
@@ -135,7 +137,8 @@
     "disclaimer": "این یک منبع مستقل و غیررسمی ساخته‌شده توسط هواداران است و هیچ ارتباط یا تأییدی از سوی FIFA یا جام جهانی FIFA ندارد. تمام نام‌های تیم‌ها، لوگوها و علائم مرتبط، علائم تجاری صاحبان مربوطه هستند و صرفاً برای شناسایی استفاده شده‌اند.",
     "affiliateDisclosure": "KickOracle در برنامه‌های بازاریابی وابسته مشارکت دارد. ما ممکن است از خرید بلیط، رزرو سفر، اشتراک سرویس‌های پخش زنده یا خرید کالا از طریق لینک‌های این سایت کمیسیون دریافت کنیم — بدون هیچ هزینه اضافی برای شما.",
     "copyright": "۲۰۲۶ KickOracle. تحلیل فوتبال با هوش مصنوعی. تمامی حقوق محفوظ است.",
-    "skipToContent": "رفتن به محتوای اصلی"
+    "skipToContent": "رفتن به محتوای اصلی",
+    "newsletterCta": "پیش‌بینی‌های رایگان جام جهانی را دریافت کنید →"
   },
   "common": {
     "loading": "در حال بارگذاری...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "گزارش تخصصی بازی",
     "headlinePlayerIntel": "مجموعه اطلاعات بازیکن",
     "headlineDefault": "باز کردن قفل محتوای ویژه",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "امکان تأیید دسترسی شما نبود. صفحه را تازه‌سازی کنید.",
+    "checkoutFailed": "پرداخت ناموفق بود. دوباره تلاش کنید.",
+    "processing": "در حال پردازش..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

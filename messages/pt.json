@@ -79,7 +79,9 @@
     "successTitle": "Você Está Dentro!",
     "successMessage": "Você receberá inteligência diária da Copa do Mundo em",
     "errorEmail": "Por favor, insira um endereço de email válido.",
-    "go": "Ir"
+    "go": "Ir",
+    "alreadySubscribed": "Este email já está inscrito.",
+    "errorGeneric": "Algo deu errado. Tente novamente."
   },
   "nav": {
     "predictions": "Previsões",
@@ -135,7 +137,8 @@
     "disclaimer": "Este é um recurso independente, não oficial, criado por fãs e não é afiliado ou endossado pela FIFA ou pela Copa do Mundo da FIFA. Todos os nomes de seleções, logos e marcas relacionadas são marcas registradas de seus respectivos proprietários e são usados aqui apenas para fins de identificação.",
     "affiliateDisclosure": "KickOracle participa de programas de marketing de afiliados. Podemos ganhar uma comissão quando você compra ingressos, reserva viagens, assina serviços de streaming ou compra mercadorias através dos links neste site, sem custo adicional para você.",
     "copyright": "2026 KickOracle. Inteligência da Copa do Mundo com IA. Todos os direitos reservados.",
-    "skipToContent": "Pular para o conteúdo principal"
+    "skipToContent": "Pular para o conteúdo principal",
+    "newsletterCta": "Receba previsões grátis da Copa →"
   },
   "common": {
     "loading": "Carregando...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Relatório de Scout Profissional",
     "headlinePlayerIntel": "Suite de Inteligência de Jogadores",
     "headlineDefault": "Desbloquear Conteúdo Premium",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Não foi possível verificar seu acesso. Atualize a página.",
+    "checkoutFailed": "Checkout falhou. Tente novamente.",
+    "processing": "Processando..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

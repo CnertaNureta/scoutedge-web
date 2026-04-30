@@ -79,7 +79,9 @@
     "successTitle": "Jesteś w Grze!",
     "successMessage": "Będziesz otrzymywać codzienny wywiad o MŚ na adres",
     "errorEmail": "Proszę wpisać prawidłowy adres e-mail.",
-    "go": "Dalej"
+    "go": "Dalej",
+    "alreadySubscribed": "Ten adres e-mail jest już zapisany.",
+    "errorGeneric": "Coś poszło nie tak. Spróbuj ponownie."
   },
   "nav": {
     "predictions": "Prognozy",
@@ -135,7 +137,8 @@
     "disclaimer": "Jest to niezależne, nieoficjalne źródło stworzone przez kibiców, niezwiązane z FIFA ani Mistrzostwami Świata FIFA i przez nie niezatwierdzone. Wszystkie nazwy drużyn, logotypy i powiązane znaki są znakami towarowymi ich odpowiednich właścicieli i są tu używane wyłącznie w celach identyfikacyjnych.",
     "affiliateDisclosure": "KickOracle uczestniczy w programach marketingu afiliacyjnego. Możemy otrzymać prowizję, gdy kupujesz bilety, rezerwujesz podróże, subskrybujesz usługi streamingowe lub kupujesz gadżety za pośrednictwem linków na tej stronie, bez dodatkowych kosztów dla Ciebie.",
     "copyright": "2026 KickOracle. Wywiad o Mistrzostwach Świata oparty na AI. Wszelkie prawa zastrzeżone.",
-    "skipToContent": "Przejdź do głównej treści"
+    "skipToContent": "Przejdź do głównej treści",
+    "newsletterCta": "Odbierz darmowe prognozy MŚ →"
   },
   "common": {
     "loading": "Ładowanie...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Raport Skautingowy Klasy Profesjonalnej",
     "headlinePlayerIntel": "Pakiet Wywiadu o Piłkarzach",
     "headlineDefault": "Odblokuj Zawartość Premium",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Nie udało się zweryfikować dostępu. Odśwież stronę.",
+    "checkoutFailed": "Płatność nieudana. Spróbuj ponownie.",
+    "processing": "Przetwarzanie..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

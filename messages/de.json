@@ -79,7 +79,9 @@
     "successTitle": "Du bist dabei!",
     "successMessage": "Du erhältst die tägliche WM-Intelligence an",
     "errorEmail": "Bitte gib eine gültige E-Mail-Adresse ein.",
-    "go": "Los"
+    "go": "Los",
+    "alreadySubscribed": "Diese E-Mail ist bereits angemeldet.",
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
   },
   "nav": {
     "predictions": "Tipps",
@@ -135,7 +137,8 @@
     "disclaimer": "Dies ist eine unabhängige, inoffizielle, von Fans erstellte Ressource und steht in keiner Verbindung mit der FIFA oder der FIFA-Weltmeisterschaft. Alle Teamnamen, Logos und zugehörigen Marken sind Marken ihrer jeweiligen Eigentümer und werden hier nur zu Identifikationszwecken verwendet.",
     "affiliateDisclosure": "KickOracle nimmt an Affiliate-Marketing-Programmen teil. Wir können eine Provision erhalten, wenn Sie Tickets kaufen, Reisen buchen, Streaming-Dienste abonnieren oder Waren über Links auf dieser Website kaufen, ohne dass Ihnen zusätzliche Kosten entstehen.",
     "copyright": "2026 KickOracle. KI-gestützte WM-Intelligence. Alle Rechte vorbehalten.",
-    "skipToContent": "Zum Hauptinhalt springen"
+    "skipToContent": "Zum Hauptinhalt springen",
+    "newsletterCta": "Kostenlose WM-Prognosen erhalten →"
   },
   "common": {
     "loading": "Wird geladen...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Scouting-Spielbericht",
     "headlinePlayerIntel": "Spieler-Intelligence-Suite",
     "headlineDefault": "Premium-Inhalt freischalten",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Dein Zugriff konnte nicht geprüft werden. Bitte aktualisiere die Seite.",
+    "checkoutFailed": "Checkout fehlgeschlagen. Bitte versuche es erneut.",
+    "processing": "Verarbeitung..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

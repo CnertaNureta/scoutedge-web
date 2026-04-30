@@ -79,7 +79,9 @@
     "successTitle": "تم التسجيل!",
     "successMessage": "ستصلك استخبارات كأس العالم اليومية على",
     "errorEmail": "يرجى إدخال عنوان بريد إلكتروني صحيح.",
-    "go": "انطلق"
+    "go": "انطلق",
+    "alreadySubscribed": "هذا البريد مشترك بالفعل.",
+    "errorGeneric": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
   },
   "nav": {
     "predictions": "التوقعات",
@@ -135,7 +137,8 @@
     "disclaimer": "هذا مورد مستقل غير رسمي أنشأه المعجبون وليس تابعًا أو معتمدًا من FIFA أو كأس العالم FIFA. جميع أسماء الفرق والشعارات والعلامات ذات الصلة هي علامات تجارية لأصحابها المعنيين وتُستخدم هنا لأغراض التعريف فقط.",
     "affiliateDisclosure": "يشارك KickOracle في برامج التسويق بالعمولة. قد نحصل على عمولة عند شراء التذاكر أو حجز السفر أو الاشتراك في خدمات البث أو شراء البضائع من خلال الروابط الموجودة على هذا الموقع، دون أي تكلفة إضافية عليك.",
     "copyright": "2026 KickOracle. استخبارات كأس العالم بالذكاء الاصطناعي. جميع الحقوق محفوظة.",
-    "skipToContent": "انتقل إلى المحتوى الرئيسي"
+    "skipToContent": "انتقل إلى المحتوى الرئيسي",
+    "newsletterCta": "احصل على توقعات كأس العالم مجانًا →"
   },
   "common": {
     "loading": "جاري التحميل...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "تقرير مباراة احترافي",
     "headlinePlayerIntel": "حزمة استخبارات اللاعبين",
     "headlineDefault": "افتح المحتوى المتميز",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "تعذر التحقق من صلاحية الوصول. يرجى تحديث الصفحة.",
+    "checkoutFailed": "فشل إتمام الدفع. يرجى المحاولة مرة أخرى.",
+    "processing": "جارٍ المعالجة..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

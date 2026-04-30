@@ -79,7 +79,9 @@
     "successTitle": "등록 완료!",
     "successMessage": "다음 주소로 매일 월드컵 인텔리전스를 받게 됩니다",
     "errorEmail": "유효한 이메일 주소를 입력해 주세요.",
-    "go": "확인"
+    "go": "확인",
+    "alreadySubscribed": "이미 구독된 이메일입니다.",
+    "errorGeneric": "문제가 발생했습니다. 다시 시도해 주세요."
   },
   "nav": {
     "predictions": "예측",
@@ -135,7 +137,8 @@
     "disclaimer": "이것은 독립적이고 비공식적인 팬 제작 리소스이며 FIFA 또는 FIFA 월드컵과 제휴하거나 승인을 받지 않았습니다. 모든 팀 이름, 로고 및 관련 마크는 해당 소유자의 상표이며 여기서는 식별 목적으로만 사용됩니다.",
     "affiliateDisclosure": "KickOracle은 제휴 마케팅 프로그램에 참여하고 있습니다. 이 사이트의 링크를 통해 티켓 구매, 여행 예약, 스트리밍 서비스 구독 또는 상품 구매 시 추가 비용 없이 수수료를 받을 수 있습니다.",
     "copyright": "2026 KickOracle. AI 기반 월드컵 인텔리전스. 모든 권리 보유.",
-    "skipToContent": "메인 콘텐츠로 건너뛰기"
+    "skipToContent": "메인 콘텐츠로 건너뛰기",
+    "newsletterCta": "무료 월드컵 예측 받기 →"
   },
   "common": {
     "loading": "로딩 중...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "스카우트급 경기 리포트",
     "headlinePlayerIntel": "선수 인텔리전스 스위트",
     "headlineDefault": "프리미엄 콘텐츠 잠금 해제",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "접근 권한을 확인할 수 없습니다. 페이지를 새로고침해 주세요.",
+    "checkoutFailed": "결제에 실패했습니다. 다시 시도해 주세요.",
+    "processing": "처리 중..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

@@ -79,7 +79,9 @@
     "successTitle": "Anda Terdaftar!",
     "successMessage": "Anda akan menerima intelijen Piala Dunia harian di",
     "errorEmail": "Harap masukkan alamat email yang valid.",
-    "go": "Mulai"
+    "go": "Mulai",
+    "alreadySubscribed": "Email ini sudah berlangganan.",
+    "errorGeneric": "Terjadi kesalahan. Coba lagi."
   },
   "nav": {
     "predictions": "Prediksi",
@@ -135,7 +137,8 @@
     "disclaimer": "Ini adalah sumber daya independen dan tidak resmi buatan suporter, tidak berafiliasi dengan atau didukung oleh FIFA atau Piala Dunia FIFA. Semua nama tim, logo, dan tanda terkait adalah merek dagang dari pemiliknya masing-masing dan digunakan di sini hanya untuk tujuan identifikasi.",
     "affiliateDisclosure": "KickOracle berpartisipasi dalam program pemasaran afiliasi. Kami mungkin mendapat komisi ketika Anda membeli tiket, memesan perjalanan, berlangganan layanan streaming, atau membeli merchandise melalui tautan di situs ini, tanpa biaya tambahan untuk Anda.",
     "copyright": "2026 KickOracle. Intelijen Piala Dunia Berbasis AI. Hak cipta dilindungi.",
-    "skipToContent": "Langsung ke konten utama"
+    "skipToContent": "Langsung ke konten utama",
+    "newsletterCta": "Dapatkan prediksi Piala Dunia gratis →"
   },
   "common": {
     "loading": "Memuat...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Laporan Pertandingan Kelas Pemandu",
     "headlinePlayerIntel": "Suite Intelijen Pemain",
     "headlineDefault": "Buka Konten Premium",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Tidak dapat memverifikasi akses Anda. Muat ulang halaman.",
+    "checkoutFailed": "Checkout gagal. Coba lagi.",
+    "processing": "Memproses..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

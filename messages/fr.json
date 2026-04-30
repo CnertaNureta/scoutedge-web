@@ -79,7 +79,9 @@
     "successTitle": "C'est Fait !",
     "successMessage": "Vous recevrez l'intelligence quotidienne de la Coupe du Monde à",
     "errorEmail": "Veuillez entrer une adresse email valide.",
-    "go": "Go"
+    "go": "Go",
+    "alreadySubscribed": "Cette adresse e-mail est déjà inscrite.",
+    "errorGeneric": "Une erreur est survenue. Réessayez."
   },
   "nav": {
     "predictions": "Pronostics",
@@ -135,7 +137,8 @@
     "disclaimer": "Ceci est une ressource indépendante, non officielle, créée par des fans et n'est pas affiliée ni approuvée par la FIFA ou la Coupe du Monde de la FIFA. Tous les noms d'équipes, logos et marques associées sont des marques déposées de leurs propriétaires respectifs et sont utilisés ici uniquement à des fins d'identification.",
     "affiliateDisclosure": "KickOracle participe à des programmes de marketing d'affiliation. Nous pouvons gagner une commission lorsque vous achetez des billets, réservez un voyage, vous abonnez à des services de streaming ou achetez des produits via les liens de ce site, sans coût supplémentaire pour vous.",
     "copyright": "2026 KickOracle. Intelligence Coupe du Monde alimentée par l'IA. Tous droits réservés.",
-    "skipToContent": "Passer au contenu principal"
+    "skipToContent": "Passer au contenu principal",
+    "newsletterCta": "Recevoir des prédictions gratuites →"
   },
   "common": {
     "loading": "Chargement...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Rapport de Scout Professionnel",
     "headlinePlayerIntel": "Suite Intelligence Joueur",
     "headlineDefault": "Débloquer le Contenu Premium",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Impossible de vérifier votre accès. Actualisez la page.",
+    "checkoutFailed": "Le paiement a échoué. Réessayez.",
+    "processing": "Traitement..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

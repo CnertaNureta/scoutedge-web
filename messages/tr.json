@@ -79,7 +79,9 @@
     "successTitle": "Katıldın!",
     "successMessage": "Günlük Dünya Kupası istihbaratını şu adrese alacaksın:",
     "errorEmail": "Lütfen geçerli bir e-posta adresi girin.",
-    "go": "Git"
+    "go": "Git",
+    "alreadySubscribed": "Bu e-posta zaten abone.",
+    "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
   },
   "nav": {
     "predictions": "Tahminler",
@@ -135,7 +137,8 @@
     "disclaimer": "Bu, bağımsız ve resmi olmayan bir taraftar kaynağıdır; FIFA veya FIFA Dünya Kupası ile herhangi bir bağlantısı veya onayı yoktur. Tüm takım adları, logoları ve ilgili markalar, ilgili sahiplerinin tescilli ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmaktadır.",
     "affiliateDisclosure": "KickOracle, ortaklık pazarlama programlarına katılmaktadır. Bu sitedeki bağlantılar aracılığıyla bilet satın aldığınızda, seyahat rezervasyonu yaptığınızda, yayın hizmetlerine abone olduğunuzda veya ürün satın aldığınızda, size ek bir maliyet olmaksızın komisyon kazanabiliriz.",
     "copyright": "2026 KickOracle. Yapay Zeka Destekli Dünya Kupası İstihbaratı. Tüm hakları saklıdır.",
-    "skipToContent": "Ana içeriğe geç"
+    "skipToContent": "Ana içeriğe geç",
+    "newsletterCta": "Ücretsiz Dünya Kupası tahminleri al →"
   },
   "common": {
     "loading": "Yükleniyor...",
@@ -844,9 +847,9 @@
     "headlineScoutReport": "Keşif Düzeyinde Maç Raporu",
     "headlinePlayerIntel": "Futbolcu İstihbarat Paketi",
     "headlineDefault": "Premium İçeriği Aç",
-    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
-    "checkoutFailed": "Checkout failed. Please try again.",
-    "processing": "Processing..."
+    "entitlementLoadError": "Erişiminiz doğrulanamadı. Lütfen sayfayı yenileyin.",
+    "checkoutFailed": "Ödeme başarısız. Lütfen tekrar deneyin.",
+    "processing": "İşleniyor..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",
