@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
   const title = `${city.name} — World Cup 2026 Host City Guide`
   const description = `Fan guide to ${city.name} for the 2026 World Cup. ${city.description.slice(0, 120)}...`
-  const url = `https://kickoracle.com/cities/${slug}`
+  const url = `https://kickoracle.com/cities/${city.slug}`
 
   return {
     title,
@@ -280,10 +280,11 @@ export default async function CityPage({ params }: CityPageProps) {
     .map((s) => getTeamBySlug(s))
     .filter((t): t is NonNullable<typeof t> => t !== undefined)
   const otherCities = getAllCities()
-    .filter((c) => c.slug !== slug)
+    .filter((c) => c.slug !== city.slug)
     .slice(0, 6)
 
-  const cityUrl = `https://kickoracle.com/cities/${slug}`
+  const cityPath = `/cities/${city.slug}`
+  const cityUrl = `https://kickoracle.com${cityPath}`
   const touristDestinationLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
@@ -325,7 +326,7 @@ export default async function CityPage({ params }: CityPageProps) {
         items={[
           { name: 'Home', href: '/' },
           { name: 'Host Cities', href: '/cities' },
-          { name: city.name, href: `/cities/${slug}` },
+          { name: city.name, href: cityPath },
         ]}
       />
 
