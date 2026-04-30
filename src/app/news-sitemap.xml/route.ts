@@ -11,7 +11,9 @@ export function GET() {
   const twoDaysAgo = new Date()
   twoDaysAgo.setDate(twoDaysAgo.getDate() - 2)
 
-  const recentPosts = posts.filter((post) => new Date(post.date) >= twoDaysAgo)
+  const recentPosts = posts.filter(
+    (post) => new Date(post.date) >= twoDaysAgo && post.wordCount >= 400,
+  )
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

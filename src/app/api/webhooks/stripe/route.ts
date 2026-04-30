@@ -264,11 +264,27 @@ async function upsertSubscription(
     cancel_at_period_end: sub.cancel_at_period_end,
   })
 
-  const tier = ['active', 'trialing'].includes(sub.status) ? 'pro' : 'free'
-  await admin
-    .from('user_profiles')
-    .update({ subscription_tier: tier })
-    .eq('id', userId)
+  if (['active', 'trialing'].includes(sub.status)) {
+    await admin
+      .from('user_profiles')
+      .update({ subscription_tier: 'pro' })
+      .eq('id', userId)
+  } else {
+    const { data: otherActive } = await admin
+      .from('subscriptions')
+      .select('id')
+      .eq('user_id', userId)
+      .in('status', ['active', 'trialing'])
+      .neq('id', sub.id)
+      .limit(1)
+
+    if (!otherActive?.length) {
+      await admin
+        .from('user_profiles')
+        .update({ subscription_tier: 'free' })
+        .eq('id', userId)
+    }
+  }
 }
 
 async function fulfillBoosterPurchase(

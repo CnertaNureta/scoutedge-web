@@ -79,7 +79,9 @@
     "successTitle": "登録完了！",
     "successMessage": "以下のアドレスにワールドカップインテリジェンスをお届けします",
     "errorEmail": "有効なメールアドレスを入力してください。",
-    "go": "送信"
+    "go": "送信",
+    "alreadySubscribed": "このメールアドレスはすでに登録されています。",
+    "errorGeneric": "問題が発生しました。もう一度お試しください。"
   },
   "nav": {
     "predictions": "予測",
@@ -135,7 +137,8 @@
     "disclaimer": "これは独立した非公式のファンメイドリソースであり、FIFAまたはFIFAワールドカップとは提携しておらず、承認されていません。すべてのチーム名、ロゴ、関連商標はそれぞれの所有者の商標であり、識別目的でのみ使用されています。",
     "affiliateDisclosure": "KickOracleはアフィリエイトマーケティングプログラムに参加しています。本サイトのリンクを通じてチケット購入、旅行予約、ストリーミングサービス加入、商品購入を行った場合、追加費用なしでコミッションを受け取る場合があります。",
     "copyright": "2026 KickOracle. AI搭載ワールドカップインテリジェンス。全著作権所有。",
-    "skipToContent": "メインコンテンツにスキップ"
+    "skipToContent": "メインコンテンツにスキップ",
+    "newsletterCta": "無料のワールドカップ予測を受け取る →"
   },
   "common": {
     "loading": "読み込み中...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "2026年6月11日 — 7月19日",
-    "heading": "大会スケジュール",
+    "heading": "ワールドカップ2026 日程",
     "description": "39日間で全104試合 — エスタディオ・アステカでの開幕戦からメットライフ・スタジアムでの決勝まで。グループステージ、ラウンド32、ノックアウトラウンドなど。",
     "ctaText": "全試合のAIアラートを受け取る — 無料。",
     "ctaButton": "無料アカウントを作成",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "AI分析",
-    "heading": "ワールドカップ予測",
+    "heading": "ワールドカップ2026 AI予測",
     "description": "全48チームのAI算出勝率。ケミストリー指数、フォーム分析、FIFAランキング、毎日更新のインテリジェンスシグナルを統合。",
     "ctaText": "毎日の勝率更新を受け取る — 無料。",
     "ctaButton": "無料アカウントを作成",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "ノックアウト32試合",
-    "heading": "トーナメント表",
+    "heading": "ワールドカップ2026 トーナメント表",
     "description": "2026ワールドカップのノックアウトステージ全貌。ラウンド32の48チームから7月19日メットライフ・スタジアムでの決勝まで。全試合のAI確率。",
     "ctaText": "トーナメント表を作成して全試合を追跡 — 無料。",
     "ctaButton": "無料アカウントを作成",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "トーナメントブラケットシミュレーター",
     "headlineScoutReport": "スカウトグレード試合レポート",
     "headlinePlayerIntel": "選手インテリジェンススイート",
-    "headlineDefault": "プレミアムコンテンツをアンロック"
+    "headlineDefault": "プレミアムコンテンツをアンロック",
+    "entitlementLoadError": "アクセス権を確認できませんでした。ページを再読み込みしてください。",
+    "checkoutFailed": "チェックアウトに失敗しました。もう一度お試しください。",
+    "processing": "処理中..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

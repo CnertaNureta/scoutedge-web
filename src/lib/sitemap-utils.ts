@@ -1,20 +1,27 @@
 import type { MetadataRoute } from 'next'
-import { getAllTeams, getPlayersByTeam, getAllGroups } from '@/lib/data-service'
-import { getAllMatchupSlugs } from '@/lib/compare-utils'
-import { getAllPosts } from '@/lib/blog-service'
-import { SUPPORTED_LOCALES, LOCALE_CONFIGS } from '@/i18n/locales'
 import { lingoCountries, lingoPlayers } from '@/data/lingo-data'
+import { LOCALE_CONFIGS, SUPPORTED_LOCALES } from '@/i18n/locales'
+import { getAllPosts } from '@/lib/blog-service'
+import { getAllMatchupSlugs } from '@/lib/compare-utils'
+import { getAllGroups, getAllTeams, getPlayersByTeam } from '@/lib/data-service'
 
-export const dynamic = 'force-static'
+export const SITE_BASE_URL = 'https://kickoracle.com'
+export const SITEMAP_CHUNK_SIZE = 2500
 
-const BASE = 'https://kickoracle.com'
+type SitemapEntry = MetadataRoute.Sitemap[number]
 
-/** Build the locale-prefixed URL for a path. Default locale (en) has no prefix. */
-function localizedUrl(locale: string, path: string): string {
-  return locale === 'en' ? `${BASE}${path}` : `${BASE}/${locale}${path}`
+interface EntryOpts {
+  changeFrequency: NonNullable<SitemapEntry['changeFrequency']>
+  priority: number
+  lastModified?: Date
 }
 
-/** Build the hreflang alternates map for a path (used in <xhtml:link> alternates). */
+let cachedEntries: MetadataRoute.Sitemap | null = null
+
+function localizedUrl(locale: string, path: string): string {
+  return locale === 'en' ? `${SITE_BASE_URL}${path}` : `${SITE_BASE_URL}/${locale}${path}`
+}
+
 function localizedAlternates(path: string): Record<string, string> {
   const out: Record<string, string> = { 'x-default': localizedUrl('en', path) }
   for (const loc of SUPPORTED_LOCALES) {
@@ -24,13 +31,6 @@ function localizedAlternates(path: string): Record<string, string> {
   return out
 }
 
-interface EntryOpts {
-  changeFrequency: NonNullable<MetadataRoute.Sitemap[number]['changeFrequency']>
-  priority: number
-  lastModified?: Date
-}
-
-/** Emit one sitemap entry per supported locale with reciprocal hreflang alternates. */
 function localizedEntries(path: string, opts: EntryOpts): MetadataRoute.Sitemap {
   const lastModified = opts.lastModified ?? new Date()
   const alternates = localizedAlternates(path)
@@ -43,14 +43,15 @@ function localizedEntries(path: string, opts: EntryOpts): MetadataRoute.Sitemap 
   }))
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export function getSitemapEntries(): MetadataRoute.Sitemap {
+  if (cachedEntries) return cachedEntries
+
   const teams = getAllTeams()
   const groups = getAllGroups()
   const matchupSlugs = getAllMatchupSlugs()
   const blogPosts = getAllPosts()
 
-  const entries: MetadataRoute.Sitemap = [
-    // Core pages
+  cachedEntries = [
     ...localizedEntries('', { changeFrequency: 'daily', priority: 1.0 }),
     ...localizedEntries('/teams', { changeFrequency: 'daily', priority: 0.95 }),
     ...localizedEntries('/matches', { changeFrequency: 'daily', priority: 0.9 }),
@@ -58,24 +59,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...localizedEntries('/power-rankings', { changeFrequency: 'daily', priority: 0.9 }),
     ...localizedEntries('/daily-briefing', { changeFrequency: 'daily', priority: 0.9 }),
     ...localizedEntries('/bracket', { changeFrequency: 'daily', priority: 0.85 }),
-
-    // Tool / utility pages
     ...localizedEntries('/schedule', { changeFrequency: 'daily', priority: 0.9 }),
     ...localizedEntries('/countdown', { changeFrequency: 'daily', priority: 0.7 }),
     ...localizedEntries('/schedule/converter', { changeFrequency: 'weekly', priority: 0.7 }),
     ...localizedEntries('/compare', { changeFrequency: 'weekly', priority: 0.8 }),
-
-    // Cities & travel hub
     ...localizedEntries('/cities', { changeFrequency: 'weekly', priority: 0.9 }),
     ...localizedEntries('/travel', { changeFrequency: 'weekly', priority: 0.85 }),
     ...localizedEntries('/travel/visa', { changeFrequency: 'monthly', priority: 0.75 }),
     ...localizedEntries('/travel/budget-calculator', { changeFrequency: 'monthly', priority: 0.7 }),
     ...localizedEntries('/travel/tickets', { changeFrequency: 'weekly', priority: 0.85 }),
-
-    // Blog hub
     ...localizedEntries('/blog', { changeFrequency: 'daily', priority: 0.85 }),
-
-    // Fan zone hubs
     ...localizedEntries('/lingo', { changeFrequency: 'weekly', priority: 0.85 }),
     ...localizedEntries('/lingo/countries', { changeFrequency: 'monthly', priority: 0.75 }),
     ...localizedEntries('/lingo/players', { changeFrequency: 'monthly', priority: 0.75 }),
@@ -87,41 +80,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...localizedEntries('/stickers', { changeFrequency: 'weekly', priority: 0.75 }),
     ...localizedEntries('/stickers/cost-calculator', { changeFrequency: 'monthly', priority: 0.6 }),
     ...localizedEntries('/stickers/tracker', { changeFrequency: 'weekly', priority: 0.65 }),
-
-    // Play & community hubs
     ...localizedEntries('/play', { changeFrequency: 'weekly', priority: 0.7 }),
     ...localizedEntries('/play/quiz', { changeFrequency: 'monthly', priority: 0.6 }),
     ...localizedEntries('/play/pk-battle', { changeFrequency: 'monthly', priority: 0.55 }),
     ...localizedEntries('/leaderboard', { changeFrequency: 'daily', priority: 0.6 }),
     ...localizedEntries('/leagues', { changeFrequency: 'weekly', priority: 0.55 }),
     ...localizedEntries('/challenges', { changeFrequency: 'daily', priority: 0.55 }),
-
-    // Account / commerce
     ...localizedEntries('/pricing', { changeFrequency: 'monthly', priority: 0.7 }),
     ...localizedEntries('/developers', { changeFrequency: 'monthly', priority: 0.5 }),
     ...localizedEntries('/fan-card', { changeFrequency: 'monthly', priority: 0.5 }),
     ...localizedEntries('/volunteer', { changeFrequency: 'monthly', priority: 0.4 }),
-
-    // Legal
     ...localizedEntries('/privacy-policy', { changeFrequency: 'monthly', priority: 0.2 }),
     ...localizedEntries('/terms-of-service', { changeFrequency: 'monthly', priority: 0.2 }),
-
-    // Group pages
     ...groups.flatMap((g) =>
       localizedEntries(`/groups/${g}`, { changeFrequency: 'weekly', priority: 0.8 })
     ),
-
-    // Team pages
     ...teams.flatMap((t) =>
       localizedEntries(`/teams/${t.slug}`, { changeFrequency: 'daily', priority: 0.9 })
     ),
-
-    // Team sub-pages: qualified status
     ...teams.flatMap((t) =>
       localizedEntries(`/teams/${t.slug}/qualified`, { changeFrequency: 'weekly', priority: 0.7 })
     ),
-
-    // Player pages
     ...teams.flatMap((team) =>
       getPlayersByTeam(team.slug).flatMap((p) =>
         localizedEntries(`/teams/${team.slug}/players/${p.slug}`, {
@@ -130,21 +109,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         })
       )
     ),
-
-    // Compare pages (1,128)
     ...matchupSlugs.flatMap((slug) =>
       localizedEntries(`/compare/${slug}`, { changeFrequency: 'weekly', priority: 0.6 })
     ),
-
-    // Lingo dynamic pages
     ...lingoCountries.flatMap((c) =>
       localizedEntries(`/lingo/countries/${c.id}`, { changeFrequency: 'monthly', priority: 0.65 })
     ),
     ...lingoPlayers.flatMap((p) =>
       localizedEntries(`/lingo/players/${p.id}`, { changeFrequency: 'monthly', priority: 0.65 })
     ),
-
-    // Blog posts
     ...blogPosts.flatMap((post) =>
       localizedEntries(`/blog/${post.slug}`, {
         changeFrequency: 'daily',
@@ -154,5 +127,68 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
   ]
 
-  return entries
+  return cachedEntries
+}
+
+export function getSitemapChunkCount(): number {
+  return Math.ceil(getSitemapEntries().length / SITEMAP_CHUNK_SIZE)
+}
+
+export function getSitemapChunk(id: number): MetadataRoute.Sitemap | null {
+  if (!Number.isInteger(id) || id < 0 || id >= getSitemapChunkCount()) {
+    return null
+  }
+
+  const start = id * SITEMAP_CHUNK_SIZE
+  return getSitemapEntries().slice(start, start + SITEMAP_CHUNK_SIZE)
+}
+
+export function getSitemapChunkUrl(id: number): string {
+  return `${SITE_BASE_URL}/sitemaps/${id}.xml`
+}
+
+export function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+function formatDate(value: Date | string): string {
+  if (value instanceof Date) return value.toISOString()
+
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? value : date.toISOString()
+}
+
+export function sitemapEntriesToXml(entries: MetadataRoute.Sitemap): string {
+  const urls = entries
+    .map((entry) => {
+      const alternates = Object.entries(entry.alternates?.languages ?? {})
+        .flatMap(([hreflang, href]) =>
+          href
+            ? [
+                `    <xhtml:link rel="alternate" hreflang="${escapeXml(hreflang)}" href="${escapeXml(href)}" />`,
+              ]
+            : []
+        )
+        .join('\n')
+
+      return `  <url>
+    <loc>${escapeXml(entry.url)}</loc>
+    ${entry.lastModified ? `<lastmod>${escapeXml(formatDate(entry.lastModified))}</lastmod>` : ''}
+    ${entry.changeFrequency ? `<changefreq>${entry.changeFrequency}</changefreq>` : ''}
+    ${typeof entry.priority === 'number' ? `<priority>${entry.priority.toFixed(2)}</priority>` : ''}
+${alternates}
+  </url>`
+    })
+    .join('\n')
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls}
+</urlset>`
 }

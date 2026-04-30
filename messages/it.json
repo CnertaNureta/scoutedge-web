@@ -79,7 +79,9 @@
     "successTitle": "Ci Sei!",
     "successMessage": "Riceverai l'intelligence giornaliera sulla Coppa del Mondo a",
     "errorEmail": "Inserisci un indirizzo email valido.",
-    "go": "Vai"
+    "go": "Vai",
+    "alreadySubscribed": "Questa email è già iscritta.",
+    "errorGeneric": "Qualcosa è andato storto. Riprova."
   },
   "nav": {
     "predictions": "Previsioni",
@@ -135,7 +137,8 @@
     "disclaimer": "Questa è una risorsa indipendente e non ufficiale creata da tifosi, non affiliata né approvata dalla FIFA o dalla Coppa del Mondo FIFA. Tutti i nomi delle squadre, i loghi e i marchi correlati sono di proprietà dei rispettivi titolari e vengono utilizzati a solo scopo identificativo.",
     "affiliateDisclosure": "KickOracle partecipa a programmi di marketing di affiliazione. Potremmo ricevere una commissione quando acquisti biglietti, prenoti viaggi, ti abboni a servizi di streaming o acquisti merchandising tramite i link presenti su questo sito, senza alcun costo aggiuntivo per te.",
     "copyright": "2026 KickOracle. Intelligence sulla Coppa del Mondo basata sull'IA. Tutti i diritti riservati.",
-    "skipToContent": "Vai al contenuto principale"
+    "skipToContent": "Vai al contenuto principale",
+    "newsletterCta": "Ricevi pronostici gratuiti sui Mondiali →"
   },
   "common": {
     "loading": "Caricamento...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "11 giugno — 19 luglio 2026",
-    "heading": "Calendario del Torneo",
+    "heading": "Calendario Mondiali 2026",
     "description": "Tutte le 104 partite in 39 giorni — dalla partita inaugurale all'Estadio Azteca alla Finale al MetLife Stadium. Fase a gironi, Sedicesimi, fasi a eliminazione diretta e oltre.",
     "ctaText": "Ricevi avvisi IA per ogni partita — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "Analisi basata sull'IA",
-    "heading": "Previsioni Mondiali",
+    "heading": "Previsioni IA Mondiali 2026",
     "description": "Probabilità di vittoria calcolate dall'IA per tutte le 48 nazionali, combinando indice di intesa, analisi della forma, ranking FIFA e segnali di intelligence aggiornati quotidianamente.",
     "ctaText": "Ricevi aggiornamenti giornalieri sulle probabilità di vittoria — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32 Partite a Eliminazione Diretta",
-    "heading": "Tabellone del Torneo",
+    "heading": "Tabellone Mondiali 2026",
     "description": "La fase a eliminazione diretta completa dei Mondiali 2026. Dalle 48 nazionali dei Sedicesimi alla Finale al MetLife Stadium il 19 luglio. Probabilità IA per ogni incontro.",
     "ctaText": "Costruisci il tuo tabellone e segui ogni partita — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "Simulatore Tabellone del Torneo",
     "headlineScoutReport": "Report Partita Livello Scout",
     "headlinePlayerIntel": "Suite Intelligence Calciatori",
-    "headlineDefault": "Sblocca Contenuto Premium"
+    "headlineDefault": "Sblocca Contenuto Premium",
+    "entitlementLoadError": "Impossibile verificare l’accesso. Aggiorna la pagina.",
+    "checkoutFailed": "Checkout non riuscito. Riprova.",
+    "processing": "Elaborazione..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

@@ -7,9 +7,7 @@ import { LOCALE_CONFIGS } from '@/i18n/locales'
 import type { Locale } from '@/i18n/locales'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import ChatWidget from '@/components/chat/ChatWidget'
-import InstallBanner from '@/components/pwa/InstallBanner'
-import UpsellBanner from '@/components/monetization/UpsellBanner'
+import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { AdSenseScript } from '@/components/analytics/AdSenseScript'
@@ -117,9 +115,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
-            <ChatWidget />
-            <UpsellBanner />
-            <InstallBanner />
+            <ClientRuntimeWidgets />
           </div>
         </Providers>
       </NextIntlClientProvider>

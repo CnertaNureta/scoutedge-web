@@ -79,7 +79,9 @@
     "successTitle": "¡Estás Dentro!",
     "successMessage": "Recibirás inteligencia diaria del Mundial en",
     "errorEmail": "Por favor ingresa un correo electrónico válido.",
-    "go": "Ir"
+    "go": "Ir",
+    "alreadySubscribed": "Este correo ya está suscrito.",
+    "errorGeneric": "Algo salió mal. Inténtalo de nuevo."
   },
   "nav": {
     "predictions": "Predicciones",
@@ -135,7 +137,8 @@
     "disclaimer": "Este es un recurso independiente, no oficial, creado por fans y no está afiliado ni respaldado por la FIFA o la Copa del Mundo de la FIFA. Todos los nombres de equipos, logos y marcas relacionadas son marcas registradas de sus respectivos propietarios y se utilizan aquí solo con fines de identificación.",
     "affiliateDisclosure": "KickOracle participa en programas de marketing de afiliados. Podemos ganar una comisión cuando compras entradas, reservas viajes, te suscribes a servicios de streaming o compras mercancía a través de los enlaces de este sitio, sin costo adicional para ti.",
     "copyright": "2026 KickOracle. Inteligencia de la Copa del Mundo impulsada por IA. Todos los derechos reservados.",
-    "skipToContent": "Saltar al contenido principal"
+    "skipToContent": "Saltar al contenido principal",
+    "newsletterCta": "Recibe predicciones gratis del Mundial →"
   },
   "common": {
     "loading": "Cargando...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "11 de junio — 19 de julio, 2026",
-    "heading": "Calendario del Torneo",
+    "heading": "Calendario del Mundial 2026",
     "description": "Los 104 partidos en 39 días — desde el partido inaugural en el Estadio Azteca hasta la Final en el MetLife Stadium. Fase de grupos, Dieciseisavos de final, eliminatorias y más.",
     "ctaText": "Recibe alertas IA para cada partido — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "Análisis con IA",
-    "heading": "Predicciones del Mundial",
+    "heading": "Predicciones IA del Mundial 2026",
     "description": "Probabilidades de victoria calculadas por IA para las 48 selecciones, combinando índice de química, análisis de forma, ranking FIFA y señales de inteligencia actualizadas diariamente.",
     "ctaText": "Recibe actualizaciones diarias de probabilidades — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32 Partidos Eliminatorios",
-    "heading": "Cuadro del Torneo",
+    "heading": "Cuadro del Mundial 2026",
     "description": "La fase eliminatoria completa del Mundial 2026. De 48 selecciones en los Dieciseisavos de Final hasta la Final en el MetLife Stadium el 19 de julio. Probabilidades con IA para cada encuentro.",
     "ctaText": "Crea tu cuadro y sigue cada partido — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "Simulador de Bracket del Torneo",
     "headlineScoutReport": "Informe de Scout Profesional",
     "headlinePlayerIntel": "Suite de Inteligencia de Jugadores",
-    "headlineDefault": "Desbloquear Contenido Premium"
+    "headlineDefault": "Desbloquear Contenido Premium",
+    "entitlementLoadError": "No pudimos verificar tu acceso. Actualiza la página.",
+    "checkoutFailed": "El checkout falló. Inténtalo de nuevo.",
+    "processing": "Procesando..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",
