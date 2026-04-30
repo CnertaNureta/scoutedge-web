@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "۱۱ ژوئن — ۱۹ ژوئیه ۲۰۲۶",
-    "heading": "برنامه تورنمنت",
+    "heading": "برنامه جام جهانی 2026",
     "description": "تمام ۱۰۴ بازی در ۳۹ روز — از بازی افتتاحیه در استادیو آزتکا تا فینال در متلایف استادیوم. مرحله گروهی، یک‌سی‌ودوم نهایی، مراحل حذفی و فراتر.",
     "ctaText": "هشدارهای هوش مصنوعی برای هر بازی — رایگان.",
     "ctaButton": "ساخت حساب رایگان",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "تحلیل هوش مصنوعی",
-    "heading": "پیش‌بینی‌های جام جهانی",
+    "heading": "پیش‌بینی‌های هوش مصنوعی جام جهانی 2026",
     "description": "احتمال برد محاسبه‌شده توسط هوش مصنوعی برای هر ۴۸ تیم، ترکیب شاخص هماهنگی، تحلیل فرم، رده‌بندی FIFA و سیگنال‌های اطلاعاتی با به‌روزرسانی روزانه.",
     "ctaText": "به‌روزرسانی روزانه احتمال برد — رایگان.",
     "ctaButton": "ساخت حساب رایگان",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "۳۲ بازی حذفی",
-    "heading": "جدول تورنمنت",
+    "heading": "جدول جام جهانی 2026",
     "description": "مرحله حذفی کامل جام جهانی ۲۰۲۶. از ۴۸ تیم در یک‌سی‌ودوم نهایی تا فینال در متلایف استادیوم در ۱۹ ژوئیه. احتمالات هوش مصنوعی برای هر بازی.",
     "ctaText": "جدول خود را بسازید و هر بازی را دنبال کنید — رایگان.",
     "ctaButton": "ساخت حساب رایگان",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "شبیه‌ساز جدول حذفی تورنمنت",
     "headlineScoutReport": "گزارش تخصصی بازی",
     "headlinePlayerIntel": "مجموعه اطلاعات بازیکن",
-    "headlineDefault": "باز کردن قفل محتوای ویژه"
+    "headlineDefault": "باز کردن قفل محتوای ویژه",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

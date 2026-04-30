@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "2026. június 11. — július 19.",
-    "heading": "Torna menetrendje",
+    "heading": "2026-os Vb menetrend",
     "description": "Mind a 104 mérkőzés 39 nap alatt — az Estadio Azteca nyitómérkőzésétől a MetLife Stadium döntőjéig. Csoportkör, legjobb 32, egyenes kieséses szakasz és tovább.",
     "ctaText": "MI-alapú meccsriasztás minden mérkőzésre — ingyenesen.",
     "ctaButton": "Ingyenes fiók létrehozása",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "MI-elemzés",
-    "heading": "Vb-előrejelzések",
+    "heading": "2026-os Vb MI-előrejelzések",
     "description": "MI által számított győzelmi valószínűségek mind a 48 válogatottra, kémiaindex, formaanalízis, FIFA-rangsor és naponta frissülő felderítő jelzések ötvözetében.",
     "ctaText": "Napi győzelmi valószínűség-frissítések — ingyenesen.",
     "ctaButton": "Ingyenes fiók létrehozása",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 egyenes kieséses mérkőzés",
-    "heading": "Tornai ágrajz",
+    "heading": "2026-os Vb ágrajz",
     "description": "A 2026-os vb teljes egyenes kieséses szakasza. 48 válogatottól a legjobb 32-ben a július 19-i MetLife Stadium döntőig. MI-alapú valószínűségek minden mérkőzésre.",
     "ctaText": "Állítsd össze az ágrajzodat és kövesd minden meccset — ingyenesen.",
     "ctaButton": "Ingyenes fiók létrehozása",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Torna bracket szimulátor",
     "headlineScoutReport": "Szakértői mérkőzésjelentés",
     "headlinePlayerIntel": "Játékos-felderítő csomag",
-    "headlineDefault": "Prémium tartalom feloldása"
+    "headlineDefault": "Prémium tartalom feloldása",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

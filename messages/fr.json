@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 juin — 19 juillet 2026",
-    "heading": "Calendrier du Tournoi",
+    "heading": "Calendrier de la Coupe du Monde 2026",
     "description": "Les 104 matchs sur 39 jours — du match d'ouverture à l'Estadio Azteca jusqu'à la Finale au MetLife Stadium. Phase de groupes, 32e de finale, phases à élimination directe et plus.",
     "ctaText": "Recevez des alertes IA pour chaque match — gratuit.",
     "ctaButton": "Créer un Compte Gratuit",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Analyse par IA",
-    "heading": "Prédictions de la Coupe du Monde",
+    "heading": "Prédictions IA de la Coupe du Monde 2026",
     "description": "Probabilités de victoire calculées par IA pour les 48 équipes, combinant indice de cohésion, analyse de forme, classement FIFA et signaux de renseignement mis à jour quotidiennement.",
     "ctaText": "Recevez des mises à jour quotidiennes des probabilités — gratuit.",
     "ctaButton": "Créer un Compte Gratuit",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Matchs Éliminatoires",
-    "heading": "Tableau du Tournoi",
+    "heading": "Tableau de la Coupe du Monde 2026",
     "description": "La phase à élimination directe complète de la Coupe du Monde 2026. De 48 équipes en 32e de finale jusqu'à la Finale au MetLife Stadium le 19 juillet. Probabilités IA pour chaque confrontation.",
     "ctaText": "Créez votre tableau et suivez chaque match — gratuit.",
     "ctaButton": "Créer un Compte Gratuit",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Simulateur de Tableau du Tournoi",
     "headlineScoutReport": "Rapport de Scout Professionnel",
     "headlinePlayerIntel": "Suite Intelligence Joueur",
-    "headlineDefault": "Débloquer le Contenu Premium"
+    "headlineDefault": "Débloquer le Contenu Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

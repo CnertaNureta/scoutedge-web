@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 Juni — 19 Juli 2026",
-    "heading": "Jadwal Turnamen",
+    "heading": "Jadwal Piala Dunia 2026",
     "description": "Semua 104 pertandingan selama 39 hari — dari laga pembuka di Estadio Azteca hingga Final di MetLife Stadium. Fase grup, Babak 32 Besar, babak gugur, dan seterusnya.",
     "ctaText": "Dapatkan notifikasi AI untuk setiap pertandingan — gratis.",
     "ctaButton": "Buat Akun Gratis",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Analisis Berbasis AI",
-    "heading": "Prediksi Piala Dunia",
+    "heading": "Prediksi AI Piala Dunia 2026",
     "description": "Probabilitas kemenangan yang dihitung AI untuk semua 48 tim, menggabungkan indeks chemistry, analisis performa, peringkat FIFA, dan sinyal intelijen yang diperbarui setiap hari.",
     "ctaText": "Dapatkan pembaruan probabilitas kemenangan harian — gratis.",
     "ctaButton": "Buat Akun Gratis",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Pertandingan Gugur",
-    "heading": "Bagan Turnamen",
+    "heading": "Bagan Piala Dunia 2026",
     "description": "Babak gugur Piala Dunia 2026 lengkap. Dari 48 tim di Babak 32 Besar hingga Final di MetLife Stadium pada 19 Juli. Probabilitas berbasis AI untuk setiap laga.",
     "ctaText": "Buat bagan dan pantau setiap pertandingan — gratis.",
     "ctaButton": "Buat Akun Gratis",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Simulator Bracket Turnamen",
     "headlineScoutReport": "Laporan Pertandingan Kelas Pemandu",
     "headlinePlayerIntel": "Suite Intelijen Pemain",
-    "headlineDefault": "Buka Konten Premium"
+    "headlineDefault": "Buka Konten Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

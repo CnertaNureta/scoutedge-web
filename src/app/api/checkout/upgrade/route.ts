@@ -81,7 +81,7 @@ export async function POST(req: NextRequest) {
 
     const origin = req.headers.get('origin') ?? ''
 
-    const discounts: { coupon: string }[] = []
+    const discounts: { promotion_code: string }[] = []
 
     if (quote.creditCents > 0) {
       const coupon = await stripe.coupons.create({
@@ -90,8 +90,15 @@ export async function POST(req: NextRequest) {
         duration: 'once',
         name: `Pass credit: $${(quote.creditCents / 100).toFixed(2)} from prior purchases`,
         max_redemptions: 1,
+        redeem_by: Math.floor(Date.now() / 1000) + 3600,
       })
-      discounts.push({ coupon: coupon.id })
+      const promoCode = await stripe.promotionCodes.create({
+        promotion: { type: 'coupon', coupon: coupon.id },
+        max_redemptions: 1,
+        restrictions: { first_time_transaction: false },
+        customer: customerId,
+      })
+      discounts.push({ promotion_code: promoCode.id })
     }
 
     const session = await stripe.checkout.sessions.create({

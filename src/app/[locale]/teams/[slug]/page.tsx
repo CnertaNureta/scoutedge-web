@@ -11,7 +11,6 @@ import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
-import MatchSchedule from '@/components/team/MatchSchedule'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 
@@ -103,19 +102,8 @@ export default async function TeamPage({ params }: PageProps) {
 
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <TacticalDNA team={team} players={players} />
-      </Paywall>
-
-      <Paywall contentType="team" scope={slug} previewLines={4}>
         <SquadDepth players={players} />
-      </Paywall>
-
-      {worldCupHistory && (
-        <Paywall contentType="team" scope={slug} previewLines={5}>
-          <HistoricalPerformance history={worldCupHistory} />
-        </Paywall>
-      )}
-
-      <Paywall contentType="team" scope={slug} previewLines={4}>
+        {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
         <IntelligenceReport team={team} />
       </Paywall>
 

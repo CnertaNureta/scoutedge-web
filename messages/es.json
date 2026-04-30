@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 de junio — 19 de julio, 2026",
-    "heading": "Calendario del Torneo",
+    "heading": "Calendario del Mundial 2026",
     "description": "Los 104 partidos en 39 días — desde el partido inaugural en el Estadio Azteca hasta la Final en el MetLife Stadium. Fase de grupos, Dieciseisavos de final, eliminatorias y más.",
     "ctaText": "Recibe alertas IA para cada partido — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Análisis con IA",
-    "heading": "Predicciones del Mundial",
+    "heading": "Predicciones IA del Mundial 2026",
     "description": "Probabilidades de victoria calculadas por IA para las 48 selecciones, combinando índice de química, análisis de forma, ranking FIFA y señales de inteligencia actualizadas diariamente.",
     "ctaText": "Recibe actualizaciones diarias de probabilidades — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Partidos Eliminatorios",
-    "heading": "Cuadro del Torneo",
+    "heading": "Cuadro del Mundial 2026",
     "description": "La fase eliminatoria completa del Mundial 2026. De 48 selecciones en los Dieciseisavos de Final hasta la Final en el MetLife Stadium el 19 de julio. Probabilidades con IA para cada encuentro.",
     "ctaText": "Crea tu cuadro y sigue cada partido — gratis.",
     "ctaButton": "Crear Cuenta Gratis",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Simulador de Bracket del Torneo",
     "headlineScoutReport": "Informe de Scout Profesional",
     "headlinePlayerIntel": "Suite de Inteligencia de Jugadores",
-    "headlineDefault": "Desbloquear Contenido Premium"
+    "headlineDefault": "Desbloquear Contenido Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

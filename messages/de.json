@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11. Juni — 19. Juli 2026",
-    "heading": "Turnierspielplan",
+    "heading": "WM 2026 Spielplan",
     "description": "Alle 104 Spiele in 39 Tagen — vom Eröffnungsspiel im Estadio Azteca bis zum Finale im MetLife Stadium. Gruppenphase, Runde der 32, K.-o.-Runden und mehr.",
     "ctaText": "Erhalte KI-Spielbenachrichtigungen für jedes Spiel — kostenlos.",
     "ctaButton": "Kostenloses Konto erstellen",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "KI-gestützte Analyse",
-    "heading": "WM-Vorhersagen",
+    "heading": "WM 2026 KI-Vorhersagen",
     "description": "KI-berechnete Siegwahrscheinlichkeiten für alle 48 Teams. Kombination aus Chemie-Index, Formanalyse, FIFA-Ranking und täglich aktualisierten Intelligence-Signalen.",
     "ctaText": "Erhalte tägliche Updates der Siegwahrscheinlichkeiten — kostenlos.",
     "ctaButton": "Kostenloses Konto erstellen",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 K.-o.-Spiele",
-    "heading": "Turnierbaum",
+    "heading": "WM 2026 Turnierbaum",
     "description": "Die komplette K.-o.-Phase der WM 2026. Von 48 Teams in der Runde der 32 bis zum Finale im MetLife Stadium am 19. Juli. KI-gestützte Wahrscheinlichkeiten für jede Begegnung.",
     "ctaText": "Erstelle deinen Turnierbaum und verfolge jedes Spiel — kostenlos.",
     "ctaButton": "Kostenloses Konto erstellen",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Turnierbaum-Simulator",
     "headlineScoutReport": "Scouting-Spielbericht",
     "headlinePlayerIntel": "Spieler-Intelligence-Suite",
-    "headlineDefault": "Premium-Inhalt freischalten"
+    "headlineDefault": "Premium-Inhalt freischalten",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

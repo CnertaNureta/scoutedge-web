@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 tháng 6 — 19 tháng 7, 2026",
-    "heading": "Lịch thi đấu giải",
+    "heading": "Lịch World Cup 2026",
     "description": "Toàn bộ 104 trận đấu trong 39 ngày — từ trận khai mạc tại Estadio Azteca đến trận chung kết tại MetLife Stadium. Vòng bảng, vòng 32 đội, vòng loại trực tiếp và hơn thế nữa.",
     "ctaText": "Nhận thông báo AI cho mọi trận đấu — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Phân tích bằng AI",
-    "heading": "Dự đoán World Cup",
+    "heading": "Dự đoán AI World Cup 2026",
     "description": "Xác suất chiến thắng được AI tính toán cho cả 48 đội, kết hợp chỉ số hòa hợp, phân tích phong độ, xếp hạng FIFA và tín hiệu tình báo cập nhật hàng ngày.",
     "ctaText": "Nhận cập nhật xác suất chiến thắng hàng ngày — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 trận loại trực tiếp",
-    "heading": "Sơ đồ giải đấu",
+    "heading": "Sơ đồ World Cup 2026",
     "description": "Vòng loại trực tiếp World Cup 2026 đầy đủ. Từ 48 đội ở vòng 32 đến trận chung kết tại MetLife Stadium ngày 19 tháng 7. Xác suất AI cho mọi trận đấu.",
     "ctaText": "Tạo nhánh dự đoán và theo dõi mọi trận — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Trình mô phỏng bảng đấu",
     "headlineScoutReport": "Báo cáo trận đấu chuyên sâu",
     "headlinePlayerIntel": "Bộ tình báo cầu thủ",
-    "headlineDefault": "Mở khóa nội dung cao cấp"
+    "headlineDefault": "Mở khóa nội dung cao cấp",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

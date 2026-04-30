@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "2026년 6월 11일 — 7월 19일",
-    "heading": "대회 일정",
+    "heading": "2026 월드컵 일정",
     "description": "39일간 104경기 — 에스타디오 아스테카 개막전부터 메트라이프 스타디움 결승전까지. 조별 리그, 32강, 녹아웃 라운드 등.",
     "ctaText": "모든 경기에 대한 AI 알림을 받아보세요 — 무료.",
     "ctaButton": "무료 계정 만들기",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "AI 기반 분석",
-    "heading": "월드컵 예측",
+    "heading": "2026 월드컵 AI 예측",
     "description": "케미스트리 지수, 폼 분석, FIFA 랭킹, 인텔리전스 시그널을 결합한 48개 팀의 AI 승률 예측. 매일 업데이트.",
     "ctaText": "매일 승률 업데이트를 받아보세요 — 무료.",
     "ctaButton": "무료 계정 만들기",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "녹아웃 32경기",
-    "heading": "토너먼트 대진표",
+    "heading": "2026 월드컵 대진표",
     "description": "2026 월드컵 완전한 녹아웃 스테이지. 32강 48개 팀부터 7월 19일 메트라이프 스타디움 결승까지. 모든 경기에 AI 확률 제공.",
     "ctaText": "대진표를 만들고 모든 경기를 추적하세요 — 무료.",
     "ctaButton": "무료 계정 만들기",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "토너먼트 대진표 시뮬레이터",
     "headlineScoutReport": "스카우트급 경기 리포트",
     "headlinePlayerIntel": "선수 인텔리전스 스위트",
-    "headlineDefault": "프리미엄 콘텐츠 잠금 해제"
+    "headlineDefault": "프리미엄 콘텐츠 잠금 해제",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

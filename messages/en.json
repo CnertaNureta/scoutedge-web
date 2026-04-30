@@ -79,6 +79,8 @@
     "successTitle": "You're In!",
     "successMessage": "You'll receive daily World Cup intelligence at",
     "errorEmail": "Please enter a valid email address.",
+    "alreadySubscribed": "This email is already subscribed.",
+    "errorGeneric": "Something went wrong. Please try again.",
     "go": "Go"
   },
   "nav": {
@@ -135,7 +137,8 @@
     "disclaimer": "This is an independent, unofficial fan-made resource and is not affiliated with or endorsed by FIFA or the FIFA World Cup. All team names, logos, and related marks are trademarks of their respective owners and are used here for identification purposes only.",
     "affiliateDisclosure": "KickOracle participates in affiliate marketing programs. We may earn a commission when you purchase tickets, book travel, subscribe to streaming services, or buy merchandise through links on this site, at no additional cost to you.",
     "copyright": "2026 KickOracle. AI-Powered World Cup Intelligence. All rights reserved.",
-    "skipToContent": "Skip to main content"
+    "skipToContent": "Skip to main content",
+    "newsletterCta": "Get free World Cup predictions →"
   },
   "common": {
     "loading": "Loading...",
@@ -253,7 +256,7 @@
   },
   "schedulePage": {
     "dateRange": "June 11 — July 19, 2026",
-    "heading": "Tournament Schedule",
+    "heading": "World Cup 2026 Schedule",
     "description": "All 104 matches across 39 days — from the opening game at Estadio Azteca to the Final at MetLife Stadium. Group stage, Round of 32, knockout rounds, and beyond.",
     "ctaText": "Get AI match alerts for every game — free.",
     "ctaButton": "Create Free Account",
@@ -295,7 +298,7 @@
   },
   "predictionsPage": {
     "badge": "AI-Powered Analysis",
-    "heading": "World Cup Predictions",
+    "heading": "World Cup 2026 AI Predictions",
     "description": "AI-computed win probabilities for all 48 teams, combining chemistry index, form analysis, FIFA ranking, and intelligence signals updated daily.",
     "ctaText": "Get daily win probability updates — free.",
     "ctaButton": "Create Free Account",
@@ -405,7 +408,7 @@
   },
   "bracketPage": {
     "badge": "32 Knockout Matches",
-    "heading": "Tournament Bracket",
+    "heading": "World Cup 2026 Bracket",
     "description": "The complete World Cup 2026 knockout stage. From 48 teams in the Round of 32 down to the Final at MetLife Stadium on July 19. AI-powered probabilities for every fixture.",
     "ctaText": "Build your bracket and track every match — free.",
     "ctaButton": "Create Free Account",
@@ -662,7 +665,10 @@
     "headlineBracketSimulator": "Tournament Bracket Simulator",
     "headlineScoutReport": "Scout-Grade Match Report",
     "headlinePlayerIntel": "Player Intelligence Suite",
-    "headlineDefault": "Unlock Premium Content"
+    "headlineDefault": "Unlock Premium Content",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "storePage": {
     "heading": "Rewards Store",

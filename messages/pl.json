@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 czerwca — 19 lipca 2026",
-    "heading": "Terminarz Turnieju",
+    "heading": "Terminarz MŚ 2026",
     "description": "Wszystkie 104 mecze w ciągu 39 dni — od meczu otwarcia na Estadio Azteca po finał na MetLife Stadium. Faza grupowa, Runda 32, fazy pucharowe i dalej.",
     "ctaText": "Otrzymuj alerty AI na każdy mecz — bezpłatnie.",
     "ctaButton": "Utwórz Darmowe Konto",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Analiza oparta na AI",
-    "heading": "Prognozy Mistrzostw Świata",
+    "heading": "Prognozy AI MŚ 2026",
     "description": "Obliczone przez AI prawdopodobieństwa wygranych dla wszystkich 48 reprezentacji, łączące indeks chemii, analizę formy, ranking FIFA i codziennie aktualizowane sygnały wywiadowcze.",
     "ctaText": "Otrzymuj codzienne aktualizacje prawdopodobieństwa wygranych — bezpłatnie.",
     "ctaButton": "Utwórz Darmowe Konto",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Mecze Pucharowe",
-    "heading": "Drabinka Turniejowa",
+    "heading": "Drabinka MŚ 2026",
     "description": "Kompletna faza pucharowa MŚ 2026. Od 48 reprezentacji w Rundzie 32 do Finału na MetLife Stadium 19 lipca. Prawdopodobieństwa AI dla każdego meczu.",
     "ctaText": "Zbuduj swoją drabinkę i śledź każdy mecz — bezpłatnie.",
     "ctaButton": "Utwórz Darmowe Konto",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Symulator Drabinki Turniejowej",
     "headlineScoutReport": "Raport Skautingowy Klasy Profesjonalnej",
     "headlinePlayerIntel": "Pakiet Wywiadu o Piłkarzach",
-    "headlineDefault": "Odblokuj Zawartość Premium"
+    "headlineDefault": "Odblokuj Zawartość Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

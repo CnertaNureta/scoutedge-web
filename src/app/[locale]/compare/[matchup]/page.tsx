@@ -10,6 +10,7 @@ import ChemistryBar from '@/components/ui/ChemistryBar'
 import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import { BRAND } from '@/lib/brand-tokens'
+import { breadcrumbJsonLd } from '@/lib/og-utils'
 
 export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
   const { matchup } = await params
@@ -79,6 +80,12 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
     author: { '@type': 'Organization', name: 'KickOracle' },
   }
 
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: 'Home', url: 'https://kickoracle.com' },
+    { name: 'Compare', url: 'https://kickoracle.com/compare' },
+    { name: `${teamA.name} vs ${teamB.name}`, url: `https://kickoracle.com/compare/${matchup}` },
+  ])
+
   // Related matchups: other comparisons involving either team
   const allSlugs = getAllMatchupSlugs()
   const related = allSlugs
@@ -88,6 +95,7 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       {/* Hero */}
       <section className="relative py-20 md:py-32 px-6 overflow-hidden">

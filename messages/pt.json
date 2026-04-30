@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 de junho — 19 de julho, 2026",
-    "heading": "Calendário do Torneio",
+    "heading": "Calendário da Copa do Mundo 2026",
     "description": "Todos os 104 jogos em 39 dias — do jogo de abertura no Estádio Azteca até a Final no MetLife Stadium. Fase de grupos, Oitavas de 32, fase eliminatória e mais.",
     "ctaText": "Receba alertas IA para cada jogo — grátis.",
     "ctaButton": "Criar Conta Grátis",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Análise com IA",
-    "heading": "Previsões da Copa do Mundo",
+    "heading": "Previsões IA da Copa do Mundo 2026",
     "description": "Probabilidades de vitória calculadas por IA para todas as 48 seleções, combinando índice de entrosamento, análise de forma, ranking FIFA e sinais de inteligência atualizados diariamente.",
     "ctaText": "Receba atualizações diárias de probabilidades — grátis.",
     "ctaButton": "Criar Conta Grátis",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Jogos Eliminatórios",
-    "heading": "Chave do Torneio",
+    "heading": "Chave da Copa do Mundo 2026",
     "description": "A fase eliminatória completa da Copa do Mundo 2026. De 48 seleções nas 32 avos de final até a Final no MetLife Stadium em 19 de julho. Probabilidades com IA para cada confronto.",
     "ctaText": "Crie sua chave e acompanhe cada jogo — grátis.",
     "ctaButton": "Criar Conta Grátis",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Simulador de Chaveamento",
     "headlineScoutReport": "Relatório de Scout Profissional",
     "headlinePlayerIntel": "Suite de Inteligência de Jogadores",
-    "headlineDefault": "Desbloquear Conteúdo Premium"
+    "headlineDefault": "Desbloquear Conteúdo Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

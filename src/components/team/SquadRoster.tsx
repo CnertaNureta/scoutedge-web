@@ -41,12 +41,12 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1.2fr]">
         {/* Image side */}
         <div className="relative h-48 md:h-64 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={getPlayerActionImage(player.name)}
             alt={player.name}
-            loading="lazy"
-            className="w-full h-full object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/40 to-transparent" />
           <div
@@ -55,11 +55,11 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
           />
           {photo && (
             <div className="absolute -bottom-2 right-4 md:right-8 z-10">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={photo}
                 alt={player.name}
-                loading="lazy"
+                width={160}
+                height={224}
                 className="h-40 md:h-56 w-auto object-contain drop-shadow-2xl"
               />
             </div>
@@ -181,12 +181,12 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                     />
 
                     <div className="relative h-32 overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={getPlayerActionImage(player.name)}
                         alt={player.name}
-                        loading="lazy"
-                        className="w-full h-full object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
+                        fill
+                        sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover brightness-[0.35] group-hover:scale-105 group-hover:brightness-[0.45] transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-surface-container to-transparent" />
                       <span className="absolute bottom-2 left-4 font-headline text-5xl text-white/[0.06]">
@@ -194,11 +194,11 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                       </span>
                       {photo && (
                         <div className="absolute -bottom-2 right-2 z-10">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
+                          <Image
                             src={photo}
                             alt={player.name}
-                            loading="lazy"
+                            width={112}
+                            height={112}
                             className="h-28 w-auto object-contain drop-shadow-lg"
                           />
                         </div>

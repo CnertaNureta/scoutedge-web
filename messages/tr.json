@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 Haziran — 19 Temmuz 2026",
-    "heading": "Turnuva Programı",
+    "heading": "2026 Dünya Kupası Programı",
     "description": "39 günde 104 maç — Estadio Azteca'daki açılış maçından MetLife Stadyumu'ndaki finale kadar. Grup aşaması, Son 32 Turu, eleme turları ve ötesi.",
     "ctaText": "Her maç için yapay zeka uyarıları al — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Yapay Zeka Destekli Analiz",
-    "heading": "Dünya Kupası Tahminleri",
+    "heading": "2026 Dünya Kupası Yapay Zekâ Tahminleri",
     "description": "48 takımın tamamı için uyum endeksi, form analizi, FIFA sıralaması ve günlük güncellenen istihbarat sinyallerini birleştiren yapay zeka kazanma olasılıkları.",
     "ctaText": "Günlük kazanma olasılığı güncellemelerini al — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Eleme Maçı",
-    "heading": "Turnuva Şeması",
+    "heading": "2026 Dünya Kupası Şeması",
     "description": "2026 Dünya Kupası'nın tam eleme aşaması. Son 32 Turundaki 48 takımdan 19 Temmuz'da MetLife Stadyumu'ndaki finale kadar. Her maç için yapay zeka olasılıkları.",
     "ctaText": "Şemanı oluştur ve her maçı takip et — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Turnuva Şeması Simülatörü",
     "headlineScoutReport": "Keşif Düzeyinde Maç Raporu",
     "headlinePlayerIntel": "Futbolcu İstihbarat Paketi",
-    "headlineDefault": "Premium İçeriği Aç"
+    "headlineDefault": "Premium İçeriği Aç",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

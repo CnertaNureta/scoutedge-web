@@ -161,7 +161,7 @@
   },
   "schedulePage": {
     "dateRange": "11 giugno — 19 luglio 2026",
-    "heading": "Calendario del Torneo",
+    "heading": "Calendario Mondiali 2026",
     "description": "Tutte le 104 partite in 39 giorni — dalla partita inaugurale all'Estadio Azteca alla Finale al MetLife Stadium. Fase a gironi, Sedicesimi, fasi a eliminazione diretta e oltre.",
     "ctaText": "Ricevi avvisi IA per ogni partita — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -192,7 +192,7 @@
   },
   "predictionsPage": {
     "badge": "Analisi basata sull'IA",
-    "heading": "Previsioni Mondiali",
+    "heading": "Previsioni IA Mondiali 2026",
     "description": "Probabilità di vittoria calcolate dall'IA per tutte le 48 nazionali, combinando indice di intesa, analisi della forma, ranking FIFA e segnali di intelligence aggiornati quotidianamente.",
     "ctaText": "Ricevi aggiornamenti giornalieri sulle probabilità di vittoria — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -285,7 +285,7 @@
   },
   "bracketPage": {
     "badge": "32 Partite a Eliminazione Diretta",
-    "heading": "Tabellone del Torneo",
+    "heading": "Tabellone Mondiali 2026",
     "description": "La fase a eliminazione diretta completa dei Mondiali 2026. Dalle 48 nazionali dei Sedicesimi alla Finale al MetLife Stadium il 19 luglio. Probabilità IA per ogni incontro.",
     "ctaText": "Costruisci il tuo tabellone e segui ogni partita — gratis.",
     "ctaButton": "Crea un Account Gratuito",
@@ -827,7 +827,10 @@
     "headlineBracketSimulator": "Simulatore Tabellone del Torneo",
     "headlineScoutReport": "Report Partita Livello Scout",
     "headlinePlayerIntel": "Suite Intelligence Calciatori",
-    "headlineDefault": "Sblocca Contenuto Premium"
+    "headlineDefault": "Sblocca Contenuto Premium",
+    "entitlementLoadError": "Could not verify your access. Please refresh the page.",
+    "checkoutFailed": "Checkout failed. Please try again.",
+    "processing": "Processing..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",
