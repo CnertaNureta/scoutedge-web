@@ -53,8 +53,17 @@ export function getPlayersByTeam(teamSlug: string): Player[] {
     .map(mergePlayerWithIntel)
 }
 
+const PLAYER_SLUG_ALIASES: Record<string, string> = {
+  'brazil/vinicius-junior': 'vinicius-jr',
+}
+
+function resolvePlayerSlug(teamSlug: string, playerSlug: string): string {
+  return PLAYER_SLUG_ALIASES[`${teamSlug}/${playerSlug}`] ?? playerSlug
+}
+
 export function getPlayerBySlug(teamSlug: string, playerSlug: string): Player | undefined {
-  const player = PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === playerSlug)
+  const resolvedPlayerSlug = resolvePlayerSlug(teamSlug, playerSlug)
+  const player = PLAYERS.find((p) => p.teamSlug === teamSlug && p.slug === resolvedPlayerSlug)
   return player ? mergePlayerWithIntel(player) : undefined
 }
 

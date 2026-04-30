@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { getAllCities } from '@/data/cities-data'
 import { lingoCountries, lingoPlayers } from '@/data/lingo-data'
 import { LOCALE_CONFIGS, SUPPORTED_LOCALES } from '@/i18n/locales'
 import { getAllPosts } from '@/lib/blog-service'
@@ -48,6 +49,7 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
 
   const teams = getAllTeams()
   const groups = getAllGroups()
+  const cities = getAllCities()
   const matchupSlugs = getAllMatchupSlugs()
   const blogPosts = getAllPosts()
 
@@ -100,6 +102,9 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
     ),
     ...teams.flatMap((t) =>
       localizedEntries(`/teams/${t.slug}/qualified`, { changeFrequency: 'weekly', priority: 0.7 })
+    ),
+    ...cities.flatMap((city) =>
+      localizedEntries(`/cities/${city.slug}`, { changeFrequency: 'weekly', priority: 0.8 })
     ),
     ...teams.flatMap((team) =>
       getPlayersByTeam(team.slug).flatMap((p) =>
