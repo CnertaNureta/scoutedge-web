@@ -1,4 +1,5 @@
 import type { Viewport } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import { bebasNeue, epilogue, jetbrainsMono, manrope, oswald, plusJakartaSans } from './fonts'
 import '@/styles/globals.css'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -21,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-screen flex flex-col">
         {children}
+        <Analytics />
       </body>
     </html>
   )
