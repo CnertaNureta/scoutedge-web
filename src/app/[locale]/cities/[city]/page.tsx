@@ -304,7 +304,8 @@ export default async function CityPage({ params }: CityPageProps) {
     },
     touristType: 'Football fans, World Cup 2026 attendees',
     includesAttraction: cityVenues.map((v) => ({
-      '@type': 'StadiumOrArena',
+      '@type': 'TouristAttraction',
+      additionalType: 'https://schema.org/StadiumOrArena',
       name: v.name,
       address: {
         '@type': 'PostalAddress',
