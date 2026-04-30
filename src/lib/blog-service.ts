@@ -35,7 +35,12 @@ export interface BlogPost {
   factCount?: number
 }
 
+interface BlogPostOptions {
+  includeFuture?: boolean
+}
+
 const BLOG_DIR = path.join(process.cwd(), 'src/content/blog')
+const INCLUDE_FUTURE_POSTS = process.env.INCLUDE_FUTURE_POSTS === '1'
 
 function getSortTimestamp(post: Pick<BlogPost, 'publishedAt' | 'lastUpdated' | 'date' | 'sourceDate'>): number {
   const candidates = [post.publishedAt, post.lastUpdated, post.date, post.sourceDate]
@@ -49,6 +54,19 @@ function getSortTimestamp(post: Pick<BlogPost, 'publishedAt' | 'lastUpdated' | '
   }
 
   return 0
+}
+
+function getPublishTimestamp(post: Pick<BlogPost, 'publishedAt' | 'date'>): number {
+  const value = post.publishedAt || post.date
+  if (!value) return 0
+
+  const timestamp = new Date(value).getTime()
+  return Number.isFinite(timestamp) ? timestamp : 0
+}
+
+function isPublished(post: Pick<BlogPost, 'publishedAt' | 'date'>, now = Date.now()): boolean {
+  const timestamp = getPublishTimestamp(post)
+  return timestamp === 0 || timestamp <= now
 }
 
 function estimateReadingTime(text: string): number {
@@ -90,7 +108,8 @@ function parseFAQs(content: string): FAQ[] {
   return faqs
 }
 
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(options: BlogPostOptions = {}): BlogPost[] {
+  const includeFuture = options.includeFuture ?? INCLUDE_FUTURE_POSTS
   const files = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith('.md'))
   return files
     .map((file) => {
@@ -129,11 +148,12 @@ export function getAllPosts(): BlogPost[] {
         factCount: typeof data.factCount === 'number' ? data.factCount : undefined,
       }
     })
+    .filter((post) => includeFuture || isPublished(post))
     .sort((a, b) => getSortTimestamp(b) - getSortTimestamp(a))
 }
 
-export function getPostBySlug(slug: string): BlogPost | undefined {
-  return getAllPosts().find((p) => p.slug === slug)
+export function getPostBySlug(slug: string, options: BlogPostOptions = {}): BlogPost | undefined {
+  return getAllPosts(options).find((p) => p.slug === slug)
 }
 
 export function getLatestNarrativePost(contentType: string): BlogPost | undefined {
