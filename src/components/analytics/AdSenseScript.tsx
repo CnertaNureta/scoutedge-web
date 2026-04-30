@@ -1,14 +1,12 @@
 import Script from 'next/script'
-
-const PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
+import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 export function AdSenseScript() {
-  if (!PUBLISHER_ID) return null
   return (
     <Script
       id="adsense-script"
       strategy="afterInteractive"
-      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${PUBLISHER_ID}`}
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
       crossOrigin="anonymous"
     />
   )
