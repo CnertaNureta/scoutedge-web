@@ -197,12 +197,6 @@ export function sportsEventJsonLd(match: {
       },
     ],
     organizer: { '@type': 'Organization', name: 'FIFA', url: 'https://www.fifa.com' },
-    superEvent: {
-      '@type': 'SportsEvent',
-      name: 'FIFA World Cup 2026',
-      startDate: '2026-06-11',
-      endDate: '2026-07-19',
-    },
   }
   return event
 }
