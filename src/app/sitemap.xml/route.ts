@@ -2,8 +2,8 @@ import {
   escapeXml,
   getSitemapChunkCount,
   getSitemapChunkUrl,
-  SITE_BASE_URL,
 } from '@/lib/sitemap-utils'
+import { NEWS_SITEMAP_URL, hasRecentNewsPosts } from '@/lib/news-sitemap'
 
 export const dynamic = 'force-static'
 export const revalidate = 86400
@@ -13,7 +13,7 @@ export function GET() {
   const chunkCount = getSitemapChunkCount()
   const sitemapUrls = [
     ...Array.from({ length: chunkCount }, (_, id) => getSitemapChunkUrl(id)),
-    `${SITE_BASE_URL}/news-sitemap.xml`,
+    ...(hasRecentNewsPosts() ? [NEWS_SITEMAP_URL] : []),
   ]
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
