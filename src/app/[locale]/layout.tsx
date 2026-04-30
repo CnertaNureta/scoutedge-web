@@ -5,13 +5,9 @@ import { NextIntlClientProvider } from 'next-intl'
 import { routing } from '@/i18n/routing'
 import { LOCALE_CONFIGS } from '@/i18n/locales'
 import type { Locale } from '@/i18n/locales'
-import dynamic from 'next/dynamic'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-
-const ChatWidget = dynamic(() => import('@/components/chat/ChatWidget'), { ssr: false })
-const UpsellBanner = dynamic(() => import('@/components/monetization/UpsellBanner'), { ssr: false })
-const InstallBanner = dynamic(() => import('@/components/pwa/InstallBanner'), { ssr: false })
+import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { AdSenseScript } from '@/components/analytics/AdSenseScript'
@@ -119,9 +115,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />
-            <ChatWidget />
-            <UpsellBanner />
-            <InstallBanner />
+            <ClientRuntimeWidgets />
           </div>
         </Providers>
       </NextIntlClientProvider>
