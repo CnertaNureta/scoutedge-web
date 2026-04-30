@@ -79,7 +79,9 @@
     "successTitle": "Je Bent Binnen!",
     "successMessage": "Je ontvangt dagelijkse WK-intelligence op",
     "errorEmail": "Voer een geldig e-mailadres in.",
-    "go": "Ga"
+    "go": "Ga",
+    "alreadySubscribed": "Dit e-mailadres is al aangemeld.",
+    "errorGeneric": "Er is iets misgegaan. Probeer het opnieuw."
   },
   "nav": {
     "predictions": "Voorspellingen",
@@ -135,7 +137,8 @@
     "disclaimer": "Dit is een onafhankelijke, onofficiële fanbron en is niet gelieerd aan of goedgekeurd door de FIFA of het FIFA WK. Alle teamnamen, logo's en gerelateerde merken zijn handelsmerken van hun respectievelijke eigenaren en worden hier uitsluitend ter identificatie gebruikt.",
     "affiliateDisclosure": "KickOracle neemt deel aan affiliate-marketingprogramma's. We kunnen een commissie verdienen wanneer je tickets koopt, reizen boekt, je abonneert op streamingdiensten of merchandise aanschaft via links op deze site, zonder extra kosten voor jou.",
     "copyright": "2026 KickOracle. AI-Gestuurde WK-Intelligence. Alle rechten voorbehouden.",
-    "skipToContent": "Ga naar hoofdinhoud"
+    "skipToContent": "Ga naar hoofdinhoud",
+    "newsletterCta": "Ontvang gratis WK-voorspellingen →"
   },
   "common": {
     "loading": "Laden...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "11 juni — 19 juli 2026",
-    "heading": "Toernooischema",
+    "heading": "WK 2026 Schema",
     "description": "Alle 104 wedstrijden in 39 dagen — van de openingswedstrijd in het Estadio Azteca tot de Finale in het MetLife Stadium. Groepsfase, Ronde van 32, knock-outronden en meer.",
     "ctaText": "Ontvang AI-wedstrijdmeldingen voor elke wedstrijd — gratis.",
     "ctaButton": "Maak een Gratis Account",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "AI-Gestuurde Analyse",
-    "heading": "WK-Voorspellingen",
+    "heading": "WK 2026 AI-Voorspellingen",
     "description": "AI-berekende winstkansen voor alle 48 landen, met chemie-index, vormanalyse, FIFA-ranking en dagelijks bijgewerkte intelligencesignalen.",
     "ctaText": "Ontvang dagelijkse updates van winstkansen — gratis.",
     "ctaButton": "Maak een Gratis Account",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32 Knock-outwedstrijden",
-    "heading": "Toernooischema",
+    "heading": "WK 2026 Toernooischema",
     "description": "De complete knock-outfase van het WK 2026. Van 48 landen in de Ronde van 32 tot de Finale in het MetLife Stadium op 19 juli. AI-kansen voor elke wedstrijd.",
     "ctaText": "Bouw je schema en volg elke wedstrijd — gratis.",
     "ctaButton": "Maak een Gratis Account",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "Toernooi-Schemasimulator",
     "headlineScoutReport": "Scoutingsrapport op Profniveau",
     "headlinePlayerIntel": "Spelersintelligence Suite",
-    "headlineDefault": "Ontgrendel Premium Content"
+    "headlineDefault": "Ontgrendel Premium Content",
+    "entitlementLoadError": "Je toegang kon niet worden gecontroleerd. Vernieuw de pagina.",
+    "checkoutFailed": "Afrekenen mislukt. Probeer het opnieuw.",
+    "processing": "Verwerken..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

@@ -18,15 +18,12 @@ export default function Footer() {
             <p className="text-on-surface-variant max-w-sm leading-relaxed">
               {t('tagline')}
             </p>
-            <a
-              href="https://kickoracle.beehiiv.com/subscribe"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/daily-briefing"
               className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
             >
-              <span>📬</span>
-              <span>Get free World Cup predictions →</span>
-            </a>
+              {t('newsletterCta')}
+            </Link>
           </div>
           <div>
             <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-6">{t('predictionsHeading')}</h6>

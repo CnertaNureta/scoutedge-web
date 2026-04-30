@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getMatchesBoardData } from '@/lib/site-data'
+import { sportsEventJsonLd } from '@/lib/og-utils'
 import LiveMatchClient from './LiveMatchClient'
 
 interface PageProps {
@@ -36,12 +37,26 @@ export default async function LiveMatchPage({ params }: PageProps) {
 
   if (!homeTeam || !awayTeam) notFound()
 
+  const eventJsonLd = sportsEventJsonLd({
+    homeName: homeTeam.name,
+    awayName: awayTeam.name,
+    venue: fixture.venue,
+    city: fixture.city,
+    kickoffUtc: fixture.kickoffUtc,
+  })
+
   return (
-    <LiveMatchClient
-      matchId={matchId}
-      fixture={fixture}
-      homeTeam={homeTeam}
-      awayTeam={awayTeam}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
+      <LiveMatchClient
+        matchId={matchId}
+        fixture={fixture}
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+      />
+    </>
   )
 }

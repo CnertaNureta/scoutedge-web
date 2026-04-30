@@ -79,7 +79,9 @@
     "successTitle": "Đăng ký thành công!",
     "successMessage": "Bạn sẽ nhận bản tin World Cup hàng ngày tại",
     "errorEmail": "Vui lòng nhập địa chỉ email hợp lệ.",
-    "go": "Đi"
+    "go": "Đi",
+    "alreadySubscribed": "Email này đã đăng ký.",
+    "errorGeneric": "Đã xảy ra lỗi. Vui lòng thử lại."
   },
   "nav": {
     "predictions": "Dự đoán",
@@ -135,7 +137,8 @@
     "disclaimer": "Đây là tài nguyên độc lập, không chính thức do người hâm mộ tạo ra và không liên kết hay được xác nhận bởi FIFA hoặc Giải vô địch bóng đá thế giới FIFA. Tất cả tên đội, logo và nhãn hiệu liên quan là thương hiệu của chủ sở hữu tương ứng và chỉ được sử dụng với mục đích nhận diện.",
     "affiliateDisclosure": "KickOracle tham gia các chương trình tiếp thị liên kết. Chúng tôi có thể nhận hoa hồng khi bạn mua vé, đặt dịch vụ du lịch, đăng ký dịch vụ phát trực tuyến hoặc mua hàng hóa qua các liên kết trên trang web này mà không phát sinh thêm chi phí cho bạn.",
     "copyright": "2026 KickOracle. Phân tích bóng đá thế giới bằng AI. Bảo lưu mọi quyền.",
-    "skipToContent": "Chuyển đến nội dung chính"
+    "skipToContent": "Chuyển đến nội dung chính",
+    "newsletterCta": "Nhận dự đoán World Cup miễn phí →"
   },
   "common": {
     "loading": "Đang tải...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "11 tháng 6 — 19 tháng 7, 2026",
-    "heading": "Lịch thi đấu giải",
+    "heading": "Lịch World Cup 2026",
     "description": "Toàn bộ 104 trận đấu trong 39 ngày — từ trận khai mạc tại Estadio Azteca đến trận chung kết tại MetLife Stadium. Vòng bảng, vòng 32 đội, vòng loại trực tiếp và hơn thế nữa.",
     "ctaText": "Nhận thông báo AI cho mọi trận đấu — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "Phân tích bằng AI",
-    "heading": "Dự đoán World Cup",
+    "heading": "Dự đoán AI World Cup 2026",
     "description": "Xác suất chiến thắng được AI tính toán cho cả 48 đội, kết hợp chỉ số hòa hợp, phân tích phong độ, xếp hạng FIFA và tín hiệu tình báo cập nhật hàng ngày.",
     "ctaText": "Nhận cập nhật xác suất chiến thắng hàng ngày — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32 trận loại trực tiếp",
-    "heading": "Sơ đồ giải đấu",
+    "heading": "Sơ đồ World Cup 2026",
     "description": "Vòng loại trực tiếp World Cup 2026 đầy đủ. Từ 48 đội ở vòng 32 đến trận chung kết tại MetLife Stadium ngày 19 tháng 7. Xác suất AI cho mọi trận đấu.",
     "ctaText": "Tạo nhánh dự đoán và theo dõi mọi trận — miễn phí.",
     "ctaButton": "Tạo tài khoản miễn phí",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "Trình mô phỏng bảng đấu",
     "headlineScoutReport": "Báo cáo trận đấu chuyên sâu",
     "headlinePlayerIntel": "Bộ tình báo cầu thủ",
-    "headlineDefault": "Mở khóa nội dung cao cấp"
+    "headlineDefault": "Mở khóa nội dung cao cấp",
+    "entitlementLoadError": "Không thể xác minh quyền truy cập. Vui lòng tải lại trang.",
+    "checkoutFailed": "Thanh toán thất bại. Vui lòng thử lại.",
+    "processing": "Đang xử lý..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

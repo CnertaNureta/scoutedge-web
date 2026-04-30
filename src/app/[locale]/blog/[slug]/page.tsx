@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
+import ArticleSubscribeBar from '@/components/monetization/ArticleSubscribeBar'
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -43,10 +44,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
 
   const allPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3)
 
-  // BlogPosting schema
   const articleJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
+    '@type': 'NewsArticle',
     headline: post.title,
     description: post.description,
     datePublished: post.date,
@@ -218,6 +218,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
           All Articles
         </Link>
       </div>
+
+      <ArticleSubscribeBar />
     </>
   )
 }

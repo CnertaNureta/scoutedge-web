@@ -6,15 +6,22 @@ import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import { BRAND } from '@/lib/brand-tokens'
 
-const STORAGE_KEY = 'kickoracle-newsletter-email'
+type SubscribeSource = 'homepage' | 'article' | 'popup'
 
-export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'inline' | 'banner' }) {
+export default function NewsletterSignup({
+  variant = 'inline',
+  source = 'homepage',
+}: {
+  variant?: 'inline' | 'banner'
+  source?: SubscribeSource
+}) {
   const t = useTranslations('newsletter')
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError('')
 
@@ -23,16 +30,31 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
       return
     }
 
+    setLoading(true)
     try {
-      const existing = JSON.parse(localStorage.getItem('kickoracle-subscribers') || '[]')
-      if (!existing.includes(email)) {
-        existing.push(email)
-        localStorage.setItem('kickoracle-subscribers', JSON.stringify(existing))
-      }
-      localStorage.setItem(STORAGE_KEY, email)
-    } catch {}
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source }),
+      })
 
-    setSubmitted(true)
+      if (res.status === 409) {
+        setError(t('alreadySubscribed'))
+        return
+      }
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => null)
+        setError(data?.error || t('errorGeneric'))
+        return
+      }
+
+      setSubmitted(true)
+    } catch {
+      setError(t('errorGeneric'))
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -71,9 +93,10 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
             />
             <button
               type="submit"
-              className="bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity shrink-0"
+              disabled={loading}
+              className="bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity shrink-0 disabled:opacity-50"
             >
-              {t('button')}
+              {loading ? '...' : t('button')}
             </button>
           </form>
         </div>
@@ -99,9 +122,10 @@ export default function NewsletterSignup({ variant = 'inline' }: { variant?: 'in
         />
         <button
           type="submit"
-          className="bg-primary text-on-primary font-label text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full hover:opacity-90 transition-opacity"
+          disabled={loading}
+          className="bg-primary text-on-primary font-label text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
         >
-          {t('go')}
+          {loading ? '...' : t('go')}
         </button>
       </form>
       {error && <p className="text-red-400 text-[10px] mt-1">{error}</p>}

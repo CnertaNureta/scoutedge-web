@@ -1,0 +1,37 @@
+import {
+  escapeXml,
+  getSitemapChunkCount,
+  getSitemapChunkUrl,
+  SITE_BASE_URL,
+} from '@/lib/sitemap-utils'
+
+export const dynamic = 'force-static'
+export const revalidate = 86400
+
+export function GET() {
+  const lastModified = new Date().toISOString()
+  const chunkCount = getSitemapChunkCount()
+  const sitemapUrls = [
+    ...Array.from({ length: chunkCount }, (_, id) => getSitemapChunkUrl(id)),
+    `${SITE_BASE_URL}/news-sitemap.xml`,
+  ]
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls
+  .map(
+    (url) => `  <sitemap>
+    <loc>${escapeXml(url)}</loc>
+    <lastmod>${lastModified}</lastmod>
+  </sitemap>`
+  )
+  .join('\n')}
+</sitemapindex>`
+
+  return new Response(xml, {
+    headers: {
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=86400, s-maxage=86400',
+    },
+  })
+}

@@ -79,7 +79,9 @@
     "successTitle": "Katıldın!",
     "successMessage": "Günlük Dünya Kupası istihbaratını şu adrese alacaksın:",
     "errorEmail": "Lütfen geçerli bir e-posta adresi girin.",
-    "go": "Git"
+    "go": "Git",
+    "alreadySubscribed": "Bu e-posta zaten abone.",
+    "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
   },
   "nav": {
     "predictions": "Tahminler",
@@ -135,7 +137,8 @@
     "disclaimer": "Bu, bağımsız ve resmi olmayan bir taraftar kaynağıdır; FIFA veya FIFA Dünya Kupası ile herhangi bir bağlantısı veya onayı yoktur. Tüm takım adları, logoları ve ilgili markalar, ilgili sahiplerinin tescilli ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmaktadır.",
     "affiliateDisclosure": "KickOracle, ortaklık pazarlama programlarına katılmaktadır. Bu sitedeki bağlantılar aracılığıyla bilet satın aldığınızda, seyahat rezervasyonu yaptığınızda, yayın hizmetlerine abone olduğunuzda veya ürün satın aldığınızda, size ek bir maliyet olmaksızın komisyon kazanabiliriz.",
     "copyright": "2026 KickOracle. Yapay Zeka Destekli Dünya Kupası İstihbaratı. Tüm hakları saklıdır.",
-    "skipToContent": "Ana içeriğe geç"
+    "skipToContent": "Ana içeriğe geç",
+    "newsletterCta": "Ücretsiz Dünya Kupası tahminleri al →"
   },
   "common": {
     "loading": "Yükleniyor...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "11 Haziran — 19 Temmuz 2026",
-    "heading": "Turnuva Programı",
+    "heading": "2026 Dünya Kupası Programı",
     "description": "39 günde 104 maç — Estadio Azteca'daki açılış maçından MetLife Stadyumu'ndaki finale kadar. Grup aşaması, Son 32 Turu, eleme turları ve ötesi.",
     "ctaText": "Her maç için yapay zeka uyarıları al — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "Yapay Zeka Destekli Analiz",
-    "heading": "Dünya Kupası Tahminleri",
+    "heading": "2026 Dünya Kupası Yapay Zekâ Tahminleri",
     "description": "48 takımın tamamı için uyum endeksi, form analizi, FIFA sıralaması ve günlük güncellenen istihbarat sinyallerini birleştiren yapay zeka kazanma olasılıkları.",
     "ctaText": "Günlük kazanma olasılığı güncellemelerini al — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32 Eleme Maçı",
-    "heading": "Turnuva Şeması",
+    "heading": "2026 Dünya Kupası Şeması",
     "description": "2026 Dünya Kupası'nın tam eleme aşaması. Son 32 Turundaki 48 takımdan 19 Temmuz'da MetLife Stadyumu'ndaki finale kadar. Her maç için yapay zeka olasılıkları.",
     "ctaText": "Şemanı oluştur ve her maçı takip et — ücretsiz.",
     "ctaButton": "Ücretsiz Hesap Oluştur",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "Turnuva Şeması Simülatörü",
     "headlineScoutReport": "Keşif Düzeyinde Maç Raporu",
     "headlinePlayerIntel": "Futbolcu İstihbarat Paketi",
-    "headlineDefault": "Premium İçeriği Aç"
+    "headlineDefault": "Premium İçeriği Aç",
+    "entitlementLoadError": "Erişiminiz doğrulanamadı. Lütfen sayfayı yenileyin.",
+    "checkoutFailed": "Ödeme başarısız. Lütfen tekrar deneyin.",
+    "processing": "İşleniyor..."
   },
   "pwa": {
     "installTitle": "Install KickOracle",

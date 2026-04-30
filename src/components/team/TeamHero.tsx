@@ -67,6 +67,9 @@ export default function TeamHero({ team }: TeamHeroProps) {
           {/* Team Name */}
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-wide text-on-surface uppercase leading-[0.9]">
             {team.name}
+            <span className="block text-xl md:text-2xl lg:text-3xl tracking-wider text-on-surface-variant mt-2 normal-case">
+              World Cup 2026 Analysis
+            </span>
           </h1>
 
           {/* Metadata badges */}

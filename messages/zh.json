@@ -79,6 +79,8 @@
     "successTitle": "订阅成功！",
     "successMessage": "您将在以下邮箱收到每日世界杯情报",
     "errorEmail": "请输入有效的电子邮箱地址。",
+    "alreadySubscribed": "该邮箱已订阅。",
+    "errorGeneric": "出错了，请重试。",
     "go": "提交"
   },
   "nav": {
@@ -135,7 +137,8 @@
     "disclaimer": "本网站是独立的、非官方的球迷资源，与FIFA或FIFA世界杯无关，也未获得其认可。所有球队名称、标志和相关标识均为其各自所有者的商标，仅用于识别目的。",
     "affiliateDisclosure": "KickOracle参与联盟营销计划。当您通过本网站的链接购买门票、预订旅行、订阅流媒体服务或购买商品时，我们可能会获得佣金，您无需支付额外费用。",
     "copyright": "2026 KickOracle. AI驱动的世界杯情报。保留所有权利。",
-    "skipToContent": "跳转到主要内容"
+    "skipToContent": "跳转到主要内容",
+    "newsletterCta": "免费获取世界杯预测 →"
   },
   "common": {
     "loading": "加载中...",
@@ -163,7 +166,7 @@
   },
   "schedulePage": {
     "dateRange": "2026年6月11日 — 7月19日",
-    "heading": "赛事日程",
+    "heading": "2026世界杯赛程",
     "description": "39天内的全部104场比赛——从阿兹特克体育场的揭幕战到大都会人寿球场的决赛。小组赛、32强、淘汰赛及更多。",
     "ctaText": "获取每场比赛的AI提醒——免费。",
     "ctaButton": "免费注册",
@@ -194,7 +197,7 @@
   },
   "predictionsPage": {
     "badge": "AI驱动分析",
-    "heading": "世界杯预测",
+    "heading": "2026世界杯AI预测",
     "description": "AI计算的48支球队胜率，综合化学指数、状态分析、FIFA排名和每日更新的情报信号。",
     "ctaText": "获取每日胜率更新——免费。",
     "ctaButton": "免费注册",
@@ -287,7 +290,7 @@
   },
   "bracketPage": {
     "badge": "32场淘汰赛",
-    "heading": "赛事对阵图",
+    "heading": "2026世界杯对阵图",
     "description": "2026世界杯完整淘汰赛阶段。从32强赛的48支球队到7月19日大都会人寿球场的决赛。每场比赛的AI概率。",
     "ctaText": "创建你的对阵图并追踪每场比赛——免费。",
     "ctaButton": "免费注册",
@@ -843,7 +846,10 @@
     "headlineBracketSimulator": "锦标赛晋级模拟器",
     "headlineScoutReport": "专业球探报告",
     "headlinePlayerIntel": "球员情报套件",
-    "headlineDefault": "解锁高级内容"
+    "headlineDefault": "解锁高级内容",
+    "entitlementLoadError": "无法验证您的访问权限，请刷新页面。",
+    "checkoutFailed": "结账失败，请重试。",
+    "processing": "处理中..."
   },
   "pwa": {
     "installTitle": "安装 KickOracle",

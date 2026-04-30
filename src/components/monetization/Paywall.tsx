@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { PASS_PRICES, type ContentType, type EntitlementType } from '@/lib/entitlements'
@@ -22,10 +23,29 @@ export default function Paywall({
   className = '',
 }: PaywallProps) {
   const { user } = useAuth()
-  const { hasAccess, loading, suggestUpgrade } = useEntitlements()
+  const { hasAccess, loading, error, suggestUpgrade } = useEntitlements()
   const t = useTranslations('paywall')
 
-  if (loading) return <div className={className}>{children}</div>
+  if (loading) {
+    return (
+      <div className={className}>
+        <div
+          className="overflow-hidden"
+          style={{ maxHeight: `${previewLines * 1.75}rem` }}
+        >
+          <div className="space-y-3 animate-pulse">
+            {Array.from({ length: previewLines }, (_, i) => (
+              <div
+                key={i}
+                className="h-4 bg-on-surface/5 rounded"
+                style={{ width: `${85 - i * 10}%` }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (hasAccess(contentType, scope)) {
     return <div className={className}>{children}</div>
@@ -62,6 +82,12 @@ export default function Paywall({
           {pass.description}
         </p>
 
+        {error && (
+          <p className="text-error text-xs mb-3">
+            {t('entitlementLoadError')}
+          </p>
+        )}
+
         {user ? (
           <PassPurchaseButton passType={target} scope={scope} />
         ) : (
@@ -97,32 +123,55 @@ function PassPurchaseButton({ passType, scope }: { passType: EntitlementType; sc
   const { session } = useAuth()
   const pass = PASS_PRICES[passType]
   const t = useTranslations('paywall')
+  const [purchasing, setPurchasing] = useState(false)
+  const [purchaseError, setPurchaseError] = useState<string | null>(null)
 
   async function handlePurchase() {
-    if (!session?.access_token) return
+    if (!session?.access_token || purchasing) return
 
-    const res = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${session.access_token}`,
-      },
-      body: JSON.stringify({ passType, scope }),
-    })
+    setPurchasing(true)
+    setPurchaseError(null)
 
-    const data = await res.json()
-    if (data.url) {
-      window.location.href = data.url
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ passType, scope }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setPurchaseError(data.error ?? t('checkoutFailed'))
+        return
+      }
+
+      if (data.url) {
+        window.location.href = data.url
+      }
+    } catch {
+      setPurchaseError(t('checkoutFailed'))
+    } finally {
+      setPurchasing(false)
     }
   }
 
   return (
-    <button
-      onClick={handlePurchase}
-      className="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
-    >
-      {t('unlockButton', { amount: (pass.amount / 100).toFixed(2) })}
-    </button>
+    <div>
+      <button
+        onClick={handlePurchase}
+        disabled={purchasing}
+        className="inline-flex items-center justify-center gap-2 bg-primary text-on-primary font-label text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 transition-opacity disabled:opacity-50"
+      >
+        {purchasing ? t('processing') : t('unlockButton', { amount: (pass.amount / 100).toFixed(2) })}
+      </button>
+      {purchaseError && (
+        <p className="text-error text-xs mt-2">{purchaseError}</p>
+      )}
+    </div>
   )
 }
 
