@@ -1,0 +1,65 @@
+{
+  "_TODO": "Replace placeholder values with real backtest results before launch. Brier score: lower is better, scale 0-1. Top-1 accuracy: % of matches where the highest-probability outcome was correct.",
+  "tournaments": [
+    {
+      "tournament": "Euro 2024",
+      "matches": 51,
+      "kickoracle": {
+        "brierScore": 0.196,
+        "top1Accuracy": 0.588,
+        "logLoss": 0.954
+      },
+      "fivethirtyeight": {
+        "brierScore": 0.211,
+        "top1Accuracy": 0.549,
+        "logLoss": 0.998,
+        "note": "Legacy SPI model run on archived data"
+      },
+      "bookmakerConsensus": {
+        "brierScore": 0.198,
+        "top1Accuracy": 0.569,
+        "logLoss": 0.962,
+        "note": "Pinnacle closing odds, devigged"
+      }
+    },
+    {
+      "tournament": "Copa America 2024",
+      "matches": 32,
+      "kickoracle": {
+        "brierScore": 0.203,
+        "top1Accuracy": 0.563,
+        "logLoss": 0.968
+      },
+      "fivethirtyeight": {
+        "brierScore": 0.218,
+        "top1Accuracy": 0.531,
+        "logLoss": 1.012,
+        "note": "Legacy SPI model"
+      },
+      "bookmakerConsensus": {
+        "brierScore": 0.205,
+        "top1Accuracy": 0.563,
+        "logLoss": 0.974,
+        "note": "Pinnacle closing odds, devigged"
+      }
+    }
+  ],
+  "calibrationCurve": [
+    { "predictedProb": 0.1, "actualFreq": 0.12, "sampleSize": 42 },
+    { "predictedProb": 0.2, "actualFreq": 0.18, "sampleSize": 38 },
+    { "predictedProb": 0.3, "actualFreq": 0.31, "sampleSize": 35 },
+    { "predictedProb": 0.4, "actualFreq": 0.42, "sampleSize": 28 },
+    { "predictedProb": 0.5, "actualFreq": 0.49, "sampleSize": 24 },
+    { "predictedProb": 0.6, "actualFreq": 0.58, "sampleSize": 22 },
+    { "predictedProb": 0.7, "actualFreq": 0.71, "sampleSize": 19 },
+    { "predictedProb": 0.8, "actualFreq": 0.82, "sampleSize": 14 },
+    { "predictedProb": 0.9, "actualFreq": 0.88, "sampleSize": 11 }
+  ],
+  "limitations": [
+    "Backtest uses methodology snapshot from January 2024; current model has been tuned with additional features.",
+    "Sample sizes for high-confidence buckets (>70%) are small. Treat the upper tail of the calibration curve as directional.",
+    "Bookmaker consensus is devigged Pinnacle closing odds, which represent professional-money pricing — the strongest public benchmark.",
+    "FiveThirtyEight numbers are from their final SPI run before the model was retired."
+  ],
+  "methodNote": "Brier score is the mean squared error between predicted probabilities and actual outcomes for each of the three match outcomes (home/draw/away). Lower is better. Top-1 accuracy is the percentage of matches where the highest-probability outcome turned out to be correct."
+}

@@ -5,7 +5,6 @@ import { Link } from '@/i18n/navigation'
 import {
   buildOGMeta,
   canonical,
-  organizationJsonLd,
   personJsonLd,
   breadcrumbJsonLd,
   jsonLdGraph,
@@ -61,7 +60,7 @@ export default async function AboutPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdGraph([organizationJsonLd(), founderPerson, analystPerson, breadcrumbs])),
+          __html: JSON.stringify(jsonLdGraph([founderPerson, analystPerson, breadcrumbs])),
         }}
       />
 

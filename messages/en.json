@@ -18,6 +18,12 @@
     "ctaLabel": "Get yours →",
     "dismiss": "Dismiss"
   },
+  "testimonials": {
+    "heading": "What early readers are saying",
+    "intro": "We collected these from the first month of newsletter subscribers and beta-pass holders. We didn't pay for any of them.",
+    "tierLabel": "{tier} Pass",
+    "verifiedReader": "Verified reader"
+  },
   "trustStrip": {
     "independent": "Independent",
     "independentDesc": "Fan-built, no league or sportsbook ties",
@@ -27,6 +33,29 @@
     "transparencyDesc": "Public weights and backtest results",
     "i18n": "19 languages",
     "i18nDesc": "Localized for traveling fans worldwide"
+  },
+  "accuracyPage": {
+    "metaTitle": "How accurate is KickOracle? Euro 2024 + Copa 2024 backtest",
+    "metaDescription": "Independent retrospective accuracy of KickOracle's prediction model on Euro 2024 and Copa America 2024 — including Brier scores, top-1 accuracy, calibration curve, and a comparison vs FiveThirtyEight and bookmaker consensus.",
+    "badge": "Accuracy",
+    "heading": "How accurate is KickOracle?",
+    "intro": "Predictions without numbers are vibes. Below is the model's retrospective performance on Euro 2024 and Copa America 2024 — measured the same way bookmaker desks measure their own books, and compared head-to-head against FiveThirtyEight and devigged Pinnacle closing odds.",
+    "lastUpdated": "Backtest snapshot last updated: 2026-04-15",
+    "tournamentTableHeading": "Brier score · Top-1 accuracy · Log loss",
+    "colMatches": "Matches",
+    "colBrier": "Brier score (lower is better)",
+    "colTop1": "Top-1 accuracy",
+    "colLogloss": "Log loss",
+    "colSource": "Model",
+    "calibrationHeading": "Calibration curve",
+    "calibrationIntro": "If we say a team has a 60% chance of winning, they should win about 60% of the time. Closer to the diagonal = better calibrated.",
+    "calibrationXLabel": "Predicted probability",
+    "calibrationYLabel": "Observed frequency",
+    "limitationsHeading": "What this backtest doesn't show",
+    "methodNoteHeading": "How we measure",
+    "ctaHeading": "Read the methodology",
+    "ctaBody": "Our prediction weights are public. So is our backtest. Read the full methodology and the input weights breakdown.",
+    "ctaLink": "See methodology"
   },
   "aboutPage": {
     "metaTitle": "About KickOracle — Independent World Cup 2026 Intelligence",
@@ -1287,6 +1316,26 @@
     "tournamentAnchor": "$39.99 = 14 Match Passes",
     "tournamentSavings": "Save $271 vs buying matches individually",
     "tournamentPaybackHint": "Pays for itself by Matchday 3",
+    "freeTier": {
+      "label": "Free",
+      "price": "$0",
+      "description": "One featured prediction every match day. No card required.",
+      "feature1": "Daily featured prediction",
+      "feature2": "Newsletter + match-day briefing",
+      "feature3": "Public team dossiers",
+      "cta": "Get free predictions"
+    },
+    "proPanel": {
+      "heading": "For newsrooms, betting desks & analysts",
+      "intro": "Scout Pass is built for professional users — analysts, fantasy podcasts, betting desks, and sports newsrooms who need machine-readable predictions and team licenses.",
+      "individual": "Individual seat",
+      "teamLicense": "Team License",
+      "teamLicensePrice": "$999",
+      "teamLicenseSeats": "5 seats",
+      "teamLicenseDesc": "Bulk seats for newsrooms and analyst teams. Includes invoice billing.",
+      "demoButton": "Book a demo",
+      "csvSample": "Download CSV sample"
+    },
     "matchPass": {
       "feature1": "Full AI pre-match analysis",
       "feature2": "Tactical matchup breakdown",

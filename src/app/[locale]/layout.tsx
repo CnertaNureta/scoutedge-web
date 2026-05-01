@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
+import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -100,8 +101,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages()
   const config = LOCALE_CONFIGS[locale as Locale]
 
+  const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
       <NextIntlClientProvider messages={messages}>

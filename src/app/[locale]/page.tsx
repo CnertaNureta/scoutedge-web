@@ -5,10 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { getHomePageData } from '@/lib/site-data'
 import {
   buildOGMeta,
-  websiteJsonLd,
-  organizationJsonLd,
   softwareApplicationJsonLd,
-  jsonLdGraph,
 } from '@/lib/og-utils'
 import { HOMEPAGE_HERO_IMAGE } from '@/lib/unsplash'
 import { BRAND } from '@/lib/brand-tokens'
@@ -16,6 +13,7 @@ import TeamCard from '@/components/team/TeamCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 import TrustStrip from '@/components/marketing/TrustStrip'
+import TestimonialGrid from '@/components/marketing/TestimonialGrid'
 
 export const revalidate = 300
 
@@ -81,9 +79,7 @@ export default async function HomePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            jsonLdGraph([websiteJsonLd(), organizationJsonLd(), softwareApplicationJsonLd()])
-          ),
+          __html: JSON.stringify(softwareApplicationJsonLd()),
         }}
       />
 
@@ -256,6 +252,11 @@ export default async function HomePage({ params }: Props) {
             </Link>
           ))}
         </div>
+      </section>
+
+      {/* ─── Testimonials ─── */}
+      <section className="page-container mb-24">
+        <TestimonialGrid />
       </section>
 
       {/* ─── Newsletter ─── */}

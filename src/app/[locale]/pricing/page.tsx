@@ -3,11 +3,11 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import PricingTiers from '@/components/monetization/PricingTiers'
 import GuaranteeBadge from '@/components/marketing/GuaranteeBadge'
 import TrustStrip from '@/components/marketing/TrustStrip'
+import TestimonialGrid from '@/components/marketing/TestimonialGrid'
 import {
   buildOGMeta,
   canonical,
   productOfferJsonLd,
-  organizationJsonLd,
   breadcrumbJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
@@ -59,7 +59,7 @@ export default async function PricingPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdGraph([organizationJsonLd(), breadcrumbs, ...productSchemas])),
+          __html: JSON.stringify(jsonLdGraph([breadcrumbs, ...productSchemas])),
         }}
       />
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -90,6 +90,10 @@ export default async function PricingPage({ params }: Props) {
 
       <section className="max-w-5xl mx-auto px-4 pb-12">
         <TrustStrip />
+      </section>
+
+      <section className="max-w-6xl mx-auto px-4 pb-16">
+        <TestimonialGrid limit={4} variant="compact" />
       </section>
 
       <PricingTiers />
