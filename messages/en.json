@@ -3,6 +3,11 @@
     "title": "World Cup 2026 AI Predictions, City Guides & Fan Intelligence | KickOracle",
     "description": "AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams. Win probabilities, squad analysis, travel planning, and match insights across the USA, Canada, and Mexico."
   },
+  "notFound": {
+    "heading": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to homepage"
+  },
   "hero": {
     "dateRange": "June 11 — July 19, 2026",
     "title1": "WORLD CUP",
