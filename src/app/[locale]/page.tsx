@@ -15,6 +15,7 @@ import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+import TrustStrip from '@/components/marketing/TrustStrip'
 
 export const revalidate = 300
 
@@ -109,30 +110,40 @@ export default async function HomePage({ params }: Props) {
             {hero('locationBadge')}
           </span>
 
-          <h1 className="font-headline text-[clamp(3rem,10vw,9rem)] leading-[0.85] tracking-wide uppercase mb-4 animate-fade-in-up opacity-0 stagger-1">
-            <span className="block text-on-surface">{hero('title1')}</span>
-            <span className="block gradient-text">{hero('title2')}</span>
+          <h1 className="font-headline text-[clamp(2.25rem,6.5vw,5rem)] leading-[0.95] tracking-tight mb-6 animate-fade-in-up opacity-0 stagger-1 max-w-4xl">
+            <span className="block text-on-surface">{hero('headlineLine1')}</span>
+            <span className="block gradient-text">{hero('headlineLine2')}</span>
           </h1>
 
-          <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 animate-fade-in-up opacity-0 stagger-2">
+          <p className="text-on-surface-variant text-base md:text-lg max-w-2xl mx-auto mb-10 animate-fade-in-up opacity-0 stagger-2">
             {hero('subtitle')}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up opacity-0 stagger-3">
-            <Link
-              href="/teams"
-              className="bg-primary text-on-primary px-10 py-4 rounded-2xl font-label font-bold uppercase tracking-widest hover:scale-105 transition-all animate-neon-glow"
-            >
-              {hero('cta')}
-            </Link>
+          <div className="w-full mb-6 animate-fade-in-up opacity-0 stagger-3">
+            <NewsletterSignup variant="hero" source="hero" />
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 animate-fade-in-up opacity-0 stagger-4">
             <Link
               href="/daily-briefing"
-              className="border border-white/20 text-on-surface px-10 py-4 rounded-2xl font-label font-semibold uppercase tracking-widest hover:bg-white/[0.06] hover:border-primary/40 transition-all"
+              className="text-on-surface-variant text-sm font-label uppercase tracking-widest hover:text-primary transition-colors underline-offset-4 hover:underline"
             >
-              {hero('ctaSecondary')}
+              {hero('ctaSecondary')} &rarr;
+            </Link>
+            <span className="text-on-surface-variant/30">·</span>
+            <Link
+              href="/teams"
+              className="text-on-surface-variant text-sm font-label uppercase tracking-widest hover:text-primary transition-colors underline-offset-4 hover:underline"
+            >
+              {hero('ctaTertiary')} &rarr;
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* ─── Trust Strip ─── */}
+      <section className="page-container mt-12 mb-16">
+        <TrustStrip />
       </section>
 
       {/* ─── Top Contenders — Editorial Hierarchy ─── */}

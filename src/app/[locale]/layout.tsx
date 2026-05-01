@@ -8,6 +8,7 @@ import type { Locale } from '@/i18n/locales'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
+import CountdownStrip from '@/components/marketing/CountdownStrip'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -112,6 +113,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             >
               {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
             </a>
+            <CountdownStrip />
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />

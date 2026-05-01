@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getAllMatchupSlugs, getHeadToHead } from '@/lib/compare-utils'
 import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'

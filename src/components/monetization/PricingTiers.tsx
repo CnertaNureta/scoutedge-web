@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl'
 import { useAuth } from '@/contexts/AuthContext'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { PASS_PRICES, type EntitlementType } from '@/lib/entitlements'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 interface TierDef {
   type: EntitlementType
@@ -64,7 +64,7 @@ export default function PricingTiers() {
 
   return (
     <section className="max-w-6xl mx-auto px-4 pb-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-6 items-stretch">
         {TIERS.map((tierDef) => (
           <TierCard
             key={tierDef.type}
@@ -123,16 +123,16 @@ function TierCard({
 
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border p-6 transition-all ${
+      className={`relative flex flex-col rounded-2xl border transition-all ${
         tier.highlight
-          ? 'border-primary/30 bg-primary/[0.04] shadow-[0_0_60px_rgba(160,212,148,0.06)]'
-          : 'border-white/[0.08] bg-white/[0.02]'
+          ? 'border-primary/40 bg-primary/[0.06] shadow-[0_0_80px_rgba(160,212,148,0.1)] p-7 md:p-8 xl:scale-[1.04] xl:z-10 ring-1 ring-primary/20'
+          : 'border-white/[0.08] bg-white/[0.02] p-6'
       }`}
     >
       {tier.badgeKey && (
-        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest ${
+        <div className={`absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest whitespace-nowrap ${
           tier.highlight
-            ? 'bg-primary text-on-primary'
+            ? 'bg-primary text-on-primary shadow-[0_4px_20px_rgba(160,212,148,0.4)]'
             : 'bg-tertiary/20 text-tertiary border border-tertiary/20'
         }`}>
           {t(tier.badgeKey)}
@@ -140,11 +140,11 @@ function TierCard({
       )}
 
       <div className="mb-5">
-        <h3 className="font-headline text-lg font-bold text-on-surface mb-1">
+        <h3 className={`font-headline font-bold text-on-surface mb-1 ${tier.highlight ? 'text-xl' : 'text-lg'}`}>
           {pass.label}
         </h3>
         <div className="flex items-baseline gap-1">
-          <span className="font-headline text-3xl font-bold text-on-surface">
+          <span className={`font-headline font-bold text-on-surface ${tier.highlight ? 'text-4xl' : 'text-3xl'}`}>
             ${(pass.amount / 100).toFixed(2)}
           </span>
           {tier.noteKey && (
@@ -154,6 +154,16 @@ function TierCard({
         <p className="text-on-surface-variant text-xs mt-1.5 leading-relaxed">
           {pass.description}
         </p>
+        {tier.type === 'tournament_pass' && (
+          <div className="mt-3 space-y-1">
+            <p className="text-secondary text-[11px] font-label uppercase tracking-widest font-semibold">
+              {t('tournamentAnchor')} · {t('tournamentPaybackHint')}
+            </p>
+            <p className="text-on-surface-variant/80 text-[11px]">
+              {t('tournamentSavings')}
+            </p>
+          </div>
+        )}
       </div>
 
       <ul className="flex-1 space-y-2.5 mb-6">

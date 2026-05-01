@@ -1,15 +1,35 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import PricingTiers from '@/components/monetization/PricingTiers'
+import GuaranteeBadge from '@/components/marketing/GuaranteeBadge'
+import TrustStrip from '@/components/marketing/TrustStrip'
+import {
+  buildOGMeta,
+  canonical,
+  productOfferJsonLd,
+  organizationJsonLd,
+  breadcrumbJsonLd,
+  jsonLdGraph,
+} from '@/lib/og-utils'
+import { PASS_PRICES } from '@/lib/entitlements'
 
 type Props = { params: Promise<{ locale: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'pricingPage' })
+  const url = canonical(`/${locale}/pricing`)
+
   return {
     title: t('heading'),
     description: t('description'),
+    alternates: { canonical: url },
+    ...buildOGMeta({
+      title: t('heading'),
+      description: t('description'),
+      url,
+      locale,
+    }),
   }
 }
 
@@ -17,9 +37,31 @@ export default async function PricingPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('pricingPage')
+  const pricingUrl = canonical(`/${locale}/pricing`)
+
+  const productSchemas = (Object.keys(PASS_PRICES) as Array<keyof typeof PASS_PRICES>).map((type) =>
+    productOfferJsonLd({
+      name: PASS_PRICES[type].label,
+      description: PASS_PRICES[type].description,
+      priceCents: PASS_PRICES[type].amount,
+      url: pricingUrl,
+      category: 'Sports Predictions Subscription',
+    }),
+  )
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'KickOracle', url: canonical(`/${locale}`) },
+    { name: t('badge'), url: pricingUrl },
+  ])
 
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdGraph([organizationJsonLd(), breadcrumbs, ...productSchemas])),
+        }}
+      />
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/[0.04] rounded-full blur-[120px]" />
@@ -39,7 +81,15 @@ export default async function PricingPage({ params }: Props) {
           <p className="text-on-surface-variant text-lg max-w-2xl mx-auto leading-relaxed">
             {t('description')}
           </p>
+
+          <div className="mt-10 flex justify-center">
+            <GuaranteeBadge />
+          </div>
         </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-4 pb-12">
+        <TrustStrip />
       </section>
 
       <PricingTiers />
@@ -52,19 +102,19 @@ export default async function PricingPage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FeatureBlock
               title={t('aiMatchPredictions')}
-              description="Win probability, predicted scorelines, and tactical matchup analysis powered by our prediction models."
+              description={t('featureBlocks.aiMatchDesc')}
             />
             <FeatureBlock
               title={t('teamDossiers')}
-              description="Squad depth, fitness tracking, tactical DNA profiles, and historical performance data for all 48 nations."
+              description={t('featureBlocks.teamDossiersDesc')}
             />
             <FeatureBlock
               title={t('playerIntelligence')}
-              description="Detailed player cards, form trajectory, workload monitoring, and tournament performance tracking."
+              description={t('featureBlocks.playerIntelDesc')}
             />
             <FeatureBlock
               title={t('dailyBriefing')}
-              description="Narrative-first analysis delivered every morning — the signals that matter, with context that explains why."
+              description={t('featureBlocks.dailyBriefingDesc')}
             />
           </div>
         </div>
@@ -72,25 +122,13 @@ export default async function PricingPage({ params }: Props) {
 
       <section className="max-w-3xl mx-auto px-4 pb-24">
         <h2 className="font-headline text-xl font-bold text-on-surface mb-8 text-center">
-          Frequently asked
+          {t('faq.heading')}
         </h2>
         <div className="space-y-4">
-          <FaqItem
-            question="How long do passes last?"
-            answer="Match Passes give you 48 hours of access from the time of purchase. Team Passes, Tournament Pass, and Scout Pass all remain active through July 25, 2026 — the end of the World Cup final."
-          />
-          <FaqItem
-            question="Can I upgrade later?"
-            answer="Yes. Any money you've already spent on individual passes is credited toward your upgrade. Buy a few match passes, then upgrade to Tournament Pass — you only pay the difference."
-          />
-          <FaqItem
-            question="What payment methods are accepted?"
-            answer="We accept all major credit cards, Apple Pay, Google Pay, and select local payment methods through Stripe."
-          />
-          <FaqItem
-            question="Is there a refund policy?"
-            answer="Digital content purchases are non-refundable once accessed. If you haven't accessed the content, contact support within 24 hours for a full refund."
-          />
+          <FaqItem question={t('faq.q1')} answer={t('faq.a1')} />
+          <FaqItem question={t('faq.q2')} answer={t('faq.a2')} />
+          <FaqItem question={t('faq.q3')} answer={t('faq.a3')} />
+          <FaqItem question={t('faq.q4')} answer={t('faq.a4')} />
         </div>
       </section>
     </main>

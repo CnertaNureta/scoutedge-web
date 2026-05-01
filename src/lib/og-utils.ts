@@ -201,6 +201,87 @@ export function sportsEventJsonLd(match: {
   return event
 }
 
+export interface PersonJsonLdInput {
+  name: string
+  jobTitle?: string
+  description?: string
+  image?: string
+  url?: string
+  sameAs?: string[]
+}
+
+export function personJsonLd(person: PersonJsonLdInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: person.name,
+    ...(person.jobTitle && { jobTitle: person.jobTitle }),
+    ...(person.description && { description: person.description }),
+    ...(person.image && { image: person.image }),
+    ...(person.url && { url: person.url }),
+    ...(person.sameAs && { sameAs: person.sameAs }),
+    worksFor: { '@type': 'Organization', name: 'KickOracle', url: BASE_URL },
+  }
+}
+
+export interface ProductOfferInput {
+  name: string
+  description: string
+  priceCents: number
+  currency?: string
+  url: string
+  category?: string
+  availability?: 'InStock' | 'OutOfStock' | 'PreOrder'
+}
+
+export function productOfferJsonLd(product: ProductOfferInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    description: product.description,
+    brand: { '@type': 'Brand', name: 'KickOracle' },
+    ...(product.category && { category: product.category }),
+    offers: {
+      '@type': 'Offer',
+      url: product.url,
+      priceCurrency: product.currency ?? 'USD',
+      price: (product.priceCents / 100).toFixed(2),
+      availability: `https://schema.org/${product.availability ?? 'InStock'}`,
+      seller: { '@type': 'Organization', name: 'KickOracle', url: BASE_URL },
+    },
+  }
+}
+
+export interface ArticleJsonLdInput {
+  headline: string
+  description: string
+  url: string
+  authorName?: string
+  datePublished?: string
+  dateModified?: string
+  image?: string
+}
+
+export function articleJsonLd(article: ArticleJsonLdInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': article.url },
+    publisher: {
+      '@type': 'Organization',
+      name: 'KickOracle',
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/icons/icon-512.png` },
+    },
+    ...(article.authorName && { author: { '@type': 'Person', name: article.authorName } }),
+    ...(article.datePublished && { datePublished: article.datePublished }),
+    ...(article.dateModified && { dateModified: article.dateModified }),
+    ...(article.image && { image: article.image }),
+  }
+}
+
 /**
  * Helper to consolidate multiple JSON-LD blocks into a single `@graph` script.
  * Cleaner output than rendering many <script> tags separately.
