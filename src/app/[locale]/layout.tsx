@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       template: '%s | KickOracle',
     },
     description:
-      'AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams.',
+      'Your North America 2026 match-day intelligence — fixtures, flights, and form in one brief. AI predictions, host-city travel guides, and team dossiers for all 48 nations.',
     keywords: 'World Cup 2026, World Cup predictions, football analysis, squad chemistry',
     manifest: '/manifest.json',
     appleWebApp: {

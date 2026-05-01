@@ -14,6 +14,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 import TrustStrip from '@/components/marketing/TrustStrip'
 import TestimonialGrid from '@/components/marketing/TestimonialGrid'
+import SubscriptionBanner from '@/components/marketing/SubscriptionBanner'
 
 export const revalidate = 300
 
@@ -138,8 +139,13 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* ─── Trust Strip ─── */}
-      <section className="page-container mt-12 mb-16">
+      <section className="page-container mt-12 mb-12">
         <TrustStrip />
+      </section>
+
+      {/* ─── Subscription Pivot Banner ─── */}
+      <section className="page-container mb-16">
+        <SubscriptionBanner />
       </section>
 
       {/* ─── Top Contenders — Editorial Hierarchy ─── */}

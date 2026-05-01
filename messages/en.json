@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "World Cup 2026 AI Predictions, City Guides & Fan Intelligence | KickOracle",
-    "description": "AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams. Win probabilities, squad analysis, travel planning, and match insights across the USA, Canada, and Mexico."
+    "description": "Your North America 2026 match-day intelligence — fixtures, flights, and form in one brief. AI predictions, host-city travel guides, and team dossiers for all 48 nations.",
+    "tagline": "Your North America 2026 match-day intelligence"
   },
   "notFound": {
     "heading": "Page not found",
@@ -23,6 +24,57 @@
     "intro": "We collected these from the first month of newsletter subscribers and beta-pass holders. We didn't pay for any of them.",
     "tierLabel": "{tier} Pass",
     "verifiedReader": "Verified reader"
+  },
+  "subscriptionBanner": {
+    "headline": "After July 25 → year-round football intelligence",
+    "subheadline": "$9.99/mo. Tournament Pass buyers get the first 3 months free.",
+    "cta": "Join the waitlist",
+    "dismiss": "Dismiss"
+  },
+  "subscribePage": {
+    "metaTitle": "Year-round football intelligence — KickOracle 2026",
+    "metaDescription": "After the World Cup, KickOracle continues with year-round football predictions: Champions League, Premier League, Copa Libertadores, and more. Tournament Pass buyers get the first 3 months free.",
+    "badge": "Coming after July 25, 2026",
+    "heading": "When the World Cup ends, the football doesn't.",
+    "intro": "Tournament Pass turns into the first 3 months of a year-round football intelligence subscription. Same model, weekly briefings, every major league.",
+    "leaguesHeading": "Coverage from August 2026",
+    "leaguesIntro": "What we'll be predicting and writing about, week-in week-out:",
+    "leagueUcl": "Champions League · Group + KO predictions, weekly Big-5 chemistry reads",
+    "leaguePl": "Premier League · Match-of-the-week breakdown, transfer-window impact reports",
+    "leagueCopa": "Copa Libertadores · Matchday previews + South American coaching intelligence",
+    "leagueWomens": "Women's elite leagues · NWSL, WSL, Liga F coverage from kickoff",
+    "leagueLatam": "Liga MX, Brasileirão · Where casual North American fans find their next club",
+    "pricingHeading": "What it'll cost",
+    "pricingPrice": "$9.99 / month",
+    "pricingPriceAlt": "or $89 / year — saves $30",
+    "pricingNote": "Tournament Pass holders: first 3 months free, automatic. No card update required if you're already paid up.",
+    "ctaHeading": "Be first in line",
+    "ctaBody": "We'll email you when the subscription opens. No spam, no card required, unsubscribe anytime.",
+    "ctaFinePrint": "Tournament Pass already includes the first 3 months — you don't need to do anything."
+  },
+  "upcomingPage": {
+    "metaTitle": "Coming soon: Euro 2028, AFCON 2027, Women's World Cup 2027",
+    "metaDescription": "After the 2026 World Cup, KickOracle continues with major-tournament intelligence for Euro 2028, AFCON 2027, and the FIFA Women's World Cup 2027.",
+    "badge": "Tournament roadmap",
+    "heading": "What's next after 2026.",
+    "intro": "We built the engine for the World Cup, but the model isn't going home on July 26. Here's what we're already building toward.",
+    "afcon": {
+      "name": "AFCON 2027",
+      "window": "December 2027 — Morocco",
+      "summary": "African Cup of Nations expanded format. We're already running historical backtests on CAF qualifiers."
+    },
+    "wwc": {
+      "name": "FIFA Women's World Cup 2027",
+      "window": "June – July 2027 — Brazil",
+      "summary": "First Women's WC in South America. Our chemistry model trained on club-level WSL/NWSL/Liga F partnerships."
+    },
+    "euro": {
+      "name": "UEFA Euro 2028",
+      "window": "June 2028 — UK & Ireland",
+      "summary": "Five-host expanded format. Travel guides start the moment qualifiers conclude."
+    },
+    "waitlistHeading": "Want updates?",
+    "waitlistBody": "Pick the tournaments you care about. We'll email you when those tournament hubs open."
   },
   "trustStrip": {
     "independent": "Independent",
