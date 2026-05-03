@@ -65,6 +65,13 @@ export function middleware(req: NextRequest) {
     return addSecurityHeaders(NextResponse.next())
   }
 
+
+  if (req.nextUrl.pathname === '/') {
+    const redirectUrl = req.nextUrl.clone()
+    redirectUrl.pathname = '/en'
+    return addSecurityHeaders(NextResponse.redirect(redirectUrl, { status: 308 }))
+  }
+
   const response = intlMiddleware(req)
   addSecurityHeaders(response as NextResponse)
   return response

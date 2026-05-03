@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { Link } from '@/i18n/navigation'
 import { getAllVenues } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 countdown, FIFA World Cup 2026 countdown, days until World Cup 2026, World Cup 2026 start date, World Cup 2026 opening match',
-    alternates: { canonical: 'https://kickoracle.com/countdown' },
+    alternates: { canonical: canonicalForLocale(locale, '/countdown') },
   }
 }
 

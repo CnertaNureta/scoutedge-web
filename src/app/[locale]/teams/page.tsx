@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { getTeamsPageData } from '@/lib/site-data'
 import TeamCard from '@/components/team/TeamCard'
 
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('heading'),
     description: t('description'),
     keywords: 'World Cup 2026 teams, World Cup 2026 groups, World Cup 2026 squads, FIFA World Cup 2026 predictions, World Cup 2026 analysis',
-    alternates: { canonical: 'https://kickoracle.com/teams' },
+    alternates: { canonical: canonicalForLocale(locale, '/teams') },
   }
 }
 
