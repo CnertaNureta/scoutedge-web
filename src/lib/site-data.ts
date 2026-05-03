@@ -129,10 +129,14 @@ const DEFAULT_SOURCES: CorePageSources = {
 }
 
 const SUPABASE_PAGE_SIZE = 1000
+const NEXT_PHASE_PRODUCTION_BUILD = 'phase-production-build'
 const UNSAFE_HTML_OVERRIDE_PATTERN =
   /<\s*(script|style|iframe|object|embed|form|input|button|textarea|select|meta|link|base)\b|\son[a-z]+\s*=|javascript:/i
 
 function isSupabaseConfigured(): boolean {
+  // Static generation fans out across thousands of routes; use bundled data during build.
+  if (process.env.NEXT_PHASE === NEXT_PHASE_PRODUCTION_BUILD) return false
+
   return Boolean(
     process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY
   )
