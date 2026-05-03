@@ -10,6 +10,12 @@ import SectionHeader from '@/components/ui/SectionHeader'
 
 export const revalidate = 3600
 
+const AMAZON_ASSOCIATE_TAG = 'kickoracle-20'
+
+function amazonSearchUrl(query: string): string {
+  return `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${AMAZON_ASSOCIATE_TAG}`
+}
+
 /* ------------------------------------------------------------------ */
 /*  Kit data — derived from real-world national team kits              */
 /* ------------------------------------------------------------------ */
@@ -584,29 +590,41 @@ export default async function TeamJerseyPage({ params }: PageProps) {
       {/* ── Where to buy ── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-16">
         <SectionHeader className="mb-8">{t('whereToBuy')}</SectionHeader>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {[
+            {
+              retailer: 'Amazon Fan Gear',
+              tag: 'Amazon',
+              url: amazonSearchUrl(`${team.name} ${manufacturer} World Cup jersey`),
+              variant: 'primary' as const,
+            },
             { retailer: 'Official FIFA Store', tag: t('official'), url: '#', variant: 'primary' as const },
             { retailer: `${manufacturer} Store`, tag: t('manufacturerStore'), url: '#', variant: 'secondary' as const },
             { retailer: 'World Soccer Shop', tag: t('specialist'), url: '#', variant: 'tertiary' as const },
             { retailer: 'Soccer.com', tag: t('wideSelection'), url: '#', variant: 'outline' as const },
-          ].map((store) => (
-            <GlassCard key={store.retailer} className="p-5 flex flex-col gap-3" hover>
-              <Badge variant={store.variant} size="sm">{store.tag}</Badge>
-              <h3 className="font-label text-sm uppercase tracking-wider text-on-surface">{store.retailer}</h3>
-              <p className="text-xs text-on-surface-variant leading-relaxed flex-1">
-                {t('authenticJerseys', { team: team.name })}
-              </p>
-              <a
-                href={store.url}
-                data-affiliate={`${slug}-${store.retailer.toLowerCase().replace(/\s+/g, '-')}`}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary/10 text-primary text-xs font-label uppercase tracking-widest hover:bg-primary/20 transition-colors border border-primary/20"
-              >
-                {t('shopNow')}
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </GlassCard>
-          ))}
+          ].map((store) => {
+            const isExternal = store.url.startsWith('http')
+
+            return (
+              <GlassCard key={store.retailer} className="p-5 flex flex-col gap-3" hover>
+                <Badge variant={store.variant} size="sm">{store.tag}</Badge>
+                <h3 className="font-label text-sm uppercase tracking-wider text-on-surface">{store.retailer}</h3>
+                <p className="text-xs text-on-surface-variant leading-relaxed flex-1">
+                  {t('authenticJerseys', { team: team.name })}
+                </p>
+                <a
+                  href={store.url}
+                  data-affiliate={`${slug}-${store.retailer.toLowerCase().replace(/\s+/g, '-')}`}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'sponsored noopener noreferrer' : undefined}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-primary/10 text-primary text-xs font-label uppercase tracking-widest hover:bg-primary/20 transition-colors border border-primary/20"
+                >
+                  {t('shopNow')}
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </GlassCard>
+            )
+          })}
         </div>
         <p className="text-[10px] text-on-surface-variant/60 mt-4 font-mono">
           {t('affiliateDisclaimer')}
