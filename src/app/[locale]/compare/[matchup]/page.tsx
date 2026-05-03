@@ -5,7 +5,7 @@ import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
+import { canonicalForLocale, jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -15,8 +15,8 @@ import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
 
-export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
-  const { matchup } = await params
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; matchup: string }> }): Promise<Metadata> {
+  const { locale, matchup } = await params
   const parts = matchup.split('-vs-')
   const teamA = getTeamBySlug(parts[0])
   const teamB = getTeamBySlug(parts[1])
@@ -30,11 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: { canonical: `https://kickoracle.com/compare/${matchup}` },
+    alternates: { canonical: canonicalForLocale(locale, `/compare/${matchup}`) },
     openGraph: {
       title,
       description,
-      url: `https://kickoracle.com/compare/${matchup}`,
+      url: canonicalForLocale(locale, `/compare/${matchup}`),
       type: 'article',
     },
     twitter: {
@@ -68,8 +68,8 @@ function StatRow({ label, valueA, valueB, higherIsBetter = true }: { label: stri
   )
 }
 
-export default async function CompareDetailPage({ params }: { params: Promise<{ matchup: string }> }) {
-  const { matchup } = await params
+export default async function CompareDetailPage({ params }: { params: Promise<{ locale: string; matchup: string }> }) {
+  const { locale, matchup } = await params
   const data = getHeadToHead(matchup)
   if (!data) return <div className="page-container py-20 text-center text-on-surface-variant">Matchup not found.</div>
 

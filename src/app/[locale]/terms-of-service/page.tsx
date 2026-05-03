@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { canonicalForLocale } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -10,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('heading'),
     description:
       'KickOracle terms of service. Rules and guidelines for using our World Cup 2026 AI intelligence platform.',
-    alternates: { canonical: 'https://kickoracle.com/terms-of-service' },
+    alternates: { canonical: canonicalForLocale(locale, '/terms-of-service') },
   }
 }
 

@@ -30,10 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords:
       'World Cup 2026, World Cup intelligence, World Cup narratives, football analysis, team chemistry, player reports, World Cup 2026 schedule',
     alternates: {
-      canonical: 'https://kickoracle.com',
+      canonical: `https://kickoracle.com/${locale}`,
       languages: {
-        'x-default': 'https://kickoracle.com',
-        en: 'https://kickoracle.com',
+        'x-default': 'https://kickoracle.com/en',
+        en: 'https://kickoracle.com/en',
         es: 'https://kickoracle.com/es',
         'zh-Hans': 'https://kickoracle.com/zh',
         pt: 'https://kickoracle.com/pt',

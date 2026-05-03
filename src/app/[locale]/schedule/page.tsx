@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 schedule, World Cup 2026 full calendar, World Cup 2026 knockout stage, World Cup 2026 final, World Cup 2026 all matches',
-    alternates: { canonical: 'https://kickoracle.com/schedule' },
+    alternates: { canonical: canonicalForLocale(locale, '/schedule') },
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),

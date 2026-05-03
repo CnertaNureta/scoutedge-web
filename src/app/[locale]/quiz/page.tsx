@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: 'https://kickoracle.com/quiz' },
+    alternates: { canonical: canonicalForLocale(locale, '/quiz') },
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { Link } from '@/i18n/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 jerseys, World Cup 2026 gear, World Cup 2026 merchandise, World Cup 2026 ball',
-    alternates: { canonical: 'https://kickoracle.com/gear' },
+    alternates: { canonical: canonicalForLocale(locale, '/gear') },
   }
 }
 

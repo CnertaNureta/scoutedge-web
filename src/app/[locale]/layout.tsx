@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
   const { locale } = await params
   const config = LOCALE_CONFIGS[locale as Locale]
 
-  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com' }
+  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com/en' }
   for (const loc of routing.locales) {
     const cfg = LOCALE_CONFIGS[loc]
-    languages[cfg.hreflang] = loc === 'en' ? 'https://kickoracle.com' : `https://kickoracle.com/${loc}`
+    languages[cfg.hreflang] = `https://kickoracle.com/${loc}`
   }
 
   return {

@@ -5,13 +5,14 @@ import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import ArticleSubscribeBar from '@/components/monetization/ArticleSubscribeBar'
+import { canonicalForLocale } from '@/lib/og-utils'
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: post.title,
       description: post.description,
     },
-    alternates: { canonical: `https://kickoracle.com/blog/${slug}` },
+    alternates: { canonical: canonicalForLocale(locale, `/blog/${slug}`) },
   }
 }
 

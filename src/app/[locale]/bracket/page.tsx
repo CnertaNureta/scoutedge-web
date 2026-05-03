@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 bracket, World Cup 2026 knockout stage, World Cup bracket 2026, tournament bracket, World Cup 2026 draw, Round of 32',
-    alternates: { canonical: 'https://kickoracle.com/bracket' },
+    alternates: { canonical: canonicalForLocale(locale, '/bracket') },
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
