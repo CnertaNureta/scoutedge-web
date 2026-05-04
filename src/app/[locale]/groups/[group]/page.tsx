@@ -10,6 +10,7 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { group } = await params
+  const { group, locale } = await params
   const teams = getTeamsByGroup(group)
   if (teams.length === 0) return { title: 'Group Not Found' }
 
@@ -36,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: seo?.ogTitle ?? `World Cup 2026 Group ${group} — AI Analysis & Predictions`,
       description: `Group ${group}: ${teamNames}. AI-powered squad analysis, chemistry indexes, and match predictions.`,
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',

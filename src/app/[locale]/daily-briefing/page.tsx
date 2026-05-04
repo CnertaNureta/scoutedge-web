@@ -10,6 +10,7 @@ import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 import Paywall from '@/components/monetization/Paywall'
 import { BRAND } from '@/lib/brand-tokens'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 export const dynamic = 'force-dynamic'
 
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',

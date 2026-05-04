@@ -5,7 +5,7 @@ import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
+import { jsonLdGraph, sportsEventJsonLd, buildOGMeta } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -15,8 +15,8 @@ import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
 
-export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
-  const { matchup } = await params
+export async function generateMetadata({ params }: { params: Promise<{ matchup: string; locale: string }> }): Promise<Metadata> {
+  const { matchup, locale } = await params
   const parts = matchup.split('-vs-')
   const teamA = getTeamBySlug(parts[0])
   const teamB = getTeamBySlug(parts[1])
@@ -25,23 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
 
   const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
   const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
+  const url = `https://kickoracle.com/compare/${matchup}`
 
   return {
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: { canonical: `https://kickoracle.com/compare/${matchup}` },
-    openGraph: {
-      title,
-      description,
-      url: `https://kickoracle.com/compare/${matchup}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
+    alternates: { canonical: url },
+    ...buildOGMeta({ title, description, url, locale, type: 'article' }),
   }
 }
 
