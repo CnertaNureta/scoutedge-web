@@ -65,10 +65,11 @@ export function middleware(req: NextRequest) {
     return addSecurityHeaders(NextResponse.next())
   }
 
-
+  // Issue a 308 (permanent, method-preserving) redirect for SEO so the bare
+  // root resolves to the default locale before next-intl handles it.
   if (req.nextUrl.pathname === '/') {
     const redirectUrl = req.nextUrl.clone()
-    redirectUrl.pathname = '/en'
+    redirectUrl.pathname = `/${routing.defaultLocale}`
     return addSecurityHeaders(NextResponse.redirect(redirectUrl, { status: 308 }))
   }
 

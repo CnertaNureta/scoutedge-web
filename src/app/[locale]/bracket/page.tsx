@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { KNOCKOUT_FIXTURES, KNOCKOUT_ROUNDS, getKnockoutTeamLabel } from '@/data/knockout-fixtures'
 import type { MatchFixture } from '@/lib/types'
 
@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/bracket',
+      url: canonicalForLocale(locale, '/bracket'),
+      locale,
     }),
   }
 }

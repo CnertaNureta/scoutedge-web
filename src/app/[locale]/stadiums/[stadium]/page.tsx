@@ -67,8 +67,8 @@ export default async function StadiumPage({ params }: Props) {
   const citySlug = findCitySlugForVenue(venue.id)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Stadiums', url: 'https://kickoracle.com/stadiums' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Stadiums', url: canonicalForLocale(locale, '/stadiums') },
     { name: venue.name, url: canonicalForLocale(locale, `/stadiums/${stadium}`) },
   ])
 
