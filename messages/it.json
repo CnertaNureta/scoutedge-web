@@ -107,6 +107,7 @@
     "myLeagues": "Le Mie Leghe",
     "dailyChallenge": "Sfida Giornaliera",
     "leaderboard": "Classifica",
+    "pricing": "Prezzi",
     "fanZone": "Zona Tifosi",
     "stickerTracker": "Traccia Figurine",
     "jerseysGear": "Maglie e Gadget",
@@ -120,7 +121,8 @@
     "footballTerms": "Termini del Calcio",
     "home": "Home",
     "predict": "Pronostica",
-    "cities": "Città"
+    "cities": "Città",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "Piattaforma di previsioni e intelligence basata sull'IA per la Coppa del Mondo 2026. Analisi indipendenti, intesa di squadra e approfondimenti predittivi per tutte le 48 nazionali.",
@@ -135,7 +137,7 @@
     "privacyPolicy": "Informativa sulla Privacy",
     "termsOfService": "Termini di Servizio",
     "disclaimer": "Questa è una risorsa indipendente e non ufficiale creata da tifosi, non affiliata né approvata dalla FIFA o dalla Coppa del Mondo FIFA. Tutti i nomi delle squadre, i loghi e i marchi correlati sono di proprietà dei rispettivi titolari e vengono utilizzati a solo scopo identificativo.",
-    "affiliateDisclosure": "KickOracle partecipa a programmi di marketing di affiliazione. Potremmo ricevere una commissione quando acquisti biglietti, prenoti viaggi, ti abboni a servizi di streaming o acquisti merchandising tramite i link presenti su questo sito, senza alcun costo aggiuntivo per te.",
+    "affiliateDisclosure": "KickOracle partecipa a programmi di marketing di affiliazione. Potremmo ricevere una commissione quando acquisti biglietti, prenoti viaggi, ti abboni a servizi di streaming o acquisti merchandising tramite i link presenti su questo sito, senza alcun costo aggiuntivo per te. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Intelligence sulla Coppa del Mondo basata sull'IA. Tutti i diritti riservati.",
     "skipToContent": "Vai al contenuto principale",
     "newsletterCta": "Ricevi pronostici gratuiti sui Mondiali →"
@@ -681,7 +683,7 @@
     "whereToBuy": "Dove Acquistare",
     "authenticJerseys": "Maglie autentiche {team} dei Mondiali 2026. Verificare l'ologramma di autenticità alla ricezione.",
     "shopNow": "Acquista Ora",
-    "affiliateDisclaimer": "I link possono contenere riferimenti affiliati. Prezzi e disponibilità soggetti a variazione. Verificare sempre l'autenticità.",
+    "affiliateDisclaimer": "I link possono contenere riferimenti affiliati. Prezzi e disponibilità soggetti a variazione. Verificare sempre l'autenticità. As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "Guida alle Taglie",
     "sizeGuideDesc": "Le misure sono indicative e possono variare a seconda del produttore. In caso di dubbio, scegliere la taglia superiore per una vestibilità comoda.",
     "sizeLabel": "Taglia",

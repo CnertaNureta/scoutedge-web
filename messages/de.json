@@ -107,6 +107,7 @@
     "myLeagues": "Meine Ligen",
     "dailyChallenge": "Tägliche Challenge",
     "leaderboard": "Rangliste",
+    "pricing": "Preise",
     "fanZone": "Fan-Zone",
     "stickerTracker": "Sticker-Tracker",
     "jerseysGear": "Trikots & Ausrüstung",
@@ -120,7 +121,8 @@
     "footballTerms": "Fußballbegriffe",
     "home": "Start",
     "predict": "Tippen",
-    "cities": "Städte"
+    "cities": "Städte",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "KI-gestützte Vorhersage- und Intelligence-Plattform für die WM 2026. Unabhängige Analysen, Kaderchemie und prädiktive Einblicke für alle 48 Nationen.",
@@ -135,7 +137,7 @@
     "privacyPolicy": "Datenschutz",
     "termsOfService": "Nutzungsbedingungen",
     "disclaimer": "Dies ist eine unabhängige, inoffizielle, von Fans erstellte Ressource und steht in keiner Verbindung mit der FIFA oder der FIFA-Weltmeisterschaft. Alle Teamnamen, Logos und zugehörigen Marken sind Marken ihrer jeweiligen Eigentümer und werden hier nur zu Identifikationszwecken verwendet.",
-    "affiliateDisclosure": "KickOracle nimmt an Affiliate-Marketing-Programmen teil. Wir können eine Provision erhalten, wenn Sie Tickets kaufen, Reisen buchen, Streaming-Dienste abonnieren oder Waren über Links auf dieser Website kaufen, ohne dass Ihnen zusätzliche Kosten entstehen.",
+    "affiliateDisclosure": "KickOracle nimmt an Affiliate-Marketing-Programmen teil. Wir können eine Provision erhalten, wenn Sie Tickets kaufen, Reisen buchen, Streaming-Dienste abonnieren oder Waren über Links auf dieser Website kaufen, ohne dass Ihnen zusätzliche Kosten entstehen. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. KI-gestützte WM-Intelligence. Alle Rechte vorbehalten.",
     "skipToContent": "Zum Hauptinhalt springen",
     "newsletterCta": "Kostenlose WM-Prognosen erhalten →"
@@ -681,7 +683,7 @@
     "whereToBuy": "Bezugsquellen",
     "authenticJerseys": "Authentische {team} WM-2026-Trikots. Prüfen Sie das Echtheitszertifikat bei Erhalt.",
     "shopNow": "Jetzt kaufen",
-    "affiliateDisclaimer": "Links können Affiliate-Verweise enthalten. Preise und Verfügbarkeit können sich ändern. Prüfen Sie stets die Echtheit.",
+    "affiliateDisclaimer": "Links können Affiliate-Verweise enthalten. Preise und Verfügbarkeit können sich ändern. Prüfen Sie stets die Echtheit. As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "Größentabelle",
     "sizeGuideDesc": "Maße sind Richtwerte und können je nach Hersteller variieren. Wählen Sie im Zweifel die nächstgrößere Größe für eine lockere Passform.",
     "sizeLabel": "Größe",

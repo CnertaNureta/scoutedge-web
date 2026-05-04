@@ -107,6 +107,7 @@
     "myLeagues": "Mes Ligues",
     "dailyChallenge": "Défi Quotidien",
     "leaderboard": "Classement",
+    "pricing": "Tarifs",
     "fanZone": "Zone Fan",
     "stickerTracker": "Suivi d'Autocollants",
     "jerseysGear": "Maillots et Équipement",
@@ -120,7 +121,8 @@
     "footballTerms": "Termes du Football",
     "home": "Accueil",
     "predict": "Prédire",
-    "cities": "Villes"
+    "cities": "Villes",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "Plateforme de prédictions et de renseignements alimentée par l'IA pour la Coupe du Monde 2026. Analyses indépendantes, cohésion d'équipe et insights prédictifs pour les 48 nations.",
@@ -135,7 +137,7 @@
     "privacyPolicy": "Politique de Confidentialité",
     "termsOfService": "Conditions d'Utilisation",
     "disclaimer": "Ceci est une ressource indépendante, non officielle, créée par des fans et n'est pas affiliée ni approuvée par la FIFA ou la Coupe du Monde de la FIFA. Tous les noms d'équipes, logos et marques associées sont des marques déposées de leurs propriétaires respectifs et sont utilisés ici uniquement à des fins d'identification.",
-    "affiliateDisclosure": "KickOracle participe à des programmes de marketing d'affiliation. Nous pouvons gagner une commission lorsque vous achetez des billets, réservez un voyage, vous abonnez à des services de streaming ou achetez des produits via les liens de ce site, sans coût supplémentaire pour vous.",
+    "affiliateDisclosure": "KickOracle participe à des programmes de marketing d'affiliation. Nous pouvons gagner une commission lorsque vous achetez des billets, réservez un voyage, vous abonnez à des services de streaming ou achetez des produits via les liens de ce site, sans coût supplémentaire pour vous. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Intelligence Coupe du Monde alimentée par l'IA. Tous droits réservés.",
     "skipToContent": "Passer au contenu principal",
     "newsletterCta": "Recevoir des prédictions gratuites →"
@@ -681,7 +683,7 @@
     "whereToBuy": "Où Acheter",
     "authenticJerseys": "Maillots authentiques de {team} pour la Coupe du Monde 2026.",
     "shopNow": "Acheter",
-    "affiliateDisclaimer": "Les liens peuvent contenir des références d'affiliation. Prix et disponibilité sujets à modification.",
+    "affiliateDisclaimer": "Les liens peuvent contenir des références d'affiliation. Prix et disponibilité sujets à modification. As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "Guide des Tailles",
     "sizeGuideDesc": "Les mesures sont approximatives et peuvent varier selon le fabricant.",
     "sizeLabel": "Taille",

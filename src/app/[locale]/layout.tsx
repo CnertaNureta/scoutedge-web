@@ -8,6 +8,8 @@ import type { Locale } from '@/i18n/locales'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
+import CountdownStrip from '@/components/marketing/CountdownStrip'
+import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       template: '%s | KickOracle',
     },
     description:
-      'AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams.',
+      'Your North America 2026 match-day intelligence — fixtures, flights, and form in one brief. AI predictions, host-city travel guides, and team dossiers for all 48 nations.',
     keywords: 'World Cup 2026, World Cup predictions, football analysis, squad chemistry',
     manifest: '/manifest.json',
     appleWebApp: {
@@ -99,8 +101,14 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const messages = await getMessages()
   const config = LOCALE_CONFIGS[locale as Locale]
 
+  const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+      />
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
       <NextIntlClientProvider messages={messages}>
@@ -112,6 +120,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
             >
               {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
             </a>
+            <CountdownStrip />
             <Header />
             <main id="main-content" className="flex-1">{children}</main>
             <Footer />

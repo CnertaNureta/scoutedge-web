@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import fs from 'fs'
 import path from 'path'
 import { getAllGroups, getTeamsByGroup, getPlayersByTeam, getFixturesByGroup, getTeamBySlug } from '@/lib/data-service'
@@ -10,7 +10,7 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { canonicalForLocale, OG_LOCALES } from '@/lib/og-utils'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: seo?.ogTitle ?? `World Cup 2026 Group ${group} — AI Analysis & Predictions`,
       description: `Group ${group}: ${teamNames}. AI-powered squad analysis, chemistry indexes, and match predictions.`,
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',

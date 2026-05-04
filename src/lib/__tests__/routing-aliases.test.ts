@@ -33,6 +33,6 @@ describe('routing aliases', () => {
   it('publishes canonical host city pages in the sitemap', () => {
     const urls = getSitemapEntries().map((entry) => entry.url)
 
-    expect(urls).toContain('https://kickoracle.com/cities/new-york')
+    expect(urls).toContain('https://kickoracle.com/en/cities/new-york')
   })
 })

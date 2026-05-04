@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getAllMatchupSlugs, getHeadToHead } from '@/lib/compare-utils'
 import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { canonicalForLocale, jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
+import { canonicalForLocale, jsonLdGraph, sportsEventJsonLd, buildOGMeta } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -25,23 +25,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
   const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
+  const url = `https://kickoracle.com/compare/${matchup}`
 
   return {
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
     alternates: { canonical: canonicalForLocale(locale, `/compare/${matchup}`) },
-    openGraph: {
-      title,
-      description,
-      url: canonicalForLocale(locale, `/compare/${matchup}`),
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
+    ...buildOGMeta({ title, description, url, locale, type: 'article' }),
   }
 }
 

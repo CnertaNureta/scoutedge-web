@@ -11,7 +11,7 @@ import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
 import PositionBadge from '@/components/ui/PositionBadge'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { Heart, MapPin, Hash, ChevronLeft } from 'lucide-react'
 
 const PILL_CLASS = 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-white/20 transition-colors'

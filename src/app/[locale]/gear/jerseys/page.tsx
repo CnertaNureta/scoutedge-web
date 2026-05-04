@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getAllTeams } from '@/lib/data-service'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'

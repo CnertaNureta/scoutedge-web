@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
+import { buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import ArticleSubscribeBar from '@/components/monetization/ArticleSubscribeBar'
-import { canonicalForLocale } from '@/lib/og-utils'
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -16,25 +16,21 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
+  const url = `https://kickoracle.com/blog/${slug}`
+
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords.join(', '),
-    openGraph: {
+    alternates: { canonical: canonicalForLocale(locale, `/blog/${slug}`) },
+    ...buildOGMeta({
       title: post.title,
       description: post.description,
+      url,
+      locale,
       type: 'article',
       publishedTime: post.date,
-      modifiedTime: post.lastUpdated,
-      authors: [post.author],
-      siteName: 'KickOracle',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
-    },
-    alternates: { canonical: canonicalForLocale(locale, `/blog/${slug}`) },
+    }),
   }
 }
 

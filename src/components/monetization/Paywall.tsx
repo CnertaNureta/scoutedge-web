@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { PASS_PRICES, type ContentType, type EntitlementType } from '@/lib/entitlements'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 interface PaywallProps {
   children: React.ReactNode

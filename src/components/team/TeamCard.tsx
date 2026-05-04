@@ -1,5 +1,5 @@
 import type { Team } from '@/lib/types'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import Badge from '@/components/ui/Badge'
 

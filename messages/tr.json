@@ -107,6 +107,7 @@
     "myLeagues": "Liglerim",
     "dailyChallenge": "Günlük Meydan Okuma",
     "leaderboard": "Puan Tablosu",
+    "pricing": "Fiyatlandırma",
     "fanZone": "Taraftar Bölgesi",
     "stickerTracker": "Çıkartma Takibi",
     "jerseysGear": "Formalar ve Ürünler",
@@ -120,7 +121,8 @@
     "footballTerms": "Futbol Terimleri",
     "home": "Ana Sayfa",
     "predict": "Tahmin Et",
-    "cities": "Şehirler"
+    "cities": "Şehirler",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "2026 Dünya Kupası için yapay zeka destekli tahmin ve istihbarat platformu. Bağımsız analizler, kadro uyumu ve 48 milli takımın tamamı için öngörüsel değerlendirmeler.",
@@ -135,7 +137,7 @@
     "privacyPolicy": "Gizlilik Politikası",
     "termsOfService": "Kullanım Koşulları",
     "disclaimer": "Bu, bağımsız ve resmi olmayan bir taraftar kaynağıdır; FIFA veya FIFA Dünya Kupası ile herhangi bir bağlantısı veya onayı yoktur. Tüm takım adları, logoları ve ilgili markalar, ilgili sahiplerinin tescilli ticari markalarıdır ve burada yalnızca tanımlama amacıyla kullanılmaktadır.",
-    "affiliateDisclosure": "KickOracle, ortaklık pazarlama programlarına katılmaktadır. Bu sitedeki bağlantılar aracılığıyla bilet satın aldığınızda, seyahat rezervasyonu yaptığınızda, yayın hizmetlerine abone olduğunuzda veya ürün satın aldığınızda, size ek bir maliyet olmaksızın komisyon kazanabiliriz.",
+    "affiliateDisclosure": "KickOracle, ortaklık pazarlama programlarına katılmaktadır. Bu sitedeki bağlantılar aracılığıyla bilet satın aldığınızda, seyahat rezervasyonu yaptığınızda, yayın hizmetlerine abone olduğunuzda veya ürün satın aldığınızda, size ek bir maliyet olmaksızın komisyon kazanabiliriz. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Yapay Zeka Destekli Dünya Kupası İstihbaratı. Tüm hakları saklıdır.",
     "skipToContent": "Ana içeriğe geç",
     "newsletterCta": "Ücretsiz Dünya Kupası tahminleri al →"
@@ -681,7 +683,7 @@
     "whereToBuy": "Nereden Alınır",
     "authenticJerseys": "Orijinal {team} Dünya Kupası 2026 formaları. Teslimatta orijinallik hologramını kontrol edin.",
     "shopNow": "Şimdi Al",
-    "affiliateDisclaimer": "Bağlantılar ortaklık referansları içerebilir. Fiyatlar ve stok durumu değişebilir. Orijinalliği her zaman doğrulayın.",
+    "affiliateDisclaimer": "Bağlantılar ortaklık referansları içerebilir. Fiyatlar ve stok durumu değişebilir. Orijinalliği her zaman doğrulayın. As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "Beden Rehberi",
     "sizeGuideDesc": "Ölçüler tahminidir ve üreticiye göre farklılık gösterebilir. Emin olmadığınızda rahat bir kesim için bir beden büyük alın.",
     "sizeLabel": "Beden",

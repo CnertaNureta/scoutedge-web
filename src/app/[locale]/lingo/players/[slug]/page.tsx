@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import {
   getLingoPlayerBySlug,
@@ -10,13 +10,14 @@ import { PhoneticDisplay } from '@/components/lingo/PhoneticDisplay'
 import { SyllableBreakdown } from '@/components/lingo/SyllableBreakdown'
 import { DifficultyBadge } from '@/components/lingo/DifficultyBadge'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 interface PlayerPageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string; locale: string }>
 }
 
 export async function generateMetadata({ params }: PlayerPageProps): Promise<Metadata> {
-  const { slug } = await params
+  const { slug, locale } = await params
   const player = getLingoPlayerBySlug(slug)
   if (!player) return {}
 
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }: PlayerPageProps): Promise<Met
     openGraph: {
       title: `How to Pronounce ${player.name} | KickOracle Lingo`,
       description: `${player.phonetic}. Learn the correct pronunciation of ${player.name}.`,
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
   }
 }

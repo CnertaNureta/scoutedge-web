@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'

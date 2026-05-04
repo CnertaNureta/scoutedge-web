@@ -107,6 +107,7 @@
     "myLeagues": "マイリーグ",
     "dailyChallenge": "デイリーチャレンジ",
     "leaderboard": "ランキング",
+    "pricing": "料金",
     "fanZone": "ファンゾーン",
     "stickerTracker": "ステッカートラッカー",
     "jerseysGear": "ユニフォーム＆グッズ",
@@ -120,7 +121,8 @@
     "footballTerms": "サッカー用語",
     "home": "ホーム",
     "predict": "予測",
-    "cities": "都市"
+    "cities": "都市",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "AI搭載の2026ワールドカップ予測・インテリジェンスプラットフォーム。独立分析、チームケミストリー、48代表チームの予測インサイト。",
@@ -135,7 +137,7 @@
     "privacyPolicy": "プライバシーポリシー",
     "termsOfService": "利用規約",
     "disclaimer": "これは独立した非公式のファンメイドリソースであり、FIFAまたはFIFAワールドカップとは提携しておらず、承認されていません。すべてのチーム名、ロゴ、関連商標はそれぞれの所有者の商標であり、識別目的でのみ使用されています。",
-    "affiliateDisclosure": "KickOracleはアフィリエイトマーケティングプログラムに参加しています。本サイトのリンクを通じてチケット購入、旅行予約、ストリーミングサービス加入、商品購入を行った場合、追加費用なしでコミッションを受け取る場合があります。",
+    "affiliateDisclosure": "KickOracleはアフィリエイトマーケティングプログラムに参加しています。本サイトのリンクを通じてチケット購入、旅行予約、ストリーミングサービス加入、商品購入を行った場合、追加費用なしでコミッションを受け取る場合があります。 As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI搭載ワールドカップインテリジェンス。全著作権所有。",
     "skipToContent": "メインコンテンツにスキップ",
     "newsletterCta": "無料のワールドカップ予測を受け取る →"
@@ -681,7 +683,7 @@
     "whereToBuy": "購入先",
     "authenticJerseys": "{team}のワールドカップ2026正規ユニフォーム。届いたら正規品ホログラムをご確認ください。",
     "shopNow": "ショップへ",
-    "affiliateDisclaimer": "リンクにはアフィリエイトが含まれる場合があります。価格・在庫は変動する可能性があります。正規品であることを必ずご確認ください。",
+    "affiliateDisclaimer": "リンクにはアフィリエイトが含まれる場合があります。価格・在庫は変動する可能性があります。正規品であることを必ずご確認ください。 As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "サイズガイド",
     "sizeGuideDesc": "寸法は目安であり、メーカーによって異なる場合があります。迷った場合はワンサイズ大きめをお選びください。",
     "sizeLabel": "サイズ",

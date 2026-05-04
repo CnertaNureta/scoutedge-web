@@ -1,19 +1,164 @@
 {
   "meta": {
     "title": "World Cup 2026 AI Predictions, City Guides & Fan Intelligence | KickOracle",
-    "description": "AI-powered World Cup 2026 predictions, host city guides, and fan intelligence for all 48 teams. Win probabilities, squad analysis, travel planning, and match insights across the USA, Canada, and Mexico."
+    "description": "Your North America 2026 match-day intelligence — fixtures, flights, and form in one brief. AI predictions, host-city travel guides, and team dossiers for all 48 nations.",
+    "tagline": "Your North America 2026 match-day intelligence"
+  },
+  "notFound": {
+    "heading": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "cta": "Back to homepage"
+  },
+  "urgencyStrip": {
+    "kickoffPrefix": "World Cup kicks off in",
+    "kickoffSuffixDays": "days",
+    "kickoffToday": "World Cup kicks off today",
+    "kickoffLive": "World Cup is live",
+    "tournamentPass": "Tournament Pass $39.99",
+    "priceRiseHint": "(price rises soon)",
+    "ctaLabel": "Get yours →",
+    "dismiss": "Dismiss"
+  },
+  "testimonials": {
+    "heading": "What early readers are saying",
+    "intro": "We collected these from the first month of newsletter subscribers and beta-pass holders. We didn't pay for any of them.",
+    "tierLabel": "{tier} Pass",
+    "verifiedReader": "Verified reader"
+  },
+  "subscriptionBanner": {
+    "headline": "After July 25 → year-round football intelligence",
+    "subheadline": "$9.99/mo. Tournament Pass buyers get the first 3 months free.",
+    "cta": "Join the waitlist",
+    "dismiss": "Dismiss"
+  },
+  "subscribePage": {
+    "metaTitle": "Year-round football intelligence — KickOracle 2026",
+    "metaDescription": "After the World Cup, KickOracle continues with year-round football predictions: Champions League, Premier League, Copa Libertadores, and more. Tournament Pass buyers get the first 3 months free.",
+    "badge": "Coming after July 25, 2026",
+    "heading": "When the World Cup ends, the football doesn't.",
+    "intro": "Tournament Pass turns into the first 3 months of a year-round football intelligence subscription. Same model, weekly briefings, every major league.",
+    "leaguesHeading": "Coverage from August 2026",
+    "leaguesIntro": "What we'll be predicting and writing about, week-in week-out:",
+    "leagueUcl": "Champions League · Group + KO predictions, weekly Big-5 chemistry reads",
+    "leaguePl": "Premier League · Match-of-the-week breakdown, transfer-window impact reports",
+    "leagueCopa": "Copa Libertadores · Matchday previews + South American coaching intelligence",
+    "leagueWomens": "Women's elite leagues · NWSL, WSL, Liga F coverage from kickoff",
+    "leagueLatam": "Liga MX, Brasileirão · Where casual North American fans find their next club",
+    "pricingHeading": "What it'll cost",
+    "pricingPrice": "$9.99 / month",
+    "pricingPriceAlt": "or $89 / year — saves $30",
+    "pricingNote": "Tournament Pass holders: first 3 months free, automatic. No card update required if you're already paid up.",
+    "ctaHeading": "Be first in line",
+    "ctaBody": "We'll email you when the subscription opens. No spam, no card required, unsubscribe anytime.",
+    "ctaFinePrint": "Tournament Pass already includes the first 3 months — you don't need to do anything."
+  },
+  "upcomingPage": {
+    "metaTitle": "Coming soon: Euro 2028, AFCON 2027, Women's World Cup 2027",
+    "metaDescription": "After the 2026 World Cup, KickOracle continues with major-tournament intelligence for Euro 2028, AFCON 2027, and the FIFA Women's World Cup 2027.",
+    "badge": "Tournament roadmap",
+    "heading": "What's next after 2026.",
+    "intro": "We built the engine for the World Cup, but the model isn't going home on July 26. Here's what we're already building toward.",
+    "afcon": {
+      "name": "AFCON 2027",
+      "window": "December 2027 — Morocco",
+      "summary": "African Cup of Nations expanded format. We're already running historical backtests on CAF qualifiers."
+    },
+    "wwc": {
+      "name": "FIFA Women's World Cup 2027",
+      "window": "June – July 2027 — Brazil",
+      "summary": "First Women's WC in South America. Our chemistry model trained on club-level WSL/NWSL/Liga F partnerships."
+    },
+    "euro": {
+      "name": "UEFA Euro 2028",
+      "window": "June 2028 — UK & Ireland",
+      "summary": "Five-host expanded format. Travel guides start the moment qualifiers conclude."
+    },
+    "waitlistHeading": "Want updates?",
+    "waitlistBody": "Pick the tournaments you care about. We'll email you when those tournament hubs open."
+  },
+  "trustStrip": {
+    "independent": "Independent",
+    "independentDesc": "Fan-built, no league or sportsbook ties",
+    "noAds": "No display ads",
+    "noAdsDesc": "Predictions sit ahead of revenue",
+    "transparency": "Transparent methodology",
+    "transparencyDesc": "Public weights and backtest results",
+    "i18n": "19 languages",
+    "i18nDesc": "Localized for traveling fans worldwide"
+  },
+  "accuracyPage": {
+    "metaTitle": "How accurate is KickOracle? Euro 2024 + Copa 2024 backtest",
+    "metaDescription": "Independent retrospective accuracy of KickOracle's prediction model on Euro 2024 and Copa America 2024 — including Brier scores, top-1 accuracy, calibration curve, and a comparison vs FiveThirtyEight and bookmaker consensus.",
+    "badge": "Accuracy",
+    "heading": "How accurate is KickOracle?",
+    "intro": "Predictions without numbers are vibes. Below is the model's retrospective performance on Euro 2024 and Copa America 2024 — measured the same way bookmaker desks measure their own books, and compared head-to-head against FiveThirtyEight and devigged Pinnacle closing odds.",
+    "lastUpdated": "Backtest snapshot last updated: 2026-04-15",
+    "tournamentTableHeading": "Brier score · Top-1 accuracy · Log loss",
+    "colMatches": "Matches",
+    "colBrier": "Brier score (lower is better)",
+    "colTop1": "Top-1 accuracy",
+    "colLogloss": "Log loss",
+    "colSource": "Model",
+    "calibrationHeading": "Calibration curve",
+    "calibrationIntro": "If we say a team has a 60% chance of winning, they should win about 60% of the time. Closer to the diagonal = better calibrated.",
+    "calibrationXLabel": "Predicted probability",
+    "calibrationYLabel": "Observed frequency",
+    "limitationsHeading": "What this backtest doesn't show",
+    "methodNoteHeading": "How we measure",
+    "ctaHeading": "Read the methodology",
+    "ctaBody": "Our prediction weights are public. So is our backtest. Read the full methodology and the input weights breakdown.",
+    "ctaLink": "See methodology"
+  },
+  "aboutPage": {
+    "metaTitle": "About KickOracle — Independent World Cup 2026 Intelligence",
+    "metaDescription": "Meet the team behind KickOracle: independent football analysts building AI predictions, host-city travel guides, and team dossiers for the 2026 World Cup.",
+    "badge": "About KickOracle",
+    "heading": "Narratives over noise — and a clear paper trail.",
+    "intro": "KickOracle is an independent football intelligence project built for the 2026 World Cup. We publish AI predictions, daily briefings, host-city travel guides, and team dossiers — without ads, without forum clutter, and without subscription traps.",
+    "missionHeading": "Why we built this",
+    "missionBody": "Most World Cup coverage is either cheerleading or coupons. We wanted a third option: clear, narrative-first analysis that respects the reader's time and shows its work. So we started KickOracle — a small, transparent operation with an unambiguous bias toward telling you what we actually think.",
+    "founderHeading": "Who runs KickOracle",
+    "founderName": "TODO(content): Founder Name",
+    "founderRole": "Founder & Editor",
+    "founderBio": "TODO(content): Replace with a 100-150 word founder bio. Cover: relevant football credentials, why this project, what makes the methodology defensible. Add a real headshot at /public/about/founder.jpg and update the image src below.",
+    "analystHeading": "Lead methodology",
+    "analystName": "TODO(content): Lead Analyst Name",
+    "analystRole": "Lead Analyst, Predictions Methodology",
+    "analystBio": "TODO(content): Replace with a 80-120 word bio for the predictions lead. Cover their stats/modeling background and which 2024 backtests they ran (Euro 2024, Copa 2024).",
+    "valuesHeading": "What we will and won't do",
+    "willTitle": "What we will do",
+    "willList1": "Show our methodology weights publicly",
+    "willList2": "Publish backtest results before kickoff",
+    "willList3": "Refund any unread purchase, no questions asked",
+    "willList4": "Cite sources for every dossier claim",
+    "wontTitle": "What we won't do",
+    "wontList1": "Sell your data to bookmakers or third parties",
+    "wontList2": "Run ads inside predictions or briefings",
+    "wontList3": "Hide methodology behind a paywall",
+    "wontList4": "Pretend to be neutral — we'll tell you what we think",
+    "contactHeading": "Talk to us",
+    "contactBody": "Press, partnerships, corrections, or analyst-applications: <link>email@kickoracle.com</link>. We answer every email.",
+    "ctaHeading": "Read today's briefing",
+    "ctaBody": "Free, daily, narrative-first. Unsubscribe anytime.",
+    "ctaButton": "Get free predictions"
   },
   "hero": {
     "dateRange": "June 11 — July 19, 2026",
     "title1": "WORLD CUP",
     "title2": "2026",
     "title3": "INTELLIGENCE",
+    "headlineLine1": "48 nations. 104 matches.",
+    "headlineLine2": "AI predictions for every fixture, updated daily.",
     "description": "Deep squad analysis, chemistry indexes, win-probability predictions and player intelligence reports for all 48 nations competing across the United States, Canada, and Mexico.",
     "cta": "Explore All 48 Teams",
     "secondaryCta": "Top Contenders",
-    "subtitle": "Narrative-first team dossiers, chemistry reads, match leverage, and player intelligence for all 48 nations competing across the United States, Canada, and Mexico.",
+    "subtitle": "Narrative-first team dossiers, chemistry reads, match leverage, and player intelligence — for fans who want context, not coupons.",
     "ctaSecondary": "Read Daily Briefing",
-    "locationBadge": "USA · Canada · Mexico"
+    "ctaTertiary": "Explore All 48 Teams",
+    "locationBadge": "USA · Canada · Mexico",
+    "emailCaptureHeadline": "Get free predictions, every match day.",
+    "emailCaptureSub": "One short brief, no spam. Unsubscribe anytime.",
+    "kickoffBadge": "Kicks off {days} days · June 11, 2026"
   },
   "home": {
     "narrativeLibrary": "Narrative Library",
@@ -107,6 +252,7 @@
     "myLeagues": "My Leagues",
     "dailyChallenge": "Daily Challenge",
     "leaderboard": "Leaderboard",
+    "pricing": "Pricing",
     "fanZone": "Fan Zone",
     "stickerTracker": "Sticker Tracker",
     "jerseysGear": "Jerseys & Gear",
@@ -120,7 +266,8 @@
     "footballTerms": "Football Terms",
     "home": "Home",
     "predict": "Predict",
-    "cities": "Cities"
+    "cities": "Cities",
+    "pricing": "Pricing"
   },
   "footer": {
     "tagline": "AI-powered prediction and intelligence platform for the 2026 World Cup. Independent analysis, squad chemistry, and predictive insights for all 48 nations.",
@@ -135,7 +282,7 @@
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
     "disclaimer": "This is an independent, unofficial fan-made resource and is not affiliated with or endorsed by FIFA or the FIFA World Cup. All team names, logos, and related marks are trademarks of their respective owners and are used here for identification purposes only.",
-    "affiliateDisclosure": "KickOracle participates in affiliate marketing programs. We may earn a commission when you purchase tickets, book travel, subscribe to streaming services, or buy merchandise through links on this site, at no additional cost to you.",
+    "affiliateDisclosure": "KickOracle participates in affiliate marketing programs. We may earn a commission when you purchase tickets, book travel, subscribe to streaming services, or buy merchandise through links on this site, at no additional cost to you. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI-Powered World Cup Intelligence. All rights reserved.",
     "skipToContent": "Skip to main content",
     "newsletterCta": "Get free World Cup predictions →"
@@ -325,13 +472,13 @@
     "methodology": "Methodology",
     "fifaRank": "FIFA {rank}",
     "methodFifa": "FIFA Ranking (40%)",
-    "methodFifaDesc": "Official FIFA world ranking weighted at 40% of the composite score, reflecting each team's competitive standing.",
+    "methodFifaDesc": "Why 40%? It's the only input with 30 years of out-of-sample predictive value. We anchor to it, then beat it on the other 60%.",
     "methodChemistry": "Chemistry Index (30%)",
-    "methodChemistryDesc": "Squad cohesion metric measuring how well players combine, weighted at 30% of the composite score.",
+    "methodChemistryDesc": "Squad cohesion the ranking ignores: shared minutes, club partnerships, and tactical familiarity. The biggest single edge over bookmaker consensus.",
     "methodMorale": "Morale Score (15%)",
-    "methodMoraleDesc": "Team confidence and momentum indicator based on recent results, weighted at 15% of the composite score.",
+    "methodMoraleDesc": "Recent results, momentum, and locker-room signals. Captures hot streaks the FIFA ranking smooths out — and cold ones the market takes too long to price.",
     "methodStability": "Stability & Familiarity (15%)",
-    "methodStabilityDesc": "Coaching tenure and squad continuity factor, weighted at 15% of the composite score."
+    "methodStabilityDesc": "Coaching tenure and squad continuity. Tournament football punishes new managers and rebuilt rosters; this weighting catches the contenders quietly already in trouble."
   },
   "predictPage": {
     "heading": "Match Predictions",
@@ -631,13 +778,35 @@
   },
   "pricingPage": {
     "badge": "World Cup 2026",
-    "heading": "Intelligence that changes the game",
-    "description": "AI-powered analysis, tactical breakdowns, and real-time predictions. Pay only for what you need — one match, one team, or the entire tournament.",
+    "heading": "One match. One team. Or the whole tournament.",
+    "description": "Pay only for what you'll watch. Unbundled, transparent prices, no subscription traps — and a 7-day money-back guarantee if you haven't opened a single prediction.",
     "includedHeading": "What's included at every level",
     "aiMatchPredictions": "AI Match Predictions",
     "teamDossiers": "Team Dossiers",
     "playerIntelligence": "Player Intelligence",
-    "dailyBriefing": "Daily Briefing"
+    "dailyBriefing": "Daily Briefing",
+    "guarantee": {
+      "title": "7-Day Money-Back Guarantee",
+      "body": "If you haven't opened a single prediction, we'll refund you — no questions asked. Email support within 7 days of purchase.",
+      "ariaIcon": "Trust badge"
+    },
+    "faq": {
+      "heading": "Frequently asked",
+      "q1": "How long do passes last?",
+      "a1": "Match Passes give you 48 hours of access from the time of purchase. Team Passes, Tournament Pass, and Scout Pass all remain active through July 25, 2026 — the end of the World Cup final.",
+      "q2": "Can I upgrade later?",
+      "a2": "Yes. Any money you've already spent on individual passes is credited toward your upgrade. Buy a few match passes, then upgrade to Tournament Pass — you only pay the difference.",
+      "q3": "What payment methods are accepted?",
+      "a3": "We accept all major credit cards, Apple Pay, Google Pay, and select local payment methods through Stripe.",
+      "q4": "What is the refund policy?",
+      "a4": "We back every pass with a 7-day money-back guarantee — if you haven't opened a single prediction, email support within 7 days for a full refund, no questions asked. Once you start reading content, the digital purchase becomes final."
+    },
+    "featureBlocks": {
+      "aiMatchDesc": "Win probability, predicted scorelines, and tactical matchup analysis powered by our prediction models.",
+      "teamDossiersDesc": "Squad depth, fitness tracking, tactical DNA profiles, and historical performance data for all 48 nations.",
+      "playerIntelDesc": "Detailed player cards, form trajectory, workload monitoring, and tournament performance tracking.",
+      "dailyBriefingDesc": "Narrative-first analysis delivered every morning — the signals that matter, with context that explains why."
+    }
   },
   "privacyPage": {
     "heading": "Privacy Policy",
@@ -821,7 +990,7 @@
     "whereToBuy": "Where to Buy",
     "authenticJerseys": "Authentic {team} World Cup 2026 jerseys. Verify authenticity hologram on arrival.",
     "shopNow": "Shop Now",
-    "affiliateDisclaimer": "Links may contain affiliate references. Prices and availability subject to change. Always verify authenticity.",
+    "affiliateDisclaimer": "Links may contain affiliate references. Prices and availability subject to change. Always verify authenticity. As an Amazon Associate I earn from qualifying purchases.",
     "sizeGuide": "Size Guide",
     "sizeGuideDesc": "Measurements are approximate and may vary by manufacturer. When in doubt, size up for a relaxed fit.",
     "sizeLabel": "Size",
@@ -1196,8 +1365,31 @@
     "getPass": "Get {label}",
     "perMatch": "Per match",
     "perTeam": "Per team",
-    "badgeBestValue": "Best Value",
+    "badgeBestValue": "Most Popular",
     "badgeForProfessionals": "For Professionals",
+    "tournamentAnchor": "$39.99 = 14 Match Passes",
+    "tournamentSavings": "Save $271 vs buying matches individually",
+    "tournamentPaybackHint": "Pays for itself by Matchday 3",
+    "freeTier": {
+      "label": "Free",
+      "price": "$0",
+      "description": "One featured prediction every match day. No card required.",
+      "feature1": "Daily featured prediction",
+      "feature2": "Newsletter + match-day briefing",
+      "feature3": "Public team dossiers",
+      "cta": "Get free predictions"
+    },
+    "proPanel": {
+      "heading": "For newsrooms, betting desks & analysts",
+      "intro": "Scout Pass is built for professional users — analysts, fantasy podcasts, betting desks, and sports newsrooms who need machine-readable predictions and team licenses.",
+      "individual": "Individual seat",
+      "teamLicense": "Team License",
+      "teamLicensePrice": "$999",
+      "teamLicenseSeats": "5 seats",
+      "teamLicenseDesc": "Bulk seats for newsrooms and analyst teams. Includes invoice billing.",
+      "demoButton": "Book a demo",
+      "csvSample": "Download CSV sample"
+    },
     "matchPass": {
       "feature1": "Full AI pre-match analysis",
       "feature2": "Tactical matchup breakdown",
