@@ -135,6 +135,19 @@ export function getLiveTeamDetails(teamName: string): LiveTeamDetails | null {
     if (details) return details
   }
 
+  if (slug) {
+    const canonicalName = getCanonicalTeamName(slug)
+    return {
+      id: `team-${slug}`,
+      name: canonicalName,
+      badge: '',
+      stadium: '',
+      formedYear: '',
+      description: '',
+      fanart: null,
+    }
+  }
+
   return null
 }
 
