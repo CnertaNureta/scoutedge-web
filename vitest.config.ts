@@ -9,6 +9,11 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.{test,spec}.{ts,tsx}', 'scripts/**/*.test.mjs'],
+    server: {
+      deps: {
+        inline: ['next-intl'],
+      },
+    },
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],

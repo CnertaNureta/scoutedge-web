@@ -1,6 +1,8 @@
 import type { Viewport } from 'next'
+import { Analytics } from '@vercel/analytics/next'
 import { bebasNeue, epilogue, jetbrainsMono, manrope, oswald, plusJakartaSans } from './fonts'
 import '@/styles/globals.css'
+import { AdSenseScript } from '@/components/analytics/AdSenseScript'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
 
 export const viewport: Viewport = {
@@ -20,7 +22,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`dark ${epilogue.variable} ${manrope.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} ${oswald.variable} ${bebasNeue.variable}`}
     >
       <body className="min-h-screen flex flex-col">
+        <AdSenseScript />
         {children}
+        <Analytics />
       </body>
     </html>
   )

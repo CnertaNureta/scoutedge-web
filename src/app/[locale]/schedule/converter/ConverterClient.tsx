@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react'
 import { useLocale } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getAllGroups, getTeamBySlug, getTeamsByGroup } from '@/lib/data-service'
 import type { MatchFixture, Team } from '@/lib/types'

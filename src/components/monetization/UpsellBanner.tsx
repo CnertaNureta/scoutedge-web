@@ -5,7 +5,7 @@ import { useAuth } from '@/contexts/AuthContext'
 import { useEntitlements } from '@/hooks/useEntitlements'
 import { getUpsellTriggers, PASS_PRICES, type EntitlementType, type EntitlementWithAmount, type UpgradeQuote } from '@/lib/entitlements'
 import { getSupabase } from '@/lib/supabase'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 export default function UpsellBanner() {
   const { user, session } = useAuth()

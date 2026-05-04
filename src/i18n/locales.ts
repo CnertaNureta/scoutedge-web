@@ -13,7 +13,7 @@ export interface LocaleConfig {
 }
 
 export const LOCALE_CONFIGS: Record<Locale, LocaleConfig> = {
-  en: { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', flag: '🇬🇧', hreflang: 'en' },
+  en: { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', flag: '🇺🇸', hreflang: 'en' },
   es: { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr', flag: '🇪🇸', hreflang: 'es' },
   zh: { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr', flag: '🇨🇳', hreflang: 'zh-Hans' },
   pt: { code: 'pt', name: 'Portuguese', nativeName: 'Português', dir: 'ltr', flag: '🇧🇷', hreflang: 'pt' },

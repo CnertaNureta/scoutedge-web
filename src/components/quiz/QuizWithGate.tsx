@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import QuizApp from './QuizApp'
 
 const GATE_STORAGE_KEY = 'scoutedge-quiz-gate-dismissed'

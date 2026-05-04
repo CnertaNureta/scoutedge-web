@@ -47,7 +47,7 @@ function redactContext(record: PredictionContextRecord): Record<string, unknown>
 async function hasPremiumAccess(user: User | null, matchId?: string): Promise<boolean> {
   if (!user) return false
   const scope = matchId ?? undefined
-  return checkEntitlement(user.id, scope ? 'match' : 'prediction', scope)
+  return checkEntitlement(user.id, 'prediction', scope)
 }
 
 export const GET = withOptionalAuth(async (request: NextRequest, user: User | null) => {

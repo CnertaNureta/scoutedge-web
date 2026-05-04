@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 type AdFormat = 'leaderboard' | 'sidebar' | 'in-feed' | 'sticky-footer'
 
@@ -16,15 +17,13 @@ interface AdSlotProps {
   className?: string
 }
 
-const PUBLISHER_ID = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID
-
 export default function AdSlot({ format, className = '' }: AdSlotProps) {
   const adRef = useRef<HTMLModElement>(null)
   const pushed = useRef(false)
   const config = AD_CONFIG[format]
 
   useEffect(() => {
-    if (!PUBLISHER_ID || pushed.current || !adRef.current) return
+    if (pushed.current || !adRef.current) return
     try {
       const adsbygoogle = (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || []
       adsbygoogle.push({})
@@ -33,8 +32,6 @@ export default function AdSlot({ format, className = '' }: AdSlotProps) {
       // AdSense not loaded yet or blocked by adblocker
     }
   }, [])
-
-  if (!PUBLISHER_ID) return null
 
   return (
     <div
@@ -45,7 +42,7 @@ export default function AdSlot({ format, className = '' }: AdSlotProps) {
         ref={adRef}
         className="adsbygoogle"
         style={{ display: 'block', width: '100%', height: config.h }}
-        data-ad-client={PUBLISHER_ID}
+        data-ad-client={ADSENSE_PUBLISHER_ID}
         data-ad-format={config.adFormat === 'fluid' ? 'fluid' : 'auto'}
         data-full-width-responsive="true"
       />

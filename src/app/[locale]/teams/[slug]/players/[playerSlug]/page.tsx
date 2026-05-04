@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) return { title: 'Player Not Found' }
 
-  const url = `https://kickoracle.com/teams/${slug}/players/${playerSlug}`
+  const url = `https://kickoracle.com/teams/${slug}/players/${player.slug}`
 
   return {
     title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
@@ -46,10 +46,11 @@ export default async function PlayerPage({ params }: PageProps) {
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) notFound()
 
-  const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== playerSlug).slice(0, 5)
+  const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== player.slug).slice(0, 5)
   const derivedStats = computeDerivedStats(player)
 
-  const playerUrl = `https://kickoracle.com/teams/${slug}/players/${playerSlug}`
+  const playerPath = `/teams/${slug}/players/${player.slug}`
+  const playerUrl = `https://kickoracle.com${playerPath}`
   const teamUrl = `https://kickoracle.com/teams/${slug}`
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -82,7 +83,7 @@ export default async function PlayerPage({ params }: PageProps) {
           { name: 'Home', href: '/' },
           { name: 'Teams', href: '/teams' },
           { name: team.name, href: `/teams/${slug}` },
-          { name: player.name, href: `/teams/${slug}/players/${playerSlug}` },
+          { name: player.name, href: playerPath },
         ]}
       />
       <PlayerStats player={player} derivedStats={derivedStats} />

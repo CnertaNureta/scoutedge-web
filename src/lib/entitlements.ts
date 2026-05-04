@@ -26,6 +26,20 @@ const SCOUT_ONLY_FEATURES = new Set<ContentType>([
   'player_intel',
 ])
 
+function hasTeamPass(entitlements: Entitlement[], teamSlug: string): boolean {
+  return entitlements.some(e => e.entitlement_type === 'team_pass' && e.scope === teamSlug)
+}
+
+function hasScopedMatchAccess(entitlements: Entitlement[], scope: string): boolean {
+  const hasMatchPass = entitlements.some(e => e.entitlement_type === 'match_pass' && e.scope === scope)
+  if (hasMatchPass) return true
+
+  const [homeTeamSlug, awayTeamSlug] = scope.split('-vs-')
+  return [scope, homeTeamSlug, awayTeamSlug]
+    .filter(Boolean)
+    .some(teamSlug => hasTeamPass(entitlements, teamSlug))
+}
+
 export function hasAccess(
   entitlements: Entitlement[],
   contentType: ContentType,
@@ -41,14 +55,11 @@ export function hasAccess(
   if (active.some(e => e.entitlement_type === 'tournament_pass')) return true
 
   if (contentType === 'team' && scope) {
-    return active.some(e => e.entitlement_type === 'team_pass' && e.scope === scope)
+    return hasTeamPass(active, scope)
   }
 
-  if (contentType === 'match' && scope) {
-    const hasMatchPass = active.some(e => e.entitlement_type === 'match_pass' && e.scope === scope)
-    if (hasMatchPass) return true
-    const teamSlug = scope.split('-vs-')[0]
-    return active.some(e => e.entitlement_type === 'team_pass' && (e.scope === teamSlug || e.scope === scope.split('-vs-')[1]))
+  if ((contentType === 'match' || contentType === 'prediction') && scope) {
+    return hasScopedMatchAccess(active, scope)
   }
 
   return false

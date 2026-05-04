@@ -626,8 +626,33 @@ export const HOST_CITIES: HostCity[] = [
   },
 ]
 
+const CITY_SLUG_ALIASES: Record<string, string> = {
+  'east-rutherford': 'new-york',
+  'new-york-new-jersey': 'new-york',
+}
+
+const FIXTURE_CITY_ALIASES: Record<string, string> = {
+  Arlington: 'dallas',
+  'East Rutherford': 'new-york',
+  Foxborough: 'boston',
+  Inglewood: 'los-angeles',
+  'Santa Clara': 'san-francisco',
+}
+
+export function resolveCitySlug(slug: string): string {
+  return CITY_SLUG_ALIASES[slug] ?? slug
+}
+
 export function getCityBySlug(slug: string): HostCity | undefined {
-  return HOST_CITIES.find((c) => c.slug === slug)
+  const resolvedSlug = resolveCitySlug(slug)
+  return HOST_CITIES.find((c) => c.slug === resolvedSlug)
+}
+
+export function getCityByFixtureCityName(name: string): HostCity | undefined {
+  const aliasSlug = FIXTURE_CITY_ALIASES[name]
+  if (aliasSlug) return getCityBySlug(aliasSlug)
+
+  return HOST_CITIES.find((c) => c.name === name || c.metro === name)
 }
 
 export function getAllCities(): HostCity[] {

@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'

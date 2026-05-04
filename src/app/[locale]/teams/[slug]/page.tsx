@@ -4,9 +4,9 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
-import { jsonLdGraph, buildOGMeta } from '@/lib/og-utils'
+import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
 import { getFixturesByTeam } from '@/lib/data-service'
-import { HOST_CITIES } from '@/data/cities-data'
+import { getCityByFixtureCityName } from '@/data/cities-data'
 import { lingoPlayers } from '@/data/lingo-data'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
@@ -22,7 +22,7 @@ import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
-  params: Promise<{ slug: string; locale: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export const revalidate = 300
@@ -33,7 +33,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug, locale } = await params
+  const { locale, slug } = await params
   const pageData = await getTeamPageData(slug)
   if (!pageData) return { title: 'Team Not Found' }
 
@@ -41,21 +41,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const seoTitle = seoMeta?.title?.replace(/ \| KickOracle$/, '') ?? null
   const title = seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`
   const description = seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`
+  const image = getTeamHeroImage(slug)
   const url = `https://kickoracle.com/teams/${slug}`
 
   return {
     title,
     description,
     keywords: `${team.name} World Cup 2026, ${team.name} squad, ${team.name} World Cup roster, World Cup 2026 Group ${team.group}`,
-    alternates: { canonical: url },
     ...buildOGMeta({
       title: `${team.name} — World Cup 2026 AI Analysis`,
       description: `Deep-dive into ${team.name}'s World Cup 2026 campaign. AI-powered predictions and player intelligence.`,
       url,
       locale,
       type: 'article',
-      image: getTeamHeroImage(slug),
+      image,
     }),
+    alternates: { canonical: url },
   }
 }
 
@@ -71,7 +72,7 @@ export default async function TeamPage({ params }: PageProps) {
   const fixtures = getFixturesByTeam(slug)
   const teamCityNames = Array.from(new Set(fixtures.map((f) => f.city)))
   const teamCities = teamCityNames
-    .map((name) => HOST_CITIES.find((c) => c.name === name))
+    .map((name) => getCityByFixtureCityName(name))
     .filter((c): c is NonNullable<typeof c> => c !== undefined)
   const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
 

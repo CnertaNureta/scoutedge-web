@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
@@ -23,24 +23,24 @@ export function generateStaticParams() {
 /* ---------- Metadata ---------- */
 
 interface CityPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
   const title = `${city.name} — World Cup 2026 Host City Guide`
   const description = `Fan guide to ${city.name} for the 2026 World Cup. ${city.description.slice(0, 120)}...`
-  const url = `https://kickoracle.com/cities/${slug}`
+  const url = `https://kickoracle.com/cities/${city.slug}`
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup 2026, ${city.name} stadium, ${city.name} hotels, ${city.name} travel`,
     alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    ...buildOGMeta({ title, description, url, locale }),
   }
 }
 
@@ -272,18 +272,26 @@ export default async function CityPage({ params }: CityPageProps) {
   }
 
   // Cross-section linking data
-  const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
+  const cityFixtureNames = new Set([
+    city.name,
+    city.metro,
+    ...cityVenues.map((v) => v.city),
+    ...cityVenues.map((v) => v.metro),
+  ])
+  const cityFixtures = MATCH_FIXTURES.filter((f) => cityFixtureNames.has(f.city))
   const teamSlugsAtCity = Array.from(
     new Set(cityFixtures.flatMap((f) => [f.homeTeamSlug, f.awayTeamSlug]))
   )
+  const fixtureCityLabel = cityVenues.length === 1 ? cityVenues[0].city : city.name
   const teamsAtCity = teamSlugsAtCity
     .map((s) => getTeamBySlug(s))
     .filter((t): t is NonNullable<typeof t> => t !== undefined)
   const otherCities = getAllCities()
-    .filter((c) => c.slug !== slug)
+    .filter((c) => c.slug !== city.slug)
     .slice(0, 6)
 
-  const cityUrl = `https://kickoracle.com/cities/${slug}`
+  const cityPath = `/cities/${city.slug}`
+  const cityUrl = `https://kickoracle.com${cityPath}`
   const touristDestinationLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
@@ -303,7 +311,8 @@ export default async function CityPage({ params }: CityPageProps) {
     },
     touristType: 'Football fans, World Cup 2026 attendees',
     includesAttraction: cityVenues.map((v) => ({
-      '@type': 'StadiumOrArena',
+      '@type': 'TouristAttraction',
+      additionalType: 'https://schema.org/StadiumOrArena',
       name: v.name,
       address: {
         '@type': 'PostalAddress',
@@ -325,7 +334,7 @@ export default async function CityPage({ params }: CityPageProps) {
         items={[
           { name: 'Home', href: '/' },
           { name: 'Host Cities', href: '/cities' },
-          { name: city.name, href: `/cities/${slug}` },
+          { name: city.name, href: cityPath },
         ]}
       />
 
@@ -578,7 +587,7 @@ export default async function CityPage({ params }: CityPageProps) {
       {/* Teams playing at this city — cross-link to team pages */}
       {teamsAtCity.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
-          <SectionHeader className="mb-6">Teams playing in {city.name}</SectionHeader>
+          <SectionHeader className="mb-6">Teams playing in {fixtureCityLabel}</SectionHeader>
           <div className="flex flex-wrap gap-3">
             {teamsAtCity.map((t) => (
               <Link

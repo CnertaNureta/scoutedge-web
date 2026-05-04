@@ -92,7 +92,7 @@ export default function Header() {
               ]}
             />
             <Link href="/pricing" className="font-headline font-bold tracking-tight text-tertiary hover:text-tertiary-fixed transition-colors">
-              Pricing
+              {t('pricing')}
             </Link>
             <NavDropdown
               label={t('fanZone')}
