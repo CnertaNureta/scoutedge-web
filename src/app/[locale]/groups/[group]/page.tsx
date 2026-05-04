@@ -10,7 +10,7 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
-import { canonicalForLocale, OG_LOCALES } from '@/lib/og-utils'
+import { OG_LOCALES, canonicalForLocale } from '@/lib/og-utils'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>

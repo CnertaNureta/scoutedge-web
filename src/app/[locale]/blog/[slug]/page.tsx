@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
-  const url = `https://kickoracle.com/blog/${slug}`
+  const url = canonicalForLocale(locale, `/blog/${slug}`)
 
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords.join(', '),
-    alternates: { canonical: canonicalForLocale(locale, `/blog/${slug}`) },
+    alternates: { canonical: url },
     ...buildOGMeta({
       title: post.title,
       description: post.description,

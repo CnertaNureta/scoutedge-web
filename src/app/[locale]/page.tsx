@@ -5,8 +5,11 @@ import { Link } from '@/i18n/navigation'
 import { getHomePageData } from '@/lib/site-data'
 import {
   buildOGMeta,
+  canonicalForLocale,
   softwareApplicationJsonLd,
 } from '@/lib/og-utils'
+import { routing } from '@/i18n/routing'
+import { LOCALE_CONFIGS } from '@/i18n/locales'
 import { HOMEPAGE_HERO_IMAGE } from '@/lib/unsplash'
 import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
@@ -24,40 +27,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
 
+  const languages: Record<string, string> = {
+    'x-default': canonicalForLocale(routing.defaultLocale, '/'),
+  }
+  for (const loc of routing.locales) {
+    languages[LOCALE_CONFIGS[loc].hreflang] = canonicalForLocale(loc, '/')
+  }
+
   return {
     title: t('title'),
     description: t('description'),
     keywords:
       'World Cup 2026, World Cup intelligence, World Cup narratives, football analysis, team chemistry, player reports, World Cup 2026 schedule',
     alternates: {
-      canonical: `https://kickoracle.com/${locale}`,
-      languages: {
-        'x-default': 'https://kickoracle.com/en',
-        en: 'https://kickoracle.com/en',
-        es: 'https://kickoracle.com/es',
-        'zh-Hans': 'https://kickoracle.com/zh',
-        pt: 'https://kickoracle.com/pt',
-        ar: 'https://kickoracle.com/ar',
-        fr: 'https://kickoracle.com/fr',
-        ja: 'https://kickoracle.com/ja',
-        ko: 'https://kickoracle.com/ko',
-        de: 'https://kickoracle.com/de',
-        it: 'https://kickoracle.com/it',
-        nl: 'https://kickoracle.com/nl',
-        tr: 'https://kickoracle.com/tr',
-        pl: 'https://kickoracle.com/pl',
-        id: 'https://kickoracle.com/id',
-        ru: 'https://kickoracle.com/ru',
-        fa: 'https://kickoracle.com/fa',
-        th: 'https://kickoracle.com/th',
-        vi: 'https://kickoracle.com/vi',
-        hu: 'https://kickoracle.com/hu',
-      },
+      canonical: canonicalForLocale(locale, '/'),
+      languages,
     },
     ...buildOGMeta({
       title: t('title'),
       description: t('description'),
-      url: 'https://kickoracle.com',
+      url: canonicalForLocale(locale, '/'),
       locale,
     }),
   }

@@ -16,7 +16,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/quiz',
+      url: canonicalForLocale(locale, '/quiz'),
+      locale,
     }),
   }
 }
@@ -27,8 +28,8 @@ export default async function QuizPage({ params }: Props) {
   const t = await getTranslations('quizPage')
   const jsonLd = [
     breadcrumbJsonLd([
-      { name: 'Home', url: 'https://kickoracle.com' },
-      { name: t('heading'), url: 'https://kickoracle.com/quiz' },
+      { name: 'Home', url: canonicalForLocale(locale, '/') },
+      { name: t('heading'), url: canonicalForLocale(locale, '/quiz') },
     ]),
     {
       '@context': 'https://schema.org',

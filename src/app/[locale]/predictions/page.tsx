@@ -21,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/predictions',
+      url: canonicalForLocale(locale, '/predictions'),
+      locale,
     }),
   }
 }
@@ -135,8 +136,8 @@ export default async function PredictionsPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: 'https://kickoracle.com' },
-        { name: 'AI Predictions', url: 'https://kickoracle.com/predictions' },
+        { name: 'Home', url: canonicalForLocale(locale, '/') },
+        { name: 'AI Predictions', url: canonicalForLocale(locale, '/predictions') },
       ])) }} />
 
       {/* Hero */}

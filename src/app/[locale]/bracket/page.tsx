@@ -25,7 +25,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/bracket',
+      url: canonicalForLocale(locale, '/bracket'),
+      locale,
     }),
   }
 }
