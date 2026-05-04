@@ -140,7 +140,9 @@
     "affiliateDisclosure": "A KickOracle affiliate marketing programokban vesz részt. Jutalékot kaphatunk, ha jegyeket vásárolsz, utazást foglalsz, streaming szolgáltatásra fizetsz elő, vagy árucikkeket vásárolsz az oldalunkon található linkeken keresztül — számodra külön költség nélkül. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. MI-alapú labdarúgó-világbajnokság elemzés. Minden jog fenntartva.",
     "skipToContent": "Ugrás a fő tartalomra",
-    "newsletterCta": "Ingyenes vb-előrejelzések →"
+    "newsletterCta": "Ingyenes vb-előrejelzések →",
+    "languagesHeading": "Nyelvek",
+    "sitemap": "Oldaltérkép"
   },
   "common": {
     "loading": "Betöltés...",
@@ -158,7 +160,15 @@
     "description": "MI-alapú elemzés minden válogatottról, amely a történelem legnagyobb FIFA-világbajnokságán vesz részt. Fedezd fel a csapatkémiát, a taktikai profilokat és a győzelmi valószínűség-előrejelzéseket.",
     "group": "{group}. csoport",
     "frequentlyAsked": "Gyakran ismételt kérdések",
-    "moreFromGroup": "Több a {group}. csoportból"
+    "moreFromGroup": "Több a {group}. csoportból",
+    "breadcrumbHome": "Főoldal",
+    "breadcrumbTeams": "Válogatottak",
+    "compareRivalsHeading": "{team} összehasonlítása a {group}. csoport riválisaival",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Hol játszik {team} — a 2026-os vb házigazda városai",
+    "countryGuide": "{country} útmutató",
+    "pronunciationHeading": "Hogyan ejtsd ki {team} játékosainak nevét",
+    "pronounceLabel": "{name} kiejtése"
   },
   "matchesPage": {
     "featuredPreview": "Kiemelt meccs-előzetes",

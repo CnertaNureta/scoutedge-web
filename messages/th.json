@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle เข้าร่วมโปรแกรมการตลาดแบบพันธมิตร เราอาจได้รับค่าคอมมิชชันเมื่อคุณซื้อตั๋ว จองที่พัก สมัครบริการสตรีมมิง หรือซื้อสินค้าผ่านลิงก์บนเว็บไซต์นี้ โดยไม่มีค่าใช้จ่ายเพิ่มเติมสำหรับคุณ As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. ข่าวกรองฟุตบอลโลกขับเคลื่อนด้วย AI สงวนลิขสิทธิ์",
     "skipToContent": "ข้ามไปยังเนื้อหาหลัก",
-    "newsletterCta": "รับการทำนายฟุตบอลโลกฟรี →"
+    "newsletterCta": "รับการทำนายฟุตบอลโลกฟรี →",
+    "languagesHeading": "ภาษา",
+    "sitemap": "แผนผังเว็บไซต์"
   },
   "common": {
     "loading": "กำลังโหลด...",
@@ -158,7 +160,15 @@
     "description": "วิเคราะห์ด้วย AI สำหรับทุกทีมชาติที่แข่งขันในฟุตบอลโลก FIFA ที่ใหญ่ที่สุดในประวัติศาสตร์ สำรวจเคมีทีม โปรไฟล์ยุทธวิธี และพยากรณ์ความน่าจะเป็นในการชนะ",
     "group": "สาย {group}",
     "frequentlyAsked": "คำถามที่พบบ่อย",
-    "moreFromGroup": "เพิ่มเติมจากสาย {group}"
+    "moreFromGroup": "เพิ่มเติมจากสาย {group}",
+    "breadcrumbHome": "หน้าแรก",
+    "breadcrumbTeams": "ทีม",
+    "compareRivalsHeading": "เปรียบเทียบ {team} กับคู่แข่งสาย {group}",
+    "versus": "{teamA} พบ {teamB}",
+    "hostCitiesHeading": "{team} ลงเล่นที่ไหน — เมืองเจ้าภาพฟุตบอลโลก 2026",
+    "countryGuide": "คู่มือ {country}",
+    "pronunciationHeading": "วิธีออกเสียงชื่อนักเตะ {team}",
+    "pronounceLabel": "ออกเสียง {name}"
   },
   "matchesPage": {
     "featuredPreview": "พรีวิวแมตช์เด่น",

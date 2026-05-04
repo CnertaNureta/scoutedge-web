@@ -140,7 +140,9 @@
     "affiliateDisclosure": "يشارك KickOracle في برامج التسويق بالعمولة. قد نحصل على عمولة عند شراء التذاكر أو حجز السفر أو الاشتراك في خدمات البث أو شراء البضائع من خلال الروابط الموجودة على هذا الموقع، دون أي تكلفة إضافية عليك. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. استخبارات كأس العالم بالذكاء الاصطناعي. جميع الحقوق محفوظة.",
     "skipToContent": "انتقل إلى المحتوى الرئيسي",
-    "newsletterCta": "احصل على توقعات كأس العالم مجانًا →"
+    "newsletterCta": "احصل على توقعات كأس العالم مجانًا →",
+    "languagesHeading": "اللغات",
+    "sitemap": "خريطة الموقع"
   },
   "common": {
     "loading": "جاري التحميل...",
@@ -158,7 +160,15 @@
     "description": "تحليل بالذكاء الاصطناعي لكل منتخب يتنافس في أكبر كأس عالم FIFA في التاريخ. استكشف تناغم الفريق والملفات التكتيكية وتوقعات احتمالات الفوز.",
     "group": "المجموعة {group}",
     "frequentlyAsked": "الأسئلة الشائعة",
-    "moreFromGroup": "المزيد من المجموعة {group}"
+    "moreFromGroup": "المزيد من المجموعة {group}",
+    "breadcrumbHome": "الرئيسية",
+    "breadcrumbTeams": "المنتخبات",
+    "compareRivalsHeading": "قارن {team} مع منافسي المجموعة {group}",
+    "versus": "{teamA} ضد {teamB}",
+    "hostCitiesHeading": "أين يلعب {team} — مدن استضافة كأس العالم 2026",
+    "countryGuide": "دليل {country}",
+    "pronunciationHeading": "كيفية نطق أسماء لاعبي {team}",
+    "pronounceLabel": "انطق {name}"
   },
   "matchesPage": {
     "featuredPreview": "معاينة المباراة المميزة",

@@ -285,7 +285,9 @@
     "affiliateDisclosure": "KickOracle participates in affiliate marketing programs. We may earn a commission when you purchase tickets, book travel, subscribe to streaming services, or buy merchandise through links on this site, at no additional cost to you. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI-Powered World Cup Intelligence. All rights reserved.",
     "skipToContent": "Skip to main content",
-    "newsletterCta": "Get free World Cup predictions →"
+    "newsletterCta": "Get free World Cup predictions →",
+    "languagesHeading": "Languages",
+    "sitemap": "Sitemap"
   },
   "common": {
     "loading": "Loading...",
@@ -303,7 +305,15 @@
     "description": "AI-powered analysis of every nation competing in the most expansive FIFA World Cup in history. Explore squad chemistry, tactical profiles, and win probability predictions.",
     "group": "Group {group}",
     "frequentlyAsked": "Frequently Asked Questions",
-    "moreFromGroup": "More from Group {group}"
+    "moreFromGroup": "More from Group {group}",
+    "breadcrumbHome": "Home",
+    "breadcrumbTeams": "Teams",
+    "compareRivalsHeading": "Compare {team} vs Group {group} rivals",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Where {team} plays — World Cup 2026 host cities",
+    "countryGuide": "{country} guide",
+    "pronunciationHeading": "How to pronounce {team} player names",
+    "pronounceLabel": "Pronounce {name}"
   },
   "matchesPage": {
     "featuredPreview": "Featured Match Preview",
@@ -1894,5 +1904,101 @@
     "ctaDescription": "Use our budget calculator to estimate costs, check visa requirements, and explore all 16 host cities with detailed local guides.",
     "budgetCalculator": "Budget Calculator",
     "visaGuide": "Visa Guide"
+  },
+  "teamHero": {
+    "playoffNotice": "Subject to UEFA Playoff Results (March 26-31, 2026)",
+    "subtitle": "World Cup 2026 Analysis",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Group {group}",
+    "chemistryIndex": "Chemistry Index",
+    "ctaTagline": "Free daily AI predictions for all 48 teams.",
+    "ctaButton": "Create Free Account"
+  },
+  "teamStats": {
+    "chemistry": "Chemistry",
+    "familiarity": "Familiarity",
+    "stability": "Stability",
+    "morale": "Morale",
+    "fifaRanking": "FIFA Ranking",
+    "tacticalStability": "Tactical Stability",
+    "chemistryIndex": "Chemistry Index",
+    "familiarityDesc": "How long the squad has played together. Higher = more instinctive understanding on the pitch.",
+    "stabilityDesc": "How settled the coaching setup and formation are. Frequent changes lower this score.",
+    "moraleDesc": "Current squad confidence. Driven by recent results, fan support, and media sentiment.",
+    "historicalArchetypeMatch": "Historical Archetype Match",
+    "archetypeDesc": "A past World Cup team whose playing style and trajectory most closely resemble this squad."
+  },
+  "squadRoster": {
+    "squad": "Squad",
+    "keyPlayer": "Key Player",
+    "caps": "Caps",
+    "goals": "Goals",
+    "assists": "Assists",
+    "rating": "Rating",
+    "capsShort": "{caps} caps",
+    "capsAndGoals": "{caps} caps · {goals} goals",
+    "goalsAndAssists": "{goals} goals · {assists} assists",
+    "goalkeepers": "Goalkeepers",
+    "defenders": "Defenders",
+    "midfielders": "Midfielders",
+    "forwards": "Forwards"
+  },
+  "squadDepth": {
+    "title": "Squad Depth",
+    "players": "players",
+    "avgAge": "Avg Age: {age}",
+    "avgRating": "Avg Rating: ★ {rating}",
+    "ageDistribution": "Age Distribution",
+    "ageRangeAria": "Age range: {min} to {max}"
+  },
+  "tacticalDNA": {
+    "title": "Tactical DNA",
+    "radarDescription": "The radar chart shows six key dimensions of team strength. Bigger area = stronger overall squad.",
+    "atkDesc": "Attacking quality: how dangerous the forwards are",
+    "midDesc": "Midfield control: ability to dominate possession",
+    "defDesc": "Defensive solidity: how hard they are to score against",
+    "chmDesc": "Chemistry: how well the team plays as a unit",
+    "expDesc": "Experience: average international caps per player",
+    "fitDesc": "Fitness: percentage of squad fully fit for the tournament"
+  },
+  "historicalPerformance": {
+    "title": "World Cup History",
+    "appearances": "Appearances",
+    "since": "Since {year}",
+    "bestFinish": "Best Finish",
+    "titlesWon": "Titles Won",
+    "worldChampion": "{count, plural, one {World Champion} other {World Champions}}",
+    "winRate": "Win Rate",
+    "recordSummary": "{won}W {drawn}D {lost}L",
+    "allTimeRecord": "All-Time World Cup Record — {matches} Matches",
+    "recordBarAria": "Won {won}, Drawn {drawn}, Lost {lost} of {played} matches",
+    "wonCount": "{count} Won",
+    "drawnCount": "{count} Drawn",
+    "lostCount": "{count} Lost",
+    "iconicMoments": "Iconic Moments"
+  },
+  "matchCenter": {
+    "title": "Match Center",
+    "timezoneAdjustment": "Time Zone Adjustment",
+    "homeTimezone": "{team} home timezone:",
+    "venuesHeading": "2026 World Cup Venues — {count} Stadiums",
+    "capacity": "Capacity",
+    "altitude": "Altitude",
+    "roof": "Roof",
+    "surface": "Surface",
+    "climate": "Climate",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "No Jet Lag",
+      "moderate": "Moderate",
+      "significant": "Significant",
+      "extreme": "Extreme"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Group {group} · #{rank}",
+    "playoff": "Playoff",
+    "chemistry": "Chemistry"
   }
 }

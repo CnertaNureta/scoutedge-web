@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle neemt deel aan affiliate-marketingprogramma's. We kunnen een commissie verdienen wanneer je tickets koopt, reizen boekt, je abonneert op streamingdiensten of merchandise aanschaft via links op deze site, zonder extra kosten voor jou. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI-Gestuurde WK-Intelligence. Alle rechten voorbehouden.",
     "skipToContent": "Ga naar hoofdinhoud",
-    "newsletterCta": "Ontvang gratis WK-voorspellingen →"
+    "newsletterCta": "Ontvang gratis WK-voorspellingen →",
+    "languagesHeading": "Talen",
+    "sitemap": "Sitemap"
   },
   "common": {
     "loading": "Laden...",
@@ -158,7 +160,15 @@
     "description": "AI-analyse van elk land dat meedoet aan het grootste FIFA WK ooit. Ontdek selectiechemie, tactische profielen en winstkansvoorspellingen.",
     "group": "Groep {group}",
     "frequentlyAsked": "Veelgestelde vragen",
-    "moreFromGroup": "Meer uit Groep {group}"
+    "moreFromGroup": "Meer uit Groep {group}",
+    "breadcrumbHome": "Home",
+    "breadcrumbTeams": "Landen",
+    "compareRivalsHeading": "Vergelijk {team} met rivalen uit Groep {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Waar {team} speelt — gaststeden WK 2026",
+    "countryGuide": "{country} gids",
+    "pronunciationHeading": "Hoe spreek je de spelersnamen van {team} uit",
+    "pronounceLabel": "Spreek {name} uit"
   },
   "matchesPage": {
     "featuredPreview": "Uitgelichte Wedstrijdpreview",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Premium-functie — upgrade om te ontgrendelen",
     "featuredDuels": "Uitgelichte duels"
+  },
+  "teamHero": {
+    "playoffNotice": "Onder voorbehoud van UEFA-playoffresultaten (26-31 maart 2026)",
+    "subtitle": "WK 2026 Analyse",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Groep {group}",
+    "chemistryIndex": "Chemie-index",
+    "ctaTagline": "Gratis dagelijkse AI-voorspellingen voor alle 48 landen.",
+    "ctaButton": "Maak gratis account aan"
+  },
+  "teamStats": {
+    "chemistry": "Chemie",
+    "familiarity": "Op elkaar ingespeeld",
+    "stability": "Stabiliteit",
+    "morale": "Moreel",
+    "fifaRanking": "FIFA-ranglijst",
+    "tacticalStability": "Tactische stabiliteit",
+    "chemistryIndex": "Chemie-index",
+    "familiarityDesc": "Hoe lang de selectie al samen speelt. Hoger = instinctiever begrip op het veld.",
+    "stabilityDesc": "Hoe stabiel de staf en formatie zijn. Frequente wijzigingen verlagen deze score.",
+    "moraleDesc": "Huidig zelfvertrouwen van de selectie. Bepaald door recente resultaten, fansteun en mediastemming.",
+    "historicalArchetypeMatch": "Historisch archetype",
+    "archetypeDesc": "Een WK-team uit het verleden waarvan de speelstijl en het verloop het meest op deze selectie lijken."
+  },
+  "squadRoster": {
+    "squad": "Selectie",
+    "keyPlayer": "Sleutelspeler",
+    "caps": "Interlands",
+    "goals": "Doelpunten",
+    "assists": "Assists",
+    "rating": "Beoordeling",
+    "capsShort": "{caps} interlands",
+    "capsAndGoals": "{caps} interlands · {goals} doelpunten",
+    "goalsAndAssists": "{goals} doelpunten · {assists} assists",
+    "goalkeepers": "Doelmannen",
+    "defenders": "Verdedigers",
+    "midfielders": "Middenvelders",
+    "forwards": "Aanvallers"
+  },
+  "squadDepth": {
+    "title": "Selectiediepte",
+    "players": "spelers",
+    "avgAge": "Gem. leeftijd: {age}",
+    "avgRating": "Gem. beoordeling: ★ {rating}",
+    "ageDistribution": "Leeftijdsverdeling",
+    "ageRangeAria": "Leeftijdsbereik: {min} tot {max}"
+  },
+  "tacticalDNA": {
+    "title": "Tactisch DNA",
+    "radarDescription": "De radarchart toont zes belangrijke dimensies van teamkracht. Groter oppervlak = sterkere selectie.",
+    "atkDesc": "Aanvallende kwaliteit: hoe gevaarlijk de aanvallers zijn",
+    "midDesc": "Middenveldcontrole: vermogen om balbezit te domineren",
+    "defDesc": "Defensieve stevigheid: hoe moeilijk er tegen te scoren is",
+    "chmDesc": "Chemie: hoe goed het team als eenheid speelt",
+    "expDesc": "Ervaring: gemiddeld aantal interlands per speler",
+    "fitDesc": "Fitheid: percentage van de selectie dat volledig fit is voor het toernooi"
+  },
+  "historicalPerformance": {
+    "title": "WK-historie",
+    "appearances": "Deelnames",
+    "since": "Sinds {year}",
+    "bestFinish": "Beste klassering",
+    "titlesWon": "Titels gewonnen",
+    "worldChampion": "{count, plural, one {Wereldkampioen} other {Wereldkampioenen}}",
+    "winRate": "Winstpercentage",
+    "recordSummary": "{won}W {drawn}G {lost}V",
+    "allTimeRecord": "All-time WK-balans — {matches} wedstrijden",
+    "recordBarAria": "{won} gewonnen, {drawn} gelijk, {lost} verloren van {played} wedstrijden",
+    "wonCount": "{count} gewonnen",
+    "drawnCount": "{count} gelijk",
+    "lostCount": "{count} verloren",
+    "iconicMoments": "Iconische momenten"
+  },
+  "matchCenter": {
+    "title": "Match Center",
+    "timezoneAdjustment": "Tijdzone-aanpassing",
+    "homeTimezone": "{team} thuistijdzone:",
+    "venuesHeading": "WK 2026-stadions — {count} stadions",
+    "capacity": "Capaciteit",
+    "altitude": "Hoogte",
+    "roof": "Dak",
+    "surface": "Ondergrond",
+    "climate": "Klimaat",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Geen jetlag",
+      "moderate": "Matig",
+      "significant": "Aanzienlijk",
+      "extreme": "Extreem"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Groep {group} · #{rank}",
+    "playoff": "Playoff",
+    "chemistry": "Chemie"
   }
 }

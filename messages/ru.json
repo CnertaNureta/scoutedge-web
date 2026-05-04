@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle участвует в партнёрских программах. Мы можем получать комиссию за покупку билетов, бронирование путешествий, подписку на стриминговые сервисы или покупку товаров по ссылкам на этом сайте — без дополнительных расходов для вас. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Футбольная аналитика на базе ИИ. Все права защищены.",
     "skipToContent": "Перейти к основному содержанию",
-    "newsletterCta": "Получать бесплатные прогнозы ЧМ →"
+    "newsletterCta": "Получать бесплатные прогнозы ЧМ →",
+    "languagesHeading": "Языки",
+    "sitemap": "Карта сайта"
   },
   "common": {
     "loading": "Загрузка...",
@@ -158,7 +160,15 @@
     "description": "ИИ-анализ каждой сборной, участвующей в самом масштабном ЧМ в истории FIFA. Химия состава, тактические профили и прогнозы вероятности побед.",
     "group": "Группа {group}",
     "frequentlyAsked": "Часто задаваемые вопросы",
-    "moreFromGroup": "Больше из группы {group}"
+    "moreFromGroup": "Больше из группы {group}",
+    "breadcrumbHome": "Главная",
+    "breadcrumbTeams": "Сборные",
+    "compareRivalsHeading": "Сравнить {team} с соперниками по группе {group}",
+    "versus": "{teamA} против {teamB}",
+    "hostCitiesHeading": "Где играет {team} — города-хозяева ЧМ-2026",
+    "countryGuide": "Гид по стране {country}",
+    "pronunciationHeading": "Как произносить имена игроков {team}",
+    "pronounceLabel": "Произнести {name}"
   },
   "matchesPage": {
     "featuredPreview": "Избранный обзор матча",
@@ -1585,5 +1595,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Премиум-функция — обновитесь для разблокировки",
     "featuredDuels": "Избранные дуэли"
+  },
+  "teamHero": {
+    "playoffNotice": "Зависит от результатов плей-офф УЕФА (26–31 марта 2026)",
+    "subtitle": "Аналитика ЧМ-2026",
+    "fifaRankBadge": "#{rank} ФИФА",
+    "groupBadge": "Группа {group}",
+    "chemistryIndex": "Индекс химии",
+    "ctaTagline": "Бесплатные ежедневные ИИ-прогнозы для всех 48 сборных.",
+    "ctaButton": "Создать бесплатный аккаунт"
+  },
+  "teamStats": {
+    "chemistry": "Химия",
+    "familiarity": "Сыгранность",
+    "stability": "Стабильность",
+    "morale": "Моральный дух",
+    "fifaRanking": "Рейтинг ФИФА",
+    "tacticalStability": "Тактическая стабильность",
+    "chemistryIndex": "Индекс химии",
+    "familiarityDesc": "Как давно состав играет вместе. Выше = более интуитивное понимание на поле.",
+    "stabilityDesc": "Насколько устоялись тренерский штаб и схема игры. Частые изменения снижают этот показатель.",
+    "moraleDesc": "Текущая уверенность сборной. Зависит от недавних результатов, поддержки болельщиков и настроений в СМИ.",
+    "historicalArchetypeMatch": "Исторический архетип",
+    "archetypeDesc": "Сборная прошлых ЧМ, чей стиль игры и траектория наиболее близки к этому составу."
+  },
+  "squadRoster": {
+    "squad": "Состав",
+    "keyPlayer": "Ключевой игрок",
+    "caps": "Матчи",
+    "goals": "Голы",
+    "assists": "Ассисты",
+    "rating": "Рейтинг",
+    "capsShort": "{caps} матчей",
+    "capsAndGoals": "{caps} матчей · {goals} голов",
+    "goalsAndAssists": "{goals} голов · {assists} ассистов",
+    "goalkeepers": "Вратари",
+    "defenders": "Защитники",
+    "midfielders": "Полузащитники",
+    "forwards": "Нападающие"
+  },
+  "squadDepth": {
+    "title": "Глубина состава",
+    "players": "игроков",
+    "avgAge": "Средний возраст: {age}",
+    "avgRating": "Средний рейтинг: ★ {rating}",
+    "ageDistribution": "Распределение по возрасту",
+    "ageRangeAria": "Возрастной диапазон: с {min} до {max}"
+  },
+  "tacticalDNA": {
+    "title": "Тактическая ДНК",
+    "radarDescription": "Радарная диаграмма показывает шесть ключевых параметров силы команды. Чем больше площадь, тем сильнее общий состав.",
+    "atkDesc": "Атакующее качество: насколько опасны нападающие",
+    "midDesc": "Контроль в середине поля: способность доминировать во владении",
+    "defDesc": "Оборонная надёжность: насколько сложно забить им",
+    "chmDesc": "Химия: насколько слаженно команда играет как единое целое",
+    "expDesc": "Опыт: среднее количество матчей за сборную на игрока",
+    "fitDesc": "Готовность: процент состава, полностью готового к турниру"
+  },
+  "historicalPerformance": {
+    "title": "История на чемпионатах мира",
+    "appearances": "Участий",
+    "since": "С {year}",
+    "bestFinish": "Лучший результат",
+    "titlesWon": "Завоёванных титулов",
+    "worldChampion": "{count, plural, one {Чемпион мира} few {Чемпиона мира} many {Чемпионов мира} other {Чемпионов мира}}",
+    "winRate": "Процент побед",
+    "recordSummary": "{won}В {drawn}Н {lost}П",
+    "allTimeRecord": "Общий рекорд на ЧМ — {matches} матчей",
+    "recordBarAria": "Победы {won}, ничьи {drawn}, поражения {lost} из {played} матчей",
+    "wonCount": "{count} побед",
+    "drawnCount": "{count} ничьих",
+    "lostCount": "{count} поражений",
+    "iconicMoments": "Знаковые моменты"
+  },
+  "matchCenter": {
+    "title": "Центр матчей",
+    "timezoneAdjustment": "Поправка на часовой пояс",
+    "homeTimezone": "Домашний часовой пояс {team}:",
+    "venuesHeading": "Стадионы ЧМ-2026 — {count} арен",
+    "capacity": "Вместимость",
+    "altitude": "Высота",
+    "roof": "Крыша",
+    "surface": "Покрытие",
+    "climate": "Климат",
+    "juneTemp": "Июнь: {high}°/{low}°C",
+    "julyTemp": "Июль: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Без джетлага",
+      "moderate": "Умеренный",
+      "significant": "Значительный",
+      "extreme": "Экстремальный"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Группа {group} · #{rank}",
+    "playoff": "Плей-офф",
+    "chemistry": "Химия"
   }
 }
