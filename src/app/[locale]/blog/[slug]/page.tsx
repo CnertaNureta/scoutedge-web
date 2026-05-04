@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
-import { buildOGMeta } from '@/lib/og-utils'
+import { buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -11,12 +11,12 @@ export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string; locale: string }> }): Promise<Metadata> {
-  const { slug, locale } = await params
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
-  const url = `https://kickoracle.com/blog/${slug}`
+  const url = canonicalForLocale(locale, `/blog/${slug}`)
 
   return {
     title: post.title,

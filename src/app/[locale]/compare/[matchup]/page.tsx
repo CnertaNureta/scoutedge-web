@@ -5,7 +5,7 @@ import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { jsonLdGraph, sportsEventJsonLd, buildOGMeta } from '@/lib/og-utils'
+import { buildOGMeta, canonicalForLocale, jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -15,8 +15,8 @@ import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
 
-export async function generateMetadata({ params }: { params: Promise<{ matchup: string; locale: string }> }): Promise<Metadata> {
-  const { matchup, locale } = await params
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; matchup: string }> }): Promise<Metadata> {
+  const { locale, matchup } = await params
   const parts = matchup.split('-vs-')
   const teamA = getTeamBySlug(parts[0])
   const teamB = getTeamBySlug(parts[1])
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
 
   const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
   const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
-  const url = `https://kickoracle.com/compare/${matchup}`
+  const url = canonicalForLocale(locale, `/compare/${matchup}`)
 
   return {
     title,
@@ -59,8 +59,8 @@ function StatRow({ label, valueA, valueB, higherIsBetter = true }: { label: stri
   )
 }
 
-export default async function CompareDetailPage({ params }: { params: Promise<{ matchup: string }> }) {
-  const { matchup } = await params
+export default async function CompareDetailPage({ params }: { params: Promise<{ locale: string; matchup: string }> }) {
+  const { locale, matchup } = await params
   const data = getHeadToHead(matchup)
   if (!data) return <div className="page-container py-20 text-center text-on-surface-variant">Matchup not found.</div>
 

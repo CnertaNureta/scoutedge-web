@@ -76,6 +76,12 @@ export function canonical(path: string): string {
   return `${BASE_URL}${path}`
 }
 
+/** Build locale-aware canonical URL from locale + path */
+export function canonicalForLocale(locale: string, path: string): string {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${BASE_URL}/${locale}${normalizedPath === '/' ? '' : normalizedPath}`
+}
+
 /**
  * WebSite structured data for the homepage (enables sitelinks search box in Google).
  */

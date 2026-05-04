@@ -10,7 +10,7 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
-import { OG_LOCALES } from '@/lib/og-utils'
+import { OG_LOCALES, canonicalForLocale } from '@/lib/og-utils'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { group, locale } = await params
+  const { locale, group } = await params
   const teams = getTeamsByGroup(group)
   if (teams.length === 0) return { title: 'Group Not Found' }
 
@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `World Cup 2026 Group ${group} | KickOracle`,
       description: `AI analysis of Group ${group}: ${teamNames}.`,
     },
-    alternates: { canonical: `https://kickoracle.com/groups/${group}` },
+    alternates: { canonical: canonicalForLocale(locale, `/groups/${group}`) },
   }
 }
 

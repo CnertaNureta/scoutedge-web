@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { Link } from '@/i18n/navigation'
 import { getAllTeams } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
     },
-    alternates: { canonical: 'https://kickoracle.com/power-rankings' },
+    alternates: { canonical: canonicalForLocale(locale, '/power-rankings') },
   }
 }
 
