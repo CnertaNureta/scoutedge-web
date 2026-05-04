@@ -1594,5 +1594,101 @@
     "bestOfFive": "أفضل من 5",
     "bestOfFiveTooltip": "ميزة بريميوم — قم بالترقية للفتح",
     "featuredDuels": "مبارزات مميزة"
+  },
+  "teamHero": {
+    "playoffNotice": "خاضع لنتائج ملحق اليويفا (26-31 مارس 2026)",
+    "subtitle": "تحليل كأس العالم 2026",
+    "fifaRankBadge": "FIFA #{rank}",
+    "groupBadge": "المجموعة {group}",
+    "chemistryIndex": "مؤشر التناغم",
+    "ctaTagline": "توقعات يومية مجانية بالذكاء الاصطناعي لجميع المنتخبات الـ48.",
+    "ctaButton": "أنشئ حسابًا مجانيًا"
+  },
+  "teamStats": {
+    "chemistry": "التناغم",
+    "familiarity": "الانسجام",
+    "stability": "الاستقرار",
+    "morale": "الروح المعنوية",
+    "fifaRanking": "تصنيف فيفا",
+    "tacticalStability": "الاستقرار التكتيكي",
+    "chemistryIndex": "مؤشر التناغم",
+    "familiarityDesc": "المدة التي لعب خلالها المنتخب معًا. كلما زادت = ازداد الفهم الغريزي على أرض الملعب.",
+    "stabilityDesc": "مدى استقرار الجهاز الفني والتشكيلة. التغييرات المتكررة تُخفّض هذه النتيجة.",
+    "moraleDesc": "ثقة المنتخب الحالية. تتأثر بالنتائج الأخيرة ودعم الجماهير ومزاج الإعلام.",
+    "historicalArchetypeMatch": "النموذج التاريخي المماثل",
+    "archetypeDesc": "منتخب سابق في كأس العالم يشبه أسلوبه ومساره هذا المنتخب أكثر من غيره."
+  },
+  "squadRoster": {
+    "squad": "التشكيلة",
+    "keyPlayer": "اللاعب الأساسي",
+    "caps": "المباريات الدولية",
+    "goals": "الأهداف",
+    "assists": "التمريرات الحاسمة",
+    "rating": "التقييم",
+    "capsShort": "{caps} مباراة",
+    "capsAndGoals": "{caps} مباراة · {goals} هدف",
+    "goalsAndAssists": "{goals} هدف · {assists} تمريرة حاسمة",
+    "goalkeepers": "حراس المرمى",
+    "defenders": "المدافعون",
+    "midfielders": "لاعبو الوسط",
+    "forwards": "المهاجمون"
+  },
+  "squadDepth": {
+    "title": "عمق التشكيلة",
+    "players": "لاعبًا",
+    "avgAge": "متوسط العمر: {age}",
+    "avgRating": "متوسط التقييم: ★ {rating}",
+    "ageDistribution": "توزيع الأعمار",
+    "ageRangeAria": "نطاق العمر: من {min} إلى {max}"
+  },
+  "tacticalDNA": {
+    "title": "الحمض النووي التكتيكي",
+    "radarDescription": "يعرض الرسم البياني الراداري ستة أبعاد رئيسية لقوة المنتخب. كلما اتسعت المساحة = ازدادت قوة المنتخب الإجمالية.",
+    "atkDesc": "جودة الهجوم: مدى خطورة المهاجمين",
+    "midDesc": "السيطرة على الوسط: القدرة على التحكم بالاستحواذ",
+    "defDesc": "الصلابة الدفاعية: مدى صعوبة التسجيل في مرماهم",
+    "chmDesc": "التناغم: مدى انسجام الفريق كوحدة واحدة",
+    "expDesc": "الخبرة: متوسط المباريات الدولية لكل لاعب",
+    "fitDesc": "اللياقة: نسبة اللاعبين الجاهزين بدنيًا للبطولة"
+  },
+  "historicalPerformance": {
+    "title": "تاريخ كأس العالم",
+    "appearances": "المشاركات",
+    "since": "منذ {year}",
+    "bestFinish": "أفضل إنجاز",
+    "titlesWon": "الألقاب المُحرزة",
+    "worldChampion": "{count, plural, one {بطل العالم} other {أبطال العالم}}",
+    "winRate": "نسبة الفوز",
+    "recordSummary": "{won}ف {drawn}ت {lost}خ",
+    "allTimeRecord": "السجل التاريخي في كأس العالم — {matches} مباراة",
+    "recordBarAria": "فاز في {won}، تعادل في {drawn}، خسر في {lost} من أصل {played} مباراة",
+    "wonCount": "{count} فوز",
+    "drawnCount": "{count} تعادل",
+    "lostCount": "{count} خسارة",
+    "iconicMoments": "اللحظات الأيقونية"
+  },
+  "matchCenter": {
+    "title": "مركز المباريات",
+    "timezoneAdjustment": "ضبط المنطقة الزمنية",
+    "homeTimezone": "المنطقة الزمنية لمنتخب {team}:",
+    "venuesHeading": "ملاعب كأس العالم 2026 — {count} ملعبًا",
+    "capacity": "السعة",
+    "altitude": "الارتفاع",
+    "roof": "السقف",
+    "surface": "أرضية الملعب",
+    "climate": "المناخ",
+    "juneTemp": "يونيو: {high}°/{low}° مئوية",
+    "julyTemp": "يوليو: {high}°/{low}° مئوية",
+    "jetLag": {
+      "none": "لا اضطراب رحلات",
+      "moderate": "متوسط",
+      "significant": "كبير",
+      "extreme": "شديد"
+    }
+  },
+  "teamCard": {
+    "groupRank": "المجموعة {group} · #{rank}",
+    "playoff": "الملحق",
+    "chemistry": "التناغم"
   }
 }

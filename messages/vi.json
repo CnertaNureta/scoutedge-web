@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle tham gia các chương trình tiếp thị liên kết. Chúng tôi có thể nhận hoa hồng khi bạn mua vé, đặt dịch vụ du lịch, đăng ký dịch vụ phát trực tuyến hoặc mua hàng hóa qua các liên kết trên trang web này mà không phát sinh thêm chi phí cho bạn. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Phân tích bóng đá thế giới bằng AI. Bảo lưu mọi quyền.",
     "skipToContent": "Chuyển đến nội dung chính",
-    "newsletterCta": "Nhận dự đoán World Cup miễn phí →"
+    "newsletterCta": "Nhận dự đoán World Cup miễn phí →",
+    "languagesHeading": "Ngôn ngữ",
+    "sitemap": "Sơ đồ trang"
   },
   "common": {
     "loading": "Đang tải...",
@@ -158,7 +160,15 @@
     "description": "Phân tích bằng AI cho mọi đội tuyển quốc gia thi đấu tại giải FIFA World Cup lớn nhất lịch sử. Khám phá hòa hợp đội hình, hồ sơ chiến thuật và dự đoán xác suất chiến thắng.",
     "group": "Bảng {group}",
     "frequentlyAsked": "Câu hỏi thường gặp",
-    "moreFromGroup": "Xem thêm từ Bảng {group}"
+    "moreFromGroup": "Xem thêm từ Bảng {group}",
+    "breadcrumbHome": "Trang chủ",
+    "breadcrumbTeams": "Đội tuyển",
+    "compareRivalsHeading": "So sánh {team} với các đối thủ Bảng {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Nơi {team} thi đấu — các thành phố đăng cai World Cup 2026",
+    "countryGuide": "Cẩm nang {country}",
+    "pronunciationHeading": "Cách phát âm tên cầu thủ {team}",
+    "pronounceLabel": "Phát âm {name}"
   },
   "matchesPage": {
     "featuredPreview": "Nhận định trận đấu nổi bật",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Tính năng cao cấp — nâng cấp để mở khóa",
     "featuredDuels": "Trận đấu nổi bật"
+  },
+  "teamHero": {
+    "playoffNotice": "Phụ thuộc vào kết quả Play-off UEFA (26-31 tháng 3, 2026)",
+    "subtitle": "Phân tích World Cup 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Bảng {group}",
+    "chemistryIndex": "Chỉ số Hòa hợp",
+    "ctaTagline": "Dự đoán AI miễn phí mỗi ngày cho cả 48 đội tuyển.",
+    "ctaButton": "Tạo Tài khoản Miễn phí"
+  },
+  "teamStats": {
+    "chemistry": "Hòa hợp",
+    "familiarity": "Sự ăn ý",
+    "stability": "Ổn định",
+    "morale": "Tinh thần",
+    "fifaRanking": "Xếp hạng FIFA",
+    "tacticalStability": "Ổn định Chiến thuật",
+    "chemistryIndex": "Chỉ số Hòa hợp",
+    "familiarityDesc": "Đội hình đã chơi cùng nhau bao lâu. Cao hơn = hiểu nhau theo bản năng hơn trên sân.",
+    "stabilityDesc": "Mức độ ổn định của ban huấn luyện và sơ đồ chiến thuật. Thay đổi thường xuyên sẽ làm giảm điểm này.",
+    "moraleDesc": "Sự tự tin hiện tại của đội. Dựa trên kết quả gần đây, sự ủng hộ của người hâm mộ và dư luận truyền thông.",
+    "historicalArchetypeMatch": "Đối chiếu Mẫu Lịch sử",
+    "archetypeDesc": "Một đội World Cup trong quá khứ có lối chơi và quỹ đạo gần giống nhất với đội này."
+  },
+  "squadRoster": {
+    "squad": "Đội hình",
+    "keyPlayer": "Cầu thủ Chủ chốt",
+    "caps": "Trận",
+    "goals": "Bàn thắng",
+    "assists": "Kiến tạo",
+    "rating": "Điểm",
+    "capsShort": "{caps} trận",
+    "capsAndGoals": "{caps} trận · {goals} bàn",
+    "goalsAndAssists": "{goals} bàn · {assists} kiến tạo",
+    "goalkeepers": "Thủ môn",
+    "defenders": "Hậu vệ",
+    "midfielders": "Tiền vệ",
+    "forwards": "Tiền đạo"
+  },
+  "squadDepth": {
+    "title": "Chiều sâu Đội hình",
+    "players": "cầu thủ",
+    "avgAge": "Tuổi TB: {age}",
+    "avgRating": "Điểm TB: ★ {rating}",
+    "ageDistribution": "Phân bố Độ tuổi",
+    "ageRangeAria": "Khoảng tuổi: từ {min} đến {max}"
+  },
+  "tacticalDNA": {
+    "title": "ADN Chiến thuật",
+    "radarDescription": "Biểu đồ radar thể hiện sáu khía cạnh chính về sức mạnh đội tuyển. Diện tích lớn hơn = đội tuyển tổng thể mạnh hơn.",
+    "atkDesc": "Chất lượng tấn công: mức độ nguy hiểm của hàng công",
+    "midDesc": "Kiểm soát tuyến giữa: khả năng làm chủ thế trận",
+    "defDesc": "Vững chắc phòng ngự: mức độ khó ghi bàn vào lưới đội",
+    "chmDesc": "Hòa hợp: đội chơi như một khối thống nhất tốt như thế nào",
+    "expDesc": "Kinh nghiệm: số trận quốc tế trung bình mỗi cầu thủ",
+    "fitDesc": "Thể lực: tỷ lệ phần trăm đội hình hoàn toàn sung sức cho giải đấu"
+  },
+  "historicalPerformance": {
+    "title": "Lịch sử World Cup",
+    "appearances": "Lần Tham dự",
+    "since": "Từ năm {year}",
+    "bestFinish": "Thành tích Tốt nhất",
+    "titlesWon": "Chức vô địch",
+    "worldChampion": "{count, plural, one {Nhà Vô địch Thế giới} other {Nhà Vô địch Thế giới}}",
+    "winRate": "Tỷ lệ Thắng",
+    "recordSummary": "{won}T {drawn}H {lost}B",
+    "allTimeRecord": "Thành tích World Cup mọi thời đại — {matches} Trận",
+    "recordBarAria": "Thắng {won}, Hòa {drawn}, Thua {lost} trong {played} trận",
+    "wonCount": "{count} Thắng",
+    "drawnCount": "{count} Hòa",
+    "lostCount": "{count} Thua",
+    "iconicMoments": "Khoảnh khắc Biểu tượng"
+  },
+  "matchCenter": {
+    "title": "Trung tâm Trận đấu",
+    "timezoneAdjustment": "Điều chỉnh Múi giờ",
+    "homeTimezone": "Múi giờ quê nhà của {team}:",
+    "venuesHeading": "Các sân vận động World Cup 2026 — {count} Sân",
+    "capacity": "Sức chứa",
+    "altitude": "Độ cao",
+    "roof": "Mái che",
+    "surface": "Mặt sân",
+    "climate": "Khí hậu",
+    "juneTemp": "Th6: {high}°/{low}°C",
+    "julyTemp": "Th7: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Không Lệch Múi giờ",
+      "moderate": "Vừa phải",
+      "significant": "Đáng kể",
+      "extreme": "Nghiêm trọng"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Bảng {group} · #{rank}",
+    "playoff": "Play-off",
+    "chemistry": "Hòa hợp"
   }
 }

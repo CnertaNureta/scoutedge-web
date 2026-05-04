@@ -1594,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "ฟีเจอร์พรีเมียม — อัปเกรดเพื่อปลดล็อก",
     "featuredDuels": "ดวลแนะนำ"
+  },
+  "teamHero": {
+    "playoffNotice": "ขึ้นอยู่กับผลเพลย์ออฟ UEFA (26-31 มีนาคม 2026)",
+    "subtitle": "การวิเคราะห์ฟุตบอลโลก 2026",
+    "fifaRankBadge": "อันดับ #{rank} FIFA",
+    "groupBadge": "สาย {group}",
+    "chemistryIndex": "ดัชนีเคมีทีม",
+    "ctaTagline": "ทำนายด้วย AI ฟรีทุกวันสำหรับทั้ง 48 ทีม",
+    "ctaButton": "สร้างบัญชีฟรี"
+  },
+  "teamStats": {
+    "chemistry": "เคมีทีม",
+    "familiarity": "ความคุ้นเคย",
+    "stability": "ความมั่นคง",
+    "morale": "ขวัญกำลังใจ",
+    "fifaRanking": "อันดับ FIFA",
+    "tacticalStability": "ความมั่นคงทางยุทธวิธี",
+    "chemistryIndex": "ดัชนีเคมีทีม",
+    "familiarityDesc": "ระยะเวลาที่ทีมเล่นด้วยกัน ยิ่งสูง = ยิ่งเข้าใจกันโดยสัญชาตญาณในสนาม",
+    "stabilityDesc": "ความลงตัวของทีมงานโค้ชและรูปแบบการเล่น การเปลี่ยนแปลงบ่อยจะลดคะแนนนี้",
+    "moraleDesc": "ความมั่นใจของทีมในปัจจุบัน อิงจากผลงานล่าสุด การสนับสนุนของแฟนบอล และกระแสสื่อ",
+    "historicalArchetypeMatch": "การจับคู่ต้นแบบในอดีต",
+    "archetypeDesc": "ทีมฟุตบอลโลกในอดีตที่มีสไตล์การเล่นและเส้นทางคล้ายกับทีมนี้มากที่สุด"
+  },
+  "squadRoster": {
+    "squad": "ผู้เล่น",
+    "keyPlayer": "นักเตะคนสำคัญ",
+    "caps": "นัด",
+    "goals": "ประตู",
+    "assists": "แอสซิสต์",
+    "rating": "คะแนน",
+    "capsShort": "{caps} นัด",
+    "capsAndGoals": "{caps} นัด · {goals} ประตู",
+    "goalsAndAssists": "{goals} ประตู · {assists} แอสซิสต์",
+    "goalkeepers": "ผู้รักษาประตู",
+    "defenders": "กองหลัง",
+    "midfielders": "กองกลาง",
+    "forwards": "กองหน้า"
+  },
+  "squadDepth": {
+    "title": "ความลึกของทีม",
+    "players": "ผู้เล่น",
+    "avgAge": "อายุเฉลี่ย: {age}",
+    "avgRating": "คะแนนเฉลี่ย: ★ {rating}",
+    "ageDistribution": "การกระจายอายุ",
+    "ageRangeAria": "ช่วงอายุ: {min} ถึง {max}"
+  },
+  "tacticalDNA": {
+    "title": "DNA ยุทธวิธี",
+    "radarDescription": "แผนภูมิเรดาร์แสดงหกมิติสำคัญของจุดแข็งของทีม พื้นที่ใหญ่ขึ้น = ทีมโดยรวมแข็งแกร่งขึ้น",
+    "atkDesc": "คุณภาพการรุก: ความอันตรายของกองหน้า",
+    "midDesc": "การควบคุมกลางสนาม: ความสามารถในการครอบครองบอล",
+    "defDesc": "ความแข็งแกร่งในการรับ: ยากแค่ไหนที่จะยิงประตูได้",
+    "chmDesc": "เคมีทีม: ทีมเล่นเป็นหนึ่งเดียวได้ดีแค่ไหน",
+    "expDesc": "ประสบการณ์: จำนวนนัดทีมชาติเฉลี่ยต่อผู้เล่น",
+    "fitDesc": "ความฟิต: เปอร์เซ็นต์ของผู้เล่นที่ฟิตสมบูรณ์สำหรับทัวร์นาเมนต์"
+  },
+  "historicalPerformance": {
+    "title": "ประวัติศาสตร์ฟุตบอลโลก",
+    "appearances": "ครั้งที่เข้าร่วม",
+    "since": "ตั้งแต่ปี {year}",
+    "bestFinish": "ผลงานที่ดีที่สุด",
+    "titlesWon": "แชมป์ที่ได้รับ",
+    "worldChampion": "{count, plural, one {แชมป์โลก} other {แชมป์โลก}}",
+    "winRate": "อัตราชนะ",
+    "recordSummary": "ชนะ {won} เสมอ {drawn} แพ้ {lost}",
+    "allTimeRecord": "สถิติฟุตบอลโลกตลอดกาล — {matches} นัด",
+    "recordBarAria": "ชนะ {won} เสมอ {drawn} แพ้ {lost} จาก {played} นัด",
+    "wonCount": "ชนะ {count}",
+    "drawnCount": "เสมอ {count}",
+    "lostCount": "แพ้ {count}",
+    "iconicMoments": "ช่วงเวลาน่าจดจำ"
+  },
+  "matchCenter": {
+    "title": "ศูนย์การแข่งขัน",
+    "timezoneAdjustment": "การปรับเขตเวลา",
+    "homeTimezone": "เขตเวลาบ้านเกิดของ {team}:",
+    "venuesHeading": "สนามฟุตบอลโลก 2026 — {count} สนาม",
+    "capacity": "ความจุ",
+    "altitude": "ระดับความสูง",
+    "roof": "หลังคา",
+    "surface": "พื้นสนาม",
+    "climate": "ภูมิอากาศ",
+    "juneTemp": "มิ.ย.: {high}°/{low}°C",
+    "julyTemp": "ก.ค.: {high}°/{low}°C",
+    "jetLag": {
+      "none": "ไม่มีเจ็ทแล็ก",
+      "moderate": "ปานกลาง",
+      "significant": "ชัดเจน",
+      "extreme": "รุนแรง"
+    }
+  },
+  "teamCard": {
+    "groupRank": "สาย {group} · #{rank}",
+    "playoff": "เพลย์ออฟ",
+    "chemistry": "เคมีทีม"
   }
 }

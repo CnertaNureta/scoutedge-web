@@ -1594,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Prémium funkció — frissíts a feloldáshoz",
     "featuredDuels": "Kiemelt párbajok"
+  },
+  "teamHero": {
+    "playoffNotice": "Az UEFA-pótselejtezők eredményétől függően (2026. március 26-31.)",
+    "subtitle": "2026-os vb-elemzés",
+    "fifaRankBadge": "FIFA #{rank}",
+    "groupBadge": "{group}. csoport",
+    "chemistryIndex": "Csapatkémia-index",
+    "ctaTagline": "Ingyenes napi MI-előrejelzések mind a 48 válogatotthoz.",
+    "ctaButton": "Ingyenes fiók létrehozása"
+  },
+  "teamStats": {
+    "chemistry": "Csapatkémia",
+    "familiarity": "Összeszokottság",
+    "stability": "Stabilitás",
+    "morale": "Morál",
+    "fifaRanking": "FIFA-világranglista",
+    "tacticalStability": "Taktikai stabilitás",
+    "chemistryIndex": "Csapatkémia-index",
+    "familiarityDesc": "Mióta játszik együtt a keret. Magasabb érték = ösztönösebb megértés a pályán.",
+    "stabilityDesc": "Mennyire állandó a stáb és a felállás. A gyakori változások csökkentik az értéket.",
+    "moraleDesc": "A keret aktuális önbizalma. A friss eredmények, a szurkolói támogatás és a médiahangulat alakítja.",
+    "historicalArchetypeMatch": "Történelmi archetípus-megfelelés",
+    "archetypeDesc": "Egy korábbi vb-csapat, amelynek játékstílusa és pályája leginkább emlékeztet erre a keretre."
+  },
+  "squadRoster": {
+    "squad": "Keret",
+    "keyPlayer": "Kulcsjátékos",
+    "caps": "Válogatottság",
+    "goals": "Gólok",
+    "assists": "Gólpasszok",
+    "rating": "Értékelés",
+    "capsShort": "{caps} válogatottság",
+    "capsAndGoals": "{caps} válogatottság · {goals} gól",
+    "goalsAndAssists": "{goals} gól · {assists} gólpassz",
+    "goalkeepers": "Kapusok",
+    "defenders": "Védők",
+    "midfielders": "Középpályások",
+    "forwards": "Csatárok"
+  },
+  "squadDepth": {
+    "title": "Keretmélység",
+    "players": "játékos",
+    "avgAge": "Átl. életkor: {age}",
+    "avgRating": "Átl. értékelés: ★ {rating}",
+    "ageDistribution": "Életkor-eloszlás",
+    "ageRangeAria": "Életkor-tartomány: {min}-{max}"
+  },
+  "tacticalDNA": {
+    "title": "Taktikai DNS",
+    "radarDescription": "A radardiagram a csapaterő hat kulcsdimenzióját mutatja. Nagyobb terület = erősebb keret összességében.",
+    "atkDesc": "Támadójáték minősége: mennyire veszélyesek a csatárok",
+    "midDesc": "Középpálya-irányítás: a labdabirtoklás dominálásának képessége",
+    "defDesc": "Védekezés szilárdsága: mennyire nehéz góllal megrohamozni",
+    "chmDesc": "Csapatkémia: mennyire jól játszik a csapat egységként",
+    "expDesc": "Tapasztalat: játékosonkénti átlagos válogatottság",
+    "fitDesc": "Erőnlét: a tornára teljesen fitt játékosok aránya"
+  },
+  "historicalPerformance": {
+    "title": "Vb-történelem",
+    "appearances": "Részvételek",
+    "since": "{year} óta",
+    "bestFinish": "Legjobb helyezés",
+    "titlesWon": "Megnyert címek",
+    "worldChampion": "{count, plural, one {világbajnok} other {világbajnok}}",
+    "winRate": "Győzelmi arány",
+    "recordSummary": "{won}Gy {drawn}D {lost}V",
+    "allTimeRecord": "Mindenkori vb-mérleg — {matches} mérkőzés",
+    "recordBarAria": "{played} mérkőzésből {won} győzelem, {drawn} döntetlen, {lost} vereség",
+    "wonCount": "{count} győzelem",
+    "drawnCount": "{count} döntetlen",
+    "lostCount": "{count} vereség",
+    "iconicMoments": "Ikonikus pillanatok"
+  },
+  "matchCenter": {
+    "title": "Mérkőzésközpont",
+    "timezoneAdjustment": "Időzóna-eltérés",
+    "homeTimezone": "{team} hazai időzónája:",
+    "venuesHeading": "2026-os vb-helyszínek — {count} stadion",
+    "capacity": "Befogadóképesség",
+    "altitude": "Tengerszint feletti magasság",
+    "roof": "Tető",
+    "surface": "Pályaborítás",
+    "climate": "Éghajlat",
+    "juneTemp": "Jún: {high}°/{low}°C",
+    "julyTemp": "Júl: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Nincs jet lag",
+      "moderate": "Mérsékelt",
+      "significant": "Jelentős",
+      "extreme": "Extrém"
+    }
+  },
+  "teamCard": {
+    "groupRank": "{group}. csoport · #{rank}",
+    "playoff": "Pótselejtező",
+    "chemistry": "Csapatkémia"
   }
 }
