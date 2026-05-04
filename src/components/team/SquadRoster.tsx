@@ -1,6 +1,6 @@
 import type { Player } from '@/lib/types'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { positionOrder, positionLabel, getPlayerPhoto } from '@/lib/utils'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import ChemistryBar from '@/components/ui/ChemistryBar'

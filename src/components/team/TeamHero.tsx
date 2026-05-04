@@ -1,6 +1,6 @@
 import type { Team } from '@/lib/types'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { getLiveTeamDetails } from '@/lib/live-data-service'
 import { getTeamColors } from '@/lib/team-colors'

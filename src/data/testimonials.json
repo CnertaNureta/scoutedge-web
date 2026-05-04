@@ -1,0 +1,53 @@
+{
+  "_TODO": "Replace these placeholder testimonials with real ones from early newsletter subscribers and beta users before launch. Each entry: name (first name + last initial), city/country, quote (1-2 sentences), tier (which Pass they have).",
+  "items": [
+    {
+      "name": "Carlos M.",
+      "location": "Mexico City, MX",
+      "quote": "The team dossiers are the only World Cup content I read that doesn't feel like a press release. Bought Tournament Pass on day one.",
+      "tier": "Tournament"
+    },
+    {
+      "name": "Aisha K.",
+      "location": "Toronto, CA",
+      "quote": "Finally a prediction site that explains its own model instead of asking me to trust it. The morale weighting alone changed how I think about Mexico vs. Argentina.",
+      "tier": "Tournament"
+    },
+    {
+      "name": "Daniela R.",
+      "location": "Buenos Aires, AR",
+      "quote": "I used the host-city travel guides to plan four match-day trips. The Guadalajara breakdown saved my friend's bachelor party.",
+      "tier": "Tournament"
+    },
+    {
+      "name": "Mateo F.",
+      "location": "Madrid, ES",
+      "quote": "Cancelled my Athletic subscription. KickOracle has the same editorial voice plus the data I actually use.",
+      "tier": "Tournament"
+    },
+    {
+      "name": "Ben T.",
+      "location": "Brooklyn, US",
+      "quote": "Our fantasy podcast pulled three weeks of segments straight from the chemistry index. Easy refer to.",
+      "tier": "Scout"
+    },
+    {
+      "name": "Yuki S.",
+      "location": "Osaka, JP",
+      "quote": "Reading in Japanese, the dossier voice survives translation. That's rare.",
+      "tier": "Tournament"
+    },
+    {
+      "name": "Olivia P.",
+      "location": "Sydney, AU",
+      "quote": "Bought the Mexico Team Pass for my dad's birthday. He sends me screenshots every match day. Thanks.",
+      "tier": "Team"
+    },
+    {
+      "name": "Marcus B.",
+      "location": "Berlin, DE",
+      "quote": "Seven match passes in. The 48-hour window forces me to actually read the analysis instead of skimming.",
+      "tier": "Match"
+    }
+  ]
+}

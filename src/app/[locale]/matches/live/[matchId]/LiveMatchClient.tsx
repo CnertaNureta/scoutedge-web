@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { useLocale } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useMatchLive } from '@/hooks/useMatchLive'
 import { usePredictions } from '@/hooks/usePredictions'
 import { useMatchStats } from '@/hooks/useMatchStats'

@@ -12,7 +12,7 @@ import Badge from '@/components/ui/Badge'
 import { BRAND, SURFACE, POSITION_HEX } from '@/lib/brand-tokens'
 import { trackEvent } from '@/lib/analytics'
 import { useEntitlements } from '@/hooks/useEntitlements'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 type Screen = 'select' | 'battle' | 'result' | 'bo5-result'
 

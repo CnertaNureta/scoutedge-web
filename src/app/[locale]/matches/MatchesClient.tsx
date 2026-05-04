@@ -2,7 +2,7 @@
 
 import { useMemo, useState, useCallback, useRef } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import {
   getAllVenues,
   getJetLagTier,

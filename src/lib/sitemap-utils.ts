@@ -20,7 +20,7 @@ interface EntryOpts {
 let cachedEntries: MetadataRoute.Sitemap | null = null
 
 function localizedUrl(locale: string, path: string): string {
-  return locale === 'en' ? `${SITE_BASE_URL}${path}` : `${SITE_BASE_URL}/${locale}${path}`
+  return `${SITE_BASE_URL}/${locale}${path}`
 }
 
 function localizedAlternates(path: string): Record<string, string> {
@@ -55,6 +55,11 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
 
   cachedEntries = [
     ...localizedEntries('', { changeFrequency: 'daily', priority: 1.0 }),
+    ...localizedEntries('/about', { changeFrequency: 'monthly', priority: 0.7 }),
+    ...localizedEntries('/accuracy', { changeFrequency: 'weekly', priority: 0.85 }),
+    ...localizedEntries('/pricing', { changeFrequency: 'weekly', priority: 0.9 }),
+    ...localizedEntries('/subscribe', { changeFrequency: 'monthly', priority: 0.6 }),
+    ...localizedEntries('/upcoming', { changeFrequency: 'monthly', priority: 0.55 }),
     ...localizedEntries('/teams', { changeFrequency: 'daily', priority: 0.95 }),
     ...localizedEntries('/matches', { changeFrequency: 'daily', priority: 0.9 }),
     ...localizedEntries('/predictions', { changeFrequency: 'daily', priority: 0.95 }),
@@ -105,6 +110,22 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
     ),
     ...cities.flatMap((city) =>
       localizedEntries(`/cities/${city.slug}`, { changeFrequency: 'weekly', priority: 0.8 })
+    ),
+    ...cities.flatMap((city) =>
+      [
+        '/costs',
+        '/food',
+        '/hotels',
+        '/schedule',
+        '/stadium',
+        '/tickets',
+        '/transport',
+      ].flatMap((sub) =>
+        localizedEntries(`/cities/${city.slug}${sub}`, {
+          changeFrequency: 'weekly',
+          priority: 0.7,
+        })
+      )
     ),
     ...teams.flatMap((team) =>
       getPlayersByTeam(team.slug).flatMap((p) =>
