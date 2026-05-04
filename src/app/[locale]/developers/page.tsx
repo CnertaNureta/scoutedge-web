@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
+import { OG_LOCALES } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -16,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: t('heroTitle1') + ' ' + t('heroTitle2'),
       description: t('heroDescription'),
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
   }
 }

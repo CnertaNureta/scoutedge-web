@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
+import { buildOGMeta } from '@/lib/og-utils'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
@@ -12,32 +13,30 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
 interface PageProps {
-  params: Promise<{ slug: string; playerSlug: string }>
+  params: Promise<{ slug: string; playerSlug: string; locale: string }>
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug, playerSlug } = await params
+  const { slug, playerSlug, locale } = await params
   const team = getTeamBySlug(slug)
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) return { title: 'Player Not Found' }
-  const canonicalPlayerPath = `/teams/${slug}/players/${player.slug}`
+
+  const url = `https://kickoracle.com/teams/${slug}/players/${player.slug}`
 
   return {
     title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
     description: `${player.name} World Cup 2026 scouting report. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} caps, ${player.goals} goals, rating ${player.rating}/10. AI-powered fitness and performance analysis.`,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
-    openGraph: {
+    alternates: { canonical: url },
+    ...buildOGMeta({
       title: `${player.name} — World Cup 2026 | KickOracle`,
       description: `AI-powered intelligence report for ${player.name}. ${team.name} · ${player.position} · ${player.club}.`,
-      images: [{ url: getPlayerActionImage(player.name), width: 1200, height: 630 }],
+      url,
+      locale,
       type: 'profile',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${player.name} — World Cup 2026 | KickOracle`,
-      description: `${player.position} · ${team.name} · Rating: ${player.rating}/10`,
-    },
-    alternates: { canonical: `https://kickoracle.com${canonicalPlayerPath}` },
+      image: getPlayerActionImage(player.name),
+    }),
   }
 }
 
