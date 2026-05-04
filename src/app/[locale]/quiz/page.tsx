@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { breadcrumbJsonLd, buildOGMeta } from '@/lib/og-utils'
+import { breadcrumbJsonLd, buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import QuizWithGate from '@/components/quiz/QuizWithGate'
 

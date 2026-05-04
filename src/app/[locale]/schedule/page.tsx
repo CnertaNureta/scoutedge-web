@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import ScheduleClient from './ScheduleClient'
