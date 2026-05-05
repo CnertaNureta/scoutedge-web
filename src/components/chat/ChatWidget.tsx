@@ -1,9 +1,21 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { generateAnswer, getSuggestions, type ChatMessage } from '@/lib/chat-engine'
+import type { ChatMessage } from '@/lib/chat-engine'
 import { trackEvent } from '@/lib/analytics'
 import { useTranslations } from 'next-intl'
+
+// chat-engine.ts statically imports TEAMS + PLAYERS + MATCH_FIXTURES (~2 MB
+// of JSON-as-JS). Loading it on mount blocked the main thread on every page.
+// Defer it until the user actually opens the chat panel.
+type ChatEngine = typeof import('@/lib/chat-engine')
+let chatEnginePromise: Promise<ChatEngine> | null = null
+function loadChatEngine(): Promise<ChatEngine> {
+  if (!chatEnginePromise) {
+    chatEnginePromise = import('@/lib/chat-engine')
+  }
+  return chatEnginePromise
+}
 
 function MessageBubble({ message }: { message: ChatMessage }) {
   const isUser = message.role === 'user'
@@ -60,9 +72,24 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const [suggestions, setSuggestions] = useState<string[]>([])
+  const engineRef = useRef<ChatEngine | null>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const t = useTranslations('chat')
+
+  useEffect(() => {
+    if (!isOpen || engineRef.current) return
+    let cancelled = false
+    loadChatEngine().then((mod) => {
+      if (cancelled) return
+      engineRef.current = mod
+      setSuggestions(mod.getSuggestions())
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [isOpen])
 
   const scrollToBottom = useCallback(() => {
     if (scrollRef.current) {
@@ -116,8 +143,10 @@ export default function ChatWidget() {
       setIsTyping(true)
 
       // Simulate brief thinking delay
-      setTimeout(() => {
-        const answer = generateAnswer(msg)
+      const respond = async () => {
+        const engine = engineRef.current ?? (await loadChatEngine())
+        engineRef.current = engine
+        const answer = engine.generateAnswer(msg)
         const assistantMessage: ChatMessage = {
           id: `assistant-${Date.now()}`,
           role: 'assistant',
@@ -126,12 +155,13 @@ export default function ChatWidget() {
         }
         setMessages((prev) => [...prev, assistantMessage])
         setIsTyping(false)
+      }
+      setTimeout(() => {
+        void respond()
       }, 400 + Math.random() * 400)
     },
     [input]
   )
-
-  const suggestions = getSuggestions()
 
   return (
     <>
