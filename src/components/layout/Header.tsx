@@ -4,43 +4,8 @@ import AuthButton from './AuthButton'
 import SearchButton from './SearchButton'
 import MobileMenu from './MobileMenu'
 import LanguageSwitcher from './LanguageSwitcher'
+import NavDropdown from './NavDropdown'
 import KickOracleLogo from '../ui/ScoutEdgeLogo'
-
-interface DropdownItem {
-  label: string
-  href: string
-}
-
-function NavDropdown({ label, items }: { label: string; items: DropdownItem[] }) {
-  return (
-    <div className="relative group">
-      <button
-        className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        {label}
-        <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
-      </button>
-      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" role="menu">
-        <div className="glass-panel rounded-xl border border-white/[0.08] shadow-2xl py-2 min-w-[200px]">
-          {items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="block px-5 py-2.5 font-label text-sm text-on-surface-variant hover:text-primary hover:bg-white/[0.04] transition-colors"
-              role="menuitem"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function Header() {
   const t = useTranslations('nav')
