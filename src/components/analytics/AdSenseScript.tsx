@@ -5,7 +5,7 @@ export function AdSenseScript() {
   return (
     <Script
       id="adsense-script"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_PUBLISHER_ID}`}
       crossOrigin="anonymous"
     />

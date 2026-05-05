@@ -2,17 +2,21 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import SearchModal from './SearchModal'
+import dynamic from 'next/dynamic'
+
+const SearchModal = dynamic(() => import('./SearchModal'), { ssr: false })
 
 export default function SearchButton() {
   const t = useTranslations('search')
   const [open, setOpen] = useState(false)
+  const [hasOpened, setHasOpened] = useState(false)
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
         setOpen((v) => !v)
+        setHasOpened(true)
       }
     }
     window.addEventListener('keydown', handler)
@@ -22,7 +26,10 @@ export default function SearchButton() {
   return (
     <>
       <button
-        onClick={() => setOpen(true)}
+        onClick={() => {
+          setOpen(true)
+          setHasOpened(true)
+        }}
         aria-label={t('buttonPlaceholder')}
         className="hidden md:flex bg-surface-container-high hover:bg-surface-container-highest rounded-full px-4 py-2 items-center gap-2 transition-colors cursor-pointer"
       >
@@ -32,7 +39,7 @@ export default function SearchButton() {
         <span className="text-sm text-on-surface-variant">{t('buttonPlaceholder')}</span>
         <kbd className="text-[11px] font-mono text-on-surface-variant/40 ml-2">&#8984;K</kbd>
       </button>
-      <SearchModal open={open} onClose={() => setOpen(false)} />
+      {hasOpened ? <SearchModal open={open} onClose={() => setOpen(false)} /> : null}
     </>
   )
 }

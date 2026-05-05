@@ -5,7 +5,6 @@ import type { CoachProfile } from '@/data/coaches-data'
 import type { FAQEntry, TeamFAQ } from '@/data/faq-schema'
 import type { PlayerSocialProfile } from '@/data/player-social'
 import type { PageSEOMeta } from '@/data/seo-meta'
-import { mergePlayerWithIntel } from '@/lib/player-intel-service'
 import { getSupabaseAdmin } from '@/lib/supabase-server'
 import type { MatchFixture, MarketIntelData, Player, Team, WorldCupHistory } from '@/lib/types'
 
@@ -752,6 +751,33 @@ function generateDailySignals(teams: Team[], players: Player[]): DailyBriefingSi
   return signals.sort((a, b) => impactOrder[a.impact] - impactOrder[b.impact])
 }
 
+const getTeamsOnlySnapshot = cache(async (): Promise<{
+  teams: Team[]
+  source: CorePageSource
+}> => {
+  const teamsModule = await import('@/data/teams-meta')
+  let teams = teamsModule.TEAMS
+  let source: CorePageSource = 'static'
+
+  const supabaseTeams = await readSupabaseTable([
+    'team_profiles_current',
+    'teams',
+    'team_profiles',
+  ])
+
+  if (supabaseTeams) {
+    teams = mergeBySlug(
+      teams,
+      supabaseTeams
+        .map(normalizeTeamOverride)
+        .filter((item): item is TeamOverride => item !== null)
+    )
+    source = 'supabase'
+  }
+
+  return { teams, source }
+})
+
 const getCoreSiteSnapshot = cache(async (): Promise<CoreSiteSnapshot> => {
   const [
     teamsModule,
@@ -763,6 +789,7 @@ const getCoreSiteSnapshot = cache(async (): Promise<CoreSiteSnapshot> => {
     historyModule,
     socialModule,
     liveCacheModule,
+    playerIntelModule,
   ] = await Promise.all([
     import('@/data/teams-meta'),
     import('@/data/players-data'),
@@ -773,10 +800,11 @@ const getCoreSiteSnapshot = cache(async (): Promise<CoreSiteSnapshot> => {
     import('@/data/world-cup-history.json'),
     import('@/data/player-social'),
     import('@/data/live-cache.json'),
+    import('@/lib/player-intel-service'),
   ])
 
   let teams = teamsModule.TEAMS
-  let players = playersModule.PLAYERS.map(mergePlayerWithIntel)
+  let players = playersModule.PLAYERS.map(playerIntelModule.mergePlayerWithIntel)
   let fixtures = fixturesModule.MATCH_FIXTURES
   let teamFaqs = faqModule.TEAM_FAQS
   let teamSeoMeta = seoModule.TEAM_SEO_META
@@ -895,15 +923,15 @@ export async function getAllTeamsForRouting(): Promise<Team[]> {
 }
 
 export async function getHomePageData(): Promise<HomePageData> {
-  const snapshot = await getCoreSiteSnapshot()
-  const topTeams = snapshot.teams
+  const { teams, source } = await getTeamsOnlySnapshot()
+  const topTeams = teams
     .filter((team) => team.fifaRanking <= 10)
     .slice(0, 6)
 
   return {
-    teams: snapshot.teams,
+    teams,
     topTeams,
-    sources: snapshot.sources,
+    sources: { ...DEFAULT_SOURCES, teams: source },
   }
 }
 
