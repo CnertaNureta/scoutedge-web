@@ -9,11 +9,12 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
+import RenderProfiler from '@/components/debug/RenderProfiler'
 import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
     },
     other: {
-      'google-adsense-account': ADSENSE_PUBLISHER_ID,
+      ...(ADSENSE_ENABLED ? { 'google-adsense-account': ADSENSE_PUBLISHER_ID } : {}),
       'mobile-web-app-capable': 'yes',
       'msapplication-TileColor': SURFACE.background,
       'msapplication-TileImage': '/icons/icon-192.png',
@@ -112,21 +113,23 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
       <NextIntlClientProvider messages={messages}>
-        <Providers>
-          <div dir={config?.dir ?? 'ltr'} lang={locale}>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
-            >
-              {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
-            </a>
-            <CountdownStrip />
-            <Header />
-            <main id="main-content" className="flex-1">{children}</main>
-            <Footer />
-            <ClientRuntimeWidgets />
-          </div>
-        </Providers>
+        <RenderProfiler>
+          <Providers>
+            <div dir={config?.dir ?? 'ltr'} lang={locale}>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
+              >
+                {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
+              </a>
+              <CountdownStrip />
+              <Header />
+              <main id="main-content" className="flex-1">{children}</main>
+              <Footer />
+              <ClientRuntimeWidgets />
+            </div>
+          </Providers>
+        </RenderProfiler>
       </NextIntlClientProvider>
     </>
   )

@@ -1,7 +1,8 @@
 import Script from 'next/script'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 export function AdSenseScript() {
+  if (!ADSENSE_ENABLED) return null
   return (
     <Script
       id="adsense-script"

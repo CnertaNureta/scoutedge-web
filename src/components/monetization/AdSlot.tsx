@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 type AdFormat = 'leaderboard' | 'sidebar' | 'in-feed' | 'sticky-footer'
 
@@ -23,6 +23,7 @@ export default function AdSlot({ format, className = '' }: AdSlotProps) {
   const config = AD_CONFIG[format]
 
   useEffect(() => {
+    if (!ADSENSE_ENABLED) return
     if (pushed.current || !adRef.current) return
     try {
       const adsbygoogle = (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || []
@@ -32,6 +33,8 @@ export default function AdSlot({ format, className = '' }: AdSlotProps) {
       // AdSense not loaded yet or blocked by adblocker
     }
   }, [])
+
+  if (!ADSENSE_ENABLED) return null
 
   return (
     <div
