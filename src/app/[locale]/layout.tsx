@@ -9,6 +9,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
+import RenderProfiler from '@/components/debug/RenderProfiler'
 import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
@@ -112,21 +113,23 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
       <NextIntlClientProvider messages={messages}>
-        <Providers>
-          <div dir={config?.dir ?? 'ltr'} lang={locale}>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
-            >
-              {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
-            </a>
-            <CountdownStrip />
-            <Header />
-            <main id="main-content" className="flex-1">{children}</main>
-            <Footer />
-            <ClientRuntimeWidgets />
-          </div>
-        </Providers>
+        <RenderProfiler>
+          <Providers>
+            <div dir={config?.dir ?? 'ltr'} lang={locale}>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
+              >
+                {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
+              </a>
+              <CountdownStrip />
+              <Header />
+              <main id="main-content" className="flex-1">{children}</main>
+              <Footer />
+              <ClientRuntimeWidgets />
+            </div>
+          </Providers>
+        </RenderProfiler>
       </NextIntlClientProvider>
     </>
   )
