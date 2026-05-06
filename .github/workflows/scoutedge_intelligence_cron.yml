@@ -1,0 +1,129 @@
+name: scoutedge-intelligence cron
+
+on:
+  schedule:
+    # poly_snapshot: top of every hour
+    - cron: '0 * * * *'
+    # run_attribution: every 30 minutes
+    - cron: '*/30 * * * *'
+    # precompute_predictions: every 6 hours
+    - cron: '0 */6 * * *'
+    # weekly_report: Sunday 23:00 UTC
+    - cron: '0 23 * * 0'
+  workflow_dispatch: {}
+
+defaults:
+  run:
+    working-directory: scoutedge_intelligence
+
+env:
+  DATABASE_URL: ${{ secrets.DATABASE_URL }}
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+  API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Hourly: Polymarket snapshot
+  # ---------------------------------------------------------------------------
+  poly_snapshot:
+    name: Poly Snapshot (hourly)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.schedule, '0 *')
+    concurrency:
+      group: poly_snapshot
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run poly_snapshot
+        run: python -m scoutedge_intelligence.scripts.poly_snapshot
+
+  # ---------------------------------------------------------------------------
+  # Every 30 min: Attribution
+  # ---------------------------------------------------------------------------
+  attribution:
+    name: Run Attribution (every 30 min)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.schedule, '*/30')
+    concurrency:
+      group: run_attribution
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run run_attribution
+        run: python -m scoutedge_intelligence.scripts.run_attribution
+
+  # ---------------------------------------------------------------------------
+  # Every 6 hours: Precompute predictions
+  # ---------------------------------------------------------------------------
+  precompute:
+    name: Precompute Predictions (every 6 h)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.schedule, '0 */6')
+    concurrency:
+      group: precompute_predictions
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run precompute_predictions
+        run: python -m scoutedge_intelligence.scripts.precompute_predictions
+
+  # ---------------------------------------------------------------------------
+  # Weekly Sunday 23:00 UTC: Weekly report
+  # ---------------------------------------------------------------------------
+  weekly_report:
+    name: Weekly Report (Sun 23:00 UTC)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 23 * * 0'
+    concurrency:
+      group: weekly_report
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Run weekly_report
+        run: >
+          python -m scoutedge_intelligence.scripts.weekly_report
+          --output-dir artifacts/weekly
+          --webhook-url ${{ secrets.SCOUTEDGE_WEEKLY_WEBHOOK }}
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Upload weekly report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-report-${{ github.run_id }}
+          path: scoutedge_intelligence/artifacts/weekly/*.md
+          retention-days: 90
