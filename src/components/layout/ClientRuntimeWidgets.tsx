@@ -36,12 +36,15 @@ function useIdleMount(): boolean {
 
 export default function ClientRuntimeWidgets() {
   const ready = useIdleMount()
-  if (!ready) return null
   return (
     <>
-      <ChatWidget />
-      <UpsellBanner />
       <InstallBanner />
+      {ready ? (
+        <>
+          <ChatWidget />
+          <UpsellBanner />
+        </>
+      ) : null}
     </>
   )
 }

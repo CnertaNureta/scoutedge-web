@@ -14,7 +14,7 @@ import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
-import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
     },
     other: {
-      ...(ADSENSE_ENABLED ? { 'google-adsense-account': ADSENSE_PUBLISHER_ID } : {}),
+      'google-adsense-account': ADSENSE_PUBLISHER_ID,
       'mobile-web-app-capable': 'yes',
       'msapplication-TileColor': SURFACE.background,
       'msapplication-TileImage': '/icons/icon-192.png',

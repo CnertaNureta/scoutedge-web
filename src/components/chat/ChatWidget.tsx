@@ -144,17 +144,28 @@ export default function ChatWidget() {
 
       // Simulate brief thinking delay
       const respond = async () => {
-        const engine = engineRef.current ?? (await loadChatEngine())
-        engineRef.current = engine
-        const answer = engine.generateAnswer(msg)
-        const assistantMessage: ChatMessage = {
-          id: `assistant-${Date.now()}`,
-          role: 'assistant',
-          content: answer,
-          timestamp: Date.now(),
+        try {
+          const engine = engineRef.current ?? (await loadChatEngine())
+          engineRef.current = engine
+          const answer = engine.generateAnswer(msg)
+          const assistantMessage: ChatMessage = {
+            id: `assistant-${Date.now()}`,
+            role: 'assistant',
+            content: answer,
+            timestamp: Date.now(),
+          }
+          setMessages((prev) => [...prev, assistantMessage])
+        } catch {
+          const fallbackMessage: ChatMessage = {
+            id: `assistant-${Date.now()}`,
+            role: 'assistant',
+            content: 'I could not load the chat engine just now. Please try again.',
+            timestamp: Date.now(),
+          }
+          setMessages((prev) => [...prev, fallbackMessage])
+        } finally {
+          setIsTyping(false)
         }
-        setMessages((prev) => [...prev, assistantMessage])
-        setIsTyping(false)
       }
       setTimeout(() => {
         void respond()
