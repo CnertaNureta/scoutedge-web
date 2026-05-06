@@ -90,7 +90,7 @@ class _ExhaustingSource:
 
 def _happy_prediction() -> PredictionSchema:
     return PredictionSchema.model_construct(
-        id=1,
+        id="00000000-0000-0000-0000-000000000001",
         match_id="match-ft",
         blended_home_win_prob=0.5,
         blended_draw_prob=0.25,

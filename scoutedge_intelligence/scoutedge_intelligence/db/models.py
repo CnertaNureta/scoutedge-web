@@ -2,8 +2,8 @@
 SQLAlchemy 2.x ORM models + Pydantic v2 schemas for ScoutEdge WC2026.
 
 Column types note:
-  - UUID columns: stored as String(36) for SQLite test-compat.
-    On PostgreSQL the migration creates actual UUID columns.
+  - UUID columns use SQLAlchemy's backend-aware Uuid type with string values.
+    On PostgreSQL this binds native UUID params; on SQLite it falls back safely.
   - JSONB columns: stored as JSON for SQLite test-compat.
     On PostgreSQL asyncpg maps JSONB natively.
   Comment on each such column references the true PG type.
@@ -25,6 +25,7 @@ from sqlalchemy import (
     Numeric,
     String,
     Text,
+    Uuid,
     func,
     text,
 )
@@ -50,7 +51,7 @@ class Team(Base):
     __tablename__ = "teams"
 
     # Primary key — PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     name: Mapped[str | None] = mapped_column(Text, nullable=True)
     # WC2026 columns (migration 100001)
     fifa_code: Mapped[str | None] = mapped_column(String(3), nullable=True)
@@ -71,10 +72,10 @@ class Match(Base):
     __tablename__ = "matches"
 
     # Primary key — PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # Pre-existing columns expected by query helpers
-    home_team_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
-    away_team_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    home_team_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
+    away_team_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
     kickoff_utc: Mapped[datetime.datetime | None] = mapped_column(
         DateTime(timezone=True), nullable=True
     )
@@ -99,11 +100,11 @@ class Player(Base):
     __tablename__ = "players"
 
     # Primary key — PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # Pre-existing columns
     name: Mapped[str | None] = mapped_column(Text, nullable=True)
     # PG: UUID FK
-    team_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    team_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
     # WC2026 scouting columns (migration 100001)
     market_value_eur: Mapped[int | None] = mapped_column(BigInteger, nullable=True)
     injury_risk_score: Mapped[float | None] = mapped_column(Numeric(4, 2), nullable=True)
@@ -119,9 +120,9 @@ class EloRating(Base):
     __tablename__ = "elo_ratings"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → teams.id
-    team_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    team_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     elo: Mapped[float] = mapped_column(Numeric(8, 2), nullable=False)
     attack_elo: Mapped[float | None] = mapped_column(Numeric(8, 2), nullable=True)
     defense_elo: Mapped[float | None] = mapped_column(Numeric(8, 2), nullable=True)
@@ -139,11 +140,11 @@ class EloHistory(Base):
     __tablename__ = "elo_history"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → teams.id
-    team_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    team_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → matches.id (nullable)
-    match_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    match_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
     elo_before: Mapped[float] = mapped_column(Numeric(8, 2), nullable=False)
     elo_after: Mapped[float] = mapped_column(Numeric(8, 2), nullable=False)
     # delta is a generated column in PG; omit from ORM writes
@@ -158,9 +159,9 @@ class Prediction(Base):
     __tablename__ = "predictions"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    match_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
 
     # Existing core prediction columns from 20260331000000_create_core_football_schema.sql
     prediction_type: Mapped[str] = mapped_column(Text, nullable=False, default="match_outcome")
@@ -257,11 +258,11 @@ class PredictionAudit(Base):
     __tablename__ = "prediction_audits"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → predictions.id
-    prediction_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    prediction_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    match_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: JSONB snapshots
     ml_snapshot: Mapped[Any | None] = mapped_column(JSON, nullable=True, default=dict)
     sb_snapshot: Mapped[Any | None] = mapped_column(JSON, nullable=True, default=dict)
@@ -282,9 +283,9 @@ class PolymarketSnapshot(Base):
     __tablename__ = "polymarket_snapshots"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    match_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     market_slug: Mapped[str] = mapped_column(Text, nullable=False)
     market_id: Mapped[str | None] = mapped_column(Text, nullable=True)
     home_win_prob: Mapped[float | None] = mapped_column(Numeric(6, 5), nullable=True)
@@ -304,11 +305,11 @@ class UserPrediction(Base):
     __tablename__ = "user_predictions"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → auth.users.id
-    user_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    user_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    match_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
 
     # Pre-match picks
     pick_outcome: Mapped[str] = mapped_column(Text, nullable=False)
@@ -359,11 +360,11 @@ class BracketFork(Base):
     __tablename__ = "bracket_forks"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → auth.users.id
-    user_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    user_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → bracket_forks.id (self-ref, nullable)
-    parent_fork_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    parent_fork_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
 
     title: Mapped[str] = mapped_column(Text, nullable=False, default="My Bracket")
     description: Mapped[str | None] = mapped_column(Text, nullable=True)
@@ -396,13 +397,13 @@ class DivergenceDiagnosisDisplayed(Base):
     __tablename__ = "divergence_diagnoses_displayed"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → auth.users.id
-    user_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    user_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+    match_id: Mapped[str] = mapped_column(Uuid(as_uuid=False), nullable=False)
     # PG: UUID FK → predictions.id (nullable)
-    prediction_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    prediction_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
 
     divergence_type: Mapped[str] = mapped_column(Text, nullable=False, default="ml_vs_poly")
     divergence_score: Mapped[float | None] = mapped_column(Numeric(6, 4), nullable=True)
@@ -423,9 +424,9 @@ class ABAudit(Base):
     __tablename__ = "ab_audits"
 
     # PG: UUID
-    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    id: Mapped[str] = mapped_column(Uuid(as_uuid=False), primary_key=True)
     # PG: UUID FK → auth.users.id (nullable)
-    user_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    user_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
     session_id: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     experiment_id: Mapped[str] = mapped_column(Text, nullable=False)
@@ -437,9 +438,9 @@ class ABAudit(Base):
     surface: Mapped[str | None] = mapped_column(Text, nullable=True)
 
     # PG: UUID FK → matches.id (nullable)
-    match_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    match_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
     # PG: UUID FK → predictions.id (nullable)
-    prediction_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
+    prediction_id: Mapped[str | None] = mapped_column(Uuid(as_uuid=False), nullable=True)
 
     primary_metric: Mapped[str | None] = mapped_column(Text, nullable=True)
     primary_metric_value: Mapped[float | None] = mapped_column(Numeric(10, 4), nullable=True)

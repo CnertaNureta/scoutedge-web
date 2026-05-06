@@ -94,7 +94,7 @@ def _stub_full_prediction(match_id: str = MATCH_ID, language: str | None = None)
 def _stub_cached_prediction(match_id: str = MATCH_ID) -> PredictionSchema:
     """Return a PredictionSchema row as if fetched from get_latest_prediction."""
     return PredictionSchema(
-        id=1,
+        id="00000000-0000-0000-0000-000000000001",
         match_id=match_id,
         created_at=datetime.datetime(2026, 6, 14, 10, 0, tzinfo=datetime.UTC),
         blended_home_win_prob=0.50,

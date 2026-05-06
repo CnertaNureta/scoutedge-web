@@ -68,7 +68,7 @@ def _make_prediction(
     poly_away = 0.25 if with_poly else None
 
     return PredictionSchema(
-        id=42,
+        id="00000000-0000-0000-0000-000000000042",
         match_id=match_id,
         created_at=datetime(2026, 6, 15, 12, 0, tzinfo=UTC),
         # ML

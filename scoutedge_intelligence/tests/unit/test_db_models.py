@@ -13,6 +13,7 @@ from typing import Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
+from sqlalchemy import Uuid
 
 from scoutedge_intelligence.db.models import (
     ABAudit,
@@ -101,6 +102,22 @@ def test_prediction_core_columns_have_safe_defaults() -> None:
         assert table.c[column_name].server_default is not None
 
     assert table.c.updated_at.onupdate is not None
+
+
+def test_uuid_columns_use_backend_aware_uuid_type() -> None:
+    """UUID FK comparisons must bind as UUID on PostgreSQL, not varchar."""
+    for column in (
+        Team.__table__.c.id,
+        Match.__table__.c.id,
+        Match.__table__.c.home_team_id,
+        Prediction.__table__.c.id,
+        Prediction.__table__.c.match_id,
+        PredictionAudit.__table__.c.prediction_id,
+        UserPrediction.__table__.c.user_id,
+        BracketFork.__table__.c.parent_fork_id,
+    ):
+        assert isinstance(column.type, Uuid)
+        assert column.type.as_uuid is False
 
 
 # ===========================================================================

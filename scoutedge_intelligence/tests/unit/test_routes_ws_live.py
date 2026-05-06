@@ -113,7 +113,7 @@ def _build_app(
 def happy_prediction() -> PredictionSchema:
     """A well-formed prediction with balanced probabilities."""
     return PredictionSchema.model_construct(
-        id=1,
+        id="00000000-0000-0000-0000-000000000001",
         match_id="match-001",
         blended_home_win_prob=0.5,
         blended_draw_prob=0.25,
@@ -359,7 +359,7 @@ def test_probs_to_lambdas_clamped() -> None:
 def test_build_updater_none_probs_fallback() -> None:
     """``_build_updater`` must not raise when blended prob fields are ``None``."""
     pred = PredictionSchema.model_construct(
-        id=99,
+        id="00000000-0000-0000-0000-000000000099",
         match_id="match-xxx",
         blended_home_win_prob=None,
         blended_draw_prob=None,
