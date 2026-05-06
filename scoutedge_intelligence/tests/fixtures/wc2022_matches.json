@@ -1,0 +1,275 @@
+{
+  "description": "Real WC2022 fixtures (group standouts + R16 + QF + SF + final). Used by P9.3 real-data E2E integration test.",
+  "matches": [
+    {
+      "match_id": "wc2022-grp-arg-sau",
+      "stage": "group",
+      "kickoff": "2022-11-22",
+      "home_team": "Argentina",
+      "away_team": "Saudi Arabia",
+      "home_score": 1,
+      "away_score": 2,
+      "actual_outcome": "away_win"
+    },
+    {
+      "match_id": "wc2022-grp-fra-aus",
+      "stage": "group",
+      "kickoff": "2022-11-22",
+      "home_team": "France",
+      "away_team": "Australia",
+      "home_score": 4,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-eng-irn",
+      "stage": "group",
+      "kickoff": "2022-11-21",
+      "home_team": "England",
+      "away_team": "Iran",
+      "home_score": 6,
+      "away_score": 2,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-spa-crc",
+      "stage": "group",
+      "kickoff": "2022-11-23",
+      "home_team": "Spain",
+      "away_team": "Costa Rica",
+      "home_score": 7,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-ger-jpn",
+      "stage": "group",
+      "kickoff": "2022-11-23",
+      "home_team": "Germany",
+      "away_team": "Japan",
+      "home_score": 1,
+      "away_score": 2,
+      "actual_outcome": "away_win"
+    },
+    {
+      "match_id": "wc2022-grp-bra-srb",
+      "stage": "group",
+      "kickoff": "2022-11-24",
+      "home_team": "Brazil",
+      "away_team": "Senegal",
+      "home_score": 2,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-por-gha",
+      "stage": "group",
+      "kickoff": "2022-11-24",
+      "home_team": "Portugal",
+      "away_team": "South Korea",
+      "home_score": 3,
+      "away_score": 2,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-bel-can",
+      "stage": "group",
+      "kickoff": "2022-11-23",
+      "home_team": "Belgium",
+      "away_team": "Morocco",
+      "home_score": 0,
+      "away_score": 2,
+      "actual_outcome": "away_win"
+    },
+    {
+      "match_id": "wc2022-grp-ned-ecu",
+      "stage": "group",
+      "kickoff": "2022-11-25",
+      "home_team": "Netherlands",
+      "away_team": "USA",
+      "home_score": 3,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-swi-srb",
+      "stage": "group",
+      "kickoff": "2022-12-02",
+      "home_team": "Switzerland",
+      "away_team": "Senegal",
+      "home_score": 3,
+      "away_score": 2,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-grp-cro-bel",
+      "stage": "group",
+      "kickoff": "2022-12-01",
+      "home_team": "Croatia",
+      "away_team": "Belgium",
+      "home_score": 0,
+      "away_score": 0,
+      "actual_outcome": "draw"
+    },
+    {
+      "match_id": "wc2022-grp-arg-mex",
+      "stage": "group",
+      "kickoff": "2022-11-26",
+      "home_team": "Argentina",
+      "away_team": "Croatia",
+      "home_score": 2,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-ned-usa",
+      "stage": "r16",
+      "kickoff": "2022-12-03",
+      "home_team": "Netherlands",
+      "away_team": "USA",
+      "home_score": 3,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-arg-aus",
+      "stage": "r16",
+      "kickoff": "2022-12-03",
+      "home_team": "Argentina",
+      "away_team": "Australia",
+      "home_score": 2,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-fra-pol",
+      "stage": "r16",
+      "kickoff": "2022-12-04",
+      "home_team": "France",
+      "away_team": "Senegal",
+      "home_score": 3,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-eng-sen",
+      "stage": "r16",
+      "kickoff": "2022-12-04",
+      "home_team": "England",
+      "away_team": "Senegal",
+      "home_score": 3,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-jpn-cro",
+      "stage": "r16",
+      "kickoff": "2022-12-05",
+      "home_team": "Japan",
+      "away_team": "Croatia",
+      "home_score": 1,
+      "away_score": 1,
+      "actual_outcome": "draw"
+    },
+    {
+      "match_id": "wc2022-r16-bra-kor",
+      "stage": "r16",
+      "kickoff": "2022-12-05",
+      "home_team": "Brazil",
+      "away_team": "South Korea",
+      "home_score": 4,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-r16-mar-spa",
+      "stage": "r16",
+      "kickoff": "2022-12-06",
+      "home_team": "Morocco",
+      "away_team": "Spain",
+      "home_score": 0,
+      "away_score": 0,
+      "actual_outcome": "draw"
+    },
+    {
+      "match_id": "wc2022-r16-por-swi",
+      "stage": "r16",
+      "kickoff": "2022-12-06",
+      "home_team": "Portugal",
+      "away_team": "Switzerland",
+      "home_score": 6,
+      "away_score": 1,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-qf-cro-bra",
+      "stage": "qf",
+      "kickoff": "2022-12-09",
+      "home_team": "Croatia",
+      "away_team": "Brazil",
+      "home_score": 1,
+      "away_score": 1,
+      "actual_outcome": "draw"
+    },
+    {
+      "match_id": "wc2022-qf-ned-arg",
+      "stage": "qf",
+      "kickoff": "2022-12-09",
+      "home_team": "Netherlands",
+      "away_team": "Argentina",
+      "home_score": 2,
+      "away_score": 2,
+      "actual_outcome": "draw"
+    },
+    {
+      "match_id": "wc2022-qf-mar-por",
+      "stage": "qf",
+      "kickoff": "2022-12-10",
+      "home_team": "Morocco",
+      "away_team": "Portugal",
+      "home_score": 1,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-qf-eng-fra",
+      "stage": "qf",
+      "kickoff": "2022-12-10",
+      "home_team": "England",
+      "away_team": "France",
+      "home_score": 1,
+      "away_score": 2,
+      "actual_outcome": "away_win"
+    },
+    {
+      "match_id": "wc2022-sf-arg-cro",
+      "stage": "sf",
+      "kickoff": "2022-12-13",
+      "home_team": "Argentina",
+      "away_team": "Croatia",
+      "home_score": 3,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-sf-fra-mar",
+      "stage": "sf",
+      "kickoff": "2022-12-14",
+      "home_team": "France",
+      "away_team": "Morocco",
+      "home_score": 2,
+      "away_score": 0,
+      "actual_outcome": "home_win"
+    },
+    {
+      "match_id": "wc2022-final-arg-fra",
+      "stage": "final",
+      "kickoff": "2022-12-18",
+      "home_team": "Argentina",
+      "away_team": "France",
+      "home_score": 3,
+      "away_score": 3,
+      "actual_outcome": "draw"
+    }
+  ]
+}
