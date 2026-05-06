@@ -313,6 +313,17 @@ def _map_full_prediction(
         id=None,
         match_id=inputs.match_id,
         created_at=datetime.now(UTC),
+        generated_at=datetime.now(UTC),
+        home_win_prob=blended_home,
+        draw_prob=blended_draw,
+        away_win_prob=blended_away,
+        predicted_home_goals=None,
+        predicted_away_goals=None,
+        recommended_pick=None,
+        rationale_summary=claude_narrative,
+        source="scoutedge",
+        model_version="triple-layer-v1",
+        facts_used=[],
         # ML layer
         ml_home_win_prob=ml.get("home_win"),
         ml_draw_prob=ml.get("draw"),
@@ -379,7 +390,7 @@ async def precompute_one(
 
     Returns:
         Dict with keys: ``match_id``, ``ok`` (bool), ``error`` (str | None),
-        ``prediction_id`` (int | None).  Never raises.
+        ``prediction_id`` (str | None).  Never raises.
     """
     log = logger.bind(match_id=match.id)
     try:
@@ -387,7 +398,7 @@ async def precompute_one(
         prediction: FullPrediction = await engine.predict_match(inputs)
         schema = _map_full_prediction(prediction, inputs)
 
-        prediction_id: int | None = None
+        prediction_id: str | None = None
         if not dry_run:
             prediction_id = await queries.insert_prediction(session, schema)
             log.info(
@@ -457,13 +468,18 @@ async def run(
             total = len(matches)
             logger.info("precompute.starting", total=total, dry_run=args.dry_run)
 
-            sem = asyncio.Semaphore(args.concurrency)
+        sem = asyncio.Semaphore(args.concurrency)
 
-            async def _bounded(match: MatchSchema) -> dict[str, Any]:
-                async with sem:
-                    return await precompute_one(engine, session, match, dry_run=args.dry_run)
+        async def _bounded(match: MatchSchema) -> dict[str, Any]:
+            async with sem, session_factory() as worker_session:
+                return await precompute_one(
+                    engine,
+                    worker_session,
+                    match,
+                    dry_run=args.dry_run,
+                )
 
-            results = await asyncio.gather(*[_bounded(m) for m in matches])
+        results = await asyncio.gather(*[_bounded(m) for m in matches])
 
         ok_count = sum(1 for r in results if r["ok"])
         failed_count = sum(1 for r in results if not r["ok"])

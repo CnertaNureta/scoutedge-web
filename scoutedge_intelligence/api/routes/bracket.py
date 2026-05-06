@@ -12,7 +12,7 @@ in a separate orchestration step (P5.5).
 from __future__ import annotations
 
 import datetime
-import secrets
+import uuid
 from typing import Any
 
 import structlog
@@ -193,11 +193,8 @@ def _build_bracket_from_predictions(rows: list[Any]) -> BracketStages:
 
 
 def _new_fork_id() -> str:
-    """Return a ~8-character URL-safe base64 id using secrets.token_urlsafe.
-
-    ``secrets.token_urlsafe(6)`` encodes 6 random bytes as base64url → 8 chars.
-    """
-    return secrets.token_urlsafe(6)
+    """Return a UUID string compatible with the bracket_forks primary key."""
+    return str(uuid.uuid4())
 
 
 # ---------------------------------------------------------------------------
@@ -224,7 +221,7 @@ async def get_base_bracket(session: DbSession) -> BaseBracketResponse:
         result = await session.execute(
             select(Prediction)
             .where(Prediction.claude_pick.isnot(None))
-            .order_by(Prediction.id.desc())
+            .order_by(Prediction.generated_at.desc(), Prediction.created_at.desc())
             .limit(64)
         )
         rows = result.scalars().all()

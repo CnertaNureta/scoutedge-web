@@ -173,17 +173,13 @@ export function RemixSliders({
     postRemix({ match_id: matchId, overrides })
       .then((res) => {
         if (controller.signal.aborted) return
-        const probs = res.remixed.final_probs as ProbDict
+        const probs = res.final_probs as ProbDict
         setRemixedProbs(probs)
         setError(null)
         onRemix?.({
           final_probs: probs,
-          weights: {
-            ml_weight: debouncedSliders.ml_weight,
-            sb_weight: debouncedSliders.sb_weight,
-            poly_weight: debouncedSliders.poly_weight,
-          },
-          overrides,
+          weights: res.weights_used,
+          overrides: res.overrides_applied,
         })
       })
       .catch((err: unknown) => {

@@ -101,7 +101,7 @@ async def test_get_latest_prediction_returns_none_when_missing() -> None:
 @pytest.mark.asyncio
 async def test_insert_prediction_returns_new_id() -> None:
     result = MagicMock()
-    result.scalar.return_value = 42
+    result.scalar.return_value = "prediction-uuid-001"
     session = MagicMock()
     session.execute = AsyncMock(return_value=result)
     session.commit = AsyncMock()
@@ -109,7 +109,7 @@ async def test_insert_prediction_returns_new_id() -> None:
     payload = PredictionSchema(match_id="m-1")
     new_id = await queries.insert_prediction(session, payload)
 
-    assert new_id == 42
+    assert new_id == "prediction-uuid-001"
     session.execute.assert_awaited_once()
     session.commit.assert_awaited_once()
 

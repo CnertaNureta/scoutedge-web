@@ -59,30 +59,64 @@ type OverrideMap = Record<SlotPath, string>
 // ---------------------------------------------------------------------------
 
 /**
- * Build R16 slots from base bracket round 1 (match index 0-7).
- * BaseBracketResponse.rounds[0] should be R16.
+ * Build R16 slots from the API's group-stage and R16 stage payloads.
  */
 function buildR16Slots(base: BaseBracketResponse): MatchSlot[] {
-  const round = base.rounds.find((r) => r.round === 1)
-  if (!round) {
-    // Construct a minimal 8-slot stub from groups
-    return WC_GROUPS.map((g, i) => {
-      const nextGroup = WC_GROUPS[(i + 1) % WC_GROUPS.length]
-      return {
-        path: `r16:${i}`,
-        home: `${g.label}1`,
-        away: `${nextGroup.label}2`,
-        predicted: `${g.label}1`,
-        prob: 0.6,
-      }
-    })
+  const fallbackGroups = WC_GROUPS.map((g) => ({
+    group: g.label,
+    teams: g.teams,
+    predicted_top2: g.teams.slice(0, 2),
+  }))
+  const groupEntries = base.stages.group.length > 0 ? base.stages.group : fallbackGroups
+  const groupsByCode = new Map(groupEntries.map((g) => [g.group, g]))
+  const pairCodes: Array<[string, string]> = [
+    ['A1', 'B2'],
+    ['B1', 'A2'],
+    ['C1', 'D2'],
+    ['D1', 'C2'],
+    ['E1', 'F2'],
+    ['F1', 'E2'],
+    ['G1', 'H2'],
+    ['H1', 'G2'],
+  ]
+
+  function teamForSeed(seed: string): string {
+    const groupCode = seed.slice(0, 1)
+    const rank = Number(seed.slice(1)) - 1
+    const group = groupsByCode.get(groupCode)
+    return group?.predicted_top2[rank] ?? group?.teams[rank] ?? seed
   }
-  return round.matches.slice(0, 8).map((m, i) => ({
-    path: `r16:${i}`,
-    home: m.home,
-    away: m.away,
-    predicted: m.home, // base bracket assumption: first listed team is predicted winner
-    prob: 0.6,
+
+  function displayPrediction(predicted: string | undefined, fallback: string): string {
+    if (!predicted) return fallback
+    return /^[A-H][12]$/.test(predicted) ? teamForSeed(predicted) : predicted
+  }
+
+  return pairCodes.map(([homeSeed, awaySeed], i) => {
+    const stagePick = base.stages.r16[i]
+    const home = teamForSeed(homeSeed)
+    const away = teamForSeed(awaySeed)
+    return {
+      path: `r16:${i}`,
+      home,
+      away,
+      predicted: displayPrediction(stagePick?.predicted_winner, home),
+      prob: stagePick?.p_win ?? 0.6,
+    }
+  })
+}
+
+function slotsSnapshot(slots: MatchSlot[], overrides: OverrideMap): Array<{
+  path: string
+  home: string
+  away: string
+  winner: string
+}> {
+  return slots.map((slot) => ({
+    path: slot.path,
+    home: slot.home,
+    away: slot.away,
+    winner: effectiveWinner(slot, overrides),
   }))
 }
 
@@ -219,31 +253,18 @@ function deriveTree(
  */
 function extractForkOverrides(
   fork: BracketForkResponse,
-  baseR16: MatchSlot[],
 ): OverrideMap {
   const map: OverrideMap = {}
+  const rawOverrides = fork.bracket_data?.overrides
 
-  // fork.rounds mirrors the structure; compare winner (first match.home) to base
-  fork.rounds.forEach((round) => {
-    const roundKey = round.round === 1
-      ? 'r16'
-      : round.round === 2
-        ? 'qf'
-        : round.round === 3
-          ? 'sf'
-          : 'final'
+  if (!rawOverrides || typeof rawOverrides !== 'object' || Array.isArray(rawOverrides)) {
+    return map
+  }
 
-    round.matches.forEach((m, i) => {
-      const slotPath = roundKey === 'final' ? 'final:0' : `${roundKey}:${i}`
-      // In the fork, m.home is the predicted winner (convention matching base)
-      const baseSlot = baseR16.find((s) => s.path === slotPath)
-      if (baseSlot && m.home !== baseSlot.predicted) {
-        map[slotPath] = m.home
-      } else if (!baseSlot) {
-        // QF/SF/Final — just store it; deriveTree will reconcile
-        map[slotPath] = m.home
-      }
-    })
+  Object.entries(rawOverrides).forEach(([path, winner]) => {
+    if (typeof winner === 'string') {
+      map[path] = winner
+    }
   })
 
   return map
@@ -459,8 +480,7 @@ export function BracketFork({
   // ── Hydrate from initialFork when base becomes available ──
   useEffect(() => {
     if (!base || !initialFork) return
-    const baseR16 = buildR16Slots(base)
-    const hydratedOverrides = extractForkOverrides(initialFork, baseR16)
+    const hydratedOverrides = extractForkOverrides(initialFork)
     setOverrides(hydratedOverrides)
   }, [base, initialFork])
 
@@ -492,15 +512,27 @@ export function BracketFork({
 
     const bracketData = {
       overrides,
-      base_version: base.bracket_id,
+      base_version: base.version,
+      rounds: {
+        r16: slotsSnapshot(r16, overrides),
+        qf: slotsSnapshot(qf, overrides),
+        sf: slotsSnapshot(sf, overrides),
+        final: {
+          path: final.path,
+          home: final.home,
+          away: final.away,
+          winner: effectiveWinner(final, overrides),
+        },
+      },
       forked_at_match_id: activePicker ?? undefined,
     }
 
     try {
       const fork = await postBracketFork({
-        base_bracket_id: base.bracket_id,
         user_id: userId,
-        overrides,
+        parent_fork_id: savedFork?.id ?? null,
+        bracket_data: bracketData,
+        forked_at_match_id: activePicker ?? null,
       })
       setSavedFork(fork)
       onForkCreated?.(fork)
@@ -511,15 +543,15 @@ export function BracketFork({
     } finally {
       setIsSaving(false)
     }
-
-    // bracketData is built for potential future use (P8.6 OG renderer)
-    void bracketData
-  }, [base, overrides, userId, activePicker, onForkCreated])
+  }, [base, overrides, userId, activePicker, savedFork?.id, r16, qf, sf, final, onForkCreated])
 
   // ── Share ─────────────────────────────────────────────────
   const handleShare = useCallback(async () => {
     if (!savedFork) return
-    const shareUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/bracket/${savedFork.fork_id}`
+    const sharePath = savedFork.share_url ?? `/bracket/${savedFork.id}`
+    const shareUrl = sharePath.startsWith('http')
+      ? sharePath
+      : `${typeof window !== 'undefined' ? window.location.origin : ''}${sharePath}`
     const shareData = {
       title: 'My WC2026 Bracket Fork — ScoutEdge',
       url: shareUrl,
@@ -584,7 +616,7 @@ export function BracketFork({
         )}
         {'share_count' in (savedFork ?? {}) && (
           <span className="bf-fork-count" aria-label="Fork count">
-            ⑂ {(savedFork as BracketForkResponse & { share_count?: number }).share_count ?? 0}
+            ⑂ {savedFork?.fork_count ?? 0}
           </span>
         )}
       </header>
@@ -710,7 +742,9 @@ export function BracketFork({
         <div className="bf-share-url" aria-label="Shareable fork URL">
           <span aria-hidden="true">🔗</span>
           <span className="bf-share-url-text">
-            {typeof window !== 'undefined' ? window.location.origin : ''}/bracket/{savedFork.fork_id}
+            {savedFork.share_url
+              ? `${typeof window !== 'undefined' ? window.location.origin : ''}${savedFork.share_url}`
+              : `${typeof window !== 'undefined' ? window.location.origin : ''}/bracket/${savedFork.id}`}
           </span>
         </div>
       )}

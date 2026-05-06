@@ -203,7 +203,7 @@ class TestPrecomputeOne:
         """precompute_one returns ok=True and a prediction_id on success."""
         mock_engine = _make_engine()
         mock_session = _make_session()
-        expected_id = 42
+        expected_id = "prediction-uuid-042"
 
         with patch(
             "scoutedge_intelligence.scripts.precompute_predictions.queries.insert_prediction",

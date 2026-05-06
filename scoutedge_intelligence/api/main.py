@@ -32,8 +32,13 @@ from sqlalchemy.ext.asyncio import async_sessionmaker
 
 from api.deps import EngineFactory, Settings, _make_async_engine
 from api.middleware import install_middleware
+from api.routes.bracket import router as bracket_router
 from api.routes.divergence_feedback import router as divergence_router
+from api.routes.duel import router as duel_router
+from api.routes.og import router as og_router
 from api.routes.predict import router as predict_router
+from api.routes.remix import router as remix_router
+from api.routes.ws_live import router as ws_live_router
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -137,6 +142,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     app.include_router(predict_router)
     app.include_router(divergence_router)
+    app.include_router(duel_router)
+    app.include_router(bracket_router)
+    app.include_router(remix_router)
+    app.include_router(og_router)
+    app.include_router(ws_live_router)
 
     # ---------------------------------------------------------------------------
     # Health endpoint

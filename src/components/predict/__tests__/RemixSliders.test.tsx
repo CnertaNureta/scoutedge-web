@@ -28,13 +28,10 @@ const BASE_PREDICTION: FullPrediction = {
 }
 
 const REMIX_RESPONSE = {
-  match_id: 'match-001',
-  original: BASE_PREDICTION,
-  remixed: {
-    ...BASE_PREDICTION,
-    final_probs: { home_win: 0.6, draw: 0.22, away_win: 0.18 },
-  },
-  delta: { home_win: 0.05, draw: -0.03, away_win: -0.02 },
+  final_probs: { home_win: 0.6, draw: 0.22, away_win: 0.18 },
+  weights_used: { ml: 0.45, sb: 0.4, poly: 0.15 },
+  overrides_applied: { altitude_modifier: 1.2 },
+  delta_from_base: { home_win: 0.05, draw: -0.03, away_win: -0.02 },
 }
 
 // ---------------------------------------------------------------------------
@@ -264,7 +261,8 @@ describe('RemixSliders', () => {
       weights: Record<string, number>
       overrides: Record<string, number>
     }
-    expect(arg.final_probs).toEqual(REMIX_RESPONSE.remixed.final_probs)
+    expect(arg.final_probs).toEqual(REMIX_RESPONSE.final_probs)
+    expect(arg.weights).toEqual(REMIX_RESPONSE.weights_used)
     expect(arg.overrides).toHaveProperty('altitude_modifier', 1.2)
   })
 

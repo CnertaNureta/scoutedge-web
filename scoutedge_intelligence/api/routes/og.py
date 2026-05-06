@@ -128,6 +128,15 @@ def _badge_tier(accuracy_pct: float) -> str:
     return "bronze"
 
 
+def _canonical_outcome(outcome: str) -> str:
+    """Normalize home/away and home_win/away_win values before comparisons."""
+    if outcome == "home_win":
+        return "home"
+    if outcome == "away_win":
+        return "away"
+    return outcome
+
+
 # ---------------------------------------------------------------------------
 # Routes
 # ---------------------------------------------------------------------------
@@ -167,7 +176,7 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
     pred_result = await session.execute(
         select(Prediction)
         .where(Prediction.match_id == match_id)
-        .order_by(Prediction.id.desc())
+        .order_by(Prediction.generated_at.desc(), Prediction.created_at.desc())
         .limit(1)
     )
     pred = pred_result.scalars().first()
@@ -292,7 +301,8 @@ async def og_slayer(user_id: str, session: DbSession) -> SlayerOGResponse:
     correct = sum(
         1
         for p in picks
-        if p.pick_outcome and p.actual_outcome and p.pick_outcome == p.actual_outcome
+        if p.pick_outcome and p.actual_outcome
+        if _canonical_outcome(p.pick_outcome) == _canonical_outcome(p.actual_outcome)
     )
     accuracy = round((correct / total * 100), 1) if total > 0 else 0.0
     tier = _badge_tier(accuracy)

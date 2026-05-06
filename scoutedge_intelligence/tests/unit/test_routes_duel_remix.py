@@ -751,11 +751,11 @@ def test_brier_score_worst_prediction() -> None:
 
 
 def test_derive_outcome_home_win() -> None:
-    assert _derive_outcome(3, 1) == "home_win"
+    assert _derive_outcome(3, 1) == "home"
 
 
 def test_derive_outcome_away_win() -> None:
-    assert _derive_outcome(0, 2) == "away_win"
+    assert _derive_outcome(0, 2) == "away"
 
 
 def test_derive_outcome_draw() -> None:

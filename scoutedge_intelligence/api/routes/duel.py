@@ -145,12 +145,21 @@ def _build_ai_snapshot(pred: Any) -> dict[str, Any]:
 
 
 def _derive_outcome(home: int, away: int) -> str:
-    """Map a score pair to home_win | draw | away_win."""
+    """Map a score pair to the user_predictions DB enum: home | draw | away."""
     if home > away:
-        return "home_win"
+        return "home"
     if home < away:
-        return "away_win"
+        return "away"
     return "draw"
+
+
+def _prob_outcome(outcome: str) -> str:
+    """Normalise DB outcome values to probability keys used in Brier scoring."""
+    if outcome == "home":
+        return "home_win"
+    if outcome == "away":
+        return "away_win"
+    return outcome
 
 
 def _brier_score(
@@ -162,7 +171,8 @@ def _brier_score(
     Lower is better. Range [0, 2].
     """
     keys = ["home_win", "draw", "away_win"]
-    actuals = {k: 1.0 if k == actual_outcome else 0.0 for k in keys}
+    canonical_actual = _prob_outcome(actual_outcome)
+    actuals = {k: 1.0 if k == canonical_actual else 0.0 for k in keys}
     return sum((probs.get(k, 0.0) - actuals[k]) ** 2 for k in keys)
 
 

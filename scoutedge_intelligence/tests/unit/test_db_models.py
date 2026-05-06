@@ -179,13 +179,22 @@ def test_match_schema_orm_roundtrip() -> None:
 
 def test_prediction_schema_orm_roundtrip() -> None:
     orm_obj = Prediction()
-    orm_obj.id = 42
+    orm_obj.id = _UUID
     orm_obj.match_id = _UUID
+    orm_obj.prediction_type = "match_outcome"
+    orm_obj.home_win_prob = 0.33
+    orm_obj.draw_prob = 0.34
+    orm_obj.away_win_prob = 0.33
+    orm_obj.source = "scoutedge"
+    orm_obj.model_version = "manual"
+    orm_obj.generated_at = _TS
+    orm_obj.created_at = _TS
+    orm_obj.updated_at = _TS
     orm_obj.claude_pick = "draw"
     orm_obj.layer_divergence_score = 0.312
 
     schema = PredictionSchema.model_validate(orm_obj)
-    assert schema.id == 42
+    assert schema.id == _UUID
     assert schema.claude_pick == "draw"
     assert schema.layer_divergence_score == pytest.approx(0.312)
 
@@ -259,12 +268,12 @@ async def test_get_match_returns_none_when_not_found() -> None:
 
 @pytest.mark.asyncio
 async def test_insert_prediction_returns_new_id() -> None:
-    session = _make_session(scalar_result=99)
+    session = _make_session(scalar_result="prediction-uuid-099")
     payload = PredictionSchema(match_id=_UUID, claude_pick="away")
 
     new_id = await insert_prediction(session, payload)
 
-    assert new_id == 99
+    assert new_id == "prediction-uuid-099"
     session.execute.assert_called_once()
     session.commit.assert_called_once()
 

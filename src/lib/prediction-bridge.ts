@@ -1,6 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
+import type { OgMatchMetadata } from './og-metadata'
+
+export type { OgMatchMetadata } from './og-metadata'
 
 // ---------------------------------------------------------------------------
 // Primitive types
@@ -57,10 +60,10 @@ export interface RemixRequest {
 }
 
 export interface RemixResponse {
-  match_id: string
-  original: FullPrediction
-  remixed: FullPrediction
-  delta: Record<Outcome, number>
+  final_probs: ProbDict
+  weights_used: Record<'ml' | 'sb' | 'poly', number>
+  overrides_applied: Record<string, number>
+  delta_from_base: ProbDict
 }
 
 export interface FeedbackRequest {
@@ -110,33 +113,32 @@ export interface DuelLeaderboardResponse {
 }
 
 export interface BaseBracketResponse {
-  bracket_id: string
-  rounds: Array<{ round: number; matches: Array<{ match_id: string; home: string; away: string }> }>
-  generated_at: string
+  version: string
+  stages: {
+    group: Array<{ group: string; teams: string[]; predicted_top2: string[] }>
+    r16: Array<{ slot: string; predicted_winner: string; p_win: number }>
+    qf: Array<{ slot: string; predicted_winner: string; p_win: number }>
+    sf: Array<{ slot: string; predicted_winner: string; p_win: number }>
+    final: { predicted_winner: string; p_win: number }
+  }
 }
 
 export interface BracketForkRequest {
-  base_bracket_id: string
   user_id: string
-  overrides: Record<string, string>
+  parent_fork_id?: string | null
+  bracket_data: Record<string, unknown>
+  forked_at_match_id?: string | null
 }
 
 export interface BracketForkResponse {
-  fork_id: string
-  user_id: string
-  base_bracket_id: string
-  rounds: Array<{ round: number; matches: Array<{ match_id: string; home: string; away: string }> }>
-  created_at: string
-}
-
-export interface OgMatchMetadata {
-  match_id: string
-  home_team: string
-  away_team: string
-  kickoff: string
-  venue: string
-  prediction_summary: string
-  image_url: string
+  id: string
+  share_url?: string
+  parent_fork_id?: string | null
+  bracket_data?: Record<string, unknown>
+  score?: number | null
+  user_id?: string
+  created_at?: string
+  fork_count?: number
 }
 
 // Live WebSocket frame
@@ -425,7 +427,8 @@ export function openLiveSocket(
     onError?: (e: Event) => void
   },
 ): { close: () => void } {
-  const wsUrl = `${_config.baseUrl.replace(/^http/, 'ws')}/ws/live/${encodeURIComponent(matchId)}`
+  const wsBase = _config.baseUrl.replace(/^http/, 'ws').replace(/\/api\/?$/, '')
+  const wsUrl = `${wsBase}/ws/live/${encodeURIComponent(matchId)}`
   const ws = new WebSocket(wsUrl)
 
   ws.addEventListener('open', () => {

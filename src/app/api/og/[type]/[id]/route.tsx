@@ -1,37 +1,14 @@
 import { ImageResponse } from 'next/og'
 import { NextRequest } from 'next/server'
-import { getOgMatchMetadata, type OgMatchMetadata } from '@/lib/prediction-bridge'
+import {
+  fetchOgMetadata,
+  type BracketOgMetadata,
+  type OgMatchMetadata,
+  type OgType,
+  type SlayerOgMetadata,
+} from '@/lib/og-metadata'
 
 export const runtime = 'edge'
-
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
-
-type OgType = 'match' | 'bracket' | 'slayer'
-
-interface BracketOgMetadata {
-  fork_id: string
-  user_id: string
-  headline: string
-  subline: string
-  rounds: number
-  created_at: string
-}
-
-interface SlayerOgMetadata {
-  user_id: string
-  headline: string
-  subline: string
-  wins: number
-  total_duels: number
-  score: number
-}
-
-type OgMetadata =
-  | { type: 'match'; data: OgMatchMetadata }
-  | { type: 'bracket'; data: BracketOgMetadata }
-  | { type: 'slayer'; data: SlayerOgMetadata }
 
 // ---------------------------------------------------------------------------
 // Cache headers
@@ -45,46 +22,6 @@ const CACHE_CONTROL = 'public, max-age=1800, s-maxage=3600'
 
 const OG_WIDTH = 1200
 const OG_HEIGHT = 630
-
-// ---------------------------------------------------------------------------
-// Metadata fetchers
-// ---------------------------------------------------------------------------
-
-async function fetchMatchMetadata(id: string): Promise<OgMetadata> {
-  const data = await getOgMatchMetadata(id)
-  return { type: 'match', data }
-}
-
-async function fetchBracketMetadata(id: string): Promise<OgMetadata> {
-  const apiUrl = process.env.NEXT_PUBLIC_SCOUTEDGE_API_URL ?? '/api'
-  const res = await fetch(`${apiUrl}/og/bracket/${encodeURIComponent(id)}`)
-  if (!res.ok) {
-    throw new Error(`Bracket metadata fetch failed: ${res.status}`)
-  }
-  const data = (await res.json()) as BracketOgMetadata
-  return { type: 'bracket', data }
-}
-
-async function fetchSlayerMetadata(id: string): Promise<OgMetadata> {
-  const apiUrl = process.env.NEXT_PUBLIC_SCOUTEDGE_API_URL ?? '/api'
-  const res = await fetch(`${apiUrl}/og/slayer/${encodeURIComponent(id)}`)
-  if (!res.ok) {
-    throw new Error(`Slayer metadata fetch failed: ${res.status}`)
-  }
-  const data = (await res.json()) as SlayerOgMetadata
-  return { type: 'slayer', data }
-}
-
-export async function fetchOgMetadata(type: OgType, id: string): Promise<OgMetadata> {
-  switch (type) {
-    case 'match':
-      return fetchMatchMetadata(id)
-    case 'bracket':
-      return fetchBracketMetadata(id)
-    case 'slayer':
-      return fetchSlayerMetadata(id)
-  }
-}
 
 // ---------------------------------------------------------------------------
 // Shared style constants (oklch-based dark theme — inlined for Satori)
@@ -101,8 +38,11 @@ const WORDMARK_COLOR = 'oklch(60% 0.12 250)'
 // ---------------------------------------------------------------------------
 
 function renderMatchImage(data: OgMatchMetadata): React.ReactElement {
-  const headline = data.prediction_summary || `${data.home_team} vs ${data.away_team}`
-  const subline = [data.venue, data.kickoff ? new Date(data.kickoff).toLocaleDateString('en-GB') : null]
+  const headline = data.headline || `${data.home_team} vs ${data.away_team}`
+  const subline = [
+    data.venue_city,
+    data.kickoff_utc ? new Date(data.kickoff_utc).toLocaleDateString('en-GB') : null,
+  ]
     .filter(Boolean)
     .join(' · ')
 
@@ -298,7 +238,7 @@ function renderBracketImage(data: BracketOgMetadata): React.ReactElement {
             color: TEXT_SECONDARY,
           }}
         >
-          {data.subline}
+          {[data.title, data.share_url].filter(Boolean).join(' · ')}
         </div>
       </div>
 
@@ -321,8 +261,7 @@ function renderBracketImage(data: BracketOgMetadata): React.ReactElement {
 }
 
 function renderSlayerImage(data: SlayerOgMetadata): React.ReactElement {
-  const winRate =
-    data.total_duels > 0 ? Math.round((data.wins / data.total_duels) * 100) : 0
+  const winRate = Math.round(data.accuracy_pct)
 
   return (
     <div
@@ -409,15 +348,15 @@ function renderSlayerImage(data: SlayerOgMetadata): React.ReactElement {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: 40, fontWeight: 800, color: TEXT_PRIMARY }}>
-              {data.wins}/{data.total_duels}
+              {data.correct_picks}/{data.total_picks}
             </span>
-            <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Duels won</span>
+            <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Correct picks</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: 40, fontWeight: 800, color: TEXT_PRIMARY }}>
-              {data.score}
+              {data.badge_tier}
             </span>
-            <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Score</span>
+            <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Badge tier</span>
           </div>
         </div>
       </div>

@@ -28,47 +28,44 @@ vi.mock('@/lib/prediction-bridge', async (importOriginal) => {
 
 function makeBaseBracket(): BaseBracketResponse {
   return {
-    bracket_id: 'base-001',
-    generated_at: '2026-01-01T00:00:00Z',
-    rounds: [
-      {
-        round: 1,
-        matches: [
-          { match_id: 'm1', home: 'USA', away: 'Mexico' },
-          { match_id: 'm2', home: 'Brazil', away: 'Argentina' },
-          { match_id: 'm3', home: 'France', away: 'England' },
-          { match_id: 'm4', home: 'Germany', away: 'Spain' },
-          { match_id: 'm5', home: 'Japan', away: 'South Korea' },
-          { match_id: 'm6', home: 'Morocco', away: 'Senegal' },
-          { match_id: 'm7', home: 'Colombia', away: 'Uruguay' },
-          { match_id: 'm8', home: 'Belgium', away: 'Croatia' },
-        ],
-      },
-    ],
+    version: 'base-001',
+    stages: {
+      group: [
+        { group: 'A', teams: ['USA', 'Mexico', 'Canada', 'Honduras'], predicted_top2: ['USA', 'Mexico'] },
+        { group: 'B', teams: ['Brazil', 'Argentina', 'Chile', 'Bolivia'], predicted_top2: ['Brazil', 'Argentina'] },
+        { group: 'C', teams: ['France', 'England', 'Netherlands', 'Wales'], predicted_top2: ['France', 'England'] },
+        { group: 'D', teams: ['Germany', 'Spain', 'Portugal', 'Switzerland'], predicted_top2: ['Germany', 'Spain'] },
+        { group: 'E', teams: ['Japan', 'South Korea', 'Australia', 'Iran'], predicted_top2: ['Japan', 'South Korea'] },
+        { group: 'F', teams: ['Morocco', 'Senegal', 'Nigeria', 'Egypt'], predicted_top2: ['Morocco', 'Senegal'] },
+        { group: 'G', teams: ['Colombia', 'Uruguay', 'Ecuador', 'Peru'], predicted_top2: ['Colombia', 'Uruguay'] },
+        { group: 'H', teams: ['Belgium', 'Croatia', 'Poland', 'Serbia'], predicted_top2: ['Belgium', 'Croatia'] },
+      ],
+      r16: [
+        { slot: 'R16-1', predicted_winner: 'USA', p_win: 0.6 },
+        { slot: 'R16-2', predicted_winner: 'Brazil', p_win: 0.6 },
+        { slot: 'R16-3', predicted_winner: 'France', p_win: 0.6 },
+        { slot: 'R16-4', predicted_winner: 'Germany', p_win: 0.6 },
+        { slot: 'R16-5', predicted_winner: 'Japan', p_win: 0.6 },
+        { slot: 'R16-6', predicted_winner: 'Morocco', p_win: 0.6 },
+        { slot: 'R16-7', predicted_winner: 'Colombia', p_win: 0.6 },
+        { slot: 'R16-8', predicted_winner: 'Belgium', p_win: 0.6 },
+      ],
+      qf: [],
+      sf: [],
+      final: { predicted_winner: 'USA', p_win: 0.5 },
+    },
   }
 }
 
-function makeFork(overrideHome: string = 'Mexico'): BracketForkResponse {
+function makeFork(overrideHome: string = 'Argentina'): BracketForkResponse {
   return {
-    fork_id: 'fork-abc',
+    id: 'fork-abc',
     user_id: 'user-1',
-    base_bracket_id: 'base-001',
+    share_url: '/bracket/fork-abc',
     created_at: '2026-01-02T00:00:00Z',
-    rounds: [
-      {
-        round: 1,
-        matches: [
-          { match_id: 'm1', home: overrideHome, away: 'USA' },
-          { match_id: 'm2', home: 'Brazil', away: 'Argentina' },
-          { match_id: 'm3', home: 'France', away: 'England' },
-          { match_id: 'm4', home: 'Germany', away: 'Spain' },
-          { match_id: 'm5', home: 'Japan', away: 'South Korea' },
-          { match_id: 'm6', home: 'Morocco', away: 'Senegal' },
-          { match_id: 'm7', home: 'Colombia', away: 'Uruguay' },
-          { match_id: 'm8', home: 'Belgium', away: 'Croatia' },
-        ],
-      },
-    ],
+    bracket_data: {
+      overrides: { 'r16:0': overrideHome },
+    },
   }
 }
 
@@ -83,11 +80,10 @@ beforeEach(() => {
   // Default: getBaseBracket resolves successfully
   mockGetBaseBracket.mockResolvedValue(BASE)
   mockPostBracketFork.mockResolvedValue({
-    fork_id: 'fork-xyz',
+    id: 'fork-xyz',
     user_id: 'user-1',
-    base_bracket_id: 'base-001',
+    share_url: '/bracket/fork-xyz',
     created_at: '2026-01-03T00:00:00Z',
-    rounds: BASE.rounds,
   } satisfies BracketForkResponse)
 })
 
@@ -153,30 +149,30 @@ describe('BracketFork — fork picker opens', () => {
     const user = userEvent.setup()
     render(<BracketFork userId="user-1" base={BASE} />)
 
-    // First R16 match: USA vs Mexico
-    const forkBtn = screen.getByLabelText('Fork from here: USA vs Mexico')
+    // First R16 match: USA vs Argentina
+    const forkBtn = screen.getByLabelText('Fork from here: USA vs Argentina')
     await user.click(forkBtn)
 
     // Picker group should be visible with both team options
-    const picker = screen.getByLabelText('Pick winner for USA vs Mexico')
+    const picker = screen.getByLabelText('Pick winner for USA vs Argentina')
     expect(picker).toBeInTheDocument()
     expect(within(picker).getByText('USA')).toBeInTheDocument()
-    expect(within(picker).getByText('Mexico')).toBeInTheDocument()
+    expect(within(picker).getByText('Argentina')).toBeInTheDocument()
   })
 
   it('closes picker when Cancel is clicked', async () => {
     const user = userEvent.setup()
     render(<BracketFork userId="user-1" base={BASE} />)
 
-    const forkBtn = screen.getByLabelText('Fork from here: USA vs Mexico')
+    const forkBtn = screen.getByLabelText('Fork from here: USA vs Argentina')
     await user.click(forkBtn)
 
-    expect(screen.getByLabelText('Pick winner for USA vs Mexico')).toBeInTheDocument()
+    expect(screen.getByLabelText('Pick winner for USA vs Argentina')).toBeInTheDocument()
 
     const cancelBtn = screen.getByRole('button', { name: /cancel/i })
     await user.click(cancelBtn)
 
-    expect(screen.queryByLabelText('Pick winner for USA vs Mexico')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText('Pick winner for USA vs Argentina')).not.toBeInTheDocument()
   })
 })
 
@@ -189,21 +185,21 @@ describe('BracketFork — selecting alternate team updates the winner label', ()
     const user = userEvent.setup()
     render(<BracketFork userId="user-1" base={BASE} />)
 
-    // Open picker on first R16 slot (USA vs Mexico; base winner = USA)
-    const forkBtn = screen.getByLabelText('Fork from here: USA vs Mexico')
+    // Open picker on first R16 slot (USA vs Argentina; base winner = USA)
+    const forkBtn = screen.getByLabelText('Fork from here: USA vs Argentina')
     await user.click(forkBtn)
 
-    // Click on Mexico (the away team)
-    const mexicoOption = screen.getByTestId('pick-r16:0-away')
-    await user.click(mexicoOption)
+    // Click on Argentina (the away team)
+    const argentinaOption = screen.getByTestId('pick-r16:0-away')
+    await user.click(argentinaOption)
 
-    // The R16 slot should now show Mexico as predicted winner
-    // (there may be multiple "Mexico" winners propagated downstream, so check ≥1)
+    // The R16 slot should now show Argentina as predicted winner
+    // (there may be multiple "Argentina" winners propagated downstream, so check >=1)
     await waitFor(() => {
-      const mexicoWinners = screen.getAllByLabelText('Predicted winner: Mexico')
-      expect(mexicoWinners.length).toBeGreaterThanOrEqual(1)
-      // The first match (r16:0) slot shows Mexico with override class
-      expect(mexicoWinners[0]).toHaveClass('bf-slot-winner--override')
+      const argentinaWinners = screen.getAllByLabelText('Predicted winner: Argentina')
+      expect(argentinaWinners.length).toBeGreaterThanOrEqual(1)
+      // The first match (r16:0) slot shows Argentina with override class
+      expect(argentinaWinners[0]).toHaveClass('bf-slot-winner--override')
     })
   })
 })
@@ -218,19 +214,19 @@ describe('BracketFork — override propagates downstream', () => {
     render(<BracketFork userId="user-1" base={BASE} />)
 
     // Default: r16:0 winner = USA, so QF slot 0 home = USA
-    // We override r16:0 to Mexico
-    const forkBtn = screen.getByLabelText('Fork from here: USA vs Mexico')
+    // We override r16:0 to Argentina
+    const forkBtn = screen.getByLabelText('Fork from here: USA vs Argentina')
     await user.click(forkBtn)
 
-    const mexicoOption = screen.getByTestId('pick-r16:0-away')
-    await user.click(mexicoOption)
+    const argentinaOption = screen.getByTestId('pick-r16:0-away')
+    await user.click(argentinaOption)
 
-    // QF slot 0 should now show Mexico as a participant (home team)
+    // QF slot 0 should now show Argentina as a participant (home team)
     await waitFor(() => {
       // QF 0: winner[0] vs winner[1]
-      // After override, winner[0] = Mexico; winner[1] = Brazil (r16:1 default)
+      // After override, winner[0] = Argentina; winner[1] = Brazil (r16:1 default)
       const qfGroup = screen.getByLabelText('Quarter-finals')
-      const qfSlot0 = within(qfGroup).getByLabelText(/Match: Mexico vs Brazil/i)
+      const qfSlot0 = within(qfGroup).getByLabelText(/Match: Argentina vs Brazil/i)
       expect(qfSlot0).toBeInTheDocument()
     })
   })
@@ -247,7 +243,7 @@ describe('BracketFork — Save fork', () => {
     render(<BracketFork userId="user-1" base={BASE} onForkCreated={onForkCreated} />)
 
     // Make an override first (Save is disabled without overrides)
-    const forkBtn = screen.getByLabelText('Fork from here: USA vs Mexico')
+    const forkBtn = screen.getByLabelText('Fork from here: USA vs Argentina')
     await user.click(forkBtn)
     await user.click(screen.getByTestId('pick-r16:0-away'))
 
@@ -260,8 +256,8 @@ describe('BracketFork — Save fork', () => {
       expect(mockPostBracketFork).toHaveBeenCalledTimes(1)
       const callArg = mockPostBracketFork.mock.calls[0][0]
       expect(callArg.user_id).toBe('user-1')
-      expect(callArg.base_bracket_id).toBe('base-001')
-      expect(callArg.overrides).toMatchObject({ 'r16:0': 'Mexico' })
+      expect(callArg.bracket_data.overrides).toMatchObject({ 'r16:0': 'Argentina' })
+      expect(callArg.bracket_data.base_version).toBe('base-001')
     })
 
     // Share button appears after save
@@ -270,7 +266,7 @@ describe('BracketFork — Save fork', () => {
     })
 
     expect(onForkCreated).toHaveBeenCalledTimes(1)
-    expect(onForkCreated.mock.calls[0][0].fork_id).toBe('fork-xyz')
+    expect(onForkCreated.mock.calls[0][0].id).toBe('fork-xyz')
   })
 
   it('Save fork button is disabled when there are no overrides', () => {
@@ -292,7 +288,7 @@ describe('BracketFork — Save error handling', () => {
     render(<BracketFork userId="user-1" base={BASE} />)
 
     // Make override
-    await user.click(screen.getByLabelText('Fork from here: USA vs Mexico'))
+    await user.click(screen.getByLabelText('Fork from here: USA vs Argentina'))
     await user.click(screen.getByTestId('pick-r16:0-away'))
 
     // Attempt save
@@ -311,13 +307,13 @@ describe('BracketFork — Save error handling', () => {
 // ---------------------------------------------------------------------------
 
 describe('BracketFork — initialFork hydration', () => {
-  it('shows Mexico as R16 winner when initialFork overrides r16:0 to Mexico', async () => {
-    const fork = makeFork('Mexico')
+  it('shows Argentina as R16 winner when initialFork overrides r16:0 to Argentina', async () => {
+    const fork = makeFork('Argentina')
     render(<BracketFork userId="user-1" base={BASE} initialFork={fork} />)
 
     await waitFor(() => {
-      // At least one slot shows Mexico as the winner (may propagate downstream)
-      const winners = screen.getAllByLabelText('Predicted winner: Mexico')
+      // At least one slot shows Argentina as the winner (may propagate downstream)
+      const winners = screen.getAllByLabelText('Predicted winner: Argentina')
       expect(winners.length).toBeGreaterThanOrEqual(1)
       // The overridden r16:0 slot should have the override styling
       const overriddenWinner = winners.find((el) =>
@@ -328,7 +324,7 @@ describe('BracketFork — initialFork hydration', () => {
   })
 
   it('renders the Share button when initialFork is provided', () => {
-    const fork = makeFork('Mexico')
+    const fork = makeFork('Argentina')
     render(<BracketFork userId="user-1" base={BASE} initialFork={fork} />)
 
     expect(

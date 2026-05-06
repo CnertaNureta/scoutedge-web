@@ -156,12 +156,28 @@ class Prediction(Base):
     __tablename__ = "predictions"
 
     # PG: UUID
-    id: Mapped[int | None] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
     # PG: UUID FK → matches.id
-    match_id: Mapped[str | None] = mapped_column(String(36), nullable=True)
-    created_at: Mapped[datetime.datetime | None] = mapped_column(
-        DateTime(timezone=True), nullable=True
-    )
+    match_id: Mapped[str] = mapped_column(String(36), nullable=False)
+
+    # Existing core prediction columns from 20260331000000_create_core_football_schema.sql
+    prediction_type: Mapped[str] = mapped_column(Text, nullable=False, default="match_outcome")
+    home_win_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
+    draw_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
+    away_win_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
+    predicted_home_goals: Mapped[float | None] = mapped_column(Numeric(6, 2), nullable=True)
+    predicted_away_goals: Mapped[float | None] = mapped_column(Numeric(6, 2), nullable=True)
+    confidence_score: Mapped[float | None] = mapped_column(Numeric(5, 2), nullable=True)
+    recommended_pick: Mapped[str | None] = mapped_column(Text, nullable=True)
+    rationale_summary: Mapped[str | None] = mapped_column(Text, nullable=True)
+    source: Mapped[str] = mapped_column(Text, nullable=False, default="scoutedge")
+    model_version: Mapped[str] = mapped_column(Text, nullable=False, default="manual")
+    # PG: JSONB
+    facts_used: Mapped[Any] = mapped_column(JSON, nullable=False, default=list)
+    metadata_: Mapped[Any] = mapped_column("metadata", JSON, nullable=False, default=dict)
+    generated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    updated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
 
     # --- ML layer (migration 100002) ---
     ml_home_win_prob: Mapped[float | None] = mapped_column(Numeric(6, 5), nullable=True)
@@ -506,9 +522,26 @@ class EloRatingSchema(BaseModel):
 class PredictionSchema(BaseModel):
     model_config = _model_cfg
 
-    id: int | None = None
+    id: str | None = None
     match_id: str | None = None
     created_at: datetime.datetime | None = None
+    updated_at: datetime.datetime | None = None
+    generated_at: datetime.datetime | None = None
+
+    # Existing core prediction columns
+    prediction_type: str = "match_outcome"
+    home_win_prob: float | None = None
+    draw_prob: float | None = None
+    away_win_prob: float | None = None
+    predicted_home_goals: float | None = None
+    predicted_away_goals: float | None = None
+    confidence_score: float | None = None
+    recommended_pick: str | None = None
+    rationale_summary: str | None = None
+    source: str = "scoutedge"
+    model_version: str = "manual"
+    facts_used: list[Any] | None = Field(default_factory=list)
+    metadata_: dict[str, Any] | None = Field(default_factory=dict)
 
     # ML
     ml_home_win_prob: float | None = None

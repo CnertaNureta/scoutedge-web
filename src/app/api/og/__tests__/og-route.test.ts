@@ -30,17 +30,7 @@ vi.mock('next/og', () => ({
 }))
 
 // ---------------------------------------------------------------------------
-// Mock the prediction-bridge so we never hit the network
-// ---------------------------------------------------------------------------
-
-const mockGetOgMatchMetadata = vi.fn()
-
-vi.mock('@/lib/prediction-bridge', () => ({
-  getOgMatchMetadata: (...args: unknown[]) => mockGetOgMatchMetadata(...args),
-}))
-
-// ---------------------------------------------------------------------------
-// Mock global fetch for bracket / slayer calls
+// Mock global fetch for metadata calls
 // ---------------------------------------------------------------------------
 
 const mockFetch = vi.fn()
@@ -50,7 +40,8 @@ global.fetch = mockFetch
 // Import after mocks are wired up
 // ---------------------------------------------------------------------------
 
-import { GET, fetchOgMetadata } from '../[type]/[id]/route'
+import { fetchOgMetadata } from '@/lib/og-metadata'
+import { GET } from '../[type]/[id]/route'
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -68,28 +59,35 @@ const SAMPLE_MATCH_METADATA = {
   match_id: 'match-123',
   home_team: 'BRA',
   away_team: 'ARG',
-  kickoff: '2026-07-01T20:00:00Z',
-  venue: 'Lusail Stadium',
-  prediction_summary: 'BRA 56% to beat ARG',
-  image_url: '',
+  kickoff_utc: '2026-07-01T20:00:00Z',
+  stage: 'final',
+  venue_city: 'Lusail',
+  predicted_winner: 'BRA',
+  predicted_p_win: 0.56,
+  headline: 'BRA 56% to beat ARG',
+  ts: '2026-06-15T10:00:00Z',
 }
 
 const SAMPLE_BRACKET_METADATA = {
   fork_id: 'fork-abc',
   user_id: 'user-1',
-  headline: 'Brazil wins the WC',
-  subline: 'Quarterfinal · Jul 2026',
-  rounds: 4,
-  created_at: '2026-06-15T10:00:00Z',
+  title: 'Brazil wins the WC',
+  share_url: '/bracket/fork-abc',
+  points_earned: 42,
+  max_possible: 100,
+  rank_percentile: 95.5,
+  headline: '42/100 pts',
+  ts: '2026-06-15T10:00:00Z',
 }
 
 const SAMPLE_SLAYER_METADATA = {
   user_id: 'user-42',
   headline: 'Top Slayer — Week 3',
-  subline: 'Group Stage · Jun 2026',
-  wins: 7,
-  total_duels: 10,
-  score: 350,
+  total_picks: 10,
+  correct_picks: 7,
+  accuracy_pct: 70,
+  badge_tier: 'gold',
+  ts: '2026-06-15T10:00:00Z',
 }
 
 // ---------------------------------------------------------------------------
@@ -102,11 +100,17 @@ describe('OG route — fetchOgMetadata helper', () => {
   })
 
   it('fetches match metadata via the prediction bridge', async () => {
-    mockGetOgMatchMetadata.mockResolvedValueOnce(SAMPLE_MATCH_METADATA)
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => SAMPLE_MATCH_METADATA,
+    } as Response)
 
     const result = await fetchOgMetadata('match', 'match-123')
 
-    expect(mockGetOgMatchMetadata).toHaveBeenCalledWith('match-123')
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/og/match/match-123'),
+      { cache: 'no-store' },
+    )
     expect(result.type).toBe('match')
     expect(result.data).toEqual(SAMPLE_MATCH_METADATA)
   })
@@ -119,7 +123,10 @@ describe('OG route — fetchOgMetadata helper', () => {
 
     const result = await fetchOgMetadata('bracket', 'fork-abc')
 
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/og/bracket/fork-abc'))
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/og/bracket/fork-abc'),
+      { cache: 'no-store' },
+    )
     expect(result.type).toBe('bracket')
     expect(result.data).toEqual(SAMPLE_BRACKET_METADATA)
   })
@@ -132,7 +139,10 @@ describe('OG route — fetchOgMetadata helper', () => {
 
     const result = await fetchOgMetadata('slayer', 'user-42')
 
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/og/slayer/user-42'))
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/og/slayer/user-42'),
+      { cache: 'no-store' },
+    )
     expect(result.type).toBe('slayer')
     expect(result.data).toEqual(SAMPLE_SLAYER_METADATA)
   })
@@ -144,7 +154,10 @@ describe('OG route — GET handler', () => {
   })
 
   it('returns an ImageResponse for a valid match type', async () => {
-    mockGetOgMatchMetadata.mockResolvedValueOnce(SAMPLE_MATCH_METADATA)
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => SAMPLE_MATCH_METADATA,
+    } as Response)
 
     const response = await GET(makeRequest('match', 'match-123') as never, makeParams('match', 'match-123'))
 
@@ -186,7 +199,7 @@ describe('OG route — GET handler', () => {
   })
 
   it('returns a fallback ImageResponse (status 200) when metadata fetch fails', async () => {
-    mockGetOgMatchMetadata.mockRejectedValueOnce(new Error('Service unavailable'))
+    mockFetch.mockRejectedValueOnce(new Error('Service unavailable'))
 
     const response = await GET(makeRequest('match', 'bad-id') as never, makeParams('match', 'bad-id'))
 
@@ -196,7 +209,10 @@ describe('OG route — GET handler', () => {
   })
 
   it('includes cache-control header in the image response options', async () => {
-    mockGetOgMatchMetadata.mockResolvedValueOnce(SAMPLE_MATCH_METADATA)
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => SAMPLE_MATCH_METADATA,
+    } as Response)
 
     const response = await GET(makeRequest('match', 'match-123') as never, makeParams('match', 'match-123'))
 

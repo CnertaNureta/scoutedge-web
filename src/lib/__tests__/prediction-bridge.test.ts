@@ -220,7 +220,7 @@ describe('prediction-bridge', () => {
     const { close } = openLiveSocket('match-ws-001', { onMessage: onMessage as (frame: LiveFrame) => void })
 
     const ws = MockWebSocket.instances[MockWebSocket.instances.length - 1]
-    expect(ws.url).toBe('ws://localhost:8000/api/ws/live/match-ws-001')
+    expect(ws.url).toBe('ws://localhost:8000/ws/live/match-ws-001')
 
     close()
   })
