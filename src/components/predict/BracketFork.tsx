@@ -270,6 +270,20 @@ function extractForkOverrides(
   return map
 }
 
+function toAbsoluteShareUrl(sharePath: string): string {
+  if (/^https?:\/\//i.test(sharePath)) return sharePath
+  if (typeof window === 'undefined') return sharePath
+  const origin = window.location.origin
+  const path = sharePath.startsWith('/') ? sharePath : `/${sharePath}`
+  return `${origin}${path}`
+}
+
+function buildForkShareUrl(fork: BracketForkResponse): string {
+  const shareUrl = fork.share_url ?? `/bracket/${fork.id}`
+  if (/^https?:\/\//i.test(shareUrl)) return shareUrl
+  return shareUrl.startsWith('/') ? shareUrl : `/${shareUrl}`
+}
+
 // ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
@@ -548,10 +562,7 @@ export function BracketFork({
   // ── Share ─────────────────────────────────────────────────
   const handleShare = useCallback(async () => {
     if (!savedFork) return
-    const sharePath = savedFork.share_url ?? `/bracket/${savedFork.id}`
-    const shareUrl = sharePath.startsWith('http')
-      ? sharePath
-      : `${typeof window !== 'undefined' ? window.location.origin : ''}${sharePath}`
+    const shareUrl = toAbsoluteShareUrl(buildForkShareUrl(savedFork))
     const shareData = {
       title: 'My WC2026 Bracket Fork — ScoutEdge',
       url: shareUrl,
@@ -614,7 +625,7 @@ export function BracketFork({
             {overrideCount} override{overrideCount !== 1 ? 's' : ''}
           </span>
         )}
-        {'share_count' in (savedFork ?? {}) && (
+        {savedFork && 'fork_count' in savedFork && (
           <span className="bf-fork-count" aria-label="Fork count">
             ⑂ {savedFork?.fork_count ?? 0}
           </span>
@@ -742,9 +753,7 @@ export function BracketFork({
         <div className="bf-share-url" aria-label="Shareable fork URL">
           <span aria-hidden="true">🔗</span>
           <span className="bf-share-url-text">
-            {savedFork.share_url
-              ? `${typeof window !== 'undefined' ? window.location.origin : ''}${savedFork.share_url}`
-              : `${typeof window !== 'undefined' ? window.location.origin : ''}/bracket/${savedFork.id}`}
+            {buildForkShareUrl(savedFork)}
           </span>
         </div>
       )}

@@ -9,7 +9,7 @@ The class mirrors the structural conventions of
 
 * async ``httpx.AsyncClient`` with ``base_url`` / ``http_client`` injection
 * ``FBREF_BASE_URL`` env-var override
-* tenacity retry on network errors only (4xx is **not** retried)
+* tenacity retry on network errors and 5xx responses only (4xx is **not** retried)
 * internally-owned client closed via :meth:`aclose`
 
 Two extras specific to FBref:
@@ -58,6 +58,10 @@ _DATA_STAT_RE = re.compile(
 _TAG_STRIP_RE = re.compile(r"<[^>]+>")
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
+
+
+class _RetryableStatusError(httpx.HTTPStatusError):
+    """HTTP status marker for FBref 5xx responses that should be retried."""
 
 
 class FBrefClient:
@@ -146,8 +150,7 @@ class FBrefClient:
             # Expired - fall through to refetch.
             log.debug("fbref_cache_expired")
 
-        # ---- throttle + fetch ----
-        await self._throttle()
+        # ---- throttled fetch ----
         url = f"{self._base_url}/en/squads/{team_id}/{season}-stats"
         html = await self._get_html(url)
 
@@ -181,16 +184,16 @@ class FBrefClient:
     # ------------------------------------------------------------------
 
     async def _throttle(self) -> None:
-        """Ensure at least ``_THROTTLE_SECONDS`` between successive requests."""
-        async with self._throttle_lock:
-            now = time.monotonic()
-            elapsed = now - self._last_request_at
-            if self._last_request_at > 0.0 and elapsed < _THROTTLE_SECONDS:
-                await asyncio.sleep(_THROTTLE_SECONDS - elapsed)
-            self._last_request_at = time.monotonic()
+        """Sleep until the next FBref request is allowed."""
+        now = time.monotonic()
+        elapsed = now - self._last_request_at
+        if self._last_request_at > 0.0 and elapsed < _THROTTLE_SECONDS:
+            await asyncio.sleep(_THROTTLE_SECONDS - elapsed)
 
     @retry(
-        retry=retry_if_exception_type((httpx.TransportError, httpx.TimeoutException)),
+        retry=retry_if_exception_type(
+            (httpx.TransportError, httpx.TimeoutException, _RetryableStatusError)
+        ),
         stop=stop_after_attempt(3),
         wait=wait_exponential(multiplier=0.5, min=0.5, max=4.0),
         reraise=True,
@@ -203,11 +206,22 @@ class FBrefClient:
         :meth:`httpx.Response.raise_for_status`; 4xx is intentionally
         **not** retried.
         """
-        logger.debug("fbref_request", url=url)
-        response = await self._http.get(url)
-        response.raise_for_status()
-        text: str = response.text
-        return text
+        async with self._throttle_lock:
+            await self._throttle()
+            logger.debug("fbref_request", url=url)
+            try:
+                response = await self._http.get(url)
+                if response.status_code >= 500:
+                    raise _RetryableStatusError(
+                        f"FBref returned HTTP {response.status_code}",
+                        request=response.request,
+                        response=response,
+                    )
+                response.raise_for_status()
+                text: str = response.text
+                return text
+            finally:
+                self._last_request_at = time.monotonic()
 
 
 # ---------------------------------------------------------------------------

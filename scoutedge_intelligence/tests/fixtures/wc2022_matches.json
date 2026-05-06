@@ -56,7 +56,7 @@
       "stage": "group",
       "kickoff": "2022-11-24",
       "home_team": "Brazil",
-      "away_team": "Senegal",
+      "away_team": "Serbia",
       "home_score": 2,
       "away_score": 0,
       "actual_outcome": "home_win"
@@ -66,15 +66,15 @@
       "stage": "group",
       "kickoff": "2022-11-24",
       "home_team": "Portugal",
-      "away_team": "South Korea",
+      "away_team": "Ghana",
       "home_score": 3,
       "away_score": 2,
       "actual_outcome": "home_win"
     },
     {
-      "match_id": "wc2022-grp-bel-can",
+      "match_id": "wc2022-grp-bel-mar",
       "stage": "group",
-      "kickoff": "2022-11-23",
+      "kickoff": "2022-11-27",
       "home_team": "Belgium",
       "away_team": "Morocco",
       "home_score": 0,
@@ -86,17 +86,17 @@
       "stage": "group",
       "kickoff": "2022-11-25",
       "home_team": "Netherlands",
-      "away_team": "USA",
-      "home_score": 3,
+      "away_team": "Ecuador",
+      "home_score": 1,
       "away_score": 1,
-      "actual_outcome": "home_win"
+      "actual_outcome": "draw"
     },
     {
       "match_id": "wc2022-grp-swi-srb",
       "stage": "group",
       "kickoff": "2022-12-02",
       "home_team": "Switzerland",
-      "away_team": "Senegal",
+      "away_team": "Serbia",
       "home_score": 3,
       "away_score": 2,
       "actual_outcome": "home_win"
@@ -116,7 +116,7 @@
       "stage": "group",
       "kickoff": "2022-11-26",
       "home_team": "Argentina",
-      "away_team": "Croatia",
+      "away_team": "Mexico",
       "home_score": 2,
       "away_score": 0,
       "actual_outcome": "home_win"
@@ -146,7 +146,7 @@
       "stage": "r16",
       "kickoff": "2022-12-04",
       "home_team": "France",
-      "away_team": "Senegal",
+      "away_team": "Poland",
       "home_score": 3,
       "away_score": 1,
       "actual_outcome": "home_win"

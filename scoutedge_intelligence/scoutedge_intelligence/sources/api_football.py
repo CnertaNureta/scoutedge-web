@@ -14,6 +14,7 @@ API_FOOTBALL_RPM  : optional - max requests per minute (default 30)
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 import time
 from typing import Any
@@ -36,6 +37,20 @@ _DEFAULT_RPM = 30
 # https://www.api-football.com/documentation-v3#section/Authentication/Status
 _STATUS_LIVE: frozenset[str] = frozenset({"1H", "HT", "2H", "ET", "BT", "P", "LIVE"})
 _STATUS_FINISHED: frozenset[str] = frozenset({"FT", "AET", "PEN"})
+_HTTPX_DECODING_ERROR = getattr(httpx, "DecodingError", None)
+_JSON_DECODE_EXCEPTIONS: tuple[type[BaseException], ...] = (
+    (json.JSONDecodeError, UnicodeDecodeError, _HTTPX_DECODING_ERROR)
+    if _HTTPX_DECODING_ERROR is not None
+    else (json.JSONDecodeError, UnicodeDecodeError)
+)
+
+
+def _response_body_snippet(response: httpx.Response, limit: int = 200) -> str:
+    """Return a short response-body snippet without trusting text decoding."""
+    try:
+        return response.text[:limit].replace("\n", " ")
+    except UnicodeDecodeError:
+        return response.content[:limit].decode("utf-8", errors="replace").replace("\n", " ")
 
 
 class APIFootballError(RuntimeError):
@@ -236,7 +251,13 @@ class APIFootballClient:
                 response=response,
             )
 
-        data: dict[str, Any] = response.json()
+        try:
+            data: dict[str, Any] = response.json()
+        except _JSON_DECODE_EXCEPTIONS as exc:
+            body_snippet = _response_body_snippet(response)
+            raise APIFootballError(
+                f"API-Football {status} returned non-JSON body: {body_snippet}"
+            ) from exc
         return data
 
 

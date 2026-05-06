@@ -22,7 +22,7 @@ Run through this list before the first production cutover. Each item must be con
 - [ ] **api-football key** — `API_FOOTBALL_KEY` set and within rate budget.
 - [ ] **Supabase service-role key** — `SUPABASE_SERVICE_ROLE_KEY` is the *production* service-role key (not anon, not staging). Verify in the Supabase dashboard under Project Settings → API.
 - [ ] **DATABASE_URL** — points to the **production** Supabase Postgres instance. The string MUST contain the prod project ref, not staging. Cross-check `SUPABASE_URL` and `DATABASE_URL` resolve to the same project.
-- [ ] **CORS origins** — the FastAPI app allows the production Next.js domain (e.g. `https://scoutedge.app` and any preview domain you actually want to serve). [TBD: confirm exact `ALLOWED_ORIGINS` env var name and value with the API author — not present in `.env.example`.]
+- [ ] **CORS origins** — set `CORS_ORIGINS` to the exact production and preview origins that may call the API. The FastAPI `Settings.cors_origins` field feeds `CORSMiddleware.allow_origins`, and the env value should be a JSON array, for example `["https://scoutedge.app","https://kickoracle.com","https://scoutedge-web-git-main-cnertanureta.vercel.app"]`.
 - [ ] **Redis URL** — `REDIS_URL` resolves to a managed Redis with persistence, not `localhost`.
 - [ ] **GitHub Actions secrets** — `DATABASE_URL`, `ANTHROPIC_API_KEY`, `ODDS_API_KEY`, `API_FOOTBALL_KEY`, `SCOUTEDGE_WEEKLY_WEBHOOK` all populated in repo settings.
 
@@ -131,7 +131,8 @@ fly secrets set \
   POLYMARKET_WEIGHT_HARD_CAP="0.15" \
   POLYMARKET_VOLUME_THRESHOLD_USD="10000" \
   ANALYST_ENABLED="true" \
-  ANALYST_HIGH_DIVERGENCE_ONLY="false"
+  ANALYST_HIGH_DIVERGENCE_ONLY="false" \
+  CORS_ORIGINS='["https://scoutedge.app","https://kickoracle.com","https://scoutedge-web-git-main-cnertanureta.vercel.app"]'
 
 fly secrets list  # values redacted; just confirms keys are present
 ```
@@ -157,7 +158,7 @@ The Fly internal check (`fly.toml [[http_service.checks]]`) hits the same path o
 
 ## 5. Smoke Tests After Deploy
 
-Run all four against the production URL. `BASE=https://scoutedge-intelligence.fly.dev`.
+Run all service checks against the production URL. `BASE=https://scoutedge-intelligence.fly.dev`.
 
 ### 5.1 Health
 
@@ -166,6 +167,17 @@ curl -i -sS "$BASE/healthz"
 ```
 - **Expected:** `HTTP/2 200`, body `{"status":"ok","version":"..."}`.
 - **Pass criterion:** status 200 and `status` field equals `"ok"`.
+
+Verify CORS using one of the production origins from `CORS_ORIGINS` against the
+same health route, so the smoke test does not depend on a synthetic match id:
+
+```bash
+curl -i -sS -X OPTIONS "$BASE/healthz" \
+  -H 'Origin: https://scoutedge.app' \
+  -H 'Access-Control-Request-Method: GET'
+```
+- **Expected:** `HTTP/2 200` with `access-control-allow-origin: https://scoutedge.app`.
+- **Pass criterion:** the returned allow-origin header exactly matches the requested production origin. If missing, confirm `CORS_ORIGINS` in `fly secrets list`, restart/redeploy the service, and re-test.
 
 ### 5.2 Predict a real match
 
@@ -189,20 +201,35 @@ websocat "wss://scoutedge-intelligence.fly.dev/ws/live/$MATCH_ID"
 
 ### 5.4 Divergence feedback
 
+Use a dedicated smoke-test auth user UUID so the row is globally filterable and
+safe to remove after the check:
+
 ```bash
+SMOKE_USER_ID="${SMOKE_USER_ID:?set this to a dedicated auth.users smoke-test UUID}"
+
 curl -i -sS -X POST "$BASE/api/divergence/feedback" \
   -H 'Content-Type: application/json' \
   -d '{
     "match_id": "'"$MATCH_ID"'",
-    "diagnosis_id": "smoke-test",
-    "user_choice": "ml",
-    "user_id": null
+    "user_id": "'"$SMOKE_USER_ID"'",
+    "diagnosis_id": null,
+    "expanded": true,
+    "user_action": "agreed"
   }'
 ```
 - **Expected:** `HTTP/2 200` or `HTTP/2 201`.
 - **Pass criterion:** status in {200,201} and the row appears in `divergence_diagnoses_displayed` within 5s.
+- **Cleanup:** remove the smoke row immediately after verification:
+  ```bash
+  psql "$PROD_DATABASE_URL" -c "
+    DELETE FROM divergence_diagnoses_displayed
+    WHERE user_id = '$SMOKE_USER_ID'
+      AND match_id = '$MATCH_ID'
+      AND created_at > now() - interval '15 minutes';
+  "
+  ```
 
-> [TBD: confirm the exact request schema for `/api/divergence/feedback` — payload above is best-effort; cross-check `api/routes/divergence.py`.]
+Schema source: `api.routes.divergence_feedback.FeedbackRequest`. `user_action` must be one of `agreed`, `challenged`, `shared`, or `dismissed`; when it is `challenged`, include a non-empty `challenge_reason` and optionally `challenge_alternative_probs`.
 
 ---
 
@@ -265,7 +292,15 @@ Tick these in order on cutover day:
   psql "$PROD_DATABASE_URL" -c "SELECT count(*) FROM predictions WHERE created_at > now() - interval '1 hour';"
   ```
 - [ ] **Cron schedules** confirmed enabled (`gh workflow view "scoutedge-intelligence cron"` shows `state: active`).
-- [ ] **Vercel env var** `NEXT_PUBLIC_SCOUTEDGE_INTELLIGENCE_BASE` flipped from staging to `https://scoutedge-intelligence.fly.dev`. Trigger a Vercel redeploy of the production environment.
+- [ ] **Vercel env var** `NEXT_PUBLIC_SCOUTEDGE_API_URL` flipped from staging to `https://scoutedge-intelligence.fly.dev/api`. Trigger a Vercel redeploy of the production environment, then verify:
+  - Vercel production deployment status is `Ready` and the deployment commit matches this release.
+  - Production browser DevTools console/network shows ScoutEdge API calls going to `https://scoutedge-intelligence.fly.dev/api` (or the approved replacement URL), with no staging API calls remaining.
+  - Direct smoke request succeeds:
+    ```bash
+    API_BASE="https://scoutedge-intelligence.fly.dev/api"
+    curl -i -sS "$API_BASE/og/match/$MATCH_ID"
+    ```
+    Expected: `HTTP/2 200` or the documented route-specific non-5xx response, and no request to the old staging API base.
 - [ ] **End-to-end check (10-minute SLO):** load the production frontend, navigate to a match detail page, confirm a prediction renders within 10 minutes of cutover. Record latency.
 
 ---
@@ -278,8 +313,8 @@ Wire these into the alerting stack (Fly metrics, Supabase logs, and the chosen A
 |---|---|---|
 | `p99` latency on `GET /api/predict/match` | > 3000 ms over 5-min window | Page on-call. Check Fly machine count, Anthropic API latency, Postgres slow queries. |
 | HTTP error rate (`/api/*`) | > 1% over 5-min window | Page on-call. `fly logs` for stack traces; check Supabase + Redis health. |
-| Daily Anthropic spend | > $[TBD: ops to set — recommend starting at $50/day, raise after first week of real traffic] | Notify owner; consider flipping `ANALYST_HIGH_DIVERGENCE_ONLY=true` to throttle Sonnet calls. |
-| Daily row writes to `predictions` | < [TBD: expected daily floor — typically ≥ 2× the count of upcoming matches in next 48h, since `precompute` runs 4×/day] | Investigate cron failures; check Actions tab for skipped or failing `precompute` runs. |
+| Daily Anthropic spend | > $50/day | Notify owner; consider flipping `ANALYST_HIGH_DIVERGENCE_ONLY=true` to throttle Sonnet calls. |
+| Daily row writes to `predictions` | < `4 × UpcomingMatchesInNext48h` rows/day once at least one match is scheduled. The scheduled `precompute` job runs every 6h and writes one prediction per match per run (example: 3 upcoming matches => alert below 12 writes/day). | Investigate cron failures; check Actions tab for skipped or failing `precompute` runs. |
 | `prediction_audits` Brier score (rolling 30 matches) | drift > 0.05 from prior 30-match window | Notify modeling owner; possible model drift or upstream data issue. |
 | Fly machine count | drops to 0 for > 60s during scheduled windows | Check `min_machines_running = 1` is still set in `fly.toml`. |
 

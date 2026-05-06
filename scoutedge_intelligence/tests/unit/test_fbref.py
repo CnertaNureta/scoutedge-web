@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from typing import Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
@@ -51,6 +52,7 @@ def _ok_response(body: str) -> MagicMock:
     resp = MagicMock(spec=httpx.Response)
     resp.status_code = 200
     resp.text = body
+    resp.request = MagicMock(spec=httpx.Request)
     resp.raise_for_status.return_value = None
     return resp
 
@@ -60,9 +62,10 @@ def _err_response(status_code: int) -> MagicMock:
     resp = MagicMock(spec=httpx.Response)
     resp.status_code = status_code
     resp.text = ""
+    resp.request = MagicMock(spec=httpx.Request)
     resp.raise_for_status.side_effect = httpx.HTTPStatusError(
         f"HTTP {status_code}",
-        request=MagicMock(),
+        request=resp.request,
         response=resp,
     )
     return resp
@@ -143,6 +146,33 @@ async def test_throttle_sleeps_between_consecutive_fetches(
     assert sleep_mock.await_count >= 1
     delay = sleep_mock.await_args_list[-1].args[0]
     assert delay > 0.0
+
+
+@pytest.mark.asyncio
+async def test_throttle_lock_spans_in_flight_request(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Concurrent fetches must not overlap their underlying FBref HTTP requests."""
+    monkeypatch.setattr(fbref_mod, "_THROTTLE_SECONDS", 0.0)
+
+    active_requests = 0
+    max_active_requests = 0
+
+    async def slow_get(_url: str) -> MagicMock:
+        nonlocal active_requests, max_active_requests
+        active_requests += 1
+        max_active_requests = max(max_active_requests, active_requests)
+        await asyncio.sleep(0)
+        active_requests -= 1
+        return _ok_response(_FBREF_HTML_SAMPLE)
+
+    get_mock = AsyncMock(side_effect=slow_get)
+    client = _make_client(get_mock)
+
+    await asyncio.gather(
+        client.fetch_team_season_stats(_TEAM_ID, "2025"),
+        client.fetch_team_season_stats(_TEAM_ID, "2026"),
+    )
+
+    assert max_active_requests == 1
 
 
 # ---------------------------------------------------------------------------
@@ -230,6 +260,26 @@ async def test_4xx_not_retried(monkeypatch: pytest.MonkeyPatch) -> None:
 
     # Exactly one call - no retry on 4xx.
     assert get_mock.await_count == 1
+
+
+@pytest.mark.asyncio
+async def test_5xx_retried_then_succeeds(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Transient 5xx responses should be retried before parsing the page."""
+    monkeypatch.setattr(fbref_mod.asyncio, "sleep", AsyncMock())
+
+    get_mock = AsyncMock(
+        side_effect=[
+            _err_response(503),
+            _err_response(502),
+            _ok_response(_FBREF_HTML_SAMPLE),
+        ]
+    )
+    client = _make_client(get_mock)
+
+    result = await client.fetch_team_season_stats(_TEAM_ID, _SEASON)
+
+    assert result["matches_played"] == 12
+    assert get_mock.await_count == 3
 
 
 # ---------------------------------------------------------------------------

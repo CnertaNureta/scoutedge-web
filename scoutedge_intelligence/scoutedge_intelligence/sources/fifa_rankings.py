@@ -7,6 +7,7 @@ internal schema for downstream prediction features.
 
 from __future__ import annotations
 
+import json
 import os
 import time
 from typing import Any
@@ -175,7 +176,14 @@ class FIFARankingsClient:
             )
 
         response.raise_for_status()
-        data: dict[str, Any] = response.json()
+        try:
+            data: dict[str, Any] = response.json()
+        except (json.JSONDecodeError, ValueError, httpx.DecodingError) as exc:
+            body_snippet = response.text[:200].replace("\n", " ")
+            raise httpx.DecodingError(
+                f"FIFA rankings API returned non-JSON body "
+                f"({response.status_code}) from {self._base_url}: {body_snippet}",
+            ) from exc
         return data
 
 
@@ -215,13 +223,27 @@ def _normalise_rankings(raw_rankings: list[dict[str, Any]]) -> list[dict[str, An
     """Normalise raw FIFA ranking entries into the internal schema."""
     return [
         {
-            "team_id": str(entry.get("id", "")).upper(),
-            "team_name": entry.get("name", ""),
-            "rank": int(entry.get("rank", 0)),
-            "points": float(entry.get("totalPoints", 0.0)),
-            "previous_points": float(entry.get("previousPoints", 0.0)),
-            "confederation": entry.get("confederation", ""),
-            "published_at": entry.get("publishedAt", ""),
+            "team_id": str(entry.get("id") or "").upper(),
+            "team_name": entry.get("name") or "",
+            "rank": _safe_int(entry.get("rank")),
+            "points": _safe_float(entry.get("totalPoints")),
+            "previous_points": _safe_float(entry.get("previousPoints")),
+            "confederation": entry.get("confederation") or "",
+            "published_at": entry.get("publishedAt") or "",
         }
         for entry in raw_rankings
     ]
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _safe_float(value: Any, default: float = 0.0) -> float:
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return default

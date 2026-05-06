@@ -65,6 +65,7 @@ function makeFork(overrideHome: string = 'Argentina'): BracketForkResponse {
     created_at: '2026-01-02T00:00:00Z',
     bracket_data: {
       overrides: { 'r16:0': overrideHome },
+      base_version: 'base-001',
     },
   }
 }
@@ -330,6 +331,25 @@ describe('BracketFork — initialFork hydration', () => {
     expect(
       screen.getByRole('button', { name: /share your bracket fork/i }),
     ).toBeInTheDocument()
+  })
+
+  it('renders fork count and does not rewrite absolute share URLs', () => {
+    const fork = {
+      ...makeFork('Argentina'),
+      fork_count: 7,
+      share_url: 'https://share.example/bracket/fork-abc',
+    }
+    render(<BracketFork userId="user-1" base={BASE} initialFork={fork} />)
+
+    expect(screen.getByLabelText('Fork count')).toHaveTextContent('7')
+    expect(screen.getByText('https://share.example/bracket/fork-abc')).toBeInTheDocument()
+  })
+
+  it('renders relative share URLs as stable paths', () => {
+    const fork = makeFork('Argentina')
+    render(<BracketFork userId="user-1" base={BASE} initialFork={fork} />)
+
+    expect(screen.getByText('/bracket/fork-abc')).toBeInTheDocument()
   })
 })
 

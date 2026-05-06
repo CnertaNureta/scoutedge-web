@@ -184,6 +184,20 @@ export function configureBridge(cfg: Partial<BridgeConfig>): void {
   _config = { ..._config, ...cfg }
 }
 
+function toWebSocketBase(baseUrl: string): string {
+  const hasProtocol = /^(https?|wss?):\/\//i.test(baseUrl)
+  const origin =
+    typeof window !== 'undefined' && window.location?.origin
+      ? window.location.origin
+      : 'http://localhost'
+  const url = new URL(hasProtocol ? baseUrl : baseUrl || '/api', origin)
+  const protocol = url.protocol.toLowerCase()
+  const wsProtocol = protocol === 'https:' || protocol === 'wss:' ? 'wss:' : 'ws:'
+  const path = url.pathname.replace(/\/api\/?$/i, '').replace(/\/+$/, '')
+
+  return `${wsProtocol}//${url.host}${path}`
+}
+
 // ---------------------------------------------------------------------------
 // In-memory cache (30s TTL, safe GETs only)
 // ---------------------------------------------------------------------------
@@ -427,7 +441,7 @@ export function openLiveSocket(
     onError?: (e: Event) => void
   },
 ): { close: () => void } {
-  const wsBase = _config.baseUrl.replace(/^http/, 'ws').replace(/\/api\/?$/, '')
+  const wsBase = toWebSocketBase(_config.baseUrl)
   const wsUrl = `${wsBase}/ws/live/${encodeURIComponent(matchId)}`
   const ws = new WebSocket(wsUrl)
 

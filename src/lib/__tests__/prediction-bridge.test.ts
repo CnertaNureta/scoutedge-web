@@ -225,6 +225,32 @@ describe('prediction-bridge', () => {
     close()
   })
 
+  it('openLiveSocket builds an absolute URL from a relative API baseUrl', () => {
+    const onMessage = vi.fn<(_frame: LiveFrame) => void>()
+    configureBridge({ baseUrl: '/api' })
+    const { close } = openLiveSocket('relative match', {
+      onMessage: onMessage as (frame: LiveFrame) => void,
+    })
+
+    const ws = MockWebSocket.instances[MockWebSocket.instances.length - 1]
+    expect(ws.url).toBe('ws://localhost:3000/ws/live/relative%20match')
+
+    close()
+  })
+
+  it('openLiveSocket normalizes uppercase URL schemes', () => {
+    const onMessage = vi.fn<(_frame: LiveFrame) => void>()
+    configureBridge({ baseUrl: 'HTTPS://API.EXAMPLE.COM/api' })
+    const { close } = openLiveSocket('upper-case', {
+      onMessage: onMessage as (frame: LiveFrame) => void,
+    })
+
+    const ws = MockWebSocket.instances[MockWebSocket.instances.length - 1]
+    expect(ws.url).toBe('wss://api.example.com/ws/live/upper-case')
+
+    close()
+  })
+
   // 10. getDuelScorecard builds correct URL with query params
   it('getDuelScorecard appends limit and only_finished query params', async () => {
     const mock = mockFetchOk({

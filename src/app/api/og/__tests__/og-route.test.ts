@@ -55,6 +55,17 @@ function makeParams(type: string, id: string): { params: Promise<{ type: string;
   return { params: Promise.resolve({ type, id }) }
 }
 
+function collectText(node: unknown): string[] {
+  if (node == null || typeof node === 'boolean') return []
+  if (typeof node === 'string' || typeof node === 'number') return [String(node)]
+  if (Array.isArray(node)) return node.flatMap(collectText)
+  if (typeof node === 'object' && 'props' in node) {
+    const props = (node as { props?: { children?: unknown } }).props
+    return collectText(props?.children)
+  }
+  return []
+}
+
 const SAMPLE_MATCH_METADATA = {
   match_id: 'match-123',
   home_team: 'BRA',
@@ -187,6 +198,25 @@ describe('OG route — GET handler', () => {
 
     expect(response).toBeInstanceOf(MockImageResponse)
     expect((response as unknown as MockImageResponseShape).status).toBe(200)
+  })
+
+  it('falls back to pick-derived slayer accuracy when metadata accuracy is null', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        ...SAMPLE_SLAYER_METADATA,
+        total_picks: 10,
+        correct_picks: 7,
+        accuracy_pct: null,
+      }),
+    } as Response)
+
+    const response = await GET(makeRequest('slayer', 'user-42') as never, makeParams('slayer', 'user-42'))
+    const textParts = collectText((response as unknown as MockImageResponseShape).element)
+    const text = textParts.join(' ')
+
+    expect(textParts).toContain('70')
+    expect(text).toContain('Win rate')
   })
 
   it('returns a 400 Response for an unknown type', async () => {

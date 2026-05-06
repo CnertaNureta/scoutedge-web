@@ -53,6 +53,7 @@ def _make_response(payload: dict[str, Any], status_code: int = 200) -> MagicMock
     mock_resp = MagicMock(spec=httpx.Response)
     mock_resp.status_code = status_code
     mock_resp.json.return_value = payload
+    mock_resp.text = str(payload)
     mock_resp.request = MagicMock(spec=httpx.Request)
     if status_code >= 400:
         mock_resp.raise_for_status.side_effect = httpx.HTTPStatusError(
@@ -107,6 +108,63 @@ async def test_fetch_rankings_returns_normalised_list() -> None:
     assert result[0]["previous_points"] == pytest.approx(1825.0)
     assert result[0]["confederation"] == "CONMEBOL"
     assert result[0]["published_at"] == "2026-04-04"
+
+
+@pytest.mark.asyncio
+async def test_fetch_rankings_handles_null_api_fields() -> None:
+    payload: dict[str, Any] = {
+        "rankings": [
+            {
+                "id": None,
+                "name": None,
+                "rank": None,
+                "totalPoints": None,
+                "previousPoints": None,
+                "confederation": None,
+                "publishedAt": None,
+            }
+        ]
+    }
+    client, _ = _make_client(payload)
+
+    result = await client.fetch_rankings()
+
+    assert result == [
+        {
+            "team_id": "",
+            "team_name": "",
+            "rank": 0,
+            "points": 0.0,
+            "previous_points": 0.0,
+            "confederation": "",
+            "published_at": "",
+        }
+    ]
+
+
+@pytest.mark.asyncio
+async def test_fetch_rankings_handles_malformed_numeric_fields() -> None:
+    payload: dict[str, Any] = {
+        "rankings": [
+            {
+                "id": "bad",
+                "name": "Bad Data FC",
+                "rank": "not-a-rank",
+                "totalPoints": {},
+                "previousPoints": "nan-ish",
+                "confederation": "UEFA",
+                "publishedAt": "2026-04-04",
+            }
+        ]
+    }
+    client, _ = _make_client(payload)
+
+    result = await client.fetch_rankings()
+
+    assert result[0]["team_id"] == "BAD"
+    assert result[0]["rank"] == 0
+    assert result[0]["points"] == 0.0
+    assert result[0]["previous_points"] == 0.0
 
 
 # ---------------------------------------------------------------------------
@@ -230,6 +288,24 @@ async def test_http_404_not_retried() -> None:
     client = FIFARankingsClient(http_client=mock_http)
 
     with pytest.raises(httpx.HTTPError):
+        await client.fetch_rankings()
+
+    assert mock_http.get.call_count == 1
+
+
+@pytest.mark.asyncio
+async def test_non_json_response_raises_decoding_error() -> None:
+    """Successful HTTP responses with invalid JSON surface with body context."""
+    mock_resp = _make_response({}, status_code=200)
+    mock_resp.json.side_effect = ValueError("not json")
+    mock_resp.text = "<html>maintenance</html>"
+
+    mock_http = AsyncMock(spec=httpx.AsyncClient)
+    mock_http.get = AsyncMock(return_value=mock_resp)
+    mock_http.aclose = AsyncMock()
+    client = FIFARankingsClient(http_client=mock_http)
+
+    with pytest.raises(httpx.DecodingError, match="non-JSON body"):
         await client.fetch_rankings()
 
     assert mock_http.get.call_count == 1

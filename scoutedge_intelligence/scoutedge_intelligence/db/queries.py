@@ -99,8 +99,14 @@ def _prediction_insert_data(payload: PredictionSchema) -> dict[str, Any]:
     data["draw_prob"] = draw
     data["away_win_prob"] = away
     data["prediction_type"] = payload.prediction_type or "match_outcome"
-    data["predicted_home_goals"] = payload.predicted_home_goals or payload.ml_home_goals_exp
-    data["predicted_away_goals"] = payload.predicted_away_goals or payload.ml_away_goals_exp
+    data["predicted_home_goals"] = _first_number(
+        payload.predicted_home_goals,
+        payload.ml_home_goals_exp,
+    )
+    data["predicted_away_goals"] = _first_number(
+        payload.predicted_away_goals,
+        payload.ml_away_goals_exp,
+    )
     data["recommended_pick"] = _recommended_pick(home, draw, away, payload)
     data["rationale_summary"] = payload.rationale_summary or payload.claude_narrative
     data["source"] = payload.source or "scoutedge"

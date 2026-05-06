@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import json
 from typing import Any
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import httpx
 import pytest
 
-from scoutedge_intelligence.sources.api_football import APIFootballClient
+from scoutedge_intelligence.sources.api_football import APIFootballClient, APIFootballError
 
 # ---------------------------------------------------------------------------
 # Fixture payload helpers
@@ -86,6 +87,7 @@ def _make_response(payload: dict[str, Any], status_code: int = 200) -> MagicMock
     mock_resp = MagicMock(spec=httpx.Response)
     mock_resp.status_code = status_code
     mock_resp.json.return_value = payload
+    mock_resp.text = str(payload)
     mock_resp.request = MagicMock()
     return mock_resp
 
@@ -279,6 +281,56 @@ async def test_401_not_retried() -> None:
         await client.fetch_fixtures(_LEAGUE_ID, _SEASON)
 
     assert mock_http.get.call_count == 1
+
+
+async def test_non_json_success_response_raises_clear_error() -> None:
+    mock_resp = _make_response({}, status_code=200)
+    mock_resp.json.side_effect = json.JSONDecodeError("not json", "invalid", 0)
+    mock_resp.text = "<html>temporarily unavailable</html>"
+
+    mock_http = AsyncMock(spec=httpx.AsyncClient)
+    mock_http.get = AsyncMock(return_value=mock_resp)
+    mock_http.aclose = AsyncMock()
+    client = APIFootballClient(api_key="test-key", http_client=mock_http)
+
+    with pytest.raises(APIFootballError, match="non-JSON body"):
+        await client.fetch_fixtures(_LEAGUE_ID, _SEASON)
+
+
+async def test_decoding_error_success_response_raises_clear_error() -> None:
+    mock_resp = _make_response({}, status_code=200)
+    mock_resp.json.side_effect = httpx.DecodingError("brotli decode failed")
+    mock_resp.text = "<html>bad compression</html>"
+
+    mock_http = AsyncMock(spec=httpx.AsyncClient)
+    mock_http.get = AsyncMock(return_value=mock_resp)
+    mock_http.aclose = AsyncMock()
+    client = APIFootballClient(api_key="test-key", http_client=mock_http)
+
+    with pytest.raises(APIFootballError, match="non-JSON body"):
+        await client.fetch_fixtures(_LEAGUE_ID, _SEASON)
+
+
+async def test_non_json_response_handles_undecodable_text() -> None:
+    class UndecodableResponse:
+        status_code = 200
+        request = MagicMock()
+        content = b"\xff<html>bad charset</html>"
+
+        @property
+        def text(self) -> str:
+            raise UnicodeDecodeError("utf-8", b"\xff", 0, 1, "bad byte")
+
+        def json(self) -> dict[str, Any]:
+            raise json.JSONDecodeError("not json", "invalid", 0)
+
+    mock_http = AsyncMock(spec=httpx.AsyncClient)
+    mock_http.get = AsyncMock(return_value=UndecodableResponse())
+    mock_http.aclose = AsyncMock()
+    client = APIFootballClient(api_key="test-key", http_client=mock_http)
+
+    with pytest.raises(APIFootballError, match="bad charset"):
+        await client.fetch_fixtures(_LEAGUE_ID, _SEASON)
 
 
 # ---------------------------------------------------------------------------

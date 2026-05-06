@@ -92,6 +92,31 @@ def test_og_match_away_pick_uses_away_team() -> None:
     assert body["predicted_p_win"] == 0.5
 
 
+def test_og_match_latest_prediction_query_puts_null_timestamps_last() -> None:
+    pred = MagicMock()
+    pred.claude_pick = "home"
+    pred.blended_home_win_prob = 0.62
+    pred.blended_away_win_prob = 0.20
+
+    session = AsyncMock()
+    call_index = 0
+
+    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
+        nonlocal call_index
+        call_index += 1
+        return _scalar_result(_fake_match()) if call_index == 1 else _scalar_result(pred)
+
+    session.execute = AsyncMock(side_effect=_execute)
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get("/og/match/m-1")
+
+    assert resp.status_code == 200
+    latest_prediction_query = session.execute.await_args_list[1].args[0]
+    assert "NULLS LAST" in str(latest_prediction_query)
+
+
 def test_og_match_unknown_pick_falls_through_else_branch() -> None:
     pred = MagicMock()
     pred.claude_pick = "draw"

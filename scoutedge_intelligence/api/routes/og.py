@@ -21,7 +21,7 @@ from typing import Any
 import structlog
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from sqlalchemy import select
+from sqlalchemy import nullslast, select
 
 from api.deps import DbSession
 from scoutedge_intelligence.db.models import BracketFork, Match, Prediction, UserPrediction
@@ -176,7 +176,10 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
     pred_result = await session.execute(
         select(Prediction)
         .where(Prediction.match_id == match_id)
-        .order_by(Prediction.generated_at.desc(), Prediction.created_at.desc())
+        .order_by(
+            nullslast(Prediction.generated_at.desc()),
+            nullslast(Prediction.created_at.desc()),
+        )
         .limit(1)
     )
     pred = pred_result.scalars().first()

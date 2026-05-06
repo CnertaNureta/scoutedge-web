@@ -91,8 +91,38 @@ else
   echo "[$(date)] Phase 2: SKIPPED — API_FOOTBALL_KEY not set"
 fi
 
-# 3. Rebuild static site (also fetches fresh RSS news)
-echo "[$(date)] Phase 3: Building site..."
+# 3. Precompute triple-layer predictions (Python — scoutedge_intelligence)
+# Skipped if the venv or DB is unavailable; failure does not block the site rebuild.
+echo "[$(date)] Phase 3a: Precomputing triple-layer predictions..."
+SI_DIR="$PROJECT_ROOT/scoutedge_intelligence"
+SI_PY="$SI_DIR/.venv/bin/python"
+PRECOMPUTE_TIMEOUT_SECONDS="${PRECOMPUTE_TIMEOUT_SECONDS:-900}"
+PRECOMPUTE_TIMEOUT_BIN="$(command -v timeout || command -v gtimeout || true)"
+if [ -x "$SI_PY" ] && [ -n "$DATABASE_URL" ]; then
+  if [ -n "$PRECOMPUTE_TIMEOUT_BIN" ]; then
+    (cd "$SI_DIR" && "$PRECOMPUTE_TIMEOUT_BIN" "$PRECOMPUTE_TIMEOUT_SECONDS" "$SI_PY" -m scoutedge_intelligence.scripts.precompute_predictions \
+      --horizon-hours 168 --limit 64 --concurrency 3 2>&1) \
+      || echo "WARN: precompute_predictions failed or timed out, frontend will use cached predictions"
+  else
+    (cd "$SI_DIR" && "$SI_PY" -c 'import subprocess, sys; timeout = int(sys.argv[1]); cmd = sys.argv[2:];
+try:
+    completed = subprocess.run(cmd, timeout=timeout)
+except subprocess.TimeoutExpired:
+    sys.exit(124)
+sys.exit(completed.returncode)' "$PRECOMPUTE_TIMEOUT_SECONDS" "$SI_PY" -m scoutedge_intelligence.scripts.precompute_predictions \
+      --horizon-hours 168 --limit 64 --concurrency 3 2>&1) \
+      || echo "WARN: precompute_predictions failed or timed out, frontend will use cached predictions"
+  fi
+else
+  if [ ! -x "$SI_PY" ]; then
+    echo "[$(date)] Phase 3a: SKIPPED — scoutedge_intelligence venv missing ($SI_PY)"
+  else
+    echo "[$(date)] Phase 3a: SKIPPED — DATABASE_URL not set"
+  fi
+fi
+
+# 3b. Rebuild static site (also fetches fresh RSS news)
+echo "[$(date)] Phase 3b: Building site..."
 npm run build 2>&1
 
 # 4. Restart static server

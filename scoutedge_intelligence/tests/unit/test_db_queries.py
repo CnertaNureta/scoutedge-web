@@ -114,6 +114,21 @@ async def test_insert_prediction_returns_new_id() -> None:
     session.commit.assert_awaited_once()
 
 
+def test_prediction_insert_data_preserves_zero_goal_predictions() -> None:
+    payload = PredictionSchema(
+        match_id="m-zero",
+        predicted_home_goals=0.0,
+        predicted_away_goals=0.0,
+        ml_home_goals_exp=1.2,
+        ml_away_goals_exp=0.8,
+    )
+
+    data = queries._prediction_insert_data(payload)
+
+    assert data["predicted_home_goals"] == 0.0
+    assert data["predicted_away_goals"] == 0.0
+
+
 @pytest.mark.asyncio
 async def test_update_prediction_audit_commits() -> None:
     session = MagicMock()

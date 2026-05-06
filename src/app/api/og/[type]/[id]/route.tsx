@@ -33,16 +33,30 @@ const TEXT_PRIMARY = 'oklch(96% 0.01 250)'
 const TEXT_SECONDARY = 'oklch(72% 0.04 250)'
 const WORDMARK_COLOR = 'oklch(60% 0.12 250)'
 
+function safeNumber(value: unknown, fallback = 0): number {
+  if (value == null) return fallback
+  const numeric = Number(value)
+  return Number.isFinite(numeric) ? numeric : fallback
+}
+
+function safeCount(value: unknown): number {
+  return Math.max(0, Math.trunc(safeNumber(value)))
+}
+
+function formatOgDate(value: string | null | undefined): string | null {
+  if (!value) return null
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return null
+  return date.toLocaleDateString('en-GB')
+}
+
 // ---------------------------------------------------------------------------
 // Layout renderers per type
 // ---------------------------------------------------------------------------
 
 function renderMatchImage(data: OgMatchMetadata): React.ReactElement {
   const headline = data.headline || `${data.home_team} vs ${data.away_team}`
-  const subline = [
-    data.venue_city,
-    data.kickoff_utc ? new Date(data.kickoff_utc).toLocaleDateString('en-GB') : null,
-  ]
+  const subline = [data.venue_city, formatOgDate(data.kickoff_utc)]
     .filter(Boolean)
     .join(' · ')
 
@@ -261,7 +275,11 @@ function renderBracketImage(data: BracketOgMetadata): React.ReactElement {
 }
 
 function renderSlayerImage(data: SlayerOgMetadata): React.ReactElement {
-  const winRate = Math.round(data.accuracy_pct)
+  const correctPicks = safeCount(data.correct_picks)
+  const totalPicks = safeCount(data.total_picks)
+  const fallbackAccuracy = totalPicks > 0 ? (correctPicks / totalPicks) * 100 : 0
+  const winRate = Math.max(0, Math.min(100, Math.round(safeNumber(data.accuracy_pct, fallbackAccuracy))))
+  const badgeTier = data.badge_tier?.trim() || 'Unranked'
 
   return (
     <div
@@ -348,13 +366,13 @@ function renderSlayerImage(data: SlayerOgMetadata): React.ReactElement {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: 40, fontWeight: 800, color: TEXT_PRIMARY }}>
-              {data.correct_picks}/{data.total_picks}
+              {correctPicks}/{totalPicks}
             </span>
             <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Correct picks</span>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: 40, fontWeight: 800, color: TEXT_PRIMARY }}>
-              {data.badge_tier}
+              {badgeTier}
             </span>
             <span style={{ fontSize: 18, color: TEXT_SECONDARY, marginTop: 4 }}>Badge tier</span>
           </div>

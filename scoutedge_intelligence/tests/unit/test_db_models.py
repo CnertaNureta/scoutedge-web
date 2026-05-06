@@ -88,6 +88,21 @@ def test_orm_classes_importable() -> None:
         assert cls.__tablename__ == name, f"{cls.__name__} tablename mismatch"
 
 
+def test_prediction_core_columns_have_safe_defaults() -> None:
+    table = Prediction.__table__
+
+    for column_name in ("home_win_prob", "draw_prob", "away_win_prob"):
+        assert table.c[column_name].default is not None
+        assert table.c[column_name].server_default is not None
+
+    assert str(table.c.draw_prob.server_default.arg) == "0.33334"
+
+    for column_name in ("generated_at", "created_at", "updated_at"):
+        assert table.c[column_name].server_default is not None
+
+    assert table.c.updated_at.onupdate is not None
+
+
 # ===========================================================================
 # 2. Pydantic schemas instantiable from dict literals
 # ===========================================================================

@@ -25,6 +25,8 @@ from sqlalchemy import (
     Numeric,
     String,
     Text,
+    func,
+    text,
 )
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
@@ -162,9 +164,15 @@ class Prediction(Base):
 
     # Existing core prediction columns from 20260331000000_create_core_football_schema.sql
     prediction_type: Mapped[str] = mapped_column(Text, nullable=False, default="match_outcome")
-    home_win_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
-    draw_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
-    away_win_prob: Mapped[float] = mapped_column(Numeric(6, 5), nullable=False)
+    home_win_prob: Mapped[float] = mapped_column(
+        Numeric(6, 5), nullable=False, default=1 / 3, server_default=text("0.33333")
+    )
+    draw_prob: Mapped[float] = mapped_column(
+        Numeric(6, 5), nullable=False, default=0.33334, server_default=text("0.33334")
+    )
+    away_win_prob: Mapped[float] = mapped_column(
+        Numeric(6, 5), nullable=False, default=1 / 3, server_default=text("0.33333")
+    )
     predicted_home_goals: Mapped[float | None] = mapped_column(Numeric(6, 2), nullable=True)
     predicted_away_goals: Mapped[float | None] = mapped_column(Numeric(6, 2), nullable=True)
     confidence_score: Mapped[float | None] = mapped_column(Numeric(5, 2), nullable=True)
@@ -175,9 +183,18 @@ class Prediction(Base):
     # PG: JSONB
     facts_used: Mapped[Any] = mapped_column(JSON, nullable=False, default=list)
     metadata_: Mapped[Any] = mapped_column("metadata", JSON, nullable=False, default=dict)
-    generated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
-    created_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
-    updated_at: Mapped[datetime.datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+    generated_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+    created_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime(timezone=True), nullable=False, server_default=func.now()
+    )
+    updated_at: Mapped[datetime.datetime] = mapped_column(
+        DateTime(timezone=True),
+        nullable=False,
+        onupdate=func.now(),
+        server_default=func.now(),
+    )
 
     # --- ML layer (migration 100002) ---
     ml_home_win_prob: Mapped[float | None] = mapped_column(Numeric(6, 5), nullable=True)
