@@ -86,8 +86,76 @@ async def test_insert_feedback_dismissed_sets_flag() -> None:
     params = stmt.compile().params  # type: ignore[attr-defined]
     assert params["was_dismissed"] is True
     assert params["was_clicked"] is False
-    assert params["divergence_type"] == "user_feedback"
+    # When omitted by caller, ``divergence_type`` falls back to the safe
+    # default that satisfies the DB CHECK constraint.
+    assert params["divergence_type"] == "other"
     assert params["diagnosis_payload"]["user_action"] == "dismissed"
+
+
+@pytest.mark.asyncio
+async def test_insert_feedback_uses_other_when_divergence_type_omitted() -> None:
+    """When the caller omits ``divergence_type``, the insert payload uses ``'other'``.
+
+    ``'other'`` is one of the values allowed by the DB CHECK constraint
+    ``divergence_diagnoses_type_valid``, so this prevents the production 500
+    that originally surfaced this bug.
+    """
+    captured: dict[str, object] = {}
+
+    async def _capture_execute(stmt: object) -> MagicMock:
+        captured["stmt"] = stmt
+        return MagicMock()
+
+    session = MagicMock()
+    session.execute = AsyncMock(side_effect=_capture_execute)
+    session.commit = AsyncMock()
+
+    await df_route._insert_feedback(
+        session,
+        user_id="u-omit",
+        match_id="m-omit",
+        user_action="agreed",
+        expanded=True,
+        diagnosis_id=None,
+        challenge_reason=None,
+        challenge_alternative_probs=None,
+        # divergence_type intentionally omitted
+    )
+
+    stmt = captured["stmt"]
+    params = stmt.compile().params  # type: ignore[attr-defined]
+    assert params["divergence_type"] == "other"
+    assert params["divergence_type"] in df_route.ALLOWED_DIVERGENCE_TYPES
+
+
+@pytest.mark.asyncio
+async def test_insert_feedback_propagates_supplied_divergence_type() -> None:
+    """A supplied ``divergence_type`` must reach the insert payload verbatim."""
+    captured: dict[str, object] = {}
+
+    async def _capture_execute(stmt: object) -> MagicMock:
+        captured["stmt"] = stmt
+        return MagicMock()
+
+    session = MagicMock()
+    session.execute = AsyncMock(side_effect=_capture_execute)
+    session.commit = AsyncMock()
+
+    await df_route._insert_feedback(
+        session,
+        user_id="u-supply",
+        match_id="m-supply",
+        user_action="agreed",
+        expanded=False,
+        diagnosis_id=None,
+        challenge_reason=None,
+        challenge_alternative_probs=None,
+        divergence_type="ml_vs_poly",
+    )
+
+    stmt = captured["stmt"]
+    params = stmt.compile().params  # type: ignore[attr-defined]
+    assert params["divergence_type"] == "ml_vs_poly"
 
 
 @contextlib.contextmanager
