@@ -1,0 +1,393 @@
+/* ============================================================
+   RemixSliders — bento panel, no template look
+   CSS custom properties scoped to the component root.
+   Animations use compositor-friendly transform/opacity only.
+   ============================================================ */
+
+.remix-sliders {
+  --rs-surface: oklch(14% 0.008 260);
+  --rs-surface-raised: oklch(18% 0.01 260);
+  --rs-surface-hover: oklch(22% 0.012 260);
+  --rs-border: oklch(30% 0.012 260);
+  --rs-accent-ml: oklch(64% 0.18 250);
+  --rs-accent-sb: oklch(64% 0.18 145);
+  --rs-accent-poly: oklch(64% 0.18 310);
+  --rs-accent-alt: oklch(64% 0.16 55);
+  --rs-accent-heat: oklch(64% 0.18 25);
+  --rs-text: oklch(92% 0.005 260);
+  --rs-text-muted: oklch(58% 0.008 260);
+  --rs-positive: oklch(65% 0.18 145);
+  --rs-negative: oklch(62% 0.2 25);
+  --rs-bar-home: oklch(62% 0.18 250);
+  --rs-bar-draw: oklch(60% 0.08 260);
+  --rs-bar-away: oklch(62% 0.18 25);
+  --rs-bar-remix-alpha: 0.55;
+  --rs-radius: 14px;
+  --rs-radius-sm: 8px;
+  --rs-duration: 280ms;
+  --rs-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--rs-surface);
+  border: 1px solid var(--rs-border);
+  border-radius: var(--rs-radius);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grain overlay for depth */
+.remix-sliders::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  border-radius: var(--rs-radius);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.remix-sliders > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------
+   Header
+   -------------------------------------------------- */
+
+.remix-sliders__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.remix-sliders__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.remix-sliders__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rs-text);
+  margin: 0;
+}
+
+.remix-sliders__status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rs-accent-ml);
+  animation: rs-pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes rs-pulse {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+
+.remix-sliders__hint {
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--rs-accent-alt);
+  letter-spacing: 0.04em;
+  animation: rs-fadein 200ms var(--rs-ease);
+}
+
+@keyframes rs-fadein {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.remix-sliders__reset {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rs-text-muted);
+  background: transparent;
+  border: 1px solid var(--rs-border);
+  border-radius: var(--rs-radius-sm);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  transition: color 180ms, border-color 180ms, background 180ms;
+  white-space: nowrap;
+}
+
+.remix-sliders__reset:hover {
+  color: var(--rs-text);
+  border-color: var(--rs-text-muted);
+  background: var(--rs-surface-hover);
+}
+
+.remix-sliders__reset:focus-visible {
+  outline: 2px solid var(--rs-accent-ml);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------
+   Error
+   -------------------------------------------------- */
+
+.remix-sliders__error {
+  font-size: 0.78rem;
+  color: var(--rs-negative);
+  background: oklch(20% 0.06 25 / 0.2);
+  border: 1px solid oklch(40% 0.12 25 / 0.4);
+  border-radius: var(--rs-radius-sm);
+  padding: 0.5rem 0.75rem;
+  margin: 0;
+}
+
+/* --------------------------------------------------
+   Fieldsets / groups
+   -------------------------------------------------- */
+
+.remix-sliders__group {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.remix-sliders__group-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rs-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* --------------------------------------------------
+   Slider rows
+   -------------------------------------------------- */
+
+.remix-sliders__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.remix-sliders__row--disabled {
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.remix-sliders__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--rs-text);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.remix-sliders__unavailable {
+  font-weight: 400;
+  color: var(--rs-text-muted);
+  font-size: 0.7rem;
+}
+
+.remix-sliders__track-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Custom range input */
+.remix-sliders__range {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--rs-surface-raised);
+  border-radius: 999px;
+  cursor: pointer;
+  outline: none;
+  transition: background 180ms;
+}
+
+.remix-sliders__range:hover {
+  background: var(--rs-surface-hover);
+}
+
+.remix-sliders__range:focus-visible {
+  outline: 2px solid var(--rs-accent-ml);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* Thumb — WebKit */
+.remix-sliders__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rs-text);
+  border: 2px solid var(--rs-accent-ml);
+  cursor: pointer;
+  transition: transform 150ms, border-color 150ms;
+}
+
+.remix-sliders__range:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+  border-color: var(--rs-text);
+}
+
+/* Thumb — Firefox */
+.remix-sliders__range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--rs-text);
+  border: 2px solid var(--rs-accent-ml);
+  cursor: pointer;
+  transition: transform 150ms, border-color 150ms;
+}
+
+.remix-sliders__range:hover::-moz-range-thumb {
+  transform: scale(1.2);
+  border-color: var(--rs-text);
+}
+
+.remix-sliders__range:disabled {
+  cursor: not-allowed;
+}
+
+.remix-sliders__value {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--rs-text-muted);
+  min-width: 2.4rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------
+   Probability comparison bars
+   -------------------------------------------------- */
+
+.remix-sliders__bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.remix-sliders__bars-legend {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rs-text-muted);
+}
+
+.remix-sliders__legend-base::before {
+  content: '▪ ';
+  opacity: 0.7;
+}
+
+.remix-sliders__legend-remix::before {
+  content: '▪ ';
+  color: var(--rs-accent-ml);
+}
+
+.remix-sliders__outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.remix-sliders__outcome-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--rs-text-muted);
+}
+
+.remix-sliders__delta {
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--rs-text-muted);
+}
+
+.remix-sliders__delta--positive {
+  color: var(--rs-positive);
+}
+
+.remix-sliders__delta--negative {
+  color: var(--rs-negative);
+}
+
+.remix-sliders__bar-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.remix-sliders__bar {
+  position: relative;
+  height: 10px;
+  background: var(--rs-surface-raised);
+  border-radius: 999px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.remix-sliders__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  /* Compositor-friendly animation */
+  transition: width var(--rs-duration) var(--rs-ease);
+  transform-origin: left center;
+}
+
+/* Outcome-specific fill colors */
+.remix-sliders__outcome--home_win .remix-sliders__bar--base .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, var(--rs-bar-home), oklch(72% 0.2 250));
+}
+.remix-sliders__outcome--home_win .remix-sliders__bar--remix .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, oklch(62% 0.18 250 / var(--rs-bar-remix-alpha)), oklch(72% 0.2 250 / var(--rs-bar-remix-alpha)));
+}
+
+.remix-sliders__outcome--draw .remix-sliders__bar--base .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, var(--rs-bar-draw), oklch(68% 0.1 260));
+}
+.remix-sliders__outcome--draw .remix-sliders__bar--remix .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, oklch(60% 0.08 260 / var(--rs-bar-remix-alpha)), oklch(68% 0.1 260 / var(--rs-bar-remix-alpha)));
+}
+
+.remix-sliders__outcome--away_win .remix-sliders__bar--base .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, var(--rs-bar-away), oklch(70% 0.22 25));
+}
+.remix-sliders__outcome--away_win .remix-sliders__bar--remix .remix-sliders__bar-fill {
+  background: linear-gradient(90deg, oklch(62% 0.18 25 / var(--rs-bar-remix-alpha)), oklch(70% 0.22 25 / var(--rs-bar-remix-alpha)));
+}
+
+.remix-sliders__bar-pct {
+  position: absolute;
+  right: 0.4rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--rs-text);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}

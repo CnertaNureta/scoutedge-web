@@ -1,0 +1,45 @@
+# Python bytecode and caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Development and test artefacts
+tests/
+notebooks/
+artifacts/
+
+# Documentation (not needed in image)
+*.md
+docs/
+
+# Local environment config
+.env
+.env.*
+!.env.example
+
+# Version control
+.git/
+.gitignore
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# macOS
+.DS_Store
