@@ -8,9 +8,10 @@ primary_region = "sjc"
   dockerfile = "Dockerfile"
 
 [env]
-  PORT            = "8080"
-  LOG_LEVEL       = "INFO"
-  PYTHONUNBUFFERED = "1"
+  PORT                 = "8080"
+  LOG_LEVEL            = "INFO"
+  PYTHONUNBUFFERED     = "1"
+  SCOUTEDGE_PARAMS_DIR = "/app/artifacts"
 
 [http_service]
   internal_port        = 8080

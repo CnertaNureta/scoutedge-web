@@ -16,6 +16,9 @@ env/
 tests/
 notebooks/
 artifacts/
+# Ship committed Dixon-Coles params artifacts so the warm-up loader in
+# api/deps.py:_load_dc_params_from_disk can find them at /app/artifacts.
+!artifacts/params_*.json
 
 # Documentation (not needed in image)
 *.md

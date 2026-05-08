@@ -29,6 +29,9 @@ COPY --from=builder /usr/local/bin/uvicorn /usr/local/bin/uvicorn
 WORKDIR /app
 COPY api/ ./api/
 COPY scoutedge_intelligence/ ./scoutedge_intelligence/
+# Pre-fitted Dixon-Coles params (params_*.json); .dockerignore allows just
+# these files through. Loaded at startup by api/deps.py warm-up.
+COPY artifacts/ ./artifacts/
 
 # curl is needed for the HEALTHCHECK instruction
 RUN apt-get update && apt-get install -y --no-install-recommends curl \
