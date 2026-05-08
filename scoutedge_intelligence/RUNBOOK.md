@@ -267,6 +267,7 @@ Defined in `.github/workflows/scoutedge_intelligence_cron.yml`. All jobs `pip in
 | `attribution` | `*/30 * * * *` (every 30 min) | Runs result attribution: settles finished matches, updates `prediction_audits`, recomputes Brier/log-loss. | `DATABASE_URL`, `ANTHROPIC_API_KEY` | Actions tab → **Run Attribution (every 30 min)**. Check for missing match results from api-football. |
 | `precompute` | `0 */6 * * *` (every 6h) | Precomputes predictions for upcoming matches and writes to `predictions`. Heaviest job — exercises the full triple-layer pipeline. | `DATABASE_URL`, `ANTHROPIC_API_KEY`, `ODDS_API_KEY`, `API_FOOTBALL_KEY` | Actions tab → **Precompute Predictions (every 6 h)**. Watch for Anthropic rate-limit errors and Odds API quota exhaustion. |
 | `weekly_report` | `0 23 * * 0` (Sun 23:00 UTC) | Generates a weekly markdown report and POSTs to the configured webhook; uploads as a GitHub artifact (90-day retention). | `DATABASE_URL`, `SCOUTEDGE_WEEKLY_WEBHOOK` | Actions tab → **Weekly Report (Sun 23:00 UTC)**. Artifact `weekly-report-<run_id>` is retained even on failure. |
+| `backfill_results` | `0 3 * * *` (daily 03:00 UTC) | Pulls finished fixtures from API-Football v3 for a rolling 14-day window and `UPDATE`s the local `matches` table with goals/`finished`/`finished_at`. Runs **1h before** `seed-elo` so the reseed picks up newly-finalized results in the same UTC day. UPDATE-only — never INSERTs. | `DATABASE_URL`, `API_FOOTBALL_KEY` | Actions tab → **Backfill Match Results (daily 03:00 UTC)**. If a match the team expected didn't get linked, run a one-off with a wider `--since` window via `workflow_dispatch` and a `--unmatched-out` artifact (see §11.2). |
 | `seed-elo` | `0 4 * * *` (daily 04:00 UTC) | Walks finished matches in chronological order, recomputes `FootballELO` from scratch, persists snapshot rows to `elo_ratings`. The API server reads this table at warm-up to seed in-memory ratings. | `DATABASE_URL` | Actions tab → **Seed ELO Ratings (daily 04:00 UTC)**. If `elo_ratings` row count drops or stays at zero, check that the matches table actually has finished rows (status='finished' AND home_goals/away_goals NOT NULL). |
 
 All jobs accept `workflow_dispatch` for manual runs. Concurrency groups prevent overlapping runs of the same job.
@@ -446,14 +447,24 @@ This recovered 60/64 historical matches at cutover. The 4 misses were Poland mat
 
 ### 11.2 API-Football v3 backfill (preferred going forward)
 
-`scoutedge_intelligence/scripts/backfill_match_results.py` fetches finished matches from API-Football v3 with three-tier team matching (exact name → alias → reversed pair). Runs as one-off:
+`scoutedge_intelligence/scripts/backfill_match_results.py` fetches finished matches from API-Football v3 with three-tier team matching (exact name → alias → reversed pair).
+
+**Cron (default):** Daily 03:00 UTC over a rolling 14-day window — see §6 `backfill_results`. UPDATE-only, never INSERTs. Schedules 1h before `seed-elo` so the daily reseed picks up newly-finalized matches.
+
+**One-off / wider backfill (manual):**
 
 ```bash
 cd scoutedge_intelligence
-python -m scoutedge_intelligence.scripts.backfill_match_results --since 2018-01-01 --apply
+# Apply by default. Use --dry-run first to preview.
+python -m scoutedge_intelligence.scripts.backfill_match_results --since 2018-01-01 --dry-run
+python -m scoutedge_intelligence.scripts.backfill_match_results --since 2018-01-01
+
+# Capture unmatched local rows for triage:
+python -m scoutedge_intelligence.scripts.backfill_match_results \
+  --since 2018-01-01 --unmatched-out unmatched.csv
 ```
 
-Without `--apply` it does a dry run and prints the diff. Wire into cron once the precompute job is stable — see open task #5.
+Same effect via GitHub Actions `workflow_dispatch` on the cron workflow — but the workflow uses the rolling 14-day `--since` derived in YAML, so for a wider one-off, run locally.
 
 ---
 
