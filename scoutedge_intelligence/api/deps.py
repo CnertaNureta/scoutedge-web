@@ -128,17 +128,27 @@ def _load_dc_params_from_disk(params_dir: Path) -> DixonColesParams | None:
 
 
 def _sync_database_url(database_url: str) -> str:
-    """Strip async driver hints so SQLAlchemy uses a sync driver.
+    """Coerce an async SQLAlchemy URL to use an installed sync driver.
 
-    Converts e.g. ``postgresql+asyncpg://...`` to ``postgresql://...``.
+    Image ships psycopg v3 (``psycopg``) but not psycopg2. SQLAlchemy's
+    default for the bare ``postgresql://`` scheme is psycopg2, so we
+    force ``postgresql+psycopg://`` (v3) for the warm-up sync engine.
+
+    SQLite stays with the default sync driver after stripping the
+    aiosqlite hint.
 
     Args:
         database_url: Possibly-async SQLAlchemy URL.
 
     Returns:
-        URL safe for ``sqlalchemy.create_engine``.
+        URL safe for ``sqlalchemy.create_engine`` against the deps in
+        ``pyproject.toml``.
     """
-    return database_url.replace("+asyncpg", "").replace("+aiosqlite", "")
+    if database_url.startswith("postgresql+asyncpg://"):
+        return "postgresql+psycopg://" + database_url[len("postgresql+asyncpg://") :]
+    if database_url.startswith("postgresql://"):
+        return "postgresql+psycopg://" + database_url[len("postgresql://") :]
+    return database_url.replace("+aiosqlite", "")
 
 
 def _seed_elo_from_db(elo: FootballELO, settings: Settings) -> int:

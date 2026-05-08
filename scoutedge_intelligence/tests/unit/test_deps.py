@@ -227,8 +227,8 @@ def test_engine_factory_warmup_seeds_elo_from_db_rows(
     ):
         factory = EngineFactory(_stub_settings(database_url="postgresql+asyncpg://x/y"))
 
-    # Sync URL must strip the async driver hint.
-    assert ce.call_args.args[0] == "postgresql://x/y"
+    # Sync URL must coerce async hint to psycopg v3 (the installed sync driver).
+    assert ce.call_args.args[0] == "postgresql+psycopg://x/y"
     assert isinstance(factory._elo, FootballELO)
     assert factory._elo._ratings == {
         "Brazil": 1820.5,
