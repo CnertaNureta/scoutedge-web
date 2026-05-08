@@ -30,7 +30,7 @@ Run through this list before the first production cutover. Each item must be con
 
 ## 3. Database Migrations (Supabase)
 
-Four new migrations land the WC2026 schema:
+Five migrations land the WC2026 schema:
 
 | File | Adds |
 |---|---|
@@ -38,8 +38,32 @@ Four new migrations land the WC2026 schema:
 | `20260505100002_wc2026_predictions_audits.sql` | `prediction_audits`, `polymarket_snapshots` |
 | `20260505100003_wc2026_ugc.sql` | `user_predictions`, `bracket_forks`, `divergence_diagnoses_displayed` |
 | `20260505100004_wc2026_ab_experiments.sql` | `ab_audits` |
+| `20260508000001_predictions_prediction_type.sql` | adds 11 ORM-expected columns to `predictions` (`prediction_type`, `predicted_home_goals`, `predicted_away_goals`, `confidence_score`, `recommended_pick`, `rationale_summary`, `source`, `facts_used`, `metadata`, `generated_at`, `updated_at`) — required after schema drift caused 500s on `/api/predict/match/{id}/live`, `/og/match/{id}`, `/api/predict/remix` |
 
 **Note:** `matches`, `predictions`, and `teams` are pre-existing. The new migrations `ALTER TABLE … ADD COLUMN IF NOT EXISTS …` against them. There is no `ab_experiments` table — only `ab_audits`. The DDL is **idempotent** (`IF NOT EXISTS` everywhere observed) so safe to re-run.
+
+### 3.0 Migration apply gotchas (learned the hard way)
+
+Production schema may have drifted from what an earlier migration assumed. When you write a new migration that touches a column added by an older one, do not assume the column already exists in prod — guard every `ALTER … SET DEFAULT`, `ALTER … DROP NOT NULL`, etc. with an `information_schema.columns` existence check:
+
+```sql
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM information_schema.columns
+    WHERE table_name = 'predictions' AND column_name = 'generated_at'
+  ) THEN
+    ALTER TABLE predictions ALTER COLUMN generated_at SET DEFAULT NOW();
+  END IF;
+END $$;
+```
+
+Two real incidents from the WC2026 cutover where this bit us:
+
+- `20260505100002_wc2026_predictions_audits.sql` originally `ALTER TABLE predictions ALTER COLUMN generated_at SET DEFAULT NOW()` failed because prod's `predictions` table never had `generated_at` (the assumed older migration was never deployed there). Fix: wrap in `DO $$ … $$` block guarded by `information_schema.columns`.
+- `20260505100003_wc2026_ugc.sql` originally created `user_predictions_unique` index, which collided with the legacy `user_match_predictions_unique` index name space and failed. Fix: rename to `user_predictions_user_match_unique`.
+
+If a `supabase db push` fails on a non-idempotent statement, **do not** retry blindly — read stderr, identify the failing statement, edit the migration to make it idempotent, then re-run.
 
 ### 3.1 Apply to STAGING first
 
@@ -243,8 +267,11 @@ Defined in `.github/workflows/scoutedge_intelligence_cron.yml`. All jobs `pip in
 | `attribution` | `*/30 * * * *` (every 30 min) | Runs result attribution: settles finished matches, updates `prediction_audits`, recomputes Brier/log-loss. | `DATABASE_URL`, `ANTHROPIC_API_KEY` | Actions tab → **Run Attribution (every 30 min)**. Check for missing match results from api-football. |
 | `precompute` | `0 */6 * * *` (every 6h) | Precomputes predictions for upcoming matches and writes to `predictions`. Heaviest job — exercises the full triple-layer pipeline. | `DATABASE_URL`, `ANTHROPIC_API_KEY`, `ODDS_API_KEY`, `API_FOOTBALL_KEY` | Actions tab → **Precompute Predictions (every 6 h)**. Watch for Anthropic rate-limit errors and Odds API quota exhaustion. |
 | `weekly_report` | `0 23 * * 0` (Sun 23:00 UTC) | Generates a weekly markdown report and POSTs to the configured webhook; uploads as a GitHub artifact (90-day retention). | `DATABASE_URL`, `SCOUTEDGE_WEEKLY_WEBHOOK` | Actions tab → **Weekly Report (Sun 23:00 UTC)**. Artifact `weekly-report-<run_id>` is retained even on failure. |
+| `seed-elo` | `0 4 * * *` (daily 04:00 UTC) | Walks finished matches in chronological order, recomputes `FootballELO` from scratch, persists snapshot rows to `elo_ratings`. The API server reads this table at warm-up to seed in-memory ratings. | `DATABASE_URL` | Actions tab → **Seed ELO Ratings (daily 04:00 UTC)**. If `elo_ratings` row count drops or stays at zero, check that the matches table actually has finished rows (status='finished' AND home_goals/away_goals NOT NULL). |
 
 All jobs accept `workflow_dispatch` for manual runs. Concurrency groups prevent overlapping runs of the same job.
+
+**Every script that opens a SQLAlchemy engine must coerce `DATABASE_URL` first** — see §10.1.
 
 ---
 
@@ -320,11 +347,122 @@ Wire these into the alerting stack (Fly metrics, Supabase logs, and the chosen A
 
 ---
 
-## 10. References
+## 10. Environment & driver gotchas (lessons from WC2026 cutover)
+
+### 10.1 DATABASE_URL coercion (REQUIRED in every entrypoint)
+
+Supabase exposes its Postgres URL as plain `postgresql://…` (or the legacy alias `postgres://…`). SQLAlchemy 2.x **cannot** use that string directly for an async engine — it raises:
+
+```
+sqlalchemy.exc.ArgumentError: Could not parse SQLAlchemy URL from given URL string
+```
+
+The image ships **psycopg v3** (not psycopg2), so the sync engine also needs an explicit driver hint. Use `scoutedge_intelligence.utils.db_urls`:
+
+```python
+from sqlalchemy.ext.asyncio import create_async_engine
+from sqlalchemy import create_engine
+from scoutedge_intelligence.utils.db_urls import (
+    coerce_async_database_url,  # → postgresql+asyncpg://...
+    coerce_sync_database_url,   # → postgresql+psycopg://... (v3)
+)
+
+async_engine = create_async_engine(coerce_async_database_url(database_url), echo=False)
+sync_engine  = create_engine(coerce_sync_database_url(database_url),  pool_pre_ping=True)
+```
+
+Every cron script and every API warm-up path **must** call the appropriate helper. PR #39 patched 5 cron scripts (`poly_snapshot`, `precompute_predictions`, `weekly_report`, `train_ml`, `run_attribution`) that had been calling `create_async_engine(database_url)` directly and failing intermittently in production cron.
+
+When you add a new entrypoint, add a `pytest` case that runs `_make_async_engine` (or whatever the script's analogue is) against a `postgresql://` URL and asserts no exception.
+
+### 10.2 ANTHROPIC_BASE_URL — third-party relay support
+
+The Anthropic Python SDK reads two env vars:
+
+| Var | Purpose |
+|---|---|
+| `ANTHROPIC_API_KEY` | Auth token (relay-issued, not necessarily an `sk-ant-…` key) |
+| `ANTHROPIC_BASE_URL` | Override host. **Required** when using a relay (e.g. `https://www.skyapi.org`). Leave unset for direct Anthropic. |
+
+If `/api/predict/*` returns 500 with `anthropic.AuthenticationError: Error code: 401 - {'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}}` while `curl` against the relay works, the relay's host hasn't been wired through:
+
+```bash
+fly secrets set ANTHROPIC_BASE_URL="https://www.skyapi.org"
+# Restart picks it up automatically.
+```
+
+When rotating relay keys, smoke-test with a direct curl against the relay before pushing the secret:
+
+```bash
+curl -sS -X POST https://www.skyapi.org/v1/messages \
+  -H "x-api-key: $NEW_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "content-type: application/json" \
+  -d '{"model":"claude-haiku-4-5-20251001","max_tokens":8,"messages":[{"role":"user","content":"hi"}]}'
+```
+
+A successful response includes `"type":"message"` and `"role":"assistant"`. `Invalid token` / `该令牌状态不可用` means the key is bad or disabled at the relay's control panel — fix there before touching Fly.
+
+### 10.3 psycopg v3 (not v2)
+
+The runtime image installs `psycopg` (v3). `pyproject.toml` does not pin `psycopg2-binary`. Anything that bypasses `coerce_sync_database_url` and lands on the bare `postgresql://` SQLAlchemy default will resolve to psycopg2 and fail with `ModuleNotFoundError: No module named 'psycopg2'`.
+
+This includes one-off scripts run inside the Fly machine — always coerce, or pass `+psycopg` explicitly.
+
+### 10.4 SCOUTEDGE_PARAMS_DIR + Dixon-Coles artifact
+
+`fly.toml` sets `SCOUTEDGE_PARAMS_DIR = "/app/artifacts"`. The Dockerfile `COPY artifacts/ ./artifacts/` ships pre-fitted `params_*.json` files into the image; `.dockerignore` has an explicit `!artifacts/params_*.json` exception to allow them through. At warm-up `EngineFactory._load_dc_params_from_disk` picks the latest `params_YYYYMMDD_HHMM.json` by filename stamp.
+
+When you re-fit Dixon-Coles via `python -m scoutedge_intelligence.scripts.train_ml`, commit the new `artifacts/params_*.json` and redeploy — the warm-up has no fallback to S3 or DB.
+
+If no artifact exists, `predict_1x2` returns a uniform `(1/3, 1/3, 1/3)` and logs `dixon_coles.unfitted_uniform_fallback` once per process.
+
+---
+
+## 11. Historical match results backfill
+
+`elo_ratings` and Dixon-Coles fitting both depend on the `matches` table actually marking historical matches as finished with goal counts. WC2022 data in production was loaded with `match_status='finished'` and `home_score`/`away_score` populated, but the new ORM expects `status='finished'` and `home_goals`/`away_goals`. Two paths:
+
+### 11.1 Slug-parse one-off (used during cutover)
+
+For matches where the slug encodes the result like `{home_slug}-vs-{away_slug}-{api_id}` and the legacy columns are populated:
+
+```sql
+UPDATE matches
+SET
+  status     = 'finished',
+  home_goals = home_score,
+  away_goals = away_score,
+  finished   = TRUE
+WHERE match_status = 'finished'
+  AND home_score IS NOT NULL
+  AND away_score IS NOT NULL
+  AND status IS DISTINCT FROM 'finished';
+```
+
+Run inside Supabase SQL editor. Always `BEGIN; … SELECT count(*) …; ROLLBACK;` first to confirm row count, then re-run with `COMMIT`.
+
+This recovered 60/64 historical matches at cutover. The 4 misses were Poland matches where the team row was missing from the `teams` table — see open task #4.
+
+### 11.2 API-Football v3 backfill (preferred going forward)
+
+`scoutedge_intelligence/scripts/backfill_match_results.py` fetches finished matches from API-Football v3 with three-tier team matching (exact name → alias → reversed pair). Runs as one-off:
+
+```bash
+cd scoutedge_intelligence
+python -m scoutedge_intelligence.scripts.backfill_match_results --since 2018-01-01 --apply
+```
+
+Without `--apply` it does a dry run and prints the diff. Wire into cron once the precompute job is stable — see open task #5.
+
+---
+
+## 12. References
 
 - [DEPLOY.md](./DEPLOY.md) — Fly.io quickstart
 - [KNOWN_ISSUES.md](./KNOWN_ISSUES.md) — current caveats (Polymarket coverage, schema mismatches, etc.)
 - `fly.toml` — service config (region `sjc`, `min_machines_running=1`, soft/hard concurrency 200/250)
 - `.env.example` — full secret list
-- `supabase/migrations/20260505100001_*` … `..._100004_*` — WC2026 schema additions
-- `.github/workflows/scoutedge_intelligence_cron.yml` — cron definitions
+- `supabase/migrations/20260505100001_*` … `..._100004_*` and `20260508000001_*` — WC2026 schema additions
+- `scoutedge_intelligence/utils/db_urls.py` — `coerce_async_database_url` / `coerce_sync_database_url`
+- `.github/workflows/scoutedge_intelligence_cron.yml` — cron definitions (incl. `seed-elo`)
