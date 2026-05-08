@@ -115,9 +115,14 @@ class TestPredict1x2:
         for v in result.values():
             assert 0.0 <= v <= 1.0
 
-    def test_unknown_team_falls_back_to_uniform_probs(self) -> None:
+    def test_unknown_team_raises_by_default(self) -> None:
         model = DixonColesModel(params=_minimal_params())
-        result = model.predict_1x2("TeamA", "Ghost")
+        with pytest.raises(KeyError, match="Ghost"):
+            model.predict_1x2("TeamA", "Ghost")
+
+    def test_unknown_team_falls_back_to_uniform_probs_when_enabled(self) -> None:
+        model = DixonColesModel(params=_minimal_params())
+        result = model.predict_1x2("TeamA", "Ghost", fallback_mode=True)
 
         assert math.isclose(result["home_win"], 1 / 3, rel_tol=1e-12)
         assert math.isclose(result["draw"], 1 / 3, rel_tol=1e-12)
@@ -127,8 +132,8 @@ class TestPredict1x2:
         model = DixonColesModel(params=_minimal_params())
 
         with patch.object(dc_module.logger, "warning") as mock_warn:
-            model.predict_1x2("TeamA", "Ghost")
-            model.predict_1x2("Unknown", "TeamB")
+            model.predict_1x2("TeamA", "Ghost", fallback_mode=True)
+            model.predict_1x2("Unknown", "TeamB", fallback_mode=True)
 
         assert mock_warn.call_count == 1
         (msg,), _ = mock_warn.call_args
@@ -283,9 +288,14 @@ class TestFit:
 
 
 class TestUnfittedFallback:
-    def test_predict_1x2_unfitted_returns_uniform_probs(self) -> None:
+    def test_predict_1x2_unfitted_raises_by_default(self) -> None:
         model = DixonColesModel()
-        result = model.predict_1x2("AnyHome", "AnyAway")
+        with pytest.raises(RuntimeError, match="predict_1x2 called before fit"):
+            model.predict_1x2("AnyHome", "AnyAway")
+
+    def test_predict_1x2_unfitted_returns_uniform_probs_when_enabled(self) -> None:
+        model = DixonColesModel()
+        result = model.predict_1x2("AnyHome", "AnyAway", fallback_mode=True)
 
         assert set(result.keys()) == {"home_win", "draw", "away_win"}
         assert math.isclose(result["home_win"], 1 / 3, rel_tol=1e-12)
@@ -304,9 +314,9 @@ class TestUnfittedFallback:
         model = DixonColesModel()
 
         with patch.object(dc_module.logger, "warning") as mock_warn:
-            model.predict_1x2("A", "B")
-            model.predict_1x2("C", "D")
-            model.predict_1x2("E", "F")
+            model.predict_1x2("A", "B", fallback_mode=True)
+            model.predict_1x2("C", "D", fallback_mode=True)
+            model.predict_1x2("E", "F", fallback_mode=True)
 
         assert mock_warn.call_count == 1
         (msg,), _ = mock_warn.call_args
@@ -315,7 +325,7 @@ class TestUnfittedFallback:
     def test_predict_1x2_unfitted_returns_independent_copy(self) -> None:
         """Mutating the returned dict must not affect subsequent calls."""
         model = DixonColesModel()
-        first = model.predict_1x2("A", "B")
+        first = model.predict_1x2("A", "B", fallback_mode=True)
         first["home_win"] = 0.99
-        second = model.predict_1x2("A", "B")
+        second = model.predict_1x2("A", "B", fallback_mode=True)
         assert math.isclose(second["home_win"], 1 / 3, rel_tol=1e-12)

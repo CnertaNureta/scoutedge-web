@@ -332,13 +332,18 @@ class TripleLayerEngine:
 
         Strategy:
           - Compute ELO probabilities for the fixture.
-          - Compute Dixon-Coles 1X2 probabilities; raises KeyError if a team
-            is missing from the fitted parameters.
+          - Compute Dixon-Coles 1X2 probabilities, explicitly using the
+            uniform fallback when fitted parameters are unavailable for this
+            production pipeline path.
           - Average the two distributions 50/50.
           - If a WC context is supplied, apply the WC adjustment layer.
         """
         elo_probs = self._elo.predict_outcomes(inputs.home_team, inputs.away_team)
-        dc_probs = self._dc.predict_1x2(inputs.home_team, inputs.away_team)
+        dc_probs = self._dc.predict_1x2(
+            inputs.home_team,
+            inputs.away_team,
+            fallback_mode=True,
+        )
 
         blended: dict[str, float] = {
             key: (_ELO_BLEND_WEIGHT * elo_probs[key] + _DC_BLEND_WEIGHT * dc_probs[key])

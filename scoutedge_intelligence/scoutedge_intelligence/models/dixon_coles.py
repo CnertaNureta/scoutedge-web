@@ -9,6 +9,7 @@ from __future__ import annotations
 import logging
 import math
 from dataclasses import dataclass
+from threading import Lock
 from typing import Any, ClassVar
 
 import numpy as np
@@ -23,6 +24,8 @@ logger = logging.getLogger(__name__)
 # fixture.
 _warned_unfitted: bool = False
 _warned_unknown_team: bool = False
+_warned_unfitted_lock = Lock()
+_warned_unknown_team_lock = Lock()
 
 
 @dataclass
@@ -169,7 +172,13 @@ class DixonColesModel:
             matrix /= total
         return matrix
 
-    def predict_1x2(self, home_team: str, away_team: str) -> dict[str, float]:
+    def predict_1x2(
+        self,
+        home_team: str,
+        away_team: str,
+        *,
+        fallback_mode: bool = False,
+    ) -> dict[str, float]:
         """Return 1X2 outcome probabilities.
 
         Parameters
@@ -178,6 +187,10 @@ class DixonColesModel:
             Name of the home team.
         away_team:
             Name of the away team.
+        fallback_mode:
+            When ``True``, unfitted models or unknown teams return a uniform
+            distribution with a once-per-process warning. The default
+            ``False`` preserves strict errors for direct model callers.
 
         Returns
         -------
@@ -185,16 +198,26 @@ class DixonColesModel:
             Keys: ``home_win``, ``draw``, ``away_win``.
             Values sum to 1.0.
 
-        Unknown teams fall back to the uniform distribution instead of raising.
+        Raises
+        ------
+        RuntimeError
+            If called before fitting and ``fallback_mode`` is ``False``.
+        KeyError
+            If either team is missing from fitted parameters and
+            ``fallback_mode`` is ``False``.
         """
+        global _warned_unfitted, _warned_unknown_team
+
         if self.params is None:
-            global _warned_unfitted
-            if not _warned_unfitted:
-                logger.warning(
-                    "dixon_coles.unfitted_fallback: predict_1x2 called before "
-                    "fit(); returning uniform 1/3-1/3-1/3 probabilities."
-                )
-                _warned_unfitted = True
+            if not fallback_mode:
+                raise RuntimeError("predict_1x2 called before fit()")
+            with _warned_unfitted_lock:
+                if not _warned_unfitted:
+                    logger.warning(
+                        "dixon_coles.unfitted_fallback: predict_1x2 called before "
+                        "fit(); returning uniform 1/3-1/3-1/3 probabilities."
+                    )
+                    _warned_unfitted = True
             return dict(self._UNIFIED_PROBS)
 
         missing = sorted(
@@ -203,14 +226,16 @@ class DixonColesModel:
             if team not in self.params.attack or team not in self.params.defense
         )
         if missing:
-            global _warned_unknown_team
-            if not _warned_unknown_team:
-                missing_text = ", ".join(repr(team) for team in missing)
-                logger.warning(
-                    "dixon_coles.unknown_team_fallback: fitted params missing "
-                    f"team(s) {missing_text}; returning uniform probabilities."
-                )
-                _warned_unknown_team = True
+            missing_text = ", ".join(repr(team) for team in missing)
+            if not fallback_mode:
+                raise KeyError(f"Unknown team(s): {missing_text}")
+            with _warned_unknown_team_lock:
+                if not _warned_unknown_team:
+                    logger.warning(
+                        "dixon_coles.unknown_team_fallback: fitted params missing "
+                        f"team(s) {missing_text}; returning uniform probabilities."
+                    )
+                    _warned_unknown_team = True
             return dict(self._UNIFIED_PROBS)
 
         matrix = self.score_matrix(home_team, away_team)
