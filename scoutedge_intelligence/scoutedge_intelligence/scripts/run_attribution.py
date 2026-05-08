@@ -46,6 +46,7 @@ from scoutedge_intelligence.db.queries import (
     list_finished_matches,
     update_prediction_audit,
 )
+from scoutedge_intelligence.utils.db_urls import coerce_async_database_url
 
 logger = structlog.get_logger(__name__)
 
@@ -504,7 +505,7 @@ async def run(args: argparse.Namespace) -> dict[str, int]:
         log.error("run_attribution: DATABASE_URL env var is not set")
         return totals
 
-    engine = create_async_engine(database_url, echo=False)
+    engine = create_async_engine(coerce_async_database_url(database_url), echo=False)
     session_factory: async_sessionmaker[AsyncSession] = async_sessionmaker(
         engine, class_=AsyncSession, expire_on_commit=False
     )
