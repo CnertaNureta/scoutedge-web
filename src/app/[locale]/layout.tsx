@@ -10,6 +10,7 @@ import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
 import RenderProfiler from '@/components/debug/RenderProfiler'
+import AdSlot from '@/components/monetization/AdSlot'
 import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
@@ -125,6 +126,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               <CountdownStrip />
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
+              <div className="w-full px-4 py-6">
+                <AdSlot format="leaderboard" />
+              </div>
               <Footer />
               <ClientRuntimeWidgets />
             </div>
