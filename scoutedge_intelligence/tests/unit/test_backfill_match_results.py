@@ -135,6 +135,10 @@ class TestCoerceAsyncUrl:
         out = _coerce_async_url("postgresql+asyncpg://user:pw@host/db")
         assert out == "postgresql+asyncpg://user:pw@host/db"
 
+    def test_coerce_async_url_upgrades_legacy_postgres_alias(self) -> None:
+        out = _coerce_async_url("postgres://user:pw@host/db")
+        assert out == "postgresql+asyncpg://user:pw@host/db"
+
 
 class TestParseCsvInts:
     """_parse_csv_ints accepts a comma-separated list of ints."""
@@ -236,6 +240,18 @@ class TestPairLocalRemote:
         assert unmatched[0].match_id == "m2"
         assert unmatched[0].reason == "no_remote_within_24h"
 
+    def test_pair_local_remote_consumes_each_remote_once(self) -> None:
+        locals_ = [
+            _local("m1", "Brazil", "Argentina"),
+            _local("m2", "Brazil", "Argentina"),
+        ]
+        remotes = [_remote("Brazil", "Argentina", home_goals=2, away_goals=1)]
+
+        pairings, unmatched = pair_local_remote(locals_, remotes)
+
+        assert [pair.local.match_id for pair in pairings] == ["m1"]
+        assert [row.match_id for row in unmatched] == ["m2"]
+
 
 # ---------------------------------------------------------------------------
 # parse_args
@@ -300,6 +316,37 @@ async def test_apply_updates_calls_session_execute_per_pairing() -> None:
     assert updated == 1
     session.execute.assert_awaited_once()
     session.commit.assert_awaited_once()
+
+
+async def test_apply_updates_swaps_scores_for_reversed_pairing() -> None:
+    pairings = [
+        MatchPairing(
+            local=_local("m1", "Spain", "Italy"),
+            # Remote fixture has Italy as home; local row has Spain as home.
+            remote=_remote("Italy", "Spain", home_goals=1, away_goals=2),
+            strategy="reversed",
+        ),
+    ]
+
+    captured: dict[str, object] = {}
+
+    async def _capture_execute(stmt: object) -> MagicMock:
+        captured["stmt"] = stmt
+        exec_result = MagicMock()
+        exec_result.rowcount = 1
+        return exec_result
+
+    session = MagicMock()
+    session.execute = AsyncMock(side_effect=_capture_execute)
+    session.commit = AsyncMock()
+
+    updated = await apply_updates(session, pairings)
+
+    assert updated == 1
+    params = captured["stmt"].compile().params  # type: ignore[attr-defined]
+    assert params["home_goals"] == 2
+    assert params["away_goals"] == 1
+    assert params["actual_outcome"] == "home_win"
 
 
 def test_write_unmatched_csv_round_trip(tmp_path: Path) -> None:

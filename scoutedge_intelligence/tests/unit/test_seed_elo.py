@@ -273,6 +273,42 @@ async def test_returns_zero_when_no_matches(
     session.execute.assert_not_awaited()
 
 
+async def test_main_async_normalizes_plain_postgres_database_url(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Managed Postgres URLs should be upgraded before create_async_engine."""
+    monkeypatch.setenv("DATABASE_URL", "postgres://x/y")
+
+    session = MagicMock()
+    session.execute = AsyncMock()
+    session.commit = AsyncMock()
+
+    session_cm = MagicMock()
+    session_cm.__aenter__ = AsyncMock(return_value=session)
+    session_cm.__aexit__ = AsyncMock(return_value=None)
+
+    fake_factory = MagicMock(return_value=session_cm)
+
+    with (
+        patch(
+            "scoutedge_intelligence.scripts.seed_elo.create_async_engine",
+            return_value=MagicMock(),
+        ) as create_engine_mock,
+        patch(
+            "scoutedge_intelligence.scripts.seed_elo.async_sessionmaker",
+            return_value=fake_factory,
+        ),
+        patch(
+            "scoutedge_intelligence.scripts.seed_elo.list_finished_matches_chronological",
+            new=AsyncMock(return_value=[]),
+        ),
+    ):
+        rc = await main_async(_build_args())
+
+    assert rc == 0
+    assert create_engine_mock.call_args.args[0] == "postgresql+asyncpg://x/y"
+
+
 def test_main_returns_1_when_database_url_missing(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

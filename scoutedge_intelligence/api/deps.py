@@ -41,6 +41,10 @@ from scoutedge_intelligence.sources.polymarket import PolymarketClient
 from scoutedge_intelligence.sources.sportsbook import SportsbookClient
 from scoutedge_intelligence.synthesis.engine import TripleLayerEngine
 from scoutedge_intelligence.synthesis.synthesizer import JSONSynthesizer
+from scoutedge_intelligence.utils.db_urls import (
+    coerce_async_database_url,
+    coerce_sync_database_url,
+)
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -144,19 +148,16 @@ def _sync_database_url(database_url: str) -> str:
         URL safe for ``sqlalchemy.create_engine`` against the deps in
         ``pyproject.toml``.
     """
-    if database_url.startswith("postgresql+asyncpg://"):
-        return "postgresql+psycopg://" + database_url[len("postgresql+asyncpg://") :]
-    if database_url.startswith("postgresql://"):
-        return "postgresql+psycopg://" + database_url[len("postgresql://") :]
-    return database_url.replace("+aiosqlite", "")
+    return coerce_sync_database_url(database_url)
 
 
 def _seed_elo_from_db(elo: FootballELO, settings: Settings) -> int:
     """Seed the ELO rating store with the latest rating per team from the DB.
 
-    Reads from ``elo_ratings`` joined to ``teams.name``, taking the most
-    recent ``computed_at`` row per team. Uses a synchronous engine that is
-    disposed before returning. Failures are logged and treated as "no rows".
+    Reads from ``elo_ratings``, taking the most recent ``computed_at`` row per
+    team. Ratings are keyed by ``team_id`` because prediction requests pass
+    team UUIDs into ``FootballELO``. Uses a synchronous engine that is disposed
+    before returning. Failures are logged and treated as "no rows".
 
     Args:
         elo: Target rating store; mutated in-place via ``_ratings``.
@@ -168,11 +169,9 @@ def _seed_elo_from_db(elo: FootballELO, settings: Settings) -> int:
     sync_url = _sync_database_url(settings.database_url)
     query = text(
         """
-        SELECT t.name AS team_name, r.elo AS rating
+        SELECT r.team_id AS team_id, r.elo AS rating
         FROM elo_ratings r
-        JOIN teams t ON t.id = r.team_id
-        WHERE t.name IS NOT NULL
-          AND r.computed_at = (
+        WHERE r.computed_at = (
               SELECT MAX(r2.computed_at)
               FROM elo_ratings r2
               WHERE r2.team_id = r.team_id
@@ -184,10 +183,10 @@ def _seed_elo_from_db(elo: FootballELO, settings: Settings) -> int:
     try:
         with sync_engine.connect() as conn:
             for row in conn.execute(query):
-                name = row.team_name
-                if name is None:
+                team_id = row.team_id
+                if team_id is None:
                     continue
-                elo._ratings[str(name)] = float(row.rating)
+                elo._ratings[str(team_id)] = float(row.rating)
                 seeded += 1
     except Exception as exc:
         logger.warning("warmup.elo.db_query_failed", error=str(exc))
@@ -315,7 +314,7 @@ def _make_async_engine(settings: Settings) -> AsyncEngine:
         Configured AsyncEngine.
     """
     return create_async_engine(
-        settings.database_url,
+        coerce_async_database_url(settings.database_url),
         pool_pre_ping=True,
         echo=False,
     )

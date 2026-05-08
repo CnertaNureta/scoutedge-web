@@ -21,8 +21,10 @@ from scoutedge_intelligence.models.dixon_coles import (
 def reset_unfitted_warning() -> Iterator[None]:
     """Reset the module-level once-per-process warning guard between tests."""
     dc_module._warned_unfitted = False
+    dc_module._warned_unknown_team = False
     yield
     dc_module._warned_unfitted = False
+    dc_module._warned_unknown_team = False
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -112,6 +114,25 @@ class TestPredict1x2:
         result = model.predict_1x2("TeamA", "TeamC")
         for v in result.values():
             assert 0.0 <= v <= 1.0
+
+    def test_unknown_team_falls_back_to_uniform_probs(self) -> None:
+        model = DixonColesModel(params=_minimal_params())
+        result = model.predict_1x2("TeamA", "Ghost")
+
+        assert math.isclose(result["home_win"], 1 / 3, rel_tol=1e-12)
+        assert math.isclose(result["draw"], 1 / 3, rel_tol=1e-12)
+        assert math.isclose(result["away_win"], 1 / 3, rel_tol=1e-12)
+
+    def test_unknown_team_warning_logged_once(self) -> None:
+        model = DixonColesModel(params=_minimal_params())
+
+        with patch.object(dc_module.logger, "warning") as mock_warn:
+            model.predict_1x2("TeamA", "Ghost")
+            model.predict_1x2("Unknown", "TeamB")
+
+        assert mock_warn.call_count == 1
+        (msg,), _ = mock_warn.call_args
+        assert "dixon_coles.unknown_team_fallback" in msg
 
 
 # ---------------------------------------------------------------------------

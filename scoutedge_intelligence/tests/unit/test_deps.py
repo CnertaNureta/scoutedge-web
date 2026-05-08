@@ -100,6 +100,19 @@ def test_make_async_engine_uses_settings_url() -> None:
     cae.assert_called_once_with("sqlite+aiosqlite:///./made.db", pool_pre_ping=True, echo=False)
 
 
+def test_make_async_engine_normalizes_plain_postgres_url() -> None:
+    settings = _stub_settings(database_url="postgres://user:pw@host/db")
+    sentinel = MagicMock(name="async_engine")
+    with patch("api.deps.create_async_engine", return_value=sentinel) as cae:
+        result = _make_async_engine(settings)
+    assert result is sentinel
+    cae.assert_called_once_with(
+        "postgresql+asyncpg://user:pw@host/db",
+        pool_pre_ping=True,
+        echo=False,
+    )
+
+
 @pytest.mark.asyncio
 async def test_get_db_session_yields_session_from_app_state() -> None:
     session = MagicMock(name="async_session")
@@ -200,9 +213,9 @@ def test_engine_factory_warmup_seeds_elo_from_db_rows(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     rows = [
-        MagicMock(team_name="Brazil", rating=1820.5),
-        MagicMock(team_name="Germany", rating=1795.0),
-        MagicMock(team_name="Argentina", rating=1888.25),
+        MagicMock(team_id="team-brazil", rating=1820.5),
+        MagicMock(team_id="team-germany", rating=1795.0),
+        MagicMock(team_id="team-argentina", rating=1888.25),
     ]
 
     fake_conn = MagicMock()
@@ -231,11 +244,38 @@ def test_engine_factory_warmup_seeds_elo_from_db_rows(
     assert ce.call_args.args[0] == "postgresql+psycopg://x/y"
     assert isinstance(factory._elo, FootballELO)
     assert factory._elo._ratings == {
-        "Brazil": 1820.5,
-        "Germany": 1795.0,
-        "Argentina": 1888.25,
+        "team-brazil": 1820.5,
+        "team-germany": 1795.0,
+        "team-argentina": 1888.25,
     }
     fake_engine.dispose.assert_called_once_with()
+
+
+def test_engine_factory_warmup_normalizes_legacy_postgres_url(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    fake_conn = MagicMock()
+    fake_conn.execute.return_value = iter([])
+    fake_conn.__enter__ = MagicMock(return_value=fake_conn)
+    fake_conn.__exit__ = MagicMock(return_value=None)
+
+    fake_engine = MagicMock()
+    fake_engine.connect.return_value = fake_conn
+
+    monkeypatch.setenv("SCOUTEDGE_PARAMS_DIR", "/tmp/scoutedge-no-such-dir")
+
+    with (
+        patch("api.deps.PolymarketClient", return_value=MagicMock()),
+        patch("api.deps.SportsbookClient", return_value=MagicMock()),
+        patch("api.deps.FeatureGenerator", return_value=MagicMock()),
+        patch("api.deps.DivergenceAnalyst", return_value=MagicMock()),
+        patch("api.deps.JSONSynthesizer", return_value=MagicMock()),
+        patch("api.deps.Translator", return_value=MagicMock()),
+        patch("api.deps.create_engine", return_value=fake_engine) as ce,
+    ):
+        EngineFactory(_stub_settings(database_url="postgres://x/y"))
+
+    assert ce.call_args.args[0] == "postgresql+psycopg://x/y"
 
 
 def test_engine_factory_warmup_skips_elo_when_db_query_fails(

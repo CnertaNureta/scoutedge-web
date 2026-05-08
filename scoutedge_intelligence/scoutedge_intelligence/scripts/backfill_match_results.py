@@ -46,6 +46,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from scoutedge_intelligence.db.models import Match, Team
 from scoutedge_intelligence.scripts.team_aliases import normalise_team_name
 from scoutedge_intelligence.sources.api_football import APIFootballClient
+from scoutedge_intelligence.utils.db_urls import coerce_async_database_url
 
 logger = structlog.get_logger(__name__)
 
@@ -164,10 +165,8 @@ def _derive_outcome(home_goals: int, away_goals: int) -> str:
 
 
 def _coerce_async_url(url: str) -> str:
-    """Coerce ``postgresql://`` → ``postgresql+asyncpg://`` if needed."""
-    if url.startswith("postgresql://"):
-        return "postgresql+asyncpg://" + url[len("postgresql://") :]
-    return url
+    """Coerce plain Postgres URLs to ``postgresql+asyncpg://`` if needed."""
+    return coerce_async_database_url(url)
 
 
 def _parse_csv_ints(raw: str, *, name: str) -> list[int]:
@@ -390,8 +389,9 @@ def pair_local_remote(
     """Pair every local pending row to a remote result, collecting unmatched."""
     pairings: list[MatchPairing] = []
     unmatched: list[Unmatched] = []
+    remaining_remotes = list(remotes)
     for local in locals_:
-        hit = _match_local_to_remote(local, remotes)
+        hit = _match_local_to_remote(local, remaining_remotes)
         if hit is None:
             unmatched.append(
                 Unmatched(
@@ -404,6 +404,7 @@ def pair_local_remote(
             )
         else:
             pairings.append(hit)
+            remaining_remotes.remove(hit.remote)
     return pairings, unmatched
 
 
@@ -419,14 +420,20 @@ async def apply_updates(
     """Issue idempotent UPDATEs for each pairing; commit once at the end."""
     updated = 0
     for pair in pairings:
-        outcome = _derive_outcome(pair.remote.home_goals, pair.remote.away_goals)
+        if pair.strategy == "reversed":
+            home_goals = pair.remote.away_goals
+            away_goals = pair.remote.home_goals
+        else:
+            home_goals = pair.remote.home_goals
+            away_goals = pair.remote.away_goals
+        outcome = _derive_outcome(home_goals, away_goals)
         stmt = (
             update(Match)
             .where(Match.id == pair.local.match_id)
             .where(Match.finished.is_(False))
             .values(
-                home_goals=pair.remote.home_goals,
-                away_goals=pair.remote.away_goals,
+                home_goals=home_goals,
+                away_goals=away_goals,
                 finished=True,
                 finished_at=pair.remote.kickoff_utc + _FT_OFFSET,
                 actual_outcome=outcome,
@@ -569,8 +576,16 @@ async def main_async(args: argparse.Namespace) -> int:
                         "backfill.would_update",
                         match_id=pair.local.match_id,
                         strategy=pair.strategy,
-                        home_goals=pair.remote.home_goals,
-                        away_goals=pair.remote.away_goals,
+                        home_goals=(
+                            pair.remote.away_goals
+                            if pair.strategy == "reversed"
+                            else pair.remote.home_goals
+                        ),
+                        away_goals=(
+                            pair.remote.home_goals
+                            if pair.strategy == "reversed"
+                            else pair.remote.away_goals
+                        ),
                     )
             else:
                 updated = await apply_updates(session, pairings)

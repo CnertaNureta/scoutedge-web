@@ -22,6 +22,7 @@ logger = logging.getLogger(__name__)
 # per process. Reset to ``False`` in tests via the ``reset_unfitted_warning``
 # fixture.
 _warned_unfitted: bool = False
+_warned_unknown_team: bool = False
 
 
 @dataclass
@@ -184,10 +185,7 @@ class DixonColesModel:
             Keys: ``home_win``, ``draw``, ``away_win``.
             Values sum to 1.0.
 
-        Raises
-        ------
-        KeyError
-            If either team is not present in the fitted parameters.
+        Unknown teams fall back to the uniform distribution instead of raising.
         """
         if self.params is None:
             global _warned_unfitted
@@ -197,6 +195,22 @@ class DixonColesModel:
                     "fit(); returning uniform 1/3-1/3-1/3 probabilities."
                 )
                 _warned_unfitted = True
+            return dict(self._UNIFIED_PROBS)
+
+        missing = sorted(
+            team
+            for team in {home_team, away_team}
+            if team not in self.params.attack or team not in self.params.defense
+        )
+        if missing:
+            global _warned_unknown_team
+            if not _warned_unknown_team:
+                missing_text = ", ".join(repr(team) for team in missing)
+                logger.warning(
+                    "dixon_coles.unknown_team_fallback: fitted params missing "
+                    f"team(s) {missing_text}; returning uniform probabilities."
+                )
+                _warned_unknown_team = True
             return dict(self._UNIFIED_PROBS)
 
         matrix = self.score_matrix(home_team, away_team)
