@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS user_predictions (
   CONSTRAINT user_predictions_pick_goals_range CHECK (
     pick_home_goals BETWEEN 0 AND 20 AND pick_away_goals BETWEEN 0 AND 20
   ),
-  CONSTRAINT user_predictions_unique UNIQUE (user_id, match_id)
+  CONSTRAINT user_predictions_user_match_unique UNIQUE (user_id, match_id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_user_predictions_user ON user_predictions(user_id);

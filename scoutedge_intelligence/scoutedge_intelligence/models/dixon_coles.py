@@ -6,14 +6,26 @@ and Inefficiencies in the Football Betting Market".
 
 from __future__ import annotations
 
+import logging
 import math
 from dataclasses import dataclass
-from typing import Any
+from threading import Lock
+from typing import Any, ClassVar
 
 import numpy as np
 import pandas as pd
 from scipy import optimize
 from scipy.stats import poisson
+
+logger = logging.getLogger(__name__)
+
+# Module-level guard so the unfitted-fallback warning is logged at most once
+# per process. Reset to ``False`` in tests via the ``reset_unfitted_warning``
+# fixture.
+_warned_unfitted: bool = False
+_warned_unknown_team: bool = False
+_warned_unfitted_lock = Lock()
+_warned_unknown_team_lock = Lock()
 
 
 @dataclass
@@ -40,8 +52,22 @@ class DixonColesModel:
 
     MAX_GOALS: int = 8
 
+    # Uniform 1X2 distribution returned when the model is unfitted. Treated
+    # as a class-level constant; callers receive a copy to avoid accidental
+    # mutation of the shared default.
+    _UNIFIED_PROBS: ClassVar[dict[str, float]] = {
+        "home_win": 1 / 3,
+        "draw": 1 / 3,
+        "away_win": 1 / 3,
+    }
+
     def __init__(self, params: DixonColesParams | None = None) -> None:
         self.params: DixonColesParams | None = params
+
+    @property
+    def is_fitted(self) -> bool:
+        """Return ``True`` when fitted parameters are available."""
+        return self.params is not None
 
     # ------------------------------------------------------------------
     # Core statistical primitives
@@ -146,7 +172,13 @@ class DixonColesModel:
             matrix /= total
         return matrix
 
-    def predict_1x2(self, home_team: str, away_team: str) -> dict[str, float]:
+    def predict_1x2(
+        self,
+        home_team: str,
+        away_team: str,
+        *,
+        fallback_mode: bool = False,
+    ) -> dict[str, float]:
         """Return 1X2 outcome probabilities.
 
         Parameters
@@ -155,6 +187,10 @@ class DixonColesModel:
             Name of the home team.
         away_team:
             Name of the away team.
+        fallback_mode:
+            When ``True``, unfitted models or unknown teams return a uniform
+            distribution with a once-per-process warning. The default
+            ``False`` preserves strict errors for direct model callers.
 
         Returns
         -------
@@ -164,9 +200,44 @@ class DixonColesModel:
 
         Raises
         ------
+        RuntimeError
+            If called before fitting and ``fallback_mode`` is ``False``.
         KeyError
-            If either team is not present in the fitted parameters.
+            If either team is missing from fitted parameters and
+            ``fallback_mode`` is ``False``.
         """
+        global _warned_unfitted, _warned_unknown_team
+
+        if self.params is None:
+            if not fallback_mode:
+                raise RuntimeError("predict_1x2 called before fit()")
+            with _warned_unfitted_lock:
+                if not _warned_unfitted:
+                    logger.warning(
+                        "dixon_coles.unfitted_fallback: predict_1x2 called before "
+                        "fit(); returning uniform 1/3-1/3-1/3 probabilities."
+                    )
+                    _warned_unfitted = True
+            return dict(self._UNIFIED_PROBS)
+
+        missing = sorted(
+            team
+            for team in {home_team, away_team}
+            if team not in self.params.attack or team not in self.params.defense
+        )
+        if missing:
+            missing_text = ", ".join(repr(team) for team in missing)
+            if not fallback_mode:
+                raise KeyError(f"Unknown team(s): {missing_text}")
+            with _warned_unknown_team_lock:
+                if not _warned_unknown_team:
+                    logger.warning(
+                        "dixon_coles.unknown_team_fallback: fitted params missing "
+                        f"team(s) {missing_text}; returning uniform probabilities."
+                    )
+                    _warned_unknown_team = True
+            return dict(self._UNIFIED_PROBS)
+
         matrix = self.score_matrix(home_team, away_team)
         g = self.MAX_GOALS + 1
         home_win = float(np.sum([matrix[i, j] for i in range(g) for j in range(g) if i > j]))

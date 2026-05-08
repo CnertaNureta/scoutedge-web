@@ -4,7 +4,7 @@ This module wires together every layer in the system:
 
     1. ML layer (Football ELO + Dixon-Coles + optional WC adjustment)
     2. Polymarket layer (optional; soft-fail)
-    3. Sportsbook layer (required; hard-fail)
+    3. Sportsbook layer (soft-fail; uniform 1/3 fallback when no data)
     4. Claude Role 1 (Feature Generator, Haiku)            — soft-fail
     5. Divergence feature computation (pure)
     6. Analyst trigger gate + Claude Role 2 (Analyst, Sonnet) — soft-fail
@@ -73,6 +73,15 @@ logger: structlog.BoundLogger = structlog.get_logger(__name__)
 # models are sound but capture complementary signal (ratings vs scoring rate).
 _ELO_BLEND_WEIGHT: float = 0.5
 _DC_BLEND_WEIGHT: float = 0.5
+
+# Uniform 1X2 distribution returned by the sportsbook layer when The Odds API
+# has no data for a match yet (mirrors the Polymarket soft-fail and the
+# Dixon-Coles unfitted-fallback patterns). Callers receive a copy.
+_UNIFORM_PROBS: dict[str, float] = {
+    "home_win": 1 / 3,
+    "draw": 1 / 3,
+    "away_win": 1 / 3,
+}
 
 
 # ---------------------------------------------------------------------------
@@ -182,8 +191,10 @@ class TripleLayerEngine:
             A :class:`FullPrediction` containing every layer's output.
 
         Raises:
-            Exception: Propagates from the Sportsbook layer or the Synthesizer
-                (both required); other layer failures are caught and logged.
+            Exception: Propagates from the Synthesizer (the only remaining
+                hard-fail layer); ML, Polymarket, and Sportsbook failures are
+                caught and the layer degrades gracefully (uniform fallback for
+                Sportsbook, ``None`` for Polymarket).
         """
         log = logger.bind(match_id=inputs.match_id)
 
@@ -321,13 +332,18 @@ class TripleLayerEngine:
 
         Strategy:
           - Compute ELO probabilities for the fixture.
-          - Compute Dixon-Coles 1X2 probabilities; raises KeyError if a team
-            is missing from the fitted parameters.
+          - Compute Dixon-Coles 1X2 probabilities, explicitly using the
+            uniform fallback when fitted parameters are unavailable for this
+            production pipeline path.
           - Average the two distributions 50/50.
           - If a WC context is supplied, apply the WC adjustment layer.
         """
         elo_probs = self._elo.predict_outcomes(inputs.home_team, inputs.away_team)
-        dc_probs = self._dc.predict_1x2(inputs.home_team, inputs.away_team)
+        dc_probs = self._dc.predict_1x2(
+            inputs.home_team,
+            inputs.away_team,
+            fallback_mode=True,
+        )
 
         blended: dict[str, float] = {
             key: (_ELO_BLEND_WEIGHT * elo_probs[key] + _DC_BLEND_WEIGHT * dc_probs[key])
@@ -374,13 +390,24 @@ class TripleLayerEngine:
         return probs, metadata
 
     async def _fetch_sportsbook(self, inputs: TripleLayerInputs) -> tuple[dict[str, float], int]:
-        """Fetch sportsbook consensus; this layer is required and propagates errors."""
+        """Fetch sportsbook consensus; soft-fail to a uniform 1X2 fallback.
+
+        Mirrors the Polymarket soft-fail pattern. When The Odds API has no
+        data for the match yet (or any transient HTTP / parse error occurs),
+        we degrade to a uniform 1/3 distribution and signal ``books_used=0``
+        so downstream weighting can de-emphasise the sportsbook layer.
+        """
         match_id = inputs.sb_match_id or inputs.match_id
         try:
             raw = await self._sb.fetch_consensus(match_id)
-        except (httpx.HTTPError, OddsAPIError, ValueError):
-            logger.exception("triple_layer.sportsbook_failed", match_id=inputs.match_id)
-            raise
+        except (httpx.HTTPError, OddsAPIError, ValueError, KeyError) as exc:
+            logger.warning(
+                "triple_layer.sportsbook_failed_soft",
+                match_id=inputs.match_id,
+                error=str(exc),
+                sb_layer_status="fallback",
+            )
+            return _UNIFORM_PROBS.copy(), 0
 
         probs: dict[str, float] = {
             "home_win": float(raw["prob_home"]),

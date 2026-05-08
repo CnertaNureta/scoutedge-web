@@ -11,13 +11,30 @@ BEGIN;
 -- ──────────────────────────────────────────────────────────────
 
 -- Harden pre-existing core columns so partial inserts stay valid while
--- asynchronous prediction layers are still being populated.
-ALTER TABLE predictions ALTER COLUMN home_win_prob SET DEFAULT 0.33333;
-ALTER TABLE predictions ALTER COLUMN draw_prob SET DEFAULT 0.33334;
-ALTER TABLE predictions ALTER COLUMN away_win_prob SET DEFAULT 0.33333;
-ALTER TABLE predictions ALTER COLUMN generated_at SET DEFAULT NOW();
-ALTER TABLE predictions ALTER COLUMN created_at SET DEFAULT NOW();
-ALTER TABLE predictions ALTER COLUMN updated_at SET DEFAULT NOW();
+-- asynchronous prediction layers are still being populated. Each ALTER is
+-- guarded by a column-existence check so the migration tolerates schemas
+-- that haven't introduced these columns yet.
+DO $$
+BEGIN
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='home_win_prob') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN home_win_prob SET DEFAULT 0.33333';
+  END IF;
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='draw_prob') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN draw_prob SET DEFAULT 0.33334';
+  END IF;
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='away_win_prob') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN away_win_prob SET DEFAULT 0.33333';
+  END IF;
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='generated_at') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN generated_at SET DEFAULT NOW()';
+  END IF;
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='created_at') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN created_at SET DEFAULT NOW()';
+  END IF;
+  IF EXISTS (SELECT 1 FROM information_schema.columns WHERE table_schema='public' AND table_name='predictions' AND column_name='updated_at') THEN
+    EXECUTE 'ALTER TABLE predictions ALTER COLUMN updated_at SET DEFAULT NOW()';
+  END IF;
+END $$;
 
 -- ML layer --
 ALTER TABLE predictions ADD COLUMN IF NOT EXISTS ml_home_win_prob    NUMERIC(6,5);

@@ -45,6 +45,20 @@ router = APIRouter(prefix="/api/divergence", tags=["divergence"])
 UserAction = Literal["agreed", "challenged", "shared", "dismissed"]
 
 # ---------------------------------------------------------------------------
+# Valid divergence types
+# ---------------------------------------------------------------------------
+# Mirrors the DB CHECK constraint ``divergence_diagnoses_type_valid`` defined
+# in migration ``20260505100003_wc2026_ugc.sql``.  Keep this in sync with the
+# SQL ``CHECK (divergence_type IN (...))`` clause; any drift will surface as a
+# 500 from the route's INSERT.
+ALLOWED_DIVERGENCE_TYPES: frozenset[str] = frozenset(
+    {"ml_vs_poly", "ml_vs_sb", "sb_vs_poly", "three_way", "other"}
+)
+DEFAULT_DIVERGENCE_TYPE = "other"
+
+DivergenceType = Literal["ml_vs_poly", "ml_vs_sb", "sb_vs_poly", "three_way", "other"]
+
+# ---------------------------------------------------------------------------
 # Request / response models
 # ---------------------------------------------------------------------------
 
@@ -64,6 +78,10 @@ class FeedbackRequest(BaseModel):
     user_action: UserAction
     challenge_reason: str | None = None
     challenge_alternative_probs: dict[str, float] | None = None
+    # The divergence layer the diagnosis card surfaced (ml-vs-poly etc).  When
+    # omitted, ``_insert_feedback`` defaults to ``DEFAULT_DIVERGENCE_TYPE`` so
+    # the row still satisfies the DB ``divergence_diagnoses_type_valid`` CHECK.
+    divergence_type: DivergenceType | None = None
 
     @model_validator(mode="after")
     def _require_challenge_reason(self) -> FeedbackRequest:
@@ -95,6 +113,7 @@ async def _insert_feedback(
     diagnosis_id: int | None,
     challenge_reason: str | None,
     challenge_alternative_probs: dict[str, float] | None,
+    divergence_type: str | None = None,
 ) -> str:
     """Insert a row into ``divergence_diagnoses_displayed`` and return its id.
 
@@ -126,6 +145,17 @@ async def _insert_feedback(
         "diagnosis_id": diagnosis_id,
     }
 
+    # ``divergence_type`` describes which layer divergence the diagnosis card
+    # surfaced — not the user's interaction.  The interaction lives in
+    # ``diagnosis_payload['user_action']`` and the boolean flags below.  When
+    # the caller doesn't know the layer, default to ``'other'`` (allowed by
+    # the DB CHECK ``divergence_diagnoses_type_valid``).
+    resolved_divergence_type = (
+        divergence_type
+        if divergence_type in ALLOWED_DIVERGENCE_TYPES
+        else DEFAULT_DIVERGENCE_TYPE
+    )
+
     stmt = sa_insert(DivergenceDiagnosisDisplayed).values(
         id=new_id,
         user_id=user_id,
@@ -135,7 +165,7 @@ async def _insert_feedback(
         interaction_at=now,
         displayed_at=now,
         created_at=now,
-        divergence_type="user_feedback",
+        divergence_type=resolved_divergence_type,
         diagnosis_payload=diagnosis_payload,
     )
     await session.execute(stmt)
@@ -198,6 +228,7 @@ async def post_feedback(
             diagnosis_id=body.diagnosis_id,
             challenge_reason=body.challenge_reason,
             challenge_alternative_probs=body.challenge_alternative_probs,
+            divergence_type=body.divergence_type,
         )
     except Exception as exc:
         log.exception("divergence_feedback.db_error", error=str(exc))

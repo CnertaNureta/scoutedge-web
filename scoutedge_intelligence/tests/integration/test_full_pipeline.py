@@ -494,6 +494,40 @@ async def test_translator_failure_soft_fails(
     assert result.confidence == "medium"
 
 
+async def test_sportsbook_failure_soft_fails(
+    elo: FootballELO,
+    dixon_coles: DixonColesModel,
+    mock_sportsbook: MagicMock,
+    mock_synthesizer: MagicMock,
+    force_skip_trigger_config: TriggerConfig,
+) -> None:
+    """Sportsbook ValueError (no outcomes yet) → uniform fallback, pipeline returns."""
+    mock_sportsbook.fetch_consensus = AsyncMock(
+        side_effect=ValueError(
+            "Sportsbook response for match 'x' is missing outcome(s): "
+            "['home', 'draw', 'away']. Cannot compute consensus."
+        )
+    )
+    engine = _make_engine(
+        elo=elo,
+        dixon_coles=dixon_coles,
+        sportsbook=mock_sportsbook,
+        synthesizer=mock_synthesizer,
+        trigger_config=force_skip_trigger_config,
+    )
+    result = await engine.predict_match(_basic_inputs())
+
+    # Returned a valid FullPrediction rather than raising
+    assert isinstance(result, FullPrediction)
+    # Sportsbook fell back to uniform 1/3
+    assert result.sb_probs == {"home_win": 1 / 3, "draw": 1 / 3, "away_win": 1 / 3}
+    # Synthesizer was still called with that uniform sb_probs payload
+    payload = mock_synthesizer.synthesize.await_args.args[0]
+    assert payload.sb == {"home_win": 1 / 3, "draw": 1 / 3, "away_win": 1 / 3}
+    # final_probs come from the synthesizer mock and remain a valid distribution
+    assert abs(sum(result.final_probs.values()) - 1.0) < 1e-6
+
+
 async def test_feature_generator_failure_soft_fails(
     elo: FootballELO,
     dixon_coles: DixonColesModel,
