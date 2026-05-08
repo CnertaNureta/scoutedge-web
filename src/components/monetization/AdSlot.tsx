@@ -59,8 +59,8 @@ export default function AdSlot({ format, className = '' }: AdSlotProps) {
     if (!ADSENSE_ENABLED) return
     if (!inView || pushed.current || !adRef.current) return
     try {
-      const adsbygoogle =
-        (window as unknown as { adsbygoogle: unknown[] }).adsbygoogle || []
+      const adsWindow = window as Window & { adsbygoogle?: unknown[] }
+      const adsbygoogle = adsWindow.adsbygoogle ?? (adsWindow.adsbygoogle = [])
       adsbygoogle.push({})
       pushed.current = true
     } catch {

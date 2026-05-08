@@ -15,7 +15,7 @@ import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
 import { pickClientMessages } from '@/i18n/client-namespaces'
 
 interface LocaleLayoutProps {
@@ -128,9 +128,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               <CountdownStrip />
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
-              <div className="w-full px-4 py-6">
-                <AdSlot format="leaderboard" />
-              </div>
+              {ADSENSE_ENABLED ? (
+                <div className="w-full px-4 py-6">
+                  <AdSlot format="leaderboard" />
+                </div>
+              ) : null}
               <Footer />
               <ClientRuntimeWidgets />
             </div>

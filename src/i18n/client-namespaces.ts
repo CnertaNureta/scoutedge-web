@@ -34,6 +34,7 @@ export const CLIENT_NAMESPACES = [
   'apiKeys',
   'apiPlanTab',
   'apiUsageTab',
+  'blog',
   'blogFilter',
   'challengesPage',
   'compareSelector',
