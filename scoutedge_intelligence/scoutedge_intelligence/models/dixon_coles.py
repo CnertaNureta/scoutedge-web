@@ -6,14 +6,22 @@ and Inefficiencies in the Football Betting Market".
 
 from __future__ import annotations
 
+import logging
 import math
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, ClassVar
 
 import numpy as np
 import pandas as pd
 from scipy import optimize
 from scipy.stats import poisson
+
+logger = logging.getLogger(__name__)
+
+# Module-level guard so the unfitted-fallback warning is logged at most once
+# per process. Reset to ``False`` in tests via the ``reset_unfitted_warning``
+# fixture.
+_warned_unfitted: bool = False
 
 
 @dataclass
@@ -40,8 +48,22 @@ class DixonColesModel:
 
     MAX_GOALS: int = 8
 
+    # Uniform 1X2 distribution returned when the model is unfitted. Treated
+    # as a class-level constant; callers receive a copy to avoid accidental
+    # mutation of the shared default.
+    _UNIFIED_PROBS: ClassVar[dict[str, float]] = {
+        "home_win": 1 / 3,
+        "draw": 1 / 3,
+        "away_win": 1 / 3,
+    }
+
     def __init__(self, params: DixonColesParams | None = None) -> None:
         self.params: DixonColesParams | None = params
+
+    @property
+    def is_fitted(self) -> bool:
+        """Return ``True`` when fitted parameters are available."""
+        return self.params is not None
 
     # ------------------------------------------------------------------
     # Core statistical primitives
@@ -167,6 +189,16 @@ class DixonColesModel:
         KeyError
             If either team is not present in the fitted parameters.
         """
+        if self.params is None:
+            global _warned_unfitted
+            if not _warned_unfitted:
+                logger.warning(
+                    "dixon_coles.unfitted_fallback: predict_1x2 called before "
+                    "fit(); returning uniform 1/3-1/3-1/3 probabilities."
+                )
+                _warned_unfitted = True
+            return dict(self._UNIFIED_PROBS)
+
         matrix = self.score_matrix(home_team, away_team)
         g = self.MAX_GOALS + 1
         home_win = float(np.sum([matrix[i, j] for i in range(g) for j in range(g) if i > j]))

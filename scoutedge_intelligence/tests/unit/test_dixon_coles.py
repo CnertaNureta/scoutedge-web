@@ -3,15 +3,26 @@
 from __future__ import annotations
 
 import math
+from collections.abc import Iterator
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
 import pytest
 
+from scoutedge_intelligence.models import dixon_coles as dc_module
 from scoutedge_intelligence.models.dixon_coles import (
     DixonColesModel,
     DixonColesParams,
 )
+
+
+@pytest.fixture(autouse=True)
+def reset_unfitted_warning() -> Iterator[None]:
+    """Reset the module-level once-per-process warning guard between tests."""
+    dc_module._warned_unfitted = False
+    yield
+    dc_module._warned_unfitted = False
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -243,3 +254,47 @@ class TestFit:
         assert abs(matrix.sum() - 1.0) < 1e-9
         probs = model.predict_1x2("Alpha", "Beta")
         assert abs(sum(probs.values()) - 1.0) < 1e-9
+
+
+# ---------------------------------------------------------------------------
+# Test 7: unfitted-model fallback for predict_1x2
+# ---------------------------------------------------------------------------
+
+
+class TestUnfittedFallback:
+    def test_predict_1x2_unfitted_returns_uniform_probs(self) -> None:
+        model = DixonColesModel()
+        result = model.predict_1x2("AnyHome", "AnyAway")
+
+        assert set(result.keys()) == {"home_win", "draw", "away_win"}
+        assert math.isclose(result["home_win"], 1 / 3, rel_tol=1e-12)
+        assert math.isclose(result["draw"], 1 / 3, rel_tol=1e-12)
+        assert math.isclose(result["away_win"], 1 / 3, rel_tol=1e-12)
+        assert math.isclose(sum(result.values()), 1.0, rel_tol=1e-12)
+
+    def test_is_fitted_property_reflects_state(self) -> None:
+        model = DixonColesModel()
+        assert model.is_fitted is False
+
+        model.params = _minimal_params()
+        assert model.is_fitted is True
+
+    def test_predict_1x2_unfitted_warning_logged_once(self) -> None:
+        model = DixonColesModel()
+
+        with patch.object(dc_module.logger, "warning") as mock_warn:
+            model.predict_1x2("A", "B")
+            model.predict_1x2("C", "D")
+            model.predict_1x2("E", "F")
+
+        assert mock_warn.call_count == 1
+        (msg,), _ = mock_warn.call_args
+        assert "dixon_coles.unfitted_fallback" in msg
+
+    def test_predict_1x2_unfitted_returns_independent_copy(self) -> None:
+        """Mutating the returned dict must not affect subsequent calls."""
+        model = DixonColesModel()
+        first = model.predict_1x2("A", "B")
+        first["home_win"] = 0.99
+        second = model.predict_1x2("A", "B")
+        assert math.isclose(second["home_win"], 1 / 3, rel_tol=1e-12)
