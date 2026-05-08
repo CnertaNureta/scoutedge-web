@@ -16,6 +16,7 @@ import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
 import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { pickClientMessages } from '@/i18n/client-namespaces'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -101,6 +102,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   setRequestLocale(locale)
   const messages = await getMessages()
+  const clientMessages = pickClientMessages(messages as Record<string, unknown>)
   const config = LOCALE_CONFIGS[locale as Locale]
 
   const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
@@ -113,7 +115,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       />
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
-      <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider messages={clientMessages}>
         <RenderProfiler>
           <Providers>
             <div dir={config?.dir ?? 'ltr'} lang={locale}>
