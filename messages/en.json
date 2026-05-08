@@ -79,8 +79,8 @@
   "trustStrip": {
     "independent": "Independent",
     "independentDesc": "Fan-built, no league or sportsbook ties",
-    "noAds": "No display ads",
-    "noAdsDesc": "Predictions sit ahead of revenue",
+    "aiPowered": "AI-powered",
+    "aiPoweredDesc": "Squad-chemistry models trained on tournament data",
     "transparency": "Transparent methodology",
     "transparencyDesc": "Public weights and backtest results",
     "i18n": "19 languages",

@@ -10,11 +10,13 @@ import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
 import RenderProfiler from '@/components/debug/RenderProfiler'
+import AdSlot from '@/components/monetization/AdSlot'
 import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { pickClientMessages } from '@/i18n/client-namespaces'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -100,6 +102,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   setRequestLocale(locale)
   const messages = await getMessages()
+  const clientMessages = pickClientMessages(messages as Record<string, unknown>)
   const config = LOCALE_CONFIGS[locale as Locale]
 
   const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
@@ -112,7 +115,7 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       />
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
-      <NextIntlClientProvider messages={messages}>
+      <NextIntlClientProvider messages={clientMessages}>
         <RenderProfiler>
           <Providers>
             <div dir={config?.dir ?? 'ltr'} lang={locale}>
@@ -125,6 +128,11 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
               <CountdownStrip />
               <Header />
               <main id="main-content" className="flex-1">{children}</main>
+              {ADSENSE_ENABLED ? (
+                <div className="w-full px-4 py-6">
+                  <AdSlot format="leaderboard" />
+                </div>
+              ) : null}
               <Footer />
               <ClientRuntimeWidgets />
             </div>
