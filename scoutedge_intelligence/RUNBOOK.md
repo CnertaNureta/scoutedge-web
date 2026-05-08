@@ -267,10 +267,10 @@ Defined in `.github/workflows/scoutedge_intelligence_cron.yml`. All jobs `pip in
 | `attribution` | `*/30 * * * *` (every 30 min) | Runs result attribution: settles finished matches, updates `prediction_audits`, recomputes Brier/log-loss. | `DATABASE_URL`, `ANTHROPIC_API_KEY` | Actions tab → **Run Attribution (every 30 min)**. Check for missing match results from api-football. |
 | `precompute` | `0 */6 * * *` (every 6h) | Precomputes predictions for upcoming matches and writes to `predictions`. Heaviest job — exercises the full triple-layer pipeline. | `DATABASE_URL`, `ANTHROPIC_API_KEY`, `ODDS_API_KEY`, `API_FOOTBALL_KEY` | Actions tab → **Precompute Predictions (every 6 h)**. Watch for Anthropic rate-limit errors and Odds API quota exhaustion. |
 | `weekly_report` | `0 23 * * 0` (Sun 23:00 UTC) | Generates a weekly markdown report and POSTs to the configured webhook; uploads as a GitHub artifact (90-day retention). | `DATABASE_URL`, `SCOUTEDGE_WEEKLY_WEBHOOK` | Actions tab → **Weekly Report (Sun 23:00 UTC)**. Artifact `weekly-report-<run_id>` is retained even on failure. |
-| `backfill_results` | `0 3 * * *` (daily 03:00 UTC) | Pulls finished fixtures from API-Football v3 for a rolling 14-day window and `UPDATE`s the local `matches` table with goals/`finished`/`finished_at`. Runs **1h before** `seed-elo` so the reseed picks up newly-finalized results in the same UTC day. UPDATE-only — never INSERTs. | `DATABASE_URL`, `API_FOOTBALL_KEY` | Actions tab → **Backfill Match Results (daily 03:00 UTC)**. If a match the team expected didn't get linked, run a one-off with a wider `--since` window via `workflow_dispatch` and a `--unmatched-out` artifact (see §11.2). |
+| `backfill_results` | `0 3 * * *` (daily 03:00 UTC) | Pulls finished fixtures from API-Football v3 for a rolling 14-day window and `UPDATE`s the local `matches` table with goals/`finished`/`finished_at`. Runs **1h before** `seed-elo` so the reseed picks up newly-finalized results in the same UTC day. UPDATE-only — never INSERTs. | `DATABASE_URL`, `API_FOOTBALL_KEY` | Actions tab → **Backfill Match Results (daily 03:00 UTC)**. For one-off wider backfills, use `workflow_dispatch` with `job=backfill_results` or `job=backfill_then_seed`, `backfill_since=YYYY-MM-DD`, and `upload_unmatched=true` (see §11.2). |
 | `seed-elo` | `0 4 * * *` (daily 04:00 UTC) | Walks finished matches in chronological order, recomputes `FootballELO` from scratch, persists snapshot rows to `elo_ratings`. The API server reads this table at warm-up to seed in-memory ratings. | `DATABASE_URL` | Actions tab → **Seed ELO Ratings (daily 04:00 UTC)**. If `elo_ratings` row count drops or stays at zero, check that the matches table actually has finished rows (status='finished' AND home_goals/away_goals NOT NULL). |
 
-All jobs accept `workflow_dispatch` for manual runs. Concurrency groups prevent overlapping runs of the same job.
+Manual `workflow_dispatch` runs require a `job` input so one manual click does not run every cron task. Use `job=backfill_then_seed` when a manual backfill should be followed by ELO reseeding; the seed job waits for backfill success before running. Concurrency groups prevent overlapping runs of the same job.
 
 **Every script that opens a SQLAlchemy engine must coerce `DATABASE_URL` first** — see §10.1.
 
@@ -451,7 +451,7 @@ This recovered 60/64 historical matches at cutover. The 4 misses were Poland mat
 
 **Cron (default):** Daily 03:00 UTC over a rolling 14-day window — see §6 `backfill_results`. UPDATE-only, never INSERTs. Schedules 1h before `seed-elo` so the daily reseed picks up newly-finalized matches.
 
-**One-off / wider backfill (manual):**
+**One-off / wider backfill (manual, local):**
 
 ```bash
 cd scoutedge_intelligence
@@ -464,7 +464,23 @@ python -m scoutedge_intelligence.scripts.backfill_match_results \
   --since 2018-01-01 --unmatched-out unmatched.csv
 ```
 
-Same effect via GitHub Actions `workflow_dispatch` on the cron workflow — but the workflow uses the rolling 14-day `--since` derived in YAML, so for a wider one-off, run locally.
+**One-off / wider backfill (GitHub Actions):**
+
+```bash
+# Backfill only; uploads unmatched rows as an artifact if any are written.
+gh workflow run scoutedge_intelligence_cron.yml \
+  -f job=backfill_results \
+  -f backfill_since=2018-01-01 \
+  -f upload_unmatched=true
+
+# Backfill, then reseed ELO only if the backfill job succeeds.
+gh workflow run scoutedge_intelligence_cron.yml \
+  -f job=backfill_then_seed \
+  -f backfill_since=2018-01-01 \
+  -f upload_unmatched=true
+```
+
+Leave `backfill_since` blank for the normal rolling 14-day window. Use the uploaded `backfill-unmatched-<run_id>` artifact to triage local rows that could not be matched.
 
 ---
 
