@@ -778,6 +778,123 @@ const getTeamsOnlySnapshot = cache(async (): Promise<{
   return { teams, source }
 })
 
+const getMatchesSnapshot = cache(async (): Promise<{
+  teams: Team[]
+  fixtures: MatchFixture[]
+  sources: Pick<CorePageSources, 'teams' | 'fixtures'>
+}> => {
+  const [teamsModule, fixturesModule] = await Promise.all([
+    import('@/data/teams-meta'),
+    import('@/data/match-fixtures'),
+  ])
+
+  let teams = teamsModule.TEAMS
+  let fixtures = fixturesModule.MATCH_FIXTURES
+  const sources: Pick<CorePageSources, 'teams' | 'fixtures'> = {
+    teams: 'static',
+    fixtures: 'static',
+  }
+
+  const [supabaseTeams, supabaseFixtures] = await Promise.all([
+    readSupabaseTable(['team_profiles_current', 'teams', 'team_profiles']),
+    readSupabaseTable(['match_fixtures_current', 'match_fixtures', 'fixtures']),
+  ])
+
+  if (supabaseTeams) {
+    teams = mergeBySlug(
+      teams,
+      supabaseTeams
+        .map(normalizeTeamOverride)
+        .filter((item): item is TeamOverride => item !== null)
+    )
+    sources.teams = 'supabase'
+  }
+
+  if (supabaseFixtures) {
+    fixtures = mergeByKey(
+      fixtures,
+      supabaseFixtures
+        .map(normalizeFixtureOverride)
+        .filter((item): item is FixtureOverride => item !== null) as MatchFixture[],
+      fixtureKey
+    ).sort((a, b) => new Date(a.kickoffUtc).getTime() - new Date(b.kickoffUtc).getTime())
+    sources.fixtures = 'supabase'
+  }
+
+  return { teams, fixtures, sources }
+})
+
+const getDailyBriefingSnapshot = cache(async (): Promise<{
+  teams: Team[]
+  players: Player[]
+  playerSocial: PlayerSocialProfile[]
+  liveCache: LiveCacheSnapshot
+  sources: Pick<CorePageSources, 'teams' | 'players' | 'playerSocial' | 'liveCache'>
+}> => {
+  const [
+    teamsModule,
+    playersModule,
+    socialModule,
+    liveCacheModule,
+    playerIntelModule,
+  ] = await Promise.all([
+    import('@/data/teams-meta'),
+    import('@/data/players-data'),
+    import('@/data/player-social'),
+    import('@/data/live-cache.json'),
+    import('@/lib/player-intel-service'),
+  ])
+
+  let teams = teamsModule.TEAMS
+  let players = playersModule.PLAYERS.map(playerIntelModule.mergePlayerWithIntel)
+  let playerSocial = socialModule.PLAYER_SOCIAL_DATA
+  const liveCache = normalizeLiveCache(liveCacheModule.default)
+  const sources: Pick<CorePageSources, 'teams' | 'players' | 'playerSocial' | 'liveCache'> = {
+    teams: 'static',
+    players: 'static',
+    playerSocial: 'static',
+    liveCache: 'pipeline',
+  }
+
+  const [supabaseTeams, supabasePlayers, supabasePlayerSocial] = await Promise.all([
+    readSupabaseTable(['team_profiles_current', 'teams', 'team_profiles']),
+    readSupabaseTable(['player_profiles_current', 'players', 'team_players']),
+    readSupabaseTable(['player_social_profiles', 'player_social']),
+  ])
+
+  if (supabaseTeams) {
+    teams = mergeBySlug(
+      teams,
+      supabaseTeams
+        .map(normalizeTeamOverride)
+        .filter((item): item is TeamOverride => item !== null)
+    )
+    sources.teams = 'supabase'
+  }
+
+  if (supabasePlayers) {
+    players = mergeBySlug(
+      players,
+      supabasePlayers
+        .map(normalizePlayerOverride)
+        .filter((item): item is PlayerOverride => item !== null)
+    )
+    sources.players = 'supabase'
+  }
+
+  if (supabasePlayerSocial) {
+    playerSocial = mergeByPlayerSlug(
+      playerSocial,
+      supabasePlayerSocial
+        .map(normalizePlayerSocialOverride)
+        .filter((item): item is PlayerSocialOverride => item !== null)
+    )
+    sources.playerSocial = 'supabase'
+  }
+
+  return { teams, players, playerSocial, liveCache, sources }
+})
+
 const getCoreSiteSnapshot = cache(async (): Promise<CoreSiteSnapshot> => {
   const [
     teamsModule,
@@ -936,19 +1053,16 @@ export async function getHomePageData(): Promise<HomePageData> {
 }
 
 export async function getTeamsPageData(): Promise<TeamsPageData> {
-  const snapshot = await getCoreSiteSnapshot()
-  const groups = getGroups(snapshot.teams)
+  const { teams, source } = await getTeamsOnlySnapshot()
+  const groups = getGroups(teams)
 
   return {
     groups,
     teamsByGroup: Object.fromEntries(
-      groups.map((group) => [
-        group,
-        snapshot.teams.filter((team) => team.group === group),
-      ])
+      groups.map((group) => [group, teams.filter((team) => team.group === group)])
     ),
-    totalTeams: snapshot.teams.length,
-    sources: snapshot.sources,
+    totalTeams: teams.length,
+    sources: { ...DEFAULT_SOURCES, teams: source },
   }
 }
 
@@ -973,30 +1087,28 @@ export async function getTeamPageData(slug: string): Promise<TeamPageData | null
 }
 
 export async function getMatchesBoardData(): Promise<MatchesBoardData> {
-  const snapshot = await getCoreSiteSnapshot()
-  const groups = getGroups(snapshot.teams)
+  const { teams, fixtures, sources } = await getMatchesSnapshot()
+  const groups = getGroups(teams)
 
   return {
     groups,
-    fixtures: snapshot.fixtures,
-    teamsBySlug: Object.fromEntries(snapshot.teams.map((team) => [team.slug, team])),
+    fixtures,
+    teamsBySlug: Object.fromEntries(teams.map((team) => [team.slug, team])),
     teamsByGroup: Object.fromEntries(
-      groups.map((group) => [
-        group,
-        snapshot.teams.filter((team) => team.group === group),
-      ])
+      groups.map((group) => [group, teams.filter((team) => team.group === group)])
     ),
-    sources: snapshot.sources,
+    sources: { ...DEFAULT_SOURCES, ...sources },
   }
 }
 
 export async function getDailyBriefingPageData(): Promise<DailyBriefingPageData> {
-  const snapshot = await getCoreSiteSnapshot()
-  const signals = generateDailySignals(snapshot.teams, snapshot.players)
+  const { teams, players, playerSocial, liveCache, sources } =
+    await getDailyBriefingSnapshot()
+  const signals = generateDailySignals(teams, players)
   const signalTypes = [...new Set(signals.map((signal) => signal.type))]
   const highCount = signals.filter((signal) => signal.impact === 'high').length
   const mediumCount = signals.filter((signal) => signal.impact === 'medium').length
-  const trendingPlayers = [...snapshot.playerSocial]
+  const trendingPlayers = [...playerSocial]
     .sort((a, b) => b.buzzScore - a.buzzScore)
     .slice(0, 6)
 
@@ -1006,8 +1118,8 @@ export async function getDailyBriefingPageData(): Promise<DailyBriefingPageData>
     highCount,
     mediumCount,
     trendingPlayers,
-    liveCache: snapshot.liveCache,
-    sources: snapshot.sources,
+    liveCache,
+    sources: { ...DEFAULT_SOURCES, ...sources },
   }
 }
 
