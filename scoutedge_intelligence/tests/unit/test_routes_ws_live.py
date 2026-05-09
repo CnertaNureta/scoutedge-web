@@ -35,8 +35,6 @@ from api.routes.ws_live import (
     LAMBDA_MAX,
     LAMBDA_MIN,
     EventSource,
-    InPlayBayesianUpdater,
-    InPlayEvent,
     _build_updater,
     _probs_to_lambdas,
     _probs_to_matrix,
@@ -44,6 +42,7 @@ from api.routes.ws_live import (
     router,
 )
 from scoutedge_intelligence.db.models import PredictionSchema
+from scoutedge_intelligence.models.in_play import InPlayBayesianUpdater, InPlayEvent
 
 # ---------------------------------------------------------------------------
 # Deterministic EventSource stubs
