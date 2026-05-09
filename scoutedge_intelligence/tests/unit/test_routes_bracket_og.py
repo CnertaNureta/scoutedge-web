@@ -141,6 +141,31 @@ def _fake_match(match_id: str = "match-001") -> MagicMock:
     return match
 
 
+def _fake_team(team_id: str, name: str) -> MagicMock:
+    """Return a mock Team ORM object compatible with TeamSchema.model_validate.
+
+    Note: MagicMock reserves the ``name`` attribute for its own repr; assigning
+    via ``configure_mock`` is required to actually override it.
+    """
+    t = MagicMock()
+    t.configure_mock(
+        id=team_id,
+        name=name,
+        fifa_code=None,
+        base_altitude_m=None,
+        squad_avg_age=None,
+        avg_caps=None,
+        wc_appearances=0,
+        prev_wc_best=None,
+        home_continent=None,
+        style_tags=[],
+        press_intensity=None,
+        defensive_block=None,
+        transition_speed=None,
+    )
+    return t
+
+
 def _fake_prediction() -> MagicMock:
     """Return a mock Prediction ORM object."""
     pred = MagicMock()
@@ -357,9 +382,14 @@ def test_get_fork_found_returns_200() -> None:
 
 
 def test_og_match_happy_path() -> None:
-    """GET /og/match/{id} returns all required OG metadata fields."""
+    """GET /og/match/{id} returns OG metadata with team display names."""
     session = _make_mock_session()
     match = _fake_match("match-finale")
+    # Use UUID-shaped FKs so the team-resolution path is exercised.
+    match.home_team_id = "9f6d3687-b7a6-4fbe-a08e-c38e1b77141e"
+    match.away_team_id = "bdb6a429-3a49-4897-85f5-396554e98bd5"
+    home_team = _fake_team(match.home_team_id, "Argentina")
+    away_team = _fake_team(match.away_team_id, "France")
     pred = _fake_prediction()
 
     call_index = 0
@@ -367,9 +397,13 @@ def test_og_match_happy_path() -> None:
     async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
         nonlocal call_index
         call_index += 1
-        # First call: match lookup; second call: prediction lookup
+        # og_match query order: match → home_team → away_team → prediction.
         if call_index == 1:
             return _scalar_result(match)
+        if call_index == 2:
+            return _scalar_result(home_team)
+        if call_index == 3:
+            return _scalar_result(away_team)
         return _scalar_result(pred)
 
     session.execute = AsyncMock(side_effect=_execute)
@@ -394,9 +428,13 @@ def test_og_match_happy_path() -> None:
     }
     assert required <= body.keys()
     assert body["match_id"] == "match-finale"
-    assert body["home_team"] == "BRA"
-    assert body["away_team"] == "ARG"
-    assert "%" in body["headline"] or "vs" in body["headline"]
+    assert body["home_team"] == "Argentina"
+    assert body["away_team"] == "France"
+    # Regression guard for the UUID-leak bug: the headline must contain the
+    # readable names, never the raw FK UUIDs.
+    assert "Argentina" in body["headline"]
+    assert match.home_team_id not in body["headline"]
+    assert match.away_team_id not in body["headline"]
 
 
 # ---------------------------------------------------------------------------

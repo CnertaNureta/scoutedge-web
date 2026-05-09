@@ -25,6 +25,7 @@ from sqlalchemy import nullslast, select
 
 from api.deps import DbSession
 from scoutedge_intelligence.db.models import BracketFork, Match, Prediction, UserPrediction
+from scoutedge_intelligence.db.queries import get_team
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -172,6 +173,22 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
         log.info("og.match.not_found")
         raise HTTPException(status_code=404, detail=f"Match '{match_id}' not found.")
 
+    # Resolve FK team_id → display name. Falling back to the FK or the literal
+    # "HOME"/"AWAY" only when the row is genuinely missing prevents shipping a
+    # raw UUID into the OG card (the bug fixed here).
+    home_team_row = await get_team(session, match.home_team_id)
+    away_team_row = await get_team(session, match.away_team_id)
+    home_team = (
+        (home_team_row.name if home_team_row else None)
+        or match.home_team_id
+        or "HOME"
+    )
+    away_team = (
+        (away_team_row.name if away_team_row else None)
+        or match.away_team_id
+        or "AWAY"
+    )
+
     # Fetch the latest prediction for this match
     pred_result = await session.execute(
         select(Prediction)
@@ -183,9 +200,6 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
         .limit(1)
     )
     pred = pred_result.scalars().first()
-
-    home_team = match.home_team_id or "HOME"
-    away_team = match.away_team_id or "AWAY"
     winner: str | None = None
     p_win: float | None = None
 
