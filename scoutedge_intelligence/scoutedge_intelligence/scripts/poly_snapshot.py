@@ -31,6 +31,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from scoutedge_intelligence.db import queries
 from scoutedge_intelligence.db.models import Match, PolymarketSnapshotSchema
 from scoutedge_intelligence.sources.polymarket import PolymarketClient
+from scoutedge_intelligence.utils.db_urls import coerce_async_database_url
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -227,7 +228,7 @@ async def run(args: argparse.Namespace) -> dict[str, int]:
         "skipped_dry_run": int}``.
     """
     database_url: str = os.environ.get("DATABASE_URL", "")
-    engine = create_async_engine(database_url, echo=False)
+    engine = create_async_engine(coerce_async_database_url(database_url), echo=False)
     session_factory: async_sessionmaker[AsyncSession] = async_sessionmaker(
         engine, expire_on_commit=False
     )

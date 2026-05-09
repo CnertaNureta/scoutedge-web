@@ -10,6 +10,8 @@ on:
     - cron: '0 */6 * * *'
     # weekly_report: Sunday 23:00 UTC
     - cron: '0 23 * * 0'
+    # backfill_match_results: daily at 03:00 UTC (must run before seed-elo)
+    - cron: '0 3 * * *'
     # seed_elo: daily at 04:00 UTC
     - cron: '0 4 * * *'
   workflow_dispatch: {}
@@ -129,6 +131,39 @@ jobs:
           name: weekly-report-${{ github.run_id }}
           path: scoutedge_intelligence/artifacts/weekly/*.md
           retention-days: 90
+
+  # ---------------------------------------------------------------------------
+  # Daily 03:00 UTC: Backfill historical match results from API-Football
+  # Runs 1h BEFORE seed-elo so the reseed picks up newly-finalized matches.
+  # Rolling 14-day window to keep API-Football quota tight; first-time/full
+  # backfill is a manual workflow_dispatch invocation.
+  # ---------------------------------------------------------------------------
+  backfill_results:
+    name: Backfill Match Results (daily 03:00 UTC)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 3 * * *'
+    continue-on-error: false
+    concurrency:
+      group: scoutedge_intelligence_backfill_results
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+
+      - name: Compute --since (14 days ago)
+        id: since
+        run: echo "value=$(date -u -d '14 days ago' +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Run backfill_match_results
+        run: >
+          python -m scoutedge_intelligence.scripts.backfill_match_results
+          --since ${{ steps.since.outputs.value }}
 
   # ---------------------------------------------------------------------------
   # Daily 04:00 UTC: Seed elo_ratings from finished matches

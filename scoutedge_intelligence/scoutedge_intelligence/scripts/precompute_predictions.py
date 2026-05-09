@@ -37,6 +37,7 @@ from scoutedge_intelligence.synthesis.engine import (
     TripleLayerEngine,
     TripleLayerInputs,
 )
+from scoutedge_intelligence.utils.db_urls import coerce_async_database_url
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -442,7 +443,7 @@ async def run(
     )
 
     database_url = os.environ.get("DATABASE_URL", "")
-    async_engine = create_async_engine(database_url, echo=False)
+    async_engine = create_async_engine(coerce_async_database_url(database_url), echo=False)
     session_factory = async_sessionmaker(async_engine, expire_on_commit=False)
 
     engine: TripleLayerEngine = factory()

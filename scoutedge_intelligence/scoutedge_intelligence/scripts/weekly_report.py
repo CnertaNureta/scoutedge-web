@@ -36,6 +36,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 
 from scoutedge_intelligence.audit.aggregate import AggregateReport, build_aggregate_report
 from scoutedge_intelligence.audit.attribution import AttributionReport
+from scoutedge_intelligence.utils.db_urls import coerce_async_database_url
 
 logger = structlog.get_logger(__name__)
 
@@ -439,7 +440,7 @@ async def run(args: argparse.Namespace) -> int:
         return 1
 
     try:
-        engine = create_async_engine(database_url, echo=False)
+        engine = create_async_engine(coerce_async_database_url(database_url), echo=False)
         session_factory: async_sessionmaker[AsyncSession] = async_sessionmaker(
             engine, class_=AsyncSession, expire_on_commit=False
         )
