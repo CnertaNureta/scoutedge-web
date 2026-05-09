@@ -31,6 +31,7 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
     create_async_engine,
 )
+from starlette.requests import HTTPConnection
 
 from scoutedge_intelligence.analyst.divergence import DivergenceAnalyst
 from scoutedge_intelligence.claude.feature_generator import FeatureGenerator
@@ -325,17 +326,22 @@ def _make_async_engine(settings: Settings) -> AsyncEngine:
 # ---------------------------------------------------------------------------
 
 
-async def get_db_session(request: Request) -> AsyncIterator[AsyncSession]:
-    """FastAPI dependency: yield an AsyncSession for the current request.
+async def get_db_session(conn: HTTPConnection) -> AsyncIterator[AsyncSession]:
+    """FastAPI dependency: yield an AsyncSession for the current connection.
+
+    Accepts ``HTTPConnection`` (the Starlette parent of both ``Request`` and
+    ``WebSocket``) so this dependency can be reused by HTTP and WebSocket
+    routes alike. FastAPI's DI auto-injects whichever concrete type the route
+    uses; both expose ``.app.state``.
 
     The session is closed (and any transaction rolled back) after the response
-    is sent. The sessionmaker is retrieved from ``request.app.state``, which
-    is populated during the lifespan startup.
+    is sent. The sessionmaker is retrieved from ``conn.app.state``, which is
+    populated during the lifespan startup.
 
     Yields:
-        An open AsyncSession bound to the current request.
+        An open AsyncSession bound to the current connection.
     """
-    session_factory: async_sessionmaker[AsyncSession] = request.app.state.session_factory
+    session_factory: async_sessionmaker[AsyncSession] = conn.app.state.session_factory
     async with session_factory() as session:
         yield session
 

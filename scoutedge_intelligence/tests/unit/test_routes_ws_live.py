@@ -369,3 +369,57 @@ def test_build_updater_none_probs_fallback() -> None:
     probs = updater.derive_probabilities()
     total = probs["home_win"] + probs["draw"] + probs["away_win"]
     assert abs(total - 1.0) < 1e-9
+
+
+# ---------------------------------------------------------------------------
+# Regression test: production WS hit `TypeError: get_db_session() missing 1
+# required positional argument: 'request'`. FastAPI cannot inject `Request`
+# into a WebSocket route — only WebSocket. Switching `get_db_session` to take
+# `HTTPConnection` (the parent of both Request and WebSocket) fixes it.
+#
+# This test exercises the *real* `get_db_session` dependency (no
+# `app.dependency_overrides`) so that the DI mismatch would surface as a 500
+# / TypeError at handshake time, like in production.
+# ---------------------------------------------------------------------------
+
+
+def test_ws_live_uses_real_get_db_session_dependency(
+    happy_prediction: PredictionSchema,
+) -> None:
+    """The WS route must resolve ``get_db_session`` without a Request param.
+
+    Regression for prod 500:
+        TypeError: get_db_session() missing 1 required positional argument: 'request'
+
+    We wire ``app.state.session_factory`` exactly as the real lifespan does
+    and rely on FastAPI to satisfy ``Depends(get_db_session)`` from the
+    WebSocket scope. We do NOT install ``app.dependency_overrides`` for it.
+    """
+    app = FastAPI()
+    app.include_router(router)
+
+    # Real session_factory contract: a zero-arg callable returning an async
+    # context manager that yields an AsyncSession-like object.
+    session_obj = AsyncMock(name="async_session")
+    session_cm = AsyncMock()
+    session_cm.__aenter__.return_value = session_obj
+    session_cm.__aexit__.return_value = None
+    app.state.session_factory = lambda: session_cm
+
+    # Only the event-source dep is overridden so the test is deterministic.
+    app.dependency_overrides[get_event_source] = lambda: _NoTickSource()
+
+    patch_ctx = patch(
+        "api.routes.ws_live.get_latest_prediction",
+        new=AsyncMock(return_value=happy_prediction),
+    )
+
+    with patch_ctx:
+        client = TestClient(app, raise_server_exceptions=True)
+        with client.websocket_connect("/ws/live/match-001") as ws:
+            frame = ws.receive_json()
+
+    # If DI for get_db_session were broken, the handshake would 500 before
+    # we ever saw an init frame.
+    assert frame["type"] == "init"
+    assert frame["match_id"] == "match-001"
