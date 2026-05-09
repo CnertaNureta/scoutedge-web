@@ -26,6 +26,8 @@ from scoutedge_intelligence.db.models import (
     PredictionAudit,
     PredictionAuditSchema,
     PredictionSchema,
+    Team,
+    TeamSchema,
 )
 
 logger = structlog.get_logger(__name__)
@@ -127,6 +129,21 @@ async def get_match(session: AsyncSession, match_id: str) -> MatchSchema | None:
         logger.debug("get_match: not found", match_id=match_id)
         return None
     return MatchSchema.model_validate(row)
+
+
+async def get_team(session: AsyncSession, team_id: str | None) -> TeamSchema | None:
+    """Return a TeamSchema for the given team_id, or None if not found.
+
+    Returns None when team_id is falsy so callers don't have to guard.
+    """
+    if not team_id:
+        return None
+    result = await session.execute(select(Team).where(Team.id == team_id))
+    row = result.scalars().first()
+    if row is None:
+        logger.debug("get_team: not found", team_id=team_id)
+        return None
+    return TeamSchema.model_validate(row)
 
 
 async def upsert_polymarket_snapshot(

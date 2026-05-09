@@ -16,6 +16,7 @@ in a separate orchestration step (P5.5).
 from __future__ import annotations
 
 import datetime
+import uuid
 from typing import Any
 
 import structlog
@@ -25,6 +26,7 @@ from sqlalchemy import nullslast, select
 
 from api.deps import DbSession
 from scoutedge_intelligence.db.models import BracketFork, Match, Prediction, UserPrediction
+from scoutedge_intelligence.db.queries import get_team
 
 logger: structlog.BoundLogger = structlog.get_logger(__name__)
 
@@ -105,6 +107,8 @@ def _make_match_headline(
     """
     if winner and p_win is not None:
         pct = round(p_win * 100)
+        if winner.lower() == "draw":
+            return f"{home_team} vs {away_team}: {pct}% draw"
         loser = away_team if winner == home_team else home_team
         return f"{winner} {pct}% to beat {loser}"
     return f"{home_team} vs {away_team}"
@@ -135,6 +139,89 @@ def _canonical_outcome(outcome: str) -> str:
     if outcome == "away_win":
         return "away"
     return outcome
+
+
+def _looks_like_uuid(value: str | None) -> bool:
+    """Return True when value is a UUID-shaped identifier."""
+    if not value:
+        return False
+    try:
+        uuid.UUID(value)
+    except ValueError:
+        return False
+    return True
+
+
+def _team_display_name(team: Any | None, fallback_id: str | None, placeholder: str) -> str:
+    """Return the best non-UUID label available for an OG card team slot."""
+    if team is not None:
+        name = getattr(team, "name", None)
+        if name:
+            return str(name)
+        fifa_code = getattr(team, "fifa_code", None)
+        if fifa_code:
+            return str(fifa_code)
+    if fallback_id and not _looks_like_uuid(fallback_id):
+        return fallback_id
+    return placeholder
+
+
+def _first_probability(*values: Any | None) -> float | None:
+    """Return the first non-null probability as float, preserving legitimate 0.0."""
+    for value in values:
+        if value is not None:
+            return float(value)
+    return None
+
+
+def _string_attr(obj: Any, attr: str) -> str | None:
+    """Return a non-empty string attribute, ignoring loose mock/default values."""
+    value = getattr(obj, attr, None)
+    return value if isinstance(value, str) and value else None
+
+
+def _prediction_winner_and_probability(
+    pred: Any,
+    home_team: str,
+    away_team: str,
+) -> tuple[str | None, float | None]:
+    """Resolve a prediction row into an OG display winner and probability."""
+    raw_pick = _string_attr(pred, "recommended_pick") or _string_attr(pred, "claude_pick")
+    if raw_pick is None:
+        return None, None
+
+    pick = _canonical_outcome(str(raw_pick))
+    if pick == "home":
+        return home_team, _first_probability(
+            getattr(pred, "blended_home_win_prob", None),
+            getattr(pred, "home_win_prob", None),
+        )
+    if pick == "away":
+        return away_team, _first_probability(
+            getattr(pred, "blended_away_win_prob", None),
+            getattr(pred, "away_win_prob", None),
+        )
+    if pick == "draw":
+        return "Draw", _first_probability(
+            getattr(pred, "blended_draw_prob", None),
+            getattr(pred, "draw_prob", None),
+        )
+
+    # Legacy rows may already store a team code/name in claude_pick.
+    if raw_pick == home_team:
+        return raw_pick, _first_probability(
+            getattr(pred, "blended_home_win_prob", None),
+            getattr(pred, "home_win_prob", None),
+        )
+    if raw_pick == away_team:
+        return raw_pick, _first_probability(
+            getattr(pred, "blended_away_win_prob", None),
+            getattr(pred, "away_win_prob", None),
+        )
+    return raw_pick, _first_probability(
+        getattr(pred, "blended_home_win_prob", None),
+        getattr(pred, "home_win_prob", None),
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -172,6 +259,14 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
         log.info("og.match.not_found")
         raise HTTPException(status_code=404, detail=f"Match '{match_id}' not found.")
 
+    # Resolve FK team_id → display name. Falling back to the FK or the literal
+    # "HOME"/"AWAY" only when the row is genuinely missing prevents shipping a
+    # raw UUID into the OG card (the bug fixed here).
+    home_team_row = await get_team(session, match.home_team_id)
+    away_team_row = await get_team(session, match.away_team_id)
+    home_team = _team_display_name(home_team_row, match.home_team_id, "HOME")
+    away_team = _team_display_name(away_team_row, match.away_team_id, "AWAY")
+
     # Fetch the latest prediction for this match
     pred_result = await session.execute(
         select(Prediction)
@@ -183,23 +278,11 @@ async def og_match(match_id: str, session: DbSession) -> MatchOGResponse:
         .limit(1)
     )
     pred = pred_result.scalars().first()
-
-    home_team = match.home_team_id or "HOME"
-    away_team = match.away_team_id or "AWAY"
     winner: str | None = None
     p_win: float | None = None
 
     if pred is not None:
-        winner = pred.claude_pick
-        if winner == "home":
-            winner = home_team
-            p_win = float(pred.blended_home_win_prob) if pred.blended_home_win_prob else None
-        elif winner == "away":
-            winner = away_team
-            p_win = float(pred.blended_away_win_prob) if pred.blended_away_win_prob else None
-        else:
-            # claude_pick may already be a team code in future iterations
-            p_win = float(pred.blended_home_win_prob) if pred.blended_home_win_prob else None
+        winner, p_win = _prediction_winner_and_probability(pred, home_team, away_team)
 
     headline = _make_match_headline(home_team, away_team, winner, p_win)
 

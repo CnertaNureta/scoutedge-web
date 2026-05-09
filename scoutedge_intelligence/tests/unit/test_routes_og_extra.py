@@ -2,7 +2,9 @@
 
 Targets:
 - /og/match/{id} when claude_pick == "away" → predicted_winner uses away_team
-- /og/match/{id} when claude_pick is some other string → falls through else branch
+- /og/match/{id} prefers recommended_pick when claude_pick is reused metadata
+- /og/match/{id} when claude_pick is a legacy team code → uses matching probability
+- /og/match/{id} when the pick is "draw" → predicted_winner uses draw probability
 - /og/bracket/{fork_id} → 404 when fork is missing
 - /og/bracket/{fork_id} when max_possible is None → alternate "title · ScoutEdge ..." headline
 - /og/slayer/{user_id} when user has no recorded picks → headline contains "no picks recorded"
@@ -62,9 +64,174 @@ def _fake_match() -> MagicMock:
     return m
 
 
+def _fake_team(team_id: str, name: str) -> MagicMock:
+    """Return a mock Team ORM object compatible with TeamSchema.model_validate.
+
+    Note: MagicMock reserves the ``name`` attribute for its own repr; assigning
+    via ``configure_mock`` is required to actually override it.
+    """
+    t = MagicMock()
+    t.configure_mock(
+        id=team_id,
+        name=name,
+        fifa_code=None,
+        base_altitude_m=None,
+        squad_avg_age=None,
+        avg_caps=None,
+        wc_appearances=0,
+        prev_wc_best=None,
+        home_continent=None,
+        style_tags=[],
+        press_intensity=None,
+        defensive_block=None,
+        transition_speed=None,
+    )
+    return t
+
+
+def _seq_execute(match: Any, pred: Any) -> Any:
+    """Build an execute side_effect matching og_match's query order:
+
+    1. match lookup → match
+    2. home_team lookup → None (route falls back to match.home_team_id)
+    3. away_team lookup → None (route falls back to match.away_team_id)
+    4. prediction lookup → pred
+    """
+
+    call_index = 0
+
+    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
+        nonlocal call_index
+        call_index += 1
+        if call_index == 1:
+            return _scalar_result(match)
+        if call_index in (2, 3):
+            return _scalar_result(None)
+        return _scalar_result(pred)
+
+    return _execute
+
+
 # ---------------------------------------------------------------------------
 # /og/match — away-pick branch
 # ---------------------------------------------------------------------------
+
+
+def test_og_match_resolves_team_uuids_to_names() -> None:
+    """Regression test: GET /og/match returns team display names, not raw FK UUIDs.
+
+    Reproduces the WC2022 Argentina-vs-France final bug where the response body
+    contained `"home_team": "9f6d3687-..."` and `"headline": "9f6d... vs bdb6..."`
+    instead of the readable team names.
+    """
+    home_id = "9f6d3687-b7a6-4fbe-a08e-c38e1b77141e"
+    away_id = "bdb6a429-3a49-4897-85f5-396554e98bd5"
+
+    match = _fake_match()
+    match.home_team_id = home_id
+    match.away_team_id = away_id
+
+    home_team = _fake_team(home_id, "Argentina")
+    away_team = _fake_team(away_id, "France")
+
+    pred = MagicMock()
+    pred.claude_pick = "home"
+    pred.blended_home_win_prob = 0.55
+    pred.blended_away_win_prob = 0.30
+
+    session = AsyncMock()
+    call_index = 0
+
+    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
+        nonlocal call_index
+        call_index += 1
+        if call_index == 1:
+            return _scalar_result(match)
+        if call_index == 2:
+            return _scalar_result(home_team)
+        if call_index == 3:
+            return _scalar_result(away_team)
+        return _scalar_result(pred)
+
+    session.execute = AsyncMock(side_effect=_execute)
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get(f"/og/match/{match.id}")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["home_team"] == "Argentina"
+    assert body["away_team"] == "France"
+    assert "Argentina" in body["headline"]
+    assert "France" in body["headline"]
+    assert home_id not in body["headline"]
+    assert away_id not in body["headline"]
+    assert body["home_team"] != home_id
+    assert body["away_team"] != away_id
+
+
+def test_og_match_missing_team_rows_do_not_leak_uuid_fallbacks() -> None:
+    home_id = "9f6d3687-b7a6-4fbe-a08e-c38e1b77141e"
+    away_id = "bdb6a429-3a49-4897-85f5-396554e98bd5"
+
+    match = _fake_match()
+    match.home_team_id = home_id
+    match.away_team_id = away_id
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(match, None))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get(f"/og/match/{match.id}")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["home_team"] == "HOME"
+    assert body["away_team"] == "AWAY"
+    assert home_id not in body["headline"]
+    assert away_id not in body["headline"]
+
+
+def test_og_match_prefers_recommended_pick_over_claude_pick() -> None:
+    pred = MagicMock()
+    pred.recommended_pick = "away_win"
+    pred.claude_pick = "high"
+    pred.blended_home_win_prob = 0.30
+    pred.blended_away_win_prob = 0.50
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get("/og/match/m-1")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["predicted_winner"] == "ARG"
+    assert body["predicted_p_win"] == 0.5
+    assert "high" not in body["headline"]
+
+
+def test_og_match_legacy_team_code_pick_uses_matching_probability() -> None:
+    pred = MagicMock()
+    pred.claude_pick = "ARG"
+    pred.blended_home_win_prob = 0.30
+    pred.blended_away_win_prob = 0.50
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get("/og/match/m-1")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["predicted_winner"] == "ARG"
+    assert body["predicted_p_win"] == 0.5
 
 
 def test_og_match_away_pick_uses_away_team() -> None:
@@ -74,14 +241,7 @@ def test_og_match_away_pick_uses_away_team() -> None:
     pred.blended_away_win_prob = 0.50
 
     session = AsyncMock()
-    call_index = 0
-
-    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
-        nonlocal call_index
-        call_index += 1
-        return _scalar_result(_fake_match()) if call_index == 1 else _scalar_result(pred)
-
-    session.execute = AsyncMock(side_effect=_execute)
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
 
     app = _make_app(session)
     with TestClient(app) as client:
@@ -99,49 +259,36 @@ def test_og_match_latest_prediction_query_puts_null_timestamps_last() -> None:
     pred.blended_away_win_prob = 0.20
 
     session = AsyncMock()
-    call_index = 0
-
-    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
-        nonlocal call_index
-        call_index += 1
-        return _scalar_result(_fake_match()) if call_index == 1 else _scalar_result(pred)
-
-    session.execute = AsyncMock(side_effect=_execute)
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
 
     app = _make_app(session)
     with TestClient(app) as client:
         resp = client.get("/og/match/m-1")
 
     assert resp.status_code == 200
-    latest_prediction_query = session.execute.await_args_list[1].args[0]
+    # Prediction query is the 4th execute call (after match + 2 team lookups).
+    latest_prediction_query = session.execute.await_args_list[3].args[0]
     assert "NULLS LAST" in str(latest_prediction_query)
 
 
-def test_og_match_unknown_pick_falls_through_else_branch() -> None:
+def test_og_match_draw_pick_uses_draw_probability() -> None:
     pred = MagicMock()
     pred.claude_pick = "draw"
     pred.blended_home_win_prob = 0.40
+    pred.blended_draw_prob = 0.30
     pred.blended_away_win_prob = 0.30
 
     session = AsyncMock()
-    call_index = 0
-
-    async def _execute(*args: Any, **kwargs: Any) -> MagicMock:
-        nonlocal call_index
-        call_index += 1
-        return _scalar_result(_fake_match()) if call_index == 1 else _scalar_result(pred)
-
-    session.execute = AsyncMock(side_effect=_execute)
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
 
     app = _make_app(session)
     with TestClient(app) as client:
         resp = client.get("/og/match/m-1")
     assert resp.status_code == 200
     body = resp.json()
-    # else-branch: predicted_winner stays as raw claude_pick ("draw"); p_win
-    # falls back to home_win prob.
-    assert body["predicted_winner"] == "draw"
-    assert body["predicted_p_win"] == 0.4
+    assert body["predicted_winner"] == "Draw"
+    assert body["predicted_p_win"] == 0.3
+    assert "30% draw" in body["headline"]
 
 
 # ---------------------------------------------------------------------------
