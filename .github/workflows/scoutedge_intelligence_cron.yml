@@ -273,3 +273,88 @@ jobs:
 
       - name: Run seed_elo
         run: python -m scoutedge_intelligence.scripts.seed_elo --since 2018-01-01
+
+  # ---------------------------------------------------------------------------
+  # Notify on cron failure: opens (or comments on) a GitHub issue when any
+  # *scheduled* cron job fails. Manual workflow_dispatch failures are not
+  # alerted — the operator triggering them is already watching.
+  # Dedup: same-day + same-failed-jobs → comment on the open issue instead of
+  # spawning a new one. Different jobs failing the same day → new issue.
+  # ---------------------------------------------------------------------------
+  notify-failure:
+    name: Notify on Cron Failure
+    runs-on: ubuntu-latest
+    needs:
+      - poly_snapshot
+      - attribution
+      - precompute
+      - weekly_report
+      - backfill_results
+      - seed-elo
+      - seed-elo-after-backfill
+    if: ${{ failure() && github.event_name == 'schedule' }}
+    permissions:
+      issues: write
+    # Override the workflow-default working-directory; this job runs no Python.
+    defaults:
+      run:
+        working-directory: .
+    steps:
+      - name: Open or update cron-failure issue
+        uses: actions/github-script@v7
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        with:
+          script: |
+            const needs = JSON.parse(process.env.NEEDS);
+            const failed = Object.entries(needs)
+              .filter(([, r]) => r && r.result === 'failure')
+              .map(([name]) => name);
+
+            if (failed.length === 0) {
+              core.info('No upstream failures detected; skipping notification.');
+              return;
+            }
+
+            const today = new Date().toISOString().slice(0, 10);
+            const title = `[cron] ${today} failures: ${failed.join(', ')}`;
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const schedule = context.payload.schedule || '(manual)';
+            const body = [
+              `Schedule: \`${schedule}\``,
+              `Run: ${runUrl}`,
+              ``,
+              `Failed jobs:`,
+              ...failed.map(f => `- \`${f}\``),
+              ``,
+              `_Triage: open the run link, drill into the failed step, paste the error here, then close the issue once the next scheduled run is green._`,
+            ].join('\n');
+
+            // Dedup against open cron-failure issues with the same title.
+            const open = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'cron-failure',
+              per_page: 100,
+            });
+            const dup = open.data.find(i => i.title === title);
+
+            if (dup) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: dup.number,
+                body,
+              });
+              core.info(`Commented on existing issue #${dup.number}: ${title}`);
+            } else {
+              const created = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['cron-failure'],
+              });
+              core.info(`Opened issue #${created.data.number}: ${title}`);
+            }

@@ -274,6 +274,19 @@ Manual `workflow_dispatch` runs require a `job` input so one manual click does n
 
 **Every script that opens a SQLAlchemy engine must coerce `DATABASE_URL` first** — see §10.1.
 
+### 6.1 Failure alerting
+
+A `notify-failure` job runs after every scheduled cron and opens (or comments on) a GitHub issue labeled `cron-failure` whenever any upstream job has `result == 'failure'`. Manual `workflow_dispatch` failures are NOT alerted — the operator triggering them is already watching.
+
+Triage workflow:
+1. Filter open issues by [label:`cron-failure`](https://github.com/CnertaNureta/scoutedge-web/issues?q=is%3Aopen+is%3Aissue+label%3Acron-failure).
+2. Click the run link in the issue body, drill into the failed step, identify root cause (script bug, missing secret, upstream API outage, etc.).
+3. Fix the root cause. When the next scheduled cron run goes green, close the issue.
+
+Dedup logic: same calendar day + same set of failed jobs → comments on the existing open issue. A different job failing the same day creates a new issue (different title). Closing an issue mid-day allows it to reopen on the next failure with the same set.
+
+The notifier requires `permissions: issues: write` on the `GITHUB_TOKEN`. If you turn off automatic token write permissions in repo settings (Settings → Actions → General → Workflow permissions), this stops working silently — verify by checking that the most recent `cron-failure` issue activity is recent.
+
 ---
 
 ## 7. Rollback
