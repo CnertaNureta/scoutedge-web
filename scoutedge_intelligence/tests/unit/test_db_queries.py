@@ -15,6 +15,7 @@ from scoutedge_intelligence.db.models import (
     MatchSchema,
     PredictionAuditSchema,
     PredictionSchema,
+    TeamSchema,
 )
 
 
@@ -77,6 +78,46 @@ async def test_get_match_returns_schema_when_row_exists() -> None:
 async def test_get_match_returns_none_when_missing() -> None:
     session = _mock_session_with_first(None)
     assert await queries.get_match(session, "missing") is None
+
+
+@pytest.mark.asyncio
+async def test_get_team_returns_schema_when_row_exists() -> None:
+    row = MagicMock()
+    row.configure_mock(
+        id="t-home",
+        name="Argentina",
+        fifa_code="ARG",
+        base_altitude_m=None,
+        squad_avg_age=None,
+        avg_caps=None,
+        wc_appearances=18,
+        prev_wc_best="Winner",
+        home_continent="CONMEBOL",
+        style_tags=[],
+        press_intensity=None,
+        defensive_block=None,
+        transition_speed=None,
+    )
+    session = _mock_session_with_first(row)
+
+    result = await queries.get_team(session, "t-home")
+
+    assert isinstance(result, TeamSchema)
+    assert result.name == "Argentina"
+    session.execute.assert_awaited_once()
+
+
+@pytest.mark.asyncio
+async def test_get_team_returns_none_when_missing() -> None:
+    session = _mock_session_with_first(None)
+    assert await queries.get_team(session, "missing") is None
+
+
+@pytest.mark.asyncio
+async def test_get_team_skips_empty_team_id() -> None:
+    session = _mock_session_with_first(None)
+    assert await queries.get_team(session, None) is None
+    session.execute.assert_not_awaited()
 
 
 @pytest.mark.asyncio

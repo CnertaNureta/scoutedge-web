@@ -2,7 +2,9 @@
 
 Targets:
 - /og/match/{id} when claude_pick == "away" → predicted_winner uses away_team
-- /og/match/{id} when claude_pick is some other string → falls through else branch
+- /og/match/{id} prefers recommended_pick when claude_pick is reused metadata
+- /og/match/{id} when claude_pick is a legacy team code → uses matching probability
+- /og/match/{id} when the pick is "draw" → predicted_winner uses draw probability
 - /og/bracket/{fork_id} → 404 when fork is missing
 - /og/bracket/{fork_id} when max_possible is None → alternate "title · ScoutEdge ..." headline
 - /og/slayer/{user_id} when user has no recorded picks → headline contains "no picks recorded"
@@ -169,6 +171,69 @@ def test_og_match_resolves_team_uuids_to_names() -> None:
     assert body["away_team"] != away_id
 
 
+def test_og_match_missing_team_rows_do_not_leak_uuid_fallbacks() -> None:
+    home_id = "9f6d3687-b7a6-4fbe-a08e-c38e1b77141e"
+    away_id = "bdb6a429-3a49-4897-85f5-396554e98bd5"
+
+    match = _fake_match()
+    match.home_team_id = home_id
+    match.away_team_id = away_id
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(match, None))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get(f"/og/match/{match.id}")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["home_team"] == "HOME"
+    assert body["away_team"] == "AWAY"
+    assert home_id not in body["headline"]
+    assert away_id not in body["headline"]
+
+
+def test_og_match_prefers_recommended_pick_over_claude_pick() -> None:
+    pred = MagicMock()
+    pred.recommended_pick = "away_win"
+    pred.claude_pick = "high"
+    pred.blended_home_win_prob = 0.30
+    pred.blended_away_win_prob = 0.50
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get("/og/match/m-1")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["predicted_winner"] == "ARG"
+    assert body["predicted_p_win"] == 0.5
+    assert "high" not in body["headline"]
+
+
+def test_og_match_legacy_team_code_pick_uses_matching_probability() -> None:
+    pred = MagicMock()
+    pred.claude_pick = "ARG"
+    pred.blended_home_win_prob = 0.30
+    pred.blended_away_win_prob = 0.50
+
+    session = AsyncMock()
+    session.execute = AsyncMock(side_effect=_seq_execute(_fake_match(), pred))
+
+    app = _make_app(session)
+    with TestClient(app) as client:
+        resp = client.get("/og/match/m-1")
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["predicted_winner"] == "ARG"
+    assert body["predicted_p_win"] == 0.5
+
+
 def test_og_match_away_pick_uses_away_team() -> None:
     pred = MagicMock()
     pred.claude_pick = "away"
@@ -206,10 +271,11 @@ def test_og_match_latest_prediction_query_puts_null_timestamps_last() -> None:
     assert "NULLS LAST" in str(latest_prediction_query)
 
 
-def test_og_match_unknown_pick_falls_through_else_branch() -> None:
+def test_og_match_draw_pick_uses_draw_probability() -> None:
     pred = MagicMock()
     pred.claude_pick = "draw"
     pred.blended_home_win_prob = 0.40
+    pred.blended_draw_prob = 0.30
     pred.blended_away_win_prob = 0.30
 
     session = AsyncMock()
@@ -220,10 +286,9 @@ def test_og_match_unknown_pick_falls_through_else_branch() -> None:
         resp = client.get("/og/match/m-1")
     assert resp.status_code == 200
     body = resp.json()
-    # else-branch: predicted_winner stays as raw claude_pick ("draw"); p_win
-    # falls back to home_win prob.
-    assert body["predicted_winner"] == "draw"
-    assert body["predicted_p_win"] == 0.4
+    assert body["predicted_winner"] == "Draw"
+    assert body["predicted_p_win"] == 0.3
+    assert "30% draw" in body["headline"]
 
 
 # ---------------------------------------------------------------------------
