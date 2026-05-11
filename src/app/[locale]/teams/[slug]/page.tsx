@@ -4,10 +4,18 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
-import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
+import { buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildBreadcrumbSchema,
+  buildGraph,
+  buildSportsTeamSchema,
+} from '@/lib/seo/structured-data'
 import { getFixturesByTeam } from '@/lib/data-service'
 import { getCityByFixtureCityName } from '@/data/cities-data'
 import { lingoPlayers } from '@/data/lingo-data'
+import { getGroupRivals } from '@/lib/related/teams'
+import RelatedEntitiesSection from '@/components/seo/RelatedEntitiesSection'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
@@ -42,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`
   const description = seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`
   const image = getTeamHeroImage(slug)
-  const url = `https://kickoracle.com/teams/${slug}`
+  const alternates = buildAlternates(locale, `/teams/${slug}`)
 
   return {
     title,
@@ -51,17 +59,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...buildOGMeta({
       title: `${team.name} — World Cup 2026 AI Analysis`,
       description: `Deep-dive into ${team.name}'s World Cup 2026 campaign. AI-powered predictions and player intelligence.`,
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
       image,
     }),
-    alternates: { canonical: url },
+    alternates,
   }
 }
 
 export default async function TeamPage({ params }: PageProps) {
-  const { slug } = await params
+  const { slug, locale } = await params
   const pageData = await getTeamPageData(slug)
   if (!pageData) notFound()
 
@@ -75,29 +83,23 @@ export default async function TeamPage({ params }: PageProps) {
     .map((name) => getCityByFixtureCityName(name))
     .filter((c): c is NonNullable<typeof c> => c !== undefined)
   const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
+  const groupRivals = getGroupRivals(team).slice(0, 3)
 
-  const teamUrl = `https://kickoracle.com/teams/${slug}`
-  const sportsTeamLd = {
-    '@context': 'https://schema.org',
-    '@type': 'SportsTeam',
-    name: team.name,
-    alternateName: `${team.name} national football team`,
-    url: teamUrl,
-    sport: 'Association Football',
-    image: getTeamHeroImage(slug),
-    coach: { '@type': 'Person', name: team.coachName },
-    memberOf: [
-      { '@type': 'SportsOrganization', name: 'FIFA' },
-      { '@type': 'SportsOrganization', name: team.confederation },
+  const sportsTeamLd = buildSportsTeamSchema({
+    team,
+    squad: players,
+    locale,
+    logoUrl: getTeamHeroImage(slug),
+  })
+
+  const breadcrumbLd = buildBreadcrumbSchema(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Teams', path: '/teams' },
+      { name: team.name, path: `/teams/${slug}` },
     ],
-    athlete: players.slice(0, 23).map((p) => ({
-      '@type': 'Person',
-      name: p.name,
-      url: `${teamUrl}/players/${p.slug}`,
-      ...(p.position && { jobTitle: p.position }),
-    })),
-    location: { '@type': 'Country', name: team.name },
-  }
+    locale,
+  )
 
   const faqLd = teamFaq
     ? {
@@ -111,7 +113,7 @@ export default async function TeamPage({ params }: PageProps) {
       }
     : null
 
-  const graph = jsonLdGraph(faqLd ? [sportsTeamLd, faqLd] : [sportsTeamLd])
+  const graph = buildGraph([sportsTeamLd, breadcrumbLd, faqLd])
 
   return (
     <>
@@ -176,6 +178,18 @@ export default async function TeamPage({ params }: PageProps) {
           </div>
         </section>
       )}
+
+      <RelatedEntitiesSection
+        title={`Group ${team.group} Rivals`}
+        description={`The other teams ${team.name} must face in Group ${team.group} of the 2026 FIFA World Cup, sorted by FIFA ranking.`}
+        items={groupRivals.map((rival) => ({
+          label: rival.name,
+          href: `/teams/${rival.slug}`,
+          meta: `Group ${rival.group} · FIFA #${rival.fifaRanking}`,
+          prefix: rival.flag,
+        }))}
+        columnsClassName="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      />
 
       {/* Group rivals — direct compare links */}
       {groupTeams.length > 0 && (

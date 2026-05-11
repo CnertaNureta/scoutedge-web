@@ -1,15 +1,22 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import Badge from '@/components/ui/Badge'
 import { getAllTeams } from '@/lib/data-service'
 import StickerTracker from './StickerTracker'
 
-export const metadata: Metadata = {
-  title: 'Panini Sticker Collection Tracker — World Cup 2026',
-  description:
-    'Track which stickers you have, find duplicates, and monitor your completion progress for the 2026 World Cup Panini album.',
-  alternates: { canonical: 'https://kickoracle.com/stickers/tracker' },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+
+  return {
+    title: 'Panini Sticker Collection Tracker — World Cup 2026',
+    description:
+      'Track which stickers you have, find duplicates, and monitor your completion progress for the 2026 World Cup Panini album.',
+    alternates: buildAlternates(locale, '/stickers/tracker'),
+  }
 }
 
 export default async function StickerTrackerPage() {

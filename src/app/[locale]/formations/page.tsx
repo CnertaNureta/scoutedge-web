@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation';
 import { FormationProvider } from '@/components/formations/FormationContext';
 import { Pitch } from '@/components/formations/Pitch';
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'soccer lineup builder',
       'FIFA 2026 starting XI',
     ],
-    alternates: { canonical: canonicalForLocale(locale, '/formations') },
+    alternates: buildAlternates(locale, '/formations'),
   };
 }
 

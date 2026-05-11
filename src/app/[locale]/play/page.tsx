@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: canonicalForLocale(locale, '/play') },
+    alternates: buildAlternates(locale, '/play'),
   }
 }
 

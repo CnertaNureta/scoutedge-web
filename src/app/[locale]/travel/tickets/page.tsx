@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -8,20 +9,26 @@ import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
-const ogData = buildOGMeta({
-  title: 'World Cup 2026 Tickets — FIFA Ballot, Resale & Hospitality',
-  description:
-    'How to get tickets to the 2026 FIFA World Cup. Ballot timeline, price tiers, hospitality packages, and trusted resale options.',
-  url: 'https://kickoracle.com/travel/tickets',
-})
+type Props = { params: Promise<{ locale: string }> }
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Tickets — FIFA Ballot, Resale & Hospitality',
-  description:
-    'How to get tickets to the 2026 FIFA World Cup: ballot timeline, price tiers, hospitality packages, and resale options.',
-  keywords: 'World Cup 2026 tickets, FIFA ballot 2026, World Cup hospitality, World Cup resale',
-  alternates: { canonical: 'https://kickoracle.com/travel/tickets' },
-  ...ogData,
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/travel/tickets')
+
+  return {
+    title: 'World Cup 2026 Tickets — FIFA Ballot, Resale & Hospitality',
+    description:
+      'How to get tickets to the 2026 FIFA World Cup: ballot timeline, price tiers, hospitality packages, and resale options.',
+    keywords: 'World Cup 2026 tickets, FIFA ballot 2026, World Cup hospitality, World Cup resale',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Tickets — FIFA Ballot, Resale & Hospitality',
+      description:
+        'How to get tickets to the 2026 FIFA World Cup. Ballot timeline, price tiers, hospitality packages, and trusted resale options.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 const TIMELINE = [

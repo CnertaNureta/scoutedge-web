@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
 import { buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: post.title,
     description: post.description,
     keywords: post.keywords.join(', '),
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, `/blog/${slug}`),
     ...buildOGMeta({
       title: post.title,
       description: post.description,

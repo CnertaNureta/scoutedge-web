@@ -1,21 +1,30 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 import PKBattleApp from '@/components/pk-battle/PKBattleApp'
 
-export const metadata: Metadata = {
-  title: 'PK Battle — Player vs Player Duel | World Cup 2026',
-  description:
-    'Pit any two World Cup 2026 players against each other. AI-powered comparison weighs rating, experience, fitness, morale, and positional matchup.',
-  keywords:
-    'World Cup 2026 player comparison, player vs player, PK battle, football duel, World Cup 2026 players',
-  alternates: { canonical: 'https://kickoracle.com/play/pk-battle' },
-  ...buildOGMeta({
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/play/pk-battle')
+
+  return {
     title: 'PK Battle — Player vs Player Duel | World Cup 2026',
     description:
-      'Pit any two World Cup 2026 players against each other in an AI-powered head-to-head duel.',
-    url: 'https://kickoracle.com/play/pk-battle',
-  }),
+      'Pit any two World Cup 2026 players against each other. AI-powered comparison weighs rating, experience, fitness, morale, and positional matchup.',
+    keywords:
+      'World Cup 2026 player comparison, player vs player, PK battle, football duel, World Cup 2026 players',
+    alternates,
+    ...buildOGMeta({
+      title: 'PK Battle — Player vs Player Duel | World Cup 2026',
+      description:
+        'Pit any two World Cup 2026 players against each other in an AI-powered head-to-head duel.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 export default function PKBattlePage() {

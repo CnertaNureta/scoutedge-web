@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { breadcrumbJsonLd, buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import QuizWithGate from '@/components/quiz/QuizWithGate'
 
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: canonicalForLocale(locale, '/quiz') },
+    alternates: buildAlternates(locale, '/quiz'),
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),

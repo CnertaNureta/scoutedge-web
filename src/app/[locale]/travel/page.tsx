@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
@@ -8,21 +9,27 @@ import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
-const ogData = buildOGMeta({
-  title: 'World Cup 2026 Travel Guide — Visa, Budget & Planning',
-  description:
-    'Plan your trip to the 2026 World Cup across the USA, Mexico, and Canada. Visa requirements, budget calculator, city guides, eSIM deals, and hotel recommendations.',
-  url: 'https://kickoracle.com/travel',
-})
+type Props = { params: Promise<{ locale: string }> }
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Travel Guide — Visa, Budget & Planning',
-  description:
-    'Plan your trip to the 2026 World Cup. Visa requirements, budget calculator, city guides, and travel tips for USA, Canada, and Mexico.',
-  keywords:
-    'World Cup 2026 travel, World Cup 2026 visa, World Cup 2026 budget, World Cup 2026 trip planner, World Cup 2026 hotels',
-  alternates: { canonical: 'https://kickoracle.com/travel' },
-  ...ogData,
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/travel')
+
+  return {
+    title: 'World Cup 2026 Travel Guide — Visa, Budget & Planning',
+    description:
+      'Plan your trip to the 2026 World Cup. Visa requirements, budget calculator, city guides, and travel tips for USA, Canada, and Mexico.',
+    keywords:
+      'World Cup 2026 travel, World Cup 2026 visa, World Cup 2026 budget, World Cup 2026 trip planner, World Cup 2026 hotels',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Travel Guide — Visa, Budget & Planning',
+      description:
+        'Plan your trip to the 2026 World Cup across the USA, Mexico, and Canada. Visa requirements, budget calculator, city guides, eSIM deals, and hotel recommendations.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 export default async function TravelPage() {

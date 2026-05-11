@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -14,24 +15,24 @@ export const revalidate = 3600
 /* ---------- Metadata ---------- */
 
 interface TicketsPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: TicketsPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
   const title = `${city.name} Tickets — World Cup 2026 Pricing & How to Buy`
   const description = `Ticket categories, pricing estimates, and official purchase channels for World Cup 2026 matches in ${city.name}. Category 1–4 pricing, FIFA portal, and fan tips.`
-  const url = `https://kickoracle.com/cities/${slug}/tickets`
+  const alternates = buildAlternates(locale, `/cities/${slug}/tickets`)
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup 2026 tickets, ${city.name} ticket prices, FIFA tickets ${city.name}, World Cup ticket categories`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

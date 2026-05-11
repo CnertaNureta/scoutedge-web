@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getAllTeams, getTeamsByGroup, getAllGroups } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description', { count: 1128 }),
     keywords:
       'World Cup 2026 team comparison, World Cup 2026 head to head, World Cup 2026 vs, compare World Cup teams, World Cup 2026 matchups',
-    alternates: { canonical: canonicalForLocale(locale, '/compare') },
+    alternates: buildAlternates(locale, '/compare'),
   }
 }
 

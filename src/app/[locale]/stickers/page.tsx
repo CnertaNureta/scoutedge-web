@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 stickers, Panini World Cup 2026, sticker tracker, sticker collection, Panini album 2026',
-    alternates: { canonical: canonicalForLocale(locale, '/stickers') },
+    alternates: buildAlternates(locale, '/stickers'),
   }
 }
 

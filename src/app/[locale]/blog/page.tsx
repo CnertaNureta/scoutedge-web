@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { getAllPosts } from '@/lib/blog-service'
 import Badge from '@/components/ui/Badge'
 import BlogFilter from '@/components/blog/BlogFilter'
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 blog, World Cup 2026 analysis, World Cup 2026 predictions, World Cup 2026 guide, FIFA World Cup 2026 articles',
-    alternates: { canonical: canonicalForLocale(locale, '/blog') },
+    alternates: buildAlternates(locale, '/blog'),
   }
 }
 

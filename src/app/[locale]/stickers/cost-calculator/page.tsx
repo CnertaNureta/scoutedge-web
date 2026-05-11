@@ -1,14 +1,21 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import Badge from '@/components/ui/Badge'
 import CostCalculator from './CostCalculator'
 
-export const metadata: Metadata = {
-  title: 'Sticker Album Cost Calculator — World Cup 2026',
-  description:
-    'Calculate the expected cost to complete your 2026 World Cup Panini sticker album based on pack prices, collection size, and trading partners.',
-  alternates: { canonical: 'https://kickoracle.com/stickers/cost-calculator' },
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+
+  return {
+    title: 'Sticker Album Cost Calculator — World Cup 2026',
+    description:
+      'Calculate the expected cost to complete your 2026 World Cup Panini sticker album based on pack prices, collection size, and trading partners.',
+    alternates: buildAlternates(locale, '/stickers/cost-calculator'),
+  }
 }
 
 export default async function StickerCostCalculatorPage() {
