@@ -6,6 +6,7 @@ import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
 import { buildOGMeta, canonicalForLocale, jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: { canonical: url },
+    alternates: buildAlternates(locale, `/compare/${matchup}`),
     ...buildOGMeta({ title, description, url, locale, type: 'article' }),
   }
 }

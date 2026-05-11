@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getMatchesBoardData } from '@/lib/site-data'
 import Badge from '@/components/ui/Badge'
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: 'World Cup 2026 matches, fixtures, and AI-powered match previews',
     keywords:
       'World Cup 2026 schedule, World Cup 2026 fixtures, World Cup 2026 matches, World Cup 2026 kick off times, World Cup 2026 predictions',
-    alternates: { canonical: canonicalForLocale(locale, '/matches') },
+    alternates: buildAlternates(locale, '/matches'),
   }
 }
 

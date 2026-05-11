@@ -6,6 +6,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import Paywall from '@/components/monetization/Paywall'
 import type { Team } from '@/lib/types'
 
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: canonicalForLocale(locale, '/predictions') },
+    alternates: buildAlternates(locale, '/predictions'),
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),

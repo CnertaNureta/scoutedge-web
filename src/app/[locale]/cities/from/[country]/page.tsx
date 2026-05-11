@@ -8,6 +8,7 @@ import AffiliateSlot from '@/components/monetization/AffiliateSlot'
 import { getAllOriginCountries, getOriginCountry } from '@/data/travel-data'
 import { getAllCities, getCityBySlug } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
 

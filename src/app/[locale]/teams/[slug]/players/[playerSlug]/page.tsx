@@ -5,6 +5,7 @@ import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-ser
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
 import { buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
@@ -22,17 +23,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) return { title: 'Player Not Found' }
 
-  const url = `https://kickoracle.com/teams/${slug}/players/${player.slug}`
+  const alternates = buildAlternates(locale, `/teams/${slug}/players/${player.slug}`)
 
   return {
     title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
     description: `${player.name} World Cup 2026 scouting report. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} caps, ${player.goals} goals, rating ${player.rating}/10. AI-powered fitness and performance analysis.`,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: `${player.name} — World Cup 2026 | KickOracle`,
       description: `AI-powered intelligence report for ${player.name}. ${team.name} · ${player.position} · ${player.club}.`,
-      url,
+      url: alternates.canonical,
       locale,
       type: 'profile',
       image: getPlayerActionImage(player.name),

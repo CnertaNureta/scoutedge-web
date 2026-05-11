@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -12,25 +13,25 @@ import SectionHeader from '@/components/ui/SectionHeader'
 export const revalidate = 3600
 
 interface Props {
-  params: Promise<{ player: string }>
+  params: Promise<{ locale: string; player: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { player: slug } = await params
+  const { locale, player: slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) return {}
 
   const team = getTeamBySlug(player.teamSlug)
   const title = `${player.name} — ${team?.name ?? ''} | World Cup 2026`
   const description = `${player.name} player profile: ${player.position}, age ${player.age}, ${player.caps} caps, ${player.goals} goals. Club: ${player.club}. AI scouting report and fitness analysis.`
-  const url = `https://kickoracle.com/players/${slug}`
+  const alternates = buildAlternates(locale, `/players/${slug}`)
 
   return {
     title,
     description,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${team?.name ?? ''} squad`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

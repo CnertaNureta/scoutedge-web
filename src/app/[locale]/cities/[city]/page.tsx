@@ -6,6 +6,7 @@ import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -33,14 +34,14 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
   const title = `${city.name} — World Cup 2026 Host City Guide`
   const description = `Fan guide to ${city.name} for the 2026 World Cup. ${city.description.slice(0, 120)}...`
-  const url = `https://kickoracle.com/cities/${city.slug}`
+  const alternates = buildAlternates(locale, `/cities/${city.slug}`)
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup 2026, ${city.name} stadium, ${city.name} hotels, ${city.name} travel`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url, locale }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 
