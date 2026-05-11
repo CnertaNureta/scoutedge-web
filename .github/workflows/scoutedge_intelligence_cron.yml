@@ -292,7 +292,7 @@ jobs:
       - backfill_results
       - seed-elo
       - seed-elo-after-backfill
-    if: ${{ failure() && github.event_name == 'schedule' }}
+    if: ${{ always() && github.event_name == 'schedule' }}
     permissions:
       issues: write
     # Override the workflow-default working-directory; this job runs no Python.
@@ -317,6 +317,7 @@ jobs:
             }
 
             const today = new Date().toISOString().slice(0, 10);
+            const labelName = 'cron-failure';
             const title = `[cron] ${today} failures: ${failed.join(', ')}`;
             const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
             const schedule = context.payload.schedule || '(manual)';
@@ -330,12 +331,46 @@ jobs:
               `_Triage: open the run link, drill into the failed step, paste the error here, then close the issue once the next scheduled run is green._`,
             ].join('\n');
 
+            async function ensureLabel() {
+              try {
+                await github.rest.issues.getLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelName,
+                });
+                return;
+              } catch (error) {
+                if (error.status !== 404) {
+                  throw error;
+                }
+              }
+
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: labelName,
+                  color: 'B60205',
+                  description: 'Scheduled ScoutEdge Intelligence cron failure alert',
+                });
+                core.info(`Created missing label: ${labelName}`);
+              } catch (error) {
+                // Another run may have created the label between getLabel and createLabel.
+                if (error.status !== 422) {
+                  throw error;
+                }
+                core.info(`Label already exists: ${labelName}`);
+              }
+            }
+
+            await ensureLabel();
+
             // Dedup against open cron-failure issues with the same title.
             const open = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
               state: 'open',
-              labels: 'cron-failure',
+              labels: labelName,
               per_page: 100,
             });
             const dup = open.data.find(i => i.title === title);
@@ -354,7 +389,7 @@ jobs:
                 repo: context.repo.repo,
                 title,
                 body,
-                labels: ['cron-failure'],
+                labels: [labelName],
               });
               core.info(`Opened issue #${created.data.number}: ${title}`);
             }
