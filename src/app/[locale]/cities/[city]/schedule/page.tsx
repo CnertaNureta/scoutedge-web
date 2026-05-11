@@ -5,6 +5,7 @@ import { getCityBySlug } from '@/data/cities-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { MatchFixture, Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -19,7 +20,7 @@ interface SchedulePageProps {
 }
 
 export async function generateMetadata({ params }: SchedulePageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
@@ -33,14 +34,14 @@ export async function generateMetadata({ params }: SchedulePageProps): Promise<M
 
   const title = `${city.name} Match Schedule — World Cup 2026`
   const description = `${cityFixtures.length} World Cup 2026 matches in ${city.name}. Full schedule with dates, kickoff times, teams, groups, and venue details.`
-  const url = `https://kickoracle.com/cities/${slug}/schedule`
+  const alternates = buildAlternates(locale, `/cities/${slug}/schedule`)
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup schedule, ${city.name} match times, ${city.name} FIFA 2026, World Cup fixtures ${city.name}`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

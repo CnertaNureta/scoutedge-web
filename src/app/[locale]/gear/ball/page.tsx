@@ -2,11 +2,15 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Official Match Ball — History & Encyclopedia',
-  description: 'The official match ball of the 2026 World Cup. Design, technology, and the complete history of World Cup match balls from 1930 to 2026.',
-  alternates: { canonical: 'https://kickoracle.com/gear/ball' },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: 'World Cup 2026 Official Match Ball — History & Encyclopedia',
+    description: 'The official match ball of the 2026 World Cup. Design, technology, and the complete history of World Cup match balls from 1930 to 2026.',
+    alternates: buildAlternates(locale, '/gear/ball'),
+  }
 }
 
 export default function BallPage() {

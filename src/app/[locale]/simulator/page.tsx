@@ -1,22 +1,28 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { getAllGroups, getTeamsByGroup } from '@/lib/data-service'
 import SimulatorClient from './SimulatorClient'
 
-export const metadata: Metadata = {
-  title: 'Group Stage Simulator — World Cup 2026 | KickOracle',
-  description:
-    'Simulate all 12 World Cup 2026 groups. Drag teams to predict advancement, compare your bracket against AI predictions, and share your results.',
-  keywords:
-    'World Cup 2026 group simulator, World Cup 2026 bracket, World Cup 2026 group stage predictions, World Cup 2026 group draw simulator',
-  alternates: { canonical: 'https://kickoracle.com/simulator' },
-  ...buildOGMeta({
-    title: 'World Cup 2026 Group Stage Simulator',
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/simulator')
+  return {
+    title: 'Group Stage Simulator — World Cup 2026 | KickOracle',
     description:
-      'Simulate all 12 World Cup 2026 groups. Drag to rank teams, compare against AI, and share your bracket.',
-    url: 'https://kickoracle.com/simulator',
-  }),
+      'Simulate all 12 World Cup 2026 groups. Drag teams to predict advancement, compare your bracket against AI predictions, and share your results.',
+    keywords:
+      'World Cup 2026 group simulator, World Cup 2026 bracket, World Cup 2026 group stage predictions, World Cup 2026 group draw simulator',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Group Stage Simulator',
+      description:
+        'Simulate all 12 World Cup 2026 groups. Drag to rank teams, compare against AI, and share your bracket.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 export interface TeamEntry {

@@ -6,27 +6,28 @@ import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { getCityBySlug } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
 
 interface FoodPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: FoodPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
   const title = `${city.name} Food Guide — Local Specialties & Tipping Etiquette`
   const description = `Where to eat in ${city.name} during World Cup 2026. Local specialty: ${city.food.localSpecialty}. Tipping: ${city.food.tipPercentage}%.`
-  const url = `https://kickoracle.com/cities/${slug}/food`
+  const alternates = buildAlternates(locale, `/cities/${slug}/food`)
 
   return {
     title,
     description,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

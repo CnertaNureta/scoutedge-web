@@ -8,27 +8,28 @@ import AffiliateSlot from '@/components/monetization/AffiliateSlot'
 import { getOriginCountry } from '@/data/travel-data'
 import { getCityBySlug } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
 
 interface TravelFromCountryPageProps {
-  params: Promise<{ country: string }>
+  params: Promise<{ locale: string; country: string }>
 }
 
 export async function generateMetadata({ params }: TravelFromCountryPageProps): Promise<Metadata> {
-  const { country: slug } = await params
+  const { locale, country: slug } = await params
   const origin = getOriginCountry(slug)
   if (!origin) return {}
 
   const title = `World Cup 2026 Trip from ${origin.name} — Budget, Visa, Flights`
   const description = `Complete travel guide for ${origin.name} fans: flight costs, visa rules, budget estimates, and city recommendations for the 2026 World Cup.`
-  const url = `https://kickoracle.com/travel/from/${slug}`
+  const alternates = buildAlternates(locale, `/travel/from/${slug}`)
 
   return {
     title,
     description,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

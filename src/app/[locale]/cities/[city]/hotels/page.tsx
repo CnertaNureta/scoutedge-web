@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getCityBySlug, type HostCity } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -12,24 +13,24 @@ export const revalidate = 3600
 /* ---------- Metadata ---------- */
 
 interface HotelPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: HotelPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
   const title = `${city.name} Hotels — World Cup 2026 Accommodation Guide`
   const description = `Best hotels near the ${city.name} World Cup 2026 venue. Budget from ${city.accommodation.budgetRange}, mid-range ${city.accommodation.midRange}, and luxury ${city.accommodation.luxury}. Average $${city.accommodation.avgNightlyUsd}/night.`
-  const url = `https://kickoracle.com/cities/${slug}/hotels`
+  const alternates = buildAlternates(locale, `/cities/${slug}/hotels`)
 
   return {
     title,
     description,
     keywords: `${city.name} hotels World Cup 2026, ${city.name} accommodation, where to stay ${city.name}, ${city.name} World Cup hotels, ${city.name} budget hotels`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

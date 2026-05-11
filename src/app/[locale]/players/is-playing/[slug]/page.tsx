@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { resolvePlayerStatus, STATUS_CONFIG, type PlayerStatus } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -50,14 +51,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = `Is ${player.name} Playing in the 2026 World Cup? ${status.label} | KickOracle`
   const description = `${player.name} (${teamName}) 2026 World Cup status: ${status.label}. ${resolved.reason} Updated ${formatUpdated(resolved.updated, locale)}.`
-  const url = `https://kickoracle.com/players/is-playing/${slug}`
+  const alternates = buildAlternates(locale, `/players/is-playing/${slug}`)
 
   return {
     title,
     description,
     keywords: `is ${player.name} playing world cup 2026, ${player.name} 2026 world cup, ${player.name} ${teamName} squad, ${player.name} fitness status`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

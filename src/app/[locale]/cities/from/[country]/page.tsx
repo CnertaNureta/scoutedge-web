@@ -13,23 +13,23 @@ import { buildAlternates } from '@/lib/seo/build-alternates'
 export const revalidate = 86400
 
 interface FromCountryPageProps {
-  params: Promise<{ country: string }>
+  params: Promise<{ locale: string; country: string }>
 }
 
 export async function generateMetadata({ params }: FromCountryPageProps): Promise<Metadata> {
-  const { country: slug } = await params
+  const { locale, country: slug } = await params
   const origin = getOriginCountry(slug)
   if (!origin) return {}
 
   const title = `${origin.name} to World Cup 2026 — Best Host Cities & Flight Tips`
   const description = `Fans traveling from ${origin.name} to the 2026 World Cup: recommended host cities, flight costs from ${origin.flightCostBudget === 0 ? 'domestic' : `$${origin.flightCostBudget}`}, and visa requirements.`
-  const url = `https://kickoracle.com/cities/from/${slug}`
+  const alternates = buildAlternates(locale, `/cities/from/${slug}`)
 
   return {
     title,
     description,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

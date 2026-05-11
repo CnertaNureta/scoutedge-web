@@ -3,7 +3,8 @@ import { notFound } from 'next/navigation'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllTeams, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, canonical, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -415,17 +416,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const kitData = getTeamKits(slug)
   const title = `${team.name} Jersey — World Cup 2026 Kit | Home, Away & Third`
   const description = `${team.name} World Cup 2026 home, away, and third kits by ${kitData.manufacturer}. Buy authentic ${team.name} jerseys from trusted retailers. Size guide, color details, and where to buy.`
-  const url = canonical(`/gear/jerseys/${slug}`)
+  const alternates = buildAlternates(locale, `/gear/jerseys/${slug}`)
 
   return {
     title,
     description,
     keywords: `${team.name} jersey, ${team.name} World Cup 2026 kit, ${team.name} home kit, ${team.name} away kit, ${kitData.manufacturer} ${team.name}, World Cup 2026 jerseys, football kit`,
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title,
       description,
-      url,
+      url: alternates.canonical,
+      locale,
       type: 'article',
       section: t('gearBadge'),
     }),
@@ -451,6 +453,7 @@ export default async function TeamJerseyPage({ params }: PageProps) {
   const allTeams = getAllTeams()
   const groupTeams = allTeams.filter((gt) => gt.group === team.group && gt.slug !== slug).slice(0, 3)
 
+  const canonical = (path: string) => buildAlternates(locale, path).canonical
   const crumbs = breadcrumbJsonLd([
     { name: t('homeBreadcrumb'), url: canonical('/') },
     { name: t('gearBreadcrumb'), url: canonical('/gear') },

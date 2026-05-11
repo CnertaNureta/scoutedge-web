@@ -7,6 +7,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import AffiliateSlot from '@/components/monetization/AffiliateSlot'
 import { getAllCities, getCityBySlug } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
 
@@ -15,19 +16,19 @@ interface CostsPageProps {
 }
 
 export async function generateMetadata({ params }: CostsPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
   const title = `${city.name} Trip Cost Guide — Hotels, Food & Budget`
   const description = `7-night World Cup 2026 budget for ${city.name}. Hotels from ${city.accommodation.budgetRange}, food, transport, and full cost tiers.`
-  const url = `https://kickoracle.com/cities/${slug}/costs`
+  const alternates = buildAlternates(locale, `/cities/${slug}/costs`)
 
   return {
     title,
     description,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

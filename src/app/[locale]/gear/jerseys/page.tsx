@@ -4,11 +4,15 @@ import { getAllTeams } from '@/lib/data-service'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Jerseys — All 48 Team Kits',
-  description: 'Browse jerseys for all 48 World Cup 2026 teams. Home, away, and third kits with links to buy from official retailers.',
-  alternates: { canonical: 'https://kickoracle.com/gear/jerseys' },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: 'World Cup 2026 Jerseys — All 48 Team Kits',
+    description: 'Browse jerseys for all 48 World Cup 2026 teams. Home, away, and third kits with links to buy from official retailers.',
+    alternates: buildAlternates(locale, '/gear/jerseys'),
+  }
 }
 
 export default function JerseysPage() {

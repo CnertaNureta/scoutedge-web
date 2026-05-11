@@ -1,19 +1,23 @@
 import type { Metadata } from 'next';
 import { Link } from '@/i18n/navigation'
 import WallpaperGenerator from '@/components/wallpapers/WallpaperGenerator';
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 HD Wallpapers by Team - Free Download',
-  description:
-    'Create and download custom World Cup 2026 wallpapers for all 48 teams. Choose your team, device size, and template. Free PNG download.',
-  keywords: [
-    'World Cup 2026 wallpapers',
-    'FIFA World Cup wallpaper download',
-    'football team wallpapers 2026',
-    'soccer phone wallpaper',
-  ],
-  alternates: { canonical: '/gear/wallpapers' },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: 'World Cup 2026 HD Wallpapers by Team - Free Download',
+    description:
+      'Create and download custom World Cup 2026 wallpapers for all 48 teams. Choose your team, device size, and template. Free PNG download.',
+    keywords: [
+      'World Cup 2026 wallpapers',
+      'FIFA World Cup wallpaper download',
+      'football team wallpapers 2026',
+      'soccer phone wallpaper',
+    ],
+    alternates: buildAlternates(locale, '/gear/wallpapers'),
+  }
+}
 
 export default function WallpapersPage() {
   return (

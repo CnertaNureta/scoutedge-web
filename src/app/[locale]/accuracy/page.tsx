@@ -8,6 +8,7 @@ import {
   breadcrumbJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import backtest from '@/data/backtest-2024.json'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -40,16 +41,16 @@ const limitations = backtest.limitations as string[]
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'accuracyPage' })
-  const url = canonical(`/${locale}/accuracy`)
+  const alternates = buildAlternates(locale, '/accuracy')
 
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: t('metaTitle'),
       description: t('metaDescription'),
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
     }),
