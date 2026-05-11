@@ -3,12 +3,26 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildBreadcrumbSchema,
+  buildGraph,
+  buildPersonSchema,
+} from '@/lib/seo/structured-data'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
+import { getRelatedPlayers } from '@/lib/related/players'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
+import RelatedEntitiesSection from '@/components/seo/RelatedEntitiesSection'
+
+const POSITION_LABEL: Record<'GK' | 'DEF' | 'MID' | 'FWD', string> = {
+  GK: 'Goalkeepers',
+  DEF: 'Defenders',
+  MID: 'Midfielders',
+  FWD: 'Forwards',
+}
 
 export const revalidate = 3600
 
@@ -58,7 +72,7 @@ function StatBox({ value, label }: { value: string | number; label: string }) {
 }
 
 export default async function PlayerPage({ params }: Props) {
-  const { player: slug } = await params
+  const { locale, player: slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) notFound()
 
@@ -76,18 +90,32 @@ export default async function PlayerPage({ params }: Props) {
         ? t('minorConcern')
         : t('injuryRisk')
 
-  const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Teams', url: 'https://kickoracle.com/teams' },
-    { name: teamName, url: `https://kickoracle.com/teams/${player.teamSlug}` },
-    { name: player.name, url: `https://kickoracle.com/players/${slug}` },
-  ])
+  const related = getRelatedPlayers(player, { sameTeam: 4, samePosition: 4 })
+  const positionLabel = POSITION_LABEL[player.position]
+
+  const personLd = buildPersonSchema({
+    player,
+    team,
+    locale,
+  })
+
+  const breadcrumbLd = buildBreadcrumbSchema(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Teams', path: '/teams' },
+      { name: teamName, path: `/teams/${player.teamSlug}` },
+      { name: player.name, path: `/players/${slug}` },
+    ],
+    locale,
+  )
+
+  const graph = buildGraph([personLd, breadcrumbLd])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
 
       {/* Hero */}
@@ -191,7 +219,7 @@ export default async function PlayerPage({ params }: Props) {
       </section>
 
       {/* Navigation */}
-      <section className="max-w-[1440px] mx-auto px-6 pb-24">
+      <section className="max-w-[1440px] mx-auto px-6 pb-12">
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             href={`/players/is-playing/${slug}`}
@@ -219,6 +247,32 @@ export default async function PlayerPage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      <RelatedEntitiesSection
+        title={`More from ${teamName}`}
+        description={`Other ${teamName} players in the World Cup 2026 squad ranked by AI scouting score.`}
+        items={related.teammates.map((p) => ({
+          label: p.name,
+          href: `/players/${p.slug}`,
+          meta: `${p.position} · ${p.club}`,
+          prefix: teamFlag,
+        }))}
+      />
+
+      <RelatedEntitiesSection
+        title={`Top ${positionLabel} in World Cup 2026`}
+        description={`Other top-rated ${positionLabel.toLowerCase()} to watch at the 2026 FIFA World Cup.`}
+        items={related.samePosition.map((p) => {
+          const otherTeam = getTeamBySlug(p.teamSlug)
+          return {
+            label: p.name,
+            href: `/players/${p.slug}`,
+            meta: otherTeam ? `${otherTeam.name} · ${p.club}` : p.club,
+            prefix: otherTeam?.flag,
+          }
+        })}
+        className="mb-20"
+      />
     </>
   )
 }

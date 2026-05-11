@@ -11,8 +11,12 @@ import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
 import RenderProfiler from '@/components/debug/RenderProfiler'
 import AdSlot from '@/components/monetization/AdSlot'
-import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildGraph,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+} from '@/lib/seo/structured-data'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -102,7 +106,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const clientMessages = pickClientMessages(messages as Record<string, unknown>)
   const config = LOCALE_CONFIGS[locale as Locale]
 
-  const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
+  const siteJsonLd = buildGraph([
+    buildOrganizationSchema(),
+    buildWebSiteSchema(locale),
+  ])
 
   return (
     <>
