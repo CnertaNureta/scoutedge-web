@@ -65,6 +65,12 @@ export function middleware(req: NextRequest) {
     return addSecurityHeaders(NextResponse.next())
   }
 
+  // Auth pages live outside [locale] (src/app/auth/*). Skip intl middleware
+  // so /auth/login doesn't get redirected to /en/auth/login (which 404s).
+  if (req.nextUrl.pathname.startsWith('/auth/')) {
+    return addSecurityHeaders(NextResponse.next())
+  }
+
   // Issue a 308 (permanent, method-preserving) redirect for SEO so the bare
   // root resolves to the default locale before next-intl handles it.
   if (req.nextUrl.pathname === '/') {
