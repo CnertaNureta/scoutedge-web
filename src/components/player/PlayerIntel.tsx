@@ -54,7 +54,7 @@ export default async function PlayerIntel({ player }: PlayerIntelProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-6">
             {/* Fitness */}
-            <div>
+            <div data-testid="player-fitness-status">
               <div className="flex items-center gap-3 mb-2">
                 <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest">{t('fitnessStatus')}</span>
                 <FitnessIndicator status={player.fitnessStatus} showLabel size="md" />
@@ -63,7 +63,7 @@ export default async function PlayerIntel({ player }: PlayerIntelProps) {
             </div>
 
             {/* Sentiment */}
-            <div>
+            <div data-testid="player-sentiment-score">
               <span className="font-label text-sm font-bold text-on-surface-variant uppercase tracking-widest block mb-2">
                 {t('sentimentAnalysis')}
               </span>
