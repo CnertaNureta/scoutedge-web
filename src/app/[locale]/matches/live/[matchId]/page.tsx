@@ -13,9 +13,28 @@ function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
   return `${fixture.homeTeamSlug}-vs-${fixture.awayTeamSlug}-${fixture.group.toLowerCase()}`
 }
 
+/**
+ * Resolve a `matchId` URL segment to a fixture.
+ *
+ * Primary form: `${homeSlug}-vs-${awaySlug}-${groupLowercased}`.
+ * Fallback form: `match-NNN` (1-indexed position in `MATCH_FIXTURES`) —
+ * keeps short, opaque ids working for smoke tests and deep links.
+ */
+function resolveFixture(matchId: string): (typeof MATCH_FIXTURES)[number] | undefined {
+  const direct = MATCH_FIXTURES.find((f) => fixtureToMatchId(f) === matchId)
+  if (direct) return direct
+
+  const shortMatch = matchId.match(/^match-0*(\d+)$/i)
+  if (shortMatch) {
+    const idx = Number(shortMatch[1]) - 1
+    if (idx >= 0 && idx < MATCH_FIXTURES.length) return MATCH_FIXTURES[idx]
+  }
+  return undefined
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { matchId } = await params
-  const fixture = MATCH_FIXTURES.find((f) => fixtureToMatchId(f) === matchId)
+  const fixture = resolveFixture(matchId)
   if (!fixture) return { title: 'Match Not Found' }
 
   const title = `Live: ${fixture.homeTeamSlug.replace(/-/g, ' ')} vs ${fixture.awayTeamSlug.replace(/-/g, ' ')} | World Cup 2026`
@@ -27,7 +46,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function LiveMatchPage({ params }: PageProps) {
   const { matchId } = await params
-  const fixture = MATCH_FIXTURES.find((f) => fixtureToMatchId(f) === matchId)
+  const fixture = resolveFixture(matchId)
 
   if (!fixture) notFound()
 
