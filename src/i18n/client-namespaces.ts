@@ -28,6 +28,8 @@ export const CLIENT_NAMESPACES = [
   'newsletter',
   'trustStrip',
   'articleSubscribe',
+  // Magazine homepage modules — every section uses useTranslations('magazine.*')
+  'magazine',
   // Page-scoped client components
   'apiDashboardClient',
   'apiEndpointsTab',

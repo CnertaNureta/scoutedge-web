@@ -18,3 +18,5 @@ next-env.d.ts
 # runtime ingest artifacts
 logs/api-football/
 .vercel
+supabase/.temp/
+.claude/worktrees/

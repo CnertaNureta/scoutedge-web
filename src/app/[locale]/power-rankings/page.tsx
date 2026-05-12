@@ -8,6 +8,7 @@ import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import type { Team } from '@/lib/types'
 import { OG_LOCALES } from '@/lib/og-utils'
+import { computePowerScore } from '@/lib/power-rankings-stub'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -30,17 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: { canonical: canonicalForLocale(locale, '/power-rankings') },
   }
-}
-
-function computePowerScore(team: Team): number {
-  const rankScore = Math.max(0, 100 - (team.fifaRanking - 1) * 1.5)
-  return Math.round(
-    rankScore * 0.35 +
-    team.chemistry * 0.30 +
-    team.morale * 0.15 +
-    team.stability * 0.10 +
-    team.familiarity * 0.10
-  )
 }
 
 function getMovement(currentRank: number, fifaRanking: number): 'up' | 'down' | 'same' {

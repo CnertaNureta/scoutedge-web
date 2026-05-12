@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-04-22T22:00:00.819Z",
+  "fetchedAt": "2026-05-11T22:00:01.333Z",
   "source": "TheSportsDB (thesportsdb.com)",
   "apiVersion": "v1/json/3",
   "wcFixtures2026": [
@@ -16,18 +16,6 @@
       "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/dzhwsf1775058317.jpg"
     },
     {
-      "id": "2461104",
-      "homeTeam": "Canada",
-      "awayTeam": "Bosnia-Herzegovina",
-      "date": "2026-06-12",
-      "time": "19:00:00",
-      "venue": "BMO Field",
-      "round": "1",
-      "homeScore": null,
-      "awayScore": null,
-      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/nsv3mc1775058372.jpg"
-    },
-    {
       "id": "2461103",
       "homeTeam": "South Korea",
       "awayTeam": "Czech Republic",
@@ -38,6 +26,18 @@
       "homeScore": null,
       "awayScore": null,
       "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7ogw2s1775058371.jpg"
+    },
+    {
+      "id": "2461104",
+      "homeTeam": "Canada",
+      "awayTeam": "Bosnia-Herzegovina",
+      "date": "2026-06-12",
+      "time": "19:00:00",
+      "venue": "BMO Field",
+      "round": "1",
+      "homeScore": null,
+      "awayScore": null,
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/nsv3mc1775058372.jpg"
     },
     {
       "id": "2391729",
@@ -336,141 +336,5 @@
       "awayScore": "2"
     }
   ],
-  "teamDetails": {
-    "Argentina": {
-      "id": "134509",
-      "name": "Argentina",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/3zplhu1726167477.png",
-      "stadium": "Estadio Mâs Monumental",
-      "formedYear": "1893",
-      "description": "The Argentina national football team (Spanish: Selección de fútbol de Argentina) represents Argentina in men's international football and is administered by the Argentine Football Association, the governing body for football in Argentina. Argentina's home stadium is Estadio Monumental Antonio Vespucio Liberti in Buenos Aires.\r\n\r\nLa Selección (national team), also known as the La Albiceleste, has appeared in five World Cup finals, including the first final in 1930, which they lost 4–2 to Uruguay.",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/3x3om01725673220.jpg"
-    },
-    "Brazil": {
-      "id": "134496",
-      "name": "Brazil",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/jl6dip1726167280.png",
-      "stadium": "Estádio do Maracanã",
-      "formedYear": "1916",
-      "description": "The Brazil national football team (Portuguese: Seleção Brasileira de Futebol) represents Brazil in men's international football and is administered by the Brazilian Football Confederation (CBF), the governing body for football in Brazil. They have been a member of FIFA since 1923 and a member of CONMEBOL since 1916.\r\n\r\nBrazil is the most successful national team in the FIFA World Cup, being crowned winner five times: 1958, 1962, 1970, 1994 and 2002. Brazil also has the best overall performance i",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/wa103u1668434474.jpg"
-    },
-    "France": {
-      "id": "133913",
-      "name": "France",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/p3n0z51726166851.png",
-      "stadium": "Stade de France",
-      "formedYear": "1904",
-      "description": "The France national football team (French: Équipe de France de football) represents France in men's international football and is controlled by the French Football Federation, also known as FFF, or in French: Fédération française de football. The team's colours are blue, white and red, and the coq gaulois its symbol. France are colloquially known as Les Bleus (The Blues). They are the reigning world champions, having won the most recent World Cup final in 2018.\r\n\r\nFrance plays their home matches",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/hzqkcg1565185909.jpg"
-    },
-    "Germany": {
-      "id": "133907",
-      "name": "Germany",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/1xysi51726167152.png",
-      "stadium": "Olympiastadion Berlin",
-      "formedYear": "1899",
-      "description": "The Germany national football team (German: Deutsche Fußballnationalmannschaft or Die Mannschaft) represents Germany in men's international football and played its first match in 1908. The team is governed by the German Football Association (Deutscher Fußball-Bund), founded in 1900. Between 1949 and 1990, separate German national teams were recognised by FIFA due to Allied occupation and division: the DFB's team representing the Federal Republic of Germany (named West Germany from 1949–1990), th",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/1lrzhg1718112975.jpg"
-    },
-    "England": {
-      "id": "133914",
-      "name": "England",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/vf5ttc1726166739.png",
-      "stadium": "Wembley Stadium",
-      "formedYear": "1872",
-      "description": "The England national football team represents England in men's international football and is governed by The Football Association, the governing body for football in England. It competes in the three major international tournaments; the FIFA World Cup, the UEFA European Championship and the UEFA Nations League. England, as a country of the United Kingdom, is not a member of the International Olympic Committee and therefore the national team does not compete at the Olympic Games.\r\n\r\nEngland is on",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/xvvxws1420840850.jpg"
-    },
-    "Spain": {
-      "id": "133909",
-      "name": "Spain",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/ncgqyr1726166942.png",
-      "stadium": "",
-      "formedYear": "1920",
-      "description": "The Spain national football team (Spanish: Selección Española de Fútbol) has represented Spain in international men's football competition since 1920. It is governed by the Royal Spanish Football Federation, the governing body for football in Spain.\r\n\r\nSpain are one of the eight national teams to have been crowned worldwide champions, having participated in a total of 15 of 21 FIFA World Cups and qualifying consistently since 1978. Spain has also won three continental titles, having appeared at ",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/0i95441670576167.jpg"
-    },
-    "USA": {
-      "id": "134514",
-      "name": "USA",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/21f0oi1597948195.png",
-      "stadium": "",
-      "formedYear": "1930",
-      "description": "The United States men's national soccer team (USMNT) represents the United States in men's international soccer competitions. The team is controlled by the United States Soccer Federation and is a member of FIFA and CONCACAF.\r\n\r\nThe team has appeared in ten FIFA World Cups, including the first in 1930, where they reached the semi-finals. The U.S. participated in the 1934 and 1950 World Cups, winning 1–0 against England in the latter. After 1950, the U.S. did not qualify for the World Cup until 1",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/vrvhmr1719511890.jpg"
-    },
-    "Mexico": {
-      "id": "134497",
-      "name": "Mexico",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/3rmosi1748525208.png",
-      "stadium": "Estadio Azteca",
-      "formedYear": "1923",
-      "description": "The Mexico national football team (Spanish: Selección de fútbol de México) represents Mexico in international football. It is fielded by the Mexican Football Federation (Spanish: Federación Mexicana de Fútbol), the governing body of football in Mexico, and competes as a member of CONCACAF, which encompasses the countries of North and Central America, and the Caribbean. Mexico's home stadium is the Estadio Azteca in Mexico City, and the head coach is Juan Carlos Osorio.\r\n\r\nMexico has qualified to",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/vvwxxs1473333592.jpg"
-    },
-    "Japan": {
-      "id": "134503",
-      "name": "Japan",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/ffsyxz1591989843.png",
-      "stadium": "Saitama Stadium 2002",
-      "formedYear": "1917",
-      "description": "The Japan national football team (Japanese: サッカー日本代表, Hepburn: Sakkā Nippon Daihyō), nicknamed the Samurai Blue (サムライ・ブルー), represents Japan in men's international football and it is controlled by the Japan Football Association (JFA), the governing body for football in Japan. The current head coach is Hajime Moriyasu, who is also the current coach of the Japan U-23 team.\r\n\r\nJapan was not a major football force until the end of the 1980s, with its team small and amateur, but since the 1990s, when",
-      "fanart": null
-    },
-    "South Korea": {
-      "id": "134517",
-      "name": "South Korea",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/a8nqfs1589564916.png",
-      "stadium": "Seoul World Cup Stadium",
-      "formedYear": "1948",
-      "description": "The South Korea national football team (Korean: 대한민국 축구 국가대표팀; recognized as Korea Republic by FIFA) represents South Korea in men's international football and is governed by the Korea Football Association. Since the 1950s, South Korea has development and emerged as a major football power in Asia since the 80s and is historically the most successful Asian football team, having participated in nine consecutive and ten overall FIFA World Cup tournaments, the most for any Asian country. Despite ini",
-      "fanart": null
-    },
-    "Netherlands": {
-      "id": "133905",
-      "name": "Netherlands",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/1p0hr41593787110.png",
-      "stadium": "",
-      "formedYear": "1905",
-      "description": "The Netherlands national football team (Dutch: Het Nederlands Elftal) has represented the Netherlands in international football matches since 1905. The national team is controlled by the Royal Dutch Football Association (KNVB), which is a part of UEFA, and under the jurisdiction of FIFA the governing body for football in the Netherlands. Most of the Netherlands' home matches are played at the Johan Cruyff Arena and the Stadion Feijenoord. The team is colloquially referred to as Het Nederlands El",
-      "fanart": null
-    },
-    "Belgium": {
-      "id": "134515",
-      "name": "Belgium",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/8xlvxv1592062265.png",
-      "stadium": "Stade Roi Baudouin",
-      "formedYear": "1904",
-      "description": "The Belgium national football team officially represents Belgium in men's international football since their maiden match in 1904. The squad is under the global jurisdiction of FIFA and is governed in Europe by UEFA—both of which were co-founded by the Belgian team's supervising body, the Royal Belgian Football Association. Periods of regular Belgian representation at the highest international level, from 1920 to 1938, from 1982 to 2002 and again from 2014 onwards, have alternated with mostly un",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/4y8o2n1727329982.jpg"
-    },
-    "Uruguay": {
-      "id": "134504",
-      "name": "Uruguay",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/6vjbr11726167756.png",
-      "stadium": "Estadio Centenario",
-      "formedYear": "1901",
-      "description": "The Uruguay national football team (Spanish: Selección de fútbol de Uruguay) represents Uruguay in international football, and is controlled by the Uruguayan Football Association, the governing body for football in Uruguay. The current head coach is Óscar Tabárez. The Uruguayan team is commonly referred to as La Celeste (The Sky Blue). They have won the Copa América 15 times, the most successful national team in the tournament, the most recent title being the 2011 edition. The team has won the F",
-      "fanart": null
-    },
-    "Italy": {
-      "id": "133910",
-      "name": "Italy",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/fxijcp1726167035.png",
-      "stadium": "Stadio Olimpico",
-      "formedYear": "1910",
-      "description": "The Italy national football team (Italian: Nazionale di calcio dell'Italia) has officially represented Italy in international football since their first match in 1910. The squad is under the global jurisdiction of FIFA and is governed in Europe by UEFA—the latter of which was co-founded by the Italian team's supervising body, the Italian Football Federation (FIGC). Italy's home matches are played at various stadiums throughout Italy, and their primary training ground, Centro Tecnico Federale di ",
-      "fanart": null
-    },
-    "Portugal": {
-      "id": "133908",
-      "name": "Portugal",
-      "badge": "https://r2.thesportsdb.com/images/media/team/badge/swqvpy1455466083.png",
-      "stadium": "Estádio Nacional do Jamor",
-      "formedYear": "1921",
-      "description": "The Portugal national football team (Portuguese: Seleção Portuguesa de Futebol) represents Portugal in international men's football competition since 1921. It is controlled by the Portuguese Football Federation, the governing body for football in Portugal.\r\n\r\nPortugal's first participation in a major tournament finals was at the 1966 World Cup, which saw a team featuring Ballon d'Or winner Eusébio finish in third place. The next two times Portugal qualified for the World Cup finals were in 1986 ",
-      "fanart": "https://r2.thesportsdb.com/images/media/team/fanart/jzmhcf1731702538.jpg"
-    }
-  }
+  "teamDetails": {}
 }

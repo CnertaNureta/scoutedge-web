@@ -1,0 +1,402 @@
+/* ─────────────────────────────────────────────
+   KICK ORACLE — Visual System v1
+   Sports magazine × cinematic × dark green/gold
+   Scoped to .kick-oracle-root to avoid bleeding
+   into the rest of the app.
+   ───────────────────────────────────────────── */
+
+.kick-oracle-root {
+  /* Surfaces */
+  --ink: #0a0d0a;
+  --pitch: #0f1a13;
+  --soft: #121412;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.22);
+
+  /* Brand */
+  --green: #a8e063;
+  --green-deep: #4f7d3b;
+  --gold: #f3c969;
+  --gold-deep: #b88a1f;
+  --cream: #f5efe4;
+  --muted: #8a8d88;
+  --red: #ff4444;
+
+  /* Type */
+  --f-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --f-condensed: "Big Shoulders Display", "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.kick-oracle-root * { box-sizing: border-box; }
+
+/* ── Photo placeholder treatment ─────────────── */
+.ko-photo {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(168, 224, 99, 0.04) 0 2px,
+      transparent 2px 14px
+    ),
+    radial-gradient(120% 60% at 50% 110%, rgba(168, 224, 99, 0.18), transparent 70%),
+    radial-gradient(60% 40% at 20% 0%, rgba(243, 201, 105, 0.12), transparent 70%),
+    linear-gradient(180deg, #1a2418 0%, #0a0d0a 100%);
+  isolation: isolate;
+}
+.ko-photo::after {
+  content: attr(data-caption);
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(245, 239, 228, 0.45);
+  text-transform: uppercase;
+  z-index: 3;
+  pointer-events: none;
+}
+.ko-photo.no-caption::after { content: none; }
+
+/* Photo replaces the striped background when present.
+   Sits at z-index 0 so all child gradient overlays and the
+   .ko-grain layer continue to render on top, preserving
+   the cinematic dark-green/gold treatment. */
+.ko-photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.62) saturate(1.18) contrast(1.06);
+}
+
+.ko-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* ── Typography helpers ─────────────────────── */
+.ko-display {
+  font-family: var(--f-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+.ko-eyebrow {
+  font-family: var(--f-condensed);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.ko-label {
+  font-family: var(--f-condensed);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.ko-mono { font-family: var(--f-mono); }
+
+.ko-cream { color: var(--cream); }
+.ko-muted { color: var(--muted); }
+.ko-green { color: var(--green); }
+.ko-gold { color: var(--gold); }
+
+/* ── Cards & chrome ─────────────────────────── */
+.ko-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.ko-card-paper {
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 14px;
+}
+.ko-tick {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.6);
+  animation: ko-pulse 1.6s infinite;
+  display: inline-block;
+}
+@keyframes ko-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(255, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 68, 68, 0); }
+}
+
+.ko-pitch-grid {
+  background-image:
+    linear-gradient(rgba(168, 224, 99, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 224, 99, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.ko-flag {
+  display: inline-block;
+  width: 28px; height: 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.ko-strike {
+  background: var(--green);
+  color: var(--ink);
+  padding: 4px 10px;
+  display: inline-block;
+}
+
+.ko-btn {
+  font-family: var(--f-condensed);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 14px 24px;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.ko-btn-primary { background: var(--green); color: var(--ink); }
+.ko-btn-primary:hover {
+  background: var(--gold);
+  transform: translate(2px, -2px);
+  box-shadow: -4px 4px 0 var(--ink), -4px 4px 0 1px var(--green);
+}
+.ko-btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid var(--line-strong);
+}
+.ko-btn-ghost:hover {
+  background: var(--surface);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.ko-bignum {
+  font-family: var(--f-condensed);
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}
+
+/* ── Page-level chrome ──────────────────────── */
+.ko-module-band {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.ko-module-artboard {
+  width: 1440px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: top center;
+}
+.ko-section-rule {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 1px;
+  background: var(--line);
+}
+.ko-brand-band-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ko-footer-band {
+  background: var(--ink);
+  color: var(--cream);
+  border-top: 1px solid var(--line);
+  padding: 48px 56px 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 720px) {
+  .ko-footer-band { grid-template-columns: 1fr 1fr; padding: 32px 24px; }
+  .ko-brand-band-inner { padding: 0 20px; font-size: 10px; }
+}
+
+/* sticky scroll progress shell */
+.ko-scroll-bar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 99;
+  background: rgba(245, 239, 228, 0.06);
+  pointer-events: none;
+}
+.ko-scroll-bar > div {
+  height: 100%;
+  background: var(--green);
+  width: 0;
+  transition: width 0.1s linear;
+}
+
+.ko-module-band[id] { scroll-margin-top: 64px; }
+
+/* ── Sticky top nav ───────────────────────── */
+.ko-top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  background: rgba(15, 23, 19, 0.78);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(245, 239, 228, 0.08);
+  color: var(--cream);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.ko-top-nav.ko-scrolled {
+  background: rgba(10, 17, 14, 0.92);
+  border-bottom-color: rgba(245, 239, 228, 0.14);
+}
+.ko-top-nav-inner {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 32px;
+}
+.ko-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cream);
+  cursor: pointer;
+}
+.ko-nav-logo .ko-mark {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1.5px solid var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  line-height: 1;
+  padding-bottom: 2px;
+}
+.ko-nav-logo .ko-word {
+  font-family: var(--f-condensed);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  font-size: 16px;
+}
+.ko-nav-logo .ko-word b { color: var(--green); font-weight: 900; }
+
+.ko-nav-links {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ko-nav-link {
+  font-family: var(--f-condensed);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(245, 239, 228, 0.62);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+  background: transparent;
+  border: 0;
+}
+.ko-nav-link:hover { color: var(--cream); }
+.ko-nav-link.ko-active {
+  color: var(--ink);
+  background: var(--gold);
+}
+.ko-nav-right { display: flex; align-items: center; gap: 16px; }
+.ko-nav-live {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: rgba(245, 239, 228, 0.72);
+}
+.ko-nav-live .ko-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #ff3b3b;
+  box-shadow: 0 0 8px rgba(255, 59, 59, 0.6);
+  animation: ko-nav-pulse 1.6s ease-in-out infinite;
+}
+@keyframes ko-nav-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+.ko-nav-cta {
+  font-family: var(--f-condensed);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: var(--cream);
+  color: var(--ink);
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.ko-nav-cta:hover { background: #fff; transform: translateY(-1px); }
+@media (max-width: 1100px) {
+  .ko-nav-links { display: none; }
+}
+@media (max-width: 640px) {
+  .ko-nav-live { display: none; }
+  .ko-top-nav-inner { padding: 0 16px; gap: 12px; }
+}
