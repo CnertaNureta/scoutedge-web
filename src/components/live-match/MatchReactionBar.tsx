@@ -53,7 +53,7 @@ export default function MatchReactionBar({
   }, [matchId, minute, accessToken])
 
   return (
-    <div className="flex items-center gap-1.5 overflow-x-auto py-2 px-1 scrollbar-hide">
+    <div data-testid="match-reaction-bar" className="flex items-center gap-1.5 overflow-x-auto py-2 px-1 scrollbar-hide">
       {REACTIONS.map(({ key, emoji, label }) => {
         const count = reactionCounts[key] ?? 0
         const isAnimating = animating === key
