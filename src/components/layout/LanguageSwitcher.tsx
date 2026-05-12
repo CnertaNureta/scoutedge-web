@@ -16,7 +16,7 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="relative group">
+    <div data-testid="locale-switcher" className="relative group">
       <button
         className="flex items-center gap-1.5 font-label text-xs text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest"
         aria-haspopup="true"
