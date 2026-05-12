@@ -27,7 +27,10 @@ function SignalRow({ signal }: { signal: SignalNewPayload }) {
   const timeAgo = formatTimeAgo(signal.timestamp)
 
   return (
-    <div className="flex items-start gap-3 py-3 border-b border-white/[0.06] last:border-0">
+    <div
+      data-testid={signal.severity === 'high' || signal.severity === 'critical' ? 'signal-impact-high' : 'signal-item'}
+      className="flex items-start gap-3 py-3 border-b border-white/[0.06] last:border-0"
+    >
       <span className={`mt-1.5 h-2 w-2 shrink-0 rounded-full ${style.dot}`} />
       <div className="min-w-0 flex-1">
         <p className="text-sm leading-snug text-on-surface">{signal.headline}</p>
@@ -92,7 +95,7 @@ export default function SignalsFeed({ teamSlug, maxVisible = 10 }: SignalsFeedPr
             : 'Connecting to live feed...'}
         </p>
       ) : (
-        <div className="divide-y divide-white/[0.06]">
+        <div data-testid="signals-list" className="divide-y divide-white/[0.06]">
           {visibleSignals.map((signal) => (
             <SignalRow key={signal.signal_id} signal={signal} />
           ))}
