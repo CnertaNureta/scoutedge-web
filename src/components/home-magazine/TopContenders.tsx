@@ -46,6 +46,7 @@ export function TopContendersModule({
 
   return (
     <div
+      data-testid="top-contenders"
       style={{
         width: '100%',
         height: '100%',
