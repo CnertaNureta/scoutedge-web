@@ -15,13 +15,14 @@ const MS_PER_MINUTE = 60_000
 const MS_PER_SECOND = 1_000
 
 /**
- * SSR-safe countdown hook. The initial value is computed from `targetIso` and
- * `Date.now()` at render time so the server and the client's first render are
- * deterministic from the same inputs. After mount, the value re-computes once
- * per second.
+ * Hydration-safe countdown hook. The first render (both SSR and client
+ * hydration) returns a deterministic value derived only from `targetIso`
+ * (no `Date.now()`), so the server-rendered HTML matches the client's first
+ * paint exactly. After mount, the value re-computes once per second from
+ * the live clock.
  */
 export function useCountdown(targetIso: string): Countdown {
-  const compute = (): Countdown => {
+  const computeFromNow = (): Countdown => {
     const diff = Math.max(0, new Date(targetIso).getTime() - Date.now())
     return {
       days: Math.floor(diff / MS_PER_DAY),
@@ -31,10 +32,15 @@ export function useCountdown(targetIso: string): Countdown {
     }
   }
 
-  const [value, setValue] = useState<Countdown>(compute)
+  // Deterministic seed for SSR + first client render — no `Date.now()`,
+  // so the server HTML and the client hydration produce identical output.
+  const seed: Countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  const [value, setValue] = useState<Countdown>(seed)
 
   useEffect(() => {
-    const id = setInterval(() => setValue(compute()), 1000)
+    // Switch to the live clock only after mount.
+    setValue(computeFromNow())
+    const id = setInterval(() => setValue(computeFromNow()), 1000)
     return () => clearInterval(id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [targetIso])
