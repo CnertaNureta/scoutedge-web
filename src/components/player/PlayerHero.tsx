@@ -51,6 +51,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
 
   return (
     <section
+      data-testid="player-card"
       className="relative min-h-[90vh] w-full overflow-hidden flex items-center"
       style={
         {
