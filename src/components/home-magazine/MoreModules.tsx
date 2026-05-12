@@ -146,27 +146,29 @@ export function DailyBriefingModule({
               {t('newsletterBody')}
             </p>
             <div style={{ marginTop: 'auto', paddingTop: 18 }}>
-              {newsletterSlot ?? (
-                <div style={{ display: 'flex', border: '2px solid var(--ink)' }}>
-                  <input
-                    type="email"
-                    placeholder={t('subscribeEmailPlaceholder')}
-                    style={{
-                      flex: 1,
-                      padding: '12px 14px',
-                      border: 0,
-                      background: 'transparent',
-                      fontFamily: 'var(--f-body)',
-                      fontSize: 14,
-                      color: 'var(--ink)',
-                      outline: 'none',
-                    }}
-                  />
-                  <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '12px 18px', fontSize: 11 }}>
-                    {t('subscribeCta')}
-                  </button>
-                </div>
-              )}
+              <div>
+                {newsletterSlot ?? (
+                  <div style={{ display: 'flex', border: '2px solid var(--ink)' }}>
+                    <input
+                      type="email"
+                      placeholder={t('subscribeEmailPlaceholder')}
+                      style={{
+                        flex: 1,
+                        padding: '12px 14px',
+                        border: 0,
+                        background: 'transparent',
+                        fontFamily: 'var(--f-body)',
+                        fontSize: 14,
+                        color: 'var(--ink)',
+                        outline: 'none',
+                      }}
+                    />
+                    <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '12px 18px', fontSize: 11 }}>
+                      {t('subscribeCta')}
+                    </button>
+                  </div>
+                )}
+              </div>
               <div style={{ display: 'flex', gap: 18, marginTop: 14, color: 'var(--ink)', opacity: 0.72 }}>
                 <BriefingStat v="187" l={t('statEditions')} />
                 <BriefingStat v="42K" l={t('statReaders')} />
