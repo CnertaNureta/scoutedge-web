@@ -9,11 +9,19 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
-import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
+import RenderProfiler from '@/components/debug/RenderProfiler'
+import AdSlot from '@/components/monetization/AdSlot'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildGraph,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+} from '@/lib/seo/structured-data'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
-import { ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { ADSENSE_ENABLED, ADSENSE_PUBLISHER_ID } from '@/lib/adsense'
+import { pickClientMessages } from '@/i18n/client-namespaces'
 
 interface LocaleLayoutProps {
   children: React.ReactNode
@@ -27,12 +35,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LocaleLayoutProps): Promise<Metadata> {
   const { locale } = await params
   const config = LOCALE_CONFIGS[locale as Locale]
-
-  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com/en' }
-  for (const loc of routing.locales) {
-    const cfg = LOCALE_CONFIGS[loc]
-    languages[cfg.hreflang] = `https://kickoracle.com/${loc}`
-  }
+  const alternates = buildAlternates(locale, '/')
 
   return {
     title: {
@@ -51,7 +54,8 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     openGraph: {
       type: 'website',
       siteName: 'KickOracle',
-      locale: config?.hreflang ?? 'en',
+      url: alternates.canonical,
+      locale: (config?.hreflang ?? 'en').replace('-', '_'),
     },
     twitter: {
       card: 'summary_large_image',
@@ -59,7 +63,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       creator: '@KickOracle',
     },
     metadataBase: new URL('https://kickoracle.com'),
-    alternates: { languages },
+    alternates,
     robots: {
       index: true,
       follow: true,
@@ -99,9 +103,13 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   setRequestLocale(locale)
   const messages = await getMessages()
+  const clientMessages = pickClientMessages(messages as Record<string, unknown>)
   const config = LOCALE_CONFIGS[locale as Locale]
 
-  const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
+  const siteJsonLd = buildGraph([
+    buildOrganizationSchema(),
+    buildWebSiteSchema(locale),
+  ])
 
   return (
     <>
@@ -111,22 +119,29 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       />
       <GoogleTagManagerNoScript />
       <GoogleTagManagerScript />
-      <NextIntlClientProvider messages={messages}>
-        <Providers>
-          <div dir={config?.dir ?? 'ltr'} lang={locale}>
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
-            >
-              {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
-            </a>
-            <CountdownStrip />
-            <Header />
-            <main id="main-content" className="flex-1">{children}</main>
-            <Footer />
-            <ClientRuntimeWidgets />
-          </div>
-        </Providers>
+      <NextIntlClientProvider messages={clientMessages}>
+        <RenderProfiler>
+          <Providers>
+            <div dir={config?.dir ?? 'ltr'} lang={locale}>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-on-primary focus:px-6 focus:py-3 focus:rounded-lg focus:font-label focus:font-bold focus:text-sm focus:uppercase focus:tracking-widest focus:shadow-lg focus:outline-none"
+              >
+                {(messages as Record<string, Record<string, string>>).footer?.skipToContent ?? 'Skip to main content'}
+              </a>
+              <CountdownStrip />
+              <Header />
+              <main id="main-content" className="flex-1">{children}</main>
+              {ADSENSE_ENABLED ? (
+                <div className="w-full px-4 py-6">
+                  <AdSlot format="leaderboard" />
+                </div>
+              ) : null}
+              <Footer />
+              <ClientRuntimeWidgets />
+            </div>
+          </Providers>
+        </RenderProfiler>
       </NextIntlClientProvider>
     </>
   )

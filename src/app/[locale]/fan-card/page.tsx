@@ -1,21 +1,30 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { buildOGMeta } from '@/lib/og-utils'
 import { getAllTeams } from '@/lib/data-service'
 import FanCardBuilder from './FanCardBuilder'
 
-export const metadata: Metadata = {
-  title: 'Fan Identity Card — Create & Share Your World Cup 2026 Card',
-  description:
-    'Build your personalized World Cup 2026 Fan Identity Card. Choose your team, earn badges, pick a card theme, and share on Twitter & WhatsApp.',
-  keywords:
-    'World Cup 2026 fan card, fan identity card, World Cup share card, World Cup 2026 badges, football fan profile',
-  alternates: { canonical: 'https://kickoracle.com/fan-card' },
-  ...buildOGMeta({
-    title: 'Fan Identity Card — World Cup 2026',
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/fan-card')
+
+  return {
+    title: 'Fan Identity Card — Create & Share Your World Cup 2026 Card',
     description:
-      'Create your personalized Fan Identity Card and share it with friends. Choose your team, earn badges, and show your World Cup spirit.',
-    url: 'https://kickoracle.com/fan-card',
-  }),
+      'Build your personalized World Cup 2026 Fan Identity Card. Choose your team, earn badges, pick a card theme, and share on Twitter & WhatsApp.',
+    keywords:
+      'World Cup 2026 fan card, fan identity card, World Cup share card, World Cup 2026 badges, football fan profile',
+    alternates,
+    ...buildOGMeta({
+      title: 'Fan Identity Card — World Cup 2026',
+      description:
+        'Create your personalized Fan Identity Card and share it with friends. Choose your team, earn badges, and show your World Cup spirit.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 export default function FanCardPage() {

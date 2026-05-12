@@ -7,15 +7,16 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues, getVenueById } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
 
 interface StadiumPageProps {
-  params: Promise<{ city: string }>
+  params: Promise<{ locale: string; city: string }>
 }
 
 export async function generateMetadata({ params }: StadiumPageProps): Promise<Metadata> {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) return {}
 
@@ -24,13 +25,13 @@ export async function generateMetadata({ params }: StadiumPageProps): Promise<Me
 
   const title = `${city.name} Stadium Guide — ${venueName} at World Cup 2026`
   const description = `Venue profile for ${venueName} in ${city.name}. Capacity, climate, matches, and getting there for World Cup 2026.`
-  const url = `https://kickoracle.com/cities/${slug}/stadium`
+  const alternates = buildAlternates(locale, `/cities/${slug}/stadium`)
 
   return {
     title,
     description,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

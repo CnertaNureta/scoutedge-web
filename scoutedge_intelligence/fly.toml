@@ -1,0 +1,38 @@
+# fly.toml — ScoutEdge Intelligence service (Fly.io)
+# Docs: https://fly.io/docs/reference/configuration/
+
+app = "scoutedge-intelligence"
+primary_region = "sjc"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT                 = "8080"
+  LOG_LEVEL            = "INFO"
+  PYTHONUNBUFFERED     = "1"
+  SCOUTEDGE_PARAMS_DIR = "/app/artifacts"
+
+[http_service]
+  internal_port        = 8080
+  force_https          = true
+  auto_start_machines  = true
+  auto_stop_machines   = "stop"
+  min_machines_running = 1
+
+  [http_service.concurrency]
+    type       = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval     = "30s"
+    method       = "GET"
+    path         = "/healthz"
+    timeout      = "5s"
+
+[[vm]]
+  cpu_kind   = "shared"
+  cpus       = 1
+  memory_mb  = 512

@@ -1,11 +1,33 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { buildAlternates, siteUrl } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getAllTeams, getTeamsByGroup, getAllGroups } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import CompareSelector from '@/components/compare/CompareSelector'
+
+/**
+ * Highest-search-intent cross-group matchups. Curated list of marquee
+ * rivalries, defending-champion duels, and host-nation derbies — these are
+ * the queries users actually search for ("argentina vs brazil world cup",
+ * "france vs spain world cup 2026", etc.).
+ */
+const FEATURED_MATCHUPS: Array<{ a: string; b: string }> = [
+  { a: 'argentina', b: 'brazil' },
+  { a: 'argentina', b: 'france' },
+  { a: 'brazil', b: 'germany' },
+  { a: 'england', b: 'spain' },
+  { a: 'france', b: 'germany' },
+  { a: 'mexico', b: 'usa' },
+  { a: 'brazil', b: 'france' },
+  { a: 'argentina', b: 'england' },
+  { a: 'japan', b: 'south-korea' },
+  { a: 'argentina', b: 'spain' },
+  { a: 'brazil', b: 'spain' },
+  { a: 'england', b: 'germany' },
+]
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -17,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description', { count: 1128 }),
     keywords:
       'World Cup 2026 team comparison, World Cup 2026 head to head, World Cup 2026 vs, compare World Cup teams, World Cup 2026 matchups',
-    alternates: { canonical: 'https://kickoracle.com/compare' },
+    alternates: buildAlternates(locale, '/compare'),
   }
 }
 
@@ -29,12 +51,47 @@ export default async function ComparePage({ params }: Props) {
   const teams = getAllTeams().sort((a, b) => a.slug.localeCompare(b.slug))
   const totalMatchups = (teams.length * (teams.length - 1)) / 2
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  // Resolve featured matchups (skipping any whose teams aren't in the data set).
+  const featuredResolved = FEATURED_MATCHUPS
+    .map(({ a, b }) => {
+      const [sortedA, sortedB] = a.localeCompare(b) < 0 ? [a, b] : [b, a]
+      const tA = teams.find((t) => t.slug === sortedA)
+      const tB = teams.find((t) => t.slug === sortedB)
+      if (!tA || !tB) return null
+      return { teamA: tA, teamB: tB, slug: `${sortedA}-vs-${sortedB}` }
+    })
+    .filter((m): m is { teamA: typeof teams[0]; teamB: typeof teams[0]; slug: string } => Boolean(m))
+
+  const SITE_URL = siteUrl()
+  const compareHubUrl = `${SITE_URL}/${locale}/compare`
+
+  // CollectionPage describes the hub itself.
+  const collectionLd = {
     '@type': 'CollectionPage',
+    '@id': `${compareHubUrl}#collection`,
+    url: compareHubUrl,
     name: 'World Cup 2026 Team Comparisons',
     description: `Head-to-head comparisons for all ${totalMatchups} possible World Cup 2026 matchups.`,
-    numberOfItems: totalMatchups,
+  }
+
+  // ItemList enumerates the curated featured matchups Google can render as
+  // a rich result. Each item links to the canonical matchup page.
+  const itemListLd = {
+    '@type': 'ItemList',
+    '@id': `${compareHubUrl}#featured-matchups`,
+    name: 'Featured World Cup 2026 Head-to-Head Matchups',
+    numberOfItems: featuredResolved.length,
+    itemListElement: featuredResolved.map((m, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE_URL}/${locale}/compare/${m.slug}`,
+      name: `${m.teamA.name} vs ${m.teamB.name}`,
+    })),
+  }
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [collectionLd, itemListLd],
   }
 
   return (
@@ -99,44 +156,31 @@ export default async function ComparePage({ params }: Props) {
           )
         })}
 
-        {/* Cross-group featured matchups */}
+        {/* Cross-group featured matchups — top high-search-intent rivalries */}
         <div className="mb-12">
           <SectionHeader className="mb-6">{t('featuredCrossGroup')}</SectionHeader>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { a: 'argentina', b: 'brazil' },
-              { a: 'argentina', b: 'france' },
-              { a: 'brazil', b: 'germany' },
-              { a: 'england', b: 'spain' },
-              { a: 'france', b: 'germany' },
-              { a: 'mexico', b: 'usa' },
-              { a: 'brazil', b: 'france' },
-              { a: 'argentina', b: 'england' },
-              { a: 'japan', b: 'south-korea' },
-            ].map(({ a, b }) => {
-              const [sortedA, sortedB] = a.localeCompare(b) < 0 ? [a, b] : [b, a]
-              const teamA = teams.find((t) => t.slug === sortedA)
-              const teamB = teams.find((t) => t.slug === sortedB)
-              if (!teamA || !teamB) return null
-              const slug = `${sortedA}-vs-${sortedB}`
-              return (
-                <Link key={slug} href={`/compare/${slug}`}>
-                  <GlassCard hover className="p-5">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <span className="text-2xl">{teamA.flag}</span>
-                        <span className="font-headline text-sm uppercase tracking-tight truncate">{teamA.name}</span>
-                      </div>
-                      <span className="font-headline text-xs text-on-surface-variant mx-2 shrink-0">{t('vs')}</span>
-                      <div className="flex items-center gap-2 min-w-0 flex-row-reverse">
-                        <span className="text-2xl">{teamB.flag}</span>
-                        <span className="font-headline text-sm uppercase tracking-tight truncate text-right">{teamB.name}</span>
-                      </div>
+            {featuredResolved.map(({ teamA, teamB, slug }) => (
+              <Link
+                key={slug}
+                href={`/compare/${slug}`}
+                aria-label={`${teamA.name} vs ${teamB.name} World Cup 2026 comparison`}
+              >
+                <GlassCard hover className="p-5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="text-2xl">{teamA.flag}</span>
+                      <span className="font-headline text-sm uppercase tracking-tight truncate">{teamA.name}</span>
                     </div>
-                  </GlassCard>
-                </Link>
-              )
-            })}
+                    <span className="font-headline text-xs text-on-surface-variant mx-2 shrink-0">{t('vs')}</span>
+                    <div className="flex items-center gap-2 min-w-0 flex-row-reverse">
+                      <span className="text-2xl">{teamB.flag}</span>
+                      <span className="font-headline text-sm uppercase tracking-tight truncate text-right">{teamB.name}</span>
+                    </div>
+                  </div>
+                </GlassCard>
+              </Link>
+            ))}
           </div>
         </div>
 

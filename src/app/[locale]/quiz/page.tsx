@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { breadcrumbJsonLd, buildOGMeta } from '@/lib/og-utils'
+import { breadcrumbJsonLd, buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import QuizWithGate from '@/components/quiz/QuizWithGate'
 
@@ -12,11 +13,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: 'https://kickoracle.com/quiz' },
+    alternates: buildAlternates(locale, '/quiz'),
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/quiz',
+      url: canonicalForLocale(locale, '/quiz'),
+      locale,
     }),
   }
 }
@@ -27,8 +29,8 @@ export default async function QuizPage({ params }: Props) {
   const t = await getTranslations('quizPage')
   const jsonLd = [
     breadcrumbJsonLd([
-      { name: 'Home', url: 'https://kickoracle.com' },
-      { name: t('heading'), url: 'https://kickoracle.com/quiz' },
+      { name: 'Home', url: canonicalForLocale(locale, '/') },
+      { name: t('heading'), url: canonicalForLocale(locale, '/quiz') },
     ]),
     {
       '@context': 'https://schema.org',

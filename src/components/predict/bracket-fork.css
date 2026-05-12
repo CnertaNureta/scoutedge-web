@@ -1,0 +1,463 @@
+/* ============================================================
+   BracketFork — tournament tree layout
+   CSS Grid + Flex, no external chart library.
+   Column alignment approach for connectors (MVP).
+   ============================================================ */
+
+.bf-root {
+  --bf-color-bg: oklch(98% 0.005 250);
+  --bf-color-surface: oklch(100% 0 0);
+  --bf-color-border: oklch(88% 0.01 250);
+  --bf-color-accent: oklch(52% 0.21 250);
+  --bf-color-accent-soft: oklch(92% 0.06 250);
+  --bf-color-text: oklch(18% 0 0);
+  --bf-color-text-muted: oklch(52% 0 0);
+  --bf-color-stale: oklch(72% 0.15 50);
+  --bf-color-override: oklch(62% 0.19 145);
+  --bf-color-error-bg: oklch(96% 0.05 20);
+  --bf-color-error: oklch(48% 0.22 20);
+  --bf-color-success-bg: oklch(96% 0.05 145);
+  --bf-color-success: oklch(38% 0.18 145);
+
+  --bf-radius: 8px;
+  --bf-radius-sm: 4px;
+  --bf-slot-width: 160px;
+  --bf-slot-gap: 10px;
+  --bf-col-gap: 24px;
+
+  --duration-fast: 130ms;
+  --duration-normal: 240ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  font-family: inherit;
+  color: var(--bf-color-text);
+  background: var(--bf-color-bg);
+  border-radius: var(--bf-radius);
+  padding: 20px;
+  overflow-x: auto;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.bf-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.bf-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.bf-fork-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bf-color-accent-soft);
+  color: var(--bf-color-accent);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* ── Phase labels ────────────────────────────────────────────── */
+
+.bf-phase-labels {
+  display: flex;
+  gap: var(--bf-col-gap);
+  margin-bottom: 8px;
+  padding-left: 0;
+}
+
+.bf-phase-label {
+  width: var(--bf-slot-width);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bf-color-text-muted);
+  flex-shrink: 0;
+}
+
+.bf-phase-label--groups {
+  /* Groups take up a wider fixed column */
+  width: calc(var(--bf-slot-width) + 20px);
+}
+
+/* ── Tree wrapper ────────────────────────────────────────────── */
+
+.bf-tree {
+  display: flex;
+  gap: var(--bf-col-gap);
+  align-items: flex-start;
+}
+
+/* ── Group column ────────────────────────────────────────────── */
+
+.bf-groups-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bf-slot-gap);
+  flex-shrink: 0;
+  width: calc(var(--bf-slot-width) + 20px);
+}
+
+.bf-group-box {
+  background: var(--bf-color-surface);
+  border: 1px solid var(--bf-color-border);
+  border-radius: var(--bf-radius);
+  padding: 8px 10px;
+  min-height: 80px;
+}
+
+.bf-group-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--bf-color-accent);
+  margin-bottom: 4px;
+}
+
+.bf-group-teams {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bf-group-team {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--bf-color-text-muted);
+}
+
+.bf-group-team--top2 {
+  font-weight: 600;
+  color: var(--bf-color-text);
+}
+
+/* ── Round columns ───────────────────────────────────────────── */
+
+.bf-round-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-shrink: 0;
+  width: var(--bf-slot-width);
+}
+
+.bf-round-col--r16 {
+  /* 8 slots */
+}
+.bf-round-col--qf {
+  /* 4 slots */
+}
+.bf-round-col--sf {
+  /* 2 slots */
+}
+.bf-round-col--final {
+  /* 1 slot */
+}
+
+/* ── Match slot ──────────────────────────────────────────────── */
+
+.bf-slot {
+  background: var(--bf-color-surface);
+  border: 1px solid var(--bf-color-border);
+  border-radius: var(--bf-radius);
+  padding: 6px 8px;
+  position: relative;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.bf-slot--overridden {
+  border-color: var(--bf-color-override);
+  box-shadow: 0 0 0 2px oklch(62% 0.19 145 / 0.15);
+}
+
+.bf-slot--stale {
+  border-color: var(--bf-color-stale);
+  box-shadow: 0 0 0 2px oklch(72% 0.15 50 / 0.15);
+}
+
+/* margin between slots in a column */
+.bf-slot + .bf-slot {
+  margin-top: var(--bf-slot-gap);
+}
+
+.bf-slot-matchup {
+  font-size: 0.72rem;
+  color: var(--bf-color-text-muted);
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+
+.bf-slot-winner-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bf-slot-winner {
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bf-slot-winner--override {
+  color: var(--bf-color-override);
+}
+
+.bf-slot-winner--tbd {
+  color: var(--bf-color-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.bf-prob-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: var(--bf-color-accent-soft);
+  color: var(--bf-color-accent);
+  border-radius: var(--bf-radius-sm);
+  padding: 1px 5px;
+  flex-shrink: 0;
+}
+
+.bf-stale-icon {
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  title-attribute: 'Downstream override may be stale';
+}
+
+/* ── Fork button ─────────────────────────────────────────────── */
+
+.bf-fork-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: var(--bf-radius-sm);
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 0.65rem;
+  color: var(--bf-color-text-muted);
+  margin-top: 4px;
+  transition:
+    color var(--duration-fast),
+    border-color var(--duration-fast),
+    background var(--duration-fast);
+}
+
+.bf-fork-btn:hover,
+.bf-fork-btn:focus-visible {
+  color: var(--bf-color-accent);
+  border-color: var(--bf-color-accent);
+  background: var(--bf-color-accent-soft);
+  outline: none;
+}
+
+/* ── Inline picker ───────────────────────────────────────────── */
+
+.bf-picker {
+  margin-top: 6px;
+  background: var(--bf-color-surface);
+  border: 1px solid var(--bf-color-accent);
+  border-radius: var(--bf-radius-sm);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bf-picker-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--bf-color-text-muted);
+  margin-bottom: 2px;
+}
+
+.bf-picker-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--bf-color-border);
+  border-radius: var(--bf-radius-sm);
+  padding: 3px 7px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  text-align: left;
+  transition:
+    background var(--duration-fast),
+    border-color var(--duration-fast);
+}
+
+.bf-picker-option:hover,
+.bf-picker-option:focus-visible {
+  background: var(--bf-color-accent-soft);
+  border-color: var(--bf-color-accent);
+  outline: none;
+}
+
+.bf-picker-cancel {
+  font-size: 0.65rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--bf-color-text-muted);
+  padding: 2px 0;
+  align-self: flex-end;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.bf-picker-cancel:hover,
+.bf-picker-cancel:focus-visible {
+  color: var(--bf-color-text);
+  outline: none;
+}
+
+/* ── Save / Share bar ────────────────────────────────────────── */
+
+.bf-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.bf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--bf-radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    opacity var(--duration-fast),
+    transform var(--duration-fast);
+}
+
+.bf-btn:active {
+  transform: scale(0.97);
+}
+
+.bf-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.bf-btn--primary {
+  background: var(--bf-color-accent);
+  color: oklch(100% 0 0);
+}
+
+.bf-btn--primary:hover:not(:disabled),
+.bf-btn--primary:focus-visible:not(:disabled) {
+  opacity: 0.88;
+  outline: none;
+}
+
+.bf-btn--ghost {
+  background: var(--bf-color-surface);
+  border: 1px solid var(--bf-color-border);
+  color: var(--bf-color-text);
+}
+
+.bf-btn--ghost:hover:not(:disabled),
+.bf-btn--ghost:focus-visible:not(:disabled) {
+  border-color: var(--bf-color-accent);
+  color: var(--bf-color-accent);
+  outline: none;
+}
+
+/* ── Share URL pill ──────────────────────────────────────────── */
+
+.bf-share-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bf-color-success-bg);
+  border: 1px solid var(--bf-color-success);
+  border-radius: var(--bf-radius-sm);
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  flex-wrap: wrap;
+}
+
+.bf-share-url-text {
+  font-family: ui-monospace, monospace;
+  color: var(--bf-color-success);
+  word-break: break-all;
+}
+
+/* ── Inline error ────────────────────────────────────────────── */
+
+.bf-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bf-color-error-bg);
+  border: 1px solid var(--bf-color-error);
+  border-radius: var(--bf-radius-sm);
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  color: var(--bf-color-error);
+  margin-top: 12px;
+  role: alert;
+}
+
+/* ── Loading skeleton ────────────────────────────────────────── */
+
+.bf-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px;
+  color: var(--bf-color-text-muted);
+  font-size: 0.85rem;
+}
+
+@keyframes bf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bf-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--bf-color-border);
+  border-top-color: var(--bf-color-accent);
+  border-radius: 50%;
+  animation: bf-spin 0.75s linear infinite;
+}
+
+/* ── Override count badge in header ─────────────────────────── */
+
+.bf-overrides-badge {
+  font-size: 0.72rem;
+  color: var(--bf-color-override);
+  font-weight: 600;
+}

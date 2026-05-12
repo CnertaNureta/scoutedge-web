@@ -8,7 +8,7 @@
 
 const BASE_URL = 'https://kickoracle.com'
 
-const OG_LOCALES: Record<string, string> = {
+export const OG_LOCALES: Record<string, string> = {
   en: 'en_US',
   es: 'es_ES',
   zh: 'zh_CN',
@@ -36,7 +36,7 @@ export interface OGMeta {
   url: string
   /** Page locale code (e.g. 'en', 'zh', 'ar') — maps to the correct OG locale */
   locale?: string
-  type?: 'website' | 'article'
+  type?: 'website' | 'article' | 'profile' | 'book'
   section?: string
   publishedTime?: string
   /** Absolute URL to a pre-generated OG image (1200×630) */
@@ -74,6 +74,12 @@ export function buildOGMeta(meta: OGMeta) {
 /** Build canonical URL from path */
 export function canonical(path: string): string {
   return `${BASE_URL}${path}`
+}
+
+/** Build locale-aware canonical URL from locale + path */
+export function canonicalForLocale(locale: string, path: string): string {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${BASE_URL}/${locale}${normalizedPath === '/' ? '' : normalizedPath}`
 }
 
 /**

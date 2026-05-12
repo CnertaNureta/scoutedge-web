@@ -6,10 +6,11 @@ import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { getAllVenues, getVenueById } from '@/lib/data-service'
 import { getAllCities } from '@/data/cities-data'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface Props {
-  params: Promise<{ stadium: string }>
+  params: Promise<{ locale: string; stadium: string }>
 }
 
 export const revalidate = 3600
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { stadium } = await params
+  const { locale, stadium } = await params
   const venue = getVenueById(stadium)
   if (!venue) {
     return { title: 'Venue Not Found' }
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ogData = buildOGMeta({
     title: `${venue.name} — World Cup 2026 Venue Guide`,
     description: `Complete guide to ${venue.name} in ${venue.city}, ${venue.country}. Capacity: ${venue.capacity.toLocaleString()}, climate data, hosting rounds, and travel tips for the 2026 FIFA World Cup.`,
-    url: `https://kickoracle.com/stadiums/${stadium}`,
+    url: canonicalForLocale(locale, `/stadiums/${stadium}`),
     type: 'article',
     section: 'Stadiums',
   })
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${venue.name} — World Cup 2026 Venue Guide`,
     description: `Complete guide to ${venue.name} in ${venue.city}, ${venue.country}. Capacity: ${venue.capacity.toLocaleString()}, climate, and match schedule.`,
-    alternates: { canonical: `https://kickoracle.com/stadiums/${stadium}` },
+    alternates: buildAlternates(locale, `/stadiums/${stadium}`),
     ...ogData,
   }
 }
@@ -60,16 +61,16 @@ function getRoundVariant(round: string): 'primary' | 'secondary' | 'tertiary' | 
 }
 
 export default async function StadiumPage({ params }: Props) {
-  const { stadium } = await params
+  const { locale, stadium } = await params
   const venue = getVenueById(stadium)
   if (!venue) notFound()
 
   const citySlug = findCitySlugForVenue(venue.id)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Stadiums', url: 'https://kickoracle.com/stadiums' },
-    { name: venue.name, url: `https://kickoracle.com/stadiums/${stadium}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Stadiums', url: canonicalForLocale(locale, '/stadiums') },
+    { name: venue.name, url: canonicalForLocale(locale, `/stadiums/${stadium}`) },
   ])
 
   const countryFlag =

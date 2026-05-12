@@ -5,6 +5,7 @@ import { lingoCountries, lingoPlayers, lingoTermsData } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 import { LingoSearchBar } from '@/components/lingo/LingoSearchBar'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -17,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: 'KickOracle Lingo — World Cup 2026 Pronunciation Guide',
       description: `How to say every country, player & football term. ${lingoCountries.length} teams, ${lingoPlayers.length}+ players.`,
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
   }
 }

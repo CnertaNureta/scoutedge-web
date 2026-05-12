@@ -5,7 +5,8 @@ import { getAllTeams } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import Paywall from '@/components/monetization/Paywall'
 import type { Team } from '@/lib/types'
 
@@ -17,11 +18,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: 'https://kickoracle.com/predictions' },
+    alternates: buildAlternates(locale, '/predictions'),
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: 'https://kickoracle.com/predictions',
+      url: canonicalForLocale(locale, '/predictions'),
+      locale,
     }),
   }
 }
@@ -135,8 +137,8 @@ export default async function PredictionsPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: 'https://kickoracle.com' },
-        { name: 'AI Predictions', url: 'https://kickoracle.com/predictions' },
+        { name: 'Home', url: canonicalForLocale(locale, '/') },
+        { name: 'AI Predictions', url: canonicalForLocale(locale, '/predictions') },
       ])) }} />
 
       {/* Hero */}

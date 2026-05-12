@@ -5,7 +5,8 @@ import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { jsonLdGraph, sportsEventJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, canonicalForLocale, sportsEventJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -14,9 +15,15 @@ import ProbabilityBar from '@/components/ui/ProbabilityBar'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 import { BRAND } from '@/lib/brand-tokens'
+import {
+  buildKeyDifferences,
+  buildMatchupFaqs,
+  buildMatchupGraph,
+  buildTldr,
+} from './_lib'
 
-export async function generateMetadata({ params }: { params: Promise<{ matchup: string }> }): Promise<Metadata> {
-  const { matchup } = await params
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; matchup: string }> }): Promise<Metadata> {
+  const { locale, matchup } = await params
   const parts = matchup.split('-vs-')
   const teamA = getTeamBySlug(parts[0])
   const teamB = getTeamBySlug(parts[1])
@@ -25,23 +32,14 @@ export async function generateMetadata({ params }: { params: Promise<{ matchup: 
 
   const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
   const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
+  const url = canonicalForLocale(locale, `/compare/${matchup}`)
 
   return {
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: { canonical: `https://kickoracle.com/compare/${matchup}` },
-    openGraph: {
-      title,
-      description,
-      url: `https://kickoracle.com/compare/${matchup}`,
-      type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-    },
+    alternates: buildAlternates(locale, `/compare/${matchup}`),
+    ...buildOGMeta({ title, description, url, locale, type: 'article' }),
   }
 }
 
@@ -68,20 +66,19 @@ function StatRow({ label, valueA, valueB, higherIsBetter = true }: { label: stri
   )
 }
 
-export default async function CompareDetailPage({ params }: { params: Promise<{ matchup: string }> }) {
-  const { matchup } = await params
+export default async function CompareDetailPage({ params }: { params: Promise<{ locale: string; matchup: string }> }) {
+  const { locale, matchup } = await params
   const data = getHeadToHead(matchup)
   if (!data) return <div className="page-container py-20 text-center text-on-surface-variant">Matchup not found.</div>
 
-  const { teamA, teamB, prediction, statDeltas, squadA, squadB, keyPlayerMatchups, historyA, historyB, verdict } = data
+  const { teamA, teamB, prediction, statDeltas: _statDeltas, squadA, squadB, keyPlayerMatchups, historyA, historyB, verdict } = data
+  void _statDeltas
 
-  const articleLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: `${teamA.name} vs ${teamB.name}: World Cup 2026 Head-to-Head`,
-    description: `AI comparison of ${teamA.name} and ${teamB.name} for the 2026 World Cup.`,
-    author: { '@type': 'Organization', name: 'KickOracle' },
-  }
+  // Derived content for SEO/GEO sections
+  const h2hRecord = getH2H(teamA.slug, teamB.slug)
+  const tldr = buildTldr(data)
+  const keyDifferences = buildKeyDifferences(data, h2hRecord)
+  const faqs = buildMatchupFaqs(data, h2hRecord)
 
   // Look for an actual scheduled fixture between the two teams (group stage)
   const scheduledFixture = MATCH_FIXTURES.find(
@@ -103,7 +100,14 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
       })
     : null
 
-  const jsonLd = jsonLdGraph(sportsEventLd ? [articleLd, sportsEventLd] : [articleLd])
+  const jsonLd = buildMatchupGraph({
+    data,
+    matchup,
+    locale,
+    faqs,
+    tldr,
+    extraNodes: sportsEventLd ? [sportsEventLd] : [],
+  })
 
   // Related matchups: other comparisons involving either team
   const allSlugs = getAllMatchupSlugs()
@@ -164,11 +168,39 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
 
       <div className="max-w-[1440px] mx-auto px-6 pb-20 space-y-12">
 
-        {/* AI Summary — plain language */}
+        {/* TL;DR — the answer-box snippet AI Overview / Perplexity / ChatGPT will quote.
+            Plain prose, server-rendered, no accordion. */}
         <GlassCard className="p-6 md:p-8 relative overflow-hidden">
           <NeonAccentBar color={BRAND.primary} />
+          <p className="font-label text-xs text-primary uppercase tracking-widest font-semibold mb-3">
+            TL;DR — Who&apos;s Better, {teamA.name} or {teamB.name}?
+          </p>
+          <p className="text-on-surface leading-relaxed text-lg">{tldr}</p>
+        </GlassCard>
+
+        {/* AI Summary — plain language */}
+        <GlassCard className="p-6 md:p-8 relative overflow-hidden">
+          <NeonAccentBar color={BRAND.tertiary} />
           <h3 className="font-headline text-xl uppercase tracking-wide mb-4">The Bottom Line</h3>
           <p className="text-on-surface leading-relaxed text-lg">{verdict}</p>
+        </GlassCard>
+
+        {/* Key Differences — flat bulleted list, ideal for AI extraction */}
+        <GlassCard className="p-6 md:p-8">
+          <h2 className="font-headline text-xl uppercase tracking-wide mb-4">
+            Key Differences: {teamA.name} vs {teamB.name}
+          </h2>
+          <ul className="space-y-3 text-on-surface leading-relaxed">
+            {keyDifferences.map((diff) => (
+              <li key={diff.label} className="flex gap-3">
+                <span className="text-primary font-bold mt-1.5 shrink-0">•</span>
+                <span>
+                  <span className="text-on-surface font-semibold">{diff.label}:</span>{' '}
+                  <span className="text-on-surface-variant">{diff.detail}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
         </GlassCard>
 
         {/* Who Wins? */}
@@ -365,6 +397,27 @@ export default async function CompareDetailPage({ params }: { params: Promise<{ 
             </GlassCard>
           )
         })()}
+
+        {/* FAQ — H2 question + paragraph answer. Server-rendered HTML, no accordion,
+            so AI crawlers (Perplexity, ChatGPT, Google AI Overview) can extract cleanly. */}
+        <section aria-labelledby="matchup-faq-heading">
+          <h2
+            id="matchup-faq-heading"
+            className="font-headline text-2xl md:text-3xl uppercase tracking-wide mb-6"
+          >
+            {teamA.name} vs {teamB.name} — Frequently Asked Questions
+          </h2>
+          <div className="space-y-6">
+            {faqs.map((faq) => (
+              <GlassCard key={faq.question} className="p-6 md:p-7">
+                <h3 className="font-headline text-lg md:text-xl uppercase tracking-wide mb-3 text-on-surface">
+                  {faq.question}
+                </h3>
+                <p className="text-on-surface-variant leading-relaxed">{faq.answer}</p>
+              </GlassCard>
+            ))}
+          </div>
+        </section>
 
         {/* Related Comparisons */}
         {related.length > 0 && (

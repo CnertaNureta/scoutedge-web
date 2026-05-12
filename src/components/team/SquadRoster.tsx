@@ -14,15 +14,20 @@ interface SquadRosterProps {
   teamSlug: string
 }
 
-type SquadTranslator = (key: string, values?: Record<string, string | number>) => string
+type PlayerPosition = Player['position']
+type SquadTranslator = ReturnType<typeof useTranslations<'squadRoster'>>
 
-function positionLabelKey(position: string): 'goalkeepers' | 'defenders' | 'midfielders' | 'forwards' {
+function assertUnreachable(value: never): never {
+  throw new Error(`Unexpected player position: ${value}`)
+}
+
+function positionLabelKey(position: PlayerPosition): 'goalkeepers' | 'defenders' | 'midfielders' | 'forwards' {
   switch (position) {
     case 'GK': return 'goalkeepers'
     case 'DEF': return 'defenders'
     case 'MID': return 'midfielders'
     case 'FWD': return 'forwards'
-    default: return 'goalkeepers'
+    default: return assertUnreachable(position)
   }
 }
 
@@ -135,14 +140,14 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
 
 export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
   const t = useTranslations('squadRoster')
-  const grouped = players.reduce<Record<string, Player[]>>((acc, p) => {
+  const grouped = players.reduce<Partial<Record<PlayerPosition, Player[]>>>((acc, p) => {
     const key = p.position
     if (!acc[key]) acc[key] = []
     acc[key].push(p)
     return acc
   }, {})
 
-  const sortedGroups = Object.entries(grouped).sort(
+  const sortedGroups = (Object.entries(grouped) as [PlayerPosition, Player[]][]).sort(
     ([a], [b]) => positionOrder(a) - positionOrder(b)
   )
 
@@ -227,13 +232,13 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                         <FitnessIndicator status={player.fitnessStatus} />
                       </div>
                       <div className="flex items-center gap-2 mb-1">
-                        <PositionBadge position={player.position as 'GK' | 'DEF' | 'MID' | 'FWD'} variant="dot" />
+                        <PositionBadge position={player.position} variant="dot" />
                         <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
                           {player.club}
                         </p>
                       </div>
                       <p className="font-body text-xs text-on-surface-variant">
-                        {getKeyStat(player, t as SquadTranslator)}
+                        {getKeyStat(player, t)}
                       </p>
                       <div className="mt-3">
                         <ChemistryBar value={player.rating * 10} showValue={false} size="sm" />

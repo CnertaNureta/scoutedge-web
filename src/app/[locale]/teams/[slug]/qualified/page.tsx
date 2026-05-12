@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getPlayersByTeam, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { resolvePlayerStatus, STATUS_CONFIG, type PlayerStatus } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -11,25 +12,25 @@ import SectionHeader from '@/components/ui/SectionHeader'
 export const revalidate = 3600
 
 interface Props {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: string; slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { locale, slug } = await params
   const team = getTeamBySlug(slug)
   if (!team) return {}
 
   const qualLabel = team.isPlayoff ? 'Playoff Entry' : 'Qualified'
   const title = `Is ${team.name} Qualified for the 2026 World Cup? ${qualLabel} | KickOracle`
   const description = `${team.name} 2026 World Cup qualification status: ${qualLabel}. Group ${team.group}, FIFA rank #${team.fifaRanking}. Full squad status, key players, and availability tracker.`
-  const url = `https://kickoracle.com/teams/${slug}/qualified`
+  const alternates = buildAlternates(locale, `/teams/${slug}/qualified`)
 
   return {
     title,
     description,
     keywords: `is ${team.name} qualified world cup 2026, ${team.name} 2026 world cup qualified, ${team.name} world cup squad, ${team.name} group ${team.group}`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

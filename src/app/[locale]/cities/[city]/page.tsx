@@ -5,12 +5,20 @@ import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
+import { buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildBreadcrumbSchema,
+  buildGraph,
+  buildPlaceSchema,
+} from '@/lib/seo/structured-data'
+import { getNearbyCities } from '@/lib/related/cities'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
+import RelatedEntitiesSection from '@/components/seo/RelatedEntitiesSection'
 
 export const revalidate = 3600
 
@@ -33,14 +41,14 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
 
   const title = `${city.name} — World Cup 2026 Host City Guide`
   const description = `Fan guide to ${city.name} for the 2026 World Cup. ${city.description.slice(0, 120)}...`
-  const url = `https://kickoracle.com/cities/${city.slug}`
+  const alternates = buildAlternates(locale, `/cities/${city.slug}`)
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup 2026, ${city.name} stadium, ${city.name} hotels, ${city.name} travel`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url, locale }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 
@@ -240,7 +248,7 @@ function QuickFactsSidebar({ city, labels }: QuickFactsProps) {
 /* ---------- Page ---------- */
 
 export default async function CityPage({ params }: CityPageProps) {
-  const { city: slug } = await params
+  const { city: slug, locale } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -289,40 +297,21 @@ export default async function CityPage({ params }: CityPageProps) {
   const otherCities = getAllCities()
     .filter((c) => c.slug !== city.slug)
     .slice(0, 6)
+  const nearbyCities = getNearbyCities(city, 3)
 
   const cityPath = `/cities/${city.slug}`
-  const cityUrl = `https://kickoracle.com${cityPath}`
-  const touristDestinationLd = {
-    '@context': 'https://schema.org',
-    '@type': 'TouristDestination',
-    name: `${city.name} — World Cup 2026 Host City`,
-    url: cityUrl,
-    description: city.description,
-    containedInPlace: {
-      '@type': 'Country',
-      name: city.country,
-      identifier: city.countryCode,
-    },
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: city.name,
-      addressRegion: city.state,
-      addressCountry: city.countryCode,
-    },
-    touristType: 'Football fans, World Cup 2026 attendees',
-    includesAttraction: cityVenues.map((v) => ({
-      '@type': 'TouristAttraction',
-      additionalType: 'https://schema.org/StadiumOrArena',
-      name: v.name,
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: city.name,
-        addressCountry: city.countryCode,
-      },
-    })),
-  }
 
-  const graph = jsonLdGraph([touristDestinationLd])
+  const placeLd = buildPlaceSchema({ city, venues: cityVenues, locale })
+  const breadcrumbLd = buildBreadcrumbSchema(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Host Cities', path: '/cities' },
+      { name: city.name, path: cityPath },
+    ],
+    locale,
+  )
+
+  const graph = buildGraph([placeLd, breadcrumbLd])
 
   return (
     <>
@@ -602,6 +591,18 @@ export default async function CityPage({ params }: CityPageProps) {
           </div>
         </section>
       )}
+
+      <RelatedEntitiesSection
+        title={`Other Host Cities in ${city.country}`}
+        description={`More 2026 FIFA World Cup host cities in ${city.country} to plan into your match-day travel.`}
+        items={nearbyCities.map((c) => ({
+          label: c.name,
+          href: `/cities/${c.slug}`,
+          meta: `${c.state}, ${c.country}`,
+          prefix: COUNTRY_FLAG[c.countryCode],
+        }))}
+        columnsClassName="grid-cols-1 sm:grid-cols-3"
+      />
 
       {/* Other host cities — cross-link to /cities/[city] siblings */}
       {otherCities.length > 0 && (

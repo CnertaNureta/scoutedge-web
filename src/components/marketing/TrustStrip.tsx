@@ -1,14 +1,14 @@
 import { useTranslations } from 'next-intl'
 
 interface Pillar {
-  titleKey: 'independent' | 'noAds' | 'transparency' | 'i18n'
-  descKey: 'independentDesc' | 'noAdsDesc' | 'transparencyDesc' | 'i18nDesc'
+  titleKey: 'independent' | 'aiPowered' | 'transparency' | 'i18n'
+  descKey: 'independentDesc' | 'aiPoweredDesc' | 'transparencyDesc' | 'i18nDesc'
   icon: string
 }
 
 const PILLARS: Pillar[] = [
   { titleKey: 'independent', descKey: 'independentDesc', icon: '⚖️' },
-  { titleKey: 'noAds', descKey: 'noAdsDesc', icon: '\u{1F6AB}' },
+  { titleKey: 'aiPowered', descKey: 'aiPoweredDesc', icon: '\u{1F916}' },
   { titleKey: 'transparency', descKey: 'transparencyDesc', icon: '\u{1F50D}' },
   { titleKey: 'i18n', descKey: 'i18nDesc', icon: '\u{1F310}' },
 ]

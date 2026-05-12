@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -10,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('heading'),
     description:
       'KickOracle privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
-    alternates: { canonical: 'https://kickoracle.com/privacy-policy' },
+    alternates: buildAlternates(locale, '/privacy-policy'),
   }
 }
 

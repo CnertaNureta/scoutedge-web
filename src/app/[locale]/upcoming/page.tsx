@@ -6,6 +6,7 @@ import {
   breadcrumbJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -13,16 +14,16 @@ type Props = { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'upcomingPage' })
-  const url = canonical(`/${locale}/upcoming`)
+  const alternates = buildAlternates(locale, '/upcoming')
 
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: t('metaTitle'),
       description: t('metaDescription'),
-      url,
+      url: alternates.canonical,
       locale,
     }),
   }

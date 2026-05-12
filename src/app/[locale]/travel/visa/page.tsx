@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -6,18 +7,26 @@ import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Visa Requirements — USA, Canada & Mexico Entry Guide',
-  description:
-    'Complete visa guide for World Cup 2026 travelers. ESTA for USA, eTA for Canada, FMM for Mexico. Requirements by nationality, processing times, and tips.',
-  keywords:
-    'World Cup 2026 visa, USA visa World Cup, Canada eTA, Mexico FMM, ESTA World Cup 2026, travel requirements',
-  alternates: { canonical: 'https://kickoracle.com/travel/visa' },
-  ...buildOGMeta({
-    title: 'World Cup 2026 Visa Requirements',
-    description: 'Entry requirements for the USA, Canada, and Mexico.',
-    url: 'https://kickoracle.com/travel/visa',
-  }),
+type Props = { params: Promise<{ locale: string }> }
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/travel/visa')
+
+  return {
+    title: 'World Cup 2026 Visa Requirements — USA, Canada & Mexico Entry Guide',
+    description:
+      'Complete visa guide for World Cup 2026 travelers. ESTA for USA, eTA for Canada, FMM for Mexico. Requirements by nationality, processing times, and tips.',
+    keywords:
+      'World Cup 2026 visa, USA visa World Cup, Canada eTA, Mexico FMM, ESTA World Cup 2026, travel requirements',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Visa Requirements',
+      description: 'Entry requirements for the USA, Canada, and Mexico.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 interface VisaCategory {

@@ -10,6 +10,8 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
+import { OG_LOCALES } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -20,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { group } = await params
+  const { locale, group } = await params
   const teams = getTeamsByGroup(group)
   if (teams.length === 0) return { title: 'Group Not Found' }
 
@@ -36,13 +38,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: seo?.ogTitle ?? `World Cup 2026 Group ${group} — AI Analysis & Predictions`,
       description: `Group ${group}: ${teamNames}. AI-powered squad analysis, chemistry indexes, and match predictions.`,
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
       title: `World Cup 2026 Group ${group} | KickOracle`,
       description: `AI analysis of Group ${group}: ${teamNames}.`,
     },
-    alternates: { canonical: `https://kickoracle.com/groups/${group}` },
+    alternates: buildAlternates(locale, `/groups/${group}`),
   }
 }
 

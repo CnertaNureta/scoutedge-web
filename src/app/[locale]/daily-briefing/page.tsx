@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
@@ -10,6 +11,7 @@ import Badge from '@/components/ui/Badge'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 import Paywall from '@/components/monetization/Paywall'
 import { BRAND } from '@/lib/brand-tokens'
+import { OG_LOCALES } from '@/lib/og-utils'
 
 export const dynamic = 'force-dynamic'
 
@@ -25,13 +27,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
       type: 'article',
+      locale: OG_LOCALES[locale] ?? 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
       title: t('heading'),
       description: t('description'),
     },
-    alternates: { canonical: 'https://kickoracle.com/daily-briefing' },
+    alternates: buildAlternates(locale, '/daily-briefing'),
   }
 }
 
