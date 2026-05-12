@@ -102,6 +102,7 @@ Validation checklist:
 2. Use the third-party tool <https://hreflang.org/> or <https://technicalseo.com/tools/hreflang/> to validate the sitemap against the page tags.
 3. If Google reports **"No return tags"** errors, it means locale A links to locale B but B does not link back. Confirm `src/app/[locale]/layout.tsx` produces matching alternates for every locale.
 4. Re-submit the sitemap after any hreflang change.
+5. Run `npm run verify:seo` to programmatically check the live site against this checklist (robots.txt, sitemap.xml, canonical/hreflang/JSON-LD on representative pages). Set `BASE_URL` to point at staging.
 
 The site currently has 2 indexed pages, both non-English (`/de/`, `/tr/`). That's a hreflang misconfiguration symptom — Google indexed the variants without the English canonical. Once `/en/` versions are submitted and crawled, they should be promoted to canonical and the German/Turkish pages will appear in their respective locale SERPs.
 

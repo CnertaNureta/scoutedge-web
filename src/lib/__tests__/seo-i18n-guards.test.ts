@@ -48,3 +48,29 @@ describe('PR #20 SEO automation guard', () => {
     expect(ogUtils).toContain("locale: OG_LOCALES[meta.locale ?? 'en'] ?? 'en_US'")
   })
 })
+
+describe('GEO copy guard', () => {
+  it('keeps high-exposure GEO surfaces out of gambling-oriented wording', () => {
+    const filesToCheck = [
+      'docs/marketing/launch-promo-playbook.md',
+      'public/llms.txt',
+      'src/content/blog/dark-horses-world-cup-2026-underdog-teams-ai-likes.md',
+      'src/content/blog/top-25-players-to-watch-world-cup-2026-ranked-by-ai.md',
+      'src/content/blog/world-cup-2026-30-days-out-ai-predictions-every-group.md',
+    ]
+
+    const enMessages = JSON.parse(read('messages/en.json'))
+    const surfaces = [
+      ...filesToCheck.map((file) => ({ file, text: read(file) })),
+      { file: 'messages/en.json#geo', text: JSON.stringify(enMessages.geo) },
+    ]
+    const blocked =
+      /\b(bookmakers?|sportsbooks?|betting|gambling|pinnacle|bet365|betfair|william hill|betway|unibet|fanduel|draftkings)\b/i
+
+    const matches = surfaces
+      .filter(({ text }) => blocked.test(text))
+      .map(({ file }) => file)
+
+    expect(matches).toEqual([])
+  })
+})
