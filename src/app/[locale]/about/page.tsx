@@ -87,7 +87,6 @@ export default async function AboutPage({ params }: Props) {
             name={t('founderName')}
             role={t('founderRole')}
             bio={t('founderBio')}
-            imageSrc="/about/founder.jpg"
           />
         </Section>
 
@@ -96,7 +95,6 @@ export default async function AboutPage({ params }: Props) {
             name={t('analystName')}
             role={t('analystRole')}
             bio={t('analystBio')}
-            imageSrc="/about/analyst.jpg"
           />
         </Section>
 
@@ -148,20 +146,28 @@ function PersonCard({
   name: string
   role: string
   bio: string
-  imageSrc: string
+  imageSrc?: string
 }) {
+  // Only emit a background-image when we actually have an asset path so the
+  // browser doesn't fire 404 requests for placeholders. The gradient + monogram
+  // is the intentional fallback visual.
+  const hasImage = Boolean(imageSrc)
   return (
     <div className="flex flex-col sm:flex-row gap-5 glass-panel rounded-2xl border border-white/[0.06] p-6">
       <div
         className="shrink-0 w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-tertiary/10 border border-white/10 flex items-center justify-center text-2xl font-bold text-on-surface"
-        style={{
-          backgroundImage: `url(${imageSrc})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
+        style={
+          hasImage
+            ? {
+                backgroundImage: `url(${imageSrc})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }
+            : undefined
+        }
         aria-hidden="true"
       >
-        {!imageSrc.includes('.') && name.charAt(0)}
+        {!hasImage && name.charAt(0)}
       </div>
       <div>
         <p className="font-headline text-lg font-bold text-on-surface">{name}</p>
