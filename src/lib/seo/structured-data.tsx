@@ -431,6 +431,36 @@ export function buildSportsEventSchema({
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                  FAQPage                                   */
+/* -------------------------------------------------------------------------- */
+
+export interface FAQEntry {
+  question: string
+  answer: string
+}
+
+/**
+ * Build a FAQPage block. AI search engines (Perplexity, Gemini, ChatGPT
+ * Search, Google AI Overview) preferentially extract Q&A pairs that appear
+ * in BOTH the visible DOM and a FAQPage JSON-LD block, so the same array
+ * passed here should be rendered as visible H2/paragraph pairs on the page.
+ */
+export function buildFAQPageSchema(entries: FAQEntry[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: entries.map((entry) => ({
+      '@type': 'Question',
+      name: entry.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: entry.answer,
+      },
+    })),
+  }
+}
+
+/* -------------------------------------------------------------------------- */
 /*                          SportsEvent ItemList                              */
 /* -------------------------------------------------------------------------- */
 

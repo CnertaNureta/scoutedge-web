@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { getHomePageData } from '@/lib/site-data'
 import { buildOGMeta, softwareApplicationJsonLd } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildFAQPageSchema } from '@/lib/seo/structured-data'
 import { HOMEPAGE_HERO_IMAGE } from '@/lib/unsplash'
 import { BRAND } from '@/lib/brand-tokens'
 import TeamCard from '@/components/team/TeamCard'
@@ -42,13 +43,25 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  const [{ topTeams }, hero, sections, features, home] = await Promise.all([
+  const [{ topTeams }, hero, sections, features, home, geo] = await Promise.all([
     getHomePageData(),
     getTranslations('hero'),
     getTranslations('sections'),
     getTranslations('features'),
     getTranslations('home'),
+    getTranslations('geo'),
   ])
+
+  const faqs = [
+    { question: geo('homeFaqsHeading1'), answer: geo('homeFaqsAnswer1') },
+    { question: geo('homeFaqsHeading2'), answer: geo('homeFaqsAnswer2') },
+    { question: geo('homeFaqsHeading3'), answer: geo('homeFaqsAnswer3') },
+    { question: geo('homeFaqsHeading4'), answer: geo('homeFaqsAnswer4') },
+    { question: geo('homeFaqsHeading5'), answer: geo('homeFaqsAnswer5') },
+    { question: geo('homeFaqsHeading6'), answer: geo('homeFaqsAnswer6') },
+    { question: geo('homeFaqsHeading7'), answer: geo('homeFaqsAnswer7') },
+    { question: geo('homeFaqsHeading8'), answer: geo('homeFaqsAnswer8') },
+  ]
 
   return (
     <>
@@ -56,6 +69,12 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(softwareApplicationJsonLd()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildFAQPageSchema(faqs)),
         }}
       />
 
@@ -110,6 +129,25 @@ export default async function HomePage({ params }: Props) {
               {hero('ctaTertiary')} &rarr;
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* ─── TL;DR / Answer Box (GEO) ─── */}
+      <section
+        id="what-is-kickoracle"
+        className="page-container mt-12 mb-8"
+        aria-labelledby="what-is-kickoracle-heading"
+      >
+        <div className="max-w-3xl mx-auto rounded-2xl border border-white/[0.08] bg-white/[0.02] p-6 md:p-8">
+          <h2
+            id="what-is-kickoracle-heading"
+            className="font-headline text-xl md:text-2xl uppercase tracking-tight text-on-surface mb-3"
+          >
+            {geo('homeTldrHeading')}
+          </h2>
+          <p className="text-on-surface-variant text-base leading-relaxed">
+            {geo('homeTldr')}
+          </p>
         </div>
       </section>
 
@@ -243,6 +281,26 @@ export default async function HomePage({ params }: Props) {
       {/* ─── Newsletter ─── */}
       <section className="page-container mb-24">
         <NewsletterSignup variant="banner" />
+      </section>
+
+      {/* ─── FAQ Section (GEO) ─── */}
+      <section id="faq" className="page-container mb-24">
+        <SectionHeader className="mb-8">{geo('homeFaqHeading')}</SectionHeader>
+        <div className="max-w-3xl mx-auto space-y-6">
+          {faqs.map((faq) => (
+            <article
+              key={faq.question}
+              className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6"
+            >
+              <h2 className="font-headline text-lg md:text-xl text-on-surface mb-3">
+                {faq.question}
+              </h2>
+              <p className="text-on-surface-variant text-base leading-relaxed">
+                {faq.answer}
+              </p>
+            </article>
+          ))}
+        </div>
       </section>
 
       {/* ─── CTA Section ─── */}

@@ -1,0 +1,75 @@
+# KickOracle
+
+> KickOracle is an independent, AI-powered intelligence platform for the FIFA World Cup 2026 (United States, Canada, Mexico — June 11 to July 19, 2026). It publishes win-probability predictions, squad chemistry analyses, host-city travel guides, daily briefings, and player intelligence reports for all 48 qualified nations. Methodology, prediction weights, and backtest results against FiveThirtyEight and devigged Pinnacle closing odds are public.
+
+## Methodology and trust
+
+- [About KickOracle](https://kickoracle.com/en/about): Who runs the project, what we will and won't do, and how to contact the team.
+- [Model accuracy and backtest](https://kickoracle.com/en/accuracy): Brier score, Top-1 accuracy, and log-loss on Euro 2024 and Copa America 2024, head-to-head against FiveThirtyEight and bookmaker consensus, plus a calibration curve.
+- [Predictions methodology](https://kickoracle.com/en/predictions#methodology): The four input weights (FIFA ranking, squad chemistry, morale, stability) used to compute every team's win probability.
+
+## Predictions and rankings
+
+- [AI predictions for all 48 teams](https://kickoracle.com/en/predictions): Tournament-winner win probabilities ranked from favorites to long-shots.
+- [Power rankings](https://kickoracle.com/en/power-rankings): AI-driven rankings blending form, chemistry, and squad depth.
+- [Bracket predictor](https://kickoracle.com/en/bracket): Round-by-round knockout bracket from Round of 32 to the final.
+- [Match board](https://kickoracle.com/en/matches): Every fixture with AI win-probability previews.
+- [Full schedule](https://kickoracle.com/en/schedule): Tournament-wide kickoff calendar across host cities and time zones.
+- [Compare any two teams](https://kickoracle.com/en/compare): Head-to-head comparisons across 1,128 possible matchups.
+- [Daily briefing](https://kickoracle.com/en/daily-briefing): Daily, narrative-first summary of news, injuries, and prediction shifts.
+
+## Teams (high-traffic dossiers)
+
+- [Argentina](https://kickoracle.com/en/teams/argentina): Defending world champions — squad, chemistry, and World Cup 2026 outlook.
+- [Brazil](https://kickoracle.com/en/teams/brazil): Five-time champions — squad and predictions.
+- [France](https://kickoracle.com/en/teams/france): 2018 winners and 2022 finalists — squad and predictions.
+- [Spain](https://kickoracle.com/en/teams/spain): Reigning Euro 2024 champions — squad and predictions.
+- [England](https://kickoracle.com/en/teams/england): 1966 winners — squad and predictions.
+- [Germany](https://kickoracle.com/en/teams/germany): Four-time champions — squad and predictions.
+- [Mexico](https://kickoracle.com/en/teams/mexico): Co-host nation — squad, venues, and predictions.
+- [USA](https://kickoracle.com/en/teams/usa): Co-host nation — squad, venues, and predictions.
+- [Canada](https://kickoracle.com/en/teams/canada): Co-host nation — squad, venues, and predictions.
+- [All 48 teams](https://kickoracle.com/en/teams): Index of every nation grouped by group A through L.
+
+## Players (high-traffic profiles)
+
+- [Lionel Messi](https://kickoracle.com/en/players/lionel-messi): Argentina captain — career, 2026 outlook.
+- [Kylian Mbappe](https://kickoracle.com/en/players/kylian-mbappe): France forward — derived OVR rating and stats.
+- [Erling Haaland](https://kickoracle.com/en/players/erling-haaland): Norway striker — derived OVR rating and stats.
+- [Jude Bellingham](https://kickoracle.com/en/players/jude-bellingham): England midfielder — derived OVR rating and stats.
+- [Vinicius Junior](https://kickoracle.com/en/players/vinicius-junior): Brazil forward — derived OVR rating and stats.
+- [Mohamed Salah](https://kickoracle.com/en/players/mohamed-salah): Egypt forward — derived OVR rating and stats.
+- [Lamine Yamal](https://kickoracle.com/en/players/lamine-yamal): Spain forward — derived OVR rating and stats.
+- [Harry Kane](https://kickoracle.com/en/players/harry-kane): England striker — derived OVR rating and stats.
+- [Son Heung-min](https://kickoracle.com/en/players/son-heung-min): South Korea forward — derived OVR rating and stats.
+- [Julian Alvarez](https://kickoracle.com/en/players/julian-alvarez): Argentina forward — derived OVR rating and stats.
+
+## Host cities and venues
+
+- [All 16 host cities](https://kickoracle.com/en/cities): Index of every World Cup 2026 host city across the US, Canada, and Mexico.
+- [New York / New Jersey](https://kickoracle.com/en/cities/new-york): MetLife Stadium — final venue.
+- [Mexico City](https://kickoracle.com/en/cities/mexico-city): Estadio Azteca — opener venue, third World Cup at this stadium.
+- [Los Angeles](https://kickoracle.com/en/cities/los-angeles): SoFi Stadium.
+- [Dallas](https://kickoracle.com/en/cities/dallas): AT&T Stadium.
+- [Toronto](https://kickoracle.com/en/cities/toronto): BMO Field.
+- [Vancouver](https://kickoracle.com/en/cities/vancouver): BC Place.
+
+## Tools
+
+- [Countdown to kickoff](https://kickoracle.com/en/countdown): Live countdown to June 11, 2026.
+- [Time-zone converter](https://kickoracle.com/en/schedule/converter): Match kickoffs in your local time zone.
+- [Group analysis](https://kickoracle.com/en/groups/A): Standings and qualification odds per group (A-L).
+- [Bracket predictor](https://kickoracle.com/en/bracket): Build and share your own knockout bracket.
+
+## Blog and editorial
+
+- [Blog](https://kickoracle.com/en/blog): Tournament essays, plain-English analysis, and World Cup guides.
+
+## Optional
+
+- [Pricing](https://kickoracle.com/en/pricing): Tournament Pass and free tier details.
+- [Privacy policy](https://kickoracle.com/en/privacy-policy)
+- [Terms of service](https://kickoracle.com/en/terms-of-service)
+- [Sitemap](https://kickoracle.com/sitemap.xml)
+- [Robots](https://kickoracle.com/robots.txt)
+- [Contact](mailto:hello@kickoracle.com)

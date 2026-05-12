@@ -10,6 +10,7 @@ import {
   jsonLdGraph,
 } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildFAQPageSchema } from '@/lib/seo/structured-data'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -36,6 +37,7 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('aboutPage')
+  const geo = await getTranslations('geo')
 
   const founderPerson = personJsonLd({
     name: t('founderName'),
@@ -56,6 +58,16 @@ export default async function AboutPage({ params }: Props) {
     { name: t('badge'), url: canonical(`/${locale}/about`) },
   ])
 
+  const faqs = [
+    { question: geo('aboutFaqsHeading1'), answer: geo('aboutFaqsAnswer1') },
+    { question: geo('aboutFaqsHeading2'), answer: geo('aboutFaqsAnswer2') },
+    { question: geo('aboutFaqsHeading3'), answer: geo('aboutFaqsAnswer3') },
+    { question: geo('aboutFaqsHeading4'), answer: geo('aboutFaqsAnswer4') },
+    { question: geo('aboutFaqsHeading5'), answer: geo('aboutFaqsAnswer5') },
+  ]
+
+  const faqSchema = buildFAQPageSchema(faqs)
+
   return (
     <>
       <script
@@ -63,6 +75,10 @@ export default async function AboutPage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLdGraph([founderPerson, analystPerson, breadcrumbs])),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main className="min-h-screen">
@@ -107,6 +123,28 @@ export default async function AboutPage({ params }: Props) {
 
         <Section heading={t('contactHeading')}>
           <ContactBody />
+        </Section>
+
+        <Section heading={geo('methodologyHeading')}>
+          <MethodologyBlock />
+        </Section>
+
+        <Section heading={geo('aboutFaqHeading')}>
+          <div className="space-y-5">
+            {faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5"
+              >
+                <h2 className="font-headline text-base md:text-lg text-on-surface mb-2">
+                  {faq.question}
+                </h2>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </article>
+            ))}
+          </div>
         </Section>
 
         <section className="max-w-3xl mx-auto px-4 pb-24">
@@ -218,5 +256,79 @@ function ContactBody() {
         ),
       })}
     </p>
+  )
+}
+
+function MethodologyBlock() {
+  const t = useTranslations('geo')
+  return (
+    <div className="space-y-6">
+      <p className="text-on-surface-variant/60 text-xs uppercase tracking-widest">
+        {t('methodologyAsOf')}
+      </p>
+      <div>
+        <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+          {t('methodologyDataSourcesHeading')}
+        </h3>
+        <p className="text-on-surface-variant text-sm leading-relaxed">
+          {t('methodologyDataSourcesBody')}
+        </p>
+      </div>
+      <div>
+        <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+          {t('methodologyFormulaHeading')}
+        </h3>
+        <p className="text-on-surface-variant text-sm leading-relaxed">
+          {t('methodologyFormulaBody')}
+        </p>
+      </div>
+      <div>
+        <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+          {t('methodologyExclusionsHeading')}
+        </h3>
+        <p className="text-on-surface-variant text-sm leading-relaxed">
+          {t('methodologyExclusionsBody')}
+        </p>
+      </div>
+      <div>
+        <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+          {t('methodologyCadenceHeading')}
+        </h3>
+        <p className="text-on-surface-variant text-sm leading-relaxed">
+          {t('methodologyCadenceBody')}
+        </p>
+      </div>
+      <div>
+        <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-3">
+          {t('methodologyGlossaryHeading')}
+        </h3>
+        <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryPacTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryPacDef')}</dd>
+          </div>
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryShoTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryShoDef')}</dd>
+          </div>
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryPasTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryPasDef')}</dd>
+          </div>
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryPhyTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryPhyDef')}</dd>
+          </div>
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryDefTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryDefDef')}</dd>
+          </div>
+          <div>
+            <dt className="font-mono font-bold text-on-surface">{t('methodologyGlossaryOvrTerm')}</dt>
+            <dd className="text-on-surface-variant leading-relaxed">{t('methodologyGlossaryOvrDef')}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
   )
 }
