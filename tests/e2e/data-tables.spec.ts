@@ -60,9 +60,8 @@ test.describe('Power Rankings', () => {
   });
 });
 
-// SKIP: 三层 odds UI（home_win/draw/away_win row + refresh button）目前
-// 还没建好。OddsTracker 渲染的是 shift/sharp-move feed，不是 outcome row table。
-// 等 UI 实装再启用整个 block。
+// TODO: OddsTracker 当前显示 shift/sharp-move feed,
+//       不是三层 source-typed rows. 等 UI 重建后回来开启.
 test.describe.skip('Odds table (Polymarket)', () => {
   test.beforeEach(async ({ page }) => {
     await setupMocks(page);
