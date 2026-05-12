@@ -127,6 +127,7 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
 
   return (
     <div
+      data-testid="hero-live-card"
       style={{
         position: 'absolute',
         top: 120,
