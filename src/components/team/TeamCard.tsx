@@ -10,6 +10,7 @@ interface TeamCardProps {
 export default function TeamCard({ team }: TeamCardProps) {
   return (
     <Link
+      data-testid="team-card"
       href={`/teams/${team.slug}`}
       className="group relative block bg-surface-container rounded-2xl p-6 border border-white/[0.06] hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(160,212,148,0.1)] overflow-hidden"
     >
@@ -28,7 +29,7 @@ export default function TeamCard({ team }: TeamCardProps) {
                 {team.name}
               </h3>
               <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
-                Group {team.group} &middot; #{team.fifaRanking}
+                Group <span data-testid="team-group-code">{team.group}</span> &middot; #<span data-testid="team-fifa-ranking">{team.fifaRanking}</span>
               </p>
             </div>
           </div>
