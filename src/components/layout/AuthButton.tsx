@@ -40,7 +40,7 @@ export default function AuthButton() {
   const initials = displayName.charAt(0).toUpperCase()
 
   return (
-    <div className="relative" ref={menuRef}>
+    <div data-testid="user-menu" className="relative" ref={menuRef}>
       <button
         onClick={() => setMenuOpen(!menuOpen)}
         className="w-9 h-9 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm hover:bg-primary/30 transition-colors"
@@ -57,6 +57,7 @@ export default function AuthButton() {
           </div>
 
           <button
+            data-testid="logout-button"
             onClick={async () => {
               setMenuOpen(false)
               await signOut()
