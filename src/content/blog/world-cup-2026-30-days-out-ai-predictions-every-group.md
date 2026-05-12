@@ -20,7 +20,7 @@ publishedAt: "2026-05-12T08:00:00.000Z"
 
 Thirty days. That is what stands between us and the largest World Cup ever staged: 48 teams across 16 cities in three countries, opening on June 11 at the Estadio Azteca and ending on July 19 at MetLife Stadium. The field is bigger, the format is messier, and the data is richer than any tournament has previously offered. So we asked KickOracle's model the question every fan is asking: what actually happens?
 
-What follows is a group-by-group walk through the entire draw — twelve groups, four teams each, one verdict per group from the model. We use real squad data, FIFA rankings, ELO ratings, and the chemistry/morale signals KickOracle has been tracking since qualifying ended. Where the model disagrees with the bookmakers, we say so. Where the bookmakers are probably right, we say that too.
+What follows is a group-by-group walk through the entire draw — twelve groups, four teams each, one verdict per group from the model. We use real squad data, FIFA rankings, ELO ratings, and the chemistry/morale signals KickOracle has been tracking since qualifying ended. Where the model disagrees with the public consensus, we say so. Where the consensus baseline is probably right, we say that too.
 
 This is the snapshot at T-minus 30. Read it, save it, and check back when the brackets fill in.
 
@@ -125,7 +125,7 @@ The group that decides where England land in the knockout bracket. [England](/te
 A few patterns are worth flagging at the 30-day mark:
 
 - **The expanded format rewards chemistry over talent.** Argentina, Spain, and Morocco — the three highest chemistry index sides — all have favorable group draws and structural advantages that compound into knockout potential.
-- **The market is undervaluing Italy and Colombia.** Both teams have model ratings significantly higher than their bookmaker-implied tournament probabilities. Both also have group draws that allow them to top their groups with comfortable margins.
+- **The market is undervaluing Italy and Colombia.** Both teams have model ratings significantly higher than consensus-implied tournament probabilities. Both also have group draws that allow them to top their groups with comfortable margins.
 - **The biggest variance bet is England.** Bellingham's individual performance ceiling determines whether they reach the semi-final or exit in the quarter-final. No team in the tournament has a wider range of plausible outcomes.
 
 The next two weeks will tell us a lot. Final 26-man squads are due May 26. Friendly results will start to matter. Injuries that look minor today can become tournament-defining by June 11.
@@ -149,4 +149,4 @@ The 48 teams are divided into 12 groups of 4 in the group stage. The top two tea
 By Power Score, Group G is the toughest in the tournament — Portugal, Belgium, Egypt, and Iran combine elite talent (Bernardo Silva, De Bruyne, Salah) with tactically organized lower seeds. Group B (Italy, Switzerland, Canada, Qatar) is the closest competition by model rating spread.
 
 ### Which dark horses does the model rate highest at 30 days out?
-Colombia, Italy, and Morocco are the three teams whose model ratings most exceed their bookmaker odds. Colombia carries Copa America 2024 form into a soft group draw. Italy has the highest defensive chemistry in the field. Morocco's structural cohesion remains a knockout-round threat.
+Colombia, Italy, and Morocco are the three teams whose model ratings most exceed the consensus baseline. Colombia carries Copa America 2024 form into a soft group draw. Italy has the highest defensive chemistry in the field. Morocco's structural cohesion remains a knockout-round threat.

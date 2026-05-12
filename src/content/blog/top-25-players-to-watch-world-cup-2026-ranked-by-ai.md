@@ -106,7 +106,7 @@ These are not the 25 most famous players. They are the 25 the model thinks will 
 
 ## 5. Lamine Yamal — Spain (Rating: 8.5/10)
 
-[Lamine Yamal](/players/lamine-yamal) is 18 years old and already the model's highest-rated wide forward not named Mbappé or Vinícius. The Barcelona winger's chemistry rating with [Pedri](/players/pedri) is the highest pair-bond signal in the tournament. [Spain](/teams/spain) are the model's title favorites for chemistry-driven reasons, and Yamal is the player who turns chemistry into chances. The next 30 days will tell us whether teenage stardom translates to World Cup decisiveness — but the model is betting yes.
+[Lamine Yamal](/players/lamine-yamal) is 18 years old and already the model's highest-rated wide forward not named Mbappé or Vinícius. The Barcelona winger's chemistry rating with [Pedri](/players/pedri) is the highest pair-bond signal in the tournament. [Spain](/teams/spain) are the model's title favorites for chemistry-driven reasons, and Yamal is the player who turns chemistry into chances. The next 30 days will tell us whether teenage stardom translates to World Cup decisiveness — but the model leans yes.
 
 ## 4. Vinícius Jr. — Brazil (Rating: 8.8/10)
 

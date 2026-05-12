@@ -22,7 +22,7 @@ Reddit is the highest-leverage channel this week, but it punishes self-promo. **
 **Post format**: text post, no link in OP
 **Title** (149 chars):
 
-> I built an AI rating model for every player at the 2026 World Cup. Five things genuinely surprised me — including who the model loves more than the bookmakers do.
+> I built an AI rating model for every player at the 2026 World Cup. Five things genuinely surprised me — including who the model rates higher than the public consensus.
 
 **Body** (Reddit markdown, paste as-is):
 
@@ -51,7 +51,7 @@ I built in a media-sentiment input thinking it'd be a big lever — turns out it
 **On methodology — for the people who'll ask:**
 - Inputs: club minutes & per-90 outputs, international caps & goals, position, age, fitness status, sentiment score from a news-pass over the last 14 days.
 - The OVR is a clamped 40-99 scale derived from a base rating × 10, modulated by sentiment. Positional priors set the floor for PAC/DEF.
-- Backtested on Euro 2024 and Copa America 2024 — calibration curve is on the site, comparison vs FiveThirtyEight and devigged Pinnacle is on the same page.
+- Backtested on Euro 2024 and Copa America 2024 — calibration curve is on the site, comparison vs FiveThirtyEight and market-implied benchmark probabilities is on the same page.
 - I am one person. If the model says something dumb about your striker, it's because the inputs said something dumb about your striker. Tell me and I'll look.
 
 Happy to argue any of these in the comments. AMA-style if there's interest.
@@ -138,7 +138,7 @@ Putting this in front of this sub specifically because the methodology is the pa
 - The sentiment input is doing less than I expected (±2 OVR at most). I left it in because the calibration improved by a small but consistent margin on the Euro 2024 backtest, but I'd be open to ablating it.
 - Fitness status is a manual three-tier flag (green/amber/red), refreshed weekly from press. I'd love to automate it from injury-tracker APIs but every public injury feed has license-restricted commercial use.
 
-**Backtest**: Euro 2024 and Copa America 2024, measured by Brier score, top-1 accuracy, and calibration curve. Comparison page is on the site at /accuracy with a head-to-head vs FiveThirtyEight and devigged Pinnacle closing odds. Top-line: comparable to FiveThirtyEight on top-1, slightly better calibrated, worse on extreme-tail outcomes.
+**Backtest**: Euro 2024 and Copa America 2024, measured by Brier score, top-1 accuracy, and calibration curve. Comparison page is on the site at /accuracy with a head-to-head vs FiveThirtyEight and market-implied benchmark probabilities. Top-line: comparable to FiveThirtyEight on top-1, slightly better calibrated, worse on extreme-tail outcomes.
 
 **Open questions I'd love this sub's view on:**
 
@@ -179,7 +179,7 @@ Site: kickoracle.com — methodology page is at /accuracy. Player JSON is expose
 
 - **Every rating is reproducible from public match data.** No hand-tuned per-player overrides. The function is in `src/lib/player-derived-stats.ts` and runs the same way for Messi as for the third-string keeper from Curaçao.
 - **Player JSON is exposed at `/api/players/[slug]`.** No API key, no rate limit beyond Cloudflare's edge. If you want to grab the raw inputs and rebuild a different model on top, go.
-- **Backtested before launch on Euro 2024 and Copa America 2024.** Head-to-head vs FiveThirtyEight and devigged Pinnacle closing odds is at `/accuracy` — calibration curve, Brier score, top-1 accuracy. We didn't ship the public model until the backtest was within a respectable margin.
+- **Backtested before launch on Euro 2024 and Copa America 2024.** Head-to-head vs FiveThirtyEight and market-implied benchmark probabilities is at `/accuracy` — calibration curve, Brier score, top-1 accuracy. We didn't ship the public model until the backtest was within a respectable margin.
 - **Server-rendered, 19 locales, no SPA hydration on the player pages.** The marginal cost of a player view is a single Next.js RSC render plus an edge-cached HTML response. Lighthouse perf is in the 90s on a throttled 4G profile.
 - **No login required to see any rating.** Pro tier exists but it's behind a `/pricing` link; the entire 1,100-player rating set is public.
 
@@ -272,7 +272,7 @@ Two threads, posted 36-48 hours apart so they don't cannibalise each other's rea
 
 **Tweet 4** (271 chars):
 
-> Backtested before launch on Euro 2024 and Copa America 2024. Head-to-head against FiveThirtyEight and devigged Pinnacle closing odds.
+> Backtested before launch on Euro 2024 and Copa America 2024. Head-to-head against FiveThirtyEight and market-implied benchmark probabilities.
 >
 > Top-line: comparable on top-1 accuracy, slightly better calibrated, worse on extreme-tail outcomes.
 >

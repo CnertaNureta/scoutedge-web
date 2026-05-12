@@ -1,11 +1,11 @@
 # KickOracle
 
-> KickOracle is an independent, AI-powered intelligence platform for the FIFA World Cup 2026 (United States, Canada, Mexico — June 11 to July 19, 2026). It publishes win-probability predictions, squad chemistry analyses, host-city travel guides, daily briefings, and player intelligence reports for all 48 qualified nations. Methodology, prediction weights, and backtest results against FiveThirtyEight and devigged Pinnacle closing odds are public.
+> KickOracle is an independent, AI-powered intelligence platform for the FIFA World Cup 2026 (United States, Canada, Mexico — June 11 to July 19, 2026). It publishes win-probability predictions, squad chemistry analyses, host-city travel guides, daily briefings, and player intelligence reports for all 48 qualified nations. Methodology, prediction weights, and backtest results against FiveThirtyEight and market-implied benchmark probabilities are public.
 
 ## Methodology and trust
 
 - [About KickOracle](https://kickoracle.com/en/about): Who runs the project, what we will and won't do, and how to contact the team.
-- [Model accuracy and backtest](https://kickoracle.com/en/accuracy): Brier score, Top-1 accuracy, and log-loss on Euro 2024 and Copa America 2024, head-to-head against FiveThirtyEight and bookmaker consensus, plus a calibration curve.
+- [Model accuracy and backtest](https://kickoracle.com/en/accuracy): Brier score, Top-1 accuracy, and log-loss on Euro 2024 and Copa America 2024, head-to-head against FiveThirtyEight and market consensus, plus a calibration curve.
 - [Predictions methodology](https://kickoracle.com/en/predictions#methodology): The four input weights (FIFA ranking, squad chemistry, morale, stability) used to compute every team's win probability.
 
 ## Predictions and rankings
@@ -58,7 +58,7 @@
 
 - [Countdown to kickoff](https://kickoracle.com/en/countdown): Live countdown to June 11, 2026.
 - [Time-zone converter](https://kickoracle.com/en/schedule/converter): Match kickoffs in your local time zone.
-- [Group analysis](https://kickoracle.com/en/groups/A): Standings and qualification odds per group (A-L).
+- [Group analysis](https://kickoracle.com/en/groups/A): Standings and qualification probabilities per group (A-L).
 - [Bracket predictor](https://kickoracle.com/en/bracket): Build and share your own knockout bracket.
 
 ## Blog and editorial
