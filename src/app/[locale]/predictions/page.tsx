@@ -69,7 +69,7 @@ function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string)
                 {team.name}
               </h3>
               <span className="font-label text-xs text-on-surface-variant">
-                {`${t('fifaRank')} #${team.fifaRanking}`} · {team.confederation}
+                {t('fifaRank', { rank: `#${team.fifaRanking}` })} · {team.confederation}
               </span>
             </div>
           </div>
