@@ -88,6 +88,7 @@ export function HeroA({
   }
   return (
     <div
+      data-testid="hero-a"
       style={{
         position: 'relative',
         width: '100%',
