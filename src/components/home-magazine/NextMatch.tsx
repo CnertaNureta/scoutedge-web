@@ -64,6 +64,7 @@ export function NextMatchModule({ fixture }: NextMatchModuleProps = {}) {
 
   return (
     <div
+      data-testid="next-match"
       style={{
         width: '100%',
         height: '100%',
