@@ -56,7 +56,7 @@ export function DailyBriefingModule({
     t: `${s.readMinutes} min`,
   }))
   return (
-    <div style={{ width: '100%', height: '100%', background: 'var(--ink)', color: 'var(--cream)', padding: 48, position: 'relative', overflow: 'hidden' }}>
+    <div data-testid="more-modules" style={{ width: '100%', height: '100%', background: 'var(--ink)', color: 'var(--cream)', padding: 48, position: 'relative', overflow: 'hidden' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 28 }}>
         <div>
           <div className="ko-eyebrow ko-gold" style={{ marginBottom: 12 }}>{t('sectionLabel')}</div>
