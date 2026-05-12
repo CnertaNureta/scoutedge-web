@@ -156,7 +156,7 @@ export default function MagazineHomePage({
 }: MagazineHomePageProps = {}) {
   const tBrand = useTranslations('magazine.brand')
   return (
-    <div className="kick-oracle-root" style={{ width: '100%', overflowX: 'hidden' }}>
+    <div data-testid="home-magazine" className="kick-oracle-root" style={{ width: '100%', overflowX: 'hidden' }}>
       {/* 01 Hero */}
       <Band id="hero" height={900}>
         <HeroA
