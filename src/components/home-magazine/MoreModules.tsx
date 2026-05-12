@@ -861,7 +861,7 @@ export function GroupStandingsModule({
           }
           const g = data
           return (
-          <div key={g.id} className="ko-card" style={{ background: 'var(--soft)', padding: 0, overflow: 'hidden', borderColor: 'var(--line-strong)' }}>
+          <div key={g.id} data-testid="standings-table" className="ko-card" style={{ background: 'var(--soft)', padding: 0, overflow: 'hidden', borderColor: 'var(--line-strong)' }}>
             <div
               style={{
                 padding: '18px 24px',
@@ -889,6 +889,7 @@ export function GroupStandingsModule({
               {g.teams.map((row, i) => (
                 <Link
                   key={row.slug || row.code}
+                  data-testid="standings-row"
                   href={row.slug ? `/teams/${row.slug}` : `/groups/${g.id}`}
                   style={{
                     padding: '12px 24px',
