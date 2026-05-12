@@ -45,19 +45,22 @@ function StatBar({ home, away, label }: MatchStat & { homeTeamName?: string; awa
 export default function LiveMatchStats({ stats, homeTeamName, awayTeamName }: LiveMatchStatsProps) {
   if (stats.length === 0) {
     return (
-      <GlassCard className="p-6 text-center">
-        <span className="text-3xl mb-3 block">📊</span>
-        <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-1">
-          Live Stats
-        </h3>
-        <p className="text-sm text-on-surface-variant">
-          Real-time match statistics will update here during play.
-        </p>
-      </GlassCard>
+      <div data-testid="live-match-stats">
+        <GlassCard className="p-6 text-center">
+          <span className="text-3xl mb-3 block">📊</span>
+          <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-1">
+            Live Stats
+          </h3>
+          <p className="text-sm text-on-surface-variant">
+            Real-time match statistics will update here during play.
+          </p>
+        </GlassCard>
+      </div>
     )
   }
 
   return (
+    <div data-testid="live-match-stats">
     <GlassCard className="p-5">
       <div className="flex items-center justify-between mb-5">
         <span className="font-label text-xs font-bold uppercase tracking-widest text-primary">
@@ -77,5 +80,6 @@ export default function LiveMatchStats({ stats, homeTeamName, awayTeamName }: Li
         ))}
       </div>
     </GlassCard>
+    </div>
   )
 }
