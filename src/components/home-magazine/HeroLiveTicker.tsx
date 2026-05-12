@@ -108,6 +108,7 @@ export function HeroLiveTicker({ initialItems }: HeroLiveTickerProps) {
 
   return (
     <div
+      data-testid="hero-live-ticker"
       style={{
         position: 'absolute',
         left: 0,
