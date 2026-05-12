@@ -25,19 +25,19 @@ test.describe('Match detail page', () => {
     await expect(page.getByTestId(TEST_IDS.matchHomeTeam)).toContainText(/Brazil|BRA/);
     await expect(page.getByTestId(TEST_IDS.matchAwayTeam)).toContainText(/Argentina|ARG/);
 
-    // 状态正确
-    await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/upcoming|未开始/i);
+    // 状态正确（schema enum: scheduled / live / completed / postponed / cancelled）
+    await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/scheduled|未开始/i);
 
-    // Probability widget 完整三层
-    const widget = page.getByTestId(TEST_IDS.probabilityWidget);
+    // Odds widget 三层综合（ML + Polymarket + Sportsbook + Synthesis）
+    const widget = page.getByTestId(TEST_IDS.oddsWidget);
     await expect(widget).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.probabilityMl)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.probabilityPolymarket)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.probabilitySportsbook)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.probabilitySynthesis)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.oddsRowMl)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.oddsRowPolymarket)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.oddsRowSportsbook)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.oddsRowSynthesis)).toBeVisible();
 
     // 数字格式合理：0-100% 或 0.00-1.00
-    const synthesisText = await widget.getByTestId(TEST_IDS.probabilitySynthesis).textContent();
+    const synthesisText = await widget.getByTestId(TEST_IDS.oddsRowSynthesis).textContent();
     expect(synthesisText).toMatch(/\d+\.?\d*\s*%|0\.\d{2,}/);
 
     expect(errors).toEqual([]);
@@ -51,19 +51,15 @@ test.describe('Match detail page', () => {
     await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/live|进行中/i);
     await expect(page.getByTestId(TEST_IDS.liveIndicator)).toBeVisible();
 
-    // xG 应该可见（实时计算的）
-    await expect(page.getByTestId(TEST_IDS.matchXg)).toBeVisible();
+    // xG 在 team_stats（赛季级），不在 matches。match 级别只测比分 + live 指示器。
   });
 
-  test('finished match: 显示最终比分和 xG', async ({ page }) => {
-    await page.goto('/matches/match-003'); // ES vs BR finished 2-2
+  test('finished match: 显示最终比分', async ({ page }) => {
+    await page.goto('/matches/match-003'); // ES vs BR completed 2-2
     await page.waitForLoadState('networkidle');
 
     await expect(page.getByTestId(TEST_IDS.matchScore)).toContainText(/2.*2|2-2|2 - 2/);
-    await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/finished|结束|FT/i);
-
-    const xgText = await page.getByTestId(TEST_IDS.matchXg).textContent();
-    expect(xgText).toMatch(/1\.\d|2\.\d/); // 大约 1.9 和 2.1
+    await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/completed|结束|FT/i);
   });
 
   test('未找到的 match: 显示 404 或 not found，不崩', async ({ page }) => {

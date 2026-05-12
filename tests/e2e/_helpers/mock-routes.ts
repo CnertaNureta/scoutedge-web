@@ -11,9 +11,10 @@ import { Page } from '@playwright/test';
 import {
   MOCK_TEAMS,
   MOCK_MATCHES,
-  MOCK_PROBABILITIES,
+  MOCK_PREDICTIONS,
+  MOCK_TEAM_STATS,
+  MOCK_STANDINGS,
   MOCK_POLYMARKET_ODDS,
-  MOCK_FOUR_FACTORS,
 } from './mock-data';
 
 const USE_REAL = process.env.USE_REAL_BACKEND === '1';
@@ -36,17 +37,17 @@ export async function setupMocks(page: Page) {
     if (url.pathname.includes('/rest/v1/matches')) {
       return route.fulfill({ json: filterByQuery(MOCK_MATCHES, url) });
     }
-    // /rest/v1/probabilities
-    if (url.pathname.includes('/rest/v1/probabilities')) {
-      const matchId = url.searchParams.get('match_id')?.replace('eq.', '');
-      const data = matchId
-        ? [MOCK_PROBABILITIES[matchId as keyof typeof MOCK_PROBABILITIES]].filter(Boolean)
-        : Object.values(MOCK_PROBABILITIES);
-      return route.fulfill({ json: data });
+    // /rest/v1/predictions（match_outcome / 三概率 / recommended_pick）
+    if (url.pathname.includes('/rest/v1/predictions')) {
+      return route.fulfill({ json: filterByQuery(MOCK_PREDICTIONS, url) });
     }
-    // /rest/v1/four_factors
-    if (url.pathname.includes('/rest/v1/four_factors')) {
-      return route.fulfill({ json: Object.values(MOCK_FOUR_FACTORS) });
+    // /rest/v1/team_stats（赛季级 xG / power_score / 控球率等）
+    if (url.pathname.includes('/rest/v1/team_stats')) {
+      return route.fulfill({ json: filterByQuery(MOCK_TEAM_STATS, url) });
+    }
+    // /rest/v1/standings（小组排名 + qualification_status）
+    if (url.pathname.includes('/rest/v1/standings')) {
+      return route.fulfill({ json: filterByQuery(MOCK_STANDINGS, url) });
     }
     // /auth/v1/* — 让 auth 测试单独处理
     if (url.pathname.startsWith('/auth/v1/')) {

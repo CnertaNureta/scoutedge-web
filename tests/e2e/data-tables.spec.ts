@@ -13,7 +13,7 @@ import { test, expect } from '@playwright/test';
 import { setupMocks, collectConsoleErrors } from './_helpers/mock-routes';
 import { TEST_IDS } from './_helpers/test-ids';
 
-test.describe('ELO ranking', () => {
+test.describe('Power Rankings', () => {
   test.beforeEach(async ({ page }) => {
     await setupMocks(page);
   });
@@ -21,10 +21,10 @@ test.describe('ELO ranking', () => {
   test('显示所有球队，按 ELO 降序', async ({ page }) => {
     const errors = collectConsoleErrors(page);
 
-    await page.goto('/elo');
+    await page.goto('/en/power-rankings');
     await page.waitForLoadState('networkidle');
 
-    const rows = page.getByTestId(TEST_IDS.eloRow);
+    const rows = page.getByTestId(TEST_IDS.powerRankingsRow);
     await expect(rows).toHaveCount(5); // mock 里有 5 队
 
     // 默认应该按 ELO 降序：Brazil (2050) 第一
@@ -32,25 +32,25 @@ test.describe('ELO ranking', () => {
     await expect(firstRow).toContainText(/Brazil|BRA/);
 
     // ELO 数字看起来对（2000 附近）
-    const firstRating = await firstRow.getByTestId(TEST_IDS.eloRating).textContent();
+    const firstRating = await firstRow.getByTestId(TEST_IDS.teamElo).textContent();
     expect(firstRating).toMatch(/20[0-9]{2}/);
 
     expect(errors).toEqual([]);
   });
 
   test('点击 sort 按钮反转顺序', async ({ page }) => {
-    await page.goto('/elo');
+    await page.goto('/en/power-rankings');
     await page.waitForLoadState('networkidle');
 
     const firstRowBefore = await page
-      .getByTestId(TEST_IDS.eloRow)
+      .getByTestId(TEST_IDS.powerRankingsRow)
       .first()
       .textContent();
 
-    await page.getByTestId(TEST_IDS.eloSortButton).click();
+    await page.getByTestId(TEST_IDS.powerRankingsSortButton).click();
 
     const firstRowAfter = await page
-      .getByTestId(TEST_IDS.eloRow)
+      .getByTestId(TEST_IDS.powerRankingsRow)
       .first()
       .textContent();
 
@@ -66,7 +66,7 @@ test.describe('Odds table (Polymarket)', () => {
   test('显示三个 outcomes 和最后更新时间', async ({ page }) => {
     const errors = collectConsoleErrors(page);
 
-    await page.goto('/odds');
+    await page.goto('/en/predictions');
     await page.waitForLoadState('networkidle');
 
     const rows = page.getByTestId(TEST_IDS.oddsRow);
@@ -83,7 +83,7 @@ test.describe('Odds table (Polymarket)', () => {
   });
 
   test('刷新按钮触发新请求', async ({ page }) => {
-    await page.goto('/odds');
+    await page.goto('/en/predictions');
     await page.waitForLoadState('networkidle');
 
     let polymarketCalls = 0;

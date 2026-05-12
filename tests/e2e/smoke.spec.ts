@@ -9,15 +9,26 @@
 import { test, expect } from '@playwright/test';
 import { setupMocks, collectConsoleErrors } from './_helpers/mock-routes';
 
+// Next.js App Router 这个 repo 用 next-intl，localePrefix: 'always'
+// 所有页面都在 src/app/[locale]/ 下，必须带 locale prefix（默认 /en）
+// 例外：/auth/* 在 [locale] 外面
 const PUBLIC_ROUTES = [
-  { path: '/', name: 'home' },
-  { path: '/matches', name: 'matches list' },
-  { path: '/matches/match-001', name: 'match detail' },
-  { path: '/teams', name: 'teams list' },
-  { path: '/teams/br', name: 'team detail' },
-  { path: '/elo', name: 'ELO ranking' },
-  { path: '/odds', name: 'odds table' },
-  { path: '/login', name: 'login' },
+  { path: '/en', name: 'home' },
+  { path: '/en/matches', name: 'matches list' },
+  { path: '/en/matches/live/match-001', name: 'match live detail' },
+  { path: '/en/teams', name: 'teams list' },
+  { path: '/en/teams/brazil', name: 'team detail' },
+  { path: '/en/teams/brazil/qualified', name: 'team qualified' },
+  { path: '/en/power-rankings', name: 'power rankings (ELO)' },
+  { path: '/en/predictions', name: 'predictions / odds' },
+  { path: '/en/schedule', name: 'schedule' },
+  { path: '/en/bracket', name: 'bracket' },
+  { path: '/en/leaderboard', name: 'leaderboard' },
+  { path: '/en/groups/A', name: 'group page' },
+  { path: '/en/cities', name: 'cities list' },
+  { path: '/en/blog', name: 'blog index' },
+  { path: '/en/about', name: 'about' },
+  { path: '/auth/login', name: 'login' },
 ];
 
 for (const route of PUBLIC_ROUTES) {
