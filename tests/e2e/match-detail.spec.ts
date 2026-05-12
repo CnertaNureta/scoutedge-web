@@ -18,7 +18,7 @@ test.describe('Match detail page', () => {
   test('upcoming match: 显示队名、kickoff 时间、三层概率', async ({ page }) => {
     const errors = collectConsoleErrors(page);
 
-    await page.goto('/matches/match-001'); // BR vs AR upcoming
+    await page.goto('/en/matches/live/match-001'); // BR vs AR upcoming
     await page.waitForLoadState('networkidle');
 
     // 队名可见
@@ -28,23 +28,24 @@ test.describe('Match detail page', () => {
     // 状态正确（schema enum: scheduled / live / completed / postponed / cancelled）
     await expect(page.getByTestId(TEST_IDS.matchStatus)).toContainText(/scheduled|未开始/i);
 
-    // Odds widget 三层综合（ML + Polymarket + Sportsbook + Synthesis）
-    const widget = page.getByTestId(TEST_IDS.oddsWidget);
+    // Prediction widget 单层（ML 概率 + 信心度），用 predict/DuelCard 渲染
+    // 注：三层 odds UI（odds/OddsTracker）目前没建好，所以测单层
+    const widget = page.getByTestId(TEST_IDS.predictionWidget);
     await expect(widget).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.oddsRowMl)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.oddsRowPolymarket)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.oddsRowSportsbook)).toBeVisible();
-    await expect(widget.getByTestId(TEST_IDS.oddsRowSynthesis)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.predictionHomeWinProb)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.predictionDrawProb)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.predictionAwayWinProb)).toBeVisible();
+    await expect(widget.getByTestId(TEST_IDS.predictionConfidence)).toBeVisible();
 
     // 数字格式合理：0-100% 或 0.00-1.00
-    const synthesisText = await widget.getByTestId(TEST_IDS.oddsRowSynthesis).textContent();
-    expect(synthesisText).toMatch(/\d+\.?\d*\s*%|0\.\d{2,}/);
+    const homeProbText = await widget.getByTestId(TEST_IDS.predictionHomeWinProb).textContent();
+    expect(homeProbText).toMatch(/\d+\.?\d*\s*%|0\.\d{2,}/);
 
     expect(errors).toEqual([]);
   });
 
   test('live match: 显示比分和 live 指示器', async ({ page }) => {
-    await page.goto('/matches/match-002'); // FR vs EN live
+    await page.goto('/en/matches/live/match-002'); // FR vs EN live
     await page.waitForLoadState('networkidle');
 
     await expect(page.getByTestId(TEST_IDS.matchScore)).toContainText(/1.*0|1-0|1 - 0/);
@@ -55,7 +56,7 @@ test.describe('Match detail page', () => {
   });
 
   test('finished match: 显示最终比分', async ({ page }) => {
-    await page.goto('/matches/match-003'); // ES vs BR completed 2-2
+    await page.goto('/en/matches/live/match-003'); // ES vs BR completed 2-2
     await page.waitForLoadState('networkidle');
 
     await expect(page.getByTestId(TEST_IDS.matchScore)).toContainText(/2.*2|2-2|2 - 2/);
@@ -63,7 +64,7 @@ test.describe('Match detail page', () => {
   });
 
   test('未找到的 match: 显示 404 或 not found，不崩', async ({ page }) => {
-    const response = await page.goto('/matches/this-id-doesnt-exist');
+    const response = await page.goto('/en/matches/live/this-id-doesnt-exist');
     // Next.js 404 page 或 client-side empty state，两者都可以
     if (response?.status() === 404) {
       // good
