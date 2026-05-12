@@ -36,7 +36,7 @@ export default function TeamStats({ team }: TeamStatsProps) {
       </TeamColorSection>
 
       {/* Detailed metrics */}
-      <section className="page-container mt-10 mb-16">
+      <section data-testid="team-stats" className="page-container mt-10 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlassCard className="p-6">
             <ChemistryBar value={team.familiarity} label="Familiarity" />
