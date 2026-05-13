@@ -68,7 +68,7 @@ src/components/
 
 | Route | New design source | Status |
 |---|---|---|
-| `/en` (home) | `design-handoff/home.html` | ⏳ pending |
+| `/en` (home) | `design-handoff/home.html` | 🔄 in progress |
 | `/en/matches` | N/A | ⏸ no-design |
 | `/en/matches/live/[matchId]` | N/A | ⏸ no-design |
 | `/en/teams` | `design-handoff/teams.html` | ⏳ pending |
