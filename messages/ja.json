@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracleはアフィリエイトマーケティングプログラムに参加しています。本サイトのリンクを通じてチケット購入、旅行予約、ストリーミングサービス加入、商品購入を行った場合、追加費用なしでコミッションを受け取る場合があります。 As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI搭載ワールドカップインテリジェンス。全著作権所有。",
     "skipToContent": "メインコンテンツにスキップ",
-    "newsletterCta": "無料のワールドカップ予測を受け取る →"
+    "newsletterCta": "無料のワールドカップ予測を受け取る →",
+    "languagesHeading": "言語",
+    "sitemap": "サイトマップ"
   },
   "common": {
     "loading": "読み込み中...",
@@ -158,7 +160,15 @@
     "description": "FIFA史上最大のワールドカップに出場する全チームのAI分析。チームケミストリー、戦術プロファイル、勝率予測を探索。",
     "group": "グループ{group}",
     "frequentlyAsked": "よくある質問",
-    "moreFromGroup": "グループ{group}の詳細"
+    "moreFromGroup": "グループ{group}の詳細",
+    "breadcrumbHome": "ホーム",
+    "breadcrumbTeams": "チーム",
+    "compareRivalsHeading": "{team} と グループ{group} のライバルを比較",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "{team} がプレーする会場 — 2026ワールドカップ開催都市",
+    "countryGuide": "{country} ガイド",
+    "pronunciationHeading": "{team} の選手名の発音方法",
+    "pronounceLabel": "{name} を発音"
   },
   "matchesPage": {
     "featuredPreview": "注目の試合プレビュー",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "プレミアム機能 — アップグレードでアンロック",
     "featuredDuels": "注目のデュエル"
+  },
+  "teamHero": {
+    "playoffNotice": "UEFAプレーオフ結果次第（2026年3月26日〜31日）",
+    "subtitle": "2026ワールドカップ分析",
+    "fifaRankBadge": "FIFA #{rank}",
+    "groupBadge": "グループ{group}",
+    "chemistryIndex": "ケミストリー指数",
+    "ctaTagline": "全48チームに対する無料の毎日AI予測。",
+    "ctaButton": "無料アカウント作成"
+  },
+  "teamStats": {
+    "chemistry": "ケミストリー",
+    "familiarity": "連携度",
+    "stability": "安定性",
+    "morale": "モラル",
+    "fifaRanking": "FIFAランキング",
+    "tacticalStability": "戦術的安定性",
+    "chemistryIndex": "ケミストリー指数",
+    "familiarityDesc": "チームが一緒にプレーしてきた期間。高いほどピッチ上での直感的な理解が深まります。",
+    "stabilityDesc": "コーチング体制とフォーメーションの安定度。頻繁な変更はこのスコアを下げます。",
+    "moraleDesc": "現在のチームの自信。最近の成績、ファンの支持、メディアの反応に左右されます。",
+    "historicalArchetypeMatch": "歴史的アーキタイプ一致",
+    "archetypeDesc": "プレースタイルと軌跡が最も近い過去のワールドカップチーム。"
+  },
+  "squadRoster": {
+    "squad": "スカッド",
+    "keyPlayer": "キープレーヤー",
+    "caps": "国際試合数",
+    "goals": "ゴール",
+    "assists": "アシスト",
+    "rating": "評価",
+    "capsShort": "{caps} 試合",
+    "capsAndGoals": "{caps} 試合 · {goals} ゴール",
+    "goalsAndAssists": "{goals} ゴール · {assists} アシスト",
+    "goalkeepers": "ゴールキーパー",
+    "defenders": "ディフェンダー",
+    "midfielders": "ミッドフィルダー",
+    "forwards": "フォワード"
+  },
+  "squadDepth": {
+    "title": "スカッドの厚み",
+    "players": "選手",
+    "avgAge": "平均年齢: {age}",
+    "avgRating": "平均評価: ★ {rating}",
+    "ageDistribution": "年齢分布",
+    "ageRangeAria": "年齢範囲: {min} から {max}"
+  },
+  "tacticalDNA": {
+    "title": "戦術DNA",
+    "radarDescription": "レーダーチャートはチーム力の6つの主要次元を示します。面積が大きいほど = チーム全体の総合力が高い。",
+    "atkDesc": "攻撃力: フォワードの脅威度",
+    "midDesc": "中盤の支配: ボール支配率を高める能力",
+    "defDesc": "守備の堅さ: 失点しにくさ",
+    "chmDesc": "ケミストリー: チームとしての連携度",
+    "expDesc": "経験: 選手1人あたりの平均国際試合数",
+    "fitDesc": "フィットネス: 大会に向けて完全に健康な選手の割合"
+  },
+  "historicalPerformance": {
+    "title": "ワールドカップの歴史",
+    "appearances": "出場回数",
+    "since": "{year}年から",
+    "bestFinish": "最高成績",
+    "titlesWon": "獲得タイトル数",
+    "worldChampion": "{count, plural, one {世界王者} other {世界王者}}",
+    "winRate": "勝率",
+    "recordSummary": "{won}勝 {drawn}分 {lost}敗",
+    "allTimeRecord": "ワールドカップ通算成績 — {matches} 試合",
+    "recordBarAria": "{played} 試合中 {won} 勝、{drawn} 分、{lost} 敗",
+    "wonCount": "{count} 勝",
+    "drawnCount": "{count} 分",
+    "lostCount": "{count} 敗",
+    "iconicMoments": "象徴的な瞬間"
+  },
+  "matchCenter": {
+    "title": "マッチセンター",
+    "timezoneAdjustment": "タイムゾーン調整",
+    "homeTimezone": "{team} ホームのタイムゾーン:",
+    "venuesHeading": "2026ワールドカップ会場 — {count} スタジアム",
+    "capacity": "収容人数",
+    "altitude": "標高",
+    "roof": "屋根",
+    "surface": "ピッチ",
+    "climate": "気候",
+    "juneTemp": "6月: {high}°/{low}°C",
+    "julyTemp": "7月: {high}°/{low}°C",
+    "jetLag": {
+      "none": "時差なし",
+      "moderate": "中程度",
+      "significant": "顕著",
+      "extreme": "極端"
+    }
+  },
+  "teamCard": {
+    "groupRank": "グループ{group} · #{rank}",
+    "playoff": "プレーオフ",
+    "chemistry": "ケミストリー"
   }
 }

@@ -1,5 +1,6 @@
 import type { Team } from '@/lib/types'
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { getLiveTeamDetails } from '@/lib/live-data-service'
@@ -11,7 +12,8 @@ interface TeamHeroProps {
   team: Team
 }
 
-export default function TeamHero({ team }: TeamHeroProps) {
+export default async function TeamHero({ team }: TeamHeroProps) {
+  const t = await getTranslations('teamHero')
   const heroImage = getTeamHeroImage(team.slug)
   const liveDetails = getLiveTeamDetails(team.name)
   const colors = getTeamColors(team.slug)
@@ -46,7 +48,7 @@ export default function TeamHero({ team }: TeamHeroProps) {
       <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 pb-16 md:pb-24">
         <div className="space-y-4 max-w-3xl">
           {team.isPlayoff && (
-            <Badge variant="tertiary" size="md">Subject to UEFA Playoff Results (March 26-31, 2026)</Badge>
+            <Badge variant="tertiary" size="md">{t('playoffNotice')}</Badge>
           )}
 
           {/* Flag + Badge */}
@@ -68,14 +70,14 @@ export default function TeamHero({ team }: TeamHeroProps) {
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl tracking-wide text-on-surface uppercase leading-[0.9]">
             {team.name}
             <span className="block text-xl md:text-2xl lg:text-3xl tracking-wider text-on-surface-variant mt-2 normal-case">
-              World Cup 2026 Analysis
+              {t('subtitle')}
             </span>
           </h1>
 
           {/* Metadata badges */}
           <div className="flex flex-wrap items-center gap-3 mt-4">
-            <Badge variant="primary" size="md">#{team.fifaRanking} FIFA</Badge>
-            <Badge variant="outline" size="md">Group {team.group}</Badge>
+            <Badge variant="primary" size="md">{t('fifaRankBadge', { rank: team.fifaRanking })}</Badge>
+            <Badge variant="outline" size="md">{t('groupBadge', { group: team.group })}</Badge>
             <Badge variant="outline" size="md">{team.confederation}</Badge>
             <span className="font-label text-sm text-on-surface-variant">{team.coachName}</span>
           </div>
@@ -90,7 +92,7 @@ export default function TeamHero({ team }: TeamHeroProps) {
             </span>
             <div className="flex-1 max-w-sm">
               <span className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium mb-1 block">
-                Chemistry Index
+                {t('chemistryIndex')}
               </span>
               <ChemistryBar value={team.chemistry} showValue={false} size="md" />
             </div>
@@ -106,12 +108,12 @@ export default function TeamHero({ team }: TeamHeroProps) {
 
           {/* Registration CTA — above fold */}
           <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
-            <p className="font-label text-sm text-on-surface-variant">Free daily AI predictions for all 48 teams.</p>
+            <p className="font-label text-sm text-on-surface-variant">{t('ctaTagline')}</p>
             <Link
               href="/auth/register"
               className="shrink-0 bg-primary text-on-primary font-label text-sm font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:opacity-90 active:scale-95 transition-all min-h-[44px] flex items-center"
             >
-              Create Free Account
+              {t('ctaButton')}
             </Link>
           </div>
         </div>

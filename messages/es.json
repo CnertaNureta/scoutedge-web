@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle participa en programas de marketing de afiliados. Podemos ganar una comisión cuando compras entradas, reservas viajes, te suscribes a servicios de streaming o compras mercancía a través de los enlaces de este sitio, sin costo adicional para ti. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Inteligencia de la Copa del Mundo impulsada por IA. Todos los derechos reservados.",
     "skipToContent": "Saltar al contenido principal",
-    "newsletterCta": "Recibe predicciones gratis del Mundial →"
+    "newsletterCta": "Recibe predicciones gratis del Mundial →",
+    "languagesHeading": "Idiomas",
+    "sitemap": "Mapa del sitio"
   },
   "common": {
     "loading": "Cargando...",
@@ -158,7 +160,15 @@
     "description": "Análisis con IA de cada selección que compite en la Copa del Mundo FIFA más grande de la historia. Explora la química de equipo, perfiles tácticos y predicciones de probabilidad de victoria.",
     "group": "Grupo {group}",
     "frequentlyAsked": "Preguntas frecuentes",
-    "moreFromGroup": "Más del Grupo {group}"
+    "moreFromGroup": "Más del Grupo {group}",
+    "breadcrumbHome": "Inicio",
+    "breadcrumbTeams": "Selecciones",
+    "compareRivalsHeading": "Comparar {team} con los rivales del Grupo {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Dónde juega {team} — Ciudades sede del Mundial 2026",
+    "countryGuide": "Guía de {country}",
+    "pronunciationHeading": "Cómo pronunciar los nombres de los jugadores de {team}",
+    "pronounceLabel": "Pronunciar {name}"
   },
   "matchesPage": {
     "featuredPreview": "Previa Destacada del Partido",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Al mejor de 5",
     "bestOfFiveTooltip": "Función premium — actualiza para desbloquear",
     "featuredDuels": "Duelos destacados"
+  },
+  "teamHero": {
+    "playoffNotice": "Sujeto a los resultados del repechaje de la UEFA (26-31 de marzo de 2026)",
+    "subtitle": "Análisis del Mundial 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Grupo {group}",
+    "chemistryIndex": "Índice de química",
+    "ctaTagline": "Predicciones diarias gratuitas con IA para las 48 selecciones.",
+    "ctaButton": "Crear cuenta gratis"
+  },
+  "teamStats": {
+    "chemistry": "Química",
+    "familiarity": "Familiaridad",
+    "stability": "Estabilidad",
+    "morale": "Moral",
+    "fifaRanking": "Ranking FIFA",
+    "tacticalStability": "Estabilidad táctica",
+    "chemistryIndex": "Índice de química",
+    "familiarityDesc": "Cuánto tiempo lleva jugando junto el equipo. Más alto = entendimiento más instintivo en el campo.",
+    "stabilityDesc": "Qué tan asentado está el cuerpo técnico y la formación. Los cambios frecuentes reducen esta puntuación.",
+    "moraleDesc": "Confianza actual del equipo. Impulsada por los resultados recientes, el apoyo de los aficionados y la opinión de los medios.",
+    "historicalArchetypeMatch": "Coincidencia con arquetipo histórico",
+    "archetypeDesc": "Una selección anterior del Mundial cuyo estilo de juego y trayectoria se asemejan más a este equipo."
+  },
+  "squadRoster": {
+    "squad": "Plantilla",
+    "keyPlayer": "Jugador clave",
+    "caps": "Internacionalidades",
+    "goals": "Goles",
+    "assists": "Asistencias",
+    "rating": "Valoración",
+    "capsShort": "{caps} internacionalidades",
+    "capsAndGoals": "{caps} internacionalidades · {goals} goles",
+    "goalsAndAssists": "{goals} goles · {assists} asistencias",
+    "goalkeepers": "Porteros",
+    "defenders": "Defensas",
+    "midfielders": "Mediocampistas",
+    "forwards": "Delanteros"
+  },
+  "squadDepth": {
+    "title": "Profundidad de plantilla",
+    "players": "jugadores",
+    "avgAge": "Edad media: {age}",
+    "avgRating": "Valoración media: ★ {rating}",
+    "ageDistribution": "Distribución por edad",
+    "ageRangeAria": "Rango de edad: de {min} a {max}"
+  },
+  "tacticalDNA": {
+    "title": "ADN táctico",
+    "radarDescription": "El gráfico radar muestra seis dimensiones clave de la fuerza del equipo. Mayor área = plantilla más sólida en general.",
+    "atkDesc": "Calidad ofensiva: cuán peligrosos son los delanteros",
+    "midDesc": "Control del mediocampo: capacidad de dominar la posesión",
+    "defDesc": "Solidez defensiva: lo difícil que es marcarles",
+    "chmDesc": "Química: lo bien que el equipo juega como una unidad",
+    "expDesc": "Experiencia: media de internacionalidades por jugador",
+    "fitDesc": "Forma física: porcentaje de la plantilla totalmente apta para el torneo"
+  },
+  "historicalPerformance": {
+    "title": "Historia en el Mundial",
+    "appearances": "Participaciones",
+    "since": "Desde {year}",
+    "bestFinish": "Mejor resultado",
+    "titlesWon": "Títulos ganados",
+    "worldChampion": "{count, plural, one {Campeón del mundo} other {Campeones del mundo}}",
+    "winRate": "% de victorias",
+    "recordSummary": "{won}V {drawn}E {lost}D",
+    "allTimeRecord": "Récord histórico en el Mundial — {matches} partidos",
+    "recordBarAria": "Ganados {won}, empatados {drawn}, perdidos {lost} de {played} partidos",
+    "wonCount": "{count} ganados",
+    "drawnCount": "{count} empatados",
+    "lostCount": "{count} perdidos",
+    "iconicMoments": "Momentos icónicos"
+  },
+  "matchCenter": {
+    "title": "Centro de partidos",
+    "timezoneAdjustment": "Ajuste de zona horaria",
+    "homeTimezone": "Zona horaria local de {team}:",
+    "venuesHeading": "Sedes del Mundial 2026 — {count} estadios",
+    "capacity": "Aforo",
+    "altitude": "Altitud",
+    "roof": "Techo",
+    "surface": "Superficie",
+    "climate": "Clima",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Sin jet lag",
+      "moderate": "Moderado",
+      "significant": "Significativo",
+      "extreme": "Extremo"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Grupo {group} · #{rank}",
+    "playoff": "Repechaje",
+    "chemistry": "Química"
   }
 }

@@ -125,8 +125,8 @@ export default async function TeamPage({ params }: PageProps) {
       <TeamHero team={team} />
       <Breadcrumbs
         items={[
-          { name: 'Home', href: '/' },
-          { name: 'Teams', href: '/teams' },
+          { name: t('breadcrumbHome'), href: '/' },
+          { name: t('breadcrumbTeams'), href: '/teams' },
           { name: team.name, href: `/teams/${slug}` },
         ]}
       />
@@ -195,7 +195,7 @@ export default async function TeamPage({ params }: PageProps) {
       {groupTeams.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Compare {team.name} vs Group {team.group} rivals
+            {t('compareRivalsHeading', { team: team.name, group: team.group })}
           </h2>
           <div className="flex flex-wrap gap-3">
             {groupTeams.map((rival) => (
@@ -204,7 +204,7 @@ export default async function TeamPage({ params }: PageProps) {
                 href={`/compare/${slug}-vs-${rival.slug}`}
                 className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
               >
-                {team.name} vs {rival.name}
+                {t('versus', { teamA: team.name, teamB: rival.name })}
               </Link>
             ))}
           </div>
@@ -215,7 +215,7 @@ export default async function TeamPage({ params }: PageProps) {
       {teamCities.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-16">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Where {team.name} plays — World Cup 2026 host cities
+            {t('hostCitiesHeading', { team: team.name })}
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {teamCities.map((c) => (
@@ -228,7 +228,7 @@ export default async function TeamPage({ params }: PageProps) {
                   {c.name}
                 </p>
                 <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
-                  {c.country} guide
+                  {t('countryGuide', { country: c.country })}
                 </p>
               </Link>
             ))}
@@ -240,7 +240,7 @@ export default async function TeamPage({ params }: PageProps) {
       {pronunciationLinks.length > 0 && (
         <section className="max-w-[1440px] mx-auto px-6 mb-20">
           <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            How to pronounce {team.name} player names
+            {t('pronunciationHeading', { team: team.name })}
           </h2>
           <div className="flex flex-wrap gap-3">
             {pronunciationLinks.map((lp) => (
@@ -249,7 +249,7 @@ export default async function TeamPage({ params }: PageProps) {
                 href={`/lingo/players/${lp.id}`}
                 className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-secondary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-secondary"
               >
-                Pronounce {lp.name}
+                {t('pronounceLabel', { name: lp.name })}
               </Link>
             ))}
           </div>

@@ -10,6 +10,17 @@ function read(filePath: string): string {
   return fs.readFileSync(path.join(repoRoot, filePath), 'utf8')
 }
 
+function walkSourceFiles(dir: string): string[] {
+  const absDir = path.join(repoRoot, dir)
+  return fs.readdirSync(absDir, { withFileTypes: true }).flatMap((entry) => {
+    const relPath = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      return walkSourceFiles(relPath)
+    }
+    return /\.(ts|tsx)$/.test(entry.name) ? [relPath] : []
+  })
+}
+
 describe('PR #25 i18n validations', () => {
   it('uses translated nav.pricing label in desktop header link', () => {
     const header = read('src/components/layout/Header.tsx')
@@ -30,6 +41,29 @@ describe('PR #25 i18n validations', () => {
     }
 
     expect(missing).toEqual([])
+  })
+})
+
+describe('Client i18n namespace guard', () => {
+  it('ships every client useTranslations namespace through the layout provider', () => {
+    const clientNamespaces = new Set(
+      [...read('src/i18n/client-namespaces.ts').matchAll(/'([^']+)'/g)].map((match) => match[1]),
+    )
+    const missing: string[] = []
+
+    for (const file of walkSourceFiles('src')) {
+      const source = read(file)
+      if (!/^['"]use client['"]/m.test(source)) continue
+
+      for (const match of source.matchAll(/useTranslations\(['"]([^'"]+)['"]\)/g)) {
+        const namespaceRoot = match[1].split('.')[0]
+        if (!clientNamespaces.has(namespaceRoot)) {
+          missing.push(`${file}: ${namespaceRoot}`)
+        }
+      }
+    }
+
+    expect(missing.sort()).toEqual([])
   })
 })
 

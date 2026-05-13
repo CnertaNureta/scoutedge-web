@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle uczestniczy w programach marketingu afiliacyjnego. Możemy otrzymać prowizję, gdy kupujesz bilety, rezerwujesz podróże, subskrybujesz usługi streamingowe lub kupujesz gadżety za pośrednictwem linków na tej stronie, bez dodatkowych kosztów dla Ciebie. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Wywiad o Mistrzostwach Świata oparty na AI. Wszelkie prawa zastrzeżone.",
     "skipToContent": "Przejdź do głównej treści",
-    "newsletterCta": "Odbierz darmowe prognozy MŚ →"
+    "newsletterCta": "Odbierz darmowe prognozy MŚ →",
+    "languagesHeading": "Języki",
+    "sitemap": "Mapa strony"
   },
   "common": {
     "loading": "Ładowanie...",
@@ -158,7 +160,15 @@
     "description": "Analiza AI każdej reprezentacji biorącej udział w największych Mistrzostwach Świata FIFA w historii. Odkryj chemię kadry, profile taktyczne i prognozy prawdopodobieństwa wygranych.",
     "group": "Grupa {group}",
     "frequentlyAsked": "Najczęściej zadawane pytania",
-    "moreFromGroup": "Więcej z grupy {group}"
+    "moreFromGroup": "Więcej z grupy {group}",
+    "breadcrumbHome": "Strona Główna",
+    "breadcrumbTeams": "Reprezentacje",
+    "compareRivalsHeading": "Porównaj {team} z rywalami z grupy {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Gdzie gra {team} — miasta-gospodarze MŚ 2026",
+    "countryGuide": "Przewodnik po kraju: {country}",
+    "pronunciationHeading": "Jak wymawiać nazwiska piłkarzy reprezentacji {team}",
+    "pronounceLabel": "Wymów {name}"
   },
   "matchesPage": {
     "featuredPreview": "Wyróżniona Zapowiedź Meczu",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Funkcja premium — uaktualnij, aby odblokować",
     "featuredDuels": "Wyróżnione pojedynki"
+  },
+  "teamHero": {
+    "playoffNotice": "Z zastrzeżeniem wyników baraży UEFA (26-31 marca 2026)",
+    "subtitle": "Analiza Mistrzostw Świata 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Grupa {group}",
+    "chemistryIndex": "Wskaźnik chemii",
+    "ctaTagline": "Darmowe codzienne prognozy AI dla wszystkich 48 reprezentacji.",
+    "ctaButton": "Załóż darmowe konto"
+  },
+  "teamStats": {
+    "chemistry": "Chemia",
+    "familiarity": "Zgranie",
+    "stability": "Stabilność",
+    "morale": "Morale",
+    "fifaRanking": "Ranking FIFA",
+    "tacticalStability": "Stabilność taktyczna",
+    "chemistryIndex": "Wskaźnik chemii",
+    "familiarityDesc": "Jak długo kadra gra razem. Wyższy wynik = bardziej instynktowne zrozumienie na boisku.",
+    "stabilityDesc": "Jak ustabilizowany jest sztab szkoleniowy i ustawienie. Częste zmiany obniżają wynik.",
+    "moraleDesc": "Aktualna pewność siebie kadry. Zależna od ostatnich wyników, wsparcia kibiców i nastrojów medialnych.",
+    "historicalArchetypeMatch": "Historyczny archetyp",
+    "archetypeDesc": "Drużyna z poprzednich Mistrzostw Świata, której styl gry i przebieg najbardziej przypominają tę kadrę."
+  },
+  "squadRoster": {
+    "squad": "Kadra",
+    "keyPlayer": "Kluczowy zawodnik",
+    "caps": "Mecze",
+    "goals": "Gole",
+    "assists": "Asysty",
+    "rating": "Ocena",
+    "capsShort": "{caps} meczów",
+    "capsAndGoals": "{caps} meczów · {goals} goli",
+    "goalsAndAssists": "{goals} goli · {assists} asyst",
+    "goalkeepers": "Bramkarze",
+    "defenders": "Obrońcy",
+    "midfielders": "Pomocnicy",
+    "forwards": "Napastnicy"
+  },
+  "squadDepth": {
+    "title": "Głębokość kadry",
+    "players": "zawodników",
+    "avgAge": "Śr. wiek: {age}",
+    "avgRating": "Śr. ocena: ★ {rating}",
+    "ageDistribution": "Rozkład wieku",
+    "ageRangeAria": "Przedział wieku: od {min} do {max}"
+  },
+  "tacticalDNA": {
+    "title": "DNA taktyczne",
+    "radarDescription": "Wykres radarowy pokazuje sześć kluczowych wymiarów siły zespołu. Większe pole = silniejsza kadra.",
+    "atkDesc": "Jakość ofensywna: jak groźni są napastnicy",
+    "midDesc": "Kontrola środka pola: zdolność do dominacji w posiadaniu piłki",
+    "defDesc": "Solidność defensywy: jak trudno zdobyć z nimi bramkę",
+    "chmDesc": "Chemia: jak dobrze drużyna gra jako jedność",
+    "expDesc": "Doświadczenie: średnia liczba meczów reprezentacji na zawodnika",
+    "fitDesc": "Forma fizyczna: procent kadry w pełni gotowej na turniej"
+  },
+  "historicalPerformance": {
+    "title": "Historia mistrzostw świata",
+    "appearances": "Występy",
+    "since": "Od {year}",
+    "bestFinish": "Najlepszy wynik",
+    "titlesWon": "Zdobyte tytuły",
+    "worldChampion": "{count, plural, one {Mistrz Świata} few {Mistrzowie Świata} many {Mistrzów Świata} other {Mistrzów Świata}}",
+    "winRate": "Skuteczność",
+    "recordSummary": "{won}Z {drawn}R {lost}P",
+    "allTimeRecord": "Bilans wszech czasów MŚ — {matches} meczów",
+    "recordBarAria": "{won} wygranych, {drawn} remisów, {lost} przegranych z {played} meczów",
+    "wonCount": "{count} wygranych",
+    "drawnCount": "{count} remisów",
+    "lostCount": "{count} przegranych",
+    "iconicMoments": "Kultowe momenty"
+  },
+  "matchCenter": {
+    "title": "Centrum meczowe",
+    "timezoneAdjustment": "Korekta strefy czasowej",
+    "homeTimezone": "Strefa czasowa kraju {team}:",
+    "venuesHeading": "Areny MŚ 2026 — {count} stadionów",
+    "capacity": "Pojemność",
+    "altitude": "Wysokość n.p.m.",
+    "roof": "Dach",
+    "surface": "Nawierzchnia",
+    "climate": "Klimat",
+    "juneTemp": "Cze: {high}°/{low}°C",
+    "julyTemp": "Lip: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Bez jet lagu",
+      "moderate": "Umiarkowany",
+      "significant": "Znaczący",
+      "extreme": "Ekstremalny"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Grupa {group} · #{rank}",
+    "playoff": "Baraże",
+    "chemistry": "Chemia"
   }
 }

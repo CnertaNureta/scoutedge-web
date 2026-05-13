@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle, ortaklık pazarlama programlarına katılmaktadır. Bu sitedeki bağlantılar aracılığıyla bilet satın aldığınızda, seyahat rezervasyonu yaptığınızda, yayın hizmetlerine abone olduğunuzda veya ürün satın aldığınızda, size ek bir maliyet olmaksızın komisyon kazanabiliriz. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Yapay Zeka Destekli Dünya Kupası İstihbaratı. Tüm hakları saklıdır.",
     "skipToContent": "Ana içeriğe geç",
-    "newsletterCta": "Ücretsiz Dünya Kupası tahminleri al →"
+    "newsletterCta": "Ücretsiz Dünya Kupası tahminleri al →",
+    "languagesHeading": "Diller",
+    "sitemap": "Site haritası"
   },
   "common": {
     "loading": "Yükleniyor...",
@@ -158,7 +160,15 @@
     "description": "Tarihin en büyük FIFA Dünya Kupası'nda yarışan her milli takımın yapay zeka analizi. Kadro uyumu, taktik profiller ve kazanma olasılığı tahminlerini keşfedin.",
     "group": "{group}. Grup",
     "frequentlyAsked": "Sıkça sorulan sorular",
-    "moreFromGroup": "{group}. Gruptan daha fazlası"
+    "moreFromGroup": "{group}. Gruptan daha fazlası",
+    "breadcrumbHome": "Ana Sayfa",
+    "breadcrumbTeams": "Takımlar",
+    "compareRivalsHeading": "{team} ile {group}. Grup rakiplerini karşılaştır",
+    "versus": "{teamA} - {teamB}",
+    "hostCitiesHeading": "{team} nerede oynuyor — 2026 Dünya Kupası ev sahibi şehirleri",
+    "countryGuide": "{country} rehberi",
+    "pronunciationHeading": "{team} oyuncularının isimleri nasıl telaffuz edilir",
+    "pronounceLabel": "{name} adını telaffuz et"
   },
   "matchesPage": {
     "featuredPreview": "Öne Çıkan Maç Önizlemesi",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Premium özellik — kilit açmak için yükseltin",
     "featuredDuels": "Öne çıkan düellolar"
+  },
+  "teamHero": {
+    "playoffNotice": "UEFA Play-off Sonuçlarına Bağlıdır (26-31 Mart 2026)",
+    "subtitle": "2026 Dünya Kupası Analizi",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "{group}. Grup",
+    "chemistryIndex": "Uyum Endeksi",
+    "ctaTagline": "48 takımın tamamı için ücretsiz günlük yapay zeka tahminleri.",
+    "ctaButton": "Ücretsiz Hesap Oluştur"
+  },
+  "teamStats": {
+    "chemistry": "Uyum",
+    "familiarity": "Aşinalık",
+    "stability": "İstikrar",
+    "morale": "Moral",
+    "fifaRanking": "FIFA Sıralaması",
+    "tacticalStability": "Taktik İstikrar",
+    "chemistryIndex": "Uyum Endeksi",
+    "familiarityDesc": "Kadronun ne kadar süredir birlikte oynadığı. Yüksek = sahada daha içgüdüsel anlayış.",
+    "stabilityDesc": "Teknik kadro ve diziliş düzeninin ne kadar yerleşik olduğu. Sık değişiklikler bu puanı düşürür.",
+    "moraleDesc": "Mevcut kadro öz güveni. Son sonuçlar, taraftar desteği ve medya algısına dayanır.",
+    "historicalArchetypeMatch": "Tarihsel Arketip Eşleşmesi",
+    "archetypeDesc": "Oyun stili ve gidişatı bu kadroya en çok benzeyen geçmiş bir Dünya Kupası takımı."
+  },
+  "squadRoster": {
+    "squad": "Kadro",
+    "keyPlayer": "Kilit Oyuncu",
+    "caps": "Maç",
+    "goals": "Gol",
+    "assists": "Asist",
+    "rating": "Puan",
+    "capsShort": "{caps} maç",
+    "capsAndGoals": "{caps} maç · {goals} gol",
+    "goalsAndAssists": "{goals} gol · {assists} asist",
+    "goalkeepers": "Kaleciler",
+    "defenders": "Defans",
+    "midfielders": "Orta Saha",
+    "forwards": "Forvet"
+  },
+  "squadDepth": {
+    "title": "Kadro Derinliği",
+    "players": "oyuncu",
+    "avgAge": "Ort. Yaş: {age}",
+    "avgRating": "Ort. Puan: ★ {rating}",
+    "ageDistribution": "Yaş Dağılımı",
+    "ageRangeAria": "Yaş aralığı: {min} ile {max}"
+  },
+  "tacticalDNA": {
+    "title": "Taktik DNA",
+    "radarDescription": "Radar grafiği takım gücünün altı temel boyutunu gösterir. Daha geniş alan = genel olarak daha güçlü kadro.",
+    "atkDesc": "Hücum kalitesi: forvetlerin ne kadar tehlikeli olduğu",
+    "midDesc": "Orta saha kontrolü: topa hâkim olma yeteneği",
+    "defDesc": "Savunma sağlamlığı: gol atılması ne kadar zor",
+    "chmDesc": "Uyum: takımın bir bütün olarak ne kadar iyi oynadığı",
+    "expDesc": "Tecrübe: oyuncu başına ortalama milli takım maçı",
+    "fitDesc": "Form: turnuvaya tamamen hazır kadro yüzdesi"
+  },
+  "historicalPerformance": {
+    "title": "Dünya Kupası Tarihi",
+    "appearances": "Katılım",
+    "since": "{year} yılından beri",
+    "bestFinish": "En İyi Derece",
+    "titlesWon": "Kazanılan Şampiyonluk",
+    "worldChampion": "{count, plural, one {Dünya Şampiyonu} other {Dünya Şampiyonu}}",
+    "winRate": "Kazanma Oranı",
+    "recordSummary": "{won}G {drawn}B {lost}M",
+    "allTimeRecord": "Tüm Zamanların Dünya Kupası Karnesi — {matches} Maç",
+    "recordBarAria": "{played} maçtan {won} galibiyet, {drawn} beraberlik, {lost} mağlubiyet",
+    "wonCount": "{count} Galibiyet",
+    "drawnCount": "{count} Beraberlik",
+    "lostCount": "{count} Mağlubiyet",
+    "iconicMoments": "İkonik Anlar"
+  },
+  "matchCenter": {
+    "title": "Maç Merkezi",
+    "timezoneAdjustment": "Saat Dilimi Ayarı",
+    "homeTimezone": "{team} ev sahibi saat dilimi:",
+    "venuesHeading": "2026 Dünya Kupası Stadyumları — {count} Stadyum",
+    "capacity": "Kapasite",
+    "altitude": "Rakım",
+    "roof": "Çatı",
+    "surface": "Zemin",
+    "climate": "İklim",
+    "juneTemp": "Haz: {high}°/{low}°C",
+    "julyTemp": "Tem: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Jet Lag Yok",
+      "moderate": "Orta",
+      "significant": "Belirgin",
+      "extreme": "Aşırı"
+    }
+  },
+  "teamCard": {
+    "groupRank": "{group}. Grup · #{rank}",
+    "playoff": "Play-off",
+    "chemistry": "Uyum"
   }
 }

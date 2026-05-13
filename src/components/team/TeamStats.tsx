@@ -1,4 +1,5 @@
 import type { Team } from '@/lib/types'
+import { getTranslations } from 'next-intl/server'
 import { getTeamColors } from '@/lib/team-colors'
 import TeamColorSection from '@/components/ui/TeamColorSection'
 import StatsRibbon from '@/components/ui/StatsRibbon'
@@ -10,15 +11,16 @@ interface TeamStatsProps {
   team: Team
 }
 
-export default function TeamStats({ team }: TeamStatsProps) {
+export default async function TeamStats({ team }: TeamStatsProps) {
+  const t = await getTranslations('teamStats')
   const colors = getTeamColors(team.slug)
 
   const ribbonStats = [
-    { label: 'Chemistry', value: team.chemistry, suffix: '' },
-    { label: 'Familiarity', value: team.familiarity, suffix: '' },
-    { label: 'Stability', value: team.stability, suffix: '' },
-    { label: 'Morale', value: team.morale, suffix: '' },
-    { label: 'FIFA Ranking', value: team.fifaRanking, prefix: '#' },
+    { label: t('chemistry'), value: team.chemistry, suffix: '' },
+    { label: t('familiarity'), value: team.familiarity, suffix: '' },
+    { label: t('stability'), value: team.stability, suffix: '' },
+    { label: t('morale'), value: team.morale, suffix: '' },
+    { label: t('fifaRanking'), value: team.fifaRanking, prefix: '#' },
   ]
 
   return (
@@ -39,21 +41,21 @@ export default function TeamStats({ team }: TeamStatsProps) {
       <section className="page-container mt-10 mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <GlassCard className="p-6">
-            <ChemistryBar value={team.familiarity} label="Familiarity" />
+            <ChemistryBar value={team.familiarity} label={t('familiarity')} />
             <p className="text-on-surface-variant text-xs mt-3 leading-relaxed">
-              How long the squad has played together. Higher = more instinctive understanding on the pitch.
+              {t('familiarityDesc')}
             </p>
           </GlassCard>
           <GlassCard className="p-6">
-            <ChemistryBar value={team.stability} label="Tactical Stability" />
+            <ChemistryBar value={team.stability} label={t('tacticalStability')} />
             <p className="text-on-surface-variant text-xs mt-3 leading-relaxed">
-              How settled the coaching setup and formation are. Frequent changes lower this score.
+              {t('stabilityDesc')}
             </p>
           </GlassCard>
           <GlassCard className="p-6">
-            <ChemistryBar value={team.morale} label="Morale" />
+            <ChemistryBar value={team.morale} label={t('morale')} />
             <p className="text-on-surface-variant text-xs mt-3 leading-relaxed">
-              Current squad confidence. Driven by recent results, fan support, and media sentiment.
+              {t('moraleDesc')}
             </p>
           </GlassCard>
         </div>
@@ -73,11 +75,11 @@ export default function TeamStats({ team }: TeamStatsProps) {
               }}
             />
             <span className="font-label text-xs font-semibold uppercase tracking-widest" style={{ color: colors.glow }}>
-              Historical Archetype Match
+              {t('historicalArchetypeMatch')}
             </span>
             <p className="text-on-surface mt-2 font-body text-lg">{team.archetypeMatch}</p>
             <p className="text-on-surface-variant text-xs mt-2">
-              A past World Cup team whose playing style and trajectory most closely resemble this squad.
+              {t('archetypeDesc')}
             </p>
           </div>
         )}
