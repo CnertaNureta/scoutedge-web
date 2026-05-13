@@ -13,7 +13,7 @@
 
 | Old / Existing | New design source | Status | Notes |
 |---|---|---|---|
-| `src/components/home-magazine/HeroA.tsx` | `design-handoff/hero-a.jsx` | 🔄 in progress | 首屏 hero |
+| `src/components/home-magazine/HeroA.tsx` | `design-handoff/hero-a.jsx` | ✅ done | 首屏 hero |
 | `src/components/home-magazine/HeroLiveCard.tsx` | `design-handoff/hero-b.jsx` (candidate) | ⏳ pending | 首屏 live 比赛卡 — confirm by reading hero-b first |
 | `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | ⏳ pending | 滚动比分 ticker — confirm by reading hero-c first |
 | `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ⏳ pending | 整页 layout |
