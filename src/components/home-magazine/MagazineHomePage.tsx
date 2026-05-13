@@ -188,7 +188,7 @@ export default function MagazineHomePage({
       <Rule />
 
       {/* 03 Briefing + Newsletter (merged) */}
-      <Band id="briefing" height={860}>
+      <Band id="briefing" height={820}>
         <DailyBriefingModule
           newsletterSlot={newsletterSlot}
           leadStory={leadStory}
@@ -204,13 +204,13 @@ export default function MagazineHomePage({
       <Rule />
 
       {/* 05 Group Standings */}
-      <Band id="groups" height={900}>
+      <Band id="groups" height={680}>
         <GroupStandingsModule groups={groups} selectedGroupIds={selectedGroupIds} />
       </Band>
       <Rule />
 
       {/* 06 Calendar (Schedule + Countdown merged) */}
-      <Band id="schedule" height={920}>
+      <Band id="schedule" height={640}>
         <ScheduleModule
           weekDays={weekDays}
           fixturesByDay={fixturesByDay}
