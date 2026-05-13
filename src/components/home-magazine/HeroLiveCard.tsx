@@ -88,8 +88,6 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
       }
     }
 
-    // Don't double-fetch on hydration: SSR already gave us initialFixture.
-    // Schedule the next tick at POLL_INTERVAL_MS and on visibility regain.
     const interval = setInterval(fetchData, POLL_INTERVAL_MS)
 
     const onVisibility = (): void => {
@@ -124,72 +122,95 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
   const homePct = toPct(card.homeWinProb)
   const drawPct = toPct(card.drawProb)
   const awayPct = toPct(card.awayWinProb)
+  const homeWins = homePct >= awayPct
 
   return (
     <div
       data-testid="hero-live-card"
       style={{
         position: 'absolute',
-        top: 120,
+        top: 110,
         right: 56,
-        width: 300,
+        width: 340,
         zIndex: 11,
-        background: 'rgba(15,20,15,0.78)',
-        backdropFilter: 'blur(18px) saturate(1.3)',
-        border: '1px solid rgba(245,239,228,0.18)',
-        padding: 22,
+        background: 'rgba(15,26,19,0.72)',
+        backdropFilter: 'blur(16px) saturate(1.3)',
+        border: '1px solid var(--line-strong)',
+        padding: 26,
+        overflow: 'hidden',
       }}
     >
+      {/* Corner ribbon — LIVE pulse or TONIGHT'S PICK */}
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          padding: '8px 14px',
+          background: liveMatch ? 'var(--red)' : 'var(--green)',
+          color: 'var(--ink)',
+          display: 'inline-flex',
           alignItems: 'center',
-          marginBottom: 14,
+          gap: 8,
         }}
       >
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-          <span className="ko-tick" />
-          <span
-            className="ko-label"
-            style={{
-              fontSize: 9,
-              color: liveMatch ? 'var(--gold)' : 'var(--green)',
-            }}
-          >
-            {liveMatch ? 'LIVE' : 'UPCOMING'}
-          </span>
-        </span>
-        <span
-          className="ko-mono"
-          style={{
-            fontSize: 9,
-            letterSpacing: '0.18em',
-            color: 'rgba(245,239,228,0.55)',
-          }}
-        >
-          GROUP {card.group} · {card.round}
+        {liveMatch && <span className="ko-tick" />}
+        <span className="ko-label" style={{ fontSize: 9 }}>
+          {liveMatch ? 'LIVE NOW' : "★ TONIGHT'S PICK"}
         </span>
       </div>
 
+      <div
+        className="ko-eyebrow ko-gold"
+        style={{ marginTop: 6, marginBottom: 6, fontSize: 10 }}
+      >
+        GROUP {card.group} · {card.round}
+      </div>
+      <div
+        className="ko-mono ko-muted"
+        style={{ fontSize: 10, marginBottom: 18, letterSpacing: '0.14em' }}
+      >
+        {card.kickoffLabel}
+      </div>
+
+      {/* Teams */}
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr auto 1fr',
           alignItems: 'center',
-          gap: 8,
-          marginBottom: 14,
+          gap: 10,
+          marginBottom: 20,
         }}
       >
         <div style={{ textAlign: 'center' }}>
           <Flag
             colors={card.homeColors}
-            style={{ width: 30, height: 22, marginBottom: 6 }}
+            style={{ width: 34, height: 24, marginBottom: 8 }}
           />
-          <div className="ko-label" style={{ fontSize: 12, color: 'var(--green)' }}>
+          <div
+            className="ko-label"
+            style={{
+              fontSize: 12,
+              color: homeWins ? 'var(--green)' : 'var(--cream)',
+              marginBottom: 4,
+            }}
+          >
             {card.homeCode}
           </div>
-          <div className="ko-bignum ko-green" style={{ fontSize: 28 }}>
+          <div
+            className="ko-mono ko-muted"
+            style={{ fontSize: 9, letterSpacing: '0.16em', marginBottom: 8 }}
+          >
+            {card.homeName.toUpperCase()}
+          </div>
+          <div
+            className="ko-bignum"
+            style={{
+              fontSize: 36,
+              color: homeWins ? 'var(--green)' : 'var(--cream)',
+            }}
+          >
             {liveMatch && liveMatch.homeScore !== null
               ? liveMatch.homeScore
               : `${Math.round(homePct)}%`}
@@ -197,19 +218,38 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
         </div>
         <div
           className="ko-display"
-          style={{ fontSize: 18, fontStyle: 'italic', color: 'var(--muted)' }}
+          style={{ fontSize: 22, fontStyle: 'italic', color: 'var(--muted)' }}
         >
           {liveMatch ? '—' : 'vs'}
         </div>
         <div style={{ textAlign: 'center' }}>
           <Flag
             colors={card.awayColors}
-            style={{ width: 30, height: 22, marginBottom: 6 }}
+            style={{ width: 34, height: 24, marginBottom: 8 }}
           />
-          <div className="ko-label" style={{ fontSize: 12 }}>
+          <div
+            className="ko-label"
+            style={{
+              fontSize: 12,
+              color: !homeWins ? 'var(--gold)' : 'var(--cream)',
+              marginBottom: 4,
+            }}
+          >
             {card.awayCode}
           </div>
-          <div className="ko-bignum" style={{ fontSize: 28, color: 'var(--cream)' }}>
+          <div
+            className="ko-mono ko-muted"
+            style={{ fontSize: 9, letterSpacing: '0.16em', marginBottom: 8 }}
+          >
+            {card.awayName.toUpperCase()}
+          </div>
+          <div
+            className="ko-bignum"
+            style={{
+              fontSize: 36,
+              color: !homeWins ? 'var(--gold)' : 'var(--cream)',
+            }}
+          >
             {liveMatch && liveMatch.awayScore !== null
               ? liveMatch.awayScore
               : `${Math.round(awayPct)}%`}
@@ -217,39 +257,54 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
         </div>
       </div>
 
-      <div style={{ marginBottom: 12 }}>
+      {/* Probability bar */}
+      <div style={{ marginBottom: 18 }}>
         <div
-          className="ko-mono"
-          style={{
-            fontSize: 9,
-            marginBottom: 5,
-            letterSpacing: '0.18em',
-            color: 'rgba(245,239,228,0.5)',
-          }}
+          className="ko-mono ko-muted"
+          style={{ fontSize: 9, marginBottom: 6, letterSpacing: '0.18em' }}
         >
           {liveMatch ? 'LIVE · IN PROGRESS' : 'WIN PROBABILITY · MODEL'}
         </div>
         <div
           style={{
             display: 'flex',
-            height: 6,
+            height: 8,
+            borderRadius: 4,
             overflow: 'hidden',
             background: 'var(--surface)',
           }}
         >
-          <div style={{ width: `${homePct}%`, background: 'var(--green)' }} />
-          <div style={{ width: `${drawPct}%`, background: 'var(--surface-2)' }} />
-          <div style={{ width: `${awayPct}%`, background: 'var(--gold)' }} />
+          <div
+            style={{
+              width: `${homePct}%`,
+              background: 'linear-gradient(90deg, var(--green), #c8f08a)',
+            }}
+          />
+          <div
+            style={{ width: `${drawPct}%`, background: 'var(--surface-2)' }}
+          />
+          <div
+            style={{
+              width: `${awayPct}%`,
+              background: 'linear-gradient(90deg, #e8a060, var(--gold))',
+            }}
+          />
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 5 }}>
-          <span className="ko-mono" style={{ fontSize: 9, color: 'var(--green)' }}>
-            {Math.round(homePct)}%
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: 6,
+          }}
+        >
+          <span className="ko-mono ko-green" style={{ fontSize: 10 }}>
+            {card.homeCode} · {Math.round(homePct)}%
           </span>
-          <span className="ko-mono ko-muted" style={{ fontSize: 9 }}>
-            {Math.round(drawPct)}%
+          <span className="ko-mono ko-muted" style={{ fontSize: 10 }}>
+            DRAW · {Math.round(drawPct)}%
           </span>
-          <span className="ko-mono ko-gold" style={{ fontSize: 9 }}>
-            {Math.round(awayPct)}%
+          <span className="ko-mono ko-gold" style={{ fontSize: 10 }}>
+            {card.awayCode} · {Math.round(awayPct)}%
           </span>
         </div>
       </div>
@@ -260,7 +315,7 @@ export function HeroLiveCard({ initialFixture }: HeroLiveCardProps) {
         style={{
           width: '100%',
           justifyContent: 'center',
-          padding: '10px 0',
+          padding: '11px 0',
           fontSize: 11,
         }}
       >
