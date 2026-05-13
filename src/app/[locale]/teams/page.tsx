@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildBreadcrumbSchema, buildGraph } from '@/lib/seo/structured-data'
 import { getTeamsPageData } from '@/lib/site-data'
 import TeamCard from '@/components/team/TeamCard'
 
@@ -25,13 +26,20 @@ export default async function TeamsPage({ params }: Props) {
   const t = await getTranslations('teamsPage')
   const { groups, teamsByGroup, totalTeams } = await getTeamsPageData()
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
+  const collectionLd = {
     '@type': 'CollectionPage',
     name: 'World Cup 2026 Teams',
     description: 'All 48 teams competing in the 2026 FIFA World Cup',
     numberOfItems: totalTeams,
   }
+  const breadcrumbLd = buildBreadcrumbSchema(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Teams', path: '/teams' },
+    ],
+    locale,
+  )
+  const jsonLd = buildGraph([collectionLd, breadcrumbLd])
 
   return (
     <>

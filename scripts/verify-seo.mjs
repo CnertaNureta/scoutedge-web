@@ -20,7 +20,10 @@
 const BASE_URL = (process.env.BASE_URL || 'https://kickoracle.com').replace(/\/$/, '')
 const TIMEOUT_MS = 10_000
 const MAX_REDIRECTS = 3
-const EXPECTED_LOCALES = ['en', 'es', 'zh', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
+const LOCALE_PATH_RE = /\/[a-z]{2}(?:-[A-Za-z0-9]+)*(\/|$)/
+// Use the actual hreflang codes emitted by the site (Chinese is zh-Hans per BCP-47).
+// Mirrors src/i18n/locales.ts LOCALE_CONFIGS[*].hreflang.
+const EXPECTED_LOCALES = ['en', 'es', 'zh-Hans', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
 const EXPECTED_HREFLANG_COUNT = EXPECTED_LOCALES.length + 1 // 19 locales + x-default
 
 const args = new Set(process.argv.slice(2))
@@ -131,11 +134,11 @@ async function checkRobots() {
     if (hops.length > 1) warn(url, `redirected ${hops.length - 1}x → ${hops.at(-1)}`)
     const body = await res.text()
     const checks = [
-      [/^Sitemap:\s*https:\/\/kickoracle\.com\/sitemap\.xml/m, 'Sitemap directive'],
-      [/^User-agent:\s*\*/m, 'User-agent: *'],
-      [/^Disallow:\s*\/api\//m, 'Disallow: /api/'],
-      [/^Disallow:\s*\/auth\//m, 'Disallow: /auth/'],
-      [/^Allow:\s*\//m, 'Allow: /'],
+      [/^Sitemap:\s*https:\/\/kickoracle\.com\/sitemap\.xml/im, 'Sitemap directive'],
+      [/^User-agent:\s*\*/im, 'User-agent: *'],
+      [/^Disallow:\s*\/api\//im, 'Disallow: /api/'],
+      [/^Disallow:\s*\/auth\//im, 'Disallow: /auth/'],
+      [/^Allow:\s*\//im, 'Allow: /'],
     ]
     for (const [re, label] of checks) {
       if (re.test(body)) pass(url, label)
@@ -202,7 +205,7 @@ async function checkPage(url, deepChecks = []) {
     const canon = links.find((l) => (l.rel || '').toLowerCase() === 'canonical')
     if (!canon) fail(url, 'missing <link rel="canonical">')
     else if (!canon.href || !/^https?:\/\//.test(canon.href)) fail(url, `canonical not absolute: ${canon.href}`)
-    else if (!/\/[a-z]{2}(\/|$)/.test(new URL(canon.href).pathname)) fail(url, `canonical not locale-prefixed: ${canon.href}`)
+    else if (!LOCALE_PATH_RE.test(new URL(canon.href).pathname)) fail(url, `canonical not locale-prefixed: ${canon.href}`)
     else pass(url, `canonical = ${canon.href}`)
 
     // hreflang
@@ -234,13 +237,14 @@ async function checkPage(url, deepChecks = []) {
 const playerCheck = (url, { nodes }) => {
   const person = nodes.find((n) => n['@type'] === 'Person' || (Array.isArray(n['@type']) && n['@type'].includes('Person')))
   if (!person) return fail(url, 'JSON-LD missing Person node')
-  const r = person.aggregateRating
-  if (!r) return fail(url, 'Person missing aggregateRating')
-  const v = Number(r.ratingValue)
-  if (!(v >= 0 && v <= 10)) fail(url, `Person.aggregateRating.ratingValue out of [0,10]: ${r.ratingValue}`)
-  else pass(url, `Person.aggregateRating.ratingValue=${v}`)
-  if (Number(r.bestRating) !== 10) fail(url, `Person.aggregateRating.bestRating != 10 (got ${r.bestRating})`)
-  else pass(url, 'Person.aggregateRating.bestRating=10')
+  if (!person.name) fail(url, 'Person missing name')
+  else pass(url, `Person.name=${person.name}`)
+  if (!person.url || !/^https?:\/\//.test(person.url)) fail(url, `Person.url missing or not absolute: ${person.url}`)
+  else pass(url, `Person.url=${person.url}`)
+  if (!person.memberOf) warn(url, 'Person missing memberOf SportsTeam')
+  else pass(url, 'Person.memberOf present')
+  if (person.aggregateRating) fail(url, 'Person.aggregateRating triggers invalid Google Review snippets; remove it from player pages')
+  else pass(url, 'Person has no unsupported aggregateRating')
 }
 
 const teamCheck = (url, { nodes }) => {
@@ -272,7 +276,7 @@ const breadcrumbCheck = (url, { nodes, html }) => {
 
 // ---------- Plan ----------
 const PAGES = [
-  { url: `${BASE_URL}/en`, checks: [breadcrumbCheck] },
+  { url: `${BASE_URL}/en`, checks: [] }, // home is the root; no breadcrumb expected
   { url: `${BASE_URL}/en/teams`, checks: [breadcrumbCheck] },
   { url: `${BASE_URL}/en/teams/argentina`, checks: [teamCheck, breadcrumbCheck] },
   { url: `${BASE_URL}/en/teams/argentina/players/lionel-messi`, checks: [playerCheck, breadcrumbCheck] },
