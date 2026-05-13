@@ -20,3 +20,4 @@ logs/api-football/
 .vercel
 supabase/.temp/
 .claude/worktrees/
+test-results/

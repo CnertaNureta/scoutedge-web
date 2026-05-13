@@ -45,14 +45,14 @@ interface PredictedTeam extends Team {
   rank: number
 }
 
-function getTierInfo(rank: number, t: (key: string) => string): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
+function getTierInfo(rank: number, t: (key: string, values?: Record<string, string | number>) => string): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
   if (rank <= 5) return { name: t('titleFavorites'), variant: 'primary' }
   if (rank <= 12) return { name: t('contenders'), variant: 'tertiary' }
   if (rank <= 24) return { name: t('darkHorses'), variant: 'secondary' }
   return { name: t('longShots'), variant: 'outline' }
 }
 
-function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string) => string }) {
+function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string, values?: Record<string, string | number>) => string }) {
   const tier = getTierInfo(team.rank, t)
 
   return (
