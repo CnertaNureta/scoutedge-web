@@ -128,119 +128,201 @@ export default async function TeamPage({ params }: PageProps) {
           { name: team.name, href: `/teams/${slug}` },
         ]}
       />
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
       <TeamStats team={team} />
 
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
       {/* Head Coach */}
-      {coach && <CoachProfileComponent coach={coach} />}
+      {coach && (
+        <>
+          <CoachProfileComponent coach={coach} />
+          <div className="mx-14 border-t border-white/[0.08]" />
+        </>
+      )}
 
       <SquadRoster players={players} teamSlug={slug} />
 
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <TacticalDNA team={team} players={players} />
+        <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
-        {worldCupHistory && <HistoricalPerformance history={worldCupHistory} />}
+        {worldCupHistory && (
+          <>
+            <div className="mx-14 border-t border-white/[0.08]" />
+            <HistoricalPerformance history={worldCupHistory} />
+          </>
+        )}
+        <div className="mx-14 border-t border-white/[0.08]" />
         <IntelligenceReport team={team} />
       </Paywall>
 
       {/* FAQ Section */}
       {teamFaq && teamFaq.faqs.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-16">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            {t('frequentlyAsked')}
-          </h2>
-          <div className="space-y-3">
-            {teamFaq.faqs.map((faq, i) => (
-              <GlassCard key={i} className="p-6">
-                <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-3 text-primary">
-                  {faq.question}
-                </h3>
-                <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">
-                  {faq.answer}
-                </p>
-              </GlassCard>
-            ))}
-          </div>
-        </section>
+        <>
+          <div className="mx-14 border-t border-white/[0.08]" />
+          <section className="max-w-[1440px] mx-auto px-14 py-[72px]">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-tertiary uppercase mb-3">
+                ★ FAQ
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.96] font-normal text-on-surface">
+                {t('frequentlyAsked').split(' ').slice(0, -1).join(' ')}{' '}
+                <em className="text-primary">
+                  {t('frequentlyAsked').split(' ').slice(-1)[0]}
+                </em>
+              </h2>
+            </div>
+            <div className="space-y-3">
+              {teamFaq.faqs.map((faq, i) => (
+                <GlassCard key={i} className="p-6">
+                  <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-3 text-primary">
+                    {faq.question}
+                  </h3>
+                  <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </GlassCard>
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {/* Related Teams */}
       {groupTeams.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-20">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            {t('moreFromGroup', { group: team.group })}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {groupTeams.map((groupTeam) => (
-              <TeamCard key={groupTeam.slug} team={groupTeam} />
-            ))}
-          </div>
-        </section>
+        <>
+          <div className="mx-14 border-t border-white/[0.08]" />
+          <section className="max-w-[1440px] mx-auto px-14 py-[72px]">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-tertiary uppercase mb-3">
+                ★ GROUP {team.group}
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.96] font-normal text-on-surface">
+                {t('moreFromGroup', { group: team.group }).split(' ').slice(0, -1).join(' ')}{' '}
+                <em className="text-primary">
+                  {t('moreFromGroup', { group: team.group }).split(' ').slice(-1)[0]}
+                </em>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {groupTeams.map((groupTeam) => (
+                <TeamCard key={groupTeam.slug} team={groupTeam} />
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {/* Group rivals — direct compare links */}
       {groupTeams.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-16">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Compare {team.name} vs Group {team.group} rivals
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            {groupTeams.map((rival) => (
-              <Link
-                key={rival.slug}
-                href={`/compare/${slug}-vs-${rival.slug}`}
-                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
-              >
-                {team.name} vs {rival.name}
-              </Link>
-            ))}
-          </div>
-        </section>
+        <>
+          <div className="mx-14 border-t border-white/[0.08]" />
+          <section className="max-w-[1440px] mx-auto px-14 py-[72px]">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-tertiary uppercase mb-3">
+                ★ HEAD TO HEAD
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.96] font-normal text-on-surface">
+                Compare {team.name} vs Group{' '}
+                <em className="text-primary">{team.group} rivals</em>
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {groupTeams.map((rival) => (
+                <Link
+                  key={rival.slug}
+                  href={`/compare/${slug}-vs-${rival.slug}`}
+                  className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-primary"
+                >
+                  {team.name} vs {rival.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {/* Where they play — host cities for this team's fixtures */}
       {teamCities.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-16">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            Where {team.name} plays — World Cup 2026 host cities
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {teamCities.map((c) => (
-              <Link
-                key={c.slug}
-                href={`/cities/${c.slug}`}
-                className="block p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group"
-              >
-                <p className="font-headline text-base font-bold tracking-tight group-hover:text-tertiary transition-colors">
-                  {c.name}
-                </p>
-                <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
-                  {c.country} guide
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <>
+          <div className="mx-14 border-t border-white/[0.08]" />
+          <section className="max-w-[1440px] mx-auto px-14 py-[72px]">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-tertiary uppercase mb-3">
+                ★ HOST CITIES
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.96] font-normal text-on-surface">
+                Where {team.name}{' '}
+                <em className="text-primary">plays</em>
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {teamCities.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/cities/${c.slug}`}
+                  className="block p-4 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-tertiary/40 transition-all group"
+                >
+                  <p className="font-headline text-base font-bold tracking-tight group-hover:text-tertiary transition-colors">
+                    {c.name}
+                  </p>
+                  <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest mt-1">
+                    {c.country} guide
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </>
       )}
 
       {/* Pronunciation links — connect to /lingo/players */}
       {pronunciationLinks.length > 0 && (
-        <section className="max-w-[1440px] mx-auto px-6 mb-20">
-          <h2 className="font-headline text-2xl font-bold uppercase tracking-tight mb-6">
-            How to pronounce {team.name} player names
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            {pronunciationLinks.map((lp) => (
-              <Link
-                key={lp.id}
-                href={`/lingo/players/${lp.id}`}
-                className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-secondary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-secondary"
-              >
-                Pronounce {lp.name}
-              </Link>
-            ))}
-          </div>
-        </section>
+        <>
+          <div className="mx-14 border-t border-white/[0.08]" />
+          <section className="max-w-[1440px] mx-auto px-14 py-[72px]">
+            <div className="mb-10">
+              <p className="font-mono text-[10px] tracking-[0.22em] text-tertiary uppercase mb-3">
+                ★ PRONUNCIATION
+              </p>
+              <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-[0.96] font-normal text-on-surface">
+                How to pronounce{' '}
+                <em className="text-primary">{team.name} player names</em>
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {pronunciationLinks.map((lp) => (
+                <Link
+                  key={lp.id}
+                  href={`/lingo/players/${lp.id}`}
+                  className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-secondary/30 px-5 py-2.5 rounded-full font-body text-sm transition-all hover:text-secondary"
+                >
+                  Pronounce {lp.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+        </>
       )}
+
+      {/* Dossier end mark */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+      <div className="max-w-[1440px] mx-auto px-14 py-8 flex items-center justify-between">
+        <span className="font-mono text-[10px] tracking-[0.22em] text-on-surface-variant uppercase">
+          END OF DOSSIER · {slug.toUpperCase()}-2026
+        </span>
+        <span className="font-display italic text-lg text-primary">
+          — Kick Oracle Intelligence
+        </span>
+      </div>
     </>
   )
 }
