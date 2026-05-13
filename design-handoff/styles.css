@@ -1,0 +1,209 @@
+/* ─────────────────────────────────────────────
+   KICK ORACLE — Visual System v1
+   Sports magazine × cinematic × dark green/gold
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Surfaces */
+  --ink: #0a0d0a;
+  --pitch: #0f1a13;
+  --soft: #121412;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.07);
+  --line: rgba(255, 255, 255, 0.10);
+  --line-strong: rgba(255, 255, 255, 0.22);
+
+  /* Brand */
+  --green: #a8e063;     /* electric pitch */
+  --green-deep: #4f7d3b;
+  --gold: #f3c969;      /* victory */
+  --gold-deep: #b88a1f;
+  --cream: #f5efe4;     /* magazine paper */
+  --muted: #8a8d88;
+  --red: #ff4444;       /* live */
+
+  /* Type */
+  --f-display: "DM Serif Display", "Playfair Display", Georgia, serif;
+  --f-condensed: "Big Shoulders Display", "Oswald", "Arial Narrow", sans-serif;
+  --f-body: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Photo placeholder treatment ────────────────────
+   Striped diagonal pattern + monospace caption.
+   Layered with stadium-light radial gradients for depth.
+*/
+.photo-placeholder {
+  position: relative;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(168, 224, 99, 0.04) 0 2px,
+      transparent 2px 14px
+    ),
+    radial-gradient(120% 60% at 50% 110%, rgba(168,224,99,0.18), transparent 70%),
+    radial-gradient(60% 40% at 20% 0%, rgba(243,201,105,0.12), transparent 70%),
+    linear-gradient(180deg, #1a2418 0%, #0a0d0a 100%);
+  isolation: isolate;
+}
+.photo-placeholder::after {
+  content: attr(data-caption);
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: rgba(245, 239, 228, 0.45);
+  text-transform: uppercase;
+  z-index: 3;
+  pointer-events: none;
+}
+.photo-placeholder.no-caption::after { content: none; }
+
+/* halftone overlay for film-grain magazine feel */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+
+/* ── Typography helpers ─────────────────────── */
+.display {
+  font-family: var(--f-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+}
+.display-italic { font-style: italic; }
+
+.eyebrow {
+  font-family: var(--f-condensed);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.label {
+  font-family: var(--f-condensed);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.mono { font-family: var(--f-mono); }
+
+.cream { color: var(--cream); }
+.muted { color: var(--muted); }
+.green { color: var(--green); }
+.gold { color: var(--gold); }
+
+/* ── Cards & chrome ─────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.card-paper {
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 14px;
+}
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+}
+.tick {
+  width: 6px; height: 6px; border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 0 0 0 rgba(255,68,68,0.6);
+  animation: pulse 1.6s infinite;
+  display: inline-block;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,68,68,0.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(255,68,68,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,68,68,0); }
+}
+
+/* Stadium spotlights backdrop */
+.stadium-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 40% at 20% 0%, rgba(243,201,105,0.10), transparent 60%),
+    radial-gradient(70% 60% at 90% 20%, rgba(168,224,99,0.10), transparent 60%),
+    radial-gradient(50% 80% at 50% 110%, rgba(168,224,99,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+/* Pitch line decoration */
+.pitch-grid {
+  background-image:
+    linear-gradient(rgba(168,224,99,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168,224,99,0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Flag chip — uses CSS only, no SVG flags */
+.flag {
+  display: inline-block;
+  width: 28px; height: 20px;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.18);
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* Marquee strike-through bar */
+.strike {
+  background: var(--green);
+  color: var(--ink);
+  padding: 4px 10px;
+  display: inline-block;
+}
+
+/* Button */
+.btn {
+  font-family: var(--f-condensed);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 14px 24px;
+  border-radius: 0;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.btn-primary { background: var(--green); color: var(--ink); }
+.btn-primary:hover { background: var(--gold); transform: translate(2px,-2px); box-shadow: -4px 4px 0 var(--ink), -4px 4px 0 1px var(--green); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1px solid var(--line-strong); }
+.btn-ghost:hover { background: var(--surface); border-color: var(--green); color: var(--green); }
+
+/* Big number block */
+.bignum {
+  font-family: var(--f-condensed);
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+}

@@ -5,51 +5,63 @@
 ## Component mapping
 
 > 下表基于真实 `src/components/` 目录结构。
-> `New design source` 列你自己对照 Claude Design 导出的 zip 填——找不到对应的标 `N/A`。
+> `New design source` 列已对照 `design-handoff/` 实际文件填好；没对应的标 `N/A`。
 > 状态：⏳ pending → 🔄 in progress → ✅ done / ⚠️ blocked
+> `⏸ no-design`：design export 里没这个组件，**不进入迁移 loop**（verify.sh 不数）。
 
 ### home-magazine/ — 杂志式首页
 
 | Old / Existing | New design source | Status | Notes |
 |---|---|---|---|
-| `src/components/home-magazine/HeroA.tsx` | TODO | ⏳ pending | 首屏 hero |
-| `src/components/home-magazine/HeroLiveCard.tsx` | TODO | ⏳ pending | 首屏 live 比赛卡 |
-| `src/components/home-magazine/HeroLiveTicker.tsx` | TODO | ⏳ pending | 滚动比分 ticker |
-| `src/components/home-magazine/MagazineHomePage.tsx` | TODO | ⏳ pending | 整页 layout |
-| `src/components/home-magazine/MoreModules.tsx` | TODO | ⏳ pending | 模块入口 |
-| `src/components/home-magazine/NextMatch.tsx` | TODO | ⏳ pending | 下一场比赛卡 |
-| `src/components/home-magazine/TopContenders.tsx` | TODO | ⏳ pending | 夺冠热门 |
+| `src/components/home-magazine/HeroA.tsx` | `design-handoff/hero-a.jsx` | ⏳ pending | 首屏 hero |
+| `src/components/home-magazine/HeroLiveCard.tsx` | `design-handoff/hero-b.jsx` (candidate) | ⏳ pending | 首屏 live 比赛卡 — confirm by reading hero-b first |
+| `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | ⏳ pending | 滚动比分 ticker — confirm by reading hero-c first |
+| `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ⏳ pending | 整页 layout |
+| `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | ⏳ pending | 模块入口 |
+| `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | ⏳ pending | 下一场比赛卡 |
+| `src/components/home-magazine/TopContenders.tsx` | `design-handoff/top-contenders.jsx` | ⏳ pending | 夺冠热门 |
+
+> Shared primitives: `design-handoff/visual-system.jsx` 是新设计的视觉系统（颜色 / typography / 卡片样式），所有 home-magazine 组件都应该 reference 它。
+> `design-handoff/tweaks-panel.jsx` 是设计工具面板（调色板/字号开关），N/A — 不迁移。
+> `design-handoff/team-data.jsx` 是 demo 数据/types，N/A — 我们用真实的 Supabase queries。
 
 ### live-match/ — 比赛进行中
 
 | Old / Existing | New design source | Status | Notes |
 |---|---|---|---|
-| `src/components/live-match/LiveLeaderboard.tsx` | TODO | ⏳ pending | 实时排行 |
-| `src/components/live-match/LiveMatchHeader.tsx` | TODO | ⏳ pending | 比分 header |
-| `src/components/live-match/LiveMatchStats.tsx` | TODO | ⏳ pending | 实时数据 |
-| `src/components/live-match/MatchCommentSection.tsx` | TODO | ⏳ pending | 评论区 |
-| `src/components/live-match/MatchInteractionHub.tsx` | TODO | ⏳ pending | 互动入口 |
-| `src/components/live-match/MatchPollWidget.tsx` | TODO | ⏳ pending | 投票组件 |
-| `src/components/live-match/MatchReactionBar.tsx` | TODO | ⏳ pending | 表情回应 |
+| `src/components/live-match/LiveLeaderboard.tsx` | N/A | ⏸ no-design | export 里没 live-match 设计 — 保留现有 |
+| `src/components/live-match/LiveMatchHeader.tsx` | N/A | ⏸ no-design | 保留现有 |
+| `src/components/live-match/LiveMatchStats.tsx` | N/A | ⏸ no-design | 保留现有 |
+| `src/components/live-match/MatchCommentSection.tsx` | N/A | ⏸ no-design | 保留现有 |
+| `src/components/live-match/MatchInteractionHub.tsx` | N/A | ⏸ no-design | 保留现有 |
+| `src/components/live-match/MatchPollWidget.tsx` | N/A | ⏸ no-design | 保留现有 |
+| `src/components/live-match/MatchReactionBar.tsx` | N/A | ⏸ no-design | 保留现有 |
 
-### 其他组件目录（按需添加，建议先专注上面两个最关键的）
+### team/ — 球队组件
+
+`team-detail.jsx` (40 KB) 和 `team-list.jsx` (16 KB) 是页面级布局，归 Page mapping 处理：
+- `team-detail.jsx` → `/en/teams/[teamId]` (见 Page mapping)
+- `team-list.jsx` → `/en/teams` (见 Page mapping)
+
+页面迁移过程中如果发现 `src/components/team/*` 里某个组件被新 layout 复用，可在那一轮顺带改 testid 兼容，但**不要把 team 子组件单独排进 loop**——否则会和页面级迁移产生冲突。
+
+### 其他组件目录（design export 没覆盖）
 
 ```
 src/components/
-├── analytics/      ⏳ TODO 列出
-├── blog/           ⏳ TODO 列出
-├── chat/           ⏳ TODO 列出
-├── compare/        ⏳ TODO 列出
-├── fan-card/       ⏳ TODO 列出
-├── formations/     ⏳ TODO 列出
-├── odds/           ⏳ TODO 列出（Polymarket / 庄家 UI）
-├── pk-battle/      ⏳ TODO 列出
-├── player/         ⏳ TODO 列出
-├── predict/        ⏳ TODO 列出（ML 预测 UI）
-├── quiz/           ⏳ TODO 列出
-├── signals/        ⏳ TODO 列出
-├── team/           ⏳ TODO 列出
-└── ui/             ⏳ TODO 列出（设计系统 primitives）
+├── analytics/      N/A — 无 design，保留现有
+├── blog/           N/A — 无 design
+├── chat/           N/A — 无 design
+├── compare/        N/A — 无 design
+├── fan-card/       N/A — 无 design
+├── formations/     N/A — 无 design
+├── odds/           N/A — 无 design（Polymarket / 庄家 UI 留作后续）
+├── pk-battle/      N/A — 无 design
+├── player/         N/A — 无 design
+├── predict/        N/A — 无 design（ML 预测 UI 留作后续）
+├── quiz/           N/A — 无 design
+├── signals/        N/A — 无 design
+└── ui/             保留现有（设计系统 primitives）— visual-system.jsx 的 token 可参考但不强制替换
 ```
 
 ## Page mapping (含 /en locale prefix)
@@ -57,21 +69,23 @@ src/components/
 | Route | New design source | Status |
 |---|---|---|
 | `/en` (home) | `design-handoff/home.html` | ⏳ pending |
-| `/en/matches` | `design-handoff/matches.html` | ⏳ pending |
-| `/en/matches/live/[matchId]` | `design-handoff/match-detail.html` | ⏳ pending |
+| `/en/matches` | N/A | ⏸ no-design |
+| `/en/matches/live/[matchId]` | N/A | ⏸ no-design |
 | `/en/teams` | `design-handoff/teams.html` | ⏳ pending |
 | `/en/teams/[teamId]` | `design-handoff/team-detail.html` | ⏳ pending |
-| `/en/teams/qualified` | `design-handoff/teams-qualified.html` | ⏳ pending |
-| `/en/power-rankings` | `design-handoff/power-rankings.html` | ⏳ pending |
-| `/en/predictions` | `design-handoff/predictions.html` | ⏳ pending |
-| `/en/schedule` | `design-handoff/schedule.html` | ⏳ pending |
-| `/en/bracket` | `design-handoff/bracket.html` | ⏳ pending |
-| `/en/leaderboard` | `design-handoff/leaderboard.html` | ⏳ pending |
-| `/en/groups` | `design-handoff/groups.html` | ⏳ pending |
-| `/en/cities` | `design-handoff/cities.html` | ⏳ pending |
-| `/en/blog` | `design-handoff/blog.html` | ⏳ pending |
-| `/en/about` | `design-handoff/about.html` | ⏳ pending |
-| `/auth/login` | `design-handoff/login.html` | ⏳ pending |
+| `/en/teams/qualified` | N/A | ⏸ no-design |
+| `/en/power-rankings` | N/A | ⏸ no-design |
+| `/en/predictions` | N/A | ⏸ no-design |
+| `/en/schedule` | N/A | ⏸ no-design |
+| `/en/bracket` | N/A | ⏸ no-design |
+| `/en/leaderboard` | N/A | ⏸ no-design |
+| `/en/groups` | N/A | ⏸ no-design |
+| `/en/cities` | N/A | ⏸ no-design |
+| `/en/blog` | N/A | ⏸ no-design |
+| `/en/about` | N/A | ⏸ no-design |
+| `/auth/login` | N/A | ⏸ no-design |
+
+> Bonus reference: `design-handoff/home-hero-variant.html` 是 homepage 的 hero-only 变体（89 行 vs full 368），可作为 HeroA 的次要参考。
 
 ---
 
