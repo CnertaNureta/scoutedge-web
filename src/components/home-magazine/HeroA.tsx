@@ -355,11 +355,11 @@ export function HeroA({
         }}
       >
         <div style={{ display: 'flex', gap: 44 }}>
-          <Stat n={String(heroStats.fixtures)} label={t('statFixtures')} />
-          <Stat n={String(heroStats.federations)} label={t('statFederations')} />
           {/* Hit-rate and predictions-cast need the user_predictions table
               (see docs/leaderboard-schema.md). Render em-dash until it ships. */}
           <Stat n={heroStats.hitRate} label={t('statHitRate')} />
+          <Stat n={String(heroStats.fixtures)} label={t('statFixtures')} />
+          <Stat n={String(heroStats.federations)} label={t('statFederations')} />
           <Stat n={heroStats.predictionsCast} label={t('statPredictions')} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
