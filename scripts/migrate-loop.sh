@@ -82,6 +82,7 @@ while [ $ITER -lt $MAX_ITER ]; do
     --max-turns 40 \
     --output-format json \
     --permission-mode acceptEdits \
+    --dangerously-skip-permissions \
     > "$LOG_FILE" 2>&1 || echo "  (claude 返回非 0 退出码，继续检查)"
 
   # 检查完成信号
