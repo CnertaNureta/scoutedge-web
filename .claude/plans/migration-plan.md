@@ -72,7 +72,7 @@ src/components/
 | `/en/matches` | N/A | ⏸ no-design |
 | `/en/matches/live/[matchId]` | N/A | ⏸ no-design |
 | `/en/teams` | `design-handoff/teams.html` | ✅ done |
-| `/en/teams/[teamId]` | `design-handoff/team-detail.html` | ⏳ pending |
+| `/en/teams/[teamId]` | `design-handoff/team-detail.html` | 🔄 in progress |
 | `/en/teams/qualified` | N/A | ⏸ no-design |
 | `/en/power-rankings` | N/A | ⏸ no-design |
 | `/en/predictions` | N/A | ⏸ no-design |
