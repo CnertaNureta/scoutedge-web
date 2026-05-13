@@ -15,7 +15,6 @@
  */
 import type React from 'react'
 import { buildAlternates, siteUrl } from '@/lib/seo/build-alternates'
-import { computeDerivedStats } from '@/lib/player-derived-stats'
 import type { HostCity } from '@/data/cities-data'
 import type { MatchFixture, Player, Team, Venue } from '@/lib/types'
 
@@ -151,14 +150,7 @@ export interface PersonSchemaOptions {
 }
 
 /**
- * Build a Person + AggregateRating block for an individual player.
- *
- * AggregateRating notes:
- *  - Google requires a 1-N scale where bestRating is set. We use
- *    `ratingValue = OVR / 10` with `bestRating = 10`, `worstRating = 1`.
- *  - `ratingCount` / `reviewCount` are both 1 because this rating is a
- *    KickOracle-generated single composite score (the AI scouting model),
- *    not crowd-sourced reviews.
+ * Build a Person block for an individual player.
  */
 export function buildPersonSchema({
   player,
@@ -170,9 +162,6 @@ export function buildPersonSchema({
     ? `/teams/${team.slug}/players/${player.slug}`
     : `/players/${player.slug}`
   const playerUrl = canonicalFor(locale, playerPath)
-  const derived = computeDerivedStats(player)
-  // OVR is 40-99 from compute; clamp to schema range and convert to /10 scale.
-  const ratingValue = Math.round((derived.overall / 10) * 10) / 10 // 1 decimal
   const image = imageUrl ?? player.imageUrl ?? player.cutoutUrl
 
   const schema: Record<string, unknown> = {
@@ -200,16 +189,6 @@ export function buildPersonSchema({
 
   if (player.club) {
     schema.affiliation = { '@type': 'SportsTeam', name: player.club }
-  }
-
-  // AggregateRating — derived OVR mapped to /10 scale.
-  schema.aggregateRating = {
-    '@type': 'AggregateRating',
-    ratingValue: ratingValue.toFixed(1),
-    bestRating: '10',
-    worstRating: '1',
-    ratingCount: 1,
-    reviewCount: 1,
   }
 
   return schema

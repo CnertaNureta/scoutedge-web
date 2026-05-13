@@ -236,13 +236,14 @@ async function checkPage(url, deepChecks = []) {
 const playerCheck = (url, { nodes }) => {
   const person = nodes.find((n) => n['@type'] === 'Person' || (Array.isArray(n['@type']) && n['@type'].includes('Person')))
   if (!person) return fail(url, 'JSON-LD missing Person node')
-  const r = person.aggregateRating
-  if (!r) return fail(url, 'Person missing aggregateRating')
-  const v = Number(r.ratingValue)
-  if (!(v >= 0 && v <= 10)) fail(url, `Person.aggregateRating.ratingValue out of [0,10]: ${r.ratingValue}`)
-  else pass(url, `Person.aggregateRating.ratingValue=${v}`)
-  if (Number(r.bestRating) !== 10) fail(url, `Person.aggregateRating.bestRating != 10 (got ${r.bestRating})`)
-  else pass(url, 'Person.aggregateRating.bestRating=10')
+  if (!person.name) fail(url, 'Person missing name')
+  else pass(url, `Person.name=${person.name}`)
+  if (!person.url || !/^https?:\/\//.test(person.url)) fail(url, `Person.url missing or not absolute: ${person.url}`)
+  else pass(url, `Person.url=${person.url}`)
+  if (!person.memberOf) warn(url, 'Person missing memberOf SportsTeam')
+  else pass(url, 'Person.memberOf present')
+  if (person.aggregateRating) fail(url, 'Person.aggregateRating triggers invalid Google Review snippets; remove it from player pages')
+  else pass(url, 'Person has no unsupported aggregateRating')
 }
 
 const teamCheck = (url, { nodes }) => {

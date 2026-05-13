@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { getPlayerBySlug, getTeamBySlug } from '@/lib/data-service'
+import { buildPersonSchema } from '@/lib/seo/structured-data'
 
 const repoRoot = process.cwd()
 
@@ -72,5 +74,34 @@ describe('GEO copy guard', () => {
       .map(({ file }) => file)
 
     expect(matches).toEqual([])
+  })
+})
+
+describe('player rich result schema guard', () => {
+  it('does not expose player ratings as unsupported Google review snippets', () => {
+    const team = getTeamBySlug('usa')
+    const player = getPlayerBySlug('usa', 'christian-pulisic')
+
+    expect(team).toBeTruthy()
+    expect(player).toBeTruthy()
+    if (!team || !player) throw new Error('Christian Pulisic fixture is unavailable')
+
+    const person = buildPersonSchema({
+      player,
+      team,
+      locale: 'en',
+      imageUrl: 'https://example.com/christian-pulisic.jpg',
+    })
+
+    expect(person).toMatchObject({
+      '@type': 'Person',
+      name: 'Christian Pulisic',
+      sport: 'Soccer',
+      memberOf: {
+        '@type': 'SportsTeam',
+        name: 'USA',
+      },
+    })
+    expect(person).not.toHaveProperty('aggregateRating')
   })
 })
