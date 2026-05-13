@@ -15,7 +15,7 @@
 |---|---|---|---|
 | `src/components/home-magazine/HeroA.tsx` | `design-handoff/hero-a.jsx` | ✅ done | 首屏 hero |
 | `src/components/home-magazine/HeroLiveCard.tsx` | `design-handoff/hero-b.jsx` (card section) | ✅ done | 首屏 live 比赛卡 — adopted hero-b prediction-card visuals; preserved polling + props |
-| `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | 🔄 in progress | 滚动比分 ticker — confirm by reading hero-c first |
+| `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | ✅ done | 滚动比分 ticker — hero-c has no ticker; used hero-b bottom marquee pattern instead; preserved all hooks/polling/testid |
 | `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ⏳ pending | 整页 layout |
 | `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | ⏳ pending | 模块入口 |
 | `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | ⏳ pending | 下一场比赛卡 |
