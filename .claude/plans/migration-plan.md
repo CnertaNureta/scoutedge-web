@@ -17,8 +17,8 @@
 | `src/components/home-magazine/HeroLiveCard.tsx` | `design-handoff/hero-b.jsx` (card section) | ✅ done | 首屏 live 比赛卡 — adopted hero-b prediction-card visuals; preserved polling + props |
 | `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | ✅ done | 滚动比分 ticker — hero-c has no ticker; used hero-b bottom marquee pattern instead; preserved all hooks/polling/testid |
 | `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ✅ done | 整页 layout — adopted home.html section heights; preserved all child imports + testid |
-| `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | ✅ done | 模块入口 — adopted design grid layout (1.4fr cols, stories span 2 cols, enlarged countdown nums); preserved all hooks/testids/props |
-| `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | ⏳ pending | 下一场比赛卡 |
+| `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | 🔄 in progress | 模块入口 — QA_FAIL retry 1: React key warning in DailyBriefingModule from HomePage child array |
+| `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | 🔄 in progress | 下一场比赛卡 |
 | `src/components/home-magazine/TopContenders.tsx` | `design-handoff/top-contenders.jsx` | ⏳ pending | 夺冠热门 |
 
 > Shared primitives: `design-handoff/visual-system.jsx` 是新设计的视觉系统（颜色 / typography / 卡片样式），所有 home-magazine 组件都应该 reference 它。
