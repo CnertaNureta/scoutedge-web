@@ -102,7 +102,7 @@ export function DailyBriefingModule({
         {/* Quick stories spanning 2 columns */}
         <div style={{ gridColumn: 'span 2', display: 'grid', gridTemplateColumns: '1fr', gap: 12 }}>
           {stories.map((s, i) => (
-            <div key={i} className="ko-card" style={{ padding: 22, display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: 18, alignItems: 'center', background: 'var(--surface)' }}>
+            <div key={s.h} className="ko-card" style={{ padding: 22, display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: 18, alignItems: 'center', background: 'var(--surface)' }}>
               <div className="ko-display" style={{ fontSize: 44, fontStyle: 'italic', color: 'var(--gold)', lineHeight: 1 }}>0{i + 2}</div>
               <div>
                 <div className="ko-mono" style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--green)', marginBottom: 6 }}>{s.tag}</div>
