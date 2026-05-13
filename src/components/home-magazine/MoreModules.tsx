@@ -141,28 +141,30 @@ export function DailyBriefingModule({
                 <em>{t('newsletterTitleEm')}</em>
               </div>
               <div style={{ marginTop: 'auto', paddingTop: 14 }}>
-                {newsletterSlot ?? (
-                  <div style={{ display: 'flex', border: '2px solid var(--ink)' }}>
-                    <input
-                      type="email"
-                      placeholder={t('subscribeEmailPlaceholder')}
-                      style={{
-                        flex: 1,
-                        padding: '10px 12px',
-                        border: 0,
-                        background: 'transparent',
-                        fontFamily: 'var(--f-body)',
-                        fontSize: 13,
-                        color: 'var(--ink)',
-                        outline: 'none',
-                      }}
-                    />
-                    <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '10px 16px', fontSize: 11 }}>
-                      {t('subscribeCta')}
-                    </button>
-                  </div>
-                )}
-                <div style={{ display: 'flex', gap: 14, marginTop: 12, color: 'var(--ink)', opacity: 0.72 }}>
+                <Fragment key="newsletter-slot">
+                  {newsletterSlot ?? (
+                    <div style={{ display: 'flex', border: '2px solid var(--ink)' }}>
+                      <input
+                        type="email"
+                        placeholder={t('subscribeEmailPlaceholder')}
+                        style={{
+                          flex: 1,
+                          padding: '10px 12px',
+                          border: 0,
+                          background: 'transparent',
+                          fontFamily: 'var(--f-body)',
+                          fontSize: 13,
+                          color: 'var(--ink)',
+                          outline: 'none',
+                        }}
+                      />
+                      <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '10px 16px', fontSize: 11 }}>
+                        {t('subscribeCta')}
+                      </button>
+                    </div>
+                  )}
+                </Fragment>
+                <div key="newsletter-stats" style={{ display: 'flex', gap: 14, marginTop: 12, color: 'var(--ink)', opacity: 0.72 }}>
                   <BriefingStat v="187" l={t('statEditions')} />
                   <BriefingStat v="42K" l={t('statReaders')} />
                   <BriefingStat v="4.8" l={t('statRating')} />
