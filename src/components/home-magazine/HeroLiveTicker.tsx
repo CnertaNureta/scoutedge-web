@@ -113,53 +113,64 @@ export function HeroLiveTicker({ initialItems }: HeroLiveTickerProps) {
         position: 'absolute',
         left: 0,
         right: 0,
-        bottom: 64,
-        padding: '8px 56px',
-        background: hasLive
-          ? 'rgba(243,201,105,0.08)'
-          : 'rgba(168,224,99,0.06)',
-        borderTop: hasLive
-          ? '1px dashed rgba(243,201,105,0.3)'
-          : '1px dashed rgba(168,224,99,0.25)',
-        borderBottom: hasLive
-          ? '1px dashed rgba(243,201,105,0.3)'
-          : '1px dashed rgba(168,224,99,0.25)',
+        bottom: 0,
+        padding: '12px 56px',
+        background: 'var(--ink)',
+        borderTop: '1px solid var(--line)',
         display: 'flex',
         alignItems: 'center',
-        gap: 24,
-        zIndex: 11,
+        gap: 32,
+        fontSize: 11,
+        fontFamily: 'var(--f-condensed)',
+        letterSpacing: '0.14em',
+        textTransform: 'uppercase',
         overflow: 'hidden',
+        zIndex: 11,
       }}
     >
       <span
-        className="ko-strike ko-label"
+        className={`ko-strike ko-label${hasLive ? ' ko-live' : ''}`}
         style={{
-          fontSize: 9,
+          fontSize: 10,
           flexShrink: 0,
-          color: hasLive ? 'var(--gold)' : undefined,
+          color: hasLive ? 'var(--red)' : undefined,
+          border: hasLive ? '1px solid var(--red)' : '1px solid var(--line-strong)',
+          padding: '4px 10px',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
         }}
       >
+        {hasLive && (
+          <span
+            style={{
+              display: 'inline-block',
+              width: 6,
+              height: 6,
+              borderRadius: '50%',
+              background: 'var(--red)',
+            }}
+          />
+        )}
         {hasLive ? 'LIVE' : 'UPCOMING'}
       </span>
-      <div
+      <span
         style={{
           display: 'flex',
-          gap: 26,
-          fontFamily: 'var(--f-condensed)',
-          fontWeight: 700,
-          fontSize: 11,
-          letterSpacing: '0.14em',
-          textTransform: 'uppercase',
+          gap: 32,
+          opacity: 0.85,
           whiteSpace: 'nowrap',
         }}
       >
         {tickerDisplay.map((item, i) => (
-          <span key={`${item}-${i}`} style={{ display: 'inline-flex', gap: 26 }}>
+          <span key={`${item}-${i}`} style={{ display: 'inline-flex', gap: 32 }}>
             <span>{item}</span>
-            {i < tickerDisplay.length - 1 && <span className="ko-muted">·</span>}
+            {i < tickerDisplay.length - 1 && (
+              <span className="ko-muted">·</span>
+            )}
           </span>
         ))}
-      </div>
+      </span>
     </div>
   )
 }
