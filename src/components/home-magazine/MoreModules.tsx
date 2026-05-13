@@ -115,7 +115,7 @@ export function DailyBriefingModule({
               </div>
             </div>
           ))}
-          <div style={{ display: 'grid', gridTemplateColumns: newsletterSlot ? '1fr' : '1fr 1fr', gap: 12 }}>
+          <div key="newsletter-cta" style={{ display: 'grid', gridTemplateColumns: newsletterSlot ? '1fr' : '1fr 1fr', gap: 12 }}>
             <Link href="/daily-briefing" className="ko-card" style={{ padding: 16, background: 'transparent', borderStyle: 'dashed', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, color: 'inherit', textDecoration: 'none' }}>
               <span className="ko-mono ko-muted" style={{ fontSize: 11, letterSpacing: '0.18em' }}>{t('moreThisWeek')}</span>
               <span className="ko-label ko-gold" style={{ fontSize: 11 }}>{t('archiveCta')}</span>
