@@ -20,6 +20,7 @@
 const BASE_URL = (process.env.BASE_URL || 'https://kickoracle.com').replace(/\/$/, '')
 const TIMEOUT_MS = 10_000
 const MAX_REDIRECTS = 3
+const LOCALE_PATH_RE = /\/[a-z]{2}(?:-[A-Za-z0-9]+)*(\/|$)/
 // Use the actual hreflang codes emitted by the site (Chinese is zh-Hans per BCP-47).
 // Mirrors src/i18n/locales.ts LOCALE_CONFIGS[*].hreflang.
 const EXPECTED_LOCALES = ['en', 'es', 'zh-Hans', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
@@ -204,7 +205,7 @@ async function checkPage(url, deepChecks = []) {
     const canon = links.find((l) => (l.rel || '').toLowerCase() === 'canonical')
     if (!canon) fail(url, 'missing <link rel="canonical">')
     else if (!canon.href || !/^https?:\/\//.test(canon.href)) fail(url, `canonical not absolute: ${canon.href}`)
-    else if (!/\/[a-z]{2}(\/|$)/.test(new URL(canon.href).pathname)) fail(url, `canonical not locale-prefixed: ${canon.href}`)
+    else if (!LOCALE_PATH_RE.test(new URL(canon.href).pathname)) fail(url, `canonical not locale-prefixed: ${canon.href}`)
     else pass(url, `canonical = ${canon.href}`)
 
     // hreflang
