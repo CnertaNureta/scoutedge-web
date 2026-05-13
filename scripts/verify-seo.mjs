@@ -20,7 +20,9 @@
 const BASE_URL = (process.env.BASE_URL || 'https://kickoracle.com').replace(/\/$/, '')
 const TIMEOUT_MS = 10_000
 const MAX_REDIRECTS = 3
-const EXPECTED_LOCALES = ['en', 'es', 'zh', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
+// Use the actual hreflang codes emitted by the site (Chinese is zh-Hans per BCP-47).
+// Mirrors src/i18n/locales.ts LOCALE_CONFIGS[*].hreflang.
+const EXPECTED_LOCALES = ['en', 'es', 'zh-Hans', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
 const EXPECTED_HREFLANG_COUNT = EXPECTED_LOCALES.length + 1 // 19 locales + x-default
 
 const args = new Set(process.argv.slice(2))
@@ -131,11 +133,11 @@ async function checkRobots() {
     if (hops.length > 1) warn(url, `redirected ${hops.length - 1}x → ${hops.at(-1)}`)
     const body = await res.text()
     const checks = [
-      [/^Sitemap:\s*https:\/\/kickoracle\.com\/sitemap\.xml/m, 'Sitemap directive'],
-      [/^User-agent:\s*\*/m, 'User-agent: *'],
-      [/^Disallow:\s*\/api\//m, 'Disallow: /api/'],
-      [/^Disallow:\s*\/auth\//m, 'Disallow: /auth/'],
-      [/^Allow:\s*\//m, 'Allow: /'],
+      [/^Sitemap:\s*https:\/\/kickoracle\.com\/sitemap\.xml/im, 'Sitemap directive'],
+      [/^User-agent:\s*\*/im, 'User-agent: *'],
+      [/^Disallow:\s*\/api\//im, 'Disallow: /api/'],
+      [/^Disallow:\s*\/auth\//im, 'Disallow: /auth/'],
+      [/^Allow:\s*\//im, 'Allow: /'],
     ]
     for (const [re, label] of checks) {
       if (re.test(body)) pass(url, label)
@@ -272,7 +274,7 @@ const breadcrumbCheck = (url, { nodes, html }) => {
 
 // ---------- Plan ----------
 const PAGES = [
-  { url: `${BASE_URL}/en`, checks: [breadcrumbCheck] },
+  { url: `${BASE_URL}/en`, checks: [] }, // home is the root; no breadcrumb expected
   { url: `${BASE_URL}/en/teams`, checks: [breadcrumbCheck] },
   { url: `${BASE_URL}/en/teams/argentina`, checks: [teamCheck, breadcrumbCheck] },
   { url: `${BASE_URL}/en/teams/argentina/players/lionel-messi`, checks: [playerCheck, breadcrumbCheck] },
