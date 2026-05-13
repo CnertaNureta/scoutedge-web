@@ -17,7 +17,7 @@
 | `src/components/home-magazine/HeroLiveCard.tsx` | `design-handoff/hero-b.jsx` (card section) | ✅ done | 首屏 live 比赛卡 — adopted hero-b prediction-card visuals; preserved polling + props |
 | `src/components/home-magazine/HeroLiveTicker.tsx` | `design-handoff/hero-c.jsx` (candidate) | ✅ done | 滚动比分 ticker — hero-c has no ticker; used hero-b bottom marquee pattern instead; preserved all hooks/polling/testid |
 | `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ✅ done | 整页 layout — adopted home.html section heights; preserved all child imports + testid |
-| `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | 🔄 in progress | 模块入口 — QA_FAIL retry 1: React key warning in DailyBriefingModule from HomePage child array |
+| `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | ✅ done | 模块入口 — adopted design grid layout; passed retry 3 by wrapping `{newsletterSlot ?? …}` in `<Fragment key="newsletter-slot">` inside DailyBriefingModule + keying stories.map by headline + keying the newsletter-cta sibling div (React key warning resolved); preserved all hooks/testids/props |
 | `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | ✅ done | 下一场比赛卡 — JSX/layout/tabs/side-rail already mirror new design; preserved props, i18n, testid, Link |
 | `src/components/home-magazine/TopContenders.tsx` | `design-handoff/top-contenders.jsx` | ✅ done | 夺冠热门 — JSX/layout/grid/featured card/ranking list already mirror new design; preserved props, types, i18n, testid, Link, PhotoPlaceholder, FormPills placeholder |
 
