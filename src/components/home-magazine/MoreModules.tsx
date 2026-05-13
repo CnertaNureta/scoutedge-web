@@ -72,10 +72,10 @@ export function DailyBriefingModule({
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.3fr 1fr 0.9fr', gap: 18 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 18 }}>
         {/* Lead story */}
         <Link href="/daily-briefing" className="ko-card" style={{ background: 'var(--soft)', borderColor: 'var(--line-strong)', padding: 0, overflow: 'hidden', position: 'relative', display: 'block', color: 'inherit', textDecoration: 'none' }}>
-          <PhotoPlaceholder caption="[locker room · pre-match]" noCaption className="no-caption" src="/images/kick-oracle/briefing-lead.jpg" alt="Pre-match locker room atmosphere" style={{ height: 320, position: 'relative' }}>
+          <PhotoPlaceholder caption="[locker room · pre-match]" noCaption className="no-caption" src="/images/kick-oracle/briefing-lead.jpg" alt="Pre-match locker room atmosphere" style={{ height: 340, position: 'relative' }}>
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(15,26,19,0.95) 100%)' }} />
             <div style={{ position: 'absolute', top: 16, left: 16, display: 'flex', gap: 8 }}>
               <span className="ko-strike ko-label" style={{ fontSize: 9 }}>{t('leadBadge')}</span>
@@ -84,7 +84,7 @@ export function DailyBriefingModule({
           </PhotoPlaceholder>
           <div style={{ padding: 26 }}>
             <div className="ko-eyebrow" style={{ color: 'var(--green)', marginBottom: 12 }}>{lead.eyebrow}</div>
-            <div className="ko-display" style={{ fontSize: 34, lineHeight: 1, marginBottom: 14 }}>
+            <div className="ko-display" style={{ fontSize: 38, lineHeight: 1, marginBottom: 14 }}>
               {lead.headline}
             </div>
             <p style={{ fontSize: 14, lineHeight: 1.6, margin: 0, opacity: 0.85 }}>
@@ -99,54 +99,48 @@ export function DailyBriefingModule({
           </div>
         </Link>
 
-        {/* Middle: quick stories */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 12 }}>
+        {/* Quick stories spanning 2 columns */}
+        <div style={{ gridColumn: 'span 2', display: 'grid', gridTemplateColumns: '1fr', gap: 12 }}>
           {stories.map((s, i) => (
-            <div key={i} className="ko-card" style={{ padding: 18, display: 'grid', gridTemplateColumns: '44px 1fr auto', gap: 14, alignItems: 'center', background: 'var(--surface)' }}>
-              <div className="ko-display" style={{ fontSize: 36, fontStyle: 'italic', color: 'var(--gold)', lineHeight: 1 }}>0{i + 2}</div>
+            <div key={i} className="ko-card" style={{ padding: 22, display: 'grid', gridTemplateColumns: '60px 1fr auto', gap: 18, alignItems: 'center', background: 'var(--surface)' }}>
+              <div className="ko-display" style={{ fontSize: 44, fontStyle: 'italic', color: 'var(--gold)', lineHeight: 1 }}>0{i + 2}</div>
               <div>
-                <div className="ko-mono" style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--green)', marginBottom: 4 }}>{s.tag}</div>
-                <div className="ko-display" style={{ fontSize: 18, lineHeight: 1.05, marginBottom: 4 }}>{s.h}</div>
-                <p style={{ fontSize: 12, lineHeight: 1.45, margin: 0, opacity: 0.7 }}>{s.b}</p>
+                <div className="ko-mono" style={{ fontSize: 9, letterSpacing: '0.2em', color: 'var(--green)', marginBottom: 6 }}>{s.tag}</div>
+                <div className="ko-display" style={{ fontSize: 22, lineHeight: 1.05, marginBottom: 6 }}>{s.h}</div>
+                <p style={{ fontSize: 13, lineHeight: 1.5, margin: 0, opacity: 0.75 }}>{s.b}</p>
               </div>
               <div style={{ textAlign: 'right', alignSelf: 'flex-start' }}>
                 <div className="ko-mono ko-muted" style={{ fontSize: 9, letterSpacing: '0.16em' }}>{s.t.toUpperCase()}</div>
+                <span className="ko-label ko-gold" style={{ fontSize: 11, marginTop: 8, display: 'inline-block' }}>{t('readCta')}</span>
               </div>
             </div>
           ))}
-          <Link href="/daily-briefing" className="ko-card" style={{ padding: 14, background: 'transparent', borderStyle: 'dashed', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, color: 'inherit', textDecoration: 'none' }}>
-            <span className="ko-mono ko-muted" style={{ fontSize: 10, letterSpacing: '0.18em' }}>{t('moreThisWeek')}</span>
-            <span className="ko-label ko-gold" style={{ fontSize: 10 }}>{t('archiveCta')}</span>
-          </Link>
-        </div>
-
-        {/* Right: newsletter CTA (replaces former standalone Newsletter module) */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <div
-            style={{
-              background: 'var(--green)',
-              color: 'var(--ink)',
-              padding: 24,
-              position: 'relative',
-              overflow: 'hidden',
-              flex: 1,
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <div className="ko-eyebrow" style={{ color: 'var(--ink)', opacity: 0.65, marginBottom: 12 }}>
-              {t('newsletterEyebrow')}
-            </div>
-            <div className="ko-display" style={{ fontSize: 38, lineHeight: 0.92, color: 'var(--ink)' }}>
-              {t('newsletterTitleLine1')}
-              <br />
-              <em>{t('newsletterTitleEm')}</em>
-            </div>
-            <p style={{ fontSize: 13, lineHeight: 1.55, marginTop: 14, marginBottom: 0, color: 'var(--ink)', opacity: 0.82 }}>
-              {t('newsletterBody')}
-            </p>
-            <div style={{ marginTop: 'auto', paddingTop: 18 }}>
-              <div>
+          <div style={{ display: 'grid', gridTemplateColumns: newsletterSlot ? '1fr' : '1fr 1fr', gap: 12 }}>
+            <Link href="/daily-briefing" className="ko-card" style={{ padding: 16, background: 'transparent', borderStyle: 'dashed', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, color: 'inherit', textDecoration: 'none' }}>
+              <span className="ko-mono ko-muted" style={{ fontSize: 11, letterSpacing: '0.18em' }}>{t('moreThisWeek')}</span>
+              <span className="ko-label ko-gold" style={{ fontSize: 11 }}>{t('archiveCta')}</span>
+            </Link>
+            {/* Newsletter CTA (right-side slot preserved from original design) */}
+            <div
+              style={{
+                background: 'var(--green)',
+                color: 'var(--ink)',
+                padding: 24,
+                position: 'relative',
+                overflow: 'hidden',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <div className="ko-eyebrow" style={{ color: 'var(--ink)', opacity: 0.65, marginBottom: 12 }}>
+                {t('newsletterEyebrow')}
+              </div>
+              <div className="ko-display" style={{ fontSize: 28, lineHeight: 0.92, color: 'var(--ink)' }}>
+                {t('newsletterTitleLine1')}
+                <br />
+                <em>{t('newsletterTitleEm')}</em>
+              </div>
+              <div style={{ marginTop: 'auto', paddingTop: 14 }}>
                 {newsletterSlot ?? (
                   <div style={{ display: 'flex', border: '2px solid var(--ink)' }}>
                     <input
@@ -154,41 +148,41 @@ export function DailyBriefingModule({
                       placeholder={t('subscribeEmailPlaceholder')}
                       style={{
                         flex: 1,
-                        padding: '12px 14px',
+                        padding: '10px 12px',
                         border: 0,
                         background: 'transparent',
                         fontFamily: 'var(--f-body)',
-                        fontSize: 14,
+                        fontSize: 13,
                         color: 'var(--ink)',
                         outline: 'none',
                       }}
                     />
-                    <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '12px 18px', fontSize: 11 }}>
+                    <button className="ko-btn" style={{ background: 'var(--ink)', color: 'var(--green)', padding: '10px 16px', fontSize: 11 }}>
                       {t('subscribeCta')}
                     </button>
                   </div>
                 )}
+                <div style={{ display: 'flex', gap: 14, marginTop: 12, color: 'var(--ink)', opacity: 0.72 }}>
+                  <BriefingStat v="187" l={t('statEditions')} />
+                  <BriefingStat v="42K" l={t('statReaders')} />
+                  <BriefingStat v="4.8" l={t('statRating')} />
+                </div>
               </div>
-              <div style={{ display: 'flex', gap: 18, marginTop: 14, color: 'var(--ink)', opacity: 0.72 }}>
-                <BriefingStat v="187" l={t('statEditions')} />
-                <BriefingStat v="42K" l={t('statReaders')} />
-                <BriefingStat v="4.8" l={t('statRating')} />
+              <div
+                className="ko-display"
+                style={{
+                  position: 'absolute',
+                  left: -10,
+                  bottom: -60,
+                  fontSize: 160,
+                  fontStyle: 'italic',
+                  color: 'rgba(10,13,10,0.06)',
+                  lineHeight: 1,
+                  pointerEvents: 'none',
+                }}
+              >
+                26
               </div>
-            </div>
-            <div
-              className="ko-display"
-              style={{
-                position: 'absolute',
-                left: -10,
-                bottom: -60,
-                fontSize: 200,
-                fontStyle: 'italic',
-                color: 'rgba(10,13,10,0.06)',
-                lineHeight: 1,
-                pointerEvents: 'none',
-              }}
-            >
-              26
             </div>
           </div>
         </div>
@@ -206,7 +200,7 @@ function BriefingStat({ v, l }: { v: string; l: string }) {
   )
 }
 
-// ── SCHEDULE TIMELINE ──────────────────────
+// ── SCHEDULE TIMELINE ──────────────────────────
 export interface WeekDayProp {
   day: string
   date: string
@@ -349,7 +343,7 @@ export function ScheduleModule({
     <div style={{ width: '100%', height: '100%', background: 'var(--ink)', color: 'var(--cream)', padding: 48, position: 'relative', overflow: 'hidden' }}>
       <div className="ko-pitch-grid" style={{ position: 'absolute', inset: 0, opacity: 0.5 }} />
 
-      <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 28 }}>
+      <div style={{ position: 'relative', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32 }}>
         <div>
           <div className="ko-eyebrow ko-gold" style={{ marginBottom: 12 }}>{t('sectionLabel')}</div>
           <div className="ko-display" style={{ fontSize: 72, lineHeight: 0.9 }}>
@@ -366,8 +360,7 @@ export function ScheduleModule({
         </div>
       </div>
 
-      {/* Countdown header strip (merged from former Countdown module).
-          TODO Phase 3: wire client-side ticking hook. SSR snapshot only. */}
+      {/* Countdown header strip */}
       <div style={{ position: 'relative', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, marginBottom: 22 }}>
         {[
           { v: countdownVals.days, l: t('countdownDays') },
@@ -379,26 +372,26 @@ export function ScheduleModule({
             key={b.l}
             style={{
               position: 'relative',
-              padding: '18px 20px',
+              padding: '22px 20px',
               background: i === 0 ? 'var(--green)' : 'rgba(15,26,19,0.7)',
               color: i === 0 ? 'var(--ink)' : 'var(--cream)',
               border: i === 0 ? '0' : '1px solid var(--line-strong)',
               overflow: 'hidden',
             }}
           >
-            <div style={{ fontFamily: 'var(--f-condensed)', fontWeight: 900, fontSize: 64, lineHeight: 0.85, letterSpacing: '-0.02em' }}>{b.v}</div>
-            <div className="ko-mono" style={{ fontSize: 9, marginTop: 8, letterSpacing: '0.22em', opacity: i === 0 ? 0.72 : 0.6 }}>
+            <div style={{ fontFamily: 'var(--f-condensed)', fontWeight: 900, fontSize: 72, lineHeight: 0.85, letterSpacing: '-0.02em' }}>{b.v}</div>
+            <div className="ko-mono" style={{ fontSize: 9, marginTop: 10, letterSpacing: '0.22em', opacity: i === 0 ? 0.72 : 0.6 }}>
               {b.l.toUpperCase()}
             </div>
             <div
               className="ko-display"
               style={{
                 position: 'absolute',
-                bottom: 6,
-                right: 10,
-                fontSize: 24,
+                bottom: 10,
+                right: 14,
+                fontSize: 28,
                 fontStyle: 'italic',
-                color: i === 0 ? 'rgba(10,13,10,0.18)' : 'rgba(243,201,105,0.18)',
+                color: i === 0 ? 'rgba(10,13,10,0.15)' : 'rgba(243,201,105,0.15)',
                 lineHeight: 1,
               }}
             >
@@ -415,17 +408,17 @@ export function ScheduleModule({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '14px 20px',
+          padding: '16px 24px',
           background: 'rgba(168,224,99,0.08)',
           border: '1px dashed var(--green)',
           marginBottom: 22,
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <span className="ko-tick" />
           <div>
-            <div className="ko-label" style={{ fontSize: 11, color: 'var(--green)' }}>{t('nextKickoffLabel')}</div>
-            <div className="ko-display" style={{ fontSize: 18, fontStyle: 'italic', marginTop: 2 }}>
+            <div className="ko-label" style={{ fontSize: 12, color: 'var(--green)' }}>{t('nextKickoffLabel')}</div>
+            <div className="ko-display" style={{ fontSize: 22, fontStyle: 'italic', marginTop: 4 }}>
               {nextKickoff
                 ? t('nextKickoffTemplate', {
                     home: nextKickoff.homeCode,
@@ -451,13 +444,13 @@ export function ScheduleModule({
               type="button"
               onClick={() => setSelectedDay(idx)}
               style={{
-                padding: 12,
+                padding: '14px 12px',
                 border: '1px solid var(--line)',
                 background: isSelected ? 'var(--green)' : 'var(--surface)',
                 color: isSelected ? 'var(--ink)' : 'var(--cream)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 4,
+                gap: 6,
                 textAlign: 'left',
                 cursor: 'pointer',
                 font: 'inherit',
@@ -466,8 +459,8 @@ export function ScheduleModule({
               aria-label={`Show fixtures for ${d.day} ${d.date}`}
             >
               <div className="ko-mono" style={{ fontSize: 10, letterSpacing: '0.2em', opacity: isSelected ? 0.7 : 0.5 }}>{d.day}</div>
-              <div style={{ fontFamily: 'var(--f-condensed)', fontWeight: 900, fontSize: 26, lineHeight: 1 }}>{d.date}</div>
-              <div className="ko-mono" style={{ fontSize: 9, opacity: isSelected ? 0.7 : 0.55 }}>
+              <div style={{ fontFamily: 'var(--f-condensed)', fontWeight: 900, fontSize: 32, lineHeight: 1 }}>{d.date}</div>
+              <div className="ko-mono" style={{ fontSize: 10, opacity: isSelected ? 0.7 : 0.55 }}>
                 {d.count === 0
                   ? t('restDay')
                   : d.count === 1
@@ -480,7 +473,7 @@ export function ScheduleModule({
       </div>
 
       <div style={{ position: 'relative' }}>
-        <div className="ko-eyebrow ko-green" style={{ marginBottom: 12 }}>{eyebrowText}</div>
+        <div className="ko-eyebrow ko-green" style={{ marginBottom: 16 }}>{eyebrowText}</div>
         {fixtures.length === 0 ? (
           <div
             style={{
@@ -626,7 +619,6 @@ export function CompareModule({ teamA, teamB, stats: statsProp }: CompareModuleP
             </div>
             <div className="ko-display" style={{ fontSize: 36, lineHeight: 1, fontStyle: 'italic', color: 'var(--gold)' }}>{t('teamACharacter')}</div>
             <p style={{ fontSize: 13, marginTop: 10, opacity: 0.8, maxWidth: 400 }}>
-              {/* TODO Phase 4: real team-character blurb from editorial system */}
               {t('teamACharacterBody')}
             </p>
           </div>
@@ -642,7 +634,6 @@ export function CompareModule({ teamA, teamB, stats: statsProp }: CompareModuleP
             </div>
             <div className="ko-display" style={{ fontSize: 36, lineHeight: 1, fontStyle: 'italic', color: 'var(--gold)' }}>{t('teamBCharacter')}</div>
             <p style={{ fontSize: 13, marginTop: 10, opacity: 0.8, marginLeft: 'auto', maxWidth: 400 }}>
-              {/* TODO Phase 4: real team-character blurb from editorial system */}
               {t('teamBCharacterBody')}
             </p>
           </div>
@@ -1147,5 +1138,3 @@ export function LeaderboardModule({ podium = [], totalUsers = 0 }: LeaderboardMo
     </div>
   )
 }
-
-
