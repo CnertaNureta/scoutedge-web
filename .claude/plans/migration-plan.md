@@ -19,7 +19,7 @@
 | `src/components/home-magazine/MagazineHomePage.tsx` | `design-handoff/home.html` + `design-handoff/design-canvas.jsx` | ✅ done | 整页 layout — adopted home.html section heights; preserved all child imports + testid |
 | `src/components/home-magazine/MoreModules.tsx` | `design-handoff/more-modules.jsx` | 🔄 in progress | 模块入口 — QA_FAIL retry 1: React key warning in DailyBriefingModule from HomePage child array |
 | `src/components/home-magazine/NextMatch.tsx` | `design-handoff/next-match.jsx` | ✅ done | 下一场比赛卡 — JSX/layout/tabs/side-rail already mirror new design; preserved props, i18n, testid, Link |
-| `src/components/home-magazine/TopContenders.tsx` | `design-handoff/top-contenders.jsx` | 🔄 in progress | 夺冠热门 |
+| `src/components/home-magazine/TopContenders.tsx` | `design-handoff/top-contenders.jsx` | ✅ done | 夺冠热门 — JSX/layout/grid/featured card/ranking list already mirror new design; preserved props, types, i18n, testid, Link, PhotoPlaceholder, FormPills placeholder |
 
 > Shared primitives: `design-handoff/visual-system.jsx` 是新设计的视觉系统（颜色 / typography / 卡片样式），所有 home-magazine 组件都应该 reference 它。
 > `design-handoff/tweaks-panel.jsx` 是设计工具面板（调色板/字号开关），N/A — 不迁移。
