@@ -146,6 +146,19 @@ describe('WORLD_CUP_SEO_PAGES — schema quality', () => {
     }
   )
 
+  it('does not link to missing /world-cup-2026 catch-all pages', () => {
+    const validSlugs = new Set(WORLD_CUP_SEO_PAGES.map((page) => page.slug))
+
+    for (const page of WORLD_CUP_SEO_PAGES) {
+      for (const link of page.relatedLinks) {
+        if (link.href.startsWith('/world-cup-2026/')) {
+          const linkedSlug = link.href.replace('/world-cup-2026/', '')
+          expect(validSlugs.has(linkedSlug), `${page.slug} -> ${link.href}`).toBe(true)
+        }
+      }
+    }
+  })
+
   it.each(WORLD_CUP_SEO_PAGES.map((p) => [p.slug, p] as const))(
     '%s: editorial pages have publishedAt',
     (_slug, page) => {

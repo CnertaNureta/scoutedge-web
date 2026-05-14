@@ -36,13 +36,14 @@ describe('routing aliases', () => {
     expect(urls).toContain('https://kickoracle.com/en/cities/new-york')
   })
 
-  it('publishes all 48 team detail pages in the sitemap', () => {
+  it('publishes the 46 confirmed team detail pages in the sitemap', () => {
     const teamUrls = getSitemapEntries()
       .map((entry) => entry.url)
       .filter((url) => /\/en\/teams\/[^/]+$/.test(url))
 
-    expect(teamUrls.length).toBe(48)
+    expect(teamUrls.length).toBe(46)
     expect(teamUrls).toContain('https://kickoracle.com/en/teams/brazil')
+    expect(teamUrls.some((url) => url.includes('tbd-playoff'))).toBe(false)
   })
 
   it('publishes all 12 group detail pages in the sitemap', () => {

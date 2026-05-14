@@ -8,6 +8,7 @@ import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { ORIGIN_COUNTRIES } from '@/data/travel-data'
 import { lingoCountries, lingoPlayers } from '@/data/lingo-data'
 import { getAllPosts } from '@/lib/blog-service'
+import { getAllMatchupSlugs } from '@/lib/compare-utils'
 
 export const SITE_BASE_URL = 'https://kickoracle.com'
 export const SITEMAP_CHUNK_SIZE = 2500
@@ -143,6 +144,11 @@ const MATCH_DETAIL_OPTS: EntryOpts = {
   priority: 0.85,
 }
 
+const COMPARE_DETAIL_OPTS: EntryOpts = {
+  changeFrequency: 'weekly',
+  priority: 0.6,
+}
+
 const CITY_DETAIL_OPTS: EntryOpts = {
   changeFrequency: 'weekly',
   priority: 0.7,
@@ -200,8 +206,12 @@ const CITY_SUBPAGES = [
 
 const GROUP_IDS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'] as const
 
+function isConfirmedSlug(slug: string): boolean {
+  return !slug.startsWith('tbd-')
+}
+
 function teamDetailPaths(): SitemapPath[] {
-  return TEAMS.flatMap((team) => [
+  return TEAMS.filter((team) => isConfirmedSlug(team.slug)).flatMap((team) => [
     { path: `/teams/${team.slug}`, ...TEAM_DETAIL_OPTS },
     { path: `/teams/${team.slug}/qualified`, ...TEAM_QUALIFIED_OPTS },
   ])
@@ -214,10 +224,12 @@ function teamDetailPaths(): SitemapPath[] {
  * follow-up should retarget its canonical tag at the team-prefixed URL).
  */
 function playerDetailPaths(): SitemapPath[] {
-  return PLAYERS.map((player) => ({
-    path: `/teams/${player.teamSlug}/players/${player.slug}`,
-    ...PLAYER_DETAIL_OPTS,
-  }))
+  return PLAYERS.filter((player) => isConfirmedSlug(player.teamSlug)).map(
+    (player) => ({
+      path: `/teams/${player.teamSlug}/players/${player.slug}`,
+      ...PLAYER_DETAIL_OPTS,
+    })
+  )
 }
 
 /**
@@ -226,10 +238,12 @@ function playerDetailPaths(): SitemapPath[] {
  * duplicate of the canonical profile.
  */
 function playerIsPlayingPaths(): SitemapPath[] {
-  return PLAYERS.map((player) => ({
-    path: `/players/is-playing/${player.slug}`,
-    ...PLAYER_IS_PLAYING_OPTS,
-  }))
+  return PLAYERS.filter((player) => isConfirmedSlug(player.teamSlug)).map(
+    (player) => ({
+      path: `/players/is-playing/${player.slug}`,
+      ...PLAYER_IS_PLAYING_OPTS,
+    })
+  )
 }
 
 function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
@@ -237,10 +251,11 @@ function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
 }
 
 function matchDetailPaths(): SitemapPath[] {
-  // Only group-stage fixtures have real team slugs. Knockout fixtures use
-  // TBD placeholder slugs (e.g. `tbd-1a`) that are not navigable and would
-  // produce 404s if advertised; we intentionally skip them.
-  return MATCH_FIXTURES.map((fixture) => {
+  return MATCH_FIXTURES.filter(
+    (fixture) =>
+      !fixture.homeTeamSlug.startsWith('tbd-') &&
+      !fixture.awayTeamSlug.startsWith('tbd-')
+  ).map((fixture) => {
     const matchId = fixtureToMatchId(fixture)
     return {
       path: `/matches/live/${matchId}`,
@@ -248,6 +263,15 @@ function matchDetailPaths(): SitemapPath[] {
       lastModified: new Date(fixture.kickoffUtc),
     }
   })
+}
+
+function compareDetailPaths(): SitemapPath[] {
+  return getAllMatchupSlugs()
+    .filter((slug) => !slug.includes('tbd-playoff'))
+    .map((slug) => ({
+      path: `/compare/${slug}`,
+      ...COMPARE_DETAIL_OPTS,
+    }))
 }
 
 function cityDetailPaths(): SitemapPath[] {
@@ -365,6 +389,7 @@ export function buildCoreSitemapPaths(): SitemapPath[] {
     HUB_PATHS,
     TOOL_PATHS,
     worldCupSeoPaths(),
+    compareDetailPaths(),
     teamDetailPaths(),
     playerDetailPaths(),
     playerIsPlayingPaths(),

@@ -49,6 +49,19 @@ describe('sitemap coverage', () => {
     expect(urls).toContain(localizedUrl('en', '/teams/argentina'))
     expect(urls).toContain(localizedUrl('en', '/cities/new-york'))
     expect(urls).toContain(localizedUrl('en', '/groups/a'))
+    expect(urls).toContain(localizedUrl('en', '/compare/argentina-vs-brazil'))
+  })
+
+  it('does not advertise placeholder TBD team, matchup, or live-match routes', () => {
+    const urls = getSitemapEntries().map((entry) => entry.url)
+    const placeholderDynamicRoutes = urls.filter(
+      (url) =>
+        url.includes('/teams/tbd-playoff') ||
+        url.includes('/compare/tbd-playoff') ||
+        url.includes('-vs-tbd-playoff') ||
+        (url.includes('/matches/live/') && url.includes('tbd-playoff'))
+    )
+    expect(placeholderDynamicRoutes).toEqual([])
   })
 
   it('excludes user-state and legal routes via NOINDEX_PATHS', () => {
