@@ -63,6 +63,19 @@ pass "Build"
 # ───────────────────────────────────────────────
 step "E2E (Playwright)"
 if [ -d tests/e2e ] || [ -d e2e ] || [ -f playwright.config.ts ]; then
+  # `next build` above can leave a stale dev server in a broken state (500s on every route).
+  # Playwright's `reuseExistingServer: !CI` would then reuse it and every test would fail.
+  # Kill anything on port 3000 first so Playwright spins up a fresh dev server.
+  STALE_PID=$(lsof -ti :3000 2>/dev/null || true)
+  if [ -n "$STALE_PID" ]; then
+    echo "  Killing stale dev server (PID $STALE_PID) on port 3000…"
+    kill "$STALE_PID" 2>/dev/null || true
+    # Wait up to 5s for the port to free
+    for _ in 1 2 3 4 5; do
+      sleep 1
+      [ -z "$(lsof -ti :3000 2>/dev/null)" ] && break
+    done
+  fi
   npx playwright test --reporter=line || fail "Playwright tests failed"
   pass "E2E"
 else
