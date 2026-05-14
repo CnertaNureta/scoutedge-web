@@ -6,6 +6,7 @@ import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { buildOGMeta, jsonLdGraph, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { cityDescriptionEn } from '@/data/seo-meta'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -32,28 +33,35 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   const city = getCityBySlug(slug)
   if (!city) return {}
 
-  const title = `${city.name} — World Cup 2026 Host City Guide`
   const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
   const venueNames = city.venueIds
     .map((id) => getAllVenues().find((v) => v.id === id)?.name)
     .filter((n): n is string => Boolean(n))
-  const description = cityDescriptionEn(
-    {
-      name: city.name,
-      country: city.country,
-      venueNames,
-      matchCount: cityFixtures.length,
-    },
-    city.slug
-  )
-  const url = `https://kickoracle.com/cities/${city.slug}`
+  const tMeta = await getTranslations({ locale, namespace: 'cityDetailPage' })
+  const title =
+    locale === 'en'
+      ? `${city.name} — World Cup 2026 Host City Guide`
+      : tMeta('metaTitle', { city: city.name })
+  const description =
+    locale === 'en'
+      ? cityDescriptionEn(
+          {
+            name: city.name,
+            country: city.country,
+            venueNames,
+            matchCount: cityFixtures.length,
+          },
+          city.slug
+        )
+      : tMeta('metaDescription', { city: city.name, country: city.country })
+  const alternates = buildAlternates(locale, `/cities/${city.slug}`)
 
   return {
     title,
     description,
     keywords: `${city.name} World Cup 2026, ${city.name} stadium, ${city.name} hotels, ${city.name} travel`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url, locale }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

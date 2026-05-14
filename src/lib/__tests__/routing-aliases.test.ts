@@ -70,6 +70,9 @@ describe('routing aliases', () => {
     expect(urls.some((url) => url.includes('/en/cities/los-angeles/tickets'))).toBe(true)
     expect(urls.some((url) => url.includes('/en/travel/from/'))).toBe(true)
     expect(urls.some((url) => url.includes('/en/lingo/countries/'))).toBe(true)
-    expect(entries.length).toBeGreaterThan(40000)
+    // Sitemap is intentionally scoped to SITEMAP_LOCALES (5 core locales) to
+    // keep Google's crawl budget focused. With the full path tree this still
+    // emits well over 10k URLs across all major route trees.
+    expect(entries.length).toBeGreaterThan(10000)
   })
 })

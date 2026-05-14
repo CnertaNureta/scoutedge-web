@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
 import { articleJsonLd, buildOGMeta, canonicalForLocale, faqPageJsonLd, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -16,17 +17,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const post = getPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
-  const url = canonicalForLocale(locale, `/blog/${slug}`)
+  const alternates = buildAlternates(locale, `/blog/${slug}`)
 
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords.join(', '),
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: post.title,
       description: post.description,
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
       publishedTime: post.date,

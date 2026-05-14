@@ -4,7 +4,8 @@ import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd, personJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
-import { playerDescriptionEn } from '@/data/seo-meta'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import { playerDescriptionEn, playerTitleEn } from '@/data/seo-meta'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -13,43 +14,58 @@ import SectionHeader from '@/components/ui/SectionHeader'
 export const revalidate = 3600
 
 interface Props {
-  params: Promise<{ player: string }>
+  params: Promise<{ locale: string; player: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { player: slug } = await params
+  const { locale, player: slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) return {}
 
   const team = getTeamBySlug(player.teamSlug)
-  const teamName = team?.name ?? ''
-  const title = `${player.name} — ${teamName} | World Cup 2026`
-  const description = playerDescriptionEn({
-    name: player.name,
-    position: player.position,
-    team: teamName || player.teamSlug,
-    club: player.club,
-    age: player.age,
-    caps: player.caps,
-    goals: player.goals,
-    rating: player.rating,
-    slug: player.slug,
-  })
+  const teamName = team?.name ?? player.teamSlug
+  const tMeta = await getTranslations({ locale, namespace: 'playerPage' })
+  // English keeps the rich, copywritten templates; other locales use the
+  // translated template so we don't ship identical English on every locale.
+  const title =
+    locale === 'en'
+      ? playerTitleEn({ name: player.name })
+      : tMeta('metaTitle', { name: player.name })
+  const description =
+    locale === 'en'
+      ? playerDescriptionEn({
+          name: player.name,
+          position: player.position,
+          team: teamName,
+          club: player.club,
+          age: player.age,
+          caps: player.caps,
+          goals: player.goals,
+          rating: player.rating,
+          slug: player.slug,
+        })
+      : tMeta('metaDescription', {
+          name: player.name,
+          position: player.position,
+          team: teamName,
+          club: player.club ?? '',
+        })
 
   // Canonical retargets to the team-prefixed URL (richer hierarchy, included
   // in sitemap). If we can't resolve the team (e.g. data anomaly), fall back
-  // to the self-canonical so we never emit an empty href.
-  const selfUrl = canonicalForLocale('en', `/players/${slug}`)
-  const canonical = team
-    ? canonicalForLocale('en', `/teams/${team.slug}/players/${slug}`)
-    : selfUrl
+  // to the self-canonical so we never emit an empty href. Each locale is
+  // self-canonical with full hreflang via buildAlternates.
+  const canonicalPath = team
+    ? `/teams/${team.slug}/players/${slug}`
+    : `/players/${slug}`
+  const alternates = buildAlternates(locale, canonicalPath)
 
   return {
     title,
     description,
-    keywords: `${player.name} World Cup 2026, ${player.name} stats, ${teamName} squad`,
-    alternates: { canonical },
-    ...buildOGMeta({ title, description, url: canonical }),
+    keywords: `${player.name} World Cup 2026 news, ${player.name} stats, ${teamName} squad`,
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

@@ -121,8 +121,7 @@
     "footballTerms": "Futbol Terimleri",
     "home": "Ana Sayfa",
     "predict": "Tahmin Et",
-    "cities": "Şehirler",
-    "pricing": "Fiyatlandırma"
+    "cities": "Şehirler"
   },
   "footer": {
     "tagline": "2026 Dünya Kupası için yapay zeka destekli tahmin ve istihbarat platformu. Bağımsız analizler, kadro uyumu ve 48 milli takımın tamamı için öngörüsel değerlendirmeler.",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} oynuyor mu?",
     "fullProfileOn": "{team} tam profili",
     "teamSquad": "{flag} {team} Kadrosu",
-    "allTeams": "Tüm takımlar"
+    "allTeams": "Tüm takımlar",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Kadro Takibi",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "çok güvenli",
     "safetySafe": "güvenli",
     "safetyModerate": "orta",
-    "safetyCaution": "dikkat"
+    "safetyCaution": "dikkat",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Taraftar rehberi",
@@ -1690,5 +1693,9 @@
     "groupRank": "{group}. Grup · #{rank}",
     "playoff": "Play-off",
     "chemistry": "Uyum"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

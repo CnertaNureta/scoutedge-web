@@ -121,8 +121,7 @@
     "footballTerms": "Termes du Football",
     "home": "Accueil",
     "predict": "Prédire",
-    "cities": "Villes",
-    "pricing": "Tarifs"
+    "cities": "Villes"
   },
   "footer": {
     "tagline": "Plateforme de prédictions et de renseignements alimentée par l'IA pour la Coupe du Monde 2026. Analyses indépendantes, cohésion d'équipe et insights prédictifs pour les 48 nations.",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} joue-t-il ?",
     "fullProfileOn": "Profil complet sur {team}",
     "teamSquad": "{flag} Effectif {team}",
-    "allTeams": "Toutes les équipes"
+    "allTeams": "Toutes les équipes",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Suivi d'Effectif",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "très sûre",
     "safetySafe": "sûre",
     "safetyModerate": "modérée",
-    "safetyCaution": "prudence"
+    "safetyCaution": "prudence",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Guide supporter",
@@ -1690,5 +1693,9 @@
     "groupRank": "Groupe {group} · #{rank}",
     "playoff": "Barrage",
     "chemistry": "Cohésion"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

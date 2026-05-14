@@ -121,8 +121,7 @@
     "footballTerms": "Istilah Sepak Bola",
     "home": "Beranda",
     "predict": "Prediksi",
-    "cities": "Kota",
-    "pricing": "Harga"
+    "cities": "Kota"
   },
   "footer": {
     "tagline": "Platform prediksi dan intelijen berbasis AI untuk Piala Dunia 2026. Analisis independen, chemistry skuad, dan wawasan prediktif untuk semua 48 negara.",
@@ -772,7 +771,9 @@
     "isPlaying": "Apakah {name} bermain?",
     "fullProfileOn": "Profil lengkap di {team}",
     "teamSquad": "{flag} Skuad {team}",
-    "allTeams": "Semua tim"
+    "allTeams": "Semua tim",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Pelacak Skuad",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "sangat aman",
     "safetySafe": "aman",
     "safetyModerate": "sedang",
-    "safetyCaution": "hati-hati"
+    "safetyCaution": "hati-hati",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Panduan suporter",
@@ -1690,5 +1693,9 @@
     "groupRank": "Grup {group} · #{rank}",
     "playoff": "Play-off",
     "chemistry": "Chemistry"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

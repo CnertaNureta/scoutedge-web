@@ -8,6 +8,8 @@ import {
   matchDescriptionEn,
   playerDescriptionEn,
   playerStatusDescriptionEn,
+  playerTitleEn,
+  MAX_TITLE_WITH_BRAND_LENGTH,
   stadiumDescriptionEn,
   teamQualifiedDescriptionEn,
   travelFromCountryDescriptionEn,
@@ -45,6 +47,14 @@ describe('seo-meta generators — length cap', () => {
         slug: p.slug,
       })
       return desc.length > MAX_META_DESCRIPTION_LENGTH
+    })
+    expect(tooLong.map((p) => p.slug)).toEqual([])
+  })
+
+  it('every player title stays within the branded title target', () => {
+    const tooLong = PLAYERS.filter((p) => {
+      const title = `${playerTitleEn({ name: p.name })} | KickOracle`
+      return title.length > MAX_TITLE_WITH_BRAND_LENGTH
     })
     expect(tooLong.map((p) => p.slug)).toEqual([])
   })

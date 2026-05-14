@@ -121,8 +121,7 @@
     "footballTerms": "Fociszótár",
     "home": "Főoldal",
     "predict": "Tipp",
-    "cities": "Városok",
-    "pricing": "Árazás"
+    "cities": "Városok"
   },
   "footer": {
     "tagline": "MI-alapú előrejelzési és elemző platform a 2026-os labdarúgó-világbajnoksághoz. Független elemzés, csapatkémia és prediktív betekintés mind a 48 válogatotthoz.",
@@ -772,7 +771,9 @@
     "isPlaying": "Játszik {name}?",
     "fullProfileOn": "Teljes profil a {team} oldalon",
     "teamSquad": "{flag} {team} keret",
-    "allTeams": "Összes válogatott"
+    "allTeams": "Összes válogatott",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Keretfigyelő",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "nagyon biztonságos",
     "safetySafe": "biztonságos",
     "safetyModerate": "mérsékelt",
-    "safetyCaution": "óvatosság"
+    "safetyCaution": "óvatosság",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Szurkolói útmutató",
@@ -1690,5 +1693,9 @@
     "groupRank": "{group}. csoport · #{rank}",
     "playoff": "Pótselejtező",
     "chemistry": "Csapatkémia"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

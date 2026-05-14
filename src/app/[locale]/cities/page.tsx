@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -25,19 +26,24 @@ const SAFETY_KEYS: Record<HostCity['safety']['level'], 'safetyVerySafe' | 'safet
   caution: 'safetyCaution',
 }
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
-  description:
-    'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico. Hotels, transport, match schedules, and travel tips.',
-  keywords:
-    'World Cup 2026 host cities, World Cup 2026 venues, World Cup 2026 stadiums, World Cup 2026 travel guide',
-  alternates: { canonical: 'https://kickoracle.com/cities' },
-  ...buildOGMeta({
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/cities')
+  return {
     title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
     description:
-      'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico.',
-    url: 'https://kickoracle.com/cities',
-  }),
+      'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico. Hotels, transport, match schedules, and travel tips.',
+    keywords:
+      'World Cup 2026 host cities, World Cup 2026 venues, World Cup 2026 stadiums, World Cup 2026 travel guide',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
+      description:
+        'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 function SafetyBadge({ level, label }: { level: HostCity['safety']['level']; label: string }) {

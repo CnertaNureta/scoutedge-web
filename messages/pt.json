@@ -121,8 +121,7 @@
     "footballTerms": "Termos do Futebol",
     "home": "Início",
     "predict": "Prever",
-    "cities": "Cidades",
-    "pricing": "Preços"
+    "cities": "Cidades"
   },
   "footer": {
     "tagline": "Plataforma de previsões e inteligência com IA para a Copa do Mundo 2026. Análise independente, entrosamento de elenco e insights preditivos para todas as 48 seleções.",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} vai jogar?",
     "fullProfileOn": "Perfil completo em {team}",
     "teamSquad": "{flag} {team} Elenco",
-    "allTeams": "Todas as seleções"
+    "allTeams": "Todas as seleções",
+    "metaTitle": "{name} Copa do Mundo 2026 — Perfil, Estatísticas e Previsões",
+    "metaDescription": "{name} ({position}) — convocado por {team}, joga no {club}. Estatísticas, scouting e inteligência IA da Copa 2026."
   },
   "playerStatusPage": {
     "badge": "Rastreador de Elenco",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "muito seguro",
     "safetySafe": "seguro",
     "safetyModerate": "moderado",
-    "safetyCaution": "atenção"
+    "safetyCaution": "atenção",
+    "metaTitle": "{city} Copa do Mundo 2026 — Guia da Cidade-Sede",
+    "metaDescription": "Guia de {city}, cidade-sede da Copa 2026 em {country}. Estádios, transporte, hotéis, segurança e calendário de jogos."
   },
   "travelPage": {
     "heroBadge": "Guia do torcedor",
@@ -1690,5 +1693,9 @@
     "groupRank": "Grupo {group} · #{rank}",
     "playoff": "Playoff",
     "chemistry": "Entrosamento"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} Copa do Mundo 2026 — Elenco, Análise e Previsões",
+    "metaDescription": "Análise por IA da campanha de {team} na Copa 2026. Grupo {group}, FIFA #{rank}. Elenco, calendário, índice de química e probabilidade de vitória."
   }
 }

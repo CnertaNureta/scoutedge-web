@@ -10,6 +10,7 @@ import {
   faqPageJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { routing } from '@/i18n/routing'
 import { LOCALE_CONFIGS } from '@/i18n/locales'
 import { HOMEPAGE_FAQS } from '@/data/faq-content'
@@ -24,26 +25,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
 
-  const languages: Record<string, string> = {
-    'x-default': canonicalForLocale(routing.defaultLocale, '/'),
-  }
-  for (const loc of routing.locales) {
-    languages[LOCALE_CONFIGS[loc].hreflang] = canonicalForLocale(loc, '/')
-  }
+  const alternates = buildAlternates(locale, '/')
 
   return {
     title: t('title'),
     description: t('description'),
     keywords:
       'World Cup 2026, World Cup predictions, World Cup intelligence, football analysis, team chemistry, player reports, World Cup 2026 schedule',
-    alternates: {
-      canonical: canonicalForLocale(locale, '/'),
-      languages,
-    },
+    alternates,
     ...buildOGMeta({
       title: t('title'),
       description: t('description'),
-      url: canonicalForLocale(locale, '/'),
+      url: alternates.canonical,
       locale,
     }),
   }

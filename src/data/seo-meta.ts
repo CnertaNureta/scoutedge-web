@@ -21,6 +21,9 @@ export type PageSEOMeta = {
   ogTitle?: string    // Optional: Open Graph title (can be more descriptive)
 }
 
+export const MAX_TITLE_WITH_BRAND_LENGTH = 60
+const TITLE_BRAND_SUFFIX = ' | KickOracle'
+
 // ─────────────────────────────────────────────────────────────────────────────
 // GROUP ANALYSIS PAGES — /groups/[group]
 // ─────────────────────────────────────────────────────────────────────────────
@@ -263,10 +266,10 @@ export const TEAM_SEO_META: Record<string, PageSEOMeta> = {
 
   // ─── GROUP G ──────────────────────────────────────────────────────────────
   portugal: {
-    title: "Portugal World Cup 2026 Prediction & Analysis | KickOracle",
+    title: "Portugal World Cup 2026 Squad & Prediction | KickOracle",
     description:
       "Bernardo Silva, Leão, Dias — Portugal's talent has never been deeper. Can they finally win a World Cup? Full Group G analysis and KickOracle AI prediction for 2026.",
-    ogTitle: "Portugal World Cup 2026: The New Generation's Best Shot at World Cup Glory",
+    ogTitle: "Portugal World Cup 2026: Squad, Prediction & Key Players",
   },
   iran: {
     title: "Iran World Cup 2026 Prediction & Analysis | KickOracle",
@@ -275,10 +278,10 @@ export const TEAM_SEO_META: Record<string, PageSEOMeta> = {
     ogTitle: "Iran World Cup 2026: Middle East's Most Organized Nation Targets Points",
   },
   belgium: {
-    title: "Belgium World Cup 2026 Prediction & Analysis | KickOracle",
+    title: "Belgium World Cup 2026 Squad & Prediction | KickOracle",
     description:
       "De Bruyne, Lukaku, Courtois — Belgium's golden generation's last World Cup? Full KickOracle AI analysis of their chemistry, Group G chances, and title potential.",
-    ogTitle: "Belgium World Cup 2026: The Golden Generation's Final Dance",
+    ogTitle: "Belgium World Cup 2026: Squad, Prediction & Key Players",
   },
   egypt: {
     title: "Egypt World Cup 2026 Prediction & Analysis | KickOracle",
@@ -471,6 +474,10 @@ export interface PlayerDescriptionInput {
   slug: string
 }
 
+export interface PlayerTitleInput {
+  name: string
+}
+
 const POSITION_PHRASE: Record<string, string> = {
   GK: 'goalkeeper',
   DEF: 'defender',
@@ -510,6 +517,27 @@ const PLAYER_VARIANTS: ReadonlyArray<(p: PlayerDescriptionInput) => string> = [
     return `${club}${role} ${p.name} for ${p.team} — World Cup 2026 ratings, key numbers, and tactical fit, scouted by KickOracle.`
   },
 ]
+
+function compactPlayerTitle(name: string): string {
+  const preferred = `${name} World Cup 2026 News & Profile`
+  if (`${preferred}${TITLE_BRAND_SUFFIX}`.length <= MAX_TITLE_WITH_BRAND_LENGTH) {
+    return preferred
+  }
+
+  const shorter = `${name} World Cup 2026 News`
+  if (`${shorter}${TITLE_BRAND_SUFFIX}`.length <= MAX_TITLE_WITH_BRAND_LENGTH) {
+    return shorter
+  }
+
+  const fallbackSuffix = ' WC 2026 News'
+  const maxNameLength = MAX_TITLE_WITH_BRAND_LENGTH - TITLE_BRAND_SUFFIX.length - fallbackSuffix.length
+  const compactName = name.length > maxNameLength ? `${name.slice(0, Math.max(1, maxNameLength - 3)).trim()}...` : name
+  return `${compactName}${fallbackSuffix}`
+}
+
+export function playerTitleEn(player: PlayerTitleInput): string {
+  return compactPlayerTitle(player.name)
+}
 
 export function playerDescriptionEn(player: PlayerDescriptionInput): string {
   const variant = pickVariant(`player:${player.slug}`, PLAYER_VARIANTS)
@@ -739,4 +767,3 @@ export function blogExcerptFallback(rawBody: string): string {
     .trim()
   return truncateForMeta(text)
 }
-

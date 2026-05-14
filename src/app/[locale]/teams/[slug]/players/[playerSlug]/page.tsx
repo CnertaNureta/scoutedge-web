@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug, getAllPlayers, getAllTeams } from '@/lib/data-service'
 import { HOST_CITIES } from '@/data/cities-data'
@@ -7,7 +8,8 @@ import { buildTeamEntities, buildCityEntities, type LinkEntity } from '@/lib/aut
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
 import { buildOGMeta, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
-import { playerDescriptionEn } from '@/data/seo-meta'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import { playerDescriptionEn, playerTitleEn } from '@/data/seo-meta'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
@@ -25,26 +27,40 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) return { title: 'Player Not Found' }
 
-  const url = `https://kickoracle.com/teams/${slug}/players/${player.slug}`
-  const description = playerDescriptionEn({
-    name: player.name,
-    position: player.position,
-    team: team.name,
-    club: player.club,
-    age: player.age,
-    caps: player.caps,
-    goals: player.goals,
-    rating: player.rating,
-    slug: player.slug,
-  })
+  const alternates = buildAlternates(locale, `/teams/${slug}/players/${player.slug}`)
+  const url = alternates.canonical
+  const tMeta = await getTranslations({ locale, namespace: 'playerPage' })
+  const title =
+    locale === 'en'
+      ? playerTitleEn({ name: player.name })
+      : tMeta('metaTitle', { name: player.name })
+  const description =
+    locale === 'en'
+      ? playerDescriptionEn({
+          name: player.name,
+          position: player.position,
+          team: team.name,
+          club: player.club,
+          age: player.age,
+          caps: player.caps,
+          goals: player.goals,
+          rating: player.rating,
+          slug: player.slug,
+        })
+      : tMeta('metaDescription', {
+          name: player.name,
+          position: player.position,
+          team: team.name,
+          club: player.club ?? '',
+        })
 
   return {
-    title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
+    title,
     description,
-    keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
-    alternates: { canonical: url },
+    keywords: `${player.name} World Cup 2026 news, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
+    alternates,
     ...buildOGMeta({
-      title: `${player.name} — World Cup 2026 | KickOracle`,
+      title,
       description: `AI-powered intelligence report for ${player.name}. ${team.name} · ${player.position} · ${player.club}.`,
       url,
       locale,

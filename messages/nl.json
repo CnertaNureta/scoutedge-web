@@ -121,8 +121,7 @@
     "footballTerms": "Voetbaltermen",
     "home": "Home",
     "predict": "Voorspel",
-    "cities": "Steden",
-    "pricing": "Prijzen"
+    "cities": "Steden"
   },
   "footer": {
     "tagline": "AI-gestuurd voorspellings- en intelligenceplatform voor het WK 2026. Onafhankelijke analyses, selectiechemie en voorspellende inzichten voor alle 48 landen.",
@@ -772,7 +771,9 @@
     "isPlaying": "Speelt {name}?",
     "fullProfileOn": "Volledig profiel bij {team}",
     "teamSquad": "{flag} {team} Selectie",
-    "allTeams": "Alle landen"
+    "allTeams": "Alle landen",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Selectietracker",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "zeer veilig",
     "safetySafe": "veilig",
     "safetyModerate": "gemiddeld",
-    "safetyCaution": "voorzichtig"
+    "safetyCaution": "voorzichtig",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Fan-gids",
@@ -1690,5 +1693,9 @@
     "groupRank": "Groep {group} · #{rank}",
     "playoff": "Playoff",
     "chemistry": "Chemie"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

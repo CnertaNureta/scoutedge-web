@@ -771,7 +771,9 @@
     "isPlaying": "{name} 是否参赛？",
     "fullProfileOn": "{team} 完整档案",
     "teamSquad": "{flag} {team} 阵容",
-    "allTeams": "所有球队"
+    "allTeams": "所有球队",
+    "metaTitle": "{name} 2026 世界杯 — 球员档案、数据与预测",
+    "metaDescription": "{name}（{position}）— {team} 队员，效力于 {club}。2026 世界杯数据、球探报告与 AI 情报。"
   },
   "playerStatusPage": {
     "badge": "阵容追踪",
@@ -1528,7 +1530,9 @@
     "safetyVerySafe": "非常安全",
     "safetySafe": "安全",
     "safetyModerate": "中等",
-    "safetyCaution": "需谨慎"
+    "safetyCaution": "需谨慎",
+    "metaTitle": "{city} 2026 世界杯主办城市 — 旅行指南",
+    "metaDescription": "2026 世界杯主办城市 {city}（{country}）旅行指南。球场、交通、酒店、安全与比赛日程。"
   },
   "travelPage": {
     "heroBadge": "球迷指南",
@@ -1865,5 +1869,9 @@
     "groupRank": "{group} 组 · 第 {rank} 名",
     "playoff": "附加赛",
     "chemistry": "化学反应"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} 2026 世界杯 — 阵容、分析与预测",
+    "metaDescription": "AI 解读 {team} 的 2026 世界杯征程。{group} 组、FIFA 排名第 {rank}。阵容、赛程、化学指数与晋级概率。"
   }
 }

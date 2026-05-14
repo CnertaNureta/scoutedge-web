@@ -121,8 +121,7 @@
     "footballTerms": "サッカー用語",
     "home": "ホーム",
     "predict": "予測",
-    "cities": "都市",
-    "pricing": "料金"
+    "cities": "都市"
   },
   "footer": {
     "tagline": "AI搭載の2026ワールドカップ予測・インテリジェンスプラットフォーム。独立分析、チームケミストリー、48代表チームの予測インサイト。",
@@ -772,7 +771,9 @@
     "isPlaying": "{name}は出場する？",
     "fullProfileOn": "{team}での詳細プロフィール",
     "teamSquad": "{flag} {team} スカッド",
-    "allTeams": "全チーム"
+    "allTeams": "全チーム",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "スカッドトラッカー",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "非常に安全",
     "safetySafe": "安全",
     "safetyModerate": "普通",
-    "safetyCaution": "注意"
+    "safetyCaution": "注意",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "ファンガイド",
@@ -1690,5 +1693,9 @@
     "groupRank": "グループ{group} · #{rank}",
     "playoff": "プレーオフ",
     "chemistry": "ケミストリー"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

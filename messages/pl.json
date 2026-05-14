@@ -121,8 +121,7 @@
     "footballTerms": "Terminy Piłkarskie",
     "home": "Strona Główna",
     "predict": "Typuj",
-    "cities": "Miasta",
-    "pricing": "Cennik"
+    "cities": "Miasta"
   },
   "footer": {
     "tagline": "Platforma prognoz i wywiadu oparta na AI dla Mistrzostw Świata 2026. Niezależne analizy, chemia kadry i predykcyjne spostrzeżenia dla wszystkich 48 reprezentacji.",
@@ -772,7 +771,9 @@
     "isPlaying": "Czy {name} gra?",
     "fullProfileOn": "Pełny profil w {team}",
     "teamSquad": "{flag} Kadra {team}",
-    "allTeams": "Wszystkie reprezentacje"
+    "allTeams": "Wszystkie reprezentacje",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Śledzenie Kadry",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "bardzo bezpiecznie",
     "safetySafe": "bezpiecznie",
     "safetyModerate": "umiarkowanie",
-    "safetyCaution": "ostrożność"
+    "safetyCaution": "ostrożność",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Przewodnik kibica",
@@ -1690,5 +1693,9 @@
     "groupRank": "Grupa {group} · #{rank}",
     "playoff": "Baraże",
     "chemistry": "Chemia"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

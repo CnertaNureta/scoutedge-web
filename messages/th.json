@@ -121,8 +121,7 @@
     "footballTerms": "ศัพท์ฟุตบอล",
     "home": "หน้าหลัก",
     "predict": "ทายผล",
-    "cities": "เมือง",
-    "pricing": "ราคา"
+    "cities": "เมือง"
   },
   "footer": {
     "tagline": "แพลตฟอร์มพยากรณ์และข่าวกรองฟุตบอลโลก 2026 ขับเคลื่อนด้วย AI วิเคราะห์อิสระ เคมีทีม และข้อมูลเชิงพยากรณ์สำหรับทั้ง 48 ทีมชาติ",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} จะลงเล่นไหม?",
     "fullProfileOn": "โปรไฟล์เต็มที่ {team}",
     "teamSquad": "{flag} ทีม {team}",
-    "allTeams": "ทุกทีม"
+    "allTeams": "ทุกทีม",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "ติดตามทีม",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "ปลอดภัยมาก",
     "safetySafe": "ปลอดภัย",
     "safetyModerate": "ปานกลาง",
-    "safetyCaution": "ระวัง"
+    "safetyCaution": "ระวัง",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "คู่มือแฟนบอล",
@@ -1690,5 +1693,9 @@
     "groupRank": "สาย {group} · #{rank}",
     "playoff": "เพลย์ออฟ",
     "chemistry": "เคมีทีม"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }
