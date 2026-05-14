@@ -78,7 +78,7 @@ export default function MatchInteractionHub({
   ]
 
   return (
-    <div className="flex flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-xl overflow-hidden h-[560px] md:h-[640px]">
+    <div data-testid="match-interaction-hub" className="flex flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.03] to-transparent backdrop-blur-xl overflow-hidden h-[560px] md:h-[640px]">
       {/* Reaction bar */}
       <div className="shrink-0 border-b border-white/[0.06] px-2">
         <MatchReactionBar

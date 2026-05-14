@@ -20,10 +20,18 @@ interface UseWakeLockReturn {
  */
 export function useWakeLock(): UseWakeLockReturn {
   const [isActive, setIsActive] = useState(false)
+  const [isSupported, setIsSupported] = useState(false)
   const sentinelRef = useRef<WakeLockSentinel | null>(null)
 
-  const isSupported =
-    typeof navigator !== 'undefined' && 'wakeLock' in navigator
+  // Defer feature-detection until after first client mount so the SSR HTML
+  // (which always sees `isSupported === false`) matches the first client
+  // render. Without this, a button gated on `isSupported` would render only
+  // on the client and trigger a hydration mismatch warning.
+  useEffect(() => {
+    if (typeof navigator !== 'undefined' && 'wakeLock' in navigator) {
+      setIsSupported(true)
+    }
+  }, [])
 
   const request = useCallback(async () => {
     if (!isSupported) return

@@ -342,6 +342,27 @@ export default function BudgetCalculatorPage() {
           from official FIFA pricing. This is an unofficial fan guide.
         </p>
       </section>
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+              { '@type': 'ListItem', position: 2, name: 'Travel', item: 'https://kickoracle.com/travel/' },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Budget Calculator',
+                item: 'https://kickoracle.com/travel/budget-calculator/',
+              },
+            ],
+          }),
+        }}
+      />
     </>
   )
 }

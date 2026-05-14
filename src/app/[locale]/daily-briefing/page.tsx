@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { buildAlternates } from '@/lib/seo/build-alternates'
+import { canonicalForLocale, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, speakableJsonLd } from '@/lib/og-utils'
 import { Link } from '@/i18n/navigation'
 import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
-import { getLatestNarrativePost } from '@/lib/blog-service'
+import { getAllPosts, getLatestNarrativePost } from '@/lib/blog-service'
 import GlassCard from '@/components/ui/GlassCard'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
     },
-    alternates: buildAlternates(locale, '/daily-briefing'),
+    alternates: { canonical: canonicalForLocale(locale, '/daily-briefing') },
   }
 }
 
@@ -111,18 +111,54 @@ export default async function DailyBriefingPage({ params }: Props) {
     day: 'numeric',
   })
 
-  const jsonLd = {
+  const briefingUrl = canonicalForLocale(locale, '/daily-briefing')
+  const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: `World Cup 2026 Daily Briefing — ${today}`,
     description: 'AI-generated daily intelligence briefing for World Cup 2026',
     datePublished: new Date().toISOString(),
+    mainEntityOfPage: { '@type': 'WebPage', '@id': briefingUrl },
     publisher: {
       '@type': 'Organization',
       name: 'KickOracle',
       url: 'https://kickoracle.com',
     },
   }
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Daily Briefing', url: briefingUrl },
+  ])
+
+  const recentBriefings = getAllPosts()
+    .filter((p) => p.contentType === 'daily_briefing')
+    .slice(0, 10)
+  const briefingsList = recentBriefings.length > 0
+    ? itemListJsonLd(
+        recentBriefings.map((p) => ({
+          name: p.title,
+          url: `https://kickoracle.com/blog/${p.slug}`,
+          description: p.description,
+        })),
+        {
+          name: 'Recent Daily Briefings',
+          description: 'Latest AI-generated daily intelligence briefings for the 2026 FIFA World Cup.',
+          url: briefingUrl,
+        }
+      )
+    : null
+
+  const speakable = speakableJsonLd({
+    url: briefingUrl,
+    cssSelectors: ['h1', 'h2', '.daily-briefing-summary'],
+  })
+
+  const jsonLd = jsonLdGraph(
+    briefingsList
+      ? [articleLd, breadcrumbs, briefingsList, speakable]
+      : [articleLd, breadcrumbs, speakable]
+  )
 
   return (
     <>
@@ -142,7 +178,7 @@ export default async function DailyBriefingPage({ params }: Props) {
           <h1 className="font-headline text-5xl md:text-8xl font-black tracking-tighter uppercase mt-4 mb-4">
             {t('heading')}
           </h1>
-          <p className="text-on-surface-variant text-lg max-w-2xl mx-auto mb-6">
+          <p className="daily-briefing-summary text-on-surface-variant text-lg max-w-2xl mx-auto mb-6">
             {t('description')}
           </p>
           <p className="font-label text-sm text-on-surface-variant uppercase tracking-widest mb-8">
@@ -428,6 +464,70 @@ export default async function DailyBriefingPage({ params }: Props) {
         </div>
         </Paywall>
       </section>
+
+      {/* Briefings archive — Latest 10 + Featured dual column for SEO + UX */}
+      {recentBriefings.length > 0 && (
+        <section className="max-w-[1440px] mx-auto px-6 mb-12" aria-labelledby="briefings-archive">
+          <h2 id="briefings-archive" className="font-headline text-2xl md:text-3xl font-bold uppercase tracking-tight mb-6">
+            Briefings Archive
+          </h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Latest 10 — sorted by publishedAt desc (already sliced 0..10 above) */}
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-3">
+                Latest 10
+              </h3>
+              <ul className="space-y-2 list-none p-0">
+                {recentBriefings.map((post) => (
+                  <li key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="block bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-4 py-3 rounded-xl transition-all group"
+                    >
+                      <span className="block font-headline text-sm font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                        {post.title}
+                      </span>
+                      {post.publishedAt && (
+                        <span className="block font-mono text-[10px] uppercase tracking-wider text-on-surface-variant mt-1">
+                          {post.publishedAt}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Featured — curated by factCount (anchored facts) then recency. We
+                deliberately do NOT call this "Most Read" because we lack
+                view-count data; this is editorial weight, not popularity. */}
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-on-surface-variant mb-3">
+                Featured
+              </h3>
+              <ul className="space-y-2 list-none p-0">
+                {[...recentBriefings]
+                  .sort((a, b) => (b.factCount ?? 0) - (a.factCount ?? 0))
+                  .slice(0, 10)
+                  .map((post) => (
+                    <li key={`featured-${post.slug}`}>
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        className="block bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-4 py-3 rounded-xl transition-all group"
+                      >
+                        <span className="block font-headline text-sm font-bold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                          {post.title}
+                        </span>
+                        <span className="block font-mono text-[10px] uppercase tracking-wider text-on-surface-variant mt-1">
+                          {post.factCount ? `${post.factCount} anchored facts` : post.publishedAt ?? ''}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Newsletter */}
       <section className="max-w-[1440px] mx-auto px-6 mb-12">

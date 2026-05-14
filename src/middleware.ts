@@ -15,11 +15,11 @@ const ALLOWED_API_ORIGINS = new Set(
 
 const CSP_DIRECTIVES = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.redoc.ly https://js.stripe.com https://www.googletagmanager.com https://pagead2.googlesyndication.com",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.redoc.ly https://js.stripe.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "img-src 'self' data: blob: https://images.unsplash.com https://upload.wikimedia.org https://*.thesportsdb.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com",
   "font-src 'self' https://fonts.gstatic.com",
-  "connect-src 'self' https://*.supabase.co https://api.stripe.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com",
+  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.stripe.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.googlesyndication.com https://va.vercel-scripts.com https://vitals.vercel-insights.com",
   "frame-src https://js.stripe.com https://checkout.stripe.com https://googleads.g.doubleclick.net https://*.googlesyndication.com",
   "object-src 'none'",
   "base-uri 'self'",
@@ -62,6 +62,12 @@ export function middleware(req: NextRequest) {
   }
 
   if (req.nextUrl.pathname.startsWith('/api/')) {
+    return addSecurityHeaders(NextResponse.next())
+  }
+
+  // Auth pages live outside [locale] (src/app/auth/*). Skip intl middleware
+  // so /auth/login doesn't get redirected to /en/auth/login (which 404s).
+  if (req.nextUrl.pathname.startsWith('/auth/')) {
     return addSecurityHeaders(NextResponse.next())
   }
 

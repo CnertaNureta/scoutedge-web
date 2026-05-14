@@ -451,7 +451,7 @@ export default function QuizApp({ onQuestionAnswered }: QuizAppProps = {}) {
     : 0;
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-10">
+    <div data-testid="quiz-widget" className="mx-auto max-w-2xl px-4 py-10">
       {screen === "home" && (
         <HomeScreen
           onSelectCategory={(c) => {

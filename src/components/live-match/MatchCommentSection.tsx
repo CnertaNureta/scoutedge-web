@@ -109,7 +109,7 @@ export default function MatchCommentSection({
   }, [matchId, accessToken])
 
   return (
-    <div className="flex flex-col h-full">
+    <div data-testid="match-comment-section" className="flex flex-col h-full">
       <div
         ref={scrollRef}
         className="flex-1 overflow-y-auto space-y-3 px-3 py-2 min-h-0 scrollbar-thin scrollbar-thumb-white/10"

@@ -1,5 +1,8 @@
+import { Providers } from '../providers'
+
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
+    <Providers>
     <div className="relative min-h-[calc(100vh-72px)] w-full overflow-hidden">
       {/* Deep background matching site theme */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#040812] via-background to-[#060a18]" />
@@ -24,5 +27,6 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       {/* Content */}
       <div className="relative z-10">{children}</div>
     </div>
+    </Providers>
   )
 }

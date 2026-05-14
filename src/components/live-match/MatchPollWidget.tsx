@@ -60,14 +60,14 @@ export default function MatchPollWidget({
 
   if (polls.length === 0) {
     return (
-      <div className="flex items-center justify-center py-10">
+      <div data-testid="match-poll-widget" className="flex items-center justify-center py-10">
         <p className="text-sm text-on-surface-variant/50">No active polls</p>
       </div>
     )
   }
 
   return (
-    <div className="space-y-4 px-3 py-2">
+    <div data-testid="match-poll-widget" className="space-y-4 px-3 py-2">
       {polls.filter(p => p.is_active).map(poll => {
         const hasVoted = votedPolls.has(poll.id)
         const totalVotes = poll.total_votes || poll.poll_options.reduce((s, o) => s + o.vote_count, 0)

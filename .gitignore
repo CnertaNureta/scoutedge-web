@@ -18,3 +18,8 @@ next-env.d.ts
 # runtime ingest artifacts
 logs/api-football/
 .vercel
+supabase/.temp/
+.claude/worktrees/
+test-results/
+logs/migrate-loop-*.log
+logs/migration-*/

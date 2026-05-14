@@ -5,7 +5,6 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
-import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
 
@@ -32,26 +31,21 @@ const FAQ_KEYS = [
   { question: 'q6', answer: 'a6' },
 ] as const
 
-type Props = { params: Promise<{ locale: string }> }
+const ogData = buildOGMeta({
+  title: 'World Cup 2026 Volunteer Guide — How to Apply',
+  description:
+    'Complete guide to volunteering at the 2026 FIFA World Cup. Requirements, benefits, roles, and how to apply for one of 30,000 volunteer positions across 16 host cities.',
+  url: 'https://kickoracle.com/volunteer',
+})
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params
-  const alternates = buildAlternates(locale, '/volunteer')
-
-  return {
-    title: 'World Cup 2026 Volunteer Guide — How to Apply',
-    description:
-      'Complete guide to volunteering at the 2026 FIFA World Cup. Requirements, benefits, roles, and how to apply across 16 host cities.',
-    keywords: 'World Cup 2026 volunteer, FIFA volunteer 2026, volunteer roles, volunteer requirements',
-    alternates,
-    ...buildOGMeta({
-      title: 'World Cup 2026 Volunteer Guide — How to Apply',
-      description:
-        'Complete guide to volunteering at the 2026 FIFA World Cup. Requirements, benefits, roles, and how to apply for one of 30,000 volunteer positions across 16 host cities.',
-      url: alternates.canonical,
-      locale,
-    }),
-  }
+export const metadata: Metadata = {
+  title: 'World Cup 2026 Volunteer Guide — How to Apply',
+  description:
+    'Complete guide to volunteering at the 2026 FIFA World Cup. Requirements, benefits, roles, and how to apply across 16 host cities.',
+  keywords: 'World Cup 2026 volunteer, FIFA volunteer 2026, volunteer roles, volunteer requirements',
+  alternates: { canonical: 'https://kickoracle.com/volunteer' },
+  robots: { index: false, follow: true },
+  ...ogData,
 }
 
 export default async function VolunteerPage() {

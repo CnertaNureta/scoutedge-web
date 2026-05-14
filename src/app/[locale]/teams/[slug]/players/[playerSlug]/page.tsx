@@ -1,31 +1,19 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
-import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug } from '@/lib/data-service'
+import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug, getAllPlayers, getAllTeams } from '@/lib/data-service'
+import { HOST_CITIES } from '@/data/cities-data'
+import { buildTeamEntities, buildCityEntities, type LinkEntity } from '@/lib/auto-link'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
-import { buildOGMeta } from '@/lib/og-utils'
-import { buildAlternates } from '@/lib/seo/build-alternates'
-import {
-  buildBreadcrumbSchema,
-  buildGraph,
-  buildPersonSchema,
-} from '@/lib/seo/structured-data'
-import { getRelatedPlayers } from '@/lib/related/players'
+import { buildOGMeta, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
+import { playerDescriptionEn } from '@/data/seo-meta'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
-import RelatedEntitiesSection from '@/components/seo/RelatedEntitiesSection'
-
-const POSITION_LABEL: Record<'GK' | 'DEF' | 'MID' | 'FWD', string> = {
-  GK: 'Goalkeepers',
-  DEF: 'Defenders',
-  MID: 'Midfielders',
-  FWD: 'Forwards',
-}
 
 interface PageProps {
   params: Promise<{ slug: string; playerSlug: string; locale: string }>
@@ -37,17 +25,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) return { title: 'Player Not Found' }
 
-  const alternates = buildAlternates(locale, `/teams/${slug}/players/${player.slug}`)
+  const url = `https://kickoracle.com/teams/${slug}/players/${player.slug}`
+  const description = playerDescriptionEn({
+    name: player.name,
+    position: player.position,
+    team: team.name,
+    club: player.club,
+    age: player.age,
+    caps: player.caps,
+    goals: player.goals,
+    rating: player.rating,
+    slug: player.slug,
+  })
 
   return {
     title: `${player.name}: ${team.name} World Cup 2026 Stats, Rating & Scouting Report`,
-    description: `${player.name} World Cup 2026 scouting report. ${player.position} for ${team.name}, plays for ${player.club}. ${player.caps} caps, ${player.goals} goals, rating ${player.rating}/10. AI-powered fitness and performance analysis.`,
+    description,
     keywords: `${player.name} World Cup 2026, ${player.name} stats, ${player.name} ${team.name}, ${player.name} profile`,
-    alternates,
+    alternates: { canonical: url },
     ...buildOGMeta({
       title: `${player.name} — World Cup 2026 | KickOracle`,
       description: `AI-powered intelligence report for ${player.name}. ${team.name} · ${player.position} · ${player.club}.`,
-      url: alternates.canonical,
+      url,
       locale,
       type: 'profile',
       image: getPlayerActionImage(player.name),
@@ -56,34 +55,58 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function PlayerPage({ params }: PageProps) {
-  const { slug, playerSlug, locale } = await params
+  const { locale, slug, playerSlug } = await params
   const team = getTeamBySlug(slug)
   const player = getPlayerBySlug(slug, playerSlug)
   if (!team || !player) notFound()
 
-  const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== player.slug).slice(0, 5)
-  const related = getRelatedPlayers(player, { sameTeam: 4, samePosition: 4 })
-  const positionLabel = POSITION_LABEL[player.position]
+  const teammates = getPlayersByTeam(slug).filter((p) => p.slug !== player.slug).slice(0, 7)
+  // "Same position elsewhere" — players in the same position from other teams,
+  // ranked by rating descending so the link block surfaces the most relevant
+  // cross-nav candidates. Cap at 8.
+  const samePositionElsewhere = getAllPlayers()
+    .filter((p) => p.position === player.position && p.teamSlug !== slug)
+    .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
+    .slice(0, 8)
   const derivedStats = computeDerivedStats(player)
 
-  const playerPath = `/teams/${slug}/players/${player.slug}`
+  // Auto-link entities for the seoArticle/outlook prose. Exclude the current
+  // team so the article doesn't self-link. Include all 12 host cities so
+  // outlook references to "Los Angeles" / "Mexico City" become deep links.
+  const autoLinkEntities: LinkEntity[] = [
+    ...buildTeamEntities(getAllTeams(), locale, slug, 'text-primary hover:underline'),
+    ...buildCityEntities(HOST_CITIES, locale, undefined, 'text-primary hover:underline'),
+  ]
 
-  const personLd = buildPersonSchema({
-    player,
-    team,
-    locale,
-    imageUrl: getPlayerActionImage(player.name),
-  })
-  const breadcrumbLd = buildBreadcrumbSchema(
-    [
-      { name: 'Home', path: '/' },
-      { name: 'Teams', path: '/teams' },
-      { name: team.name, path: `/teams/${slug}` },
-      { name: player.name, path: playerPath },
-    ],
-    locale,
-  )
-  const graph = buildGraph([personLd, breadcrumbLd])
+  const playerPath = `/teams/${slug}/players/${player.slug}`
+  const playerUrl = `https://kickoracle.com${playerPath}`
+  const teamUrl = `https://kickoracle.com/teams/${slug}`
+  const personLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: player.name,
+    url: playerUrl,
+    image: getPlayerActionImage(player.name),
+    jobTitle: `Professional Football Player (${player.position})`,
+    nationality: { '@type': 'Country', name: team.name },
+    affiliation: {
+      '@type': 'SportsTeam',
+      name: team.name,
+      url: teamUrl,
+    },
+    ...(player.club && {
+      worksFor: { '@type': 'SportsTeam', name: player.club },
+    }),
+  }
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Teams', url: canonicalForLocale(locale, '/teams') },
+    { name: team.name, url: canonicalForLocale(locale, `/teams/${slug}`) },
+    { name: player.name, url: canonicalForLocale(locale, playerPath) },
+  ])
+
+  const graph = jsonLdGraph([personLd, breadcrumbs])
 
   return (
     <>
@@ -103,9 +126,9 @@ export default async function PlayerPage({ params }: PageProps) {
       />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerIntel player={player} />
-      <PlayerArticle player={player} team={team} />
+      <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />
 
-      <section className="page-container mb-12">
+      <section className="page-container mb-20">
         <div className="flex items-center justify-between mb-6">
           <SectionHeader>More {team.name} Players</SectionHeader>
           <Link
@@ -128,31 +151,40 @@ export default async function PlayerPage({ params }: PageProps) {
         </div>
       </section>
 
-      <RelatedEntitiesSection
-        title={`More from ${team.name}`}
-        description={`Other ${team.name} players in the World Cup 2026 squad ranked by AI scouting score.`}
-        items={related.teammates.map((p) => ({
-          label: p.name,
-          href: `/teams/${slug}/players/${p.slug}`,
-          meta: `${p.position} · ${p.club}`,
-          prefix: team.flag,
-        }))}
-      />
-
-      <RelatedEntitiesSection
-        title={`Top ${positionLabel} in World Cup 2026`}
-        description={`Other top-rated ${positionLabel.toLowerCase()} to watch at the 2026 FIFA World Cup.`}
-        items={related.samePosition.map((p) => {
-          const otherTeam = getTeamBySlug(p.teamSlug)
-          return {
-            label: p.name,
-            href: `/teams/${p.teamSlug}/players/${p.slug}`,
-            meta: otherTeam ? `${otherTeam.name} · ${p.club}` : p.club,
-            prefix: otherTeam?.flag,
-          }
-        })}
-        className="mb-20"
-      />
+      {samePositionElsewhere.length > 0 && (
+        <section className="page-container mb-20" aria-label="Same position at other teams">
+          <div className="flex items-center justify-between mb-6">
+            <SectionHeader>Other top {player.position}s</SectionHeader>
+            <Link
+              href={`/teams`}
+              className="font-label text-sm font-semibold text-primary uppercase tracking-widest hover:underline"
+            >
+              All Teams
+            </Link>
+          </div>
+          <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 list-none p-0">
+            {samePositionElsewhere.map((p) => {
+              const pTeam = getTeamBySlug(p.teamSlug)
+              return (
+                <li key={`${p.teamSlug}/${p.slug}`}>
+                  <Link
+                    href={`/teams/${p.teamSlug}/players/${p.slug}`}
+                    className="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-4 py-3 rounded-xl font-body text-sm transition-all hover:text-primary"
+                  >
+                    <span aria-hidden="true" className="text-lg">{pTeam?.flag ?? '⚽'}</span>
+                    <span className="flex-1 min-w-0">
+                      <span className="block truncate font-semibold">{p.name}</span>
+                      <span className="block truncate text-xs text-on-surface-variant">
+                        {pTeam?.name ?? p.teamSlug} · {p.position}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              )
+            })}
+          </ul>
+        </section>
+      )}
     </>
   )
 }

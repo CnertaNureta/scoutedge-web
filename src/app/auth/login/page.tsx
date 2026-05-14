@@ -125,12 +125,12 @@ export default function LoginPage() {
               </div>
 
               {error && (
-                <div className="mb-6 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+                <div data-testid="login-error" className="mb-6 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
                   {error}
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form data-testid="login-form" onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label
                     htmlFor="email"
@@ -139,6 +139,7 @@ export default function LoginPage() {
                     Email
                   </label>
                   <input
+                    data-testid="login-email-input"
                     id="email"
                     type="email"
                     required
@@ -165,6 +166,7 @@ export default function LoginPage() {
                     </Link>
                   </div>
                   <input
+                    data-testid="login-password-input"
                     id="password"
                     type="password"
                     required
@@ -176,6 +178,7 @@ export default function LoginPage() {
                 </div>
 
                 <button
+                  data-testid="login-submit-button"
                   type="submit"
                   disabled={loading}
                   className="w-full py-3.5 rounded-xl bg-primary text-on-primary font-headline font-bold tracking-tight text-lg hover:brightness-110 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed"

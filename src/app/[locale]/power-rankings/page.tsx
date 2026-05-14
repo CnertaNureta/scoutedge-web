@@ -8,6 +8,7 @@ import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import type { Team } from '@/lib/types'
 import { OG_LOCALES } from '@/lib/og-utils'
+import { computePowerScore } from '@/lib/power-rankings-stub'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -30,17 +31,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     alternates: buildAlternates(locale, '/power-rankings'),
   }
-}
-
-function computePowerScore(team: Team): number {
-  const rankScore = Math.max(0, 100 - (team.fifaRanking - 1) * 1.5)
-  return Math.round(
-    rankScore * 0.35 +
-    team.chemistry * 0.30 +
-    team.morale * 0.15 +
-    team.stability * 0.10 +
-    team.familiarity * 0.10
-  )
 }
 
 function getMovement(currentRank: number, fifaRanking: number): 'up' | 'down' | 'same' {
@@ -83,7 +73,7 @@ function RankingRow({ team, t }: { team: RankedTeam; t: (key: string) => string 
   const movement = getMovement(team.rank, team.fifaRanking)
 
   return (
-    <tr className="border-b border-white/5 hover:bg-surface-container-high transition-colors group">
+    <tr data-testid="power-rankings-row" className="border-b border-white/5 hover:bg-surface-container-high transition-colors group">
       <td className="px-4 md:px-6 py-3 font-mono text-sm font-bold text-on-surface-variant">{team.rank}</td>
       <td className="px-4 md:px-6 py-3">
         <Link href={`/teams/${team.slug}`} className="flex items-center gap-3">
@@ -216,7 +206,7 @@ export default async function PowerRankingsPage({ params }: Props) {
             </div>
             <GlassCard className="overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table data-testid="power-rankings-table" className="w-full text-left">
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="font-label text-xs text-on-surface-variant uppercase tracking-widest px-4 md:px-6 py-3 w-12">{t('rank')}</th>

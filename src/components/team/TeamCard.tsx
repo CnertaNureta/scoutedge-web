@@ -12,6 +12,7 @@ export default function TeamCard({ team }: TeamCardProps) {
   const t = useTranslations('teamCard')
   return (
     <Link
+      data-testid="team-card"
       href={`/teams/${team.slug}`}
       className="group relative block bg-surface-container rounded-2xl p-6 border border-white/[0.06] hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(160,212,148,0.1)] overflow-hidden"
     >
@@ -31,6 +32,8 @@ export default function TeamCard({ team }: TeamCardProps) {
               </h3>
               <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
                 {t('groupRank', { group: team.group, rank: team.fifaRanking })}
+                <span className="sr-only" data-testid="team-group-code">{team.group}</span>
+                <span className="sr-only" data-testid="team-fifa-ranking">{team.fifaRanking}</span>
               </p>
             </div>
           </div>

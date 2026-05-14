@@ -35,4 +35,41 @@ describe('routing aliases', () => {
 
     expect(urls).toContain('https://kickoracle.com/en/cities/new-york')
   })
+
+  it('publishes all 48 team detail pages in the sitemap', () => {
+    const teamUrls = getSitemapEntries()
+      .map((entry) => entry.url)
+      .filter((url) => /\/en\/teams\/[^/]+$/.test(url))
+
+    expect(teamUrls.length).toBe(48)
+    expect(teamUrls).toContain('https://kickoracle.com/en/teams/brazil')
+  })
+
+  it('publishes all 12 group detail pages in the sitemap', () => {
+    const groupUrls = getSitemapEntries()
+      .map((entry) => entry.url)
+      .filter((url) => /\/en\/groups\/[a-l]$/.test(url))
+
+    expect(groupUrls.length).toBe(12)
+  })
+
+  it('publishes match detail pages keyed off real fixture slugs', () => {
+    const matchUrls = getSitemapEntries()
+      .map((entry) => entry.url)
+      .filter((url) => url.includes('/en/matches/live/'))
+
+    expect(matchUrls.length).toBeGreaterThan(50)
+    expect(matchUrls.some((url) => url.includes('mexico-vs-south-africa-a'))).toBe(true)
+  })
+
+  it('covers all major route trees with substantially more URLs than the legacy set', () => {
+    const entries = getSitemapEntries()
+    const urls = entries.map((entry) => entry.url)
+
+    expect(urls.some((url) => url.includes('/en/teams/brazil/players/'))).toBe(true)
+    expect(urls.some((url) => url.includes('/en/cities/los-angeles/tickets'))).toBe(true)
+    expect(urls.some((url) => url.includes('/en/travel/from/'))).toBe(true)
+    expect(urls.some((url) => url.includes('/en/lingo/countries/'))).toBe(true)
+    expect(entries.length).toBeGreaterThan(40000)
+  })
 })

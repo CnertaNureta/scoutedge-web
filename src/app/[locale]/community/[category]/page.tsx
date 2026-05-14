@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { FORUM_CATEGORIES } from '@/data/community-data'
-import { buildAlternates } from '@/lib/seo/build-alternates'
+import { canonicalForLocale } from '@/lib/og-utils'
 import ArchivedPageNotice from '@/components/ui/ArchivedPageNotice'
 
 export function generateStaticParams() {
@@ -16,15 +16,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!cat) {
     return {
       title: 'Community Archive',
-      robots: { index: false, follow: false },
+      robots: { index: false, follow: true },
     }
   }
 
   return {
     title: `${cat.title} Archive | KickOracle`,
     description: `${cat.title} is archived while KickOracle narrows v1 around narrative-first World Cup intelligence.`,
-    alternates: buildAlternates(locale, `/community/${category}`),
-    robots: { index: false, follow: false },
+    alternates: { canonical: canonicalForLocale(locale, `/community/${category}`) },
+    robots: { index: false, follow: true },
   }
 }
 

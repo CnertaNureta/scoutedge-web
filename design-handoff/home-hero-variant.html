@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kick Oracle — Homepage Redesign</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* design-canvas chrome tweaks */
+    body { background: #0a0d0a; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="visual-system.jsx"></script>
+  <script type="text/babel" src="hero-a.jsx"></script>
+  <script type="text/babel" src="next-match.jsx"></script>
+  <script type="text/babel" src="top-contenders.jsx"></script>
+  <script type="text/babel" src="more-modules.jsx"></script>
+
+  <script type="text/babel">
+    const {
+      VisualSystem, HeroA,
+      NextMatchModule, TopContendersModule,
+      DailyBriefingModule, ScheduleModule, CompareModule,
+      GroupStandingsModule, LeaderboardModule, CountdownModule, NewsletterModule,
+    } = window;
+
+    function App() {
+      return (
+        <DesignCanvas>
+          <DCSection id="system" title="01 · Visual System" subtitle="Type, color, components. The vocabulary everything else inherits.">
+            <DCArtboard id="vs" label="Visual System" width={1200} height={1100}>
+              <VisualSystem />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="hero" title="02 · Hero · Cinematic full-bleed (v2)" subtitle="Polished take on direction A — layered photo treatment, magazine masthead, floating tonight's-match card, live ticker.">
+            <DCArtboard id="hero-a" label="Hero · Cinematic" width={1440} height={900}>
+              <HeroA />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="modules" title="03 · Featured Modules" subtitle="Full set of homepage sections — drag any artboard to reorder the on-page sequence.">
+            <DCArtboard id="next" label="02 · Next Match" width={1440} height={820}>
+              <NextMatchModule />
+            </DCArtboard>
+            <DCArtboard id="top" label="03 · Top Contenders" width={1440} height={820}>
+              <TopContendersModule />
+            </DCArtboard>
+            <DCArtboard id="brief" label="04 · Daily Briefing" width={1440} height={820}>
+              <DailyBriefingModule />
+            </DCArtboard>
+            <DCArtboard id="sched" label="05 · Schedule" width={1440} height={820}>
+              <ScheduleModule />
+            </DCArtboard>
+            <DCArtboard id="compare" label="06 · Compare / H2H" width={1440} height={820}>
+              <CompareModule />
+            </DCArtboard>
+            <DCArtboard id="groups" label="07 · Group Standings" width={1440} height={820}>
+              <GroupStandingsModule />
+            </DCArtboard>
+            <DCArtboard id="leader" label="08 · Leaderboard" width={1440} height={720}>
+              <LeaderboardModule />
+            </DCArtboard>
+            <DCArtboard id="count" label="09 · Countdown" width={1440} height={720}>
+              <CountdownModule />
+            </DCArtboard>
+            <DCArtboard id="news" label="10 · Newsletter CTA" width={1440} height={620}>
+              <NewsletterModule />
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

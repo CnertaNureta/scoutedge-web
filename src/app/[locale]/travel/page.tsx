@@ -5,7 +5,9 @@ import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, faqPageJsonLd, jsonLdGraph } from '@/lib/og-utils'
+import FaqSection from '@/components/ui/FaqSection'
+import { TRAVEL_FAQS } from '@/data/faq-content'
 
 export const revalidate = 86400
 
@@ -107,7 +109,9 @@ export default async function TravelPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdGraph([breadcrumbs, faqPageJsonLd(TRAVEL_FAQS)])),
+        }}
       />
 
       {/* ── Hero ────────────────────────────────────────────── */}
@@ -243,6 +247,8 @@ export default async function TravelPage() {
           ))}
         </div>
       </section>
+
+      <FaqSection items={TRAVEL_FAQS} heading="Travel Planning — FAQ" />
 
       {/* ── CTA ────────────────────────────────────────────── */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">

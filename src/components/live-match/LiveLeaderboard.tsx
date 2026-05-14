@@ -32,19 +32,22 @@ function StreakBadge({ streak }: { streak: number }) {
 export default function LiveLeaderboard({ entries, currentUserId }: LiveLeaderboardProps) {
   if (entries.length === 0) {
     return (
-      <GlassCard className="p-6 text-center">
-        <span className="text-3xl mb-3 block">🏆</span>
-        <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-1">
-          Leaderboard
-        </h3>
-        <p className="text-sm text-on-surface-variant">
-          Make predictions to climb the ranks. Points awarded for correct calls.
-        </p>
-      </GlassCard>
+      <div data-testid="live-leaderboard">
+        <GlassCard className="p-6 text-center">
+          <span className="text-3xl mb-3 block">🏆</span>
+          <h3 className="font-headline text-lg uppercase tracking-wide text-on-surface mb-1">
+            Leaderboard
+          </h3>
+          <p className="text-sm text-on-surface-variant">
+            Make predictions to climb the ranks. Points awarded for correct calls.
+          </p>
+        </GlassCard>
+      </div>
     )
   }
 
   return (
+    <div data-testid="live-leaderboard">
     <GlassCard className="p-5">
       <div className="flex items-center justify-between mb-4">
         <h2 className="font-headline text-lg uppercase tracking-wide text-on-surface">
@@ -111,5 +114,6 @@ export default function LiveLeaderboard({ entries, currentUserId }: LiveLeaderbo
         })}
       </div>
     </GlassCard>
+    </div>
   )
 }

@@ -142,7 +142,7 @@ export default function FanCardBuilder({ teams }: FanCardBuilderProps) {
     : teams
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div data-testid="fan-card" className="grid grid-cols-1 lg:grid-cols-2 gap-8">
       {/* Left: Builder controls */}
       <div className="space-y-6">
         {/* Name input */}

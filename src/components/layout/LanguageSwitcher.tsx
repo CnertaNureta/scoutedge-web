@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
   }, [open])
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} data-testid="locale-switcher" className="relative">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}

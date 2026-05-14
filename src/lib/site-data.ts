@@ -1041,9 +1041,11 @@ export async function getAllTeamsForRouting(): Promise<Team[]> {
 
 export async function getHomePageData(): Promise<HomePageData> {
   const { teams, source } = await getTeamsOnlySnapshot()
+  // Expanded from 6 → 8 to seed the homepage contenders block with more
+  // internal-link surface area to team detail pages (SEO crawl depth).
   const topTeams = teams
-    .filter((team) => team.fifaRanking <= 10)
-    .slice(0, 6)
+    .filter((team) => team.fifaRanking <= 12)
+    .slice(0, 8)
 
   return {
     teams,

@@ -50,17 +50,17 @@ export default function LiveMatchHeader({
   const isLive = matchState.status && !['not_started', 'finished'].includes(matchState.status)
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-xl p-6 md:p-8">
+    <div data-testid="live-match-header" className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-xl p-6 md:p-8">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5" />
 
       <div className="relative z-10">
         <div className="flex items-center justify-center gap-3 mb-6">
           <ConnectionDot status={connectionStatus} />
-          <span className={`font-label text-xs font-bold uppercase tracking-widest ${isLive ? 'text-secondary animate-pulse' : 'text-on-surface-variant'}`}>
+          <span data-testid="match-status" className={`font-label text-xs font-bold uppercase tracking-widest ${isLive ? 'text-secondary animate-pulse' : 'text-on-surface-variant'}`}>
             {statusLabel}
           </span>
           {matchState.minute !== null && (
-            <span className="rounded-full bg-secondary/20 px-3 py-0.5 font-mono text-xs font-bold text-secondary">
+            <span data-testid="live-indicator" className="rounded-full bg-secondary/20 px-3 py-0.5 font-mono text-xs font-bold text-secondary">
               {matchState.minute}&apos;
             </span>
           )}
@@ -72,7 +72,7 @@ export default function LiveMatchHeader({
         </div>
 
         <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-10">
-          <div className="text-center">
+          <div data-testid="match-home-team" className="text-center">
             <span className="text-5xl md:text-6xl">{home.flag}</span>
             <div className="font-headline text-lg md:text-xl uppercase tracking-wide text-on-surface mt-2">
               {home.name}
@@ -83,14 +83,14 @@ export default function LiveMatchHeader({
           </div>
 
           <div className="text-center">
-            <div className="font-headline text-5xl md:text-7xl tracking-tight text-on-surface tabular-nums">
+            <div data-testid="match-score" className="font-headline text-5xl md:text-7xl tracking-tight text-on-surface tabular-nums">
               {matchState.homeScore}
               <span className="mx-2 text-on-surface-variant/50">:</span>
               {matchState.awayScore}
             </div>
           </div>
 
-          <div className="text-center">
+          <div data-testid="match-away-team" className="text-center">
             <span className="text-5xl md:text-6xl">{away.flag}</span>
             <div className="font-headline text-lg md:text-xl uppercase tracking-wide text-on-surface mt-2">
               {away.name}
