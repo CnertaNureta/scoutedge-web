@@ -14,7 +14,9 @@ import { playerDescriptionEn, playerTitleEn } from '@/data/seo-meta'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
+import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
 import PlayerArticle from '@/components/player/PlayerArticle'
+import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
@@ -86,6 +88,7 @@ export default async function PlayerPage({ params }: PageProps) {
     .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
     .slice(0, 8)
   const derivedStats = computeDerivedStats(player)
+  const playerIntel = getPlayerIntelBySlug(slug, player.slug)
 
   // Auto-link entities for the seoArticle/outlook prose. Exclude the current
   // team so the article doesn't self-link. Include all 12 host cities so
@@ -130,6 +133,7 @@ export default async function PlayerPage({ params }: PageProps) {
         ]}
       />
       <PlayerStats player={player} derivedStats={derivedStats} />
+      <PlayerScoutGrade player={player} team={team} playerIntel={playerIntel} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />
 

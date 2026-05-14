@@ -920,6 +920,30 @@
     "panelExpands": "随着更多报道和球队信息的收集，此面板将自动扩展。",
     "updated": "更新于 {date} UTC"
   },
+  "playerScoutGrade": {
+    "title": "球员球探评级",
+    "subtitle": "五维情报评级",
+    "totalLabel": "评级",
+    "dimensions": {
+      "skill": "技术",
+      "form": "状态",
+      "fit": "适配",
+      "durability": "耐用度",
+      "bigGame": "大场面"
+    },
+    "verdict": {
+      "elite": "决定赛事走向的天才——他的每一次触球都值得标记。",
+      "strong": "首发铁打——具备明显对位优势。",
+      "viable": "球队可用资源——情境性影响多于全场存在感。",
+      "limited": "板凳深度——仅作应急选项。"
+    },
+    "tier": {
+      "elite": "顶级",
+      "strong": "稳健",
+      "viable": "可用",
+      "limited": "有限"
+    }
+  },
   "blog": {
     "minRead": "{time}分钟阅读"
   },
@@ -1873,5 +1897,30 @@
   "teamDetailPage": {
     "metaTitle": "{team} 2026 世界杯 — 阵容、分析与预测",
     "metaDescription": "AI 解读 {team} 的 2026 世界杯征程。{group} 组、FIFA 排名第 {rank}。阵容、赛程、化学指数与晋级概率。"
+  },
+  "scoutEdgeScore": {
+    "title": "球探总评",
+    "subtitle": "综合情报评分",
+    "totalLabel": "总评",
+    "dimensions": {
+      "attack": "攻击",
+      "spine": "中轴",
+      "bench": "板凳",
+      "coach": "教练",
+      "form": "状态",
+      "edge": "盘口",
+      "attackHint": "锋线火力——前锋平均评分。",
+      "spineHint": "门将加上两名最强后卫与两名最强中场。",
+      "benchHint": "深度名单 12-23 号位，是漫长赛程的隐形燃料。",
+      "coachHint": "教练的战术权威与更衣室稳定度。",
+      "formHint": "近期士气与战术稳定性的加权组合。",
+      "edgeHint": "我们的模型与盘口共识的偏离幅度。"
+    },
+    "verdict": {
+      "elite": "冠军级档案——六大维度全数过关。",
+      "strong": "八强水准，但还有一两道裂缝需要修补。",
+      "viable": "具备出线实力，但优势比签运图所示更薄。",
+      "limited": "天花板大致止步十六强，需要早期方差才能更进一步。"
+    }
   }
 }

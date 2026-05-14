@@ -1207,6 +1207,30 @@
     "panelExpands": "This panel expands as more reporting and team context are gathered.",
     "updated": "Updated {date} UTC"
   },
+  "playerScoutGrade": {
+    "title": "Player Scout Grade",
+    "subtitle": "Five-Dimension Intelligence Grade",
+    "totalLabel": "GRADE",
+    "dimensions": {
+      "skill": "Skill",
+      "form": "Form",
+      "fit": "Fit",
+      "durability": "Durability",
+      "bigGame": "Big-Game"
+    },
+    "verdict": {
+      "elite": "Tournament-defining talent — bookmark his every touch.",
+      "strong": "Starting XI lock with a clear matchup edge.",
+      "viable": "Squad asset — situational impact more than ninety-minute presence.",
+      "limited": "Bench depth — break-glass option only."
+    },
+    "tier": {
+      "elite": "Elite",
+      "strong": "Strong",
+      "viable": "Viable",
+      "limited": "Limited"
+    }
+  },
   "blog": {
     "minRead": "{time} min read"
   },
@@ -2251,5 +2275,30 @@
   "teamDetailPage": {
     "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
     "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+  },
+  "scoutEdgeScore": {
+    "title": "ScoutEdge Score",
+    "subtitle": "Composite Intelligence Grade",
+    "totalLabel": "Total",
+    "dimensions": {
+      "attack": "Attack",
+      "spine": "Spine",
+      "bench": "Bench",
+      "coach": "Coach",
+      "form": "Form",
+      "edge": "Edge",
+      "attackHint": "Forward line firepower — avg striker rating.",
+      "spineHint": "Keeper plus the two best defenders and midfielders.",
+      "benchHint": "Depth chart slots 12-23, the tournament's hidden fuel.",
+      "coachHint": "Tactical authority and dressing-room continuity.",
+      "formHint": "Recent morale weighted with tactical stability.",
+      "edgeHint": "Where our model disagrees with the market consensus."
+    },
+    "verdict": {
+      "elite": "Title-tier dossier — every sub-dimension cleared the cut.",
+      "strong": "Quarterfinal-worthy with one or two cracks to manage.",
+      "viable": "Knockout viable, but the edge is thinner than the bracket suggests.",
+      "limited": "Round-of-16 ceiling — needs early variance to advance further."
+    }
   }
 }
