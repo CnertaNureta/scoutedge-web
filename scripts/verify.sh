@@ -90,8 +90,9 @@ step "Migration plan complete?"
 PLAN=".claude/plans/migration-plan.md"
 if [ ! -f "$PLAN" ]; then fail "Migration plan not found at $PLAN"; fi
 
-PENDING=$(grep -c '⏳ pending\|🔄 in progress' "$PLAN" || true)
-BLOCKED=$(grep -c '⚠️ blocked' "$PLAN" || true)
+# Only count table rows (pattern `| <status> |`), not the legend line.
+PENDING=$(grep -cE '\| ?(⏳ pending|🔄 in progress) ?\|' "$PLAN" || true)
+BLOCKED=$(grep -cE '\| ?⚠️ blocked ?\|' "$PLAN" || true)
 
 if [ "$PENDING" -gt 0 ]; then
   fail "$PENDING 个组件还没完成（pending/in progress）"
