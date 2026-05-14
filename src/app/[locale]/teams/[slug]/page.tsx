@@ -19,6 +19,7 @@ import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
+import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -78,7 +79,7 @@ export default async function TeamPage({ params }: PageProps) {
   if (!pageData) notFound()
 
   const t = await getTranslations('teamsPage')
-  const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
+  const { team, players, groupTeams, worldCupHistory, coach, teamFaq, marketIntel } = pageData
 
   // Cross-section linking data
   const fixtures = getFixturesByTeam(slug)
@@ -143,6 +144,18 @@ export default async function TeamPage({ params }: PageProps) {
       <div className="mx-14 border-t border-white/[0.08]" />
 
       <TeamStats team={team} />
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* ScoutEdge Score — flagship composite intelligence grade, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <ScoutEdgeScoreModule
+          team={team}
+          players={players}
+          marketIntel={marketIntel}
+        />
+      </Paywall>
 
       {/* Section rule */}
       <div className="mx-14 border-t border-white/[0.08]" />
