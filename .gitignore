@@ -17,4 +17,5 @@ next-env.d.ts
 
 # runtime ingest artifacts
 logs/api-football/
+logs/*.log
 .vercel
