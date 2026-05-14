@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     'Complete guide to volunteering at the 2026 FIFA World Cup. Requirements, benefits, roles, and how to apply across 16 host cities.',
   keywords: 'World Cup 2026 volunteer, FIFA volunteer 2026, volunteer roles, volunteer requirements',
   alternates: { canonical: 'https://kickoracle.com/volunteer' },
+  robots: { index: false, follow: true },
   ...ogData,
 }
 

@@ -7,9 +7,13 @@ import {
   buildOGMeta,
   canonicalForLocale,
   softwareApplicationJsonLd,
+  faqPageJsonLd,
+  jsonLdGraph,
 } from '@/lib/og-utils'
 import { routing } from '@/i18n/routing'
 import { LOCALE_CONFIGS } from '@/i18n/locales'
+import { HOMEPAGE_FAQS } from '@/data/faq-content'
+import FaqSection from '@/components/ui/FaqSection'
 import '@/components/home-magazine/home-magazine.css'
 
 export const revalidate = 300
@@ -56,7 +60,9 @@ export default async function HomePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(softwareApplicationJsonLd()),
+          __html: JSON.stringify(
+            jsonLdGraph([softwareApplicationJsonLd(), faqPageJsonLd(HOMEPAGE_FAQS)])
+          ),
         }}
       />
       {/* Magazine fonts (Latin). Non-Latin scripts get a per-locale fallback
@@ -64,6 +70,10 @@ export default async function HomePage({ params }: Props) {
           a system fallback that lacks CJK/Arabic/Thai glyphs. */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      {/* Magazine display fonts loaded only on the homepage to avoid impacting
+          LCP on other pages. Per-page scope is intentional — do not promote to
+          layout.tsx. */}
+      {/* eslint-disable-next-line @next/next/no-page-custom-font */}
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -92,6 +102,7 @@ export default async function HomePage({ params }: Props) {
         leaderboardTotalUsers={data.leaderboardTotalUsers}
         newsletterSlot={<NewsletterSignup variant="banner" source="homepage" />}
       />
+      <FaqSection items={HOMEPAGE_FAQS} heading="World Cup 2026 — Frequently Asked" />
     </>
   )
 }

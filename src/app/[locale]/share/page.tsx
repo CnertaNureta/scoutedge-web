@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   keywords:
     'World Cup 2026 share card, World Cup 2026 champion prediction, share World Cup pick, World Cup 2026 social share',
   alternates: { canonical: 'https://kickoracle.com/share' },
+  robots: { index: false, follow: true },
   ...buildOGMeta({
     title: 'Share Your World Cup 2026 Champion Pick',
     description:

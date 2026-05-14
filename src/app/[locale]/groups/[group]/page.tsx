@@ -10,7 +10,7 @@ import TeamCard from '@/components/team/TeamCard'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
-import { OG_LOCALES, canonicalForLocale } from '@/lib/og-utils'
+import { OG_LOCALES, canonicalForLocale, breadcrumbJsonLd, jsonLdGraph } from '@/lib/og-utils'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -114,7 +114,7 @@ export default async function GroupPage({ params }: PageProps) {
   const sortedTeams = [...teams].sort((a, b) => a.fifaRanking - b.fifaRanking)
   const fixtures = getFixturesByGroup(group)
 
-  const jsonLd = {
+  const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: `World Cup 2026 Group ${group}`,
@@ -126,6 +126,14 @@ export default async function GroupPage({ params }: PageProps) {
       url: `https://kickoracle.com/teams/${t.slug}`,
     })),
   }
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Groups', url: canonicalForLocale(locale, '/groups') },
+    { name: `Group ${group}`, url: canonicalForLocale(locale, `/groups/${group}`) },
+  ])
+
+  const jsonLd = jsonLdGraph([collectionLd, breadcrumbs])
 
   return (
     <>

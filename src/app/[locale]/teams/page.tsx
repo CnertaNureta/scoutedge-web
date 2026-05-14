@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { canonicalForLocale, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
 import { getTeamsPageData } from '@/lib/site-data'
 import { Link } from '@/i18n/navigation'
+import { TEAMS_FAQS } from '@/data/faq-content'
+import FaqSection from '@/components/ui/FaqSection'
 
 export const revalidate = 300
 
@@ -25,13 +27,35 @@ export default async function TeamsPage({ params }: Props) {
   const t = await getTranslations('teamsPage')
   const { groups, teamsByGroup, totalTeams } = await getTeamsPageData()
 
-  const jsonLd = {
+  const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'World Cup 2026 Teams',
     description: 'All 48 teams competing in the 2026 FIFA World Cup',
     numberOfItems: totalTeams,
+    url: canonicalForLocale(locale, '/teams'),
   }
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Teams', url: canonicalForLocale(locale, '/teams') },
+  ])
+
+  const allTeamsFlat = groups.flatMap((g) => teamsByGroup[g] ?? [])
+  const teamsList = itemListJsonLd(
+    allTeamsFlat.map((team) => ({
+      name: team.name,
+      url: `https://kickoracle.com/teams/${team.slug}`,
+      description: `Group ${team.group} · FIFA #${team.fifaRanking} · ${team.confederation}`,
+    })),
+    {
+      name: 'World Cup 2026 — All 48 Teams',
+      description: 'Every nation qualified for the 2026 FIFA World Cup, grouped by their first-round group.',
+      url: canonicalForLocale(locale, '/teams'),
+    }
+  )
+
+  const jsonLd = jsonLdGraph([collectionLd, breadcrumbs, teamsList, faqPageJsonLd(TEAMS_FAQS)])
 
   return (
     <>
@@ -128,6 +152,8 @@ export default async function TeamsPage({ params }: Props) {
           })}
         </div>
       </section>
+
+      <FaqSection items={TEAMS_FAQS} heading="World Cup 2026 Teams — FAQ" />
     </>
   )
 }

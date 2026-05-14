@@ -546,7 +546,6 @@ export async function getMagazineHomeData(): Promise<MagazineHomeData> {
     // silently regress. Production logs swallow it to keep the page alive.
     getDailyBriefingPageData().catch((error: unknown) => {
       if (process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
         console.warn('[home-magazine] getDailyBriefingPageData failed:', error)
       }
       return undefined
@@ -566,7 +565,7 @@ export async function getMagazineHomeData(): Promise<MagazineHomeData> {
       if (diff !== 0) return diff
       return a.fifaRanking - b.fifaRanking
     })
-    .slice(0, 6)
+    .slice(0, 8)
     .map(teamToContender)
 
   const upcoming = matches.fixtures

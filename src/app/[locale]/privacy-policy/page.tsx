@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       'KickOracle privacy policy. Learn how we collect, use, and protect your data on our World Cup 2026 AI intelligence platform.',
     alternates: { canonical: canonicalForLocale(locale, '/privacy-policy') },
+    robots: { index: false, follow: true },
   }
 }
 

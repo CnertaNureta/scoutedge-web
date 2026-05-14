@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   if (!cat) {
     return {
       title: 'Community Archive',
-      robots: { index: false, follow: false },
+      robots: { index: false, follow: true },
     }
   }
 
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: `${cat.title} Archive | KickOracle`,
     description: `${cat.title} is archived while KickOracle narrows v1 around narrative-first World Cup intelligence.`,
     alternates: { canonical: canonicalForLocale(locale, `/community/${category}`) },
-    robots: { index: false, follow: false },
+    robots: { index: false, follow: true },
   }
 }
 

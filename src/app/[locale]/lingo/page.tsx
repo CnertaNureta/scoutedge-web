@@ -5,7 +5,7 @@ import { lingoCountries, lingoPlayers, lingoTermsData } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 import { LingoSearchBar } from '@/components/lingo/LingoSearchBar'
-import { OG_LOCALES } from '@/lib/og-utils'
+import { OG_LOCALES, breadcrumbJsonLd } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -179,6 +179,18 @@ export default async function LingoPage({ params }: Props) {
             description:
               'Pronunciation guide for FIFA World Cup 2026 countries, players, and football terms.',
           }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: 'Home', url: `https://kickoracle.com/${locale}` },
+              { name: 'Lingo', url: `https://kickoracle.com/${locale}/lingo` },
+            ]),
+          ),
         }}
       />
     </>

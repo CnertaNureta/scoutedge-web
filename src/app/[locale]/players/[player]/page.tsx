@@ -3,7 +3,8 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, personJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
+import { playerDescriptionEn } from '@/data/seo-meta'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -21,16 +22,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!player) return {}
 
   const team = getTeamBySlug(player.teamSlug)
-  const title = `${player.name} — ${team?.name ?? ''} | World Cup 2026`
-  const description = `${player.name} player profile: ${player.position}, age ${player.age}, ${player.caps} caps, ${player.goals} goals. Club: ${player.club}. AI scouting report and fitness analysis.`
-  const url = `https://kickoracle.com/players/${slug}`
+  const teamName = team?.name ?? ''
+  const title = `${player.name} — ${teamName} | World Cup 2026`
+  const description = playerDescriptionEn({
+    name: player.name,
+    position: player.position,
+    team: teamName || player.teamSlug,
+    club: player.club,
+    age: player.age,
+    caps: player.caps,
+    goals: player.goals,
+    rating: player.rating,
+    slug: player.slug,
+  })
+
+  // Canonical retargets to the team-prefixed URL (richer hierarchy, included
+  // in sitemap). If we can't resolve the team (e.g. data anomaly), fall back
+  // to the self-canonical so we never emit an empty href.
+  const selfUrl = canonicalForLocale('en', `/players/${slug}`)
+  const canonical = team
+    ? canonicalForLocale('en', `/teams/${team.slug}/players/${slug}`)
+    : selfUrl
 
   return {
     title,
     description,
-    keywords: `${player.name} World Cup 2026, ${player.name} stats, ${team?.name ?? ''} squad`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    keywords: `${player.name} World Cup 2026, ${player.name} stats, ${teamName} squad`,
+    alternates: { canonical },
+    ...buildOGMeta({ title, description, url: canonical }),
   }
 }
 
@@ -75,18 +94,26 @@ export default async function PlayerPage({ params }: Props) {
         ? t('minorConcern')
         : t('injuryRisk')
 
+  const playerUrl = `https://kickoracle.com/players/${slug}`
+  const personLd = personJsonLd({
+    name: player.name,
+    jobTitle: `Footballer (${player.position})`,
+    description: `${player.name} World Cup 2026 profile — ${player.position} for ${teamName}, club ${player.club}. ${player.caps} caps, ${player.goals} goals.`,
+    url: playerUrl,
+  })
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: 'https://kickoracle.com' },
     { name: 'Teams', url: 'https://kickoracle.com/teams' },
     { name: teamName, url: `https://kickoracle.com/teams/${player.teamSlug}` },
-    { name: player.name, url: `https://kickoracle.com/players/${slug}` },
+    { name: player.name, url: playerUrl },
   ])
+  const graph = jsonLdGraph([personLd, breadcrumbs])
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
 
       {/* Hero */}

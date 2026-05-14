@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('metaTitle'),
     description: t('metaDescription'),
     alternates: { canonical: url },
+    robots: { index: false, follow: true },
     ...buildOGMeta({
       title: t('metaTitle'),
       description: t('metaDescription'),

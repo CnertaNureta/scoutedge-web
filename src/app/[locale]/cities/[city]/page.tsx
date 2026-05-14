@@ -5,7 +5,8 @@ import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCityBySlug, type HostCity } from '@/data/cities-data'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
-import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
+import { buildOGMeta, jsonLdGraph, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { cityDescriptionEn } from '@/data/seo-meta'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -32,7 +33,19 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
   if (!city) return {}
 
   const title = `${city.name} — World Cup 2026 Host City Guide`
-  const description = `Fan guide to ${city.name} for the 2026 World Cup. ${city.description.slice(0, 120)}...`
+  const cityFixtures = MATCH_FIXTURES.filter((f) => f.city === city.name)
+  const venueNames = city.venueIds
+    .map((id) => getAllVenues().find((v) => v.id === id)?.name)
+    .filter((n): n is string => Boolean(n))
+  const description = cityDescriptionEn(
+    {
+      name: city.name,
+      country: city.country,
+      venueNames,
+      matchCount: cityFixtures.length,
+    },
+    city.slug
+  )
   const url = `https://kickoracle.com/cities/${city.slug}`
 
   return {
@@ -240,7 +253,7 @@ function QuickFactsSidebar({ city, labels }: QuickFactsProps) {
 /* ---------- Page ---------- */
 
 export default async function CityPage({ params }: CityPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -322,7 +335,13 @@ export default async function CityPage({ params }: CityPageProps) {
     })),
   }
 
-  const graph = jsonLdGraph([touristDestinationLd])
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, cityPath) },
+  ])
+
+  const graph = jsonLdGraph([touristDestinationLd, breadcrumbs])
 
   return (
     <>
@@ -648,6 +667,35 @@ export default async function CityPage({ params }: CityPageProps) {
             {t('matchSchedule')}
           </Link>
         </div>
+      </section>
+
+      {/* Other Host Cities — internal-link cross-nav strip for SEO + UX */}
+      <section className="max-w-[1440px] mx-auto px-6 pb-20" aria-labelledby="other-host-cities">
+        <h2 id="other-host-cities" className="font-headline text-3xl uppercase tracking-wide text-on-surface mb-6">
+          Other Host Cities
+        </h2>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 list-none p-0">
+          {getAllCities()
+            .filter((c) => c.slug !== city.slug)
+            .map((other) => (
+              <li key={other.slug}>
+                <Link
+                  href={`/cities/${other.slug}`}
+                  className="flex items-center gap-3 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-primary/30 px-4 py-3 rounded-xl font-body text-sm transition-all hover:text-primary"
+                >
+                  <span aria-hidden="true" className="text-lg">
+                    {other.countryCode === 'US' ? '🇺🇸' : other.countryCode === 'MX' ? '🇲🇽' : '🇨🇦'}
+                  </span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block truncate font-semibold">{other.name}</span>
+                    <span className="block truncate text-[10px] uppercase tracking-wider text-on-surface-variant">
+                      {other.country}
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+        </ul>
       </section>
     </>
   )

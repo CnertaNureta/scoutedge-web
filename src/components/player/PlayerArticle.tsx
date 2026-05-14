@@ -3,15 +3,28 @@ import { getTeamColors } from '@/lib/team-colors'
 import { getPositionColor } from '@/components/ui/PositionBadge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { SURFACE } from '@/lib/brand-tokens'
+import { transformPlayerArticle } from '@/lib/player-article-variants'
+import type { LinkEntity } from '@/lib/auto-link'
 
 interface PlayerArticleProps {
   player: Player
   team: Team
+  /**
+   * Optional: when provided, the rendered prose is post-processed to inject
+   * internal links to known team/city entities (first-occurrence, max 3 per
+   * article). Backward-compatible — call sites that don't supply this get
+   * the unchanged behavior.
+   */
+  autoLinkEntities?: ReadonlyArray<LinkEntity>
 }
 
-export default function PlayerArticle({ player, team }: PlayerArticleProps) {
+export default function PlayerArticle({ player, team, autoLinkEntities }: PlayerArticleProps) {
   const colors = getTeamColors(team.slug)
   const posColor = getPositionColor(player.position)
+  // Rewrite the bundled seoArticle: swap templated phrases with position-aware
+  // variants, append a hand-written outlook block when one exists for this slug.
+  // Optionally inject internal links to teams/cities mentioned in the outlook.
+  const articleHtml = transformPlayerArticle(player, autoLinkEntities)
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-16">
@@ -40,7 +53,7 @@ export default function PlayerArticle({ player, team }: PlayerArticleProps) {
             prose-li:text-on-surface-variant prose-li:font-body
             prose-strong:text-on-surface prose-strong:font-semibold
             prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
-          dangerouslySetInnerHTML={{ __html: player.seoArticle }}
+          dangerouslySetInnerHTML={{ __html: articleHtml }}
         />
 
         {/* Sidebar — player quick reference */}

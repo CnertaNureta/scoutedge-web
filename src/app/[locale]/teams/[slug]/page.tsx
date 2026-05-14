@@ -4,9 +4,10 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
-import { buildOGMeta, jsonLdGraph } from '@/lib/og-utils'
-import { getFixturesByTeam } from '@/lib/data-service'
-import { getCityByFixtureCityName } from '@/data/cities-data'
+import { buildOGMeta, jsonLdGraph, breadcrumbJsonLd, canonicalForLocale, faqPageJsonLd } from '@/lib/og-utils'
+import { getFixturesByTeam, getAllTeams } from '@/lib/data-service'
+import { getCityByFixtureCityName, HOST_CITIES } from '@/data/cities-data'
+import { linkifyText, buildTeamEntities, buildCityEntities } from '@/lib/auto-link'
 import { lingoPlayers } from '@/data/lingo-data'
 import TeamHero from '@/components/team/TeamHero'
 import TeamStats from '@/components/team/TeamStats'
@@ -61,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function TeamPage({ params }: PageProps) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const pageData = await getTeamPageData(slug)
   if (!pageData) notFound()
 
@@ -99,19 +100,17 @@ export default async function TeamPage({ params }: PageProps) {
     location: { '@type': 'Country', name: team.name },
   }
 
-  const faqLd = teamFaq
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: teamFaq.faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.question,
-          acceptedAnswer: { '@type': 'Answer', text: f.answer },
-        })),
-      }
-    : null
+  const faqLd = teamFaq && teamFaq.faqs.length > 0 ? faqPageJsonLd(teamFaq.faqs) : null
 
-  const graph = jsonLdGraph(faqLd ? [sportsTeamLd, faqLd] : [sportsTeamLd])
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Teams', url: canonicalForLocale(locale, '/teams') },
+    { name: team.name, url: canonicalForLocale(locale, `/teams/${slug}`) },
+  ])
+
+  const graph = jsonLdGraph(
+    faqLd ? [sportsTeamLd, breadcrumbs, faqLd] : [sportsTeamLd, breadcrumbs]
+  )
 
   return (
     <>
@@ -181,16 +180,22 @@ export default async function TeamPage({ params }: PageProps) {
               </h2>
             </div>
             <div className="space-y-3">
-              {teamFaq.faqs.map((faq, i) => (
-                <GlassCard key={i} className="p-6">
-                  <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-3 text-primary">
-                    {faq.question}
-                  </h3>
-                  <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">
-                    {faq.answer}
-                  </p>
-                </GlassCard>
-              ))}
+              {(() => {
+                const faqEntities = [
+                  ...buildTeamEntities(getAllTeams(), locale, slug, 'text-primary hover:underline'),
+                  ...buildCityEntities(HOST_CITIES, locale, undefined, 'text-primary hover:underline'),
+                ]
+                return teamFaq.faqs.map((faq, i) => (
+                  <GlassCard key={i} className="p-6">
+                    <h3 className="font-headline text-base md:text-lg font-bold tracking-tight mb-3 text-primary">
+                      {faq.question}
+                    </h3>
+                    <p className="text-on-surface-variant text-sm md:text-base leading-relaxed">
+                      {linkifyText(faq.answer, faqEntities, { maxLinks: 3, keyPrefix: `faq-${i}` })}
+                    </p>
+                  </GlassCard>
+                ))
+              })()}
             </div>
           </section>
         </>

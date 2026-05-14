@@ -8,8 +8,11 @@ import {
   personJsonLd,
   breadcrumbJsonLd,
   jsonLdGraph,
+  faqPageJsonLd,
 } from '@/lib/og-utils'
 import NewsletterSignup from '@/components/monetization/NewsletterSignup'
+import FaqSection from '@/components/ui/FaqSection'
+import { ABOUT_FAQS } from '@/data/faq-content'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -60,7 +63,9 @@ export default async function AboutPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdGraph([founderPerson, analystPerson, breadcrumbs])),
+          __html: JSON.stringify(
+            jsonLdGraph([founderPerson, analystPerson, breadcrumbs, faqPageJsonLd(ABOUT_FAQS)])
+          ),
         }}
       />
 
@@ -105,6 +110,8 @@ export default async function AboutPage({ params }: Props) {
         <Section heading={t('contactHeading')}>
           <ContactBody />
         </Section>
+
+        <FaqSection items={ABOUT_FAQS} heading="About KickOracle — FAQ" className="!max-w-3xl !pb-12" />
 
         <section className="max-w-3xl mx-auto px-4 pb-24">
           <div className="glass-panel rounded-2xl border border-white/[0.08] p-8 md:p-12 text-center">

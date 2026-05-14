@@ -3,10 +3,12 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
+import FaqSection from '@/components/ui/FaqSection'
+import { CITIES_FAQS } from '@/data/faq-content'
 
 export const revalidate = 3600
 
@@ -134,7 +136,6 @@ export default async function CitiesPage() {
   const allCities = getAllCities()
   const venues = getAllVenues()
   const venueMap = new Map(venues.map((v) => [v.id, v]))
-  void allCities
 
   const groups: Array<{ code: 'US' | 'MX' | 'CA'; count: number }> = [
     { code: 'US', count: getCitiesByCountry('US').length },
@@ -153,11 +154,26 @@ export default async function CitiesPage() {
     { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
   ])
 
+  const citiesList = itemListJsonLd(
+    allCities.map((c) => ({
+      name: c.name,
+      url: `https://kickoracle.com/cities/${c.slug}`,
+      description: `${c.state}, ${c.country} — World Cup 2026 host city`,
+    })),
+    {
+      name: 'World Cup 2026 — Host Cities',
+      description: 'All 16 host cities across the United States, Canada, and Mexico for the 2026 FIFA World Cup.',
+      url: 'https://kickoracle.com/cities',
+    }
+  )
+
+  const jsonLd = jsonLdGraph([breadcrumbs, citiesList, faqPageJsonLd(CITIES_FAQS)])
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
       {/* Hero */}
@@ -215,6 +231,8 @@ export default async function CitiesPage() {
           </section>
         )
       })}
+
+      <FaqSection items={CITIES_FAQS} heading="Host Cities — FAQ" />
 
       {/* Bottom CTAs */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20 text-center">

@@ -12,6 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description:
       'KickOracle terms of service. Rules and guidelines for using our World Cup 2026 AI intelligence platform.',
     alternates: { canonical: canonicalForLocale(locale, '/terms-of-service') },
+    robots: { index: false, follow: true },
   }
 }
 

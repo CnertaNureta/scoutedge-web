@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'The legacy KickOracle community forum has been archived while v1 narrows around narrative-first World Cup intelligence.',
   alternates: { canonical: 'https://kickoracle.com/community' },
-  robots: { index: false, follow: false },
+  robots: { index: false, follow: true },
 }
 
 export default async function CommunityPage() {

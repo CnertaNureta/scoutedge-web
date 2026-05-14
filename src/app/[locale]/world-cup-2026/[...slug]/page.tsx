@@ -9,8 +9,16 @@ import {
   WORLD_CUP_SEO_PAGES,
   getWorldCupSeoPage,
   type WorldCupSeoPage,
+  type SeoTable,
 } from '@/data/world-cup-seo-pages'
-import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import {
+  buildOGMeta,
+  breadcrumbJsonLd,
+  canonicalForLocale,
+  articleJsonLd,
+  itemListJsonLd,
+  faqPageJsonLd,
+} from '@/lib/og-utils'
 
 export const revalidate = 86400
 export const dynamicParams = false
@@ -40,6 +48,75 @@ function formatUpdated(value: string, locale: string): string {
   })
 }
 
+function alignClass(align?: 'left' | 'right' | 'center'): string {
+  if (align === 'right') return 'text-right'
+  if (align === 'center') return 'text-center'
+  return 'text-left'
+}
+
+function SeoTableBlock({ table }: { table: SeoTable }) {
+  return (
+    <GlassCard className="p-6 md:p-8">
+      <h2 className="font-headline text-xl md:text-2xl uppercase tracking-wide text-on-surface">
+        {table.caption}
+      </h2>
+      {table.description ? (
+        <p className="mt-2 text-sm md:text-base text-on-surface-variant leading-relaxed">
+          {table.description}
+        </p>
+      ) : null}
+      <div className="mt-5 overflow-x-auto">
+        <table className="w-full border-collapse text-sm md:text-base">
+          <thead>
+            <tr className="border-b border-white/[0.12]">
+              {table.columns.map((col) => (
+                <th
+                  key={col.key}
+                  scope="col"
+                  className={`py-3 px-3 font-label text-[11px] uppercase tracking-widest text-on-surface-variant ${alignClass(col.align)}`}
+                >
+                  {col.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row, rowIdx) => (
+              <tr
+                key={`${row.cells[table.columns[0].key]}-${rowIdx}`}
+                className="border-b border-white/[0.06] last:border-b-0 hover:bg-white/[0.03] transition-colors"
+              >
+                {table.columns.map((col, colIdx) => {
+                  const value = row.cells[col.key] ?? ''
+                  const isFirstCol = colIdx === 0
+                  const content = isFirstCol && row.href ? (
+                    <Link
+                      href={row.href}
+                      className="text-on-surface hover:text-primary transition-colors font-label font-semibold"
+                    >
+                      {value}
+                    </Link>
+                  ) : (
+                    value
+                  )
+                  return (
+                    <td
+                      key={col.key}
+                      className={`py-3 px-3 text-on-surface-variant ${alignClass(col.align)}`}
+                    >
+                      {content}
+                    </td>
+                  )
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </GlassCard>
+  )
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params
   const page = getWorldCupSeoPage(slug)
@@ -47,6 +124,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const path = pagePath(page)
   const url = canonicalForLocale(locale, path)
+  const isEditorial = page.contentType === 'editorial'
 
   return {
     title: page.metaTitle,
@@ -63,6 +141,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       locale,
       type: 'article',
       section: 'World Cup 2026',
+      publishedTime: isEditorial ? page.publishedAt : undefined,
+      modifiedTime: page.updated ? `${page.updated}T00:00:00.000Z` : undefined,
     }),
   }
 }
@@ -80,21 +160,46 @@ export default async function WorldCupSeoPageRoute({ params }: PageProps) {
 
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'World Cup 2026', url: canonicalForLocale(locale, '/world-cup-2026') },
     { name: page.title, url },
   ])
 
-  const faqJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: page.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  }
+  const faqJsonLd = page.faqs.length > 0 ? faqPageJsonLd(page.faqs) : null
+
+  // Emit ItemList JSON-LD whenever the page has a structured table (sortable list
+  // of host cities, stadiums, etc). Use the first table as the primary list since
+  // most pages only have one and it's the most representative.
+  const primaryTable = page.tables?.[0]
+  const itemListJson = primaryTable
+    ? itemListJsonLd(
+        primaryTable.rows.map((row) => ({
+          name: row.cells[primaryTable.columns[0].key] ?? '',
+          url: row.href
+            ? canonicalForLocale(locale, row.href)
+            : url,
+        })),
+        {
+          name: primaryTable.caption,
+          description: primaryTable.description,
+          url,
+        }
+      )
+    : null
+
+  // Editorial pages emit Article JSON-LD as NewsArticle to qualify for Top Stories.
+  // Reference pages get a generic WebPage schema (already emitted below).
+  const isEditorial = page.contentType === 'editorial'
+  const articleJson = isEditorial
+    ? articleJsonLd({
+        headline: page.title,
+        description: page.description,
+        url,
+        type: 'NewsArticle',
+        datePublished: page.publishedAt,
+        dateModified: `${page.updated}T00:00:00.000Z`,
+        keywords: page.primaryKeyword,
+      })
+    : null
 
   const webpageJsonLd = {
     '@context': 'https://schema.org',
@@ -125,10 +230,24 @@ export default async function WorldCupSeoPageRoute({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      {faqJsonLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      ) : null}
+      {itemListJson ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJson) }}
+        />
+      ) : null}
+      {articleJson ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJson) }}
+        />
+      ) : null}
 
       <section className="relative px-6 py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 mesh-gradient" />
@@ -214,6 +333,16 @@ export default async function WorldCupSeoPageRoute({ params }: PageProps) {
           ))}
         </div>
       </section>
+
+      {page.tables && page.tables.length > 0 ? (
+        <section className="max-w-[1160px] mx-auto px-6 pb-12">
+          <div className="space-y-5">
+            {page.tables.map((table) => (
+              <SeoTableBlock key={table.caption} table={table} />
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <section className="max-w-[1160px] mx-auto px-6 pb-12">
         <SectionHeader className="mb-6">Frequently asked questions</SectionHeader>

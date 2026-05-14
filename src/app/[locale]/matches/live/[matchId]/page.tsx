@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getMatchesBoardData } from '@/lib/site-data'
-import { sportsEventJsonLd } from '@/lib/og-utils'
+import { sportsEventJsonLd, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
 import LiveMatchClient from './LiveMatchClient'
 
 interface PageProps {
-  params: Promise<{ matchId: string }>
+  params: Promise<{ locale: string; matchId: string }>
 }
 
 function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function LiveMatchPage({ params }: PageProps) {
-  const { matchId } = await params
+  const { locale, matchId } = await params
   const fixture = resolveFixture(matchId)
 
   if (!fixture) notFound()
@@ -59,16 +59,29 @@ export default async function LiveMatchPage({ params }: PageProps) {
   const eventJsonLd = sportsEventJsonLd({
     homeName: homeTeam.name,
     awayName: awayTeam.name,
+    homeSlug: fixture.homeTeamSlug,
+    awaySlug: fixture.awayTeamSlug,
     venue: fixture.venue,
     city: fixture.city,
     kickoffUtc: fixture.kickoffUtc,
   })
 
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Matches', url: canonicalForLocale(locale, '/matches') },
+    {
+      name: `${homeTeam.name} vs ${awayTeam.name}`,
+      url: canonicalForLocale(locale, `/matches/live/${matchId}`),
+    },
+  ])
+
+  const graph = jsonLdGraph([eventJsonLd, breadcrumbs])
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
       <LiveMatchClient
         matchId={matchId}

@@ -39,6 +39,7 @@ export interface OGMeta {
   type?: 'website' | 'article' | 'profile' | 'book'
   section?: string
   publishedTime?: string
+  modifiedTime?: string
   /** Absolute URL to a pre-generated OG image (1200×630) */
   image?: string
 }
@@ -60,6 +61,7 @@ export function buildOGMeta(meta: OGMeta) {
       ...(images && { images }),
       ...(meta.section && { section: meta.section }),
       ...(meta.publishedTime && { publishedTime: meta.publishedTime }),
+      ...(meta.modifiedTime && { modifiedTime: meta.modifiedTime }),
     },
     twitter: {
       card: 'summary_large_image' as const,
@@ -259,6 +261,8 @@ export function productOfferJsonLd(product: ProductOfferInput) {
   }
 }
 
+export type ArticleSchemaType = 'Article' | 'NewsArticle' | 'BlogPosting'
+
 export interface ArticleJsonLdInput {
   headline: string
   description: string
@@ -267,12 +271,19 @@ export interface ArticleJsonLdInput {
   datePublished?: string
   dateModified?: string
   image?: string
+  /** Defaults to 'Article'. Use 'NewsArticle' for time-sensitive news (daily briefings) to qualify for Top Stories. */
+  type?: ArticleSchemaType
+  /** Optional keywords serialized as a comma-separated string. */
+  keywords?: string
+  /** Approximate word count of the body. */
+  wordCount?: number
 }
 
 export function articleJsonLd(article: ArticleJsonLdInput) {
+  const schemaType: ArticleSchemaType = article.type ?? 'Article'
   return {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': schemaType,
     headline: article.headline,
     description: article.description,
     mainEntityOfPage: { '@type': 'WebPage', '@id': article.url },
@@ -285,6 +296,86 @@ export function articleJsonLd(article: ArticleJsonLdInput) {
     ...(article.datePublished && { datePublished: article.datePublished }),
     ...(article.dateModified && { dateModified: article.dateModified }),
     ...(article.image && { image: article.image }),
+    ...(article.keywords && { keywords: article.keywords }),
+    ...(article.wordCount && { wordCount: article.wordCount }),
+  }
+}
+
+/**
+ * ItemList structured data — improves search appearance for hub pages
+ * by exposing the curated set of teams, cities, briefings, etc. that the
+ * page enumerates. Each entry should be a fully-qualified canonical URL.
+ */
+export interface ItemListEntry {
+  name: string
+  url: string
+  description?: string
+  image?: string
+}
+
+export function itemListJsonLd(
+  items: ItemListEntry[],
+  options?: { name?: string; description?: string; url?: string }
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    ...(options?.name && { name: options.name }),
+    ...(options?.description && { description: options.description }),
+    ...(options?.url && { url: options.url }),
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: item.url,
+      name: item.name,
+      ...(item.description && { description: item.description }),
+      ...(item.image && { image: item.image }),
+    })),
+  }
+}
+
+/**
+ * FAQPage structured data — enables Google FAQ rich result and AI-search
+ * citation for question-style queries. Pair with visible FAQ content on page.
+ */
+export interface FaqQAInput {
+  question: string
+  answer: string
+}
+
+export function faqPageJsonLd(items: FaqQAInput[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((qa) => ({
+      '@type': 'Question',
+      name: qa.question,
+      acceptedAnswer: { '@type': 'Answer', text: qa.answer },
+    })),
+  }
+}
+
+/**
+ * Speakable structured data — used by Google Assistant / voice-search
+ * surfaces to identify which sections of a page can be read aloud.
+ */
+export interface SpeakableInput {
+  url: string
+  cssSelectors?: string[]
+  xpath?: string[]
+}
+
+export function speakableJsonLd(input: SpeakableInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url: input.url,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      ...(input.cssSelectors && { cssSelector: input.cssSelectors }),
+      ...(input.xpath && { xpath: input.xpath }),
+    },
   }
 }
 
