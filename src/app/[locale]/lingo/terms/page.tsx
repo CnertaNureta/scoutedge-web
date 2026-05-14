@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoTermsData } from '@/data/lingo-data'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -10,6 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('termsHeading'),
     description: t('termsDesc'),
+    alternates: buildAlternates(locale, '/lingo/terms'),
   }
 }
 

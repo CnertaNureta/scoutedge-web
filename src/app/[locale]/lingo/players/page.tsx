@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoPlayers, lingoCountries } from '@/data/lingo-data'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -11,6 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('playerGuide'),
     description: t('playerGuideDesc', { count: lingoPlayers.length }),
+    alternates: buildAlternates(locale, '/lingo/players'),
   }
 }
 

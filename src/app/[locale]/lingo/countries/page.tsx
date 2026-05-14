@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoCountries, getAllLingoRegions, getLingoCountriesByRegion } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -11,6 +12,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('countriesHeading', { count: lingoCountries.length }),
     description: t('countriesDesc'),
+    alternates: buildAlternates(locale, '/lingo/countries'),
   }
 }
 

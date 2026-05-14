@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { OG_LOCALES } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heroTitle1') + ' ' + t('heroTitle2'),
     description: t('heroDescription'),
+    alternates: buildAlternates(locale, '/developers'),
     openGraph: {
       title: t('heroTitle1') + ' ' + t('heroTitle2'),
       description: t('heroDescription'),

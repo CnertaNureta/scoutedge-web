@@ -11,6 +11,7 @@ import { SyllableBreakdown } from '@/components/lingo/SyllableBreakdown'
 import { DifficultyBadge } from '@/components/lingo/DifficultyBadge'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 import { OG_LOCALES } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface CountryPageProps {
   params: Promise<{ slug: string; locale: string }>
@@ -24,6 +25,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   return {
     title: `How to Pronounce ${country.name} — World Cup 2026 Pronunciation Guide`,
     description: `How to say ${country.name} correctly: ${country.phonetic}. IPA: ${country.ipa}. Includes local name, fun facts, and common mistakes.`,
+    alternates: buildAlternates(locale, `/lingo/countries/${slug}`),
     openGraph: {
       title: `How to Pronounce ${country.name} | KickOracle Lingo`,
       description: `${country.phonetic}. Learn the correct pronunciation with IPA, phonetics, and fun facts.`,
