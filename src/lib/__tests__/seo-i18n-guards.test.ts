@@ -139,3 +139,22 @@ describe('player rich result schema guard', () => {
     expect(person).not.toHaveProperty('aggregateRating')
   })
 })
+
+describe('localized structured-data URL guard', () => {
+  it('keeps high-exposure team/player JSON-LD URLs aligned with locale canonicals', () => {
+    const files = [
+      'src/app/[locale]/players/[player]/page.tsx',
+      'src/app/[locale]/teams/[slug]/page.tsx',
+      'src/app/[locale]/teams/[slug]/players/[playerSlug]/page.tsx',
+    ]
+
+    for (const file of files) {
+      const source = read(file)
+      expect(source).not.toContain('https://kickoracle.com/teams/${')
+      expect(source).not.toContain('https://kickoracle.com/players/${')
+    }
+
+    expect(read('src/app/[locale]/players/[player]/page.tsx')).toContain('buildPersonSchema')
+    expect(read('src/app/[locale]/teams/[slug]/players/[playerSlug]/page.tsx')).toContain('buildPersonSchema')
+  })
+})

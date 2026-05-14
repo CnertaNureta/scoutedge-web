@@ -3,8 +3,9 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd, personJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildPersonSchema } from '@/lib/seo/structured-data'
 import { playerDescriptionEn, playerTitleEn } from '@/data/seo-meta'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
@@ -92,7 +93,7 @@ function StatBox({ value, label }: { value: string | number; label: string }) {
 }
 
 export default async function PlayerPage({ params }: Props) {
-  const { player: slug } = await params
+  const { locale, player: slug } = await params
   const player = getAllPlayers().find((p) => p.slug === slug)
   if (!player) notFound()
 
@@ -110,17 +111,19 @@ export default async function PlayerPage({ params }: Props) {
         ? t('minorConcern')
         : t('injuryRisk')
 
-  const playerUrl = `https://kickoracle.com/players/${slug}`
-  const personLd = personJsonLd({
-    name: player.name,
-    jobTitle: `Footballer (${player.position})`,
-    description: `${player.name} World Cup 2026 profile — ${player.position} for ${teamName}, club ${player.club}. ${player.caps} caps, ${player.goals} goals.`,
-    url: playerUrl,
+  const canonicalPath = team
+    ? `/teams/${team.slug}/players/${player.slug}`
+    : `/players/${slug}`
+  const playerUrl = canonicalForLocale(locale, canonicalPath)
+  const personLd = buildPersonSchema({
+    player,
+    team: team ? { slug: team.slug, name: team.name } : undefined,
+    locale,
   })
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Teams', url: 'https://kickoracle.com/teams' },
-    { name: teamName, url: `https://kickoracle.com/teams/${player.teamSlug}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Teams', url: canonicalForLocale(locale, '/teams') },
+    { name: teamName, url: canonicalForLocale(locale, `/teams/${player.teamSlug}`) },
     { name: player.name, url: playerUrl },
   ])
   const graph = jsonLdGraph([personLd, breadcrumbs])

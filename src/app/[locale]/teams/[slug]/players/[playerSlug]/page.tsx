@@ -9,6 +9,7 @@ import { getPlayerActionImage } from '@/lib/unsplash'
 import { computeDerivedStats } from '@/lib/player-derived-stats'
 import { buildOGMeta, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildPersonSchema } from '@/lib/seo/structured-data'
 import { playerDescriptionEn, playerTitleEn } from '@/data/seo-meta'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
@@ -95,25 +96,13 @@ export default async function PlayerPage({ params }: PageProps) {
   ]
 
   const playerPath = `/teams/${slug}/players/${player.slug}`
-  const playerUrl = `https://kickoracle.com${playerPath}`
-  const teamUrl = `https://kickoracle.com/teams/${slug}`
-  const personLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: player.name,
-    url: playerUrl,
-    image: getPlayerActionImage(player.name),
-    jobTitle: `Professional Football Player (${player.position})`,
-    nationality: { '@type': 'Country', name: team.name },
-    affiliation: {
-      '@type': 'SportsTeam',
-      name: team.name,
-      url: teamUrl,
-    },
-    ...(player.club && {
-      worksFor: { '@type': 'SportsTeam', name: player.club },
-    }),
-  }
+  const playerUrl = canonicalForLocale(locale, playerPath)
+  const personLd = buildPersonSchema({
+    player,
+    team: { slug, name: team.name },
+    locale,
+    imageUrl: getPlayerActionImage(player.name),
+  })
 
   const breadcrumbs = breadcrumbJsonLd([
     { name: 'Home', url: canonicalForLocale(locale, '/') },

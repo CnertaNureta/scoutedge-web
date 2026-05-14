@@ -88,7 +88,7 @@ export default async function TeamPage({ params }: PageProps) {
     .filter((c): c is NonNullable<typeof c> => c !== undefined)
   const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
 
-  const teamUrl = `https://kickoracle.com/teams/${slug}`
+  const teamUrl = canonicalForLocale(locale, `/teams/${slug}`)
   const sportsTeamLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsTeam',
@@ -105,7 +105,7 @@ export default async function TeamPage({ params }: PageProps) {
     athlete: players.slice(0, 23).map((p) => ({
       '@type': 'Person',
       name: p.name,
-      url: `${teamUrl}/players/${p.slug}`,
+      url: canonicalForLocale(locale, `/teams/${slug}/players/${p.slug}`),
       ...(p.position && { jobTitle: p.position }),
     })),
     location: { '@type': 'Country', name: team.name },
