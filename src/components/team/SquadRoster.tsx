@@ -1,7 +1,8 @@
 import type { Player } from '@/lib/types'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
-import { positionOrder, positionLabel, getPlayerPhoto } from '@/lib/utils'
+import { positionOrder, getPlayerPhoto } from '@/lib/utils'
 import { getPlayerActionImage } from '@/lib/unsplash'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
@@ -13,13 +14,30 @@ interface SquadRosterProps {
   teamSlug: string
 }
 
-function getKeyStat(player: Player): string {
+type PlayerPosition = Player['position']
+type SquadTranslator = ReturnType<typeof useTranslations<'squadRoster'>>
+
+function assertUnreachable(value: never): never {
+  throw new Error(`Unexpected player position: ${value}`)
+}
+
+function positionLabelKey(position: PlayerPosition): 'goalkeepers' | 'defenders' | 'midfielders' | 'forwards' {
+  switch (position) {
+    case 'GK': return 'goalkeepers'
+    case 'DEF': return 'defenders'
+    case 'MID': return 'midfielders'
+    case 'FWD': return 'forwards'
+    default: return assertUnreachable(position)
+  }
+}
+
+function getKeyStat(player: Player, t: SquadTranslator): string {
   switch (player.position) {
-    case 'GK': return `${player.caps} caps`
-    case 'DEF': return `${player.caps} caps · ${player.goals} goals`
-    case 'MID': return `${player.goals} goals · ${player.assists} assists`
-    case 'FWD': return `${player.goals} goals · ${player.assists} assists`
-    default: return `${player.caps} caps`
+    case 'GK': return t('capsShort', { caps: player.caps })
+    case 'DEF': return t('capsAndGoals', { caps: player.caps, goals: player.goals })
+    case 'MID': return t('goalsAndAssists', { goals: player.goals, assists: player.assists })
+    case 'FWD': return t('goalsAndAssists', { goals: player.goals, assists: player.assists })
+    default: return t('capsShort', { caps: player.caps })
   }
 }
 
@@ -29,6 +47,7 @@ function getFeaturedPlayer(players: Player[]): Player | null {
 }
 
 function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: string }) {
+  const t = useTranslations('squadRoster')
   const photo = getPlayerPhoto(player)
   const posColor = getPositionColor(player.position)
 
@@ -76,7 +95,7 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
               className="font-label text-[10px] font-bold uppercase tracking-[0.2em]"
               style={{ color: posColor }}
             >
-              Key Player
+              {t('keyPlayer')}
             </span>
             <PositionBadge position={player.position} variant="pill" />
           </div>
@@ -90,21 +109,21 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
           <div className="grid grid-cols-3 gap-4 mt-5">
             <div>
               <span className="font-headline text-2xl text-on-surface">{player.caps}</span>
-              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Caps</span>
+              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">{t('caps')}</span>
             </div>
             <div>
               <span className="font-headline text-2xl text-on-surface">{player.goals}</span>
-              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Goals</span>
+              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">{t('goals')}</span>
             </div>
             <div>
               <span className="font-headline text-2xl text-on-surface">{player.assists}</span>
-              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">Assists</span>
+              <span className="block font-label text-[10px] text-on-surface-variant uppercase tracking-widest mt-0.5">{t('assists')}</span>
             </div>
           </div>
 
           <div className="flex items-center gap-3 mt-5">
             <div className="flex-1">
-              <ChemistryBar value={player.rating * 10} showValue label="Rating" size="sm" />
+              <ChemistryBar value={player.rating * 10} showValue label={t('rating')} size="sm" />
             </div>
             <FitnessIndicator status={player.fitnessStatus} />
           </div>
@@ -120,20 +139,21 @@ function FeaturedPlayerCard({ player, teamSlug }: { player: Player; teamSlug: st
 }
 
 export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
-  const grouped = players.reduce<Record<string, Player[]>>((acc, p) => {
+  const t = useTranslations('squadRoster')
+  const grouped = players.reduce<Partial<Record<PlayerPosition, Player[]>>>((acc, p) => {
     const key = p.position
     if (!acc[key]) acc[key] = []
     acc[key].push(p)
     return acc
   }, {})
 
-  const sortedGroups = Object.entries(grouped).sort(
+  const sortedGroups = (Object.entries(grouped) as [PlayerPosition, Player[]][]).sort(
     ([a], [b]) => positionOrder(a) - positionOrder(b)
   )
 
   return (
     <section className="page-container mb-16">
-      <SectionHeader className="mb-10">Squad</SectionHeader>
+      <SectionHeader className="mb-10">{t('squad')}</SectionHeader>
       {sortedGroups.map(([position, posPlayers]) => {
         const posColor = getPositionColor(position)
         const featured = getFeaturedPlayer(posPlayers)
@@ -149,7 +169,7 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                 className="w-1 h-6 rounded-full"
                 style={{ backgroundColor: posColor }}
               />
-              <span style={{ color: posColor }}>{positionLabel(position)}</span>
+              <span style={{ color: posColor }}>{t(positionLabelKey(position))}</span>
               <span className="font-mono text-xs text-on-surface-variant/60">
                 {posPlayers.length}
               </span>
@@ -212,13 +232,13 @@ export default function SquadRoster({ players, teamSlug }: SquadRosterProps) {
                         <FitnessIndicator status={player.fitnessStatus} />
                       </div>
                       <div className="flex items-center gap-2 mb-1">
-                        <PositionBadge position={player.position as 'GK' | 'DEF' | 'MID' | 'FWD'} variant="dot" />
+                        <PositionBadge position={player.position} variant="dot" />
                         <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
                           {player.club}
                         </p>
                       </div>
                       <p className="font-body text-xs text-on-surface-variant">
-                        {getKeyStat(player)}
+                        {getKeyStat(player, t)}
                       </p>
                       <div className="mt-3">
                         <ChemistryBar value={player.rating * 10} showValue={false} size="sm" />

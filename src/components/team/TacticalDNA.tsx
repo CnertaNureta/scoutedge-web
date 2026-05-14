@@ -1,4 +1,5 @@
 import type { Team, Player } from '@/lib/types'
+import { getTranslations } from 'next-intl/server'
 import { getTeamColors } from '@/lib/team-colors'
 import GlassCard from '@/components/ui/GlassCard'
 import ChemistryBar from '@/components/ui/ChemistryBar'
@@ -40,7 +41,9 @@ function computeTeamRadarStats(team: Team, players: Player[]): TeamRadarStats {
   }
 }
 
-export default function TacticalDNA({ team, players }: TacticalDNAProps) {
+export default async function TacticalDNA({ team, players }: TacticalDNAProps) {
+  const t = await getTranslations('tacticalDNA')
+  const tStats = await getTranslations('teamStats')
   const colors = getTeamColors(team.slug)
   const radarStats = computeTeamRadarStats(team, players)
 
@@ -48,7 +51,7 @@ export default function TacticalDNA({ team, players }: TacticalDNAProps) {
     <section className="max-w-[1440px] mx-auto px-6 mb-12">
       <h2 className="font-headline text-xl font-bold uppercase tracking-tight mb-6 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true" />
-        Tactical DNA
+        {t('title')}
       </h2>
       <GlassCard className="p-6 md:p-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -59,27 +62,27 @@ export default function TacticalDNA({ team, players }: TacticalDNAProps) {
           />
           <div className="space-y-4">
             <p className="text-on-surface-variant text-sm leading-relaxed mb-2">
-              The radar chart shows six key dimensions of team strength. Bigger area = stronger overall squad.
+              {t('radarDescription')}
             </p>
             <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-4">
               <ul className="space-y-1.5 text-xs text-on-surface-variant">
-                <li><span className="text-on-surface font-semibold">ATK</span> — Attacking quality: how dangerous the forwards are</li>
-                <li><span className="text-on-surface font-semibold">MID</span> — Midfield control: ability to dominate possession</li>
-                <li><span className="text-on-surface font-semibold">DEF</span> — Defensive solidity: how hard they are to score against</li>
-                <li><span className="text-on-surface font-semibold">CHM</span> — Chemistry: how well the team plays as a unit</li>
-                <li><span className="text-on-surface font-semibold">EXP</span> — Experience: average international caps per player</li>
-                <li><span className="text-on-surface font-semibold">FIT</span> — Fitness: percentage of squad fully fit for the tournament</li>
+                <li><span className="text-on-surface font-semibold">ATK</span> — {t('atkDesc')}</li>
+                <li><span className="text-on-surface font-semibold">MID</span> — {t('midDesc')}</li>
+                <li><span className="text-on-surface font-semibold">DEF</span> — {t('defDesc')}</li>
+                <li><span className="text-on-surface font-semibold">CHM</span> — {t('chmDesc')}</li>
+                <li><span className="text-on-surface font-semibold">EXP</span> — {t('expDesc')}</li>
+                <li><span className="text-on-surface font-semibold">FIT</span> — {t('fitDesc')}</li>
               </ul>
             </div>
-            <ChemistryBar value={team.familiarity} label="Familiarity" />
-            <ChemistryBar value={team.stability} label="Tactical Stability" />
-            <ChemistryBar value={team.morale} label="Morale" />
-            <ChemistryBar value={team.chemistry} label="Chemistry Index" />
+            <ChemistryBar value={team.familiarity} label={tStats('familiarity')} />
+            <ChemistryBar value={team.stability} label={tStats('tacticalStability')} />
+            <ChemistryBar value={team.morale} label={tStats('morale')} />
+            <ChemistryBar value={team.chemistry} label={tStats('chemistryIndex')} />
 
             {team.archetypeMatch && (
               <div className="bg-surface-container-low rounded-lg p-4 border border-white/5 mt-4">
                 <span className="font-label text-xs font-bold text-tertiary uppercase tracking-widest">
-                  Historical Archetype Match
+                  {tStats('historicalArchetypeMatch')}
                 </span>
                 <p className="font-body text-base text-on-surface mt-1">
                   {team.archetypeMatch}

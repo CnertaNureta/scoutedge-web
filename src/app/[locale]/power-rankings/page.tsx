@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getAllTeams } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
     },
-    alternates: { canonical: canonicalForLocale(locale, '/power-rankings') },
+    alternates: buildAlternates(locale, '/power-rankings'),
   }
 }
 

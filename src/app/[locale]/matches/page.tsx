@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildGraph, buildSportsEventItemList } from '@/lib/seo/structured-data'
 import { Link } from '@/i18n/navigation'
 import { getMatchesBoardData } from '@/lib/site-data'
 import Badge from '@/components/ui/Badge'
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: 'World Cup 2026 matches, fixtures, and AI-powered match previews',
     keywords:
       'World Cup 2026 schedule, World Cup 2026 fixtures, World Cup 2026 matches, World Cup 2026 kick off times, World Cup 2026 predictions',
-    alternates: { canonical: canonicalForLocale(locale, '/matches') },
+    alternates: buildAlternates(locale, '/matches'),
   }
 }
 
@@ -30,7 +31,7 @@ export default async function MatchesPage({ params }: Props) {
   const t = await getTranslations('matchesPage')
   const { fixtures, groups, teamsByGroup, teamsBySlug } = await getMatchesBoardData()
   const featuredPreview = getLatestNarrativePost('match_preview')
-  const jsonLd = {
+  const collectionLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: 'World Cup 2026 Group-Stage Matches',
@@ -38,6 +39,13 @@ export default async function MatchesPage({ params }: Props) {
       'All 72 group-stage fixtures for the 2026 FIFA World Cup with AI predictions.',
     numberOfItems: fixtures.length,
   }
+  const eventListLd = buildSportsEventItemList({
+    fixtures,
+    teamsBySlug,
+    locale,
+    limit: 12,
+  })
+  const jsonLd = buildGraph([collectionLd, eventListLd])
 
   return (
     <>

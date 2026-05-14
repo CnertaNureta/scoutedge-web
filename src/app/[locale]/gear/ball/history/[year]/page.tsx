@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -42,7 +43,7 @@ const WORLD_CUP_BALLS: BallData[] = [
 const BALL_MAP = new Map(WORLD_CUP_BALLS.map((b) => [String(b.year), b]))
 
 interface Props {
-  params: Promise<{ year: string }>
+  params: Promise<{ locale: string; year: string }>
 }
 
 export function generateStaticParams() {
@@ -50,20 +51,20 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { year } = await params
+  const { locale, year } = await params
   const ball = BALL_MAP.get(year)
   if (!ball) return {}
 
   const title = `${ball.name} — ${year} World Cup Match Ball`
   const description = `The ${ball.name}: official match ball of the ${year} FIFA World Cup in ${ball.host}. ${ball.manufacturer}, ${ball.panels} panels. ${ball.description.slice(0, 100)}...`
-  const url = `https://kickoracle.com/gear/ball/history/${year}`
+  const alternates = buildAlternates(locale, `/gear/ball/history/${year}`)
 
   return {
     title,
     description,
     keywords: `${ball.name} ball, ${year} World Cup ball, ${ball.manufacturer} ${ball.name}, World Cup match ball history`,
-    alternates: { canonical: url },
-    ...buildOGMeta({ title, description, url }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 

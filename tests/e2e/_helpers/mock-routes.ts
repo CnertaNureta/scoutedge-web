@@ -22,6 +22,16 @@ const USE_REAL = process.env.USE_REAL_BACKEND === '1';
 export async function setupMocks(page: Page) {
   if (USE_REAL) return; // 跳过所有 mock
 
+  await page.route('**/api/leaderboard/global**', async (route) => {
+    return route.fulfill({
+      json: {
+        leaderboard: [],
+        limit: 100,
+        offset: 0,
+      },
+    });
+  });
+
   // ──────────────────────────────────────────────
   // Supabase REST: https://<project>.supabase.co/rest/v1/<table>?...
   // 拦所有 *.supabase.co 的请求

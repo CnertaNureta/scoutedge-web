@@ -70,7 +70,7 @@ export default function Footer() {
             and helps Google discover the localized URL space */}
         <div className="mt-12 pt-8 border-t border-outline-variant/10">
           <h6 className="font-label font-bold text-sm uppercase tracking-widest text-primary mb-4">
-            Languages
+            {t('languagesHeading')}
           </h6>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-on-surface-variant">
             {SUPPORTED_LOCALES.map((loc) => {
@@ -106,7 +106,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-8 gap-y-2 justify-center">
             <Link href="/privacy-policy" className="hover:text-on-surface transition-colors">{t('privacyPolicy')}</Link>
             <Link href="/terms-of-service" className="hover:text-on-surface transition-colors">{t('termsOfService')}</Link>
-            <a href="/sitemap.xml" className="hover:text-on-surface transition-colors">Sitemap</a>
+            <a href="/sitemap.xml" className="hover:text-on-surface transition-colors">{t('sitemap')}</a>
           </div>
         </div>
       </div>

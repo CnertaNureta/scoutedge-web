@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle participa de programas de marketing de afiliados. Podemos ganhar uma comissão quando você compra ingressos, reserva viagens, assina serviços de streaming ou compra mercadorias através dos links neste site, sem custo adicional para você. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Inteligência da Copa do Mundo com IA. Todos os direitos reservados.",
     "skipToContent": "Pular para o conteúdo principal",
-    "newsletterCta": "Receba previsões grátis da Copa →"
+    "newsletterCta": "Receba previsões grátis da Copa →",
+    "languagesHeading": "Idiomas",
+    "sitemap": "Mapa do site"
   },
   "common": {
     "loading": "Carregando...",
@@ -158,7 +160,15 @@
     "description": "Análise com IA de cada seleção na maior Copa do Mundo FIFA da história. Explore entrosamento, perfis táticos e previsões de probabilidade de vitória.",
     "group": "Grupo {group}",
     "frequentlyAsked": "Perguntas frequentes",
-    "moreFromGroup": "Mais do Grupo {group}"
+    "moreFromGroup": "Mais do Grupo {group}",
+    "breadcrumbHome": "Início",
+    "breadcrumbTeams": "Seleções",
+    "compareRivalsHeading": "Comparar {team} com os rivais do Grupo {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Onde {team} joga — Cidades-sede da Copa do Mundo 2026",
+    "countryGuide": "Guia de {country}",
+    "pronunciationHeading": "Como pronunciar os nomes dos jogadores de {team}",
+    "pronounceLabel": "Pronunciar {name}"
   },
   "matchesPage": {
     "featuredPreview": "Prévia em Destaque",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Melhor de 5",
     "bestOfFiveTooltip": "Recurso premium — atualize para desbloquear",
     "featuredDuels": "Duelos em destaque"
+  },
+  "teamHero": {
+    "playoffNotice": "Sujeito aos resultados do playoff da UEFA (26-31 de março de 2026)",
+    "subtitle": "Análise da Copa do Mundo 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Grupo {group}",
+    "chemistryIndex": "Índice de entrosamento",
+    "ctaTagline": "Previsões diárias gratuitas com IA para todas as 48 seleções.",
+    "ctaButton": "Criar conta grátis"
+  },
+  "teamStats": {
+    "chemistry": "Entrosamento",
+    "familiarity": "Familiaridade",
+    "stability": "Estabilidade",
+    "morale": "Moral",
+    "fifaRanking": "Ranking FIFA",
+    "tacticalStability": "Estabilidade tática",
+    "chemistryIndex": "Índice de entrosamento",
+    "familiarityDesc": "Há quanto tempo o elenco joga junto. Maior = entendimento mais instintivo em campo.",
+    "stabilityDesc": "Quão consolidada é a comissão técnica e a formação. Mudanças frequentes reduzem essa pontuação.",
+    "moraleDesc": "Confiança atual do elenco. Influenciada por resultados recentes, apoio da torcida e clima na mídia.",
+    "historicalArchetypeMatch": "Correspondência com arquétipo histórico",
+    "archetypeDesc": "Uma seleção de Copa do Mundo do passado cujo estilo de jogo e trajetória mais se assemelham a este elenco."
+  },
+  "squadRoster": {
+    "squad": "Elenco",
+    "keyPlayer": "Jogador-chave",
+    "caps": "Jogos pela seleção",
+    "goals": "Gols",
+    "assists": "Assistências",
+    "rating": "Avaliação",
+    "capsShort": "{caps} jogos",
+    "capsAndGoals": "{caps} jogos · {goals} gols",
+    "goalsAndAssists": "{goals} gols · {assists} assistências",
+    "goalkeepers": "Goleiros",
+    "defenders": "Defensores",
+    "midfielders": "Meio-campistas",
+    "forwards": "Atacantes"
+  },
+  "squadDepth": {
+    "title": "Profundidade do elenco",
+    "players": "jogadores",
+    "avgAge": "Idade média: {age}",
+    "avgRating": "Avaliação média: ★ {rating}",
+    "ageDistribution": "Distribuição por idade",
+    "ageRangeAria": "Faixa etária: de {min} a {max}"
+  },
+  "tacticalDNA": {
+    "title": "DNA tático",
+    "radarDescription": "O gráfico radar mostra seis dimensões-chave da força do time. Maior área = elenco mais forte no geral.",
+    "atkDesc": "Qualidade ofensiva: o quanto os atacantes são perigosos",
+    "midDesc": "Controle de meio-campo: capacidade de dominar a posse de bola",
+    "defDesc": "Solidez defensiva: o quanto é difícil marcar contra eles",
+    "chmDesc": "Entrosamento: o quanto o time joga como uma unidade",
+    "expDesc": "Experiência: média de jogos pela seleção por jogador",
+    "fitDesc": "Condicionamento: porcentagem do elenco em plenas condições para o torneio"
+  },
+  "historicalPerformance": {
+    "title": "História na Copa do Mundo",
+    "appearances": "Participações",
+    "since": "Desde {year}",
+    "bestFinish": "Melhor campanha",
+    "titlesWon": "Títulos conquistados",
+    "worldChampion": "{count, plural, one {Campeão mundial} other {Campeões mundiais}}",
+    "winRate": "% de vitórias",
+    "recordSummary": "{won}V {drawn}E {lost}D",
+    "allTimeRecord": "Histórico geral em Copas do Mundo — {matches} partidas",
+    "recordBarAria": "Vencidas {won}, empatadas {drawn}, perdidas {lost} de {played} partidas",
+    "wonCount": "{count} vencidas",
+    "drawnCount": "{count} empatadas",
+    "lostCount": "{count} perdidas",
+    "iconicMoments": "Momentos icônicos"
+  },
+  "matchCenter": {
+    "title": "Central de jogos",
+    "timezoneAdjustment": "Ajuste de fuso horário",
+    "homeTimezone": "Fuso horário local de {team}:",
+    "venuesHeading": "Sedes da Copa do Mundo 2026 — {count} estádios",
+    "capacity": "Capacidade",
+    "altitude": "Altitude",
+    "roof": "Cobertura",
+    "surface": "Gramado",
+    "climate": "Clima",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Sem jet lag",
+      "moderate": "Moderado",
+      "significant": "Significativo",
+      "extreme": "Extremo"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Grupo {group} · #{rank}",
+    "playoff": "Playoff",
+    "chemistry": "Entrosamento"
   }
 }

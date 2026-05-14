@@ -139,7 +139,9 @@
     "affiliateDisclosure": "KickOracle参与联盟营销计划。当您通过本网站的链接购买门票、预订旅行、订阅流媒体服务或购买商品时，我们可能会获得佣金，您无需支付额外费用。 As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI驱动的世界杯情报。保留所有权利。",
     "skipToContent": "跳转到主要内容",
-    "newsletterCta": "免费获取世界杯预测 →"
+    "newsletterCta": "免费获取世界杯预测 →",
+    "languagesHeading": "语言",
+    "sitemap": "网站地图"
   },
   "common": {
     "loading": "加载中...",
@@ -157,7 +159,15 @@
     "description": "AI分析史上规模最大的FIFA世界杯每一支参赛球队。探索阵容化学反应、战术档案和胜率预测。",
     "group": "{group}组",
     "frequentlyAsked": "常见问题",
-    "moreFromGroup": "{group}组更多内容"
+    "moreFromGroup": "{group}组更多内容",
+    "breadcrumbHome": "首页",
+    "breadcrumbTeams": "球队",
+    "compareRivalsHeading": "比较 {team} 与 {group} 组对手",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "{team} 比赛地点 — 2026 世界杯主办城市",
+    "countryGuide": "{country} 指南",
+    "pronunciationHeading": "如何读 {team} 球员姓名",
+    "pronounceLabel": "朗读 {name}"
   },
   "matchesPage": {
     "featuredPreview": "精选赛事预览",
@@ -1759,5 +1769,101 @@
       "signInPrompt": "登录并预测,赢取排名",
       "predictCta": "预测登顶 →"
     }
+  },
+  "teamHero": {
+    "playoffNotice": "取决于欧足联附加赛结果（2026 年 3 月 26-31 日）",
+    "subtitle": "2026 世界杯分析",
+    "fifaRankBadge": "FIFA #{rank}",
+    "groupBadge": "{group} 组",
+    "chemistryIndex": "化学指数",
+    "ctaTagline": "为全部 48 支球队提供免费的每日 AI 预测。",
+    "ctaButton": "免费创建账户"
+  },
+  "teamStats": {
+    "chemistry": "化学反应",
+    "familiarity": "默契度",
+    "stability": "稳定性",
+    "morale": "士气",
+    "fifaRanking": "FIFA 排名",
+    "tacticalStability": "战术稳定性",
+    "chemistryIndex": "化学指数",
+    "familiarityDesc": "球队共同征战的时间。数值越高 = 场上的本能默契越强。",
+    "stabilityDesc": "教练组与阵型的稳定程度。频繁变动会降低此项分数。",
+    "moraleDesc": "球队当前的信心。受近期战绩、球迷支持及媒体氛围影响。",
+    "historicalArchetypeMatch": "历史原型匹配",
+    "archetypeDesc": "在比赛风格与发展轨迹上与本队最相似的过往世界杯球队。"
+  },
+  "squadRoster": {
+    "squad": "阵容",
+    "keyPlayer": "核心球员",
+    "caps": "出场",
+    "goals": "进球",
+    "assists": "助攻",
+    "rating": "评分",
+    "capsShort": "{caps} 场",
+    "capsAndGoals": "{caps} 场 · {goals} 球",
+    "goalsAndAssists": "{goals} 球 · {assists} 助",
+    "goalkeepers": "门将",
+    "defenders": "后卫",
+    "midfielders": "中场",
+    "forwards": "前锋"
+  },
+  "squadDepth": {
+    "title": "阵容深度",
+    "players": "球员",
+    "avgAge": "平均年龄：{age}",
+    "avgRating": "平均评分：★ {rating}",
+    "ageDistribution": "年龄分布",
+    "ageRangeAria": "年龄范围：{min} 至 {max}"
+  },
+  "tacticalDNA": {
+    "title": "战术 DNA",
+    "radarDescription": "雷达图展示球队实力的六个关键维度。覆盖面积越大 = 阵容整体越强。",
+    "atkDesc": "进攻质量：前锋的威胁程度",
+    "midDesc": "中场控制：掌控控球的能力",
+    "defDesc": "防守稳固：失球难度",
+    "chmDesc": "化学反应：球队作为整体的协同程度",
+    "expDesc": "经验值：球员国际比赛平均出场次数",
+    "fitDesc": "体能状态：阵容中完全健康可参赛的球员比例"
+  },
+  "historicalPerformance": {
+    "title": "世界杯历史",
+    "appearances": "参赛次数",
+    "since": "始于 {year}",
+    "bestFinish": "最佳战绩",
+    "titlesWon": "冠军次数",
+    "worldChampion": "{count, plural, one {世界冠军} other {世界冠军}}",
+    "winRate": "胜率",
+    "recordSummary": "{won}胜 {drawn}平 {lost}负",
+    "allTimeRecord": "世界杯历史总战绩 — {matches} 场",
+    "recordBarAria": "在 {played} 场比赛中获胜 {won} 场，平 {drawn} 场，负 {lost} 场",
+    "wonCount": "{count} 胜",
+    "drawnCount": "{count} 平",
+    "lostCount": "{count} 负",
+    "iconicMoments": "标志性瞬间"
+  },
+  "matchCenter": {
+    "title": "比赛中心",
+    "timezoneAdjustment": "时区调整",
+    "homeTimezone": "{team} 主场时区：",
+    "venuesHeading": "2026 世界杯举办地 — {count} 座球场",
+    "capacity": "容量",
+    "altitude": "海拔",
+    "roof": "顶棚",
+    "surface": "草皮",
+    "climate": "气候",
+    "juneTemp": "6 月：{high}°/{low}°C",
+    "julyTemp": "7 月：{high}°/{low}°C",
+    "jetLag": {
+      "none": "无时差",
+      "moderate": "中等",
+      "significant": "明显",
+      "extreme": "严重"
+    }
+  },
+  "teamCard": {
+    "groupRank": "{group} 组 · 第 {rank} 名",
+    "playoff": "附加赛",
+    "chemistry": "化学反应"
   }
 }

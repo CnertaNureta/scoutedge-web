@@ -8,6 +8,8 @@ import {
   breadcrumbJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildFAQPageSchema } from '@/lib/seo/structured-data'
 import backtest from '@/data/backtest-2024.json'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -40,16 +42,16 @@ const limitations = backtest.limitations as string[]
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'accuracyPage' })
-  const url = canonical(`/${locale}/accuracy`)
+  const alternates = buildAlternates(locale, '/accuracy')
 
   return {
     title: t('metaTitle'),
     description: t('metaDescription'),
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: t('metaTitle'),
       description: t('metaDescription'),
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
     }),
@@ -60,6 +62,7 @@ export default async function AccuracyPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations('accuracyPage')
+  const geo = await getTranslations('geo')
   const url = canonical(`/${locale}/accuracy`)
 
   const article = articleJsonLd({
@@ -76,6 +79,15 @@ export default async function AccuracyPage({ params }: Props) {
     { name: t('badge'), url },
   ])
 
+  const faqs = [
+    { question: geo('accuracyFaqsHeading1'), answer: geo('accuracyFaqsAnswer1') },
+    { question: geo('accuracyFaqsHeading2'), answer: geo('accuracyFaqsAnswer2') },
+    { question: geo('accuracyFaqsHeading3'), answer: geo('accuracyFaqsAnswer3') },
+    { question: geo('accuracyFaqsHeading4'), answer: geo('accuracyFaqsAnswer4') },
+    { question: geo('accuracyFaqsHeading5'), answer: geo('accuracyFaqsAnswer5') },
+    { question: geo('accuracyFaqsHeading6'), answer: geo('accuracyFaqsAnswer6') },
+  ]
+
   return (
     <>
       <script
@@ -83,6 +95,10 @@ export default async function AccuracyPage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLdGraph([article, breadcrumbs])),
         }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFAQPageSchema(faqs)) }}
       />
 
       <main className="min-h-screen pb-24">
@@ -198,6 +214,125 @@ export default async function AccuracyPage({ params }: Props) {
               <li key={i}>{line}</li>
             ))}
           </ul>
+        </section>
+
+        <section id="methodology" className="max-w-3xl mx-auto px-4 mb-16">
+          <h2 className="font-headline text-xl font-bold text-on-surface uppercase tracking-tight mb-2">
+            {geo('methodologyHeading')}
+          </h2>
+          <p className="text-on-surface-variant/60 text-xs uppercase tracking-widest mb-6">
+            {geo('methodologyAsOf')}
+          </p>
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+                {geo('methodologyDataSourcesHeading')}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {geo('methodologyDataSourcesBody')}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+                {geo('methodologyFormulaHeading')}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {geo('methodologyFormulaBody')}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+                {geo('methodologyExclusionsHeading')}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {geo('methodologyExclusionsBody')}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-2">
+                {geo('methodologyCadenceHeading')}
+              </h3>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {geo('methodologyCadenceBody')}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-label text-xs uppercase tracking-widest text-primary mb-3">
+                {geo('methodologyGlossaryHeading')}
+              </h3>
+              <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryPacTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryPacDef')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryShoTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryShoDef')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryPasTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryPasDef')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryPhyTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryPhyDef')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryDefTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryDefDef')}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="font-mono font-bold text-on-surface">
+                    {geo('methodologyGlossaryOvrTerm')}
+                  </dt>
+                  <dd className="text-on-surface-variant leading-relaxed">
+                    {geo('methodologyGlossaryOvrDef')}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="max-w-3xl mx-auto px-4 mb-16">
+          <h2 className="font-headline text-xl font-bold text-on-surface uppercase tracking-tight mb-6">
+            {geo('accuracyFaqHeading')}
+          </h2>
+          <div className="space-y-5">
+            {faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-5"
+              >
+                <h2 className="font-headline text-base md:text-lg text-on-surface mb-2">
+                  {faq.question}
+                </h2>
+                <p className="text-on-surface-variant text-sm leading-relaxed">
+                  {faq.answer}
+                </p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section className="max-w-3xl mx-auto px-4">

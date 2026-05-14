@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle nimmt an Affiliate-Marketing-Programmen teil. Wir können eine Provision erhalten, wenn Sie Tickets kaufen, Reisen buchen, Streaming-Dienste abonnieren oder Waren über Links auf dieser Website kaufen, ohne dass Ihnen zusätzliche Kosten entstehen. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. KI-gestützte WM-Intelligence. Alle Rechte vorbehalten.",
     "skipToContent": "Zum Hauptinhalt springen",
-    "newsletterCta": "Kostenlose WM-Prognosen erhalten →"
+    "newsletterCta": "Kostenlose WM-Prognosen erhalten →",
+    "languagesHeading": "Sprachen",
+    "sitemap": "Sitemap"
   },
   "common": {
     "loading": "Wird geladen...",
@@ -158,7 +160,15 @@
     "description": "KI-gestützte Analyse jeder Nation bei der größten FIFA-Weltmeisterschaft aller Zeiten. Kaderchemie, taktische Profile und Siegwahrscheinlichkeiten entdecken.",
     "group": "Gruppe {group}",
     "frequentlyAsked": "Häufige Fragen",
-    "moreFromGroup": "Mehr aus Gruppe {group}"
+    "moreFromGroup": "Mehr aus Gruppe {group}",
+    "breadcrumbHome": "Startseite",
+    "breadcrumbTeams": "Teams",
+    "compareRivalsHeading": "{team} mit Rivalen aus Gruppe {group} vergleichen",
+    "versus": "{teamA} vs. {teamB}",
+    "hostCitiesHeading": "Wo {team} spielt — Austragungsstädte der WM 2026",
+    "countryGuide": "{country}-Guide",
+    "pronunciationHeading": "So spricht man die Spielernamen von {team} aus",
+    "pronounceLabel": "{name} aussprechen"
   },
   "matchesPage": {
     "featuredPreview": "Ausgewählte Spielvorschau",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Premium-Funktion — upgraden zum Freischalten",
     "featuredDuels": "Empfohlene Duelle"
+  },
+  "teamHero": {
+    "playoffNotice": "Vorbehaltlich der UEFA-Playoff-Ergebnisse (26.–31. März 2026)",
+    "subtitle": "WM 2026 Analyse",
+    "fifaRankBadge": "Nr. {rank} FIFA",
+    "groupBadge": "Gruppe {group}",
+    "chemistryIndex": "Chemie-Index",
+    "ctaTagline": "Kostenlose tägliche KI-Prognosen für alle 48 Teams.",
+    "ctaButton": "Kostenloses Konto erstellen"
+  },
+  "teamStats": {
+    "chemistry": "Chemie",
+    "familiarity": "Eingespieltheit",
+    "stability": "Stabilität",
+    "morale": "Moral",
+    "fifaRanking": "FIFA-Weltrangliste",
+    "tacticalStability": "Taktische Stabilität",
+    "chemistryIndex": "Chemie-Index",
+    "familiarityDesc": "Wie lange der Kader bereits zusammenspielt. Höher = instinktiveres Verständnis auf dem Platz.",
+    "stabilityDesc": "Wie gefestigt Trainerstab und Formation sind. Häufige Wechsel senken diesen Wert.",
+    "moraleDesc": "Aktuelles Selbstvertrauen des Kaders. Beeinflusst durch jüngste Ergebnisse, Fan-Unterstützung und Medienstimmung.",
+    "historicalArchetypeMatch": "Historischer Archetyp-Vergleich",
+    "archetypeDesc": "Ein vergangenes WM-Team, dessen Spielstil und Verlauf diesem Kader am nächsten kommt."
+  },
+  "squadRoster": {
+    "squad": "Kader",
+    "keyPlayer": "Schlüsselspieler",
+    "caps": "Länderspiele",
+    "goals": "Tore",
+    "assists": "Vorlagen",
+    "rating": "Bewertung",
+    "capsShort": "{caps} Länderspiele",
+    "capsAndGoals": "{caps} Länderspiele · {goals} Tore",
+    "goalsAndAssists": "{goals} Tore · {assists} Vorlagen",
+    "goalkeepers": "Torhüter",
+    "defenders": "Verteidiger",
+    "midfielders": "Mittelfeldspieler",
+    "forwards": "Stürmer"
+  },
+  "squadDepth": {
+    "title": "Kadertiefe",
+    "players": "Spieler",
+    "avgAge": "Ø Alter: {age}",
+    "avgRating": "Ø Bewertung: ★ {rating}",
+    "ageDistribution": "Altersverteilung",
+    "ageRangeAria": "Altersbereich: {min} bis {max}"
+  },
+  "tacticalDNA": {
+    "title": "Taktische DNA",
+    "radarDescription": "Das Radardiagramm zeigt sechs Schlüsseldimensionen der Teamstärke. Größere Fläche = stärkerer Gesamtkader.",
+    "atkDesc": "Angriffsqualität: wie gefährlich die Stürmer sind",
+    "midDesc": "Mittelfeldkontrolle: Fähigkeit, den Ballbesitz zu dominieren",
+    "defDesc": "Defensive Stabilität: wie schwer Tore zu erzielen sind",
+    "chmDesc": "Chemie: wie gut das Team als Einheit spielt",
+    "expDesc": "Erfahrung: durchschnittliche Länderspiele pro Spieler",
+    "fitDesc": "Fitness: Anteil des Kaders, der für das Turnier voll fit ist"
+  },
+  "historicalPerformance": {
+    "title": "WM-Historie",
+    "appearances": "Teilnahmen",
+    "since": "Seit {year}",
+    "bestFinish": "Bestes Ergebnis",
+    "titlesWon": "Gewonnene Titel",
+    "worldChampion": "{count, plural, one {Weltmeister} other {Weltmeister}}",
+    "winRate": "Siegquote",
+    "recordSummary": "{won}S {drawn}U {lost}N",
+    "allTimeRecord": "Ewige WM-Bilanz — {matches} Spiele",
+    "recordBarAria": "{won} Siege, {drawn} Unentschieden, {lost} Niederlagen aus {played} Spielen",
+    "wonCount": "{count} Siege",
+    "drawnCount": "{count} Unentschieden",
+    "lostCount": "{count} Niederlagen",
+    "iconicMoments": "Ikonische Momente"
+  },
+  "matchCenter": {
+    "title": "Match-Center",
+    "timezoneAdjustment": "Zeitzonen-Anpassung",
+    "homeTimezone": "{team} Heimzeitzone:",
+    "venuesHeading": "Spielorte der WM 2026 — {count} Stadien",
+    "capacity": "Kapazität",
+    "altitude": "Höhe",
+    "roof": "Dach",
+    "surface": "Untergrund",
+    "climate": "Klima",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Kein Jetlag",
+      "moderate": "Moderat",
+      "significant": "Erheblich",
+      "extreme": "Extrem"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Gruppe {group} · Nr. {rank}",
+    "playoff": "Playoff",
+    "chemistry": "Chemie"
   }
 }

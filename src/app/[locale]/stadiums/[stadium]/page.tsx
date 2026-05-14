@@ -7,6 +7,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import { getAllVenues, getVenueById } from '@/lib/data-service'
 import { getAllCities } from '@/data/cities-data'
 import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface Props {
   params: Promise<{ locale: string; stadium: string }>
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${venue.name} — World Cup 2026 Venue Guide`,
     description: `Complete guide to ${venue.name} in ${venue.city}, ${venue.country}. Capacity: ${venue.capacity.toLocaleString()}, climate, and match schedule.`,
-    alternates: { canonical: canonicalForLocale(locale, `/stadiums/${stadium}`) },
+    alternates: buildAlternates(locale, `/stadiums/${stadium}`),
     ...ogData,
   }
 }

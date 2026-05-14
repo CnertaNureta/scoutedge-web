@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle은 제휴 마케팅 프로그램에 참여하고 있습니다. 이 사이트의 링크를 통해 티켓 구매, 여행 예약, 스트리밍 서비스 구독 또는 상품 구매 시 추가 비용 없이 수수료를 받을 수 있습니다. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. AI 기반 월드컵 인텔리전스. 모든 권리 보유.",
     "skipToContent": "메인 콘텐츠로 건너뛰기",
-    "newsletterCta": "무료 월드컵 예측 받기 →"
+    "newsletterCta": "무료 월드컵 예측 받기 →",
+    "languagesHeading": "언어",
+    "sitemap": "사이트맵"
   },
   "common": {
     "loading": "로딩 중...",
@@ -158,7 +160,15 @@
     "description": "역대 가장 큰 규모의 FIFA 월드컵에 출전하는 모든 대표팀의 AI 분석. 팀 케미스트리, 전술 프로필, 승률 예측을 확인하세요.",
     "group": "{group}조",
     "frequentlyAsked": "자주 묻는 질문",
-    "moreFromGroup": "{group}조 더 보기"
+    "moreFromGroup": "{group}조 더 보기",
+    "breadcrumbHome": "홈",
+    "breadcrumbTeams": "팀",
+    "compareRivalsHeading": "{team} vs {group}조 라이벌 비교",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "{team}이(가) 경기하는 곳 — 2026 월드컵 개최 도시",
+    "countryGuide": "{country} 가이드",
+    "pronunciationHeading": "{team} 선수 이름 발음 방법",
+    "pronounceLabel": "{name} 발음하기"
   },
   "matchesPage": {
     "featuredPreview": "주요 경기 프리뷰",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "프리미엄 기능 — 잠금 해제하려면 업그레이드",
     "featuredDuels": "추천 듀얼"
+  },
+  "teamHero": {
+    "playoffNotice": "UEFA 플레이오프 결과에 따라 변경 가능 (2026년 3월 26-31일)",
+    "subtitle": "2026 월드컵 분석",
+    "fifaRankBadge": "FIFA #{rank}",
+    "groupBadge": "{group}조",
+    "chemistryIndex": "케미스트리 지수",
+    "ctaTagline": "48개 전체 팀에 대한 무료 일일 AI 예측.",
+    "ctaButton": "무료 계정 만들기"
+  },
+  "teamStats": {
+    "chemistry": "케미스트리",
+    "familiarity": "친숙도",
+    "stability": "안정성",
+    "morale": "사기",
+    "fifaRanking": "FIFA 랭킹",
+    "tacticalStability": "전술적 안정성",
+    "chemistryIndex": "케미스트리 지수",
+    "familiarityDesc": "팀이 함께 뛴 기간. 높을수록 = 경기장 위에서 본능적인 이해도가 더 높음.",
+    "stabilityDesc": "코칭 체계와 포메이션의 안정성. 잦은 변경은 이 점수를 낮춥니다.",
+    "moraleDesc": "현재 팀의 자신감. 최근 결과, 팬 지지, 미디어 분위기에 좌우됩니다.",
+    "historicalArchetypeMatch": "역사적 아키타입 매칭",
+    "archetypeDesc": "플레이 스타일과 궤적이 가장 유사한 과거 월드컵 팀."
+  },
+  "squadRoster": {
+    "squad": "스쿼드",
+    "keyPlayer": "핵심 선수",
+    "caps": "출전",
+    "goals": "득점",
+    "assists": "어시스트",
+    "rating": "평점",
+    "capsShort": "{caps} 경기",
+    "capsAndGoals": "{caps} 경기 · {goals} 득점",
+    "goalsAndAssists": "{goals} 득점 · {assists} 어시스트",
+    "goalkeepers": "골키퍼",
+    "defenders": "수비수",
+    "midfielders": "미드필더",
+    "forwards": "공격수"
+  },
+  "squadDepth": {
+    "title": "스쿼드 뎁스",
+    "players": "선수",
+    "avgAge": "평균 연령: {age}",
+    "avgRating": "평균 평점: ★ {rating}",
+    "ageDistribution": "연령 분포",
+    "ageRangeAria": "연령 범위: {min} ~ {max}"
+  },
+  "tacticalDNA": {
+    "title": "전술적 DNA",
+    "radarDescription": "레이더 차트는 팀 강점의 6가지 핵심 차원을 보여줍니다. 면적이 클수록 = 전체적으로 더 강한 스쿼드.",
+    "atkDesc": "공격력: 공격수의 위협 정도",
+    "midDesc": "미드필드 장악: 점유율을 지배하는 능력",
+    "defDesc": "수비 견고함: 실점하기 어려운 정도",
+    "chmDesc": "케미스트리: 팀 단위로 잘 어울리는 정도",
+    "expDesc": "경험: 선수 1인당 평균 국제 경기 출전 수",
+    "fitDesc": "체력: 대회를 위해 완전 컨디션인 선수 비율"
+  },
+  "historicalPerformance": {
+    "title": "월드컵 역사",
+    "appearances": "출전 횟수",
+    "since": "{year}년부터",
+    "bestFinish": "최고 성적",
+    "titlesWon": "획득한 우승",
+    "worldChampion": "{count, plural, one {월드 챔피언} other {월드 챔피언}}",
+    "winRate": "승률",
+    "recordSummary": "{won}승 {drawn}무 {lost}패",
+    "allTimeRecord": "월드컵 통산 기록 — {matches} 경기",
+    "recordBarAria": "{played} 경기 중 {won}승, {drawn}무, {lost}패",
+    "wonCount": "{count}승",
+    "drawnCount": "{count}무",
+    "lostCount": "{count}패",
+    "iconicMoments": "상징적인 순간"
+  },
+  "matchCenter": {
+    "title": "매치 센터",
+    "timezoneAdjustment": "시간대 조정",
+    "homeTimezone": "{team} 홈 시간대:",
+    "venuesHeading": "2026 월드컵 경기장 — {count}개 스타디움",
+    "capacity": "수용 인원",
+    "altitude": "고도",
+    "roof": "지붕",
+    "surface": "잔디",
+    "climate": "기후",
+    "juneTemp": "6월: {high}°/{low}°C",
+    "julyTemp": "7월: {high}°/{low}°C",
+    "jetLag": {
+      "none": "시차 없음",
+      "moderate": "보통",
+      "significant": "상당",
+      "extreme": "극심"
+    }
+  },
+  "teamCard": {
+    "groupRank": "{group}조 · #{rank}",
+    "playoff": "플레이오프",
+    "chemistry": "케미스트리"
   }
 }

@@ -59,6 +59,8 @@ export const CLIENT_NAMESPACES = [
   'pricingTiers',
   'schedulePage',
   'share',
+  'squadDepth',
+  'squadRoster',
   'stickerTracker',
   'storePage',
   'teamsPage',

@@ -11,6 +11,7 @@ import {
   breadcrumbJsonLd,
   jsonLdGraph,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { PASS_PRICES } from '@/lib/entitlements'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -18,16 +19,16 @@ type Props = { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'pricingPage' })
-  const url = canonical(`/${locale}/pricing`)
+  const alternates = buildAlternates(locale, '/pricing')
 
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url,
+      url: alternates.canonical,
       locale,
     }),
   }

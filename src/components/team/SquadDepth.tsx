@@ -1,17 +1,20 @@
 'use client'
 
 import type { Player } from '@/lib/types'
+import { useTranslations } from 'next-intl'
 import GlassCard from '@/components/ui/GlassCard'
 
 interface SquadDepthProps {
   players: Player[]
 }
 
-const POSITION_CONFIG: Record<string, { label: string; colorClass: string; order: number }> = {
-  GK:  { label: 'Goalkeepers', colorClass: 'text-tertiary', order: 0 },
-  DEF: { label: 'Defenders',   colorClass: 'text-secondary', order: 1 },
-  MID: { label: 'Midfielders', colorClass: 'text-primary', order: 2 },
-  FWD: { label: 'Forwards',    colorClass: 'text-[#a0c4ff]', order: 3 },
+type PositionLabelKey = 'goalkeepers' | 'defenders' | 'midfielders' | 'forwards'
+
+const POSITION_CONFIG: Record<string, { labelKey: PositionLabelKey; colorClass: string; order: number }> = {
+  GK:  { labelKey: 'goalkeepers', colorClass: 'text-tertiary', order: 0 },
+  DEF: { labelKey: 'defenders',   colorClass: 'text-secondary', order: 1 },
+  MID: { labelKey: 'midfielders', colorClass: 'text-primary', order: 2 },
+  FWD: { labelKey: 'forwards',    colorClass: 'text-[#a0c4ff]', order: 3 },
 }
 
 const AGE_BUCKETS = [
@@ -22,6 +25,8 @@ const AGE_BUCKETS = [
 ]
 
 export default function SquadDepth({ players }: SquadDepthProps) {
+  const t = useTranslations('squadDepth')
+  const tRoster = useTranslations('squadRoster')
   if (players.length === 0) return null
 
   const positionGroups = Object.entries(POSITION_CONFIG)
@@ -55,31 +60,31 @@ export default function SquadDepth({ players }: SquadDepthProps) {
     <section className="max-w-[1440px] mx-auto px-6 mb-12">
       <h2 className="font-headline text-xl font-bold uppercase tracking-tight mb-6 flex items-center gap-2">
         <span className="w-2 h-2 rounded-full bg-primary" aria-hidden="true" />
-        Squad Depth
+        {t('title')}
       </h2>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {positionGroups.map((group) => (
           <GlassCard key={group.pos} className="p-5">
             <span className={`font-label text-xs font-bold uppercase tracking-widest ${group.colorClass}`}>
-              {group.label}
+              {tRoster(group.labelKey)}
             </span>
             <div className="font-headline text-3xl font-black text-on-surface mt-2">
               {group.players.length}
-              <span className="font-label text-xs text-on-surface-variant font-normal ml-1">players</span>
+              <span className="font-label text-xs text-on-surface-variant font-normal ml-1">{t('players')}</span>
             </div>
             <div className="mt-2 space-y-0.5">
               <p className="font-label text-xs text-on-surface-variant">
-                Avg Age: {group.avgAge}
+                {t('avgAge', { age: group.avgAge })}
               </p>
               <p className="font-label text-xs text-on-surface-variant">
-                Avg Rating: ★ {group.avgRating}
+                {t('avgRating', { rating: group.avgRating })}
               </p>
             </div>
             {group.players.length > 0 && (
               <div
                 className="mt-3 h-1.5 bg-primary/20 rounded-full overflow-hidden relative"
-                aria-label={`Age range: ${group.minAge} to ${group.maxAge}`}
+                aria-label={t('ageRangeAria', { min: group.minAge, max: group.maxAge })}
               >
                 <div
                   className="absolute h-full bg-primary rounded-full"
@@ -96,7 +101,7 @@ export default function SquadDepth({ players }: SquadDepthProps) {
 
       <GlassCard className="mt-6 p-5">
         <h3 className="font-label text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">
-          Age Distribution
+          {t('ageDistribution')}
         </h3>
         <div className="space-y-3">
           {ageBuckets.map((bucket) => (

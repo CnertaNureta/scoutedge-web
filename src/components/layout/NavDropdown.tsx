@@ -94,7 +94,7 @@ export default function NavDropdown({
       {open && (
         <div
           id={menuId}
-          className="absolute top-full left-1/2 -translate-x-1/2 pt-2"
+          className="absolute top-full left-1/2 z-50 -translate-x-1/2 pt-2"
           role="menu"
         >
           <div className="glass-panel rounded-xl border border-white/[0.08] shadow-2xl py-2 min-w-[200px]">

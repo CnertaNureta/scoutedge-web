@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle در برنامه‌های بازاریابی وابسته مشارکت دارد. ما ممکن است از خرید بلیط، رزرو سفر، اشتراک سرویس‌های پخش زنده یا خرید کالا از طریق لینک‌های این سایت کمیسیون دریافت کنیم — بدون هیچ هزینه اضافی برای شما. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "۲۰۲۶ KickOracle. تحلیل فوتبال با هوش مصنوعی. تمامی حقوق محفوظ است.",
     "skipToContent": "رفتن به محتوای اصلی",
-    "newsletterCta": "پیش‌بینی‌های رایگان جام جهانی را دریافت کنید →"
+    "newsletterCta": "پیش‌بینی‌های رایگان جام جهانی را دریافت کنید →",
+    "languagesHeading": "زبان‌ها",
+    "sitemap": "نقشه سایت"
   },
   "common": {
     "loading": "در حال بارگذاری...",
@@ -158,7 +160,15 @@
     "description": "تحلیل مبتنی بر هوش مصنوعی هر تیم ملی شرکت‌کننده در بزرگ‌ترین جام جهانی FIFA در تاریخ. هماهنگی ترکیب، پروفایل‌های تاکتیکی و پیش‌بینی احتمال برد.",
     "group": "گروه {group}",
     "frequentlyAsked": "پرسش‌های متداول",
-    "moreFromGroup": "بیشتر از گروه {group}"
+    "moreFromGroup": "بیشتر از گروه {group}",
+    "breadcrumbHome": "خانه",
+    "breadcrumbTeams": "تیم‌ها",
+    "compareRivalsHeading": "مقایسه {team} با رقبای گروه {group}",
+    "versus": "{teamA} مقابل {teamB}",
+    "hostCitiesHeading": "محل بازی {team} — شهرهای میزبان جام جهانی ۲۰۲۶",
+    "countryGuide": "راهنمای {country}",
+    "pronunciationHeading": "نحوه تلفظ نام‌های بازیکنان {team}",
+    "pronounceLabel": "تلفظ {name}"
   },
   "matchesPage": {
     "featuredPreview": "پیش‌نمایش بازی ویژه",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "ویژگی پریمیوم — برای باز کردن ارتقا دهید",
     "featuredDuels": "دوئل‌های ویژه"
+  },
+  "teamHero": {
+    "playoffNotice": "منوط به نتایج پلی‌آف یوفا (۲۶–۳۱ مارس ۲۰۲۶)",
+    "subtitle": "تحلیل جام جهانی ۲۰۲۶",
+    "fifaRankBadge": "رتبه #{rank} فیفا",
+    "groupBadge": "گروه {group}",
+    "chemistryIndex": "شاخص هماهنگی",
+    "ctaTagline": "پیش‌بینی‌های روزانه و رایگان هوش مصنوعی برای هر ۴۸ تیم.",
+    "ctaButton": "ایجاد حساب رایگان"
+  },
+  "teamStats": {
+    "chemistry": "هماهنگی",
+    "familiarity": "آشنایی",
+    "stability": "ثبات",
+    "morale": "روحیه",
+    "fifaRanking": "رتبه‌بندی فیفا",
+    "tacticalStability": "ثبات تاکتیکی",
+    "chemistryIndex": "شاخص هماهنگی",
+    "familiarityDesc": "مدت زمانی که ترکیب با هم بازی کرده است. بالاتر = درک غریزی بیشتر در زمین.",
+    "stabilityDesc": "میزان تثبیت کادر فنی و چینش تیم. تغییرات مکرر این امتیاز را کاهش می‌دهد.",
+    "moraleDesc": "اعتماد به نفس فعلی تیم. بر اساس نتایج اخیر، حمایت هواداران و فضای رسانه‌ای.",
+    "historicalArchetypeMatch": "تطابق با الگوی تاریخی",
+    "archetypeDesc": "تیم جام جهانی پیشین که سبک بازی و مسیر آن بیشترین شباهت را با این ترکیب دارد."
+  },
+  "squadRoster": {
+    "squad": "ترکیب",
+    "keyPlayer": "بازیکن کلیدی",
+    "caps": "بازی ملی",
+    "goals": "گل",
+    "assists": "پاس گل",
+    "rating": "امتیاز",
+    "capsShort": "{caps} بازی ملی",
+    "capsAndGoals": "{caps} بازی ملی · {goals} گل",
+    "goalsAndAssists": "{goals} گل · {assists} پاس گل",
+    "goalkeepers": "دروازه‌بان‌ها",
+    "defenders": "مدافعان",
+    "midfielders": "هافبک‌ها",
+    "forwards": "مهاجمان"
+  },
+  "squadDepth": {
+    "title": "عمق ترکیب",
+    "players": "بازیکن",
+    "avgAge": "میانگین سن: {age}",
+    "avgRating": "میانگین امتیاز: ★ {rating}",
+    "ageDistribution": "توزیع سنی",
+    "ageRangeAria": "بازه سنی: {min} تا {max}"
+  },
+  "tacticalDNA": {
+    "title": "DNA تاکتیکی",
+    "radarDescription": "نمودار راداری شش بُعد کلیدی قدرت تیم را نشان می‌دهد. سطح بزرگ‌تر = ترکیب کلی قوی‌تر.",
+    "atkDesc": "کیفیت حمله: میزان خطرناک بودن مهاجمان",
+    "midDesc": "کنترل میانی زمین: توانایی تسلط بر مالکیت توپ",
+    "defDesc": "استحکام دفاعی: دشواری گل خوردن از این تیم",
+    "chmDesc": "هماهنگی: کیفیت بازی تیم به‌عنوان یک واحد",
+    "expDesc": "تجربه: میانگین بازی‌های ملی هر بازیکن",
+    "fitDesc": "آمادگی: درصد بازیکنانی که برای تورنمنت کاملاً آماده‌اند"
+  },
+  "historicalPerformance": {
+    "title": "تاریخچه جام جهانی",
+    "appearances": "حضورها",
+    "since": "از سال {year}",
+    "bestFinish": "بهترین نتیجه",
+    "titlesWon": "قهرمانی‌ها",
+    "worldChampion": "{count, plural, one {قهرمان جهان} other {قهرمان جهان}}",
+    "winRate": "درصد برد",
+    "recordSummary": "{won}برد {drawn}مساوی {lost}باخت",
+    "allTimeRecord": "کارنامه کل جام جهانی — {matches} بازی",
+    "recordBarAria": "{won} برد، {drawn} مساوی، {lost} باخت از {played} بازی",
+    "wonCount": "{count} برد",
+    "drawnCount": "{count} مساوی",
+    "lostCount": "{count} باخت",
+    "iconicMoments": "لحظات ماندگار"
+  },
+  "matchCenter": {
+    "title": "مرکز بازی‌ها",
+    "timezoneAdjustment": "تنظیم منطقه زمانی",
+    "homeTimezone": "منطقه زمانی خانگی {team}:",
+    "venuesHeading": "ورزشگاه‌های جام جهانی ۲۰۲۶ — {count} ورزشگاه",
+    "capacity": "ظرفیت",
+    "altitude": "ارتفاع",
+    "roof": "سقف",
+    "surface": "زمین",
+    "climate": "آب‌وهوا",
+    "juneTemp": "ژوئن: {high}°/{low}°C",
+    "julyTemp": "ژوئیه: {high}°/{low}°C",
+    "jetLag": {
+      "none": "بدون پرواززدگی",
+      "moderate": "متوسط",
+      "significant": "قابل توجه",
+      "extreme": "شدید"
+    }
+  },
+  "teamCard": {
+    "groupRank": "گروه {group} · #{rank}",
+    "playoff": "پلی‌آف",
+    "chemistry": "هماهنگی"
   }
 }

@@ -32,6 +32,7 @@ export function useRealtimeChannel<T = unknown>({
   enabled = true,
   onMessage,
 }: UseRealtimeChannelOptions<T>): UseRealtimeChannelReturn<T> {
+  const realtimeEnabled = process.env.NEXT_PUBLIC_E2E_MOCKS !== '1'
   const [status, setStatus] = useState<ConnectionStatus>('disconnected')
   const [lastMessage, setLastMessage] = useState<{ event: string; payload: T } | null>(null)
   const [lastUpdatedAt, setLastUpdatedAt] = useState<Date | null>(null)
@@ -51,7 +52,7 @@ export function useRealtimeChannel<T = unknown>({
   const eventsKey = events.join(',')
 
   useEffect(() => {
-    if (!enabled || !topic || events.length === 0) {
+    if (!realtimeEnabled || !enabled || !topic || events.length === 0) {
       setStatus('disconnected')
       return
     }
@@ -86,7 +87,7 @@ export function useRealtimeChannel<T = unknown>({
       channelRef.current = null
       setStatus('disconnected')
     }
-  }, [topic, enabled, eventsKey, events, handleBroadcast])
+  }, [topic, enabled, realtimeEnabled, eventsKey, events, handleBroadcast])
 
   return { status, lastMessage, lastUpdatedAt }
 }

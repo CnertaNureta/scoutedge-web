@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle participe à des programmes de marketing d'affiliation. Nous pouvons gagner une commission lorsque vous achetez des billets, réservez un voyage, vous abonnez à des services de streaming ou achetez des produits via les liens de ce site, sans coût supplémentaire pour vous. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Intelligence Coupe du Monde alimentée par l'IA. Tous droits réservés.",
     "skipToContent": "Passer au contenu principal",
-    "newsletterCta": "Recevoir des prédictions gratuites →"
+    "newsletterCta": "Recevoir des prédictions gratuites →",
+    "languagesHeading": "Langues",
+    "sitemap": "Plan du site"
   },
   "common": {
     "loading": "Chargement...",
@@ -158,7 +160,15 @@
     "description": "Analyse par IA de chaque nation participant à la plus grande Coupe du Monde FIFA de l'histoire. Explorez la cohésion d'équipe, les profils tactiques et les prédictions de probabilité de victoire.",
     "group": "Groupe {group}",
     "frequentlyAsked": "Foire aux questions",
-    "moreFromGroup": "Plus du Groupe {group}"
+    "moreFromGroup": "Plus du Groupe {group}",
+    "breadcrumbHome": "Accueil",
+    "breadcrumbTeams": "Équipes",
+    "compareRivalsHeading": "Comparer {team} aux rivaux du Groupe {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Où joue {team} — Villes hôtes de la Coupe du Monde 2026",
+    "countryGuide": "Guide {country}",
+    "pronunciationHeading": "Comment prononcer les noms des joueurs de {team}",
+    "pronounceLabel": "Prononcer {name}"
   },
   "matchesPage": {
     "featuredPreview": "Avant-Match en Vedette",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Fonction premium — passez à supérieur pour débloquer",
     "featuredDuels": "Duels en vedette"
+  },
+  "teamHero": {
+    "playoffNotice": "Sous réserve des résultats du barrage UEFA (26-31 mars 2026)",
+    "subtitle": "Analyse Coupe du Monde 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Groupe {group}",
+    "chemistryIndex": "Indice de cohésion",
+    "ctaTagline": "Prédictions IA quotidiennes gratuites pour les 48 équipes.",
+    "ctaButton": "Créer un compte gratuit"
+  },
+  "teamStats": {
+    "chemistry": "Cohésion",
+    "familiarity": "Familiarité",
+    "stability": "Stabilité",
+    "morale": "Moral",
+    "fifaRanking": "Classement FIFA",
+    "tacticalStability": "Stabilité tactique",
+    "chemistryIndex": "Indice de cohésion",
+    "familiarityDesc": "Depuis combien de temps l'effectif joue ensemble. Plus élevé = entente plus instinctive sur le terrain.",
+    "stabilityDesc": "À quel point le staff et la formation sont établis. Les changements fréquents font baisser ce score.",
+    "moraleDesc": "Confiance actuelle de l'effectif. Influencée par les résultats récents, le soutien des supporters et l'ambiance médiatique.",
+    "historicalArchetypeMatch": "Correspondance d'archétype historique",
+    "archetypeDesc": "Une équipe de Coupe du Monde du passé dont le style de jeu et la trajectoire ressemblent le plus à cet effectif."
+  },
+  "squadRoster": {
+    "squad": "Effectif",
+    "keyPlayer": "Joueur clé",
+    "caps": "Sélections",
+    "goals": "Buts",
+    "assists": "Passes décisives",
+    "rating": "Note",
+    "capsShort": "{caps} sélections",
+    "capsAndGoals": "{caps} sélections · {goals} buts",
+    "goalsAndAssists": "{goals} buts · {assists} passes décisives",
+    "goalkeepers": "Gardiens",
+    "defenders": "Défenseurs",
+    "midfielders": "Milieux",
+    "forwards": "Attaquants"
+  },
+  "squadDepth": {
+    "title": "Profondeur de l'effectif",
+    "players": "joueurs",
+    "avgAge": "Âge moyen : {age}",
+    "avgRating": "Note moyenne : ★ {rating}",
+    "ageDistribution": "Répartition par âge",
+    "ageRangeAria": "Tranche d'âge : de {min} à {max}"
+  },
+  "tacticalDNA": {
+    "title": "ADN tactique",
+    "radarDescription": "Le graphique radar montre six dimensions clés de la force de l'équipe. Plus l'aire est grande, plus l'effectif est solide globalement.",
+    "atkDesc": "Qualité offensive : à quel point les attaquants sont dangereux",
+    "midDesc": "Contrôle du milieu : capacité à dominer la possession",
+    "defDesc": "Solidité défensive : à quel point il est difficile de marquer contre eux",
+    "chmDesc": "Cohésion : à quel point l'équipe joue comme une unité",
+    "expDesc": "Expérience : moyenne de sélections internationales par joueur",
+    "fitDesc": "Forme physique : pourcentage de l'effectif pleinement apte pour le tournoi"
+  },
+  "historicalPerformance": {
+    "title": "Histoire en Coupe du Monde",
+    "appearances": "Participations",
+    "since": "Depuis {year}",
+    "bestFinish": "Meilleur résultat",
+    "titlesWon": "Titres remportés",
+    "worldChampion": "{count, plural, one {Champion du Monde} other {Champions du Monde}}",
+    "winRate": "% de victoires",
+    "recordSummary": "{won}V {drawn}N {lost}D",
+    "allTimeRecord": "Bilan global en Coupe du Monde — {matches} matches",
+    "recordBarAria": "Gagnés {won}, nuls {drawn}, perdus {lost} sur {played} matches",
+    "wonCount": "{count} gagnés",
+    "drawnCount": "{count} nuls",
+    "lostCount": "{count} perdus",
+    "iconicMoments": "Moments emblématiques"
+  },
+  "matchCenter": {
+    "title": "Centre des matches",
+    "timezoneAdjustment": "Ajustement du fuseau horaire",
+    "homeTimezone": "Fuseau horaire local de {team} :",
+    "venuesHeading": "Stades de la Coupe du Monde 2026 — {count} enceintes",
+    "capacity": "Capacité",
+    "altitude": "Altitude",
+    "roof": "Toit",
+    "surface": "Surface",
+    "climate": "Climat",
+    "juneTemp": "Juin : {high}°/{low}°C",
+    "julyTemp": "Juil. : {high}°/{low}°C",
+    "jetLag": {
+      "none": "Pas de décalage horaire",
+      "moderate": "Modéré",
+      "significant": "Important",
+      "extreme": "Extrême"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Groupe {group} · #{rank}",
+    "playoff": "Barrage",
+    "chemistry": "Cohésion"
   }
 }

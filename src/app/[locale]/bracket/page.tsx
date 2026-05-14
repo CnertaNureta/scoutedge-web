@@ -6,6 +6,7 @@ import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { KNOCKOUT_FIXTURES, KNOCKOUT_ROUNDS, getKnockoutTeamLabel } from '@/data/knockout-fixtures'
 import type { MatchFixture } from '@/lib/types'
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: t('description'),
     keywords:
       'World Cup 2026 bracket, World Cup 2026 knockout stage, World Cup bracket 2026, tournament bracket, World Cup 2026 draw, Round of 32',
-    alternates: { canonical: canonicalForLocale(locale, '/bracket') },
+    alternates: buildAlternates(locale, '/bracket'),
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),

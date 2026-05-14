@@ -140,7 +140,9 @@
     "affiliateDisclosure": "KickOracle berpartisipasi dalam program pemasaran afiliasi. Kami mungkin mendapat komisi ketika Anda membeli tiket, memesan perjalanan, berlangganan layanan streaming, atau membeli merchandise melalui tautan di situs ini, tanpa biaya tambahan untuk Anda. As an Amazon Associate I earn from qualifying purchases.",
     "copyright": "2026 KickOracle. Intelijen Piala Dunia Berbasis AI. Hak cipta dilindungi.",
     "skipToContent": "Langsung ke konten utama",
-    "newsletterCta": "Dapatkan prediksi Piala Dunia gratis →"
+    "newsletterCta": "Dapatkan prediksi Piala Dunia gratis →",
+    "languagesHeading": "Bahasa",
+    "sitemap": "Peta Situs"
   },
   "common": {
     "loading": "Memuat...",
@@ -158,7 +160,15 @@
     "description": "Analisis berbasis AI untuk setiap negara yang bertanding di Piala Dunia FIFA terbesar dalam sejarah. Jelajahi chemistry skuad, profil taktis, dan prediksi probabilitas kemenangan.",
     "group": "Grup {group}",
     "frequentlyAsked": "Pertanyaan yang sering diajukan",
-    "moreFromGroup": "Lainnya dari Grup {group}"
+    "moreFromGroup": "Lainnya dari Grup {group}",
+    "breadcrumbHome": "Beranda",
+    "breadcrumbTeams": "Tim",
+    "compareRivalsHeading": "Bandingkan {team} vs rival Grup {group}",
+    "versus": "{teamA} vs {teamB}",
+    "hostCitiesHeading": "Tempat {team} bermain — kota tuan rumah Piala Dunia 2026",
+    "countryGuide": "Panduan {country}",
+    "pronunciationHeading": "Cara mengucapkan nama pemain {team}",
+    "pronounceLabel": "Ucapkan {name}"
   },
   "matchesPage": {
     "featuredPreview": "Pratinjau Pertandingan Unggulan",
@@ -1584,5 +1594,101 @@
     "bestOfFive": "Best of 5",
     "bestOfFiveTooltip": "Fitur premium — upgrade untuk membuka",
     "featuredDuels": "Duel unggulan"
+  },
+  "teamHero": {
+    "playoffNotice": "Tergantung Hasil Play-off UEFA (26-31 Maret 2026)",
+    "subtitle": "Analisis Piala Dunia 2026",
+    "fifaRankBadge": "#{rank} FIFA",
+    "groupBadge": "Grup {group}",
+    "chemistryIndex": "Indeks Chemistry",
+    "ctaTagline": "Prediksi AI gratis setiap hari untuk semua 48 tim.",
+    "ctaButton": "Buat Akun Gratis"
+  },
+  "teamStats": {
+    "chemistry": "Chemistry",
+    "familiarity": "Keakraban",
+    "stability": "Stabilitas",
+    "morale": "Moral",
+    "fifaRanking": "Peringkat FIFA",
+    "tacticalStability": "Stabilitas Taktis",
+    "chemistryIndex": "Indeks Chemistry",
+    "familiarityDesc": "Berapa lama skuad telah bermain bersama. Lebih tinggi = pemahaman naluriah yang lebih baik di lapangan.",
+    "stabilityDesc": "Seberapa mapan jajaran kepelatihan dan formasinya. Perubahan yang sering menurunkan skor ini.",
+    "moraleDesc": "Kepercayaan diri skuad saat ini. Didorong oleh hasil terkini, dukungan suporter, dan sentimen media.",
+    "historicalArchetypeMatch": "Kecocokan Arketipe Historis",
+    "archetypeDesc": "Tim Piala Dunia masa lalu yang gaya permainan dan lintasannya paling menyerupai skuad ini."
+  },
+  "squadRoster": {
+    "squad": "Skuad",
+    "keyPlayer": "Pemain Kunci",
+    "caps": "Caps",
+    "goals": "Gol",
+    "assists": "Assist",
+    "rating": "Rating",
+    "capsShort": "{caps} caps",
+    "capsAndGoals": "{caps} caps · {goals} gol",
+    "goalsAndAssists": "{goals} gol · {assists} assist",
+    "goalkeepers": "Penjaga Gawang",
+    "defenders": "Bek",
+    "midfielders": "Gelandang",
+    "forwards": "Penyerang"
+  },
+  "squadDepth": {
+    "title": "Kedalaman Skuad",
+    "players": "pemain",
+    "avgAge": "Usia Rata-rata: {age}",
+    "avgRating": "Rating Rata-rata: ★ {rating}",
+    "ageDistribution": "Distribusi Usia",
+    "ageRangeAria": "Rentang usia: {min} hingga {max}"
+  },
+  "tacticalDNA": {
+    "title": "DNA Taktis",
+    "radarDescription": "Diagram radar menunjukkan enam dimensi utama kekuatan tim. Area lebih besar = skuad keseluruhan lebih kuat.",
+    "atkDesc": "Kualitas serangan: seberapa berbahaya para penyerang",
+    "midDesc": "Kontrol lini tengah: kemampuan menguasai penguasaan bola",
+    "defDesc": "Soliditas pertahanan: seberapa sulit dibobol",
+    "chmDesc": "Chemistry: seberapa baik tim bermain sebagai satu kesatuan",
+    "expDesc": "Pengalaman: rata-rata caps internasional per pemain",
+    "fitDesc": "Kebugaran: persentase skuad yang bugar penuh untuk turnamen"
+  },
+  "historicalPerformance": {
+    "title": "Sejarah Piala Dunia",
+    "appearances": "Penampilan",
+    "since": "Sejak {year}",
+    "bestFinish": "Hasil Terbaik",
+    "titlesWon": "Gelar Diraih",
+    "worldChampion": "{count, plural, one {Juara Dunia} other {Juara Dunia}}",
+    "winRate": "Persentase Menang",
+    "recordSummary": "{won}M {drawn}S {lost}K",
+    "allTimeRecord": "Rekor Sepanjang Masa di Piala Dunia — {matches} Pertandingan",
+    "recordBarAria": "Menang {won}, Seri {drawn}, Kalah {lost} dari {played} pertandingan",
+    "wonCount": "{count} Menang",
+    "drawnCount": "{count} Seri",
+    "lostCount": "{count} Kalah",
+    "iconicMoments": "Momen Ikonik"
+  },
+  "matchCenter": {
+    "title": "Pusat Pertandingan",
+    "timezoneAdjustment": "Penyesuaian Zona Waktu",
+    "homeTimezone": "Zona waktu kandang {team}:",
+    "venuesHeading": "Stadion Piala Dunia 2026 — {count} Stadion",
+    "capacity": "Kapasitas",
+    "altitude": "Ketinggian",
+    "roof": "Atap",
+    "surface": "Permukaan",
+    "climate": "Iklim",
+    "juneTemp": "Jun: {high}°/{low}°C",
+    "julyTemp": "Jul: {high}°/{low}°C",
+    "jetLag": {
+      "none": "Tanpa Jet Lag",
+      "moderate": "Sedang",
+      "significant": "Signifikan",
+      "extreme": "Ekstrem"
+    }
+  },
+  "teamCard": {
+    "groupRank": "Grup {group} · #{rank}",
+    "playoff": "Play-off",
+    "chemistry": "Chemistry"
   }
 }

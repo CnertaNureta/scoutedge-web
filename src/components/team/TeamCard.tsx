@@ -1,4 +1,5 @@
 import type { Team } from '@/lib/types'
+import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import Badge from '@/components/ui/Badge'
@@ -8,6 +9,7 @@ interface TeamCardProps {
 }
 
 export default function TeamCard({ team }: TeamCardProps) {
+  const t = useTranslations('teamCard')
   return (
     <Link
       data-testid="team-card"
@@ -29,18 +31,20 @@ export default function TeamCard({ team }: TeamCardProps) {
                 {team.name}
               </h3>
               <p className="font-label text-xs text-on-surface-variant uppercase tracking-widest font-medium">
-                Group <span data-testid="team-group-code">{team.group}</span> &middot; #<span data-testid="team-fifa-ranking">{team.fifaRanking}</span>
+                {t('groupRank', { group: team.group, rank: team.fifaRanking })}
+                <span className="sr-only" data-testid="team-group-code">{team.group}</span>
+                <span className="sr-only" data-testid="team-fifa-ranking">{team.fifaRanking}</span>
               </p>
             </div>
           </div>
-          {team.isPlayoff && <Badge variant="tertiary" size="sm">Playoff</Badge>}
+          {team.isPlayoff && <Badge variant="tertiary" size="sm">{t('playoff')}</Badge>}
         </div>
         <div className="flex items-center gap-4 mb-3">
           <span className="font-body text-xs text-on-surface-variant">{team.confederation}</span>
           <span className="text-on-surface-variant/30">&middot;</span>
           <span className="font-body text-xs text-on-surface-variant">{team.coachName}</span>
         </div>
-        <ChemistryBar value={team.chemistry} label="Chemistry" size="sm" />
+        <ChemistryBar value={team.chemistry} label={t('chemistry')} size="sm" />
       </div>
     </Link>
   )

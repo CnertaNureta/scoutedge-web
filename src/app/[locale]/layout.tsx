@@ -11,7 +11,12 @@ import ClientRuntimeWidgets from '@/components/layout/ClientRuntimeWidgets'
 import CountdownStrip from '@/components/marketing/CountdownStrip'
 import RenderProfiler from '@/components/debug/RenderProfiler'
 import AdSlot from '@/components/monetization/AdSlot'
-import { jsonLdGraph, websiteJsonLd, organizationJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
+import {
+  buildGraph,
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+} from '@/lib/seo/structured-data'
 import { Providers } from '../providers'
 import { GoogleTagManagerScript, GoogleTagManagerNoScript } from '@/components/analytics/GoogleTagManager'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
@@ -30,12 +35,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LocaleLayoutProps): Promise<Metadata> {
   const { locale } = await params
   const config = LOCALE_CONFIGS[locale as Locale]
-
-  const languages: Record<string, string> = { 'x-default': 'https://kickoracle.com/en' }
-  for (const loc of routing.locales) {
-    const cfg = LOCALE_CONFIGS[loc]
-    languages[cfg.hreflang] = `https://kickoracle.com/${loc}`
-  }
+  const alternates = buildAlternates(locale, '/')
 
   return {
     title: {
@@ -54,7 +54,8 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
     openGraph: {
       type: 'website',
       siteName: 'KickOracle',
-      locale: config?.hreflang ?? 'en',
+      url: alternates.canonical,
+      locale: (config?.hreflang ?? 'en').replace('-', '_'),
     },
     twitter: {
       card: 'summary_large_image',
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }: LocaleLayoutProps): Promise<M
       creator: '@KickOracle',
     },
     metadataBase: new URL('https://kickoracle.com'),
-    alternates: { languages },
+    alternates,
     robots: {
       index: true,
       follow: true,
@@ -105,7 +106,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const clientMessages = pickClientMessages(messages as Record<string, unknown>)
   const config = LOCALE_CONFIGS[locale as Locale]
 
-  const siteJsonLd = jsonLdGraph([websiteJsonLd(), organizationJsonLd()])
+  const siteJsonLd = buildGraph([
+    buildOrganizationSchema(),
+    buildWebSiteSchema(locale),
+  ])
 
   return (
     <>

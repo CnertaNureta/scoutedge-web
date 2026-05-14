@@ -1,5 +1,16 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const testServerEnv = {
+  NEXT_PUBLIC_SUPABASE_URL:
+    process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'https://test.supabase.co',
+  NEXT_PUBLIC_SUPABASE_ANON_KEY:
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? 'test-anon-key',
+  SUPABASE_SERVICE_ROLE_KEY:
+    process.env.SUPABASE_SERVICE_ROLE_KEY ?? 'test-service-role-key',
+  NEXT_PUBLIC_E2E_MOCKS:
+    process.env.NEXT_PUBLIC_E2E_MOCKS ?? '1',
+};
+
 /**
  * ScoutEdge Playwright config
  *
@@ -55,5 +66,6 @@ export default defineConfig({
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    env: testServerEnv,
   },
 });
