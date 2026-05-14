@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import type { BlogPost } from '@/lib/blog-service'
+import type { WorldCupSeoPage } from '@/data/world-cup-seo-pages'
 import {
+  getRecentEditorialPages,
+  hasRecentNewsItems,
   getRecentNewsPosts,
   hasRecentNewsPosts,
   newsSitemapToXml,
@@ -29,8 +32,30 @@ function post(overrides: Partial<BlogPost>): BlogPost {
   }
 }
 
+function editorialPage(overrides: Partial<WorldCupSeoPage>): WorldCupSeoPage {
+  return {
+    slug: 'tickets',
+    title: 'World Cup 2026 Tickets: Sale Dates, Prices and Buying Guide',
+    metaTitle: 'World Cup 2026 Tickets',
+    description: 'Track World Cup 2026 ticket sale phases and official FIFA channels.',
+    badge: 'Ticket Guide',
+    primaryKeyword: 'world cup 2026 tickets',
+    updated: '2026-05-14',
+    searchSignals: [],
+    metrics: [],
+    sections: [],
+    faqs: [],
+    relatedLinks: [],
+    sitemap: { changeFrequency: 'daily', priority: 1 },
+    contentType: 'editorial',
+    publishedAt: '2026-05-14T08:00:00.000Z',
+    ...overrides,
+  }
+}
+
 describe('news sitemap helpers', () => {
   const now = new Date('2026-04-30T12:00:00.000Z')
+  const editorialNow = new Date('2026-05-14T12:00:00.000Z')
 
   describe('getRecentNewsPosts', () => {
     it('keeps only recent long-form news posts eligible for Google News', () => {
@@ -90,6 +115,28 @@ describe('news sitemap helpers', () => {
     })
   })
 
+  describe('getRecentEditorialPages', () => {
+    it('keeps recent editorial NewsArticle pages outside the blog directory', () => {
+      const recent = editorialPage({ slug: 'tickets', publishedAt: '2026-05-14T08:00:00.000Z' })
+      const old = editorialPage({ slug: 'old', publishedAt: '2026-05-10T08:00:00.000Z' })
+      const reference = editorialPage({
+        slug: 'reference',
+        contentType: 'reference',
+        publishedAt: '2026-05-14T08:00:00.000Z',
+      })
+      const future = editorialPage({ slug: 'future', publishedAt: '2026-05-15T08:00:00.000Z' })
+
+      expect(getRecentEditorialPages([recent, old, reference, future], editorialNow)).toEqual([recent])
+    })
+  })
+
+  describe('hasRecentNewsItems', () => {
+    it('returns true when a recent editorial page exists even without blog posts', () => {
+      const recent = editorialPage({ publishedAt: '2026-05-14T08:00:00.000Z' })
+      expect(hasRecentNewsItems([], [recent], editorialNow)).toBe(true)
+    })
+  })
+
   describe('newsSitemapToXml', () => {
     it('serializes required Google News tags and escapes text', () => {
       const xml = newsSitemapToXml(
@@ -110,6 +157,24 @@ describe('news sitemap helpers', () => {
       expect(xml).toContain('<news:publication_date>2026-04-30T08:00:00.000Z</news:publication_date>')
       expect(xml).toContain('<news:title>Brazil &amp; Morocco &lt;Preview&gt;</news:title>')
       expect(xml).toContain('<news:keywords>Brazil, Morocco, World Cup, AI, Preview</news:keywords>')
+    })
+
+    it('includes recent editorial pages at their world-cup-2026 URLs', () => {
+      const xml = newsSitemapToXml([], {
+        locales: ['en'],
+        editorialPages: [
+          editorialPage({
+            slug: 'tickets',
+            title: 'World Cup 2026 Tickets & Official Sale Dates',
+            publishedAt: '2026-05-14T08:00:00.000Z',
+          }),
+        ],
+      })
+
+      expect(xml).toContain('<loc>https://kickoracle.com/en/world-cup-2026/tickets</loc>')
+      expect(xml).toContain('<news:publication_date>2026-05-14T08:00:00.000Z</news:publication_date>')
+      expect(xml).toContain('<news:title>World Cup 2026 Tickets &amp; Official Sale Dates</news:title>')
+      expect(xml).toContain('<news:keywords>world cup 2026 tickets, Ticket Guide, World Cup 2026</news:keywords>')
     })
 
     it('emits one <url> per locale × post using locale-prefixed URLs', () => {

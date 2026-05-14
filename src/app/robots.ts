@@ -1,12 +1,12 @@
 import type { MetadataRoute } from 'next'
-import { NEWS_SITEMAP_URL, hasRecentNewsPosts } from '@/lib/news-sitemap'
+import { NEWS_SITEMAP_URL, hasRecentNewsItems } from '@/lib/news-sitemap'
 
 export const dynamic = 'force-static'
 
 export default function robots(): MetadataRoute.Robots {
   const sitemap = [
     'https://kickoracle.com/sitemap.xml',
-    ...(hasRecentNewsPosts() ? [NEWS_SITEMAP_URL] : []),
+    ...(hasRecentNewsItems() ? [NEWS_SITEMAP_URL] : []),
   ]
 
   return {

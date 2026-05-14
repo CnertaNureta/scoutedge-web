@@ -1,4 +1,5 @@
 import { getAllPosts, type BlogPost } from '@/lib/blog-service'
+import { WORLD_CUP_SEO_PAGES, type WorldCupSeoPage } from '@/data/world-cup-seo-pages'
 import { SUPPORTED_LOCALES, LOCALE_CONFIGS } from '@/i18n/locales'
 
 const BASE_URL = 'https://kickoracle.com'
@@ -25,6 +26,8 @@ export interface NewsSitemapOptions {
   locales?: readonly string[]
   /** Limit to first N URLs (post × locale fanout). Defaults to MAX_NEWS_URLS. */
   maxUrls?: number
+  /** Recent editorial pages outside the blog directory. */
+  editorialPages?: readonly WorldCupSeoPage[]
 }
 
 function getPublishDate(post: Pick<BlogPost, 'publishedAt' | 'date'>): Date | null {
@@ -58,6 +61,28 @@ export function hasRecentNewsPosts(posts: BlogPost[] = getAllPosts(), now: Date 
   return getRecentNewsPosts(posts, now).length > 0
 }
 
+export function getRecentEditorialPages(
+  pages: readonly WorldCupSeoPage[] = WORLD_CUP_SEO_PAGES,
+  now: Date = new Date(),
+): WorldCupSeoPage[] {
+  const cutoff = new Date(now.getTime() - NEWS_WINDOW_HOURS * 60 * 60 * 1000)
+
+  return pages.filter((page) => {
+    if (page.contentType !== 'editorial') return false
+    if (!page.publishedAt) return false
+    const published = new Date(page.publishedAt)
+    return !Number.isNaN(published.getTime()) && published >= cutoff && published <= now
+  })
+}
+
+export function hasRecentNewsItems(
+  posts: BlogPost[] = getAllPosts(),
+  pages: readonly WorldCupSeoPage[] = WORLD_CUP_SEO_PAGES,
+  now: Date = new Date(),
+): boolean {
+  return getRecentNewsPosts(posts, now).length > 0 || getRecentEditorialPages(pages, now).length > 0
+}
+
 interface NewsUrlEntry {
   loc: string
   language: string
@@ -66,29 +91,54 @@ interface NewsUrlEntry {
   keywords: string
 }
 
-function buildEntries(
-  posts: BlogPost[],
-  locales: readonly string[],
-  maxUrls: number,
-): NewsUrlEntry[] {
+interface NewsSitemapSource {
+  path: string
+  publicationDate: string
+  title: string
+  keywords: string[]
+}
+
+function postToSource(post: BlogPost): NewsSitemapSource | null {
+  const published = getPublishDate(post)
+  if (!published) return null
+
+  return {
+    path: `/blog/${post.slug}`,
+    publicationDate: published.toISOString(),
+    title: post.title,
+    keywords: post.keywords,
+  }
+}
+
+function editorialPageToSource(page: WorldCupSeoPage): NewsSitemapSource | null {
+  if (!page.publishedAt) return null
+  const published = new Date(page.publishedAt)
+  if (Number.isNaN(published.getTime())) return null
+
+  return {
+    path: `/world-cup-2026/${page.slug}`,
+    publicationDate: published.toISOString(),
+    title: page.title,
+    keywords: [page.primaryKeyword, page.badge, 'World Cup 2026'],
+  }
+}
+
+function buildEntries(sources: NewsSitemapSource[], locales: readonly string[], maxUrls: number): NewsUrlEntry[] {
   const entries: NewsUrlEntry[] = []
 
-  for (const post of posts) {
+  for (const source of sources) {
     if (entries.length >= maxUrls) break
-    const published = getPublishDate(post)
-    if (!published) continue
-    const publicationDate = published.toISOString()
-    const keywords = post.keywords.slice(0, 5).join(', ')
+    const keywords = source.keywords.filter(Boolean).slice(0, 5).join(', ')
 
     for (const locale of locales) {
       if (entries.length >= maxUrls) break
       const config = LOCALE_CONFIGS[locale as keyof typeof LOCALE_CONFIGS]
       const language = config?.hreflang ?? locale
       entries.push({
-        loc: `${BASE_URL}/${locale}/blog/${post.slug}`,
+        loc: `${BASE_URL}/${locale}${source.path}`,
         language,
-        publicationDate,
-        title: post.title,
+        publicationDate: source.publicationDate,
+        title: source.title,
         keywords,
       })
     }
@@ -103,12 +153,23 @@ export function newsSitemapToXml(
 ): string {
   const locales = options.locales ?? SUPPORTED_LOCALES
   const maxUrls = options.maxUrls ?? MAX_NEWS_URLS
-  const entries = buildEntries(posts, locales, maxUrls)
+  const sources = [
+    ...posts.flatMap((post) => {
+      const source = postToSource(post)
+      return source ? [source] : []
+    }),
+    ...(options.editorialPages ?? []).flatMap((page) => {
+      const source = editorialPageToSource(page)
+      return source ? [source] : []
+    }),
+  ].sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime())
+
+  const entries = buildEntries(sources, locales, maxUrls)
 
   const urlBlocks = entries
     .map(
       (entry) => `  <url>
-    <loc>${entry.loc}</loc>
+    <loc>${escapeXml(entry.loc)}</loc>
     <news:news>
       <news:publication>
         <news:name>KickOracle</news:name>
