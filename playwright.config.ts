@@ -14,7 +14,9 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests/e2e',
-  timeout: 30_000,
+  // 60s test budget — dynamic routes like /teams/[slug] take ~35s on first cold
+  // compile in dev mode. Default 30s caused flakes on the first hit only.
+  timeout: 60_000,
   expect: { timeout: 5_000 },
 
   // 顺序跑，避免 dev server race condition
