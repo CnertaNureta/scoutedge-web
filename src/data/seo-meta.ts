@@ -405,3 +405,338 @@ export const TEAM_SEO_META: Record<string, PageSEOMeta> = {
     ogTitle: "Panama World Cup 2026: CONCACAF's Passionate Warriors Return to the Stage",
   },
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PROGRAMMATIC DESCRIPTION GENERATORS
+// ─────────────────────────────────────────────────────────────────────────────
+//
+// Surfaces with hundreds-to-thousands of pages need unique meta descriptions
+// per page to avoid Google's "duplicate description" CTR penalty. These
+// helpers take small typed inputs (data we already have in this repo) and
+// emit descriptions that:
+//   1. stay under MAX_META_DESCRIPTION_LENGTH characters (155),
+//   2. vary phrasing across rows so the descriptions are not identical
+//      templates,
+//   3. include the high-value entities (player name, team, position, city,
+//      country, etc.) that Google uses for snippet relevance.
+//
+// We deliberately avoid machine-translating to all 19 locales. For non-English
+// locales, downstream callers can wire next-intl message keys or, until those
+// translations land, fall back to the English description (better than the
+// homepage default).
+
+/** Hard cap for meta descriptions — Google truncates around 155–160 chars. */
+export const MAX_META_DESCRIPTION_LENGTH = 155
+
+/** Truncate to <= max chars at a word boundary, appending "…" when cut. */
+export function truncateForMeta(input: string, max = MAX_META_DESCRIPTION_LENGTH): string {
+  if (input.length <= max) return input
+  // Reserve room for the ellipsis.
+  const room = max - 1
+  const sliced = input.slice(0, room)
+  const lastSpace = sliced.lastIndexOf(' ')
+  const cut = lastSpace > room * 0.6 ? sliced.slice(0, lastSpace) : sliced
+  return `${cut.replace(/[\s\.,;:!?-]+$/, '')}…`
+}
+
+/**
+ * Deterministically pick one entry from a list given a string key. We use a
+ * tiny FNV-1a-ish hash so descriptions stay stable across builds for the
+ * same player/team/etc. (deterministic SSR, no flicker).
+ */
+function pickVariant<T>(key: string, variants: readonly T[]): T {
+  if (variants.length === 0) {
+    throw new Error('pickVariant requires at least one variant')
+  }
+  let hash = 2166136261
+  for (let i = 0; i < key.length; i += 1) {
+    hash ^= key.charCodeAt(i)
+    hash = (hash * 16777619) >>> 0
+  }
+  return variants[hash % variants.length]
+}
+
+// ─── PLAYER (canonical: /teams/{slug}/players/{playerSlug}) ────────────────
+
+export interface PlayerDescriptionInput {
+  name: string
+  position: string // 'GK' | 'DEF' | 'MID' | 'FWD'
+  team: string
+  club?: string
+  age?: number
+  caps?: number
+  goals?: number
+  rating?: number
+  /** Stable key for variant selection — usually the player's slug. */
+  slug: string
+}
+
+const POSITION_PHRASE: Record<string, string> = {
+  GK: 'goalkeeper',
+  DEF: 'defender',
+  MID: 'midfielder',
+  FWD: 'forward',
+}
+
+const PLAYER_VARIANTS: ReadonlyArray<(p: PlayerDescriptionInput) => string> = [
+  (p) => {
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    const ageBlurb = p.age ? `${p.age}-year-old ` : ''
+    const extras = p.rating ? `, KickOracle rating ${p.rating}/10` : ''
+    return `${p.name}: ${ageBlurb}${role} for ${p.team}${p.club ? ` (${p.club})` : ''}${extras}. World Cup 2026 scouting report and form analysis.`
+  },
+  (p) => {
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    const stats = p.caps && p.goals !== undefined ? `${p.caps} caps, ${p.goals} goals` : 'full stats'
+    return `${p.team} ${role} ${p.name} at World Cup 2026 — ${stats}, fitness signals, and AI tactical breakdown from KickOracle.`
+  },
+  (p) => {
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    const clubLine = p.club ? `Plays his club football at ${p.club}.` : 'Squad role and key matchups inside.'
+    return `Scouting ${p.name}, ${p.team}'s ${role} for World Cup 2026. ${clubLine} Read the full KickOracle profile.`
+  },
+  (p) => {
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    return `${p.name} (${p.team}, ${role}) World Cup 2026 profile: form, fitness, expected role, and predicted impact — AI scouting by KickOracle.`
+  },
+  (p) => {
+    const ageBlurb = p.age ? `Age ${p.age}.` : ''
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    return `Inside ${p.name}'s World Cup 2026 case for ${p.team}. ${ageBlurb} ${role.charAt(0).toUpperCase()}${role.slice(1)} stats, club form, and selection risk.`
+  },
+  (p) => {
+    const role = POSITION_PHRASE[p.position] ?? p.position
+    const club = p.club ? `${p.club} ` : ''
+    return `${club}${role} ${p.name} for ${p.team} — World Cup 2026 ratings, key numbers, and tactical fit, scouted by KickOracle.`
+  },
+]
+
+export function playerDescriptionEn(player: PlayerDescriptionInput): string {
+  const variant = pickVariant(`player:${player.slug}`, PLAYER_VARIANTS)
+  return truncateForMeta(variant(player))
+}
+
+// ─── "Is X playing in WC 2026?" (status pages) ──────────────────────────────
+
+export interface PlayerStatusDescriptionInput {
+  name: string
+  team: string
+  statusLabel: string // e.g. 'Confirmed', 'Doubtful'
+  reason?: string
+  updatedLabel?: string // human-formatted date
+}
+
+export function playerStatusDescriptionEn(input: PlayerStatusDescriptionInput): string {
+  const reason = input.reason ? ` ${input.reason.replace(/\s+/g, ' ').trim()}` : ''
+  const updated = input.updatedLabel ? ` Last updated ${input.updatedLabel}.` : ''
+  const base = `Is ${input.name} playing at the 2026 World Cup? Status: ${input.statusLabel} for ${input.team}.${reason}${updated}`
+  return truncateForMeta(base)
+}
+
+// ─── CITY (canonical detail page) ───────────────────────────────────────────
+
+export interface CityDescriptionInput {
+  name: string
+  country: string
+  venueNames?: string[]
+  matchCount?: number
+  highlight?: string
+}
+
+const CITY_VARIANTS: ReadonlyArray<(c: CityDescriptionInput) => string> = [
+  (c) => {
+    const venue = c.venueNames?.[0] ? ` Hosted at ${c.venueNames[0]}.` : ''
+    const matches = c.matchCount ? ` ${c.matchCount} matches.` : ''
+    return `${c.name}, ${c.country} — World Cup 2026 host city guide.${venue}${matches} Travel, tickets, hotels, food.`
+  },
+  (c) => {
+    const venue = c.venueNames?.[0] ? `${c.venueNames[0]}, ` : ''
+    return `Plan your World Cup 2026 trip to ${c.name}: ${venue}stadium info, transport, ticket tiers, and where to stay.`
+  },
+  (c) => {
+    const matches = c.matchCount ? `${c.matchCount} fixtures` : 'every fixture'
+    return `${c.name} (${c.country}) at World Cup 2026 — ${matches}, venue logistics, fan zones, and KickOracle's local guide.`
+  },
+]
+
+export function cityDescriptionEn(input: CityDescriptionInput, slugKey: string): string {
+  const variant = pickVariant(`city:${slugKey}`, CITY_VARIANTS)
+  return truncateForMeta(variant(input))
+}
+
+// ─── CITY SUBPAGES (tickets/hotels/transport/food/stadium/schedule/costs) ──
+
+export type CitySubpageKind =
+  | 'tickets'
+  | 'costs'
+  | 'schedule'
+  | 'transport'
+  | 'hotels'
+  | 'stadium'
+  | 'food'
+
+export interface CitySubpageDescriptionInput {
+  cityName: string
+  country: string
+  /** Optional surface-specific detail to vary copy. */
+  hotelAvgUsd?: number
+  airportCode?: string
+  venueName?: string
+  matchCount?: number
+  foodSpecialty?: string
+  tipPercentage?: number
+}
+
+export function citySubpageDescriptionEn(
+  kind: CitySubpageKind,
+  input: CitySubpageDescriptionInput
+): string {
+  switch (kind) {
+    case 'tickets':
+      return truncateForMeta(
+        `World Cup 2026 ticket prices for ${input.cityName} (${input.country}): Category 1–4 tiers, group stage to final pricing, and FIFA portal walkthrough.`
+      )
+    case 'costs': {
+      const hotel = input.hotelAvgUsd ? ` Hotels avg $${input.hotelAvgUsd}/night.` : ''
+      return truncateForMeta(
+        `7-night World Cup 2026 trip cost for ${input.cityName}: lodging, food, transport, and ticket spend broken down by budget tier.${hotel}`
+      )
+    }
+    case 'schedule': {
+      const matches = input.matchCount ? `${input.matchCount} matches` : 'every match'
+      return truncateForMeta(
+        `${input.cityName} World Cup 2026 schedule: ${matches} with kickoff times (local), teams, groups, and venue notes.`
+      )
+    }
+    case 'transport': {
+      const airport = input.airportCode ? `${input.airportCode} airport, ` : ''
+      return truncateForMeta(
+        `Getting around ${input.cityName} during World Cup 2026: ${airport}public transit, rideshare, stadium access, and walkability tips.`
+      )
+    }
+    case 'hotels': {
+      const avg = input.hotelAvgUsd ? `~$${input.hotelAvgUsd}/night` : 'pricing tiers'
+      return truncateForMeta(
+        `Best ${input.cityName} hotels for World Cup 2026: ${avg}, fan-zone proximity, and neighborhoods to book before prices surge.`
+      )
+    }
+    case 'stadium': {
+      const venue = input.venueName ?? 'the host stadium'
+      return truncateForMeta(
+        `${venue} guide for World Cup 2026 in ${input.cityName}: capacity, climate, fixtures, gates, and the smartest way in.`
+      )
+    }
+    case 'food': {
+      const specialty = input.foodSpecialty ? ` Try the ${input.foodSpecialty}.` : ''
+      const tip = input.tipPercentage ? ` Tipping ${input.tipPercentage}%.` : ''
+      return truncateForMeta(
+        `What and where to eat in ${input.cityName} during World Cup 2026.${specialty}${tip} Local picks beyond the tourist trail.`
+      )
+    }
+  }
+}
+
+// ─── /cities/from/{country} ─────────────────────────────────────────────────
+
+export interface FromCountryDescriptionInput {
+  countryName: string
+  needsUsVisa: boolean
+  flightHours: number
+  flightCostBudget: number
+  nearestCity?: string
+}
+
+export function citiesFromCountryDescriptionEn(input: FromCountryDescriptionInput): string {
+  const visa = input.needsUsVisa ? 'US visa required' : 'no US visa needed'
+  const cost = input.flightCostBudget > 0 ? ` from ~$${input.flightCostBudget}` : ''
+  const nearest = input.nearestCity ? ` ${input.nearestCity} is the closest hub.` : ''
+  return truncateForMeta(
+    `Best World Cup 2026 host cities for fans from ${input.countryName}: ${visa}, ~${input.flightHours}h flights${cost}.${nearest}`
+  )
+}
+
+// ─── /travel/from/{country} ─────────────────────────────────────────────────
+
+export function travelFromCountryDescriptionEn(input: FromCountryDescriptionInput): string {
+  const visa = input.needsUsVisa ? 'visa, ' : ''
+  const cost = input.flightCostBudget > 0 ? `flights from ~$${input.flightCostBudget}` : 'short-haul flights'
+  return truncateForMeta(
+    `World Cup 2026 trip planner for ${input.countryName} fans: ${visa}${cost}, full 7-night budget, and the smartest base cities.`
+  )
+}
+
+// ─── MATCH (live) ───────────────────────────────────────────────────────────
+
+export interface MatchDescriptionInput {
+  homeTeam: string
+  awayTeam: string
+  group: string
+  venue: string
+  city: string
+  kickoffLocal?: string
+  matchKey: string
+}
+
+const MATCH_VARIANTS: ReadonlyArray<(m: MatchDescriptionInput) => string> = [
+  (m) => {
+    const ko = m.kickoffLocal ? ` Kickoff ${m.kickoffLocal}.` : ''
+    return `${m.homeTeam} vs ${m.awayTeam} (Group ${m.group}) at ${m.venue}, ${m.city}.${ko} Live predictions, lineups, and stats from KickOracle.`
+  },
+  (m) => `Group ${m.group} World Cup 2026: ${m.homeTeam} face ${m.awayTeam} at ${m.venue} in ${m.city}. AI predictions, real-time stats, and head-to-head.`,
+  (m) => `${m.homeTeam}-${m.awayTeam} preview, lineups, and live predictions. World Cup 2026 Group ${m.group}, ${m.city} (${m.venue}).`,
+]
+
+export function matchDescriptionEn(input: MatchDescriptionInput): string {
+  const variant = pickVariant(`match:${input.matchKey}`, MATCH_VARIANTS)
+  return truncateForMeta(variant(input))
+}
+
+// ─── STADIUM ────────────────────────────────────────────────────────────────
+
+export interface StadiumDescriptionInput {
+  name: string
+  city: string
+  country: string
+  capacity?: number
+  matchCount?: number
+}
+
+export function stadiumDescriptionEn(input: StadiumDescriptionInput): string {
+  const cap = input.capacity ? `, capacity ${input.capacity.toLocaleString()}` : ''
+  const matches = input.matchCount ? `, ${input.matchCount} fixtures` : ''
+  return truncateForMeta(
+    `${input.name} in ${input.city}, ${input.country} — World Cup 2026 venue${cap}${matches}. Climate, access, and what to expect on matchday.`
+  )
+}
+
+// ─── TEAM QUALIFIED page ────────────────────────────────────────────────────
+
+export interface TeamQualifiedDescriptionInput {
+  teamName: string
+  group: string
+  qualLabel: string // 'Qualified' | 'Playoff Entry'
+  fifaRanking?: number
+}
+
+export function teamQualifiedDescriptionEn(input: TeamQualifiedDescriptionInput): string {
+  const rank = input.fifaRanking ? `, FIFA rank #${input.fifaRanking}` : ''
+  return truncateForMeta(
+    `Is ${input.teamName} in the 2026 World Cup? Status: ${input.qualLabel}. Group ${input.group}${rank}. Squad availability and key player tracker.`
+  )
+}
+
+// ─── BLOG fallback (when post lacks .description) ───────────────────────────
+
+/**
+ * Best-effort excerpt from a blog post body for use as a meta description.
+ * Strips HTML/Markdown noise and trims to MAX_META_DESCRIPTION_LENGTH.
+ */
+export function blogExcerptFallback(rawBody: string): string {
+  const text = rawBody
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#>*_`~\[\]\(\)]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return truncateForMeta(text)
+}
+

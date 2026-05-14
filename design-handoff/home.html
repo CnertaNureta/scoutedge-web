@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kick Oracle — Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: var(--ink); margin: 0; overflow-x: hidden; }
+    #root { width: 100%; }
+    .module-band {
+      width: 100%; position: relative; overflow: hidden;
+    }
+    .module-artboard {
+      width: 1440px; position: absolute; top: 0; left: 50%;
+      transform-origin: top center;
+    }
+    .footer-band {
+      background: var(--ink); color: var(--cream);
+      border-top: 1px solid var(--line);
+      padding: 48px 56px 32px;
+      max-width: 1440px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
+      box-sizing: border-box;
+    }
+    @media (max-width: 720px) {
+      .footer-band { grid-template-columns: 1fr 1fr; padding: 32px 24px; }
+    }
+    .section-rule {
+      width: 100%; max-width: 1440px; margin: 0 auto;
+      height: 1px; background: var(--line);
+    }
+    .brand-band-inner {
+      max-width: 1440px; margin: 0 auto; padding: 0 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      box-sizing: border-box;
+    }
+    @media (max-width: 720px) {
+      .brand-band-inner { padding: 0 20px; font-size: 10px; }
+    }
+    /* sticky scroll progress shell */
+    .scroll-bar {
+      position: fixed; top: 64px; left: 0; right: 0; height: 2px; z-index: 99;
+      background: rgba(245,239,228,0.06);
+      pointer-events: none;
+    }
+    .scroll-bar > div {
+      height: 100%; background: var(--green); width: 0;
+      transition: width 0.1s linear;
+    }
+    /* anchor offset so module top isn't hidden under sticky nav */
+    .module-band[id] { scroll-margin-top: 64px; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Sticky top nav ───────────────────────── */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100;
+      height: 64px;
+      background: rgba(15, 23, 19, 0.78);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid rgba(245,239,228,0.08);
+      color: var(--cream);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .top-nav.scrolled {
+      background: rgba(10, 17, 14, 0.92);
+      border-bottom-color: rgba(245,239,228,0.14);
+    }
+    .top-nav-inner {
+      max-width: 1440px; height: 100%; margin: 0 auto;
+      padding: 0 32px; box-sizing: border-box;
+      display: grid; grid-template-columns: auto 1fr auto;
+      align-items: center; gap: 32px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--cream);
+      cursor: pointer;
+    }
+    .nav-logo .mark {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid var(--cream);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-display); font-style: italic;
+      font-size: 18px; color: var(--gold); line-height: 1;
+      padding-bottom: 2px;
+    }
+    .nav-logo .word {
+      font-family: var(--f-condensed);
+      font-weight: 900; letter-spacing: 0.06em; font-size: 16px;
+    }
+    .nav-logo .word b { color: var(--green); font-weight: 900; }
+    .nav-links {
+      display: flex; gap: 2px; justify-content: center;
+      list-style: none; margin: 0; padding: 0;
+    }
+    .nav-link {
+      font-family: var(--f-condensed);
+      font-weight: 700; letter-spacing: 0.1em; font-size: 12px;
+      text-transform: uppercase;
+      color: rgba(245,239,228,0.62);
+      padding: 8px 14px; border-radius: 999px;
+      cursor: pointer; text-decoration: none;
+      transition: color 0.15s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--cream); }
+    .nav-link.active {
+      color: var(--ink);
+      background: var(--gold);
+    }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-live {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--f-mono); font-size: 10px;
+      letter-spacing: 0.22em; color: rgba(245,239,228,0.72);
+    }
+    .nav-live .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #ff3b3b; box-shadow: 0 0 8px rgba(255,59,59,0.6);
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.85); }
+    }
+    .nav-cta {
+      font-family: var(--f-condensed);
+      font-weight: 800; letter-spacing: 0.1em; font-size: 12px;
+      text-transform: uppercase;
+      background: var(--cream); color: var(--ink);
+      padding: 9px 16px; border-radius: 999px;
+      border: none; cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .nav-cta:hover { background: #fff; transform: translateY(-1px); }
+    @media (max-width: 1100px) {
+      .nav-links { display: none; }
+      .top-nav-inner { grid-template-columns: auto 1fr auto; }
+    }
+    @media (max-width: 640px) {
+      .nav-live { display: none; }
+      .top-nav-inner { padding: 0 16px; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <div class="scroll-bar"><div id="scroll-progress"></div></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="visual-system.jsx"></script>
+  <script type="text/babel" src="hero-a.jsx"></script>
+  <script type="text/babel" src="next-match.jsx"></script>
+  <script type="text/babel" src="top-contenders.jsx"></script>
+  <script type="text/babel" src="more-modules.jsx"></script>
+
+  <script type="text/babel">
+    const {
+      HeroA, NextMatchModule, TopContendersModule,
+      DailyBriefingModule, GroupStandingsModule, ScheduleModule,
+      CompareModule, LeaderboardModule, CountdownModule, NewsletterModule,
+    } = window;
+
+    // Each module was authored as a fixed 1440-wide artboard.
+    // We render it at native size and scale to fit narrower viewports
+    // so the design intent is preserved instead of breaking the grids.
+    const DESIGN_WIDTH = 1440;
+    function Band({ children, height, bg, id }) {
+      const ref = React.useRef(null);
+      const [scale, setScale] = React.useState(1);
+      React.useEffect(() => {
+        const update = () => {
+          const w = ref.current?.clientWidth || window.innerWidth;
+          setScale(Math.min(1, w / DESIGN_WIDTH));
+        };
+        update();
+        const ro = new ResizeObserver(update);
+        if (ref.current) ro.observe(ref.current);
+        window.addEventListener('resize', update);
+        return () => { ro.disconnect(); window.removeEventListener('resize', update); };
+      }, []);
+      const h = parseInt(height, 10);
+      return (
+        <section ref={ref} id={id} className="module-band" style={{ background: bg || "var(--ink)", height: h * scale + 'px' }}>
+          <div className="module-artboard" style={{ height: h, transform: `translateX(-50%) scale(${scale})` }}>
+            {children}
+          </div>
+        </section>
+      );
+    }
+    function Rule() { return <div className="section-rule" />; }
+
+    function Footer() {
+      return (
+        <footer className="footer-band">
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 18 }}>
+              <div style={{ width: 30, height: 30, borderRadius: "50%", border: "2px solid var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--f-display)", fontStyle: "italic", fontSize: 18, color: "var(--gold)" }}>K</div>
+              <div style={{ fontFamily: "var(--f-condensed)", fontWeight: 900, letterSpacing: "0.06em", fontSize: 18 }}>KICK <span style={{ color: "var(--green)" }}>ORACLE</span></div>
+            </div>
+            <p style={{ fontSize: 13, lineHeight: 1.6, opacity: 0.7, maxWidth: 360, margin: 0 }}>
+              Daily World Cup intelligence. Predictions you can argue with, written by analysts who watched every minute.
+            </p>
+            <div className="mono muted" style={{ fontSize: 10, marginTop: 24, letterSpacing: "0.2em" }}>© 2026 · KICK ORACLE INTELLIGENCE</div>
+          </div>
+          {[
+            { h: "Predict",  items: ["Today's matches", "Tournament bracket", "Group simulator", "Leaderboard"] },
+            { h: "Read",     items: ["Daily Briefing", "Power Rankings", "Compare teams", "Narrative library"] },
+            { h: "About",    items: ["Methodology", "API docs", "Sources", "Contact"] },
+          ].map((col) => (
+            <div key={col.h}>
+              <div className="eyebrow gold" style={{ marginBottom: 14 }}>{col.h}</div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 8 }}>
+                {col.items.map((i) => (
+                  <li key={i} style={{ fontSize: 13, opacity: 0.85, cursor: "pointer" }}>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </footer>
+      );
+    }
+
+    const NAV_ITEMS = [
+      { id: "hero",        label: "Home" },
+      { id: "next-match",  label: "Next Match" },
+      { id: "briefing",    label: "Briefing" },
+      { id: "contenders",  label: "Contenders" },
+      { id: "groups",      label: "Groups" },
+      { id: "schedule",    label: "Schedule" },
+      { id: "compare",     label: "Compare" },
+      { id: "leaderboard", label: "Predict" },
+    ];
+
+    function TopNav() {
+      const [active, setActive] = React.useState("hero");
+      const [scrolled, setScrolled] = React.useState(false);
+      React.useEffect(() => {
+        const onScroll = () => {
+          setScrolled(window.scrollY > 12);
+          // find which section the viewport is in (offset for nav height)
+          const probe = window.scrollY + 64 + 80;
+          let current = NAV_ITEMS[0].id;
+          for (const it of NAV_ITEMS) {
+            const el = document.getElementById(it.id);
+            if (el && el.offsetTop <= probe) current = it.id;
+          }
+          setActive(current);
+        };
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+      const go = (id) => (e) => {
+        e.preventDefault();
+        const el = document.getElementById(id);
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.scrollY - 64;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      };
+      return (
+        <nav className={"top-nav" + (scrolled ? " scrolled" : "")}>
+          <div className="top-nav-inner">
+            <a className="nav-logo" href="#hero" onClick={go("hero")}>
+              <span className="mark">K</span>
+              <span className="word">KICK <b>ORACLE</b></span>
+            </a>
+            <ul className="nav-links">
+              {NAV_ITEMS.map((it) => (
+                <li key={it.id}>
+                  <a
+                    href={"#" + it.id}
+                    onClick={go(it.id)}
+                    className={"nav-link" + (active === it.id ? " active" : "")}
+                  >
+                    {it.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="nav-right">
+              <a href="Kick Oracle — Teams Index.html" style={{ fontFamily: "var(--f-condensed)", fontWeight: 800, letterSpacing: "0.12em", fontSize: 11, color: "var(--cream)", textDecoration: "none", textTransform: "uppercase", opacity: 0.85 }}>Teams ↗</a>
+              <div className="nav-live">
+                <span className="dot"></span>
+                <span>LIVE · ESP 1—1 GER · 67'</span>
+              </div>
+              <button className="nav-cta">Sign in</button>
+            </div>
+          </div>
+        </nav>
+      );
+    }
+
+    function FullPage() {
+      return (
+        <>
+          <TopNav />
+
+          {/* 01 Hero — full viewport */}
+          <Band id="hero" height="900px"><HeroA hideMasthead /></Band>
+
+          {/* Section divider with brand band */}
+          <div style={{ background: "var(--ink)", padding: "14px 0", borderBottom: "1px solid var(--line)" }}>
+            <div className="brand-band-inner">
+              <span className="eyebrow gold">★ KICK ORACLE · WORLD CUP 2026 INTELLIGENCE</span>
+              <span className="mono muted" style={{ fontSize: 10, letterSpacing: "0.22em" }}>EST. 2024 · ISSUE 14</span>
+            </div>
+          </div>
+
+          {/* 02 Next Match */}
+          <Band id="next-match" height="900px"><NextMatchModule /></Band>
+          <Rule />
+
+          {/* 03 Daily Briefing */}
+          <Band id="briefing" height="820px"><DailyBriefingModule /></Band>
+          <Rule />
+
+          {/* 04 Top Contenders */}
+          <Band id="contenders" height="900px"><TopContendersModule /></Band>
+          <Rule />
+
+          {/* 05 Group Standings */}
+          <Band id="groups" height="680px"><GroupStandingsModule /></Band>
+          <Rule />
+
+          {/* 06 Schedule */}
+          <Band id="schedule" height="640px"><ScheduleModule /></Band>
+          <Rule />
+
+          {/* 07 Compare / H2H */}
+          <Band id="compare" height="820px"><CompareModule /></Band>
+          <Rule />
+
+          {/* 08 Leaderboard */}
+          <Band id="leaderboard" height="720px"><LeaderboardModule /></Band>
+          <Rule />
+
+          {/* 09 Countdown */}
+          <Band height="720px"><CountdownModule /></Band>
+
+          {/* 10 Newsletter CTA — bleeds full width */}
+          <Band height="620px"><NewsletterModule /></Band>
+
+          <Footer />
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<FullPage />);
+
+    // Scroll progress
+    const bar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      bar.style.width = pct + '%';
+    });
+  </script>
+</body>
+</html>

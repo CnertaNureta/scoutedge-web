@@ -762,7 +762,7 @@ export default function PKBattleApp() {
   }
 
   return (
-    <div className="space-y-8">
+    <div data-testid="pk-battle-widget" className="space-y-8">
       {/* Header */}
       <div className="text-center">
         <Badge variant="secondary" size="md">{t('badge')}</Badge>

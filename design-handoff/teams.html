@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kick Oracle — Teams Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: var(--ink); margin: 0; overflow-x: hidden; }
+    #root { width: 100%; }
+    .module-band { width: 100%; position: relative; overflow: hidden; }
+    .module-artboard { width: 1440px; position: absolute; top: 0; left: 50%; transform-origin: top center; }
+    html { scroll-behavior: smooth; }
+    .top-nav {
+      position: sticky; top: 0; z-index: 100; height: 64px;
+      background: rgba(15, 23, 19, 0.78);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid rgba(245,239,228,0.08);
+      color: var(--cream);
+    }
+    .top-nav-inner {
+      max-width: 1440px; height: 100%; margin: 0 auto; padding: 0 32px;
+      box-sizing: border-box; display: grid;
+      grid-template-columns: auto 1fr auto; align-items: center; gap: 32px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); }
+    .nav-logo .mark { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--cream); display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-style: italic; font-size: 18px; color: var(--gold); line-height: 1; padding-bottom: 2px; }
+    .nav-logo .word { font-family: var(--f-condensed); font-weight: 900; letter-spacing: 0.06em; font-size: 16px; }
+    .nav-logo .word b { color: var(--green); font-weight: 900; }
+    .nav-trail { display: flex; align-items: center; gap: 14px; font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em; color: rgba(245,239,228,0.55); }
+    .nav-trail a { color: rgba(245,239,228,0.55); text-decoration: none; }
+    .nav-trail .sep { opacity: 0.4; }
+    .nav-trail .cur { color: var(--gold); }
+    .footer-band {
+      background: var(--ink); color: var(--cream); border-top: 1px solid var(--line);
+      padding: 36px 56px 28px; max-width: 1440px; margin: 0 auto; box-sizing: border-box;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="team-data.jsx"></script>
+  <script type="text/babel" src="team-list.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <script type="text/babel">
+    const { TeamsIndex } = window;
+    const { TweaksPanel, useTweaks, TweakSection, TweakRadio } = window;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "variant": "groups"
+    }/*EDITMODE-END*/;
+
+    // Artboard heights per variant
+    const HEIGHTS = { groups: 1450, elo: 1180, continents: 4100 };
+
+    function Page() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const ref = React.useRef(null);
+      const [scale, setScale] = React.useState(1);
+      React.useEffect(() => {
+        const update = () => {
+          const w = ref.current?.clientWidth || window.innerWidth;
+          setScale(Math.min(1, w / 1440));
+        };
+        update();
+        const ro = new ResizeObserver(update);
+        if (ref.current) ro.observe(ref.current);
+        window.addEventListener('resize', update);
+        return () => { ro.disconnect(); window.removeEventListener('resize', update); };
+      }, []);
+      const artHeight = HEIGHTS[t.variant] || 1450;
+      return (
+        <>
+          <nav className="top-nav">
+            <div className="top-nav-inner">
+              <a className="nav-logo" href="Kick Oracle — Full Homepage.html">
+                <span className="mark">K</span>
+                <span className="word">KICK <b>ORACLE</b></span>
+              </a>
+              <div className="nav-trail">
+                <a href="Kick Oracle — Full Homepage.html">HOME</a>
+                <span className="sep">/</span>
+                <span className="cur">TEAMS</span>
+              </div>
+              <div></div>
+            </div>
+          </nav>
+
+          <section ref={ref} className="module-band" style={{ background: "var(--ink)", height: artHeight * scale + 'px' }}>
+            <div className="module-artboard" style={{ height: artHeight, transform: `translateX(-50%) scale(${scale})` }}>
+              <TeamsIndex variant={t.variant} />
+            </div>
+          </section>
+
+          <footer className="footer-band">
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 26, height: 26, borderRadius: "50%", border: "1.5px solid var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--f-display)", fontStyle: "italic", fontSize: 15, color: "var(--gold)" }}>K</div>
+              <div style={{ fontFamily: "var(--f-condensed)", fontWeight: 900, letterSpacing: "0.06em", fontSize: 14 }}>KICK <span style={{ color: "var(--green)" }}>ORACLE</span></div>
+            </div>
+            <span className="mono muted" style={{ fontSize: 10, letterSpacing: "0.2em" }}>© 2026 · 32 FEDERATIONS · WC2026</span>
+          </footer>
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection title="Layout">
+              <TweakRadio
+                value={t.variant}
+                onChange={(v) => setTweak('variant', v)}
+                options={[
+                  { value: "groups", label: "Groups" },
+                  { value: "elo", label: "Elo Grid" },
+                  { value: "continents", label: "Continents" },
+                ]}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  </script>
+</body>
+</html>

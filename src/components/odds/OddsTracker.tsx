@@ -34,7 +34,7 @@ function ShiftRow({ shift }: { shift: OddsShiftPayload }) {
   const color = isPositive ? 'text-emerald-400' : 'text-red-400'
 
   return (
-    <div className="flex items-center justify-between py-2.5 border-b border-white/[0.06] last:border-0">
+    <div data-testid="odds-row" className="flex items-center justify-between py-2.5 border-b border-white/[0.06] last:border-0">
       <div className="min-w-0 flex-1">
         <p className="text-sm text-on-surface truncate">{shift.market}</p>
         <span className="font-label text-[10px] tracking-wide text-on-surface-variant/60">
@@ -84,6 +84,7 @@ export default function OddsTracker({ matchId }: OddsTrackerProps) {
   const hasData = state.latestShift || state.sharpMoves.length > 0
 
   return (
+    <div data-testid="odds-widget">
     <GlassCard className="p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
@@ -130,10 +131,11 @@ export default function OddsTracker({ matchId }: OddsTrackerProps) {
       )}
 
       {lastUpdatedAt && (
-        <p className="mt-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant/50 text-right">
+        <p data-testid="odds-last-updated" className="mt-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant/50 text-right">
           Updated {lastUpdatedAt.toLocaleTimeString()}
         </p>
       )}
     </GlassCard>
+    </div>
   )
 }

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog-service'
-import { buildOGMeta, canonicalForLocale } from '@/lib/og-utils'
-import { buildAlternates } from '@/lib/seo/build-alternates'
+import { articleJsonLd, buildOGMeta, canonicalForLocale, faqPageJsonLd, breadcrumbJsonLd } from '@/lib/og-utils'
 import { notFound } from 'next/navigation'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -23,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: post.title,
     description: post.description,
     keywords: post.keywords.join(', '),
-    alternates: buildAlternates(locale, `/blog/${slug}`),
+    alternates: { canonical: url },
     ...buildOGMeta({
       title: post.title,
       description: post.description,
@@ -42,47 +41,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
 
   const allPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 3)
 
-  const articleJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+  const canonicalUrl = canonicalForLocale(locale, `/blog/${slug}`)
+  const isDailyBriefing = post.contentType === 'daily_briefing'
+  const datePublished = post.publishedAt || post.date
+
+  const articleSchema = articleJsonLd({
     headline: post.title,
     description: post.description,
-    datePublished: post.date,
+    url: canonicalUrl,
+    authorName: post.author,
+    datePublished,
     dateModified: post.lastUpdated,
-    wordCount: post.wordCount,
-    author: { '@type': 'Organization', name: 'KickOracle', url: 'https://kickoracle.com' },
-    publisher: { '@type': 'Organization', name: 'KickOracle', url: 'https://kickoracle.com' },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `https://kickoracle.com/blog/${slug}` },
     keywords: post.keywords.join(', '),
-  }
+    wordCount: post.wordCount,
+    type: isDailyBriefing ? 'NewsArticle' : 'BlogPosting',
+  })
 
   // FAQ schema (if post has FAQs)
-  const faqJsonLd = post.faqs.length > 0 ? {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: post.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
-    })),
-  } : null
+  const faqSchema = post.faqs.length > 0 ? faqPageJsonLd(post.faqs) : null
 
-  // Breadcrumb schema
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://kickoracle.com/blog' },
-      { '@type': 'ListItem', position: 3, name: post.title, item: `https://kickoracle.com/blog/${slug}` },
-    ],
-  }
+  // Breadcrumb schema (locale-aware)
+  const breadcrumbSchema = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Blog', url: canonicalForLocale(locale, '/blog') },
+    { name: post.title, url: canonicalUrl },
+  ])
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      {faqJsonLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       {/* Header */}
       <section className="relative py-20 md:py-28 px-6 overflow-hidden">

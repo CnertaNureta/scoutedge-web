@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/navigation'
+import Link from 'next/link'
 import type { Metadata } from 'next'
 import { routing } from '@/i18n/routing'
 
@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 }
 
+/**
+ * Global root not-found — rendered when no route matches at all, including
+ * paths that escape the [locale] segment. Sits OUTSIDE the locale layout
+ * so it has no NextIntlClientProvider; must use plain next/link rather than
+ * the i18n Link helper, which calls useLocale() and would throw "No intl
+ * context found".
+ */
 export default function GlobalNotFound() {
   return (
     <html lang="en" className="dark">

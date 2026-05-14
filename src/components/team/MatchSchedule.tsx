@@ -74,6 +74,7 @@ export default async function MatchSchedule({ fixtures, teamSlug }: MatchSchedul
 
                 {/* Match card */}
                 <div
+                  data-testid="match-card"
                   className="rounded-2xl border p-5 md:p-6 transition-all duration-300 hover:border-opacity-40"
                   style={{
                     backgroundColor: `color-mix(in srgb, ${colors.primary} 3%, ${SURFACE.surfaceContainer})`,
@@ -92,7 +93,7 @@ export default async function MatchSchedule({ fixtures, teamSlug }: MatchSchedul
                     >
                       {fixture.round}
                     </span>
-                    <span className="font-label text-xs text-on-surface-variant">{date}</span>
+                    <span data-testid="match-kickoff" className="font-label text-xs text-on-surface-variant">{date}</span>
                     <span className="font-mono text-xs text-on-surface-variant/60">{time}</span>
                   </div>
 
@@ -116,7 +117,7 @@ export default async function MatchSchedule({ fixtures, teamSlug }: MatchSchedul
                   </div>
 
                   {/* Venue */}
-                  <p className="font-label text-xs text-on-surface-variant mb-4">
+                  <p data-testid="match-venue" className="font-label text-xs text-on-surface-variant mb-4">
                     {fixture.venue} &middot; {fixture.city}
                   </p>
 

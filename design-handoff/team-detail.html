@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kick Oracle — Team Dossier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Big+Shoulders+Display:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body { background: var(--ink); margin: 0; overflow-x: hidden; }
+    #root { width: 100%; }
+    .module-band { width: 100%; position: relative; overflow: hidden; }
+    .module-artboard { width: 1440px; position: absolute; top: 0; left: 50%; transform-origin: top center; }
+    html { scroll-behavior: smooth; }
+
+    /* sticky top nav (shared style with homepage) */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100; height: 64px;
+      background: rgba(15, 23, 19, 0.78);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      border-bottom: 1px solid rgba(245,239,228,0.08);
+      color: var(--cream);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .top-nav.scrolled { background: rgba(10, 17, 14, 0.92); border-bottom-color: rgba(245,239,228,0.14); }
+    .top-nav-inner {
+      max-width: 1440px; height: 100%; margin: 0 auto; padding: 0 32px;
+      box-sizing: border-box; display: grid;
+      grid-template-columns: auto 1fr auto; align-items: center; gap: 32px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); cursor: pointer; }
+    .nav-logo .mark { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--cream); display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-style: italic; font-size: 18px; color: var(--gold); line-height: 1; padding-bottom: 2px; }
+    .nav-logo .word { font-family: var(--f-condensed); font-weight: 900; letter-spacing: 0.06em; font-size: 16px; }
+    .nav-logo .word b { color: var(--green); font-weight: 900; }
+    .nav-trail {
+      display: flex; align-items: center; gap: 14px;
+      font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.22em;
+      color: rgba(245,239,228,0.55);
+    }
+    .nav-trail a { color: rgba(245,239,228,0.55); text-decoration: none; }
+    .nav-trail a:hover { color: var(--cream); }
+    .nav-trail .sep { opacity: 0.4; }
+    .nav-trail .cur { color: var(--gold); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-cta {
+      font-family: var(--f-condensed); font-weight: 800; letter-spacing: 0.1em; font-size: 12px;
+      text-transform: uppercase; background: var(--cream); color: var(--ink);
+      padding: 9px 16px; border-radius: 999px; border: none; cursor: pointer;
+    }
+
+    /* Team switcher in tweaks */
+    .team-chip {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 10px; border-radius: 6px;
+      background: rgba(245,239,228,0.04);
+      border: 1px solid rgba(245,239,228,0.1);
+      cursor: pointer; transition: all 0.15s;
+    }
+    .team-chip:hover { background: rgba(245,239,228,0.08); }
+    .team-chip.active { background: rgba(255,184,28,0.12); border-color: var(--gold); }
+    .team-chip-mark {
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-condensed); font-weight: 900; font-size: 8px;
+      letter-spacing: 0.04em;
+    }
+    .team-chip-name {
+      font-family: var(--f-condensed); font-weight: 700; font-size: 12px;
+      letter-spacing: 0.06em; color: var(--cream);
+    }
+
+    .footer-band {
+      background: var(--ink); color: var(--cream); border-top: 1px solid var(--line);
+      padding: 36px 56px 28px; max-width: 1440px; margin: 0 auto;
+      box-sizing: border-box;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="team-data.jsx"></script>
+  <script type="text/babel" src="team-detail.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <script type="text/babel">
+    const { TeamDetail, TEAM_DATA, TEAM_LIST, getTeam } = window;
+    const { TweaksPanel, useTweaks, TweakSection, TweakRadio, TweakColor, TweakSelect } = window;
+
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "team": "NED",
+      "layout": "magazine",
+      "primaryOverride": "#FF6900"
+    }/*EDITMODE-END*/;
+
+    function Page() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+      const team = React.useMemo(() => {
+        const base = getTeam(t.team);
+        if (t.primaryOverride) return { ...base, primary: t.primaryOverride };
+        return base;
+      }, [t.team, t.primaryOverride]);
+
+      // Compute artboard height based on layout
+      const artHeight = t.layout === "magazine" ? 4900 : 1100;
+
+      // Scale to viewport
+      const ref = React.useRef(null);
+      const [scale, setScale] = React.useState(1);
+      React.useEffect(() => {
+        const update = () => {
+          const w = ref.current?.clientWidth || window.innerWidth;
+          setScale(Math.min(1, w / 1440));
+        };
+        update();
+        const ro = new ResizeObserver(update);
+        if (ref.current) ro.observe(ref.current);
+        window.addEventListener('resize', update);
+        return () => { ro.disconnect(); window.removeEventListener('resize', update); };
+      }, []);
+
+      const [scrolled, setScrolled] = React.useState(false);
+      React.useEffect(() => {
+        const fn = () => setScrolled(window.scrollY > 12);
+        window.addEventListener('scroll', fn, { passive: true });
+        return () => window.removeEventListener('scroll', fn);
+      }, []);
+
+      return (
+        <>
+          {/* Sticky nav */}
+          <nav className={"top-nav" + (scrolled ? " scrolled" : "")}>
+            <div className="top-nav-inner">
+              <a className="nav-logo" href="Kick Oracle — Full Homepage.html">
+                <span className="mark">K</span>
+                <span className="word">KICK <b>ORACLE</b></span>
+              </a>
+              <div className="nav-trail">
+                <a href="Kick Oracle — Full Homepage.html">HOME</a>
+                <span className="sep">/</span>
+                <a href="Kick Oracle — Teams Index.html">TEAMS</a>
+                <span className="sep">/</span>
+                <span className="cur">{team.name.toUpperCase()}</span>
+              </div>
+              <div className="nav-right">
+                <button className="nav-cta">Follow team</button>
+              </div>
+            </div>
+          </nav>
+
+          {/* Scaled artboard */}
+          <section ref={ref} className="module-band" style={{ background: "var(--ink)", height: artHeight * scale + 'px' }}>
+            <div className="module-artboard" style={{ height: artHeight, transform: `translateX(-50%) scale(${scale})` }}>
+              <TeamDetail team={team} layout={t.layout} />
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="footer-band">
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div style={{ width: 26, height: 26, borderRadius: "50%", border: "1.5px solid var(--cream)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--f-display)", fontStyle: "italic", fontSize: 15, color: "var(--gold)" }}>K</div>
+              <div style={{ fontFamily: "var(--f-condensed)", fontWeight: 900, letterSpacing: "0.06em", fontSize: 14 }}>KICK <span style={{ color: "var(--green)" }}>ORACLE</span></div>
+            </div>
+            <span className="mono muted" style={{ fontSize: 10, letterSpacing: "0.2em" }}>© 2026 · TEAM DOSSIER · {team.code}-2026</span>
+          </footer>
+
+          {/* Tweaks */}
+          <TweaksPanel title="Tweaks">
+            <TweakSection title="Team">
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
+                {TEAM_LIST.map((tm) => (
+                  <div
+                    key={tm.code}
+                    className={"team-chip" + (t.team === tm.code ? " active" : "")}
+                    onClick={() => setTweak('team', tm.code)}
+                  >
+                    <div className="team-chip-mark" style={{ background: tm.primary, color: tm.accent }}>{tm.code}</div>
+                    <div className="team-chip-name">{tm.name}</div>
+                  </div>
+                ))}
+              </div>
+            </TweakSection>
+            <TweakSection title="Layout">
+              <TweakRadio
+                value={t.layout}
+                onChange={(v) => setTweak('layout', v)}
+                options={[
+                  { value: "magazine", label: "Magazine" },
+                  { value: "dashboard", label: "Dashboard" },
+                ]}
+              />
+            </TweakSection>
+            <TweakSection title="Override primary color">
+              <TweakColor
+                value={t.primaryOverride || team.primary}
+                onChange={(v) => setTweak('primaryOverride', v)}
+                options={['', '#009C3B', '#FF6900', '#AA151B', '#002395', '#FFB81C', '#8A1538']}
+              />
+              <div style={{ fontFamily: 'var(--f-mono)', fontSize: 9, letterSpacing: '0.2em', color: 'rgba(245,239,228,0.5)', marginTop: 8 }}>
+                {t.primaryOverride ? 'CUSTOM' : 'TEAM DEFAULT'}
+              </div>
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Page />);
+  </script>
+</body>
+</html>

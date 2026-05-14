@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
-import { getAllTeams } from '@/lib/data-service'
+import { getAllTeams, getAllGroups, getTeamsByGroup } from '@/lib/data-service'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
-import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
-import { buildAlternates } from '@/lib/seo/build-alternates'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
 import Paywall from '@/components/monetization/Paywall'
+import { PREDICTIONS_FAQS } from '@/data/faq-content'
+import FaqSection from '@/components/ui/FaqSection'
 import type { Team } from '@/lib/types'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: buildAlternates(locale, '/predictions'),
+    alternates: { canonical: canonicalForLocale(locale, '/predictions') },
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
@@ -46,14 +47,14 @@ interface PredictedTeam extends Team {
   rank: number
 }
 
-function getTierInfo(rank: number, t: (key: string) => string): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
+function getTierInfo(rank: number, t: (key: string, values?: Record<string, string | number>) => string): { name: string; variant: 'primary' | 'tertiary' | 'secondary' | 'outline' } {
   if (rank <= 5) return { name: t('titleFavorites'), variant: 'primary' }
   if (rank <= 12) return { name: t('contenders'), variant: 'tertiary' }
   if (rank <= 24) return { name: t('darkHorses'), variant: 'secondary' }
   return { name: t('longShots'), variant: 'outline' }
 }
 
-function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string) => string }) {
+function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string, values?: Record<string, string | number>) => string }) {
   const tier = getTierInfo(team.rank, t)
 
   return (
@@ -70,7 +71,7 @@ function TeamPredictionCard({ team, t }: { team: PredictedTeam; t: (key: string)
                 {team.name}
               </h3>
               <span className="font-label text-xs text-on-surface-variant">
-                {`${t('fifaRank')} #${team.fifaRanking}`} · {team.confederation}
+                {t('fifaRank', { rank: `#${team.fifaRanking}` })} · {team.confederation}
               </span>
             </div>
           </div>
@@ -126,20 +127,37 @@ export default async function PredictionsPage({ params }: Props) {
   const topContenders = predicted.slice(0, 5)
   const remaining = predicted.slice(5)
 
-  const jsonLd = {
+  const webPageLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'AI Predictions — World Cup 2026',
     description: 'AI-powered win probabilities for all 48 teams.',
+    url: canonicalForLocale(locale, '/predictions'),
   }
+
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'AI Predictions', url: canonicalForLocale(locale, '/predictions') },
+  ])
+
+  const contendersList = itemListJsonLd(
+    topContenders.map((team) => ({
+      name: team.name,
+      url: `https://kickoracle.com/teams/${team.slug}`,
+      description: `Win probability ${team.winProbability.toFixed(1)}% · FIFA #${team.fifaRanking} · ${team.confederation}`,
+    })),
+    {
+      name: 'Top World Cup 2026 Contenders',
+      description: 'Top five teams ranked by AI-computed win probability for the 2026 FIFA World Cup.',
+      url: canonicalForLocale(locale, '/predictions'),
+    }
+  )
+
+  const graph = jsonLdGraph([webPageLd, breadcrumbs, contendersList, faqPageJsonLd(PREDICTIONS_FAQS)])
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: canonicalForLocale(locale, '/') },
-        { name: 'AI Predictions', url: canonicalForLocale(locale, '/predictions') },
-      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }} />
 
       {/* Hero */}
       <section className="relative py-20 px-6 overflow-hidden">
@@ -192,6 +210,49 @@ export default async function PredictionsPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Browse by Group — internal-link block for SEO + UX */}
+      <section className="max-w-[1440px] mx-auto px-6 pb-12" aria-labelledby="browse-by-group">
+        <h2 id="browse-by-group" className="font-headline text-3xl uppercase tracking-wide text-on-surface mb-8">
+          Browse by Group
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {getAllGroups().map((group) => {
+            const groupTeams = getTeamsByGroup(group)
+            return (
+              <GlassCard key={group} hover className="p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <Link
+                    href={`/groups/${group.toLowerCase()}`}
+                    className="font-headline text-xl uppercase tracking-wide text-on-surface hover:text-primary transition-colors"
+                  >
+                    Group {group}
+                  </Link>
+                  <Link
+                    href={`/groups/${group.toLowerCase()}`}
+                    className="font-label text-[10px] uppercase tracking-widest text-primary hover:underline"
+                  >
+                    View →
+                  </Link>
+                </div>
+                <ul className="grid grid-cols-2 gap-2 list-none p-0">
+                  {groupTeams.map((gt) => (
+                    <li key={gt.slug}>
+                      <Link
+                        href={`/teams/${gt.slug}`}
+                        className="flex items-center gap-2 px-2 py-1.5 rounded-lg bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.06] hover:border-primary/30 transition-all"
+                      >
+                        <span aria-hidden="true" className="text-base">{gt.flag}</span>
+                        <span className="font-body text-xs text-on-surface truncate">{gt.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            )
+          })}
+        </div>
+      </section>
+
       {/* All Teams */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">
         <h2 className="font-headline text-3xl uppercase tracking-wide text-on-surface mb-8">
@@ -234,6 +295,8 @@ export default async function PredictionsPage({ params }: Props) {
           </div>
         </GlassCard>
       </section>
+
+      <FaqSection items={PREDICTIONS_FAQS} heading="Prediction Model — FAQ" />
 
       {/* Methodology */}
       <section className="max-w-[1440px] mx-auto px-6 pb-20">

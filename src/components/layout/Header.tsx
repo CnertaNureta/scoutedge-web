@@ -13,8 +13,8 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 w-full z-50 bg-primary-container shadow-2xl">
-        <nav aria-label="Main navigation" className="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto">
-          <KickOracleLogo />
+        <nav data-testid="nav-bar" aria-label="Main navigation" className="flex justify-between items-center px-6 py-4 w-full max-w-[1920px] mx-auto">
+          <div data-testid="nav-logo"><KickOracleLogo /></div>
           <div className="hidden lg:flex gap-6 items-center">
             <NavDropdown
               label={t('predictions')}
@@ -25,7 +25,7 @@ export default function Header() {
                 { label: t('compareTeams'), href: '/compare' },
               ]}
             />
-            <Link href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
+            <Link data-testid="nav-link-teams" href="/teams" className="font-headline font-bold tracking-tight text-on-surface-variant hover:text-primary transition-colors">
               {t('teams')}
             </Link>
             <NavDropdown

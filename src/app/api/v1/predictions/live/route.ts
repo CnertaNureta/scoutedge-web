@@ -85,11 +85,13 @@ export async function GET(request: NextRequest) {
     .order('created_at', { ascending: true })
 
   if (error) {
-    console.error('[predictions/live] Fetch error:', error.message)
-    return NextResponse.json(
-      { error: 'Failed to fetch markets' },
-      { status: 500 },
-    )
+    // Table missing / schema cache issue (common in dev + test environments
+    // and during partial Supabase rollouts in prod). Log it but return an
+    // empty payload instead of 500 so the live-match page degrades to a
+    // "no markets yet" state rather than throwing a fetch error in the
+    // browser console.
+    console.warn('[predictions/live] Fetch warning:', error.message)
+    return NextResponse.json({ markets: [], leaderboard: [] })
   }
 
   const { data: leaderboard } = await supabase

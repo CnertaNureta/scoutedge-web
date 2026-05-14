@@ -326,7 +326,7 @@ export function DuelCard({
   const locked = submission != null || isLocked
 
   return (
-    <article className={`duel-root${className ? ` ${className}` : ''}`}>
+    <article data-testid="prediction-widget" className={`duel-root${className ? ` ${className}` : ''}`}>
       {/* Header */}
       <header className="duel-header">
         <div>
@@ -377,15 +377,15 @@ export function DuelCard({
           <div className="duel-ai-preview" aria-label="AI prediction snapshot">
             <span className="duel-ai-preview-label">🤖 AI prediction</span>
             <div className="duel-ai-preview-probs" aria-label="AI probabilities">
-              <span>
+              <span data-testid="prediction-home-win-prob">
                 Home
                 <strong>{pct(aiPrediction.final_probs.home_win)}</strong>
               </span>
-              <span>
+              <span data-testid="prediction-draw-prob">
                 Draw
                 <strong>{pct(aiPrediction.final_probs.draw)}</strong>
               </span>
-              <span>
+              <span data-testid="prediction-away-win-prob">
                 Away
                 <strong>{pct(aiPrediction.final_probs.away_win)}</strong>
               </span>
@@ -464,7 +464,7 @@ export function DuelCard({
           </fieldset>
 
           {/* Confidence */}
-          <fieldset className="duel-form-group">
+          <fieldset data-testid="prediction-confidence" className="duel-form-group">
             <legend>Confidence level</legend>
             <div className="duel-confidence-group" role="radiogroup" aria-label="Confidence level">
               {(['low', 'medium', 'high'] as const).map((c) => (

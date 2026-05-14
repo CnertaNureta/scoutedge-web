@@ -19,3 +19,8 @@ next-env.d.ts
 logs/api-football/
 logs/*.log
 .vercel
+supabase/.temp/
+.claude/worktrees/
+test-results/
+logs/migrate-loop-*.log
+logs/migration-*/
