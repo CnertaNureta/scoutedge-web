@@ -141,19 +141,45 @@ describe('player rich result schema guard', () => {
 })
 
 describe('localized structured-data URL guard', () => {
-  it('keeps high-exposure team/player JSON-LD URLs aligned with locale canonicals', () => {
+  it('keeps high-exposure JSON-LD URLs aligned with locale canonicals', () => {
     const files = [
+      'src/app/[locale]/cities/page.tsx',
+      'src/app/[locale]/cities/[city]/page.tsx',
+      'src/app/[locale]/daily-briefing/page.tsx',
+      'src/app/[locale]/groups/[group]/page.tsx',
+      'src/app/[locale]/lingo/page.tsx',
+      'src/app/[locale]/lingo/countries/page.tsx',
+      'src/app/[locale]/lingo/countries/[slug]/page.tsx',
+      'src/app/[locale]/lingo/players/page.tsx',
+      'src/app/[locale]/lingo/players/[slug]/page.tsx',
+      'src/app/[locale]/lingo/terms/page.tsx',
       'src/app/[locale]/players/[player]/page.tsx',
+      'src/app/[locale]/predictions/page.tsx',
       'src/app/[locale]/teams/[slug]/page.tsx',
       'src/app/[locale]/teams/[slug]/players/[playerSlug]/page.tsx',
+      'src/app/[locale]/teams/page.tsx',
+      'src/app/[locale]/volunteer/page.tsx',
     ]
+    const disallowed = [
+      'https://kickoracle.com/blog/${',
+      'https://kickoracle.com/cities/${',
+      'https://kickoracle.com/lingo/',
+      'https://kickoracle.com/players/${',
+      'https://kickoracle.com/teams/${',
+      'https://kickoracle.com/volunteer',
+    ]
+    const failures: string[] = []
 
     for (const file of files) {
       const source = read(file)
-      expect(source).not.toContain('https://kickoracle.com/teams/${')
-      expect(source).not.toContain('https://kickoracle.com/players/${')
+      for (const pattern of disallowed) {
+        if (source.includes(pattern)) {
+          failures.push(`${file}: ${pattern}`)
+        }
+      }
     }
 
+    expect(failures).toEqual([])
     expect(read('src/app/[locale]/players/[player]/page.tsx')).toContain('buildPersonSchema')
     expect(read('src/app/[locale]/teams/[slug]/players/[playerSlug]/page.tsx')).toContain('buildPersonSchema')
   })

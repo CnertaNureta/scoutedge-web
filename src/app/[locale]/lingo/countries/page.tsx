@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoCountries, getAllLingoRegions, getLingoCountriesByRegion } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -62,18 +63,18 @@ export default async function LingoCountriesPage({ params }: Props) {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Lingo',
-                item: 'https://kickoracle.com/lingo/',
+                item: canonicalForLocale(locale, '/lingo'),
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Countries',
-                item: 'https://kickoracle.com/lingo/countries/',
+                item: canonicalForLocale(locale, '/lingo/countries'),
               },
             ],
           }),

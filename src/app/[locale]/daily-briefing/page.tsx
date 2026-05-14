@@ -139,7 +139,7 @@ export default async function DailyBriefingPage({ params }: Props) {
     ? itemListJsonLd(
         recentBriefings.map((p) => ({
           name: p.title,
-          url: `https://kickoracle.com/blog/${p.slug}`,
+          url: canonicalForLocale(locale, `/blog/${p.slug}`),
           description: p.description,
         })),
         {

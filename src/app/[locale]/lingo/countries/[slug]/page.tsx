@@ -10,7 +10,7 @@ import { PhoneticDisplay } from '@/components/lingo/PhoneticDisplay'
 import { SyllableBreakdown } from '@/components/lingo/SyllableBreakdown'
 import { DifficultyBadge } from '@/components/lingo/DifficultyBadge'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
-import { OG_LOCALES } from '@/lib/og-utils'
+import { OG_LOCALES, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface CountryPageProps {
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
 }
 
 export default async function LingoCountryPage({ params }: CountryPageProps) {
-  const { slug } = await params
+  const { slug, locale } = await params
   const country = getLingoCountryBySlug(slug)
   if (!country) notFound()
 
@@ -168,24 +168,24 @@ export default async function LingoCountryPage({ params }: CountryPageProps) {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Lingo',
-                item: 'https://kickoracle.com/lingo/',
+                item: canonicalForLocale(locale, '/lingo'),
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Countries',
-                item: 'https://kickoracle.com/lingo/countries/',
+                item: canonicalForLocale(locale, '/lingo/countries'),
               },
               {
                 '@type': 'ListItem',
                 position: 4,
                 name: country.name,
-                item: `https://kickoracle.com/lingo/countries/${country.id}/`,
+                item: canonicalForLocale(locale, `/lingo/countries/${country.id}`),
               },
             ],
           }),

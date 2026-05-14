@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -137,7 +137,8 @@ function CityCard({
   )
 }
 
-export default async function CitiesPage() {
+export default async function CitiesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const t = await getTranslations('citiesPage')
   const allCities = getAllCities()
   const venues = getAllVenues()
@@ -156,20 +157,20 @@ export default async function CitiesPage() {
   }
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
   ])
 
   const citiesList = itemListJsonLd(
     allCities.map((c) => ({
       name: c.name,
-      url: `https://kickoracle.com/cities/${c.slug}`,
+      url: canonicalForLocale(locale, `/cities/${c.slug}`),
       description: `${c.state}, ${c.country} — World Cup 2026 host city`,
     })),
     {
       name: 'World Cup 2026 — Host Cities',
       description: 'All 16 host cities across the United States, Canada, and Mexico for the 2026 FIFA World Cup.',
-      url: 'https://kickoracle.com/cities',
+      url: canonicalForLocale(locale, '/cities'),
     }
   )
 

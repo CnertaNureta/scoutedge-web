@@ -46,7 +46,7 @@ export default async function TeamsPage({ params }: Props) {
   const teamsList = itemListJsonLd(
     allTeamsFlat.map((team) => ({
       name: team.name,
-      url: `https://kickoracle.com/teams/${team.slug}`,
+      url: canonicalForLocale(locale, `/teams/${team.slug}`),
       description: `Group ${team.group} · FIFA #${team.fifaRanking} · ${team.confederation}`,
     })),
     {

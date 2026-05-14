@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { lingoPlayers, lingoCountries } from '@/data/lingo-data'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
+import { canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -74,18 +75,18 @@ export default async function LingoPlayersPage({ params }: Props) {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Lingo',
-                item: 'https://kickoracle.com/lingo/',
+                item: canonicalForLocale(locale, '/lingo'),
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Players',
-                item: 'https://kickoracle.com/lingo/players/',
+                item: canonicalForLocale(locale, '/lingo/players'),
               },
             ],
           }),

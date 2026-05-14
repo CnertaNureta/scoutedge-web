@@ -145,7 +145,7 @@ export default async function PredictionsPage({ params }: Props) {
   const contendersList = itemListJsonLd(
     topContenders.map((team) => ({
       name: team.name,
-      url: `https://kickoracle.com/teams/${team.slug}`,
+      url: canonicalForLocale(locale, `/teams/${team.slug}`),
       description: `Win probability ${team.winProbability.toFixed(1)}% · FIFA #${team.fifaRanking} · ${team.confederation}`,
     })),
     {

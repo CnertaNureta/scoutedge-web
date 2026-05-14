@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
@@ -52,12 +52,13 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   }
 }
 
-export default async function VolunteerPage() {
+export default async function VolunteerPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const t = await getTranslations('volunteerPage')
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Volunteer', url: 'https://kickoracle.com/volunteer' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Volunteer', url: canonicalForLocale(locale, '/volunteer') },
   ])
 
   const faqSchema = {

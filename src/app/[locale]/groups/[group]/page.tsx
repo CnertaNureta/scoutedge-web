@@ -124,7 +124,7 @@ export default async function GroupPage({ params }: PageProps) {
     hasPart: teams.map((t) => ({
       '@type': 'SportsTeam',
       name: t.name,
-      url: `https://kickoracle.com/teams/${t.slug}`,
+      url: canonicalForLocale(locale, `/teams/${t.slug}`),
     })),
   }
 

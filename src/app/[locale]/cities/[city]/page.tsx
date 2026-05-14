@@ -312,7 +312,7 @@ export default async function CityPage({ params }: CityPageProps) {
     .slice(0, 6)
 
   const cityPath = `/cities/${city.slug}`
-  const cityUrl = `https://kickoracle.com${cityPath}`
+  const cityUrl = canonicalForLocale(locale, cityPath)
   const touristDestinationLd = {
     '@context': 'https://schema.org',
     '@type': 'TouristDestination',
