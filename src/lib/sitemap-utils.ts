@@ -91,7 +91,6 @@ const TOOL_PATHS: SitemapPath[] = [
   { path: '/quiz', changeFrequency: 'weekly', priority: 0.5 },
   { path: '/simulator', changeFrequency: 'weekly', priority: 0.5 },
   { path: '/fan-card', changeFrequency: 'monthly', priority: 0.45 },
-  { path: '/challenges', changeFrequency: 'weekly', priority: 0.45 },
   { path: '/gear', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/gear/jerseys', changeFrequency: 'monthly', priority: 0.45 },
   { path: '/gear/ball', changeFrequency: 'monthly', priority: 0.45 },
@@ -99,7 +98,6 @@ const TOOL_PATHS: SitemapPath[] = [
   { path: '/stickers', changeFrequency: 'monthly', priority: 0.45 },
   { path: '/stickers/tracker', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/stickers/cost-calculator', changeFrequency: 'monthly', priority: 0.4 },
-  { path: '/points', changeFrequency: 'weekly', priority: 0.4 },
 ]
 
 /**
@@ -110,6 +108,8 @@ const TOOL_PATHS: SitemapPath[] = [
 export const NOINDEX_PATHS: readonly string[] = [
   '/dashboard',
   '/dashboard/api',
+  '/challenges',
+  '/points',
   '/predict',
   '/subscribe',
   '/share',
