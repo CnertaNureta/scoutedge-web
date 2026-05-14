@@ -11,7 +11,7 @@ import { TEST_IDS } from './_helpers/test-ids';
 
 test.describe('Login flow', () => {
   test('显示 login form 全部字段', async ({ page }) => {
-    await page.goto('/login');
+    await page.goto('/auth/login');
 
     await expect(page.getByTestId(TEST_IDS.loginForm)).toBeVisible();
     await expect(page.getByTestId(TEST_IDS.loginEmail)).toBeVisible();
@@ -33,24 +33,29 @@ test.describe('Login flow', () => {
       });
     });
 
-    await page.goto('/login');
+    await page.goto('/auth/login');
     await page.getByTestId(TEST_IDS.loginEmail).fill('test@scoutedge.ai');
     await page.getByTestId(TEST_IDS.loginPassword).fill('password123');
     await page.getByTestId(TEST_IDS.loginSubmit).click();
 
     // 期望 redirect 到 /（或 /dashboard，按你实际行为改）
-    await page.waitForURL((url) => !url.pathname.startsWith('/login'), { timeout: 5_000 });
+    await page.waitForURL((url) => !url.pathname.startsWith('/auth/login'), { timeout: 5_000 });
   });
 
   test('错误凭证 → 显示错误信息', async ({ page }) => {
     await page.route('**/auth/v1/token**', async (route) => {
       return route.fulfill({
         status: 400,
-        json: { error: 'invalid_grant', error_description: 'Invalid credentials' },
+        contentType: 'application/json',
+        body: JSON.stringify({
+          error: 'invalid_grant',
+          error_code: 'invalid_credentials',
+          error_description: 'Invalid login credentials',
+        }),
       });
     });
 
-    await page.goto('/login');
+    await page.goto('/auth/login');
     await page.getByTestId(TEST_IDS.loginEmail).fill('wrong@scoutedge.ai');
     await page.getByTestId(TEST_IDS.loginPassword).fill('wrongpass');
     await page.getByTestId(TEST_IDS.loginSubmit).click();
@@ -59,11 +64,11 @@ test.describe('Login flow', () => {
   });
 
   test('空字段 → 浏览器原生验证（或自定义错误）', async ({ page }) => {
-    await page.goto('/login');
+    await page.goto('/auth/login');
     await page.getByTestId(TEST_IDS.loginSubmit).click();
 
-    // 还在 /login（没提交成功）
-    await expect(page).toHaveURL(/\/login/);
+    // 还在 /auth/login（没提交成功）
+    await expect(page).toHaveURL(/\/auth\/login/);
   });
 });
 
