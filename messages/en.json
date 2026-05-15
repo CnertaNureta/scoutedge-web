@@ -2646,6 +2646,21 @@
     },
     "emptyState": "No fixture climate data available for this team yet."
   },
+  "chemistryWeb": {
+    "heading": "Chemistry Web",
+    "subtitle": "Pairwise chemistry across the starting eleven",
+    "scoutVerdict": "{team}'s starting XI clicks tightest along {topPair} — the spine other pairings orbit around.",
+    "strongestPairsLabel": "Strongest pairings",
+    "pairScoreFormat": "{a} ↔ {b} — {score}",
+    "lineLabels": {
+      "GK": "Goalkeeper",
+      "DEF": "Defender",
+      "MID": "Midfielder",
+      "FWD": "Forward"
+    },
+    "nodeAriaLabel": "{name} ({line})",
+    "stubFootnote": "Chemistry edges synthesized — replaces with FBref SCA/xT-on counts in Phase 3 follow-up."
+  },
   "coachPressure": {
     "heading": "Coach Pressure Profile",
     "subtitle": "Big-game tells, formation tweaks & set-piece bias",

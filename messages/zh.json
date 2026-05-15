@@ -2268,6 +2268,21 @@
     },
     "emptyState": "尚无该球队的赛程气候数据。"
   },
+  "chemistryWeb": {
+    "heading": "化学反应网",
+    "subtitle": "首发十一人之间的两两默契",
+    "scoutVerdict": "{team} 首发的最强连线是 {topPair}——其他配对都围绕这条脊梁运转。",
+    "strongestPairsLabel": "最强配对",
+    "pairScoreFormat": "{a} ↔ {b} — {score}",
+    "lineLabels": {
+      "GK": "门将",
+      "DEF": "后卫",
+      "MID": "中场",
+      "FWD": "前锋"
+    },
+    "nodeAriaLabel": "{name}（{line}）",
+    "stubFootnote": "化学反应连边为合成估算——将在 Phase 3 后续接入 FBref SCA / xT-on 真实数据。"
+  },
   "coachPressure": {
     "heading": "教练压力画像",
     "subtitle": "大场面信号 · 阵型微调 · 定位球偏好",

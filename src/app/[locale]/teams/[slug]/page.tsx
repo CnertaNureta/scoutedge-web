@@ -14,6 +14,7 @@ import TeamStats from '@/components/team/TeamStats'
 import SquadRoster from '@/components/team/SquadRoster'
 import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
+import ChemistryWeb from '@/components/team/ChemistryWeb'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import CoachPressureProfile from '@/components/team/CoachPressureProfile'
@@ -212,6 +213,9 @@ export default async function TeamPage({ params }: PageProps) {
         </Paywall>
         <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
+        <div className="mx-14 border-t border-white/[0.08]" />
+        {/* Chemistry Web — pairwise chemistry force graph (synthesized v1) */}
+        <ChemistryWeb team={team} players={players} />
         <div className="mx-14 border-t border-white/[0.08]" />
         {/* T9 — Age & peak window per position */}
         <AgePeakWindow team={team} players={players} />
