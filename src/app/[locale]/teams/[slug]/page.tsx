@@ -18,6 +18,11 @@ import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
+import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
+import MarketModelSpread from '@/components/team/MarketModelSpread'
+import RiskRegister from '@/components/team/RiskRegister'
+import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
+import ArchetypeDossier from '@/components/team/ArchetypeDossier'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -67,7 +72,7 @@ export default async function TeamPage({ params }: PageProps) {
   if (!pageData) notFound()
 
   const t = await getTranslations('teamsPage')
-  const { team, players, groupTeams, worldCupHistory, coach, teamFaq } = pageData
+  const { team, players, groupTeams, worldCupHistory, coach, teamFaq, marketIntel } = pageData
 
   // Cross-section linking data
   const fixtures = getFixturesByTeam(slug)
@@ -136,6 +141,36 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Section rule */}
       <div className="mx-14 border-t border-white/[0.08]" />
 
+      {/* ScoutEdge Score — flagship composite intelligence grade, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <ScoutEdgeScoreModule
+          team={team}
+          players={players}
+          marketIntel={marketIntel}
+        />
+      </Paywall>
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* Market vs Model Spread — books vs us edge module, gated */}
+      {marketIntel && (
+        <>
+          <Paywall contentType="prediction" scope={slug} previewLines={6}>
+            <MarketModelSpread team={team} marketIntel={marketIntel} />
+          </Paywall>
+          <div className="mx-14 border-t border-white/[0.08]" />
+        </>
+      )}
+
+      {/* Squad Risk Register — top-5 fitness/selection/tactical concerns, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <RiskRegister team={team} players={players} />
+      </Paywall>
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
       {/* Head Coach */}
       {coach && (
         <>
@@ -152,6 +187,14 @@ export default async function TeamPage({ params }: PageProps) {
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <TacticalDNA team={team} players={players} />
         <div className="mx-14 border-t border-white/[0.08]" />
+        <Paywall contentType="team" scope={slug} previewLines={6}>
+          <VulnerabilityMatrix
+            team={team}
+            players={players}
+            opponents={groupTeams}
+          />
+        </Paywall>
+        <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
         {worldCupHistory && (
           <>
@@ -161,6 +204,14 @@ export default async function TeamPage({ params }: PageProps) {
         )}
         <div className="mx-14 border-t border-white/[0.08]" />
         <IntelligenceReport team={team} />
+      </Paywall>
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* Archetype Dossier — historical pattern match with references, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <ArchetypeDossier team={team} />
       </Paywall>
 
       {/* FAQ Section */}

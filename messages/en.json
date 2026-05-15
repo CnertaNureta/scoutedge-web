@@ -1078,7 +1078,9 @@
     "isPlaying": "Is {name} Playing?",
     "fullProfileOn": "Full Profile on {team}",
     "teamSquad": "{flag} {team} Squad",
-    "allTeams": "All Teams"
+    "allTeams": "All Teams",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Squad Tracker",
@@ -1204,6 +1206,43 @@
     "signalsRefresh": "Signals refresh as new reporting and performance context arrive.",
     "panelExpands": "This panel expands as more reporting and team context are gathered.",
     "updated": "Updated {date} UTC"
+  },
+  "playerScoutGrade": {
+    "title": "Player Scout Grade",
+    "subtitle": "Five-Dimension Intelligence Grade",
+    "totalLabel": "GRADE",
+    "dimensions": {
+      "skill": "Skill",
+      "form": "Form",
+      "fit": "Fit",
+      "durability": "Durability",
+      "bigGame": "Big-Game"
+    },
+    "verdict": {
+      "elite": "Tournament-defining talent — bookmark his every touch.",
+      "strong": "Starting XI lock with a clear matchup edge.",
+      "viable": "Squad asset — situational impact more than ninety-minute presence.",
+      "limited": "Bench depth — break-glass option only."
+    },
+    "tier": {
+      "elite": "Elite",
+      "strong": "Strong",
+      "viable": "Viable",
+      "limited": "Limited"
+    }
+  },
+  "selectionProbability": {
+    "title": "Selection Probability",
+    "subtitle": "Opener Start & 26-Man Squad Odds",
+    "openerStartLabel": "P(starts opener)",
+    "squadInclusionLabel": "P(makes 26-man squad)",
+    "defaultNote": "Composite probability blends selection_risk, fitness state, and the latest playing-status overlay from our scouting desk.",
+    "verdict": {
+      "lock": "Locked into the opener XI — model treats this as a near-certain starter.",
+      "likely": "Most likely a starter but not untouchable — watch the final session.",
+      "contested": "Squad place uncertain — bench role or rotation is the base case.",
+      "bench": "Outside the projected starting picture — squad slot itself is at risk."
+    }
   },
   "blog": {
     "minRead": "{time} min read"
@@ -1838,7 +1877,9 @@
     "safetyVerySafe": "very safe",
     "safetySafe": "safe",
     "safetyModerate": "moderate",
-    "safetyCaution": "caution"
+    "safetyCaution": "caution",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Fan Guide",
@@ -2243,5 +2284,192 @@
     "groupRank": "Group {group} · #{rank}",
     "playoff": "Playoff",
     "chemistry": "Chemistry"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+  },
+  "scoutEdgeScore": {
+    "title": "ScoutEdge Score",
+    "subtitle": "Composite Intelligence Grade",
+    "totalLabel": "Total",
+    "dimensions": {
+      "attack": "Attack",
+      "spine": "Spine",
+      "bench": "Bench",
+      "coach": "Coach",
+      "form": "Form",
+      "edge": "Edge",
+      "attackHint": "Forward line firepower — avg striker rating.",
+      "spineHint": "Keeper plus the two best defenders and midfielders.",
+      "benchHint": "Depth chart slots 12-23, the tournament's hidden fuel.",
+      "coachHint": "Tactical authority and dressing-room continuity.",
+      "formHint": "Recent morale weighted with tactical stability.",
+      "edgeHint": "Where our model disagrees with the market consensus."
+    },
+    "verdict": {
+      "elite": "Title-tier dossier — every sub-dimension cleared the cut.",
+      "strong": "Quarterfinal-worthy with one or two cracks to manage.",
+      "viable": "Knockout viable, but the edge is thinner than the bracket suggests.",
+      "limited": "Round-of-16 ceiling — needs early variance to advance further."
+    }
+  },
+  "marketModelSpread": {
+    "title": "Market vs Model Spread",
+    "subtitle": "Books versus our probability tape",
+    "marketLabel": "Market %",
+    "modelLabel": "Model %",
+    "edgeLabel": "Edge",
+    "movementLabel": "Tape Movement",
+    "signalStrengthLabel": "Signal Strength",
+    "sourcesLabel": "Consensus Sources",
+    "movement": {
+      "shortening": "Shortening",
+      "drifting": "Drifting",
+      "stable": "Stable"
+    },
+    "signalStrength": {
+      "strong": "Strong",
+      "moderate": "Moderate",
+      "weak": "Weak",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "Books and model agree — no edge to play.",
+      "modelHigh": "Model sees more title equity than the consensus tape.",
+      "modelLow": "Books are pricing in upside our model doesn't share.",
+      "modest": "Modest edge — playable but not the headliner of the week."
+    }
+  },
+  "socialBuzz": {
+    "title": "Social Buzz",
+    "subtitle": "Pre-tournament social pulse",
+    "buzzLabel": "Buzz Score",
+    "sentimentLabel": "Sentiment",
+    "deltaLabel": "7-Day Delta",
+    "noChatter": "No chatter detected",
+    "verdict": {
+      "tailwind": "Riding a positive tailwind — narrative working in his favor.",
+      "headwind": "Crowd is loud and unfriendly — pressure-management story.",
+      "quiet": "Low chatter, neutral tone — flying under the radar.",
+      "mixed": "Polarized noise — narrative cuts both ways.",
+      "noChatter": "No social signal yet — narrative still to be written."
+    }
+  },
+  "signalLedger": {
+    "title": "Signal Confidence Ledger",
+    "subtitle": "Confidence-weighted signal timeline",
+    "confidenceLabel": "Conf.",
+    "viewAllSignals": "View all {count} signals",
+    "emptyState": "No signals captured for this player yet.",
+    "sparkline7d": "7-Day Signal Volume",
+    "sourceTypes": {
+      "profile": "Profile",
+      "social": "Social",
+      "derived": "Derived",
+      "press": "Press"
+    },
+    "categories": {
+      "fitness": "Fitness",
+      "morale": "Morale",
+      "tactical": "Tactical"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "negative": "Negative",
+      "neutral": "Neutral",
+      "mixed": "Mixed"
+    },
+    "verdict": {
+      "signalRich": "Signal-rich and pointing the right way — high conviction read.",
+      "warningSignal": "High-confidence signals are flashing red — treat as a warning.",
+      "lowConfidence": "Weak signal base — the dossier needs more inputs before we lean in.",
+      "mixedRead": "Confidence is solid but the signals contradict — read on context.",
+      "empty": "Quiet desk — no signals on file yet."
+    }
+  },
+  "differentiator": {
+    "title": "What Makes Them Different",
+    "subtitle": "The one trait that defines them",
+    "whyLabel": "Why opponents struggle",
+    "statsLabel": "Anchor Stats",
+    "positionTraits": {
+      "fw_box_crasher": "Box-crashing finisher",
+      "fw_wide_creator": "Wide creator",
+      "mid_metronome": "Tempo metronome",
+      "mid_press_resistant": "Press-resistant deep-lying playmaker",
+      "def_aerial": "Aerial commander",
+      "def_sweeper": "Build-up sweeper",
+      "gk_sweeper": "Sweeper-keeper",
+      "gk_shotstopper": "Shot-stopper specialist"
+    },
+    "verdict": {
+      "studyTape": "Worth studying his tape before any matchup involving him."
+    }
+  },
+  "archetypeDossier": {
+    "title": "Archetype Dossier",
+    "subtitle": "Historical pattern match — strengths, cautions, baseline ceiling",
+    "archetypeLabel": "Archetype",
+    "summaryLabel": "Pattern Summary",
+    "strengthsLabel": "Strengths",
+    "cautionsLabel": "Cautions",
+    "historyLabel": "Historical References",
+    "baselineLabel": "Baseline Ceiling",
+    "successRateLabel": "Pattern Success Rate",
+    "fromLabel": "Derived from",
+    "verdict": {
+      "ceilingTitle": "Title-tier archetype — when the pattern fires, the trophy is in reach.",
+      "ceilingDeepRun": "Deep-run archetype — semis or quarters is the historical landing zone.",
+      "ceilingKnockouts": "Knockout-stage archetype — one good draw away from making it interesting.",
+      "ceilingGroup": "Group-stage archetype — the campaign is a learning lap for the next cycle."
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "Vulnerability Matrix",
+    "subtitle": "6-axis tactical gap analysis vs group rivals",
+    "axisHeader": "Axis",
+    "vsLabel": "vs",
+    "onLabel": "on",
+    "legendPositive": "Positive = edge",
+    "legendNegative": "Negative = weakness",
+    "biggestGapLabel": "Largest weakness",
+    "noOpponents": "No group rivals available to compare yet.",
+    "axes": {
+      "atk": "ATK",
+      "mid": "MID",
+      "def": "DEF",
+      "chm": "CHM",
+      "exp": "EXP",
+      "fit": "FIT"
+    },
+    "verdict": {
+      "dominant": "Dominant on every axis — no group rival profiles a credible threat.",
+      "balanced": "Balanced ledger — one or two soft spots to rotate around.",
+      "exposed": "Exposed across multiple axes — rivals have clear levers to pull.",
+      "outclassed": "Outclassed on the tactical board — the group is a survival exercise."
+    }
+  },
+  "riskRegister": {
+    "title": "Squad Risk Register",
+    "subtitle": "Top-5 fitness, selection, and tactical concerns",
+    "indexLabel": "No.",
+    "severityLabel": "Severity",
+    "noteLabel": "Note",
+    "noFurtherRisks": "No further material risks",
+    "riskTypes": {
+      "fitness": "Fitness",
+      "selection": "Selection",
+      "tactical": "Tactical"
+    },
+    "severity": {
+      "high": "High",
+      "medium": "Medium"
+    },
+    "verdict": {
+      "controlled": "Risk ledger is calm — every line is playable as drawn.",
+      "manageable": "A couple of credible threats — rotate around them and move on.",
+      "fragile": "Multiple high-impact risks stacked — the lineup is brittle this week."
+    }
   }
 }

@@ -771,7 +771,9 @@
     "isPlaying": "{name} 是否参赛？",
     "fullProfileOn": "{team} 完整档案",
     "teamSquad": "{flag} {team} 阵容",
-    "allTeams": "所有球队"
+    "allTeams": "所有球队",
+    "metaTitle": "{name} 2026 世界杯 — 球员档案、数据与预测",
+    "metaDescription": "{name}（{position}）— {team} 队员，效力于 {club}。2026 世界杯数据、球探报告与 AI 情报。"
   },
   "playerStatusPage": {
     "badge": "阵容追踪",
@@ -917,6 +919,43 @@
     "signalsRefresh": "随着新的报道和表现数据到来，信号会自动更新。",
     "panelExpands": "随着更多报道和球队信息的收集，此面板将自动扩展。",
     "updated": "更新于 {date} UTC"
+  },
+  "playerScoutGrade": {
+    "title": "球员球探评级",
+    "subtitle": "五维情报评级",
+    "totalLabel": "评级",
+    "dimensions": {
+      "skill": "技术",
+      "form": "状态",
+      "fit": "适配",
+      "durability": "耐用度",
+      "bigGame": "大场面"
+    },
+    "verdict": {
+      "elite": "决定赛事走向的天才——他的每一次触球都值得标记。",
+      "strong": "首发铁打——具备明显对位优势。",
+      "viable": "球队可用资源——情境性影响多于全场存在感。",
+      "limited": "板凳深度——仅作应急选项。"
+    },
+    "tier": {
+      "elite": "顶级",
+      "strong": "稳健",
+      "viable": "可用",
+      "limited": "有限"
+    }
+  },
+  "selectionProbability": {
+    "title": "出场概率",
+    "subtitle": "首战首发与 26 人大名单几率",
+    "openerStartLabel": "P(首战首发)",
+    "squadInclusionLabel": "P(入选 26 人大名单)",
+    "defaultNote": "复合概率融合了入选风险、伤病状态以及球探团队最新的出场状态修正。",
+    "verdict": {
+      "lock": "首战首发铁打——模型几乎确定他会首发出场。",
+      "likely": "大概率首发但并非雷打不动——留意最后一堂训练课。",
+      "contested": "位置存在争议——板凳或轮换是基准情形。",
+      "bench": "处于首发阵容预测之外——大名单本身也存在风险。"
+    }
   },
   "blog": {
     "minRead": "{time}分钟阅读"
@@ -1528,7 +1567,9 @@
     "safetyVerySafe": "非常安全",
     "safetySafe": "安全",
     "safetyModerate": "中等",
-    "safetyCaution": "需谨慎"
+    "safetyCaution": "需谨慎",
+    "metaTitle": "{city} 2026 世界杯主办城市 — 旅行指南",
+    "metaDescription": "2026 世界杯主办城市 {city}（{country}）旅行指南。球场、交通、酒店、安全与比赛日程。"
   },
   "travelPage": {
     "heroBadge": "球迷指南",
@@ -1865,5 +1906,192 @@
     "groupRank": "{group} 组 · 第 {rank} 名",
     "playoff": "附加赛",
     "chemistry": "化学反应"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} 2026 世界杯 — 阵容、分析与预测",
+    "metaDescription": "AI 解读 {team} 的 2026 世界杯征程。{group} 组、FIFA 排名第 {rank}。阵容、赛程、化学指数与晋级概率。"
+  },
+  "scoutEdgeScore": {
+    "title": "球探总评",
+    "subtitle": "综合情报评分",
+    "totalLabel": "总评",
+    "dimensions": {
+      "attack": "攻击",
+      "spine": "中轴",
+      "bench": "板凳",
+      "coach": "教练",
+      "form": "状态",
+      "edge": "盘口",
+      "attackHint": "锋线火力——前锋平均评分。",
+      "spineHint": "门将加上两名最强后卫与两名最强中场。",
+      "benchHint": "深度名单 12-23 号位，是漫长赛程的隐形燃料。",
+      "coachHint": "教练的战术权威与更衣室稳定度。",
+      "formHint": "近期士气与战术稳定性的加权组合。",
+      "edgeHint": "我们的模型与盘口共识的偏离幅度。"
+    },
+    "verdict": {
+      "elite": "冠军级档案——六大维度全数过关。",
+      "strong": "八强水准，但还有一两道裂缝需要修补。",
+      "viable": "具备出线实力，但优势比签运图所示更薄。",
+      "limited": "天花板大致止步十六强，需要早期方差才能更进一步。"
+    }
+  },
+  "socialBuzz": {
+    "title": "社交热度",
+    "subtitle": "赛前社交舆情脉搏",
+    "buzzLabel": "热度指数",
+    "sentimentLabel": "情绪",
+    "deltaLabel": "7 日变化",
+    "noChatter": "未捕捉到声量",
+    "verdict": {
+      "tailwind": "正向顺风——舆论站在他这一边。",
+      "headwind": "声量大且不友好——是压力管理课题。",
+      "quiet": "声量低、情绪中性——低调潜行。",
+      "mixed": "两极化噪声——叙事双向作用。",
+      "noChatter": "暂无社交信号——故事尚未展开。"
+    }
+  },
+  "signalLedger": {
+    "title": "信号置信度账本",
+    "subtitle": "按置信度加权的信号时间线",
+    "confidenceLabel": "置信",
+    "viewAllSignals": "查看全部 {count} 条信号",
+    "emptyState": "暂无该球员的信号记录。",
+    "sparkline7d": "7 日信号量",
+    "sourceTypes": {
+      "profile": "档案",
+      "social": "社媒",
+      "derived": "推断",
+      "press": "媒体"
+    },
+    "categories": {
+      "fitness": "体能",
+      "morale": "士气",
+      "tactical": "战术"
+    },
+    "sentiment": {
+      "positive": "正面",
+      "negative": "负面",
+      "neutral": "中性",
+      "mixed": "复杂"
+    },
+    "verdict": {
+      "signalRich": "信号密集且指向明确——高确信度判断。",
+      "warningSignal": "高确信信号亮红灯——视为警告。",
+      "lowConfidence": "信号基础薄弱——在加注前需要更多输入。",
+      "mixedRead": "确信度稳定但信号相互矛盾——结合情境判断。",
+      "empty": "暂无声响——目前没有归档信号。"
+    }
+  },
+  "differentiator": {
+    "title": "他与众不同之处",
+    "subtitle": "定义他的那一个特质",
+    "whyLabel": "对手为何难应对",
+    "statsLabel": "锚定数据",
+    "positionTraits": {
+      "fw_box_crasher": "禁区冲击型终结者",
+      "fw_wide_creator": "边路创造者",
+      "mid_metronome": "节拍器型组织核心",
+      "mid_press_resistant": "抗压型后腰组织者",
+      "def_aerial": "高空指挥官",
+      "def_sweeper": "组织型清道夫",
+      "gk_sweeper": "出击型门将",
+      "gk_shotstopper": "扑救专家"
+    },
+    "verdict": {
+      "studyTape": "在任何与他相关的对位之前，都值得研究他的录像。"
+    }
+  },
+  "marketModelSpread": {
+    "title": "盘口 vs 模型偏离",
+    "subtitle": "博彩共识与我方概率的对照",
+    "marketLabel": "盘口 %",
+    "modelLabel": "模型 %",
+    "edgeLabel": "价差",
+    "movementLabel": "盘面走向",
+    "signalStrengthLabel": "信号强度",
+    "sourcesLabel": "共识来源",
+    "movement": {
+      "shortening": "收紧",
+      "drifting": "走宽",
+      "stable": "稳定"
+    },
+    "signalStrength": {
+      "strong": "强",
+      "moderate": "中",
+      "weak": "弱",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "盘口与模型一致——无价差可打。",
+      "modelHigh": "模型对夺冠权益的评估高于盘口共识。",
+      "modelLow": "盘口已计入我们模型未认可的上行空间。",
+      "modest": "价差有限——可参与，但本周并非主菜。"
+    }
+  },
+  "archetypeDossier": {
+    "title": "原型档案",
+    "subtitle": "历史模式匹配——优势、警示与基准上限",
+    "archetypeLabel": "原型",
+    "summaryLabel": "模式概览",
+    "strengthsLabel": "优势",
+    "cautionsLabel": "警示",
+    "historyLabel": "历史参照",
+    "baselineLabel": "基准上限",
+    "successRateLabel": "模式成功率",
+    "fromLabel": "源自",
+    "verdict": {
+      "ceilingTitle": "夺冠级原型——一旦点火，奖杯触手可及。",
+      "ceilingDeepRun": "深入级原型——半决赛或四强是历史落点。",
+      "ceilingKnockouts": "淘汰赛原型——抽签运好一点就能搅局。",
+      "ceilingGroup": "小组赛原型——本届是为下一周期热身。"
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "弱点矩阵",
+    "subtitle": "与小组对手的 6 维战术差距",
+    "axisHeader": "维度",
+    "vsLabel": "对阵",
+    "onLabel": "于",
+    "legendPositive": "正值 = 优势",
+    "legendNegative": "负值 = 弱点",
+    "biggestGapLabel": "最大弱点",
+    "noOpponents": "暂无小组对手可供对比。",
+    "axes": {
+      "atk": "进攻",
+      "mid": "中场",
+      "def": "防守",
+      "chm": "默契",
+      "exp": "经验",
+      "fit": "状态"
+    },
+    "verdict": {
+      "dominant": "全维度领先——小组内无对手构成实质威胁。",
+      "balanced": "整体平衡——存在一两处可调度的薄弱点。",
+      "exposed": "多维度暴露——对手有清晰的发力点。",
+      "outclassed": "战术板上被压制——本小组将是生存赛。"
+    }
+  },
+  "riskRegister": {
+    "title": "阵容风险登记",
+    "subtitle": "伤病、选人与战术风险 Top 5",
+    "indexLabel": "序号",
+    "severityLabel": "严重度",
+    "noteLabel": "备注",
+    "noFurtherRisks": "暂无其他重大风险",
+    "riskTypes": {
+      "fitness": "伤病",
+      "selection": "选人",
+      "tactical": "战术"
+    },
+    "severity": {
+      "high": "高",
+      "medium": "中"
+    },
+    "verdict": {
+      "controlled": "风险登记表整体平稳——每条线都能照常使用。",
+      "manageable": "存在几处可信威胁——绕开它们继续推进即可。",
+      "fragile": "多处高影响风险叠加——本周阵容偏脆。"
+    }
   }
 }

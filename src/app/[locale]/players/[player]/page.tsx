@@ -9,6 +9,12 @@ import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
+import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
+import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
+import SocialBuzzCard from '@/components/player/SocialBuzzCard'
+import SignalLedger from '@/components/player/SignalLedger'
+import DifferentiatorCard from '@/components/player/DifferentiatorCard'
+import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
 export const revalidate = 3600
 
@@ -82,6 +88,7 @@ export default async function PlayerPage({ params }: Props) {
 
   const t = await getTranslations('playerPage')
   const team = getTeamBySlug(player.teamSlug)
+  const playerIntel = getPlayerIntelBySlug(player.teamSlug, player.slug)
   const teamName = team?.name ?? player.teamSlug.replace(/-/g, ' ')
   const teamFlag = team?.flag ?? ''
   const resolved = resolvePlayerStatus(player)
@@ -161,6 +168,26 @@ export default async function PlayerPage({ params }: Props) {
           <StatBox value={player.number} label={t('squadNumber')} />
         </div>
       </section>
+
+      {team && (
+        <PlayerScoutGrade player={player} team={team} playerIntel={playerIntel} />
+      )}
+
+      {team && (
+        <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
+      )}
+
+      {team && (
+        <SocialBuzzCard player={player} team={team} />
+      )}
+
+      {team && (
+        <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
+      )}
+
+      {team && (
+        <DifferentiatorCard player={player} team={team} />
+      )}
 
       {/* Fitness & Intelligence */}
       <section className="max-w-[1440px] mx-auto px-6 pb-12">
