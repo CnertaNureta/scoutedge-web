@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
-import { buildOGMeta, breadcrumbJsonLd, faqPageJsonLd, jsonLdGraph } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale, faqPageJsonLd, jsonLdGraph } from '@/lib/og-utils'
 import FaqSection from '@/components/ui/FaqSection'
 import { TRAVEL_FAQS } from '@/data/faq-content'
 
@@ -34,7 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function TravelPage() {
+export default async function TravelPage({ params }: Props) {
+  const { locale } = await params
   const t = await getTranslations('travelPage')
 
   const quickFacts = [
@@ -101,8 +102,8 @@ export default async function TravelPage() {
   ]
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Travel Guide', url: 'https://kickoracle.com/travel' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Travel Guide', url: canonicalForLocale(locale, '/travel') },
   ])
 
   return (

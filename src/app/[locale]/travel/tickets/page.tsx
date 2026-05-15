@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AffiliateSlot from '@/components/monetization/AffiliateSlot'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
@@ -51,11 +51,12 @@ const CHANNELS = [
   { name: 'FIFA Fan Pack', badge: 'Bundles', description: 'Multi-match tournament bundles following one team or one venue. Best value for dedicated fans.', link: 'https://www.fifa.com/fifaplus/en/tournaments/mens/worldcup/canadamexicousa2026/tickets' },
 ]
 
-export default function TicketsPage() {
+export default async function TicketsPage({ params }: Props) {
+  const { locale } = await params
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Travel', url: 'https://kickoracle.com/travel' },
-    { name: 'Tickets', url: 'https://kickoracle.com/travel/tickets' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Travel', url: canonicalForLocale(locale, '/travel') },
+    { name: 'Tickets', url: canonicalForLocale(locale, '/travel/tickets') },
   ])
 
   return (

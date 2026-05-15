@@ -183,4 +183,36 @@ describe('localized structured-data URL guard', () => {
     expect(read('src/app/[locale]/players/[player]/page.tsx')).toContain('buildPersonSchema')
     expect(read('src/app/[locale]/teams/[slug]/players/[playerSlug]/page.tsx')).toContain('buildPersonSchema')
   })
+
+  it('keeps sitemap breadcrumb JSON-LD URLs locale-prefixed', () => {
+    const files = [
+      'src/app/[locale]/bracket/page.tsx',
+      'src/app/[locale]/cities/[city]/costs/page.tsx',
+      'src/app/[locale]/cities/[city]/food/page.tsx',
+      'src/app/[locale]/cities/[city]/hotels/page.tsx',
+      'src/app/[locale]/cities/[city]/schedule/page.tsx',
+      'src/app/[locale]/cities/[city]/stadium/page.tsx',
+      'src/app/[locale]/cities/[city]/tickets/page.tsx',
+      'src/app/[locale]/cities/[city]/transport/page.tsx',
+      'src/app/[locale]/cities/from/[country]/page.tsx',
+      'src/app/[locale]/gear/ball/history/[year]/page.tsx',
+      'src/app/[locale]/play/pk-battle/page.tsx',
+      'src/app/[locale]/play/quiz/page.tsx',
+      'src/app/[locale]/players/is-playing/[slug]/page.tsx',
+      'src/app/[locale]/stickers/cost-calculator/page.tsx',
+      'src/app/[locale]/stickers/tracker/page.tsx',
+      'src/app/[locale]/teams/[slug]/qualified/page.tsx',
+      'src/app/[locale]/travel/budget-calculator/page.tsx',
+      'src/app/[locale]/travel/from/[country]/page.tsx',
+      'src/app/[locale]/travel/page.tsx',
+      'src/app/[locale]/travel/tickets/page.tsx',
+      'src/app/[locale]/travel/visa/page.tsx',
+    ]
+
+    const failures = files.filter((file) =>
+      /https:\/\/kickoracle\.com(?:\/|['"`])/.test(read(file))
+    )
+
+    expect(failures).toEqual([])
+  })
 })

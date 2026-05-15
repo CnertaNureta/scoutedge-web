@@ -6,7 +6,7 @@ import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues, getVenueById } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: StadiumPageProps): Promise<Me
 }
 
 export default async function CityStadiumPage({ params }: StadiumPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -48,10 +48,10 @@ export default async function CityStadiumPage({ params }: StadiumPageProps) {
   const nearbyStadiums = allVenues.filter((v) => v.id !== primary.id && v.countryCode === primary.countryCode).slice(0, 3)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Stadium', url: `https://kickoracle.com/cities/${slug}/stadium` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Stadium', url: canonicalForLocale(locale, `/cities/${slug}/stadium`) },
   ])
 
   return (

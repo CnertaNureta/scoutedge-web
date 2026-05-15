@@ -5,7 +5,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { getCityBySlug } from '@/data/cities-data'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
@@ -38,7 +38,7 @@ const PRICE_LABEL: Record<string, { label: string; symbols: string }> = {
 }
 
 export default async function CityFoodPage({ params }: FoodPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -59,10 +59,10 @@ export default async function CityFoodPage({ params }: FoodPageProps) {
       : ['Reserve dinner 1–2 weeks ahead during tournament', 'Food halls offer better value than restaurant rows', 'Sales tax (varies by state) is added at the register', 'Fast-casual chains are budget-friendly and consistent']
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Food', url: `https://kickoracle.com/cities/${slug}/food` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Food', url: canonicalForLocale(locale, `/cities/${slug}/food`) },
   ])
 
   return (

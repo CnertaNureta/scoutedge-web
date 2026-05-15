@@ -4,6 +4,7 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import Badge from '@/components/ui/Badge'
 import CostCalculator from './CostCalculator'
+import { canonicalForLocale } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -18,19 +19,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function StickerCostCalculatorPage() {
+export default async function StickerCostCalculatorPage({ params }: Props) {
+  const { locale } = await params
   const t = await getTranslations('stickerCostCalculatorPage')
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com' },
-      { '@type': 'ListItem', position: 2, name: 'Stickers', item: 'https://kickoracle.com/stickers' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
+      { '@type': 'ListItem', position: 2, name: 'Stickers', item: canonicalForLocale(locale, '/stickers') },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Cost Calculator',
-        item: 'https://kickoracle.com/stickers/cost-calculator',
+        item: canonicalForLocale(locale, '/stickers/cost-calculator'),
       },
     ],
   }

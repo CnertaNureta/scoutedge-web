@@ -3,7 +3,7 @@ import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 
 export const revalidate = 86400
 
@@ -231,13 +231,14 @@ function CountrySection({
   )
 }
 
-export default function VisaPage() {
+export default async function VisaPage({ params }: Props) {
+  const { locale } = await params
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: 'https://kickoracle.com' },
-        { name: 'Travel', url: 'https://kickoracle.com/travel' },
-        { name: 'Visa Guide', url: 'https://kickoracle.com/travel/visa' },
+        { name: 'Home', url: canonicalForLocale(locale, '/') },
+        { name: 'Travel', url: canonicalForLocale(locale, '/travel') },
+        { name: 'Visa Guide', url: canonicalForLocale(locale, '/travel/visa') },
       ])) }} />
 
       {/* Hero */}

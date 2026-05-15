@@ -372,8 +372,8 @@ export default async function BracketPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([
-        { name: 'Home', url: 'https://kickoracle.com' },
-        { name: 'Bracket', url: 'https://kickoracle.com/bracket' },
+        { name: 'Home', url: canonicalForLocale(locale, '/') },
+        { name: 'Bracket', url: canonicalForLocale(locale, '/bracket') },
       ])) }} />
 
       {/* ── Hero ── */}

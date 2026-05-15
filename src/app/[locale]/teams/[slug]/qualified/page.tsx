@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getPlayersByTeam, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import { resolvePlayerStatus, STATUS_CONFIG, type PlayerStatus } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
@@ -43,7 +43,7 @@ const STATUS_PRIORITY: Record<PlayerStatus, number> = {
 }
 
 export default async function TeamQualifiedPage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
   const team = getTeamBySlug(slug)
   if (!team) notFound()
 
@@ -63,14 +63,14 @@ export default async function TeamQualifiedPage({ params }: Props) {
     { confirmed: 0, likely: 0, doubtful: 0, 'ruled-out': 0, retired: 0 }
   )
 
-  const url = `https://kickoracle.com/teams/${slug}/qualified`
+  const url = canonicalForLocale(locale, `/teams/${slug}/qualified`)
   const qualLabel = team.isPlayoff ? 'Playoff Entry' : 'Qualified'
   const qualTone = team.isPlayoff ? 'ring-amber-500/40 bg-amber-500/10' : 'ring-green-500/40 bg-green-500/10'
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Teams', url: 'https://kickoracle.com/teams' },
-    { name: team.name, url: `https://kickoracle.com/teams/${slug}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Teams', url: canonicalForLocale(locale, '/teams') },
+    { name: team.name, url: canonicalForLocale(locale, `/teams/${slug}`) },
     { name: 'Qualification Tracker', url },
   ])
 

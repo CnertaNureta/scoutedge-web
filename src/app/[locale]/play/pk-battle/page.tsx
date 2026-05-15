@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import PKBattleApp from '@/components/pk-battle/PKBattleApp'
 
 type Props = { params: Promise<{ locale: string }> }
@@ -27,11 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function PKBattlePage() {
+export default async function PKBattlePage({ params }: Props) {
+  const { locale } = await params
   const jsonLd = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Fan Zone', url: 'https://kickoracle.com/play' },
-    { name: 'PK Battle', url: 'https://kickoracle.com/play/pk-battle' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Fan Zone', url: canonicalForLocale(locale, '/play') },
+    { name: 'PK Battle', url: canonicalForLocale(locale, '/play/pk-battle') },
   ])
 
   return (

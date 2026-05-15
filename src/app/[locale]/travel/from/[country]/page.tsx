@@ -7,7 +7,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import AffiliateSlot from '@/components/monetization/AffiliateSlot'
 import { getOriginCountry } from '@/data/travel-data'
 import { getCityBySlug } from '@/data/cities-data'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: TravelFromCountryPageProps): 
 }
 
 export default async function TravelFromCountryPage({ params }: TravelFromCountryPageProps) {
-  const { country: slug } = await params
+  const { locale, country: slug } = await params
   const origin = getOriginCountry(slug)
   if (!origin) notFound()
 
@@ -50,9 +50,9 @@ export default async function TravelFromCountryPage({ params }: TravelFromCountr
   }
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Travel', url: 'https://kickoracle.com/travel' },
-    { name: `From ${origin.name}`, url: `https://kickoracle.com/travel/from/${slug}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Travel', url: canonicalForLocale(locale, '/travel') },
+    { name: `From ${origin.name}`, url: canonicalForLocale(locale, `/travel/from/${slug}`) },
   ])
 
   return (
