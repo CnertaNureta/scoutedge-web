@@ -216,4 +216,18 @@ describe('localized structured-data URL guard', () => {
 
     expect(failures).toEqual([])
   })
+
+  it('prevents newly noindexed routes from inheriting the homepage canonical', () => {
+    const layouts = [
+      ['src/app/[locale]/challenges/layout.tsx', '/challenges'],
+      ['src/app/[locale]/points/layout.tsx', '/points'],
+    ] as const
+
+    for (const [file, routePath] of layouts) {
+      const source = read(file)
+      expect(source).toContain('generateMetadata')
+      expect(source).toContain(`buildAlternates(locale, '${routePath}')`)
+      expect(source).toContain('robots: { index: false, follow: true }')
+    }
+  })
 })
