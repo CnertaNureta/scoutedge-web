@@ -247,10 +247,14 @@ function fixtureToMatchId(fixture: (typeof MATCH_FIXTURES)[number]): string {
 }
 
 function matchDetailPaths(): SitemapPath[] {
-  // Only group-stage fixtures have real team slugs. Knockout fixtures use
-  // TBD placeholder slugs (e.g. `tbd-1a`) that are not navigable and would
-  // produce 404s if advertised; we intentionally skip them.
-  return MATCH_FIXTURES.map((fixture) => {
+  // Only fixtures with real team slugs are navigable. Placeholder fixtures
+  // (`tbd-*`) intentionally 404 until the teams are known, so they must stay
+  // out of the sitemap.
+  return MATCH_FIXTURES.filter(
+    (fixture) =>
+      !fixture.homeTeamSlug.startsWith('tbd-') &&
+      !fixture.awayTeamSlug.startsWith('tbd-')
+  ).map((fixture) => {
     const matchId = fixtureToMatchId(fixture)
     return {
       path: `/matches/live/${matchId}`,
