@@ -331,7 +331,9 @@
     "featuredCrossGroup": "คู่ข้ามสายที่น่าสนใจ",
     "compareAny": "เปรียบเทียบสองทีมใดก็ได้",
     "compareAnyDesc": "เลือกจากทั้ง 48 ทีมเพื่อเปรียบเทียบ {count} คู่ที่เป็นไปได้",
-    "browseMatchups": "ดูทั้ง {count} คู่ A—Z"
+    "browseMatchups": "ดูทั้ง {count} คู่ A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "อัปเดตทุก 5 นาที",
@@ -772,8 +774,8 @@
     "fullProfileOn": "โปรไฟล์เต็มที่ {team}",
     "teamSquad": "{flag} ทีม {team}",
     "allTeams": "ทุกทีม",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} ฟุตบอลโลก 2026 — โปรไฟล์ สถิติ และคาดการณ์",
+    "metaDescription": "{name} ({position}) สังกัด {club} ติดทีมชาติ {team} สถิติฟุตบอลโลก 2026 รายงานสเกาต์ และข้อมูลเชิงลึกจาก AI"
   },
   "playerStatusPage": {
     "badge": "ติดตามทีม",
@@ -1081,8 +1083,8 @@
     "safetySafe": "ปลอดภัย",
     "safetyModerate": "ปานกลาง",
     "safetyCaution": "ระวัง",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — เมืองเจ้าภาพฟุตบอลโลก 2026: คู่มือท่องเที่ยว",
+    "metaDescription": "คู่มือเที่ยว {city} เมืองเจ้าภาพฟุตบอลโลก 2026 ใน {country} สนาม การเดินทาง โรงแรม ความปลอดภัย และตารางแข่งขัน"
   },
   "travelPage": {
     "heroBadge": "คู่มือแฟนบอล",
@@ -1695,7 +1697,7 @@
     "chemistry": "เคมีทีม"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} ฟุตบอลโลก 2026 — รายชื่อทีม วิเคราะห์ และคาดการณ์",
+    "metaDescription": "AI วิเคราะห์เส้นทางของ {team} ในฟุตบอลโลก 2026 กลุ่ม {group} อันดับฟีฟ่า {rank} รายชื่อ โปรแกรม เคมีทีม และโอกาสคว้าแชมป์"
   }
 }

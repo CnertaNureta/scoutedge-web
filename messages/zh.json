@@ -331,7 +331,9 @@
     "featuredCrossGroup": "精选跨组对阵",
     "compareAny": "对比任意两支球队",
     "compareAnyDesc": "从48支球队中选择任意两支进行 {count} 种可能对阵的对比。",
-    "browseMatchups": "浏览全部 {count} 场对阵 A—Z"
+    "browseMatchups": "浏览全部 {count} 场对阵 A—Z",
+    "metaTitle": "{home} vs {away}：2026世界杯正面对决分析",
+    "metaDescription": "{home} 对阵 {away} 在2026年FIFA世界杯的AI驱动对比。胜率预测、阵容数据、默契指数、关键球员对位与战术分析。"
   },
   "oddsPage": {
     "badge": "每5分钟更新",

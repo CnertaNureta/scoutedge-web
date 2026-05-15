@@ -24,6 +24,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      // `server-only` is a Next.js compile-time guard with no real exports.
+      // Vitest doesn't have Next's bundler, so route it to a local no-op so
+      // pages that transitively import it (e.g. site-data, home-magazine-data)
+      // can be loaded by generateMetadata regression tests.
+      'server-only': path.resolve(__dirname, './src/test/server-only-stub.ts'),
     },
   },
 })

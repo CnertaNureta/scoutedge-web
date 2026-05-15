@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Cặp đấu liên bảng nổi bật",
     "compareAny": "So sánh bất kỳ hai đội",
     "compareAnyDesc": "Chọn từ 48 đội để so sánh bất kỳ trong {count} cặp đấu có thể.",
-    "browseMatchups": "Xem tất cả {count} cặp đấu A—Z"
+    "browseMatchups": "Xem tất cả {count} cặp đấu A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "Cập nhật mỗi 5 phút",
@@ -772,8 +774,8 @@
     "fullProfileOn": "Hồ sơ đầy đủ tại {team}",
     "teamSquad": "{flag} Đội hình {team}",
     "allTeams": "Tất cả đội tuyển",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} World Cup 2026 — Hồ sơ, thống kê & dự đoán",
+    "metaDescription": "{name} ({position}), cầu thủ của {club} và có tên trong đội hình {team}. Thống kê World Cup 2026, báo cáo trinh sát và phân tích AI."
   },
   "playerStatusPage": {
     "badge": "Theo dõi đội hình",
@@ -1081,8 +1083,8 @@
     "safetySafe": "an toàn",
     "safetyModerate": "trung bình",
     "safetyCaution": "thận trọng",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — Thành phố đăng cai World Cup 2026: Cẩm nang du lịch",
+    "metaDescription": "Hướng dẫn về {city}, thành phố đăng cai World Cup 2026 tại {country}. Sân vận động, di chuyển, khách sạn, an ninh và lịch thi đấu."
   },
   "travelPage": {
     "heroBadge": "Hướng dẫn CĐV",
@@ -1695,7 +1697,7 @@
     "chemistry": "Hòa hợp"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} tại World Cup 2026 — Đội hình, phân tích & dự đoán",
+    "metaDescription": "Phân tích AI hành trình của {team} tại World Cup 2026. Bảng {group}, hạng FIFA {rank}. Đội hình, lịch thi đấu, gắn kết và xác suất vô địch."
   }
 }

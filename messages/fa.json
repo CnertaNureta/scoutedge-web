@@ -331,7 +331,9 @@
     "featuredCrossGroup": "بازی‌های ویژه بین‌گروهی",
     "compareAny": "مقایسه هر دو تیم",
     "compareAnyDesc": "از بین ۴۸ تیم انتخاب کنید و هر یک از {count} ترکیب ممکن را مقایسه کنید.",
-    "browseMatchups": "مشاهده همه {count} بازی A—Z"
+    "browseMatchups": "مشاهده همه {count} بازی A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "به‌روزرسانی هر ۵ دقیقه",
@@ -772,8 +774,8 @@
     "fullProfileOn": "پروفایل کامل در {team}",
     "teamSquad": "{flag} ترکیب {team}",
     "allTeams": "همه تیم‌ها",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} در جام جهانی ۲۰۲۶ — پروفایل، آمار و پیش‌بینی",
+    "metaDescription": "{name} ({position}) بازیکن {club} و عضو تیم ملی {team}. آمار جام جهانی ۲۰۲۶، گزارش اسکات و تحلیل هوش مصنوعی."
   },
   "playerStatusPage": {
     "badge": "رهگیری ترکیب",
@@ -1081,8 +1083,8 @@
     "safetySafe": "امن",
     "safetyModerate": "متوسط",
     "safetyCaution": "احتیاط",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — شهر میزبان جام جهانی ۲۰۲۶: راهنمای سفر",
+    "metaDescription": "راهنمای {city}، شهر میزبان جام جهانی ۲۰۲۶ در {country}. ورزشگاه‌ها، حمل‌ونقل، هتل‌ها، امنیت و برنامه بازی‌ها."
   },
   "travelPage": {
     "heroBadge": "راهنمای هوادار",
@@ -1695,7 +1697,7 @@
     "chemistry": "هماهنگی"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} در جام جهانی ۲۰۲۶ — فهرست تیم، تحلیل و پیش‌بینی",
+    "metaDescription": "تحلیل هوش مصنوعی از حضور {team} در جام جهانی ۲۰۲۶. گروه {group}، رتبه فیفا {rank}. فهرست بازیکنان، برنامه، هماهنگی تیمی و شانس قهرمانی."
   }
 }

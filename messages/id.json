@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Pertandingan Lintas Grup Unggulan",
     "compareAny": "Bandingkan Dua Tim Manapun",
     "compareAnyDesc": "Pilih dari semua 48 tim untuk membandingkan {count} kemungkinan pertandingan.",
-    "browseMatchups": "Jelajahi Semua {count} Pertandingan A—Z"
+    "browseMatchups": "Jelajahi Semua {count} Pertandingan A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "Diperbarui Setiap 5 Menit",
@@ -772,8 +774,8 @@
     "fullProfileOn": "Profil lengkap di {team}",
     "teamSquad": "{flag} Skuad {team}",
     "allTeams": "Semua tim",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} Piala Dunia 2026 — Profil, Statistik & Prediksi",
+    "metaDescription": "{name} ({position}), pemain {club} dan bagian dari skuad {team}. Statistik Piala Dunia 2026, laporan scouting, dan analisis AI."
   },
   "playerStatusPage": {
     "badge": "Pelacak Skuad",
@@ -1081,8 +1083,8 @@
     "safetySafe": "aman",
     "safetyModerate": "sedang",
     "safetyCaution": "hati-hati",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — Kota Tuan Rumah Piala Dunia 2026: Panduan Wisata",
+    "metaDescription": "Panduan {city}, kota tuan rumah Piala Dunia 2026 di {country}. Stadion, transportasi, hotel, keamanan, dan jadwal pertandingan."
   },
   "travelPage": {
     "heroBadge": "Panduan suporter",
@@ -1695,7 +1697,7 @@
     "chemistry": "Chemistry"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} di Piala Dunia 2026 — Skuad, Analisis & Prediksi",
+    "metaDescription": "Analisis AI perjalanan {team} di Piala Dunia 2026. Grup {group}, peringkat FIFA {rank}. Skuad, jadwal, chemistry tim, dan peluang menang."
   }
 }

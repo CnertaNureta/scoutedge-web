@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Uitgelichte Kruisgroep-Confrontaties",
     "compareAny": "Vergelijk Twee Willekeurige Landen",
     "compareAnyDesc": "Kies uit alle 48 landen om elk van de {count} mogelijke confrontaties te vergelijken.",
-    "browseMatchups": "Bekijk Alle {count} Confrontaties A—Z"
+    "browseMatchups": "Bekijk Alle {count} Confrontaties A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "Elke 5 min bijgewerkt",
@@ -772,8 +774,8 @@
     "fullProfileOn": "Volledig profiel bij {team}",
     "teamSquad": "{flag} {team} Selectie",
     "allTeams": "Alle landen",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} WK 2026 — profiel, statistieken en voorspellingen",
+    "metaDescription": "{name} ({position}), speler van {club} en onderdeel van de {team}-selectie. WK 2026-stats, scoutingrapport en AI-inzicht."
   },
   "playerStatusPage": {
     "badge": "Selectietracker",
@@ -1081,8 +1083,8 @@
     "safetySafe": "veilig",
     "safetyModerate": "gemiddeld",
     "safetyCaution": "voorzichtig",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} WK 2026 — reisgids speelstad",
+    "metaDescription": "Gids voor {city}, WK 2026-speelstad in {country}. Stadions, vervoer, hotels, veiligheid en wedstrijdschema."
   },
   "travelPage": {
     "heroBadge": "Fan-gids",
@@ -1695,7 +1697,7 @@
     "chemistry": "Chemie"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} WK 2026 — selectie, analyse en voorspellingen",
+    "metaDescription": "AI-analyse van {team} op het WK 2026. Groep {group}, FIFA-positie {rank}. Selectie, programma, teamchemie en winstkans."
   }
 }
