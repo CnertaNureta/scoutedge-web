@@ -7,6 +7,7 @@ import type { DerivedStats } from '@/lib/player-derived-stats'
 import { getTeamColors } from '@/lib/team-colors'
 import { getPlayerPhoto, hashString } from '@/lib/utils'
 import StatRadar from '@/components/player/StatRadar'
+import PlayerPortraitPlaceholder from '@/components/player/PlayerPortraitPlaceholder'
 import FitnessIndicator from '@/components/ui/FitnessIndicator'
 import NeonAccentBar from '@/components/ui/NeonAccentBar'
 import Badge from '@/components/ui/Badge'
@@ -146,18 +147,7 @@ export default function PlayerHero({ player, team, derivedStats }: PlayerHeroPro
                 />
               </div>
             ) : (
-              <div className="relative z-10 h-[420px] md:h-[540px] lg:h-[600px] w-[300px] flex items-center justify-center">
-                <div
-                  className="w-52 h-52 rounded-full opacity-20 blur-xl"
-                  style={{ background: colors.glow }}
-                />
-                <span
-                  className="absolute font-headline text-[220px] opacity-[0.08]"
-                  style={{ color: colors.glow }}
-                >
-                  {player.number}
-                </span>
-              </div>
+              <PlayerPortraitPlaceholder player={player} team={team} />
             )}
 
             {/* Ghost number watermark */}
