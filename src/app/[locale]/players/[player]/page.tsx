@@ -14,6 +14,7 @@ import SectionHeader from '@/components/ui/SectionHeader'
 import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
 import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
 import SocialBuzzCard from '@/components/player/SocialBuzzCard'
+import SignalLedger from '@/components/player/SignalLedger'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
 export const revalidate = 3600
@@ -196,6 +197,10 @@ export default async function PlayerPage({ params }: Props) {
 
       {team && (
         <SocialBuzzCard player={player} team={team} />
+      )}
+
+      {team && (
+        <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
       )}
 
       {/* Fitness & Intelligence */}
