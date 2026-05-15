@@ -156,7 +156,7 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Market vs Model Spread — books vs us edge module, gated */}
       {marketIntel && (
         <>
-          <Paywall contentType="prediction" scope={slug} previewLines={6}>
+          <Paywall contentType="team" scope={slug} previewLines={6}>
             <MarketModelSpread team={team} marketIntel={marketIntel} />
           </Paywall>
           <div className="mx-14 border-t border-white/[0.08]" />

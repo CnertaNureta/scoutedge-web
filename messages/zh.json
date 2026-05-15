@@ -1911,6 +1911,12 @@
     "metaTitle": "{team} 2026 世界杯 — 阵容、分析与预测",
     "metaDescription": "AI 解读 {team} 的 2026 世界杯征程。{group} 组、FIFA 排名第 {rank}。阵容、赛程、化学指数与晋级概率。"
   },
+  "intelligenceModule": {
+    "signature": "Kick Oracle 数据台",
+    "computedFromSignals": "基于 {count} 条信号计算",
+    "sourceCount": "{count} 个来源",
+    "refreshed": "刷新于 {time}"
+  },
   "scoutEdgeScore": {
     "title": "球探总评",
     "subtitle": "综合情报评分",

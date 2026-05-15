@@ -2289,6 +2289,12 @@
     "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
     "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   },
+  "intelligenceModule": {
+    "signature": "Kick Oracle Desk",
+    "computedFromSignals": "{count, plural, one {Computed from # signal} other {Computed from # signals}}",
+    "sourceCount": "{count, plural, one {# source} other {# sources}}",
+    "refreshed": "refreshed {time}"
+  },
   "scoutEdgeScore": {
     "title": "ScoutEdge Score",
     "subtitle": "Composite Intelligence Grade",

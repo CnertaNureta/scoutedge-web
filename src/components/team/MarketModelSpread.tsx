@@ -41,7 +41,7 @@ export interface MarketModelSpreadResult {
 export function computeMarketModelSpread(
   marketIntel: MarketIntelData,
 ): MarketModelSpreadResult {
-  const marketPct = clampPct(marketIntel.impliedProbability * 100)
+  const marketPct = clampPct(marketIntel.impliedProbability)
   const edge = marketIntel.modelEdge?.edge ?? 0
   const modelPct =
     marketIntel.modelEdge != null
@@ -212,7 +212,7 @@ export default async function MarketModelSpread({
                     {price.decimalOdds.toFixed(2)}
                   </span>
                   <span className="text-on-surface-variant">
-                    {(price.impliedProbability * 100).toFixed(1)}%
+                    {price.impliedProbability.toFixed(1)}%
                   </span>
                 </li>
               ))}

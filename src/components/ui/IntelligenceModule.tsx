@@ -1,7 +1,8 @@
 import GlassCard from './GlassCard'
 import { BRAND, SURFACE } from '@/lib/brand-tokens'
+import { useLocale, useTranslations } from 'next-intl'
 
-const KICK_ORACLE_SIGNATURE = '— Kick Oracle Desk'
+const DEFAULT_SIGNATURE = 'Kick Oracle Desk'
 
 export interface IntelligenceModuleProps {
   title: string
@@ -16,7 +17,11 @@ export interface IntelligenceModuleProps {
   children: React.ReactNode
 }
 
-function toRelativeTime(input: string | Date, now: Date = new Date()): string {
+function toRelativeTime(
+  input: string | Date,
+  locale: string,
+  now: Date = new Date(),
+): string {
   const date = typeof input === 'string' ? new Date(input) : input
   if (Number.isNaN(date.getTime())) {
     return ''
@@ -26,7 +31,7 @@ function toRelativeTime(input: string | Date, now: Date = new Date()): string {
   const diffSeconds = Math.round(diffMs / 1000)
   const absSeconds = Math.abs(diffSeconds)
 
-  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' })
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: 'auto' })
 
   if (absSeconds < 60) {
     return rtf.format(Math.round(diffSeconds), 'second')
@@ -55,18 +60,17 @@ function buildConfidenceLine(opts: {
   signalCount?: number
   sourceCount?: number
   refreshed?: string
+  t: (key: string, values?: Record<string, string | number>) => string
 }): string | null {
   const parts: string[] = []
   if (typeof opts.signalCount === 'number') {
-    parts.push(
-      `Computed from ${opts.signalCount} signal${opts.signalCount === 1 ? '' : 's'}`,
-    )
+    parts.push(opts.t('computedFromSignals', { count: opts.signalCount }))
   }
   if (typeof opts.sourceCount === 'number') {
-    parts.push(`${opts.sourceCount} source${opts.sourceCount === 1 ? '' : 's'}`)
+    parts.push(opts.t('sourceCount', { count: opts.sourceCount }))
   }
   if (opts.refreshed) {
-    parts.push(`refreshed ${opts.refreshed}`)
+    parts.push(opts.t('refreshed', { time: opts.refreshed }))
   }
   if (parts.length === 0) {
     return null
@@ -74,12 +78,17 @@ function buildConfidenceLine(opts: {
   return parts.join(' · ')
 }
 
-function appendSignature(verdict: string): string {
+function formatSignature(signature: string): string {
+  const trimmed = signature.trim() || DEFAULT_SIGNATURE
+  return trimmed.startsWith('—') ? trimmed : `— ${trimmed}`
+}
+
+function appendSignature(verdict: string, signature: string): string {
   const trimmed = verdict.trim()
-  if (trimmed.endsWith(KICK_ORACLE_SIGNATURE)) {
+  if (trimmed.endsWith(signature)) {
     return trimmed
   }
-  return `${trimmed} ${KICK_ORACLE_SIGNATURE}`
+  return `${trimmed} ${signature}`
 }
 
 export default function IntelligenceModule({
@@ -94,11 +103,15 @@ export default function IntelligenceModule({
   className = '',
   children,
 }: IntelligenceModuleProps) {
-  const refreshed = lastUpdatedAt ? toRelativeTime(lastUpdatedAt) : undefined
+  const t = useTranslations('intelligenceModule')
+  const locale = useLocale()
+  const signature = formatSignature(t('signature'))
+  const refreshed = lastUpdatedAt ? toRelativeTime(lastUpdatedAt, locale) : undefined
   const confidenceLine = buildConfidenceLine({
     signalCount,
     sourceCount,
     refreshed,
+    t,
   })
 
   return (
@@ -144,7 +157,7 @@ export default function IntelligenceModule({
             className="font-body italic text-base md:text-lg leading-relaxed mb-6"
             style={{ color: accentColor }}
           >
-            {appendSignature(scoutVerdict)}
+            {appendSignature(scoutVerdict, signature)}
           </p>
         )}
 
@@ -165,7 +178,7 @@ export default function IntelligenceModule({
             </p>
           )}
           <p className="font-label text-[10px] text-on-surface-variant/40 uppercase tracking-[0.2em]">
-            {KICK_ORACLE_SIGNATURE.toUpperCase()}
+            {signature.toUpperCase()}
           </p>
         </footer>
       </div>

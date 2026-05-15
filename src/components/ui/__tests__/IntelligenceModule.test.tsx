@@ -1,10 +1,25 @@
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { NextIntlClientProvider } from 'next-intl'
 import IntelligenceModule from '../IntelligenceModule'
+import enMessages from '../../../../messages/en.json'
+import zhMessages from '../../../../messages/zh.json'
+
+function renderWithIntl(
+  ui: React.ReactNode,
+  locale: 'en' | 'zh' = 'en',
+  messages: Record<string, unknown> = enMessages,
+) {
+  return render(
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      {ui}
+    </NextIntlClientProvider>,
+  )
+}
 
 describe('IntelligenceModule', () => {
   it('renders the title', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule title="ScoutEdge Score" dossierId="SCT-MEX-T1-W21-2026">
         <p>Body</p>
       </IntelligenceModule>,
@@ -13,7 +28,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('renders the dossier stamp', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule title="ScoutEdge Score" dossierId="SCT-MEX-T1-W21-2026">
         <p>Body</p>
       </IntelligenceModule>,
@@ -22,7 +37,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('renders the optional subtitle when provided', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         subtitle="Intelligence Brief"
@@ -35,7 +50,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('renders the verdict with auto-appended Kick Oracle Desk signature', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         dossierId="SCT-MEX-T1-W21-2026"
@@ -50,7 +65,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('does not duplicate the signature if the verdict already ends with it', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         dossierId="SCT-MEX-T1-W21-2026"
@@ -66,7 +81,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('renders the confidence footer with signal and source counts', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         dossierId="SCT-MEX-T1-W21-2026"
@@ -83,7 +98,7 @@ describe('IntelligenceModule', () => {
 
   it('includes refreshed relative time when lastUpdatedAt is provided', () => {
     const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString()
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         dossierId="SCT-MEX-T1-W21-2026"
@@ -97,7 +112,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('omits the confidence footer line entirely when all confidence values are undefined', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule title="ScoutEdge Score" dossierId="SCT-MEX-T1-W21-2026">
         <p>Body</p>
       </IntelligenceModule>,
@@ -107,7 +122,7 @@ describe('IntelligenceModule', () => {
   })
 
   it('omits sources segment when sourceCount is undefined but signalCount is set', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule
         title="ScoutEdge Score"
         dossierId="SCT-MEX-T1-W21-2026"
@@ -120,8 +135,30 @@ describe('IntelligenceModule', () => {
     expect(screen.queryByText(/sources/)).not.toBeInTheDocument()
   })
 
+  it('localizes confidence footer copy and relative time', () => {
+    const sixHoursAgo = new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString()
+    renderWithIntl(
+      <IntelligenceModule
+        title="球探总评"
+        dossierId="SCT-MEX-T1-W21-2026"
+        signalCount={5}
+        sourceCount={2}
+        lastUpdatedAt={sixHoursAgo}
+        scoutVerdict="样本量充足"
+      >
+        <p>Body</p>
+      </IntelligenceModule>,
+      'zh',
+      zhMessages,
+    )
+
+    expect(screen.getByText(/基于 5 条信号计算 · 2 个来源 · 刷新于/)).toBeInTheDocument()
+    expect(screen.getByText(/样本量充足\s*— Kick Oracle 数据台/)).toBeInTheDocument()
+    expect(screen.queryByText(/Computed from|refreshed/)).not.toBeInTheDocument()
+  })
+
   it('renders children inside the content slot', () => {
-    render(
+    renderWithIntl(
       <IntelligenceModule title="ScoutEdge Score" dossierId="SCT-MEX-T1-W21-2026">
         <p data-testid="content-slot">child body</p>
       </IntelligenceModule>,

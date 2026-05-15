@@ -5,11 +5,11 @@ import type { MarketIntelData, ModelEdge } from '@/lib/types'
 function makeIntel(overrides: Partial<MarketIntelData> = {}): MarketIntelData {
   return {
     tournamentPrices: [
-      { source: 'Consensus A', decimalOdds: 5, impliedProbability: 0.2 },
-      { source: 'Consensus B', decimalOdds: 5.5, impliedProbability: 0.18 },
+      { source: 'Consensus A', decimalOdds: 5, impliedProbability: 20 },
+      { source: 'Consensus B', decimalOdds: 5.5, impliedProbability: 18 },
     ],
     averageOdds: 5.25,
-    impliedProbability: 0.2,
+    impliedProbability: 20,
     movement: 'stable',
     modelEdge: null,
     ...overrides,
@@ -69,9 +69,9 @@ describe('computeMarketModelSpread', () => {
     expect(result.verdictKey).toBe('modest')
   })
 
-  it('marketPct equals impliedProbability * 100', () => {
+  it('marketPct uses the stored impliedProbability percentage directly', () => {
     const result = computeMarketModelSpread(
-      makeIntel({ impliedProbability: 0.25 }),
+      makeIntel({ impliedProbability: 25 }),
     )
     expect(result.marketPct).toBe(25)
   })
@@ -90,7 +90,7 @@ describe('computeMarketModelSpread', () => {
 
   it('clamps marketPct to 0-100', () => {
     const high = computeMarketModelSpread(
-      makeIntel({ impliedProbability: 2 }),
+      makeIntel({ impliedProbability: 120 }),
     )
     expect(high.marketPct).toBe(100)
     const low = computeMarketModelSpread(
