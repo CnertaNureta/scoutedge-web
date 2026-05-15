@@ -1,4 +1,5 @@
 import type { MatchFixture, Player, Team } from '@/lib/types'
+import { ratingToHundredScale } from './rating-scale'
 
 export type ThreatTier = 'S' | 'A' | 'B' | 'C'
 export type ProjectedRoleKey =
@@ -89,17 +90,18 @@ function teamRatingFromFixture(
 
 function projectRole(player: Player): ProjectedRoleKey {
   const template = ROLE_BY_POSITION_TEMPLATE[player.position]
+  const rating = ratingToHundredScale(player.rating)
   if (player.position === 'FWD') {
     const goalRatio = player.goals / Math.max(1, player.caps)
     return goalRatio >= 0.45 ? template.primary : template.alt
   }
   if (player.position === 'MID') {
-    return player.rating >= 82 ? template.primary : template.alt
+    return rating >= 82 ? template.primary : template.alt
   }
   if (player.position === 'DEF') {
     return player.age >= 28 ? template.alt : template.primary
   }
-  return player.rating >= 82 ? template.alt : template.primary
+  return rating >= 82 ? template.alt : template.primary
 }
 
 function projectMinutesPct(player: Player, opponentStrength: number): number {
@@ -117,9 +119,10 @@ function projectMinutesPct(player: Player, opponentStrength: number): number {
   minutes += fitnessAdj
 
   // Star players ride out tough fixtures; squad rotation in soft games.
-  if (player.rating >= 80) {
+  const rating = ratingToHundredScale(player.rating)
+  if (rating >= 80) {
     if (opponentStrength >= 0.45) minutes += 5
-  } else if (player.rating < 75) {
+  } else if (rating < 75) {
     if (opponentStrength < 0.3) minutes -= 5
   }
 
@@ -130,7 +133,8 @@ function projectThreatTier(
   player: Player,
   opponentTeam: Team | undefined,
 ): ThreatTier {
-  let score = player.rating
+  const rating = ratingToHundredScale(player.rating)
+  let score = rating
 
   if (opponentTeam) {
     if (opponentTeam.fifaRanking <= STRONG_OPPONENT_FIFA_RANK_MAX) {
@@ -144,7 +148,7 @@ function projectThreatTier(
   // we tier them off shot-stopping ceiling (proxied by raw rating) without
   // the +/- opponent adjustment (they face every shot regardless).
   if (player.position === 'GK') {
-    score = player.rating
+    score = rating
   }
 
   if (score >= THREAT_TIER_S_MIN) return 'S'
@@ -160,7 +164,7 @@ function buildKeyMatchupNote(
 ): string | undefined {
   if (player.position === 'GK') return undefined
   if (!opponentTeam) return undefined
-  if (player.rating < KEY_MATCHUP_RATING_MIN) return undefined
+  if (ratingToHundredScale(player.rating) < KEY_MATCHUP_RATING_MIN) return undefined
   if (opponentTeam.fifaRanking > KEY_MATCHUP_OPPONENT_RANK_MAX) return undefined
   if (minutesPct < 50) return undefined
   return `vs ${opponentTeam.name}`

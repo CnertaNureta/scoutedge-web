@@ -5,6 +5,7 @@ import IntelligenceModule from '@/components/ui/IntelligenceModule'
 import PullQuote from '@/components/ui/PullQuote'
 import Paywall from '@/components/monetization/Paywall'
 import { BRAND, POSITION_HEX } from '@/lib/brand-tokens'
+import { ratingToHundredScale } from '@/lib/intelligence/rating-scale'
 
 // ── Heuristic thresholds for position templates ───────────────
 const FW_BOX_CRASHER_GOAL_RATIO_MIN = 0.45 // goals per cap
@@ -70,13 +71,13 @@ function pickPositionTrait(player: Player): DifferentiatorTraitKey {
     return goalRatio >= FW_BOX_CRASHER_GOAL_RATIO_MIN ? 'fw_box_crasher' : 'fw_wide_creator'
   }
   if (player.position === 'MID') {
-    return player.rating >= MID_METRONOME_RATING_MIN ? 'mid_metronome' : 'mid_press_resistant'
+    return ratingToHundredScale(player.rating) >= MID_METRONOME_RATING_MIN ? 'mid_metronome' : 'mid_press_resistant'
   }
   if (player.position === 'DEF') {
     return player.age >= DEF_AERIAL_AGE_MIN ? 'def_aerial' : 'def_sweeper'
   }
   // GK
-  return player.rating >= GK_SHOTSTOPPER_RATING_MIN ? 'gk_shotstopper' : 'gk_sweeper'
+  return ratingToHundredScale(player.rating) >= GK_SHOTSTOPPER_RATING_MIN ? 'gk_shotstopper' : 'gk_sweeper'
 }
 
 /**

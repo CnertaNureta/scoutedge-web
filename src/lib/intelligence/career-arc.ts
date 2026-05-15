@@ -11,6 +11,7 @@
  * per-player fabrications) matched by position group + age proximity.
  */
 import type { Player } from '@/lib/types'
+import { ratingToHundredScale } from './rating-scale'
 
 export type CareerPhase =
   | 'ascending'
@@ -199,17 +200,18 @@ export function classifyPhase(age: number, position: Player['position']): Career
 
 /**
  * Build a synthesized rating trajectory for a player.
- * Guarantees the trajectory's current-age point equals player.rating exactly.
+ * Guarantees the trajectory's current-age point equals the normalized player rating.
  */
 function buildTrajectory(player: Player): CareerPoint[] {
   const band = PEAK_BANDS[player.position]
   const currentAge = player.age
   const endAge = currentAge + FUTURE_HORIZON
   const rng = mulberry32(hashSlug(player.slug))
+  const currentRating = ratingToHundredScale(player.rating)
 
   // Synthesize a peak rating slightly above current rating, capped at 99.
   const peakOffset = 2 + Math.floor(rng() * 6) // 2..7
-  const synthesizedPeak = clamp(player.rating + peakOffset, RATING_MIN, RATING_MAX)
+  const synthesizedPeak = clamp(currentRating + peakOffset, RATING_MIN, RATING_MAX)
   const peakAge = clamp(
     Math.round((band.low + band.high) / 2),
     band.low,
@@ -234,10 +236,10 @@ function buildTrajectory(player: Player): CareerPoint[] {
     points.push({ age, rating })
   }
 
-  // Pin current-age point to player.rating exactly.
+  // Pin current-age point to the same 50-100 scale used by the chart.
   const currentIdx = points.findIndex((p) => p.age === currentAge)
   if (currentIdx >= 0) {
-    points[currentIdx] = { age: currentAge, rating: player.rating }
+    points[currentIdx] = { age: currentAge, rating: currentRating }
   }
 
   return points

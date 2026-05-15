@@ -163,4 +163,19 @@ describe('computePlayerScoutGrade', () => {
     const form = grade.breakdown.find((d) => d.label === 'form')
     expect(form?.value).toBe(70)
   })
+
+  it('normalizes live 0-10 player ratings before scoring skill and form', () => {
+    const hundredScale = { ...makePlayer({ rating: 82 }), sentimentScore: undefined } as unknown as Player
+    const tenScale = { ...makePlayer({ rating: 8.2 }), sentimentScore: undefined } as unknown as Player
+
+    const a = computePlayerScoutGrade(hundredScale, undefined)
+    const b = computePlayerScoutGrade(tenScale, undefined)
+
+    expect(b.breakdown.find((d) => d.label === 'skill')?.value).toBe(
+      a.breakdown.find((d) => d.label === 'skill')?.value,
+    )
+    expect(b.breakdown.find((d) => d.label === 'form')?.value).toBe(
+      a.breakdown.find((d) => d.label === 'form')?.value,
+    )
+  })
 })

@@ -10,6 +10,7 @@
  * v1 synthesizes edges from existing roster fields only.
  */
 import type { Player, Team } from '@/lib/types'
+import { ratingToHundredScale } from './rating-scale'
 
 export type ChemistryLine = 'GK' | 'DEF' | 'MID' | 'FWD'
 
@@ -75,7 +76,8 @@ function pickStarters(players: ReadonlyArray<Player>): Player[] {
   // Sort descending by rating so we pick the strongest XI deterministically.
   // Tie-break on slug to keep the ordering stable.
   const sorted = [...players].sort((a, b) => {
-    if (b.rating !== a.rating) return b.rating - a.rating
+    const ratingDelta = ratingToHundredScale(b.rating) - ratingToHundredScale(a.rating)
+    if (ratingDelta !== 0) return ratingDelta
     return a.slug.localeCompare(b.slug)
   })
   return sorted.slice(0, MAX_STARTERS)
@@ -140,7 +142,7 @@ function computePairScore(a: Player, b: Player): number {
     score += AGE_PROXIMITY_BONUS
   }
 
-  const minRating = Math.min(a.rating, b.rating)
+  const minRating = Math.min(ratingToHundredScale(a.rating), ratingToHundredScale(b.rating))
   score += (RATING_BOOST_WEIGHT * minRating) / 100
 
   return clamp01(score)

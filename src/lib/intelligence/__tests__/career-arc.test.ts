@@ -74,6 +74,14 @@ describe('computeCareerArc trajectory', () => {
     expect(current?.rating).toBe(85)
   })
 
+  it("normalizes live 0-10 ratings for the current-age trajectory point", () => {
+    const player = makePlayer({ age: 27, rating: 8.5 })
+    const { trajectory } = computeCareerArc(player)
+    const current = trajectory.find((p) => p.age === player.age)
+    expect(current).toBeDefined()
+    expect(current?.rating).toBe(85)
+  })
+
   it('is deterministic — same player slug produces same trajectory', () => {
     const a = computeCareerArc(makePlayer({ slug: 'modric', age: 32, rating: 89 }))
     const b = computeCareerArc(makePlayer({ slug: 'modric', age: 32, rating: 89 }))

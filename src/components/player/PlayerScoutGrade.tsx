@@ -7,6 +7,7 @@ import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import Paywall from '@/components/monetization/Paywall'
 import { BRAND, POSITION_HEX } from '@/lib/brand-tokens'
+import { ratingToHundredScale } from '@/lib/intelligence/rating-scale'
 
 // ── Weights for the weighted-average total ────────────────────
 const WEIGHTS = {
@@ -41,7 +42,7 @@ function roundClamp(value: number): number {
 }
 
 function computeSkill(player: Player): number {
-  return roundClamp((player.rating - 50) * 2)
+  return roundClamp((ratingToHundredScale(player.rating) - 50) * 2)
 }
 
 function computeForm(player: Player, playerIntel?: PlayerIntelRecord): number {
@@ -51,7 +52,7 @@ function computeForm(player: Player, playerIntel?: PlayerIntelRecord): number {
   if (typeof morale === 'number' && Number.isFinite(morale)) {
     return roundClamp(morale)
   }
-  return roundClamp(player.rating - 10)
+  return roundClamp(ratingToHundredScale(player.rating) - 10)
 }
 
 function computeFit(player: Player, playerIntel?: PlayerIntelRecord): number {

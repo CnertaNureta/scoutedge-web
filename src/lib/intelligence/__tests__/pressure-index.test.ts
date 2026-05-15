@@ -132,6 +132,17 @@ describe('computePressureIndex', () => {
     expect(out.score).toBeGreaterThanOrEqual(70)
   })
 
+  it('normalizes live 0-10 ratings before computing form contribution', () => {
+    const team = makeTeam()
+    const tenScale = computePressureIndex(makePlayer({ rating: 8.8 }), team)
+    const hundredScale = computePressureIndex(makePlayer({ rating: 88 }), team)
+
+    expect(tenScale.score).toBe(hundredScale.score)
+    expect(tenScale.factors.find((f) => f.key === 'form')?.contribution).toBe(
+      hundredScale.factors.find((f) => f.key === 'form')?.contribution,
+    )
+  })
+
   it('low-fitness + low-morale player scores < 50', () => {
     const out = computePressureIndex(
       makePlayer({

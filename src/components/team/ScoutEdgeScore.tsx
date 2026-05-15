@@ -6,6 +6,7 @@ import IntelligenceModule from '@/components/ui/IntelligenceModule'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import AnimatedNumber from '@/components/ui/AnimatedNumber'
 import { chemistryColor } from '@/lib/utils'
+import { ratingToHundredScale } from '@/lib/intelligence/rating-scale'
 
 const DIM_WEIGHTS = {
   attack: 0.18,
@@ -102,7 +103,7 @@ function clamp(value: number, lo = 0, hi = 100): number {
 
 function averageRating(group: ReadonlyArray<Player>): number {
   if (group.length === 0) return 0
-  const sum = group.reduce((acc, p) => acc + p.rating, 0)
+  const sum = group.reduce((acc, p) => acc + ratingToHundredScale(p.rating), 0)
   return sum / group.length
 }
 

@@ -147,6 +147,28 @@ describe('computeMatchProjection', () => {
     )
   })
 
+  it('uses the same threat tier for equivalent 0-10 and 0-100 ratings', () => {
+    const team = makeTeam()
+    const opponent: Team = makeTeam({ slug: 'opp-1', fifaRanking: 25, name: 'Opp' })
+    const fixtures = [makeFixture(1)]
+
+    const tenScale = computeMatchProjection(
+      makePlayer({ rating: 8.8 }),
+      team,
+      fixtures,
+      [opponent],
+    )
+    const hundredScale = computeMatchProjection(
+      makePlayer({ rating: 88 }),
+      team,
+      fixtures,
+      [opponent],
+    )
+
+    expect(tenScale.rows[0].threatTier).toBe(hundredScale.rows[0].threatTier)
+    expect(tenScale.rows[0].keyMatchupNote).toBe(hundredScale.rows[0].keyMatchupNote)
+  })
+
   it('returns binary minutes for goalkeepers (90 fit / 0 benched) and no key matchup note', () => {
     const team = makeTeam()
     const opponent = makeTeam({

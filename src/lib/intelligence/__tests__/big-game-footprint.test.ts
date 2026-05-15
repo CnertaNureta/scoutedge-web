@@ -147,4 +147,16 @@ describe('computeBigGameFootprint — rating-driven bias', () => {
     }
     expect(highTotal / samples).toBeGreaterThan(lowTotal / samples)
   })
+
+  it('treats equivalent 0-10 and 0-100 player ratings the same', () => {
+    const tenScale = computeBigGameFootprint(
+      makePlayer({ slug: 'same-scale-player', rating: 8.8 }),
+    )
+    const hundredScale = computeBigGameFootprint(
+      makePlayer({ slug: 'same-scale-player', rating: 88 }),
+    )
+
+    expect(tenScale.meanRating).toBe(hundredScale.meanRating)
+    expect(tenScale.appearances).toEqual(hundredScale.appearances)
+  })
 })

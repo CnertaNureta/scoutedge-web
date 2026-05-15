@@ -90,6 +90,12 @@ describe('computeDifferentiator', () => {
     expect(result.traitKey).toBe('mid_metronome')
   })
 
+  it('classifies equivalent 0-10 MID ratings with the same threshold', () => {
+    const player = makePlayer({ position: 'MID', rating: 8.7 })
+    const result = computeDifferentiator(player, undefined)
+    expect(result.traitKey).toBe('mid_metronome')
+  })
+
   it('classifies a lower-rated MID as mid_press_resistant', () => {
     const player = makePlayer({ position: 'MID', rating: 75 })
     const result = computeDifferentiator(player, undefined)

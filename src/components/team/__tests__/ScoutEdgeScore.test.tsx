@@ -147,6 +147,21 @@ describe('computeScoutEdgeScore', () => {
     }
   })
 
+  it('normalizes live 0-10 squad ratings to match 0-100 inputs', () => {
+    const team = makeTeam()
+    const hundredScale = computeScoutEdgeScore(team, strongEdge(), makeSquad(), baseOpts)
+    const tenScaleSquad = makeSquad().map((p) => ({
+      ...p,
+      rating: p.rating / 10,
+    }))
+    const tenScale = computeScoutEdgeScore(team, strongEdge(), tenScaleSquad, baseOpts)
+
+    expect(tenScale.total).toBe(hundredScale.total)
+    expect(tenScale.breakdown.find((d) => d.label === 'Attack')?.value).toBe(
+      hundredScale.breakdown.find((d) => d.label === 'Attack')?.value,
+    )
+  })
+
   it('falls back to familiarity + 10 when modelEdge is null', () => {
     const team = makeTeam({ familiarity: 40 })
     const score = computeScoutEdgeScore(team, undefined, makeSquad(), baseOpts)
@@ -217,7 +232,7 @@ describe('computeScoutEdgeScore', () => {
     // Build a fixture where we can force specific totals via team.morale (Form dim, weight 0.20).
     // We pin every other input the same and walk the cutoffs.
     const cases: Array<[number, string]> = [
-      [10, 'LIMITED'], // very low
+      [1, 'LIMITED'], // very low on the live 0-10 player-rating scale
       [55, 'VIABLE'],
       [70, 'STRONG'],
       [90, 'ELITE'],

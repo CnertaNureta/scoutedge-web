@@ -12,6 +12,7 @@
  * the UI never flickers.
  */
 import type { Player } from '@/lib/types'
+import { ratingToHundredScale } from './rating-scale'
 
 export type BigGameStage =
   | 'final'
@@ -120,10 +121,10 @@ function roundTo(value: number, decimals: number): number {
 
 /**
  * Bias the baseline performance rating from player.rating.
- * Maps an 50-99 FIFA-style rating onto a 5.0-8.5 big-game baseline.
+ * Maps a 50-99 normalized rating onto a 5.0-8.5 big-game baseline.
  */
 function ratingBaseline(player: Player): number {
-  const clampedRating = clamp(player.rating, 50, 99)
+  const clampedRating = clamp(ratingToHundredScale(player.rating), 50, 99)
   const normalized = (clampedRating - 50) / 49 // 0..1
   return 5 + normalized * 3.5 // 5.0 .. 8.5
 }
@@ -193,7 +194,7 @@ function classifyVerdict(mean: number): BigGameVerdict {
 export function computeBigGameFootprint(player: Player): BigGameFootprintBreakdown {
   const rng = mulberry32(hashSlug(player.slug))
   const baseline = ratingBaseline(player)
-  const isElite = player.rating >= ELITE_RATING_THRESHOLD
+  const isElite = ratingToHundredScale(player.rating) >= ELITE_RATING_THRESHOLD
   const goalRate = goalLikelihood(player.position)
   const assistRate = assistLikelihood(player.position)
 

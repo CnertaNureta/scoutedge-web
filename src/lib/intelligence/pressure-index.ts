@@ -1,4 +1,5 @@
 import type { Player, Team } from '@/lib/types'
+import { ratingToHundredScale } from './rating-scale'
 
 // ── Tier thresholds (score 0..100) ────────────────────────────
 const TIER_ICE_MIN = 80
@@ -79,7 +80,7 @@ function computeExperience(player: Player): number {
 
 function computeForm(player: Player): number {
   const span = RATING_FORM_MAX - RATING_FORM_MIN
-  const normalized = ((player.rating - RATING_FORM_MIN) / span) * 100
+  const normalized = ((ratingToHundredScale(player.rating) - RATING_FORM_MIN) / span) * 100
   return clamp(Math.round(normalized), 0, 100)
 }
 
