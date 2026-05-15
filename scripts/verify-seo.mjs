@@ -319,9 +319,14 @@ const teamCheck = (url, { nodes }) => {
 const cityCheck = (url, { nodes }) => {
   const place = nodes.find((n) => {
     const t = n['@type']
-    return t === 'Place' || t === 'TouristAttraction' || (Array.isArray(t) && (t.includes('Place') || t.includes('TouristAttraction')))
+    return (
+      t === 'Place' ||
+      t === 'TouristAttraction' ||
+      t === 'TouristDestination' ||
+      (Array.isArray(t) && (t.includes('Place') || t.includes('TouristAttraction') || t.includes('TouristDestination')))
+    )
   })
-  if (!place) return fail(url, 'JSON-LD missing Place/TouristAttraction')
+  if (!place) return fail(url, 'JSON-LD missing Place/TouristAttraction/TouristDestination')
   pass(url, `City has ${place['@type']} node${place.geo ? ' with geo' : ' (no geo)'}`)
 }
 
