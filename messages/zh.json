@@ -2028,6 +2028,24 @@
       "empty": "暂无声响——目前没有归档信号。"
     }
   },
+  "pressureIndex": {
+    "heading": "压力指数",
+    "subtitle": "球员在大场面下的抗压表现",
+    "scoreLabel": "压力分数",
+    "scoutVerdict": "{player} 在大场面下读作{tier}——这是规则版 MVP 的判断。",
+    "tierIce": "冰冷",
+    "tierCool": "稳健",
+    "tierWarm": "温热",
+    "tierShaky": "摇摆",
+    "factors": {
+      "experience": "经验",
+      "form": "状态",
+      "fitness": "体能",
+      "morale": "士气",
+      "archetypeFit": "原型契合"
+    },
+    "modelStubFootnote": "规则版 MVP——完整压力指数模型将在 Phase 3 后续版本上线"
+  },
   "workload": {
     "heading": "负荷监测",
     "subtitle": "近 12 个月滚动出场分钟、场次与国家队窗口",

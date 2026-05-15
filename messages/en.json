@@ -2433,6 +2433,24 @@
       "empty": "Quiet desk — no signals on file yet."
     }
   },
+  "pressureIndex": {
+    "heading": "Pressure Index",
+    "subtitle": "How this player handles big-game pressure",
+    "scoreLabel": "Pressure score",
+    "scoutVerdict": "{player} reads {tier} under big-game pressure — that's the rules-MVP call.",
+    "tierIce": "Ice",
+    "tierCool": "Cool",
+    "tierWarm": "Warm",
+    "tierShaky": "Shaky",
+    "factors": {
+      "experience": "Experience",
+      "form": "Form",
+      "fitness": "Fitness",
+      "morale": "Morale",
+      "archetypeFit": "Archetype fit"
+    },
+    "modelStubFootnote": "Rules MVP — full Pressure Index model launches in Phase 3 follow-up"
+  },
   "workload": {
     "heading": "Workload Watch",
     "subtitle": "12-month rolling minutes, games & national-team load",

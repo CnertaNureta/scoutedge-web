@@ -18,6 +18,7 @@ import MatchProjectionTable from '@/components/player/MatchProjectionTable'
 import SocialBuzzCard from '@/components/player/SocialBuzzCard'
 import SignalLedger from '@/components/player/SignalLedger'
 import WorkloadWatch from '@/components/player/WorkloadWatch'
+import PressureIndex from '@/components/player/PressureIndex'
 import RoleHeatmap from '@/components/player/RoleHeatmap'
 import CareerArc from '@/components/player/CareerArc'
 import DifferentiatorCard from '@/components/player/DifferentiatorCard'
@@ -145,6 +146,7 @@ export default async function PlayerPage({ params }: PageProps) {
       <SocialBuzzCard player={player} team={team} />
       <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
       <WorkloadWatch player={player} team={team} />
+      <PressureIndex player={player} team={team} />
       <RoleHeatmap player={player} team={team} />
       <CareerArc player={player} team={team} />
       <DifferentiatorCard player={player} team={team} />
