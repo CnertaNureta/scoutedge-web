@@ -6,16 +6,19 @@ import { getAllPlayers, getTeamBySlug, getFixturesByTeam } from '@/lib/data-serv
 import { buildOGMeta, breadcrumbJsonLd, personJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
 import { playerDescriptionEn } from '@/data/seo-meta'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
+import { computeDerivedStats } from '@/lib/player-derived-stats'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
+import StatTwin from '@/components/player/StatTwin'
 import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
 import MatchProjectionTable from '@/components/player/MatchProjectionTable'
 import SocialBuzzCard from '@/components/player/SocialBuzzCard'
 import SignalLedger from '@/components/player/SignalLedger'
 import WorkloadWatch from '@/components/player/WorkloadWatch'
 import RoleHeatmap from '@/components/player/RoleHeatmap'
+import CareerArc from '@/components/player/CareerArc'
 import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
@@ -93,6 +96,7 @@ export default async function PlayerPage({ params }: Props) {
   const team = getTeamBySlug(player.teamSlug)
   const playerIntel = getPlayerIntelBySlug(player.teamSlug, player.slug)
   const teamFixtures = getFixturesByTeam(player.teamSlug)
+  const derivedStats = computeDerivedStats(player)
   const teamName = team?.name ?? player.teamSlug.replace(/-/g, ' ')
   const teamFlag = team?.flag ?? ''
   const resolved = resolvePlayerStatus(player)
@@ -178,6 +182,10 @@ export default async function PlayerPage({ params }: Props) {
       )}
 
       {team && (
+        <StatTwin player={player} team={team} derivedStats={derivedStats} />
+      )}
+
+      {team && (
         <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
       )}
 
@@ -199,6 +207,10 @@ export default async function PlayerPage({ params }: Props) {
 
       {team && (
         <RoleHeatmap player={player} team={team} />
+      )}
+
+      {team && (
+        <CareerArc player={player} team={team} />
       )}
 
       {team && (

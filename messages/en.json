@@ -2575,5 +2575,68 @@
     "outsidePeakShort": "outside",
     "avgAgeLabel": "AVG",
     "emptyState": "No squad data available"
+  },
+  "climateTravel": {
+    "heading": "Climate & Travel Impact",
+    "subtitle": "Venue climate × travel km × squad-home fit",
+    "scoutVerdict": {
+      "comfortable": "Short hops, familiar climates — the calendar does the squad a favour.",
+      "manageable": "A couple of awkward fixtures — pace the rotation around them.",
+      "punishing": "Long hauls into hostile climates — recovery is the real opponent."
+    },
+    "fixtureHeader": {
+      "venue": "Venue",
+      "climate": "Climate",
+      "km": "Travel",
+      "fit": "Fit"
+    },
+    "totalKmLabel": "Total travel · group stage",
+    "worstFitLabel": "Worst-fit fixture",
+    "climateBands": {
+      "hotHumid": "Hot & humid",
+      "hotDry": "Hot & dry",
+      "temperate": "Temperate",
+      "cold": "Cold",
+      "altitude": "Altitude"
+    },
+    "emptyState": "No fixture climate data available for this team yet."
+  },
+  "coachPressure": {
+    "heading": "Coach Pressure Profile",
+    "subtitle": "Big-game tells, formation tweaks & set-piece bias",
+    "scoutVerdict": "{coach} reads the pressure room well — these are the levers he pulls when the score line tightens.",
+    "bigGameLabel": "Big-game record",
+    "bigGamePlayed": "games played",
+    "inGameTellsLabel": "In-game tells",
+    "formationTweaksLabel": "Formation tweaks under pressure",
+    "setPieceLabel": "Set-piece bias",
+    "biasAttacking": "Attacking",
+    "biasDefensive": "Defensive",
+    "biasNeutral": "Neutral",
+    "pendingState": "Pressure profile for {coach} is still being assembled — {team} dossier scout still observing."
+  },
+  "statTwin": {
+    "heading": "Stat Twin",
+    "subtitle": "Historical Comparables Overlay",
+    "scoutVerdict": "{player} plays like {topComparable} — the closest pattern match in our scouting history.",
+    "similarityLabel": "Similarity",
+    "traitLabel": "Trait",
+    "comparablesLegend": {
+      "mainPlayerLabel": "{player} (current)",
+      "comparableLabel": "{label} (historical)"
+    },
+    "pendingState": "Comparables pending for {player}. Our historical-match desk hand-curates every twin; this player's dossier is on the next pass."
+  },
+  "careerArc": {
+    "heading": "Career Arc",
+    "subtitle": "Trajectory phase and historical comparables",
+    "scoutVerdict": "{topComparable}-style {phase} trajectory — {player} reads on the same curve as a recognizable archetype.",
+    "phaseAscending": "Rising",
+    "phasePeaking": "Peaking",
+    "phaseDeclining": "Declining",
+    "phaseTransitioning": "Transitioning",
+    "comparableLabel": "Comparables",
+    "traitLabel": "Phase",
+    "ariaLabelTemplate": "Career trajectory chart for {player} — current phase: {phase}"
   }
 }

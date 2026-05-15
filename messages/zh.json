@@ -2197,5 +2197,68 @@
     "outsidePeakShort": "在区外",
     "avgAgeLabel": "均龄",
     "emptyState": "暂无阵容数据"
+  },
+  "climateTravel": {
+    "heading": "气候与旅行影响",
+    "subtitle": "球场气候 × 行程公里 × 本土适应度",
+    "scoutVerdict": {
+      "comfortable": "短途行程，气候熟悉——赛程对球队偏友好。",
+      "manageable": "存在几场不利对阵——围绕它们安排轮换即可。",
+      "punishing": "长途飞行叠加严苛气候——恢复才是真正的对手。"
+    },
+    "fixtureHeader": {
+      "venue": "球场",
+      "climate": "气候",
+      "km": "行程",
+      "fit": "匹配"
+    },
+    "totalKmLabel": "小组赛总行程",
+    "worstFitLabel": "最不利场次",
+    "climateBands": {
+      "hotHumid": "湿热",
+      "hotDry": "干热",
+      "temperate": "温和",
+      "cold": "寒冷",
+      "altitude": "高海拔"
+    },
+    "emptyState": "尚无该球队的赛程气候数据。"
+  },
+  "coachPressure": {
+    "heading": "教练压力画像",
+    "subtitle": "大场面信号 · 阵型微调 · 定位球偏好",
+    "scoutVerdict": "{coach} 在高压时刻很会读球——以下是他在比分胶着时常用的杠杆。",
+    "bigGameLabel": "大赛战绩",
+    "bigGamePlayed": "场",
+    "inGameTellsLabel": "比赛中的信号",
+    "formationTweaksLabel": "高压时的阵型微调",
+    "setPieceLabel": "定位球偏好",
+    "biasAttacking": "进攻取向",
+    "biasDefensive": "防守取向",
+    "biasNeutral": "中性",
+    "pendingState": "{coach} 的压力画像仍在拼装中——{team} 档案球探仍在观察。"
+  },
+  "statTwin": {
+    "heading": "球星孪生",
+    "subtitle": "历史对位叠加",
+    "scoutVerdict": "{player} 的踢法与 {topComparable} 最为接近——这是我们球探数据库中最契合的历史模板。",
+    "similarityLabel": "相似度",
+    "traitLabel": "特征",
+    "comparablesLegend": {
+      "mainPlayerLabel": "{player}（当代）",
+      "comparableLabel": "{label}（历史）"
+    },
+    "pendingState": "{player} 的历史对位仍在整理中。我们的对位档案由人工逐一打磨，这位球员将在下一批中发布。"
+  },
+  "careerArc": {
+    "heading": "职业生涯曲线",
+    "subtitle": "阶段定位与历史可比对象",
+    "scoutVerdict": "{topComparable}式的{phase}轨迹——{player}与一个可识别的原型走在同一条曲线上。",
+    "phaseAscending": "上升期",
+    "phasePeaking": "巅峰期",
+    "phaseDeclining": "下滑期",
+    "phaseTransitioning": "过渡期",
+    "comparableLabel": "可比对象",
+    "traitLabel": "阶段",
+    "ariaLabelTemplate": "{player} 职业生涯轨迹图——当前阶段：{phase}"
   }
 }

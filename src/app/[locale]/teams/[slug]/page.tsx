@@ -16,6 +16,7 @@ import TacticalDNA from '@/components/team/TacticalDNA'
 import SquadDepth from '@/components/team/SquadDepth'
 import HistoricalPerformance from '@/components/team/HistoricalPerformance'
 import CoachProfileComponent from '@/components/team/CoachProfile'
+import CoachPressureProfile from '@/components/team/CoachPressureProfile'
 import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
@@ -25,6 +26,7 @@ import AgePeakWindow from '@/components/team/AgePeakWindow'
 import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
 import ArchetypeDossier from '@/components/team/ArchetypeDossier'
 import TitlePathProbabilityTree from '@/components/team/TitlePathProbabilityTree'
+import ClimateTravelImpact from '@/components/team/ClimateTravelImpact'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -178,6 +180,10 @@ export default async function TeamPage({ params }: PageProps) {
         <>
           <CoachProfileComponent coach={coach} />
           <div className="mx-14 border-t border-white/[0.08]" />
+          <Paywall contentType="team" scope={slug} previewLines={6}>
+            <CoachPressureProfile coach={coach} teamSlug={slug} teamName={team.name} />
+          </Paywall>
+          <div className="mx-14 border-t border-white/[0.08]" />
         </>
       )}
 
@@ -209,6 +215,8 @@ export default async function TeamPage({ params }: PageProps) {
         )}
         <div className="mx-14 border-t border-white/[0.08]" />
         <TitlePathProbabilityTree team={team} marketIntel={marketIntel} />
+        <div className="mx-14 border-t border-white/[0.08]" />
+        <ClimateTravelImpact team={team} players={players} />
         <IntelligenceReport team={team} />
       </Paywall>
 

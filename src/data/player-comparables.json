@@ -1,0 +1,127 @@
+{
+  "lionel-messi": [
+    { "name": "Diego Maradona", "year": 1986, "similarityPercent": 84, "trait": "low-centre dribble carry, free-role conductor on the half-turn" },
+    { "name": "Andrés Iniesta", "year": 2012, "similarityPercent": 71, "trait": "third-line creator, slips between lines without acceleration" },
+    { "name": "Johan Cruyff", "year": 1974, "similarityPercent": 68, "trait": "false-nine drift, vision-led tempo control" }
+  ],
+  "kylian-mbappe": [
+    { "name": "Thierry Henry", "year": 2006, "similarityPercent": 78, "trait": "left-foot diagonal, top-of-box poacher off the inside channel" },
+    { "name": "Cristiano Ronaldo", "year": 2018, "similarityPercent": 71, "trait": "right-side ball-carry, late penalty-area arrival" },
+    { "name": "Ronaldo Nazário", "year": 2002, "similarityPercent": 66, "trait": "straight-line burst from halfway, finishes around keeper" }
+  ],
+  "jude-bellingham": [
+    { "name": "Steven Gerrard", "year": 2010, "similarityPercent": 79, "trait": "box-to-box driver, late-runs into the area to finish" },
+    { "name": "Frank Lampard", "year": 2008, "similarityPercent": 72, "trait": "second-striker arrival timing, edge-of-box volley threat" },
+    { "name": "Yaya Touré", "year": 2014, "similarityPercent": 65, "trait": "physical mid-third carry, breaks pressure with body shape" }
+  ],
+  "vinicius-jr": [
+    { "name": "Ronaldinho", "year": 2005, "similarityPercent": 74, "trait": "left-touchline 1v1 dribbler, feints into the cut-back zone" },
+    { "name": "Cristiano Ronaldo", "year": 2008, "similarityPercent": 69, "trait": "stepover-based wing carry, finishes with both feet inside the box" },
+    { "name": "Robinho", "year": 2007, "similarityPercent": 63, "trait": "Brazilian flair winger, isolates fullback for direct duels" }
+  ],
+  "lamine-yamal": [
+    { "name": "Lionel Messi", "year": 2007, "similarityPercent": 76, "trait": "right-wing inside-foot carry, left-foot curler at the far post" },
+    { "name": "Arjen Robben", "year": 2014, "similarityPercent": 64, "trait": "right-to-left cut onto the strong foot, predictable but unstoppable angle" },
+    { "name": "Neymar", "year": 2013, "similarityPercent": 61, "trait": "young-talisman creator, mixes flair with end-product on demand" }
+  ],
+  "cristiano-ronaldo": [
+    { "name": "Gerd Müller", "year": 1974, "similarityPercent": 72, "trait": "penalty-area poacher, six-yard reflex finishes" },
+    { "name": "Alfredo Di Stéfano", "year": 1958, "similarityPercent": 66, "trait": "all-pitch leader, decisive in knockout one-offs" },
+    { "name": "Romário", "year": 1994, "similarityPercent": 62, "trait": "ruthless box ratios, finds the last shoulder of the centre-back" }
+  ],
+  "pedri": [
+    { "name": "Andrés Iniesta", "year": 2010, "similarityPercent": 81, "trait": "tight-space turn under pressure, secures possession for Spain's third line" },
+    { "name": "Xavi Hernández", "year": 2008, "similarityPercent": 74, "trait": "metronome distributor, sets tempo from the half-spaces" },
+    { "name": "Luka Modrić", "year": 2018, "similarityPercent": 68, "trait": "two-touch progression, finds the line-breaking pass at speed" }
+  ],
+  "bukayo-saka": [
+    { "name": "David Beckham", "year": 2002, "similarityPercent": 68, "trait": "right-foot whipped service, end-line cutback creator" },
+    { "name": "Aaron Lennon", "year": 2010, "similarityPercent": 63, "trait": "right-wing carry, beats fullback on the outside before cutting in" },
+    { "name": "Riyad Mahrez", "year": 2016, "similarityPercent": 67, "trait": "right-side inverted winger, threads to the near post" }
+  ],
+  "phil-foden": [
+    { "name": "David Silva", "year": 2014, "similarityPercent": 75, "trait": "left half-space creator, low-centre balance under pressure" },
+    { "name": "Wesley Sneijder", "year": 2010, "similarityPercent": 64, "trait": "second-line arrival into the box, edge-of-area shooter" },
+    { "name": "Bernardo Silva", "year": 2019, "similarityPercent": 70, "trait": "City-shape interior, presses with positional intelligence" }
+  ],
+  "florian-wirtz": [
+    { "name": "Mesut Özil", "year": 2014, "similarityPercent": 78, "trait": "soft-feet line-breaker, threads through the keeper-defender channel" },
+    { "name": "Michael Ballack", "year": 2006, "similarityPercent": 60, "trait": "German 10 with arrival timing, mixes physical presence and finesse" },
+    { "name": "Toni Kroos", "year": 2018, "similarityPercent": 63, "trait": "calm rhythm setter, dictates from the right half-space" }
+  ],
+  "christian-pulisic": [
+    { "name": "Landon Donovan", "year": 2010, "similarityPercent": 76, "trait": "US wing carry, off-ball arrival into the second-six" },
+    { "name": "Eden Hazard", "year": 2014, "similarityPercent": 62, "trait": "left-foot carrier, isolates the fullback in transition" },
+    { "name": "Clint Dempsey", "year": 2012, "similarityPercent": 67, "trait": "US attacker with knockout-moment goals, edge-of-box shooter" }
+  ],
+  "son-heung-min": [
+    { "name": "Park Ji-sung", "year": 2010, "similarityPercent": 68, "trait": "Korean wide forward, transition-finisher with elite work-rate" },
+    { "name": "Sergio Agüero", "year": 2018, "similarityPercent": 64, "trait": "both-foot finisher, drops between the lines to receive" },
+    { "name": "Robert Lewandowski", "year": 2016, "similarityPercent": 62, "trait": "clinical channel runner, attacks the back shoulder" }
+  ],
+  "mohamed-salah": [
+    { "name": "Arjen Robben", "year": 2014, "similarityPercent": 79, "trait": "right-foot cut from the right channel, near-post curler" },
+    { "name": "Thierry Henry", "year": 2004, "similarityPercent": 70, "trait": "inverted wide-forward, scores between four and seven goals from outside the box per season" },
+    { "name": "Cristiano Ronaldo", "year": 2013, "similarityPercent": 66, "trait": "right-wing-to-striker drift, isolates against the second centre-back" }
+  ],
+  "harry-kane": [
+    { "name": "Alan Shearer", "year": 1998, "similarityPercent": 81, "trait": "England no.9 archetype, hold-up plus penalty-area predator" },
+    { "name": "Gary Lineker", "year": 1990, "similarityPercent": 73, "trait": "world-cup hot streak finisher, six-yard reaction shots" },
+    { "name": "Karim Benzema", "year": 2022, "similarityPercent": 67, "trait": "drop-deep nine, link play before late box arrival" }
+  ],
+  "declan-rice": [
+    { "name": "Patrick Vieira", "year": 2002, "similarityPercent": 75, "trait": "ball-winning 6 with carry, breaks pressure with stride" },
+    { "name": "Yaya Touré", "year": 2012, "similarityPercent": 69, "trait": "Premier League double-pivot with attacking burst, scores from second-line runs" },
+    { "name": "Sergio Busquets", "year": 2014, "similarityPercent": 64, "trait": "interception line, regulates depth of the midfield" }
+  ],
+  "julian-alvarez": [
+    { "name": "Sergio Agüero", "year": 2014, "similarityPercent": 72, "trait": "low-centre Argentine 9, two-footed inside the box" },
+    { "name": "Carlos Tevez", "year": 2010, "similarityPercent": 68, "trait": "high-pressing forward, attacks the channel from a wide-9 start" },
+    { "name": "Diego Forlán", "year": 2010, "similarityPercent": 60, "trait": "second-striker arrival timing, hits the edge of the box clean" }
+  ],
+  "lautaro-martinez": [
+    { "name": "Sergio Agüero", "year": 2018, "similarityPercent": 73, "trait": "channel-running finisher, both-foot box presence" },
+    { "name": "Diego Milito", "year": 2010, "similarityPercent": 67, "trait": "Inter centre-forward archetype, cool finisher in knockout games" },
+    { "name": "Filippo Inzaghi", "year": 2003, "similarityPercent": 60, "trait": "offside-line operator, scores on the half-turn against high lines" }
+  ],
+  "antoine-griezmann": [
+    { "name": "Zinedine Zidane", "year": 2006, "similarityPercent": 67, "trait": "France free-role creator, balance and feel in the half-spaces" },
+    { "name": "David Silva", "year": 2010, "similarityPercent": 64, "trait": "false-10 link, second-line arrival from a withdrawn role" },
+    { "name": "Robert Pirès", "year": 2006, "similarityPercent": 62, "trait": "left half-space drifter, blends creation with late-runs" }
+  ],
+  "ousmane-dembele": [
+    { "name": "Lionel Messi", "year": 2010, "similarityPercent": 65, "trait": "two-footed dribbler, beats fullback on either side" },
+    { "name": "Arjen Robben", "year": 2010, "similarityPercent": 64, "trait": "inverted wing carry, threat-from-distance shooter" },
+    { "name": "Eden Hazard", "year": 2018, "similarityPercent": 67, "trait": "ankles-and-hips dribbler, low centre of gravity in tight space" }
+  ],
+  "erling-haaland": [
+    { "name": "Romelu Lukaku", "year": 2020, "similarityPercent": 71, "trait": "physical channel-runner, attacks the back shoulder of a high line" },
+    { "name": "Ruud van Nistelrooy", "year": 2003, "similarityPercent": 70, "trait": "penalty-area predator, both-foot reflex finishes" },
+    { "name": "Andriy Shevchenko", "year": 2004, "similarityPercent": 66, "trait": "knockout-moment striker, finishes one-on-ones with low conversion variance" }
+  ],
+  "joshua-kimmich": [
+    { "name": "Philipp Lahm", "year": 2014, "similarityPercent": 84, "trait": "Bayern multi-position German captain, balanced fullback-to-pivot operator" },
+    { "name": "Toni Kroos", "year": 2016, "similarityPercent": 71, "trait": "long-line distributor, sets transition direction from the right half-space" },
+    { "name": "Bastian Schweinsteiger", "year": 2010, "similarityPercent": 65, "trait": "leader-midfielder, tempo plus duel-winning" }
+  ],
+  "jamal-musiala": [
+    { "name": "Mesut Özil", "year": 2012, "similarityPercent": 70, "trait": "half-space dribble line, threads the inside channel with light feet" },
+    { "name": "Phil Foden", "year": 2022, "similarityPercent": 73, "trait": "carry-and-pass operator from the 10, comfortable on either foot" },
+    { "name": "Andrés Iniesta", "year": 2010, "similarityPercent": 64, "trait": "tight-space turn under pressure, secures next-action quality" }
+  ],
+  "bruno-fernandes": [
+    { "name": "Wesley Sneijder", "year": 2010, "similarityPercent": 74, "trait": "set-piece taker and arrival into the area, distance shooter" },
+    { "name": "Frank Lampard", "year": 2010, "similarityPercent": 68, "trait": "second-striker arrival, scores from the edge of the box" },
+    { "name": "Steven Gerrard", "year": 2009, "similarityPercent": 64, "trait": "vertical-line creator, drives transitions into the final third" }
+  ],
+  "alphonso-davies": [
+    { "name": "Roberto Carlos", "year": 2002, "similarityPercent": 73, "trait": "left-back overlap with elite straight-line speed, beats his man on the touchline" },
+    { "name": "Ashley Cole", "year": 2006, "similarityPercent": 64, "trait": "modern left-back, two-way runner and reliable in the recovery sprint" },
+    { "name": "Marcelo", "year": 2014, "similarityPercent": 66, "trait": "attacking left-back, comfortable inverting into the half-space" }
+  ],
+  "rafael-leao": [
+    { "name": "George Weah", "year": 1996, "similarityPercent": 64, "trait": "long-stride wide forward, beats fullback on the outside" },
+    { "name": "Cristiano Ronaldo", "year": 2007, "similarityPercent": 60, "trait": "wing-to-striker drift, finishes near post from the inside cut" },
+    { "name": "Eden Hazard", "year": 2016, "similarityPercent": 62, "trait": "left-side carrier, draws the second defender to free the cutback lane" }
+  ]
+}
