@@ -763,6 +763,8 @@
     "positionDEF": "Obrońca",
     "positionMID": "Pomocnik",
     "positionFWD": "Napastnik",
+    "portraitPending": "Portret oczekuje",
+    "dossierActive": "Dossier aktywne",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age, plural, one {# rok} few {# lata} many {# lat} other {# lat}}",
     "wc2026Status": "MŚ 2026: {label}",

@@ -763,6 +763,8 @@
     "positionDEF": "Defans",
     "positionMID": "Orta Saha",
     "positionFWD": "Forvet",
+    "portraitPending": "Portre bekleniyor",
+    "dossierActive": "Dosya aktif",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} yaş",
     "wc2026Status": "2026 Dünya Kupası: {label}",

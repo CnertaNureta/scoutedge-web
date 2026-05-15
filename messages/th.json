@@ -763,6 +763,8 @@
     "positionDEF": "กองหลัง",
     "positionMID": "กองกลาง",
     "positionFWD": "กองหน้า",
+    "portraitPending": "รอภาพนักเตะ",
+    "dossierActive": "แฟ้มข้อมูลเปิดใช้งาน",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} ปี",
     "wc2026Status": "ฟุตบอลโลก 2026: {label}",

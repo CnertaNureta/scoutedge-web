@@ -763,6 +763,8 @@
     "positionDEF": "Verdediger",
     "positionMID": "Middenvelder",
     "positionFWD": "Aanvaller",
+    "portraitPending": "Portret in afwachting",
+    "dossierActive": "Dossier actief",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} jaar",
     "wc2026Status": "WK 2026: {label}",

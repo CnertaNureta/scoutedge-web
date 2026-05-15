@@ -763,6 +763,8 @@
     "positionDEF": "ディフェンダー",
     "positionMID": "ミッドフィルダー",
     "positionFWD": "フォワード",
+    "portraitPending": "肖像待ち",
+    "dossierActive": "資料有効",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age}歳",
     "wc2026Status": "ワールドカップ2026: {label}",

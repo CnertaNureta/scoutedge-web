@@ -763,6 +763,8 @@
     "positionDEF": "Difensore",
     "positionMID": "Centrocampista",
     "positionFWD": "Attaccante",
+    "portraitPending": "Ritratto in attesa",
+    "dossierActive": "Dossier attivo",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} anni",
     "wc2026Status": "Mondiali 2026: {label}",

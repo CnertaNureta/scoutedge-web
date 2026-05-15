@@ -763,6 +763,8 @@
     "positionDEF": "Hậu vệ",
     "positionMID": "Tiền vệ",
     "positionFWD": "Tiền đạo",
+    "portraitPending": "Đang chờ chân dung",
+    "dossierActive": "Hồ sơ đang hoạt động",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} tuổi",
     "wc2026Status": "World Cup 2026: {label}",

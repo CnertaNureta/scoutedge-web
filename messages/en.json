@@ -1069,6 +1069,8 @@
     "positionDEF": "Defender",
     "positionMID": "Midfielder",
     "positionFWD": "Forward",
+    "portraitPending": "Awaiting Portrait",
+    "dossierActive": "Dossier Active",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · Age {age}",
     "wc2026Status": "WC 2026: {label}",
@@ -1078,7 +1080,9 @@
     "isPlaying": "Is {name} Playing?",
     "fullProfileOn": "Full Profile on {team}",
     "teamSquad": "{flag} {team} Squad",
-    "allTeams": "All Teams"
+    "allTeams": "All Teams",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Squad Tracker",
@@ -1204,6 +1208,72 @@
     "signalsRefresh": "Signals refresh as new reporting and performance context arrive.",
     "panelExpands": "This panel expands as more reporting and team context are gathered.",
     "updated": "Updated {date} UTC"
+  },
+  "playerScoutGrade": {
+    "title": "Player Scout Grade",
+    "subtitle": "Five-Dimension Intelligence Grade",
+    "totalLabel": "GRADE",
+    "dimensions": {
+      "skill": "Skill",
+      "form": "Form",
+      "fit": "Fit",
+      "durability": "Durability",
+      "bigGame": "Big-Game"
+    },
+    "verdict": {
+      "elite": "Tournament-defining talent — bookmark his every touch.",
+      "strong": "Starting XI lock with a clear matchup edge.",
+      "viable": "Squad asset — situational impact more than ninety-minute presence.",
+      "limited": "Bench depth — break-glass option only."
+    },
+    "tier": {
+      "elite": "Elite",
+      "strong": "Strong",
+      "viable": "Viable",
+      "limited": "Limited"
+    }
+  },
+  "selectionProbability": {
+    "title": "Selection Probability",
+    "subtitle": "Opener Start & 26-Man Squad Odds",
+    "openerStartLabel": "P(starts opener)",
+    "squadInclusionLabel": "P(makes 26-man squad)",
+    "defaultNote": "Composite probability blends selection_risk, fitness state, and the latest playing-status overlay from our scouting desk.",
+    "verdict": {
+      "lock": "Locked into the opener XI — model treats this as a near-certain starter.",
+      "likely": "Most likely a starter but not untouchable — watch the final session.",
+      "contested": "Squad place uncertain — bench role or rotation is the base case.",
+      "bench": "Outside the projected starting picture — squad slot itself is at risk."
+    }
+  },
+  "matchProjection": {
+    "heading": "Match Projection Table",
+    "subtitle": "Role · Minutes · Threat Tier — Next Six Fixtures",
+    "scoutVerdict": "Projected role and minutes for {player} across the next {count} fixtures — read the threat tier before you commit to a captain.",
+    "columns": {
+      "opponent": "Opponent",
+      "role": "Projected Role",
+      "minutes": "Minutes %",
+      "threat": "Threat"
+    },
+    "threatTier": {
+      "S": "S · Match-winner",
+      "A": "A · High impact",
+      "B": "B · Steady",
+      "C": "C · Rotation"
+    },
+    "roles": {
+      "sweeperKeeper": "Sweeper-keeper",
+      "shotStopper": "Shot-stopper",
+      "ballPlayingCb": "Ball-playing CB",
+      "defensiveAnchor": "Defensive anchor",
+      "deepLyingPlaymaker": "Deep-lying playmaker",
+      "boxToBoxEngine": "Box-to-box engine",
+      "boxCrasher": "Box crasher",
+      "invertedWinger": "Inverted winger"
+    },
+    "keyMatchupTemplate": "Key matchup — {matchup}",
+    "emptyState": "No upcoming fixtures within projection horizon — checking back after group draw finalizes."
   },
   "blog": {
     "minRead": "{time} min read"
@@ -1531,6 +1601,26 @@
     "aiSourceAttribution": "AI analysis based on 50,000+ data points",
     "ariaQuickReference": "Team quick reference"
   },
+  "titlePath": {
+    "heading": "Title Path Probability Tree",
+    "subtitle": "Model vs market — round by round",
+    "stageHeader": "Stage",
+    "modelHeader": "Model",
+    "marketHeader": "Market",
+    "edgeHeader": "Edge",
+    "stageGroup": "Survive Group",
+    "stageR16": "Round of 16",
+    "stageQF": "Quarter-Final",
+    "stageSF": "Semi-Final",
+    "stageFinal": "Final",
+    "stageWin": "Lift Trophy",
+    "verdict": "{team}'s sharpest edge is at the {stage} stage — model carries a {edge} gap to the market.",
+    "verdictFallback": "{team} trades flat with the market across every round — no usable mispricing yet.",
+    "scoutSignature": "Kick Oracle Desk",
+    "archive": "Archive {code}",
+    "confidenceHigh": "Confidence · Model signal live",
+    "confidenceLow": "Confidence · Market shadow only"
+  },
   "search": {
     "buttonPlaceholder": "Search teams...",
     "modalPlaceholder": "Search teams by name, group, or confederation...",
@@ -1838,7 +1928,9 @@
     "safetyVerySafe": "very safe",
     "safetySafe": "safe",
     "safetyModerate": "moderate",
-    "safetyCaution": "caution"
+    "safetyCaution": "caution",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Fan Guide",
@@ -2243,5 +2335,412 @@
     "groupRank": "Group {group} · #{rank}",
     "playoff": "Playoff",
     "chemistry": "Chemistry"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+  },
+  "intelligenceModule": {
+    "signature": "Kick Oracle Desk",
+    "computedFromSignals": "{count, plural, one {Computed from # signal} other {Computed from # signals}}",
+    "sourceCount": "{count, plural, one {# source} other {# sources}}",
+    "refreshed": "refreshed {time}"
+  },
+  "scoutEdgeScore": {
+    "title": "ScoutEdge Score",
+    "subtitle": "Composite Intelligence Grade",
+    "totalLabel": "Total",
+    "dimensions": {
+      "attack": "Attack",
+      "spine": "Spine",
+      "bench": "Bench",
+      "coach": "Coach",
+      "form": "Form",
+      "edge": "Edge",
+      "attackHint": "Forward line firepower — avg striker rating.",
+      "spineHint": "Keeper plus the two best defenders and midfielders.",
+      "benchHint": "Depth chart slots 12-23, the tournament's hidden fuel.",
+      "coachHint": "Tactical authority and dressing-room continuity.",
+      "formHint": "Recent morale weighted with tactical stability.",
+      "edgeHint": "Where our model disagrees with the market consensus."
+    },
+    "verdict": {
+      "elite": "Title-tier dossier — every sub-dimension cleared the cut.",
+      "strong": "Quarterfinal-worthy with one or two cracks to manage.",
+      "viable": "Knockout viable, but the edge is thinner than the bracket suggests.",
+      "limited": "Round-of-16 ceiling — needs early variance to advance further."
+    }
+  },
+  "marketModelSpread": {
+    "title": "Market vs Model Spread",
+    "subtitle": "Books versus our probability tape",
+    "marketLabel": "Market %",
+    "modelLabel": "Model %",
+    "edgeLabel": "Edge",
+    "movementLabel": "Tape Movement",
+    "signalStrengthLabel": "Signal Strength",
+    "sourcesLabel": "Consensus Sources",
+    "movement": {
+      "shortening": "Shortening",
+      "drifting": "Drifting",
+      "stable": "Stable"
+    },
+    "signalStrength": {
+      "strong": "Strong",
+      "moderate": "Moderate",
+      "weak": "Weak",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "Books and model agree — no edge to play.",
+      "modelHigh": "Model sees more title equity than the consensus tape.",
+      "modelLow": "Books are pricing in upside our model doesn't share.",
+      "modest": "Modest edge — playable but not the headliner of the week."
+    }
+  },
+  "socialBuzz": {
+    "title": "Social Buzz",
+    "subtitle": "Pre-tournament social pulse",
+    "buzzLabel": "Buzz Score",
+    "sentimentLabel": "Sentiment",
+    "deltaLabel": "7-Day Delta",
+    "noChatter": "No chatter detected",
+    "verdict": {
+      "tailwind": "Riding a positive tailwind — narrative working in his favor.",
+      "headwind": "Crowd is loud and unfriendly — pressure-management story.",
+      "quiet": "Low chatter, neutral tone — flying under the radar.",
+      "mixed": "Polarized noise — narrative cuts both ways.",
+      "noChatter": "No social signal yet — narrative still to be written."
+    }
+  },
+  "signalLedger": {
+    "title": "Signal Confidence Ledger",
+    "subtitle": "Confidence-weighted signal timeline",
+    "confidenceLabel": "Conf.",
+    "viewAllSignals": "View all {count} signals",
+    "emptyState": "No signals captured for this player yet.",
+    "sparkline7d": "7-Day Signal Volume",
+    "sourceTypes": {
+      "profile": "Profile",
+      "social": "Social",
+      "derived": "Derived",
+      "press": "Press"
+    },
+    "categories": {
+      "fitness": "Fitness",
+      "morale": "Morale",
+      "tactical": "Tactical"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "negative": "Negative",
+      "neutral": "Neutral",
+      "mixed": "Mixed"
+    },
+    "verdict": {
+      "signalRich": "Signal-rich and pointing the right way — high conviction read.",
+      "warningSignal": "High-confidence signals are flashing red — treat as a warning.",
+      "lowConfidence": "Weak signal base — the dossier needs more inputs before we lean in.",
+      "mixedRead": "Confidence is solid but the signals contradict — read on context.",
+      "empty": "Quiet desk — no signals on file yet."
+    }
+  },
+  "pressureIndex": {
+    "heading": "Pressure Index",
+    "subtitle": "How this player handles big-game pressure",
+    "scoreLabel": "Pressure score",
+    "scoutVerdict": "{player} reads {tier} under big-game pressure — that's the rules-MVP call.",
+    "tierIce": "Ice",
+    "tierCool": "Cool",
+    "tierWarm": "Warm",
+    "tierShaky": "Shaky",
+    "factors": {
+      "experience": "Experience",
+      "form": "Form",
+      "fitness": "Fitness",
+      "morale": "Morale",
+      "archetypeFit": "Archetype fit"
+    },
+    "modelStubFootnote": "Rules MVP — full Pressure Index model launches in Phase 3 follow-up"
+  },
+  "workload": {
+    "heading": "Workload Watch",
+    "subtitle": "12-month rolling minutes, games & national-team load",
+    "scoutVerdict": "{player}'s 12-month workload reads {status} — manage minutes accordingly.",
+    "sparklineLabel": "Minutes by month",
+    "totalMinutesLabel": "Rolling minutes",
+    "totalGamesLabel": "Games",
+    "nationalTeamWindowsLabel": "NT windows",
+    "statusLabel": "Status",
+    "statusFresh": "Fresh",
+    "statusManaged": "Managed",
+    "statusAmber": "Amber zone",
+    "statusRed": "Overloaded",
+    "amberZoneBadge": "Amber zone · {minutes} mins",
+    "injuryFlagLabel": "Injury flag",
+    "ariaLabelTemplate": "{player} 12-month workload: {minutes} minutes across {games} games"
+  },
+  "roleHeatmap": {
+    "heading": "Role & Heatmap",
+    "subtitle": "Projected touch zones and tactical role tags",
+    "scoutVerdict": "{player} projects as a {role} — that's where this dossier expects the heat.",
+    "roleTagsLabel": "Tactical role tags",
+    "primaryZoneLabel": "Primary zone",
+    "pitchAriaLabel": "Projected pitch heatmap for {player} ({role}). Primary activity zone: {zone}.",
+    "primaryZones": {
+      "description": "{row}, {col}",
+      "rows": {
+        "topWing": "top wing",
+        "bottomWing": "bottom wing",
+        "centralChannel": "central channel"
+      },
+      "cols": {
+        "ownDefensiveThird": "own defensive third",
+        "deepBuildUp": "deep build-up area",
+        "midfieldThird": "midfield third",
+        "attackingThird": "attacking third",
+        "finalThirdBoxEdge": "final third box edge"
+      }
+    }
+  },
+  "differentiator": {
+    "title": "What Makes Them Different",
+    "subtitle": "The one trait that defines them",
+    "whyLabel": "Why opponents struggle",
+    "statsLabel": "Anchor Stats",
+    "positionTraits": {
+      "fw_box_crasher": "Box-crashing finisher",
+      "fw_wide_creator": "Wide creator",
+      "mid_metronome": "Tempo metronome",
+      "mid_press_resistant": "Press-resistant deep-lying playmaker",
+      "def_aerial": "Aerial commander",
+      "def_sweeper": "Build-up sweeper",
+      "gk_sweeper": "Sweeper-keeper",
+      "gk_shotstopper": "Shot-stopper specialist"
+    },
+    "verdict": {
+      "studyTape": "Worth studying his tape before any matchup involving him."
+    }
+  },
+  "archetypeDossier": {
+    "title": "Archetype Dossier",
+    "subtitle": "Historical pattern match — strengths, cautions, baseline ceiling",
+    "archetypeLabel": "Archetype",
+    "summaryLabel": "Pattern Summary",
+    "strengthsLabel": "Strengths",
+    "cautionsLabel": "Cautions",
+    "historyLabel": "Historical References",
+    "baselineLabel": "Baseline Ceiling",
+    "successRateLabel": "Pattern Success Rate",
+    "fromLabel": "Derived from",
+    "verdict": {
+      "ceilingTitle": "Title-tier archetype — when the pattern fires, the trophy is in reach.",
+      "ceilingDeepRun": "Deep-run archetype — semis or quarters is the historical landing zone.",
+      "ceilingKnockouts": "Knockout-stage archetype — one good draw away from making it interesting.",
+      "ceilingGroup": "Group-stage archetype — the campaign is a learning lap for the next cycle."
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "Vulnerability Matrix",
+    "subtitle": "6-axis tactical gap analysis vs group rivals",
+    "axisHeader": "Axis",
+    "vsLabel": "vs",
+    "onLabel": "on",
+    "legendPositive": "Positive = edge",
+    "legendNegative": "Negative = weakness",
+    "biggestGapLabel": "Largest weakness",
+    "noOpponents": "No group rivals available to compare yet.",
+    "axes": {
+      "atk": "ATK",
+      "mid": "MID",
+      "def": "DEF",
+      "chm": "CHM",
+      "exp": "EXP",
+      "fit": "FIT"
+    },
+    "verdict": {
+      "dominant": "Dominant on every axis — no group rival profiles a credible threat.",
+      "balanced": "Balanced ledger — one or two soft spots to rotate around.",
+      "exposed": "Exposed across multiple axes — rivals have clear levers to pull.",
+      "outclassed": "Outclassed on the tactical board — the group is a survival exercise."
+    }
+  },
+  "riskRegister": {
+    "title": "Squad Risk Register",
+    "subtitle": "Top-5 fitness, selection, and tactical concerns",
+    "indexLabel": "No.",
+    "severityLabel": "Severity",
+    "noteLabel": "Note",
+    "noFurtherRisks": "No further material risks",
+    "riskTypes": {
+      "fitness": "Fitness",
+      "selection": "Selection",
+      "tactical": "Tactical"
+    },
+    "severity": {
+      "high": "High",
+      "medium": "Medium"
+    },
+    "verdict": {
+      "controlled": "Risk ledger is calm — every line is playable as drawn.",
+      "manageable": "A couple of credible threats — rotate around them and move on.",
+      "fragile": "Multiple high-impact risks stacked — the lineup is brittle this week."
+    }
+  },
+  "formCurve": {
+    "ariaLabelTemplate": "6-month form curve for {entity}: trending {direction}",
+    "trendUp": "up",
+    "trendFlat": "flat",
+    "trendDown": "down",
+    "deltaPositive": "+{value}",
+    "deltaNegative": "−{value}",
+    "monthsLabel": "{count}mo"
+  },
+  "agePeak": {
+    "heading": "Age & Peak Window",
+    "subtitle": "Position-grouped peak band analysis",
+    "scoutVerdict": "{team} squad reads as {verdict} against position-specific peak bands.",
+    "positionLabels": {
+      "GK": "Goalkeepers",
+      "CB": "Centre-backs",
+      "FB": "Full-backs",
+      "DM": "Defensive midfielders",
+      "CM": "Central midfielders",
+      "AM": "Attacking midfielders",
+      "W": "Wingers",
+      "ST": "Strikers"
+    },
+    "peakingLabel": "peaking",
+    "ascendingLabel": "ascending",
+    "decliningLabel": "declining",
+    "mixedLabel": "mixed",
+    "inPeakCount": "In peak band",
+    "outsidePeakCount": "Outside peak band",
+    "inPeakShort": "in peak",
+    "outsidePeakShort": "outside",
+    "avgAgeLabel": "AVG",
+    "emptyState": "No squad data available"
+  },
+  "climateTravel": {
+    "heading": "Climate & Travel Impact",
+    "subtitle": "Venue climate × travel km × squad-home fit",
+    "scoutVerdict": {
+      "comfortable": "Short hops, familiar climates — the calendar does the squad a favour.",
+      "manageable": "A couple of awkward fixtures — pace the rotation around them.",
+      "punishing": "Long hauls into hostile climates — recovery is the real opponent."
+    },
+    "fixtureHeader": {
+      "venue": "Venue",
+      "climate": "Climate",
+      "km": "Travel",
+      "fit": "Fit"
+    },
+    "totalKmLabel": "Total travel · group stage",
+    "worstFitLabel": "Worst-fit fixture",
+    "climateBands": {
+      "hotHumid": "Hot & humid",
+      "hotDry": "Hot & dry",
+      "temperate": "Temperate",
+      "cold": "Cold",
+      "altitude": "Altitude"
+    },
+    "emptyState": "No fixture climate data available for this team yet."
+  },
+  "chemistryWeb": {
+    "heading": "Chemistry Web",
+    "subtitle": "Pairwise chemistry across the starting eleven",
+    "scoutVerdict": "{team}'s starting XI clicks tightest along {topPair} — the spine other pairings orbit around.",
+    "strongestPairsLabel": "Strongest pairings",
+    "pairScoreFormat": "{a} ↔ {b} — {score}",
+    "lineLabels": {
+      "GK": "Goalkeeper",
+      "DEF": "Defender",
+      "MID": "Midfielder",
+      "FWD": "Forward"
+    },
+    "nodeAriaLabel": "{name} ({line})",
+    "stubFootnote": "Chemistry edges synthesized — replaces with FBref SCA/xT-on counts in Phase 3 follow-up."
+  },
+  "coachPressure": {
+    "heading": "Coach Pressure Profile",
+    "subtitle": "Big-game tells, formation tweaks & set-piece bias",
+    "scoutVerdict": "{coach} reads the pressure room well — these are the levers he pulls when the score line tightens.",
+    "bigGameLabel": "Big-game record",
+    "bigGamePlayed": "games played",
+    "inGameTellsLabel": "In-game tells",
+    "formationTweaksLabel": "Formation tweaks under pressure",
+    "setPieceLabel": "Set-piece bias",
+    "biasAttacking": "Attacking",
+    "biasDefensive": "Defensive",
+    "biasNeutral": "Neutral",
+    "pendingState": "Pressure profile for {coach} is still being assembled — {team} dossier scout still observing."
+  },
+  "statTwin": {
+    "heading": "Stat Twin",
+    "subtitle": "Historical Comparables Overlay",
+    "scoutVerdict": "{player} plays like {topComparable} — the closest pattern match in our scouting history.",
+    "similarityLabel": "Similarity",
+    "traitLabel": "Trait",
+    "comparablesLegend": {
+      "mainPlayerLabel": "{player} (current)",
+      "comparableLabel": "{label} (historical)"
+    },
+    "pendingState": "Comparables pending for {player}. Our historical-match desk hand-curates every twin; this player's dossier is on the next pass."
+  },
+  "careerArc": {
+    "heading": "Career Arc",
+    "subtitle": "Trajectory phase and historical comparables",
+    "scoutVerdict": "{topComparable}-style {phase} trajectory — {player} reads on the same curve as a recognizable archetype.",
+    "phaseAscending": "Rising",
+    "phasePeaking": "Peaking",
+    "phaseDeclining": "Declining",
+    "phaseTransitioning": "Transitioning",
+    "comparableLabel": "Comparables",
+    "traitLabel": "Phase",
+    "ariaLabelTemplate": "Career trajectory chart for {player} — current phase: {phase}"
+  },
+  "bigGameFootprint": {
+    "heading": "Big-Game Footprint",
+    "subtitle": "Per-match performance ledger in high-stakes fixtures",
+    "scoutVerdict": "{player} {verdict} on the biggest stages — a {meanRating} mean across knockouts, finals, and group deciders.",
+    "columnDate": "When",
+    "columnOpponent": "Opponent",
+    "columnStage": "Stage",
+    "columnRating": "Rating",
+    "ageLabel": "Age {age}",
+    "stageFinal": "Final",
+    "stageSemi": "Semi",
+    "stageQuarter": "Quarter",
+    "stageR16": "R16",
+    "stageGroupDecider": "Group Decider",
+    "stageFriendly": "Friendly",
+    "verdictRises": "rises",
+    "verdictSteady": "holds steady",
+    "verdictFades": "fades",
+    "statsMeanRating": "Mean Rating",
+    "statsBestPerformance": "Best Performance",
+    "statsBestLabel": "vs {opponent} · {rating}",
+    "statsFadeCount": "Fade Count"
+  },
+  "pressBoxBrief": {
+    "heading": "Press Box Weekly Brief",
+    "subtitle": "Four-bullet weekly intelligence from the desk",
+    "weekLabel": "WK{week} · 2026",
+    "signOff": "— Kick Oracle Desk",
+    "stubFootnote": "Hand-tuned weekly brief — full LLM-generated cadence arrives in Phase 3 follow-up.",
+    "bulletTemplates": {
+      "spine": "{team} carry a settled spine into matchday — the {archetype} read still tracks.",
+      "banker": "{topScorer} ({topScorerGoals} goals) is the closest thing this side has to a banker.",
+      "archetype": "The {archetype} archetype keeps showing up in the tape — this team plays to type.",
+      "moraleEdge": "Camp morale sits at {morale} — a quiet edge most desks are still pricing flat.",
+      "stabilityHinge": "Stability index {stability}: rotation room is real, but the hinge players matter.",
+      "coachLens": "{coach} keeps shaping the run-of-play around {signalPlayer} — watch the half-spaces.",
+      "ranking": "FIFA #{ranking} undersells what this group has done on the road.",
+      "groupRoad": "Group {group} road still runs through {team} — control the middle thirds, control the week.",
+      "marketEdge": "Model edge vs the books is roughly {edgePct} on the {bookSource} number — fade the drift.",
+      "rotationRisk": "Rotation risk is the quiet story — {coach} has trusted {signalPlayer} too long not to start.",
+      "finishingSignal": "{topScorer} is the finishing signal: when chances land for them, the result usually follows.",
+      "tempo": "Tempo holds the verdict — when {team} dictate the first 20, they tend to dictate the night."
+    }
   }
 }

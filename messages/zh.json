@@ -762,6 +762,8 @@
     "positionDEF": "后卫",
     "positionMID": "中场",
     "positionFWD": "前锋",
+    "portraitPending": "等待头像",
+    "dossierActive": "档案启用",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age}岁",
     "wc2026Status": "2026世界杯：{label}",
@@ -771,7 +773,9 @@
     "isPlaying": "{name} 是否参赛？",
     "fullProfileOn": "{team} 完整档案",
     "teamSquad": "{flag} {team} 阵容",
-    "allTeams": "所有球队"
+    "allTeams": "所有球队",
+    "metaTitle": "{name} 2026 世界杯 — 球员档案、数据与预测",
+    "metaDescription": "{name}（{position}）— {team} 队员，效力于 {club}。2026 世界杯数据、球探报告与 AI 情报。"
   },
   "playerStatusPage": {
     "badge": "阵容追踪",
@@ -917,6 +921,72 @@
     "signalsRefresh": "随着新的报道和表现数据到来，信号会自动更新。",
     "panelExpands": "随着更多报道和球队信息的收集，此面板将自动扩展。",
     "updated": "更新于 {date} UTC"
+  },
+  "playerScoutGrade": {
+    "title": "球员球探评级",
+    "subtitle": "五维情报评级",
+    "totalLabel": "评级",
+    "dimensions": {
+      "skill": "技术",
+      "form": "状态",
+      "fit": "适配",
+      "durability": "耐用度",
+      "bigGame": "大场面"
+    },
+    "verdict": {
+      "elite": "决定赛事走向的天才——他的每一次触球都值得标记。",
+      "strong": "首发铁打——具备明显对位优势。",
+      "viable": "球队可用资源——情境性影响多于全场存在感。",
+      "limited": "板凳深度——仅作应急选项。"
+    },
+    "tier": {
+      "elite": "顶级",
+      "strong": "稳健",
+      "viable": "可用",
+      "limited": "有限"
+    }
+  },
+  "selectionProbability": {
+    "title": "出场概率",
+    "subtitle": "首战首发与 26 人大名单几率",
+    "openerStartLabel": "P(首战首发)",
+    "squadInclusionLabel": "P(入选 26 人大名单)",
+    "defaultNote": "复合概率融合了入选风险、伤病状态以及球探团队最新的出场状态修正。",
+    "verdict": {
+      "lock": "首战首发铁打——模型几乎确定他会首发出场。",
+      "likely": "大概率首发但并非雷打不动——留意最后一堂训练课。",
+      "contested": "位置存在争议——板凳或轮换是基准情形。",
+      "bench": "处于首发阵容预测之外——大名单本身也存在风险。"
+    }
+  },
+  "matchProjection": {
+    "heading": "出场预测表",
+    "subtitle": "角色 · 出场时间 · 威胁等级——未来六场比赛",
+    "scoutVerdict": "{player} 在未来 {count} 场比赛中的角色与出场时间预测——挑队长前先看威胁等级。",
+    "columns": {
+      "opponent": "对手",
+      "role": "预测角色",
+      "minutes": "出场比例",
+      "threat": "威胁"
+    },
+    "threatTier": {
+      "S": "S · 决胜级",
+      "A": "A · 高影响力",
+      "B": "B · 稳定输出",
+      "C": "C · 轮换级"
+    },
+    "roles": {
+      "sweeperKeeper": "清道夫门将",
+      "shotStopper": "扑救型门将",
+      "ballPlayingCb": "出球中卫",
+      "defensiveAnchor": "防线支点",
+      "deepLyingPlaymaker": "后场组织核心",
+      "boxToBoxEngine": "全能推进器",
+      "boxCrasher": "禁区冲击手",
+      "invertedWinger": "内切边锋"
+    },
+    "keyMatchupTemplate": "关键对位——{matchup}",
+    "emptyState": "暂无可投射的比赛——抽签确定后会重新计算。"
   },
   "blog": {
     "minRead": "{time}分钟阅读"
@@ -1220,6 +1290,26 @@
     "archetypeNote": "风格最相近的过往世界杯球队",
     "aiSourceAttribution": "AI 分析基于 50,000+ 数据点",
     "ariaQuickReference": "球队速览"
+  },
+  "titlePath": {
+    "heading": "夺冠概率路径树",
+    "subtitle": "模型 vs 市场 — 逐轮对比",
+    "stageHeader": "阶段",
+    "modelHeader": "模型",
+    "marketHeader": "市场",
+    "edgeHeader": "价差",
+    "stageGroup": "小组出线",
+    "stageR16": "十六强",
+    "stageQF": "八强",
+    "stageSF": "四强",
+    "stageFinal": "决赛",
+    "stageWin": "捧杯",
+    "verdict": "{team} 的最大模型边际出现在 {stage}，模型与市场存在 {edge} 的价差。",
+    "verdictFallback": "{team} 在所有阶段都与市场持平 — 暂无可利用的错价。",
+    "scoutSignature": "Kick Oracle 编辑部",
+    "archive": "档案 {code}",
+    "confidenceHigh": "置信度 · 模型信号已激活",
+    "confidenceLow": "置信度 · 仅市场影子"
   },
   "search": {
     "buttonPlaceholder": "搜索球队…",
@@ -1528,7 +1618,9 @@
     "safetyVerySafe": "非常安全",
     "safetySafe": "安全",
     "safetyModerate": "中等",
-    "safetyCaution": "需谨慎"
+    "safetyCaution": "需谨慎",
+    "metaTitle": "{city} 2026 世界杯主办城市 — 旅行指南",
+    "metaDescription": "2026 世界杯主办城市 {city}（{country}）旅行指南。球场、交通、酒店、安全与比赛日程。"
   },
   "travelPage": {
     "heroBadge": "球迷指南",
@@ -1865,5 +1957,412 @@
     "groupRank": "{group} 组 · 第 {rank} 名",
     "playoff": "附加赛",
     "chemistry": "化学反应"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} 2026 世界杯 — 阵容、分析与预测",
+    "metaDescription": "AI 解读 {team} 的 2026 世界杯征程。{group} 组、FIFA 排名第 {rank}。阵容、赛程、化学指数与晋级概率。"
+  },
+  "intelligenceModule": {
+    "signature": "Kick Oracle 数据台",
+    "computedFromSignals": "基于 {count} 条信号计算",
+    "sourceCount": "{count} 个来源",
+    "refreshed": "刷新于 {time}"
+  },
+  "scoutEdgeScore": {
+    "title": "球探总评",
+    "subtitle": "综合情报评分",
+    "totalLabel": "总评",
+    "dimensions": {
+      "attack": "攻击",
+      "spine": "中轴",
+      "bench": "板凳",
+      "coach": "教练",
+      "form": "状态",
+      "edge": "盘口",
+      "attackHint": "锋线火力——前锋平均评分。",
+      "spineHint": "门将加上两名最强后卫与两名最强中场。",
+      "benchHint": "深度名单 12-23 号位，是漫长赛程的隐形燃料。",
+      "coachHint": "教练的战术权威与更衣室稳定度。",
+      "formHint": "近期士气与战术稳定性的加权组合。",
+      "edgeHint": "我们的模型与盘口共识的偏离幅度。"
+    },
+    "verdict": {
+      "elite": "冠军级档案——六大维度全数过关。",
+      "strong": "八强水准，但还有一两道裂缝需要修补。",
+      "viable": "具备出线实力，但优势比签运图所示更薄。",
+      "limited": "天花板大致止步十六强，需要早期方差才能更进一步。"
+    }
+  },
+  "socialBuzz": {
+    "title": "社交热度",
+    "subtitle": "赛前社交舆情脉搏",
+    "buzzLabel": "热度指数",
+    "sentimentLabel": "情绪",
+    "deltaLabel": "7 日变化",
+    "noChatter": "未捕捉到声量",
+    "verdict": {
+      "tailwind": "正向顺风——舆论站在他这一边。",
+      "headwind": "声量大且不友好——是压力管理课题。",
+      "quiet": "声量低、情绪中性——低调潜行。",
+      "mixed": "两极化噪声——叙事双向作用。",
+      "noChatter": "暂无社交信号——故事尚未展开。"
+    }
+  },
+  "signalLedger": {
+    "title": "信号置信度账本",
+    "subtitle": "按置信度加权的信号时间线",
+    "confidenceLabel": "置信",
+    "viewAllSignals": "查看全部 {count} 条信号",
+    "emptyState": "暂无该球员的信号记录。",
+    "sparkline7d": "7 日信号量",
+    "sourceTypes": {
+      "profile": "档案",
+      "social": "社媒",
+      "derived": "推断",
+      "press": "媒体"
+    },
+    "categories": {
+      "fitness": "体能",
+      "morale": "士气",
+      "tactical": "战术"
+    },
+    "sentiment": {
+      "positive": "正面",
+      "negative": "负面",
+      "neutral": "中性",
+      "mixed": "复杂"
+    },
+    "verdict": {
+      "signalRich": "信号密集且指向明确——高确信度判断。",
+      "warningSignal": "高确信信号亮红灯——视为警告。",
+      "lowConfidence": "信号基础薄弱——在加注前需要更多输入。",
+      "mixedRead": "确信度稳定但信号相互矛盾——结合情境判断。",
+      "empty": "暂无声响——目前没有归档信号。"
+    }
+  },
+  "pressureIndex": {
+    "heading": "压力指数",
+    "subtitle": "球员在大场面下的抗压表现",
+    "scoreLabel": "压力分数",
+    "scoutVerdict": "{player} 在大场面下读作{tier}——这是规则版 MVP 的判断。",
+    "tierIce": "冰冷",
+    "tierCool": "稳健",
+    "tierWarm": "温热",
+    "tierShaky": "摇摆",
+    "factors": {
+      "experience": "经验",
+      "form": "状态",
+      "fitness": "体能",
+      "morale": "士气",
+      "archetypeFit": "原型契合"
+    },
+    "modelStubFootnote": "规则版 MVP——完整压力指数模型将在 Phase 3 后续版本上线"
+  },
+  "workload": {
+    "heading": "负荷监测",
+    "subtitle": "近 12 个月滚动出场分钟、场次与国家队窗口",
+    "scoutVerdict": "{player} 近 12 个月负荷读作{status}——按此管理出场分钟。",
+    "sparklineLabel": "按月分钟数",
+    "totalMinutesLabel": "滚动分钟",
+    "totalGamesLabel": "场次",
+    "nationalTeamWindowsLabel": "国家队窗口",
+    "statusLabel": "状态",
+    "statusFresh": "充足",
+    "statusManaged": "可控",
+    "statusAmber": "警戒区",
+    "statusRed": "超负荷",
+    "amberZoneBadge": "警戒区 · {minutes} 分钟",
+    "injuryFlagLabel": "伤病预警",
+    "ariaLabelTemplate": "{player} 12 个月负荷：{games} 场共 {minutes} 分钟"
+  },
+  "roleHeatmap": {
+    "heading": "角色与热点图",
+    "subtitle": "预测触球区域与战术角色标签",
+    "scoutVerdict": "{player} 投射为 {role}——这就是档案预期的热点。",
+    "roleTagsLabel": "战术角色标签",
+    "primaryZoneLabel": "主要活动区",
+    "pitchAriaLabel": "{player}（{role}）的预测球场热点图。主要活动区：{zone}。",
+    "primaryZones": {
+      "description": "{row}，{col}",
+      "rows": {
+        "topWing": "上侧边路",
+        "bottomWing": "下侧边路",
+        "centralChannel": "中路通道"
+      },
+      "cols": {
+        "ownDefensiveThird": "本方防守三区",
+        "deepBuildUp": "后场组织区",
+        "midfieldThird": "中场三区",
+        "attackingThird": "进攻三区",
+        "finalThirdBoxEdge": "前场禁区边缘"
+      }
+    }
+  },
+  "differentiator": {
+    "title": "他与众不同之处",
+    "subtitle": "定义他的那一个特质",
+    "whyLabel": "对手为何难应对",
+    "statsLabel": "锚定数据",
+    "positionTraits": {
+      "fw_box_crasher": "禁区冲击型终结者",
+      "fw_wide_creator": "边路创造者",
+      "mid_metronome": "节拍器型组织核心",
+      "mid_press_resistant": "抗压型后腰组织者",
+      "def_aerial": "高空指挥官",
+      "def_sweeper": "组织型清道夫",
+      "gk_sweeper": "出击型门将",
+      "gk_shotstopper": "扑救专家"
+    },
+    "verdict": {
+      "studyTape": "在任何与他相关的对位之前，都值得研究他的录像。"
+    }
+  },
+  "marketModelSpread": {
+    "title": "盘口 vs 模型偏离",
+    "subtitle": "博彩共识与我方概率的对照",
+    "marketLabel": "盘口 %",
+    "modelLabel": "模型 %",
+    "edgeLabel": "价差",
+    "movementLabel": "盘面走向",
+    "signalStrengthLabel": "信号强度",
+    "sourcesLabel": "共识来源",
+    "movement": {
+      "shortening": "收紧",
+      "drifting": "走宽",
+      "stable": "稳定"
+    },
+    "signalStrength": {
+      "strong": "强",
+      "moderate": "中",
+      "weak": "弱",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "盘口与模型一致——无价差可打。",
+      "modelHigh": "模型对夺冠权益的评估高于盘口共识。",
+      "modelLow": "盘口已计入我们模型未认可的上行空间。",
+      "modest": "价差有限——可参与，但本周并非主菜。"
+    }
+  },
+  "archetypeDossier": {
+    "title": "原型档案",
+    "subtitle": "历史模式匹配——优势、警示与基准上限",
+    "archetypeLabel": "原型",
+    "summaryLabel": "模式概览",
+    "strengthsLabel": "优势",
+    "cautionsLabel": "警示",
+    "historyLabel": "历史参照",
+    "baselineLabel": "基准上限",
+    "successRateLabel": "模式成功率",
+    "fromLabel": "源自",
+    "verdict": {
+      "ceilingTitle": "夺冠级原型——一旦点火，奖杯触手可及。",
+      "ceilingDeepRun": "深入级原型——半决赛或四强是历史落点。",
+      "ceilingKnockouts": "淘汰赛原型——抽签运好一点就能搅局。",
+      "ceilingGroup": "小组赛原型——本届是为下一周期热身。"
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "弱点矩阵",
+    "subtitle": "与小组对手的 6 维战术差距",
+    "axisHeader": "维度",
+    "vsLabel": "对阵",
+    "onLabel": "于",
+    "legendPositive": "正值 = 优势",
+    "legendNegative": "负值 = 弱点",
+    "biggestGapLabel": "最大弱点",
+    "noOpponents": "暂无小组对手可供对比。",
+    "axes": {
+      "atk": "进攻",
+      "mid": "中场",
+      "def": "防守",
+      "chm": "默契",
+      "exp": "经验",
+      "fit": "状态"
+    },
+    "verdict": {
+      "dominant": "全维度领先——小组内无对手构成实质威胁。",
+      "balanced": "整体平衡——存在一两处可调度的薄弱点。",
+      "exposed": "多维度暴露——对手有清晰的发力点。",
+      "outclassed": "战术板上被压制——本小组将是生存赛。"
+    }
+  },
+  "riskRegister": {
+    "title": "阵容风险登记",
+    "subtitle": "伤病、选人与战术风险 Top 5",
+    "indexLabel": "序号",
+    "severityLabel": "严重度",
+    "noteLabel": "备注",
+    "noFurtherRisks": "暂无其他重大风险",
+    "riskTypes": {
+      "fitness": "伤病",
+      "selection": "选人",
+      "tactical": "战术"
+    },
+    "severity": {
+      "high": "高",
+      "medium": "中"
+    },
+    "verdict": {
+      "controlled": "风险登记表整体平稳——每条线都能照常使用。",
+      "manageable": "存在几处可信威胁——绕开它们继续推进即可。",
+      "fragile": "多处高影响风险叠加——本周阵容偏脆。"
+    }
+  },
+  "formCurve": {
+    "ariaLabelTemplate": "{entity} 6 个月状态曲线：趋势 {direction}",
+    "trendUp": "上行",
+    "trendFlat": "平稳",
+    "trendDown": "下行",
+    "deltaPositive": "+{value}",
+    "deltaNegative": "−{value}",
+    "monthsLabel": "{count} 个月"
+  },
+  "agePeak": {
+    "heading": "巅峰年龄窗口",
+    "subtitle": "按位置分组的巅峰区间分析",
+    "scoutVerdict": "{team} 阵容相对于各位置巅峰区间表现为 {verdict}。",
+    "positionLabels": {
+      "GK": "门将",
+      "CB": "中后卫",
+      "FB": "边后卫",
+      "DM": "后腰",
+      "CM": "中场",
+      "AM": "前腰",
+      "W": "边锋",
+      "ST": "中锋"
+    },
+    "peakingLabel": "巅峰期",
+    "ascendingLabel": "上升期",
+    "decliningLabel": "下滑期",
+    "mixedLabel": "混合",
+    "inPeakCount": "处于巅峰区间",
+    "outsidePeakCount": "处于巅峰区间外",
+    "inPeakShort": "在峰值",
+    "outsidePeakShort": "在区外",
+    "avgAgeLabel": "均龄",
+    "emptyState": "暂无阵容数据"
+  },
+  "climateTravel": {
+    "heading": "气候与旅行影响",
+    "subtitle": "球场气候 × 行程公里 × 本土适应度",
+    "scoutVerdict": {
+      "comfortable": "短途行程，气候熟悉——赛程对球队偏友好。",
+      "manageable": "存在几场不利对阵——围绕它们安排轮换即可。",
+      "punishing": "长途飞行叠加严苛气候——恢复才是真正的对手。"
+    },
+    "fixtureHeader": {
+      "venue": "球场",
+      "climate": "气候",
+      "km": "行程",
+      "fit": "匹配"
+    },
+    "totalKmLabel": "小组赛总行程",
+    "worstFitLabel": "最不利场次",
+    "climateBands": {
+      "hotHumid": "湿热",
+      "hotDry": "干热",
+      "temperate": "温和",
+      "cold": "寒冷",
+      "altitude": "高海拔"
+    },
+    "emptyState": "尚无该球队的赛程气候数据。"
+  },
+  "chemistryWeb": {
+    "heading": "化学反应网",
+    "subtitle": "首发十一人之间的两两默契",
+    "scoutVerdict": "{team} 首发的最强连线是 {topPair}——其他配对都围绕这条脊梁运转。",
+    "strongestPairsLabel": "最强配对",
+    "pairScoreFormat": "{a} ↔ {b} — {score}",
+    "lineLabels": {
+      "GK": "门将",
+      "DEF": "后卫",
+      "MID": "中场",
+      "FWD": "前锋"
+    },
+    "nodeAriaLabel": "{name}（{line}）",
+    "stubFootnote": "化学反应连边为合成估算——将在 Phase 3 后续接入 FBref SCA / xT-on 真实数据。"
+  },
+  "coachPressure": {
+    "heading": "教练压力画像",
+    "subtitle": "大场面信号 · 阵型微调 · 定位球偏好",
+    "scoutVerdict": "{coach} 在高压时刻很会读球——以下是他在比分胶着时常用的杠杆。",
+    "bigGameLabel": "大赛战绩",
+    "bigGamePlayed": "场",
+    "inGameTellsLabel": "比赛中的信号",
+    "formationTweaksLabel": "高压时的阵型微调",
+    "setPieceLabel": "定位球偏好",
+    "biasAttacking": "进攻取向",
+    "biasDefensive": "防守取向",
+    "biasNeutral": "中性",
+    "pendingState": "{coach} 的压力画像仍在拼装中——{team} 档案球探仍在观察。"
+  },
+  "statTwin": {
+    "heading": "球星孪生",
+    "subtitle": "历史对位叠加",
+    "scoutVerdict": "{player} 的踢法与 {topComparable} 最为接近——这是我们球探数据库中最契合的历史模板。",
+    "similarityLabel": "相似度",
+    "traitLabel": "特征",
+    "comparablesLegend": {
+      "mainPlayerLabel": "{player}（当代）",
+      "comparableLabel": "{label}（历史）"
+    },
+    "pendingState": "{player} 的历史对位仍在整理中。我们的对位档案由人工逐一打磨，这位球员将在下一批中发布。"
+  },
+  "careerArc": {
+    "heading": "职业生涯曲线",
+    "subtitle": "阶段定位与历史可比对象",
+    "scoutVerdict": "{topComparable}式的{phase}轨迹——{player}与一个可识别的原型走在同一条曲线上。",
+    "phaseAscending": "上升期",
+    "phasePeaking": "巅峰期",
+    "phaseDeclining": "下滑期",
+    "phaseTransitioning": "过渡期",
+    "comparableLabel": "可比对象",
+    "traitLabel": "阶段",
+    "ariaLabelTemplate": "{player} 职业生涯轨迹图——当前阶段：{phase}"
+  },
+  "bigGameFootprint": {
+    "heading": "大场面足迹",
+    "subtitle": "高强度赛事中的逐场表现档案",
+    "scoutVerdict": "{player} 在最大舞台上{verdict}——淘汰赛、决赛与小组生死战的均值为 {meanRating}。",
+    "columnDate": "时间",
+    "columnOpponent": "对手",
+    "columnStage": "阶段",
+    "columnRating": "评分",
+    "ageLabel": "{age} 岁",
+    "stageFinal": "决赛",
+    "stageSemi": "半决赛",
+    "stageQuarter": "1/4 决赛",
+    "stageR16": "1/8 决赛",
+    "stageGroupDecider": "小组生死战",
+    "stageFriendly": "友谊赛",
+    "verdictRises": "更上一层",
+    "verdictSteady": "稳定发挥",
+    "verdictFades": "渐渐隐退",
+    "statsMeanRating": "平均评分",
+    "statsBestPerformance": "最佳表现",
+    "statsBestLabel": "对阵 {opponent} · {rating}",
+    "statsFadeCount": "低迷次数"
+  },
+  "pressBoxBrief": {
+    "heading": "新闻席每周简报",
+    "subtitle": "情报台奉上的四条本周要点",
+    "weekLabel": "第{week}周 · 2026",
+    "signOff": "— Kick Oracle 情报台",
+    "stubFootnote": "本期为人工调校简报；完整的 LLM 周报节奏将在第三阶段后续上线。",
+    "bulletTemplates": {
+      "spine": "{team} 带着稳定的中轴进入比赛日 — {archetype} 的判读依然成立。",
+      "banker": "{topScorer}（{topScorerGoals} 球）是这支球队最接近稳胆的存在。",
+      "archetype": "{archetype} 的原型一再出现在录像里 — 这支队伍非常守型。",
+      "moraleEdge": "队内士气 {morale} — 多数桌面仍按平均值定价，悄然成势。",
+      "stabilityHinge": "稳定指数 {stability}：轮换空间确有，但枢纽球员决定走势。",
+      "coachLens": "{coach} 依旧围绕 {signalPlayer} 安排进攻 — 留意肋部空间。",
+      "ranking": "FIFA 第 {ranking} 名低估了这支队伍在客场所做的事。",
+      "groupRoad": "{group} 组的走线仍要经过 {team} — 控住中段三分之一，就控住整周。",
+      "marketEdge": "模型对盘口的优势约为 {edgePct}（参考 {bookSource} 报价）— 顺势博弈。",
+      "rotationRisk": "轮换风险才是真问题 — {coach} 对 {signalPlayer} 已倚重至非首发不可。",
+      "finishingSignal": "{topScorer} 是终结信号：机会到他脚下，结果通常随之而来。",
+      "tempo": "节奏决定一切 — 当 {team} 把控开局二十分钟，往往也把控整场比赛。"
+    }
   }
 }

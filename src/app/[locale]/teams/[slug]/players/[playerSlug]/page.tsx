@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { Link } from '@/i18n/navigation'
-import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug, getAllPlayers, getAllTeams } from '@/lib/data-service'
+import { getTeamBySlug, getPlayersByTeam, getPlayerBySlug, getAllPlayers, getAllTeams, getFixturesByTeam } from '@/lib/data-service'
 import { HOST_CITIES } from '@/data/cities-data'
 import { buildTeamEntities, buildCityEntities, type LinkEntity } from '@/lib/auto-link'
 import { getPlayerActionImage } from '@/lib/unsplash'
@@ -11,7 +11,20 @@ import { playerDescriptionEn } from '@/data/seo-meta'
 import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
+import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
+import StatTwin from '@/components/player/StatTwin'
+import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
+import MatchProjectionTable from '@/components/player/MatchProjectionTable'
+import SocialBuzzCard from '@/components/player/SocialBuzzCard'
+import SignalLedger from '@/components/player/SignalLedger'
+import WorkloadWatch from '@/components/player/WorkloadWatch'
+import PressureIndex from '@/components/player/PressureIndex'
+import RoleHeatmap from '@/components/player/RoleHeatmap'
+import CareerArc from '@/components/player/CareerArc'
+import BigGameFootprint from '@/components/player/BigGameFootprint'
+import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import PlayerArticle from '@/components/player/PlayerArticle'
+import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
 
@@ -69,6 +82,8 @@ export default async function PlayerPage({ params }: PageProps) {
     .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
     .slice(0, 8)
   const derivedStats = computeDerivedStats(player)
+  const playerIntel = getPlayerIntelBySlug(slug, player.slug)
+  const teamFixtures = getFixturesByTeam(slug)
 
   // Auto-link entities for the seoArticle/outlook prose. Exclude the current
   // team so the article doesn't self-link. Include all 12 host cities so
@@ -125,6 +140,18 @@ export default async function PlayerPage({ params }: PageProps) {
         ]}
       />
       <PlayerStats player={player} derivedStats={derivedStats} />
+      <PlayerScoutGrade player={player} team={team} playerIntel={playerIntel} />
+      <StatTwin player={player} team={team} derivedStats={derivedStats} />
+      <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
+      <MatchProjectionTable player={player} team={team} fixtures={teamFixtures} />
+      <SocialBuzzCard player={player} team={team} />
+      <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
+      <WorkloadWatch player={player} team={team} />
+      <PressureIndex player={player} team={team} />
+      <RoleHeatmap player={player} team={team} />
+      <CareerArc player={player} team={team} />
+      <BigGameFootprint player={player} team={team} />
+      <DifferentiatorCard player={player} team={team} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />
 

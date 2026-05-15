@@ -53,6 +53,7 @@ export const CLIENT_NAMESPACES = [
   'matchesPage',
   'offlinePage',
   'paywall',
+  'playerPage',
   'pkBattle',
   'pointsPage',
   'predictPage',

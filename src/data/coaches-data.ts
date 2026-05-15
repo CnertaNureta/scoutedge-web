@@ -1,3 +1,10 @@
+export interface CoachPressureProfileData {
+  bigGameRecord?: { played: number; won: number; lost: number; drawn: number }
+  inGameTells: string[]
+  formationTweaks: string[]
+  setPieceBias?: 'attacking' | 'defensive' | 'neutral'
+}
+
 export interface CoachProfile {
   teamSlug: string
   name: string
@@ -13,6 +20,8 @@ export interface CoachProfile {
   contractUntil: string
   winRate: number
   bio: string
+  coachTells?: string[]
+  pressureProfile?: CoachPressureProfileData
 }
 
 export const COACHES: CoachProfile[] = [

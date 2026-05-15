@@ -24,3 +24,8 @@ supabase/.temp/
 test-results/
 logs/migrate-loop-*.log
 logs/migration-*/
+
+# serwist-generated service worker (rebuilt on every `next build`)
+public/sw.js
+public/sw.js.map
+public/swe-worker-*.js

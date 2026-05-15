@@ -763,6 +763,8 @@
     "positionDEF": "Védő",
     "positionMID": "Középpályás",
     "positionFWD": "Csatár",
+    "portraitPending": "Portré folyamatban",
+    "dossierActive": "Dosszié aktív",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} éves",
     "wc2026Status": "VB 2026: {label}",

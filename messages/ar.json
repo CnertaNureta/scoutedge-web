@@ -763,6 +763,8 @@
     "positionDEF": "مدافع",
     "positionMID": "لاعب وسط",
     "positionFWD": "مهاجم",
+    "portraitPending": "الصورة قيد الانتظار",
+    "dossierActive": "الملف نشط",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} سنة",
     "wc2026Status": "كأس العالم 2026: {label}",

@@ -763,6 +763,8 @@
     "positionDEF": "Défenseur",
     "positionMID": "Milieu",
     "positionFWD": "Attaquant",
+    "portraitPending": "Portrait en attente",
+    "dossierActive": "Dossier actif",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} ans",
     "wc2026Status": "CdM 2026 : {label}",

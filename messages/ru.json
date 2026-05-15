@@ -763,6 +763,8 @@
     "positionDEF": "Защитник",
     "positionMID": "Полузащитник",
     "positionFWD": "Нападающий",
+    "portraitPending": "Портрет ожидается",
+    "dossierActive": "Досье активно",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} лет",
     "wc2026Status": "ЧМ 2026: {label}",

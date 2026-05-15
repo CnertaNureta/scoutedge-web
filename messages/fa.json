@@ -763,6 +763,8 @@
     "positionDEF": "مدافع",
     "positionMID": "هافبک",
     "positionFWD": "مهاجم",
+    "portraitPending": "پرتره در انتظار",
+    "dossierActive": "پرونده فعال",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age} ساله",
     "wc2026Status": "جام جهانی ۲۰۲۶: {label}",
