@@ -220,7 +220,12 @@ describe('localized structured-data URL guard', () => {
   it('prevents newly noindexed routes from inheriting the homepage canonical', () => {
     const layouts = [
       ['src/app/[locale]/challenges/layout.tsx', '/challenges'],
+      ['src/app/[locale]/dashboard/layout.tsx', '/dashboard'],
+      ['src/app/[locale]/leagues/layout.tsx', '/leagues'],
+      ['src/app/[locale]/offline/layout.tsx', '/offline'],
       ['src/app/[locale]/points/layout.tsx', '/points'],
+      ['src/app/[locale]/predict/layout.tsx', '/predict'],
+      ['src/app/[locale]/store/layout.tsx', '/store'],
     ] as const
 
     for (const [file, routePath] of layouts) {
