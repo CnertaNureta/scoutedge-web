@@ -2656,5 +2656,28 @@
     "comparableLabel": "Comparables",
     "traitLabel": "Phase",
     "ariaLabelTemplate": "Career trajectory chart for {player} — current phase: {phase}"
+  },
+  "bigGameFootprint": {
+    "heading": "Big-Game Footprint",
+    "subtitle": "Per-match performance ledger in high-stakes fixtures",
+    "scoutVerdict": "{player} {verdict} on the biggest stages — a {meanRating} mean across knockouts, finals, and group deciders.",
+    "columnDate": "When",
+    "columnOpponent": "Opponent",
+    "columnStage": "Stage",
+    "columnRating": "Rating",
+    "ageLabel": "Age {age}",
+    "stageFinal": "Final",
+    "stageSemi": "Semi",
+    "stageQuarter": "Quarter",
+    "stageR16": "R16",
+    "stageGroupDecider": "Group Decider",
+    "stageFriendly": "Friendly",
+    "verdictRises": "rises",
+    "verdictSteady": "holds steady",
+    "verdictFades": "fades",
+    "statsMeanRating": "Mean Rating",
+    "statsBestPerformance": "Best Performance",
+    "statsBestLabel": "vs {opponent} · {rating}",
+    "statsFadeCount": "Fade Count"
   }
 }

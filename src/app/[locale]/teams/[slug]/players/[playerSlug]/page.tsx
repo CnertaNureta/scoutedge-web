@@ -21,6 +21,7 @@ import WorkloadWatch from '@/components/player/WorkloadWatch'
 import PressureIndex from '@/components/player/PressureIndex'
 import RoleHeatmap from '@/components/player/RoleHeatmap'
 import CareerArc from '@/components/player/CareerArc'
+import BigGameFootprint from '@/components/player/BigGameFootprint'
 import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
@@ -149,6 +150,7 @@ export default async function PlayerPage({ params }: PageProps) {
       <PressureIndex player={player} team={team} />
       <RoleHeatmap player={player} team={team} />
       <CareerArc player={player} team={team} />
+      <BigGameFootprint player={player} team={team} />
       <DifferentiatorCard player={player} team={team} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />

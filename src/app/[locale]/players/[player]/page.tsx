@@ -20,6 +20,7 @@ import WorkloadWatch from '@/components/player/WorkloadWatch'
 import PressureIndex from '@/components/player/PressureIndex'
 import RoleHeatmap from '@/components/player/RoleHeatmap'
 import CareerArc from '@/components/player/CareerArc'
+import BigGameFootprint from '@/components/player/BigGameFootprint'
 import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
@@ -216,6 +217,10 @@ export default async function PlayerPage({ params }: Props) {
 
       {team && (
         <CareerArc player={player} team={team} />
+      )}
+
+      {team && (
+        <BigGameFootprint player={player} team={team} />
       )}
 
       {team && (

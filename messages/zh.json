@@ -2278,5 +2278,28 @@
     "comparableLabel": "可比对象",
     "traitLabel": "阶段",
     "ariaLabelTemplate": "{player} 职业生涯轨迹图——当前阶段：{phase}"
+  },
+  "bigGameFootprint": {
+    "heading": "大场面足迹",
+    "subtitle": "高强度赛事中的逐场表现档案",
+    "scoutVerdict": "{player} 在最大舞台上{verdict}——淘汰赛、决赛与小组生死战的均值为 {meanRating}。",
+    "columnDate": "时间",
+    "columnOpponent": "对手",
+    "columnStage": "阶段",
+    "columnRating": "评分",
+    "ageLabel": "{age} 岁",
+    "stageFinal": "决赛",
+    "stageSemi": "半决赛",
+    "stageQuarter": "1/4 决赛",
+    "stageR16": "1/8 决赛",
+    "stageGroupDecider": "小组生死战",
+    "stageFriendly": "友谊赛",
+    "verdictRises": "更上一层",
+    "verdictSteady": "稳定发挥",
+    "verdictFades": "渐渐隐退",
+    "statsMeanRating": "平均评分",
+    "statsBestPerformance": "最佳表现",
+    "statsBestLabel": "对阵 {opponent} · {rating}",
+    "statsFadeCount": "低迷次数"
   }
 }
