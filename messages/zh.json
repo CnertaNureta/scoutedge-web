@@ -944,6 +944,19 @@
       "limited": "有限"
     }
   },
+  "selectionProbability": {
+    "title": "出场概率",
+    "subtitle": "首战首发与 26 人大名单几率",
+    "openerStartLabel": "P(首战首发)",
+    "squadInclusionLabel": "P(入选 26 人大名单)",
+    "defaultNote": "复合概率融合了入选风险、伤病状态以及球探团队最新的出场状态修正。",
+    "verdict": {
+      "lock": "首战首发铁打——模型几乎确定他会首发出场。",
+      "likely": "大概率首发但并非雷打不动——留意最后一堂训练课。",
+      "contested": "位置存在争议——板凳或轮换是基准情形。",
+      "bench": "处于首发阵容预测之外——大名单本身也存在风险。"
+    }
+  },
   "blog": {
     "minRead": "{time}分钟阅读"
   },

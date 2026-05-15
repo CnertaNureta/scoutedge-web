@@ -15,6 +15,7 @@ import PlayerHero from '@/components/player/PlayerHero'
 import PlayerStats from '@/components/player/PlayerStats'
 import PlayerIntel from '@/components/player/PlayerIntel'
 import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
+import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -134,6 +135,7 @@ export default async function PlayerPage({ params }: PageProps) {
       />
       <PlayerStats player={player} derivedStats={derivedStats} />
       <PlayerScoutGrade player={player} team={team} playerIntel={playerIntel} />
+      <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />
 

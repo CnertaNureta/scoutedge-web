@@ -1231,6 +1231,19 @@
       "limited": "Limited"
     }
   },
+  "selectionProbability": {
+    "title": "Selection Probability",
+    "subtitle": "Opener Start & 26-Man Squad Odds",
+    "openerStartLabel": "P(starts opener)",
+    "squadInclusionLabel": "P(makes 26-man squad)",
+    "defaultNote": "Composite probability blends selection_risk, fitness state, and the latest playing-status overlay from our scouting desk.",
+    "verdict": {
+      "lock": "Locked into the opener XI — model treats this as a near-certain starter.",
+      "likely": "Most likely a starter but not untouchable — watch the final session.",
+      "contested": "Squad place uncertain — bench role or rotation is the base case.",
+      "bench": "Outside the projected starting picture — squad slot itself is at risk."
+    }
+  },
   "blog": {
     "minRead": "{time} min read"
   },
