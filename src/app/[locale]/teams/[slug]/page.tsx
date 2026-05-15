@@ -204,13 +204,11 @@ export default async function TeamPage({ params }: PageProps) {
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <TacticalDNA team={team} players={players} />
         <div className="mx-14 border-t border-white/[0.08]" />
-        <Paywall contentType="team" scope={slug} previewLines={6}>
-          <VulnerabilityMatrix
-            team={team}
-            players={players}
-            opponents={groupTeams}
-          />
-        </Paywall>
+        <VulnerabilityMatrix
+          team={team}
+          players={players}
+          opponents={groupTeams}
+        />
         <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
         <div className="mx-14 border-t border-white/[0.08]" />
