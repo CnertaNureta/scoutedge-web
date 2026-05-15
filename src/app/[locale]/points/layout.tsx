@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
-// Service-worker fallback — not meaningful to crawl. Keep follow=true so any
-// internal links still pass PageRank.
+// Auth-gated user wallet (KickOracle Points balance + earning ledger). Not
+// useful in SERPs; follow=true preserves PageRank to public destinations.
 export async function generateMetadata({
   params,
 }: {
@@ -10,11 +10,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   return {
-    alternates: buildAlternates(locale, '/offline'),
+    alternates: buildAlternates(locale, '/points'),
     robots: { index: false, follow: true },
   }
 }
 
-export default function OfflineLayout({ children }: { children: React.ReactNode }) {
+export default function PointsLayout({ children }: { children: React.ReactNode }) {
   return children
 }

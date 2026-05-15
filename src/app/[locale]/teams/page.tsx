@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { canonicalForLocale, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { getTeamsPageData } from '@/lib/site-data'
 import { Link } from '@/i18n/navigation'
 import { TEAMS_FAQS } from '@/data/faq-content'
@@ -17,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: t('heading'),
     description: t('description'),
     keywords: 'World Cup 2026 teams, World Cup 2026 groups, World Cup 2026 squads, FIFA World Cup 2026 predictions, World Cup 2026 analysis',
-    alternates: { canonical: canonicalForLocale(locale, '/teams') },
+    alternates: buildAlternates(locale, '/teams'),
   }
 }
 
@@ -45,7 +46,7 @@ export default async function TeamsPage({ params }: Props) {
   const teamsList = itemListJsonLd(
     allTeamsFlat.map((team) => ({
       name: team.name,
-      url: `https://kickoracle.com/teams/${team.slug}`,
+      url: canonicalForLocale(locale, `/teams/${team.slug}`),
       description: `Group ${team.group} · FIFA #${team.fifaRanking} · ${team.confederation}`,
     })),
     {

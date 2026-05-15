@@ -6,6 +6,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import HeroRegistrationCta from '@/components/ui/HeroRegistrationCta'
 import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import Paywall from '@/components/monetization/Paywall'
 import { PREDICTIONS_FAQS } from '@/data/faq-content'
 import FaqSection from '@/components/ui/FaqSection'
@@ -16,14 +17,15 @@ type Props = { params: Promise<{ locale: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'predictionsPage' })
+  const alternates = buildAlternates(locale, '/predictions')
   return {
     title: t('heading'),
     description: t('description'),
-    alternates: { canonical: canonicalForLocale(locale, '/predictions') },
+    alternates,
     ...buildOGMeta({
       title: t('heading'),
       description: t('description'),
-      url: canonicalForLocale(locale, '/predictions'),
+      url: alternates.canonical,
       locale,
     }),
   }
@@ -143,7 +145,7 @@ export default async function PredictionsPage({ params }: Props) {
   const contendersList = itemListJsonLd(
     topContenders.map((team) => ({
       name: team.name,
-      url: `https://kickoracle.com/teams/${team.slug}`,
+      url: canonicalForLocale(locale, `/teams/${team.slug}`),
       description: `Win probability ${team.winProbability.toFixed(1)}% · FIFA #${team.fifaRanking} · ${team.confederation}`,
     })),
     {

@@ -6,6 +6,7 @@ import {
   NOINDEX_PATHS,
   SITE_BASE_URL,
   SITEMAP_CHUNK_SIZE,
+  SITEMAP_LOCALES,
   getSitemapChunkCount,
   getSitemapEntries,
   sitemapEntriesToXml,
@@ -16,10 +17,10 @@ function localizedUrl(locale: string, path: string): string {
 }
 
 describe('sitemap coverage', () => {
-  it('emits one localized entry per (path, locale) pair', () => {
+  it('emits one localized entry per (path, locale) pair for SITEMAP_LOCALES', () => {
     const urls = getSitemapEntries().map((entry) => entry.url)
     const expectedUrls = CORE_SITEMAP_PATHS.flatMap(({ path }) =>
-      SUPPORTED_LOCALES.map((locale) => localizedUrl(locale, path))
+      SITEMAP_LOCALES.map((locale) => localizedUrl(locale, path))
     )
 
     expect(urls.sort()).toEqual(expectedUrls.sort())
@@ -27,6 +28,16 @@ describe('sitemap coverage', () => {
     expect(getSitemapChunkCount()).toBe(
       Math.ceil(urls.length / SITEMAP_CHUNK_SIZE)
     )
+  })
+
+  it('excludes non-core locales from sitemap submissions while keeping them supported', () => {
+    const urls = getSitemapEntries().map((entry) => entry.url)
+    const nonCoreLocales = SUPPORTED_LOCALES.filter(
+      (loc) => !SITEMAP_LOCALES.includes(loc)
+    )
+    for (const locale of nonCoreLocales) {
+      expect(urls).not.toContain(localizedUrl(locale, '/teams/argentina'))
+    }
   })
 
   it('includes the validated World Cup 2026 keyword pages', () => {

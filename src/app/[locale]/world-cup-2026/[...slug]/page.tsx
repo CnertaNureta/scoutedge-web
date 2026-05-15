@@ -19,6 +19,7 @@ import {
   itemListJsonLd,
   faqPageJsonLd,
 } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 86400
 export const dynamicParams = false
@@ -123,7 +124,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!page) return {}
 
   const path = pagePath(page)
-  const url = canonicalForLocale(locale, path)
+  const alternates = buildAlternates(locale, path)
   const isEditorial = page.contentType === 'editorial'
 
   return {
@@ -133,11 +134,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       page.primaryKeyword,
       ...page.faqs.map((faq) => faq.question.toLowerCase()),
     ],
-    alternates: { canonical: url },
+    alternates,
     ...buildOGMeta({
       title: page.metaTitle,
       description: page.description,
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
       section: 'World Cup 2026',

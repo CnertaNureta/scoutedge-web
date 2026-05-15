@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation'
 import { getAllTeamsForRouting, getTeamPageData } from '@/lib/site-data'
 import { getTeamHeroImage } from '@/lib/unsplash'
 import { buildOGMeta, jsonLdGraph, breadcrumbJsonLd, canonicalForLocale, faqPageJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { getFixturesByTeam, getAllTeams } from '@/lib/data-service'
 import { getCityByFixtureCityName, HOST_CITIES } from '@/data/cities-data'
 import { linkifyText, buildTeamEntities, buildCityEntities } from '@/lib/auto-link'
@@ -39,11 +40,21 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!pageData) return { title: 'Team Not Found' }
 
   const { team, seoMeta } = pageData
+  const tMeta = await getTranslations({ locale, namespace: 'teamDetailPage' })
   const seoTitle = seoMeta?.title?.replace(/ \| KickOracle$/, '') ?? null
-  const title = seoTitle ?? `${team.name} World Cup 2026 — Squad, Analysis & Predictions`
-  const description = seoMeta?.description ?? `AI-powered analysis of ${team.name}'s World Cup 2026 squad. ${team.name} is in Group ${team.group}, ranked #${team.fifaRanking} by FIFA. Full roster, match schedule, chemistry index, and win probability predictions.`
+  // EN-only TEAM_SEO_META is the highest-quality copy; other locales fall back
+  // to the translated template so we don't ship 18 copies of identical English.
+  const localizedTitle = tMeta('metaTitle', { team: team.name })
+  const localizedDescription = tMeta('metaDescription', {
+    team: team.name,
+    group: team.group,
+    rank: team.fifaRanking,
+  })
+  const title = locale === 'en' && seoTitle ? seoTitle : localizedTitle
+  const description =
+    locale === 'en' && seoMeta?.description ? seoMeta.description : localizedDescription
   const image = getTeamHeroImage(slug)
-  const url = `https://kickoracle.com/teams/${slug}`
+  const alternates = buildAlternates(locale, `/teams/${slug}`)
 
   return {
     title,
@@ -52,12 +63,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ...buildOGMeta({
       title: `${team.name} — World Cup 2026 AI Analysis`,
       description: `Deep-dive into ${team.name}'s World Cup 2026 campaign. AI-powered predictions and player intelligence.`,
-      url,
+      url: alternates.canonical,
       locale,
       type: 'article',
       image,
     }),
-    alternates: { canonical: url },
+    alternates,
   }
 }
 
@@ -77,7 +88,7 @@ export default async function TeamPage({ params }: PageProps) {
     .filter((c): c is NonNullable<typeof c> => c !== undefined)
   const pronunciationLinks = lingoPlayers.filter((lp) => lp.country === slug).slice(0, 4)
 
-  const teamUrl = `https://kickoracle.com/teams/${slug}`
+  const teamUrl = canonicalForLocale(locale, `/teams/${slug}`)
   const sportsTeamLd = {
     '@context': 'https://schema.org',
     '@type': 'SportsTeam',
@@ -94,7 +105,7 @@ export default async function TeamPage({ params }: PageProps) {
     athlete: players.slice(0, 23).map((p) => ({
       '@type': 'Person',
       name: p.name,
-      url: `${teamUrl}/players/${p.slug}`,
+      url: canonicalForLocale(locale, `/teams/${slug}/players/${p.slug}`),
       ...(p.position && { jobTitle: p.position }),
     })),
     location: { '@type': 'Country', name: team.name },

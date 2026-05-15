@@ -121,8 +121,7 @@
     "footballTerms": "Termini del Calcio",
     "home": "Home",
     "predict": "Pronostica",
-    "cities": "Città",
-    "pricing": "Prezzi"
+    "cities": "Città"
   },
   "footer": {
     "tagline": "Piattaforma di previsioni e intelligence basata sull'IA per la Coppa del Mondo 2026. Analisi indipendenti, intesa di squadra e approfondimenti predittivi per tutte le 48 nazionali.",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} gioca?",
     "fullProfileOn": "Profilo completo in {team}",
     "teamSquad": "{flag} Rosa {team}",
-    "allTeams": "Tutte le nazionali"
+    "allTeams": "Tutte le nazionali",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Monitoraggio Rosa",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "molto sicura",
     "safetySafe": "sicura",
     "safetyModerate": "media",
-    "safetyCaution": "cautela"
+    "safetyCaution": "cautela",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Guida tifoso",
@@ -1690,5 +1693,9 @@
     "groupRank": "Girone {group} · #{rank}",
     "playoff": "Playoff",
     "chemistry": "Intesa"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

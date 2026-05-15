@@ -5,7 +5,8 @@ import { lingoCountries, lingoPlayers, lingoTermsData } from '@/data/lingo-data'
 import { CountryCard } from '@/components/lingo/CountryCard'
 import { PlayerCard } from '@/components/lingo/PlayerCard'
 import { LingoSearchBar } from '@/components/lingo/LingoSearchBar'
-import { OG_LOCALES, breadcrumbJsonLd } from '@/lib/og-utils'
+import { OG_LOCALES, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: t('heading'),
     description: t('description', { countryCount: lingoCountries.length, playerCount: lingoPlayers.length }),
+    alternates: buildAlternates(locale, '/lingo'),
     openGraph: {
       title: 'KickOracle Lingo — World Cup 2026 Pronunciation Guide',
       description: `How to say every country, player & football term. ${lingoCountries.length} teams, ${lingoPlayers.length}+ players.`,
@@ -175,7 +177,7 @@ export default async function LingoPage({ params }: Props) {
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'KickOracle Lingo',
-            url: 'https://kickoracle.com/lingo',
+            url: canonicalForLocale(locale, '/lingo'),
             description:
               'Pronunciation guide for FIFA World Cup 2026 countries, players, and football terms.',
           }),
@@ -187,8 +189,8 @@ export default async function LingoPage({ params }: Props) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbJsonLd([
-              { name: 'Home', url: `https://kickoracle.com/${locale}` },
-              { name: 'Lingo', url: `https://kickoracle.com/${locale}/lingo` },
+              { name: 'Home', url: canonicalForLocale(locale, '/') },
+              { name: 'Lingo', url: canonicalForLocale(locale, '/lingo') },
             ]),
           ),
         }}

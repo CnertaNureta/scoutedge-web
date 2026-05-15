@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { canonicalForLocale, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, speakableJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { Link } from '@/i18n/navigation'
 import { getDailyBriefingPageData, type DailyBriefingSignal } from '@/lib/site-data'
 import { fetchWorldCupNews } from '@/lib/news-service'
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: t('heading'),
       description: t('description'),
     },
-    alternates: { canonical: canonicalForLocale(locale, '/daily-briefing') },
+    alternates: buildAlternates(locale, '/daily-briefing'),
   }
 }
 
@@ -138,7 +139,7 @@ export default async function DailyBriefingPage({ params }: Props) {
     ? itemListJsonLd(
         recentBriefings.map((p) => ({
           name: p.title,
-          url: `https://kickoracle.com/blog/${p.slug}`,
+          url: canonicalForLocale(locale, `/blog/${p.slug}`),
           description: p.description,
         })),
         {

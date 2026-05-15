@@ -1,13 +1,17 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import ArchivedPageNotice from '@/components/ui/ArchivedPageNotice'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
-export const metadata: Metadata = {
-  title: 'Community Archive | KickOracle',
-  description:
-    'The legacy KickOracle community forum has been archived while v1 narrows around narrative-first World Cup intelligence.',
-  alternates: { canonical: 'https://kickoracle.com/community' },
-  robots: { index: false, follow: true },
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  return {
+    title: 'Community Archive | KickOracle',
+    description:
+      'The legacy KickOracle community forum has been archived while v1 narrows around narrative-first World Cup intelligence.',
+    alternates: buildAlternates(locale, '/community'),
+    robots: { index: false, follow: true },
+  }
 }
 
 export default async function CommunityPage() {

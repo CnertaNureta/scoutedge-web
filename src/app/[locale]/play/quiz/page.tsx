@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { buildAlternates } from '@/lib/seo/build-alternates';
 import { Link } from '@/i18n/navigation'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils';
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils';
 import QuizApp from '@/components/quiz/QuizApp';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -25,11 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function QuizPage() {
+export default async function QuizPage({ params }: Props) {
+  const { locale } = await params;
   const jsonLd = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Fan Zone', url: 'https://kickoracle.com/play' },
-    { name: 'Quiz', url: 'https://kickoracle.com/play/quiz' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Fan Zone', url: canonicalForLocale(locale, '/play') },
+    { name: 'Quiz', url: canonicalForLocale(locale, '/play/quiz') },
   ]);
 
   return (

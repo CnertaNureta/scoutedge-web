@@ -23,8 +23,9 @@ const MAX_REDIRECTS = 3
 const LOCALE_PATH_RE = /\/[a-z]{2}(?:-[A-Za-z0-9]+)*(\/|$)/
 // Use the actual hreflang codes emitted by the site (Chinese is zh-Hans per BCP-47).
 // Mirrors src/i18n/locales.ts LOCALE_CONFIGS[*].hreflang.
-const EXPECTED_LOCALES = ['en', 'es', 'zh-Hans', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
-const EXPECTED_HREFLANG_COUNT = EXPECTED_LOCALES.length + 1 // 19 locales + x-default
+const PAGE_HREFLANG_LOCALES = ['en', 'es', 'zh-Hans', 'pt', 'ar', 'fr', 'ja', 'ko', 'de', 'it', 'nl', 'tr', 'pl', 'id', 'ru', 'fa', 'th', 'vi', 'hu']
+const SITEMAP_HREFLANG_LOCALES = ['en', 'zh-Hans', 'es', 'pt', 'ar']
+const PAGE_HREFLANG_COUNT = PAGE_HREFLANG_LOCALES.length + 1 // 19 locales + x-default
 
 const args = new Set(process.argv.slice(2))
 const DRY_RUN = args.has('--dry-run')
@@ -101,6 +102,24 @@ function extractJsonLdBlocks(html) {
   return blocks
 }
 
+function extractXmlTagValues(xml, tagName) {
+  const values = []
+  const re = new RegExp(`<${tagName}>([\\s\\S]*?)<\\/${tagName}>`, 'gi')
+  let m
+  while ((m = re.exec(xml)) !== null) {
+    values.push(
+      m[1]
+        .trim()
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, "'")
+    )
+  }
+  return values
+}
+
 function flattenGraph(blocks) {
   const nodes = []
   for (const b of blocks) {
@@ -160,11 +179,54 @@ async function checkSitemap() {
     if (res.status !== 200) { fail(url, `HTTP ${res.status}`); return [] }
     if (hops.length > 1) warn(url, `redirected ${hops.length - 1}x → ${hops.at(-1)}`)
     const xml = await res.text()
-    if (!/<\?xml/.test(xml) || !/<urlset/.test(xml)) { fail(url, 'not a valid <urlset> XML'); return [] }
-    const urlEntries = xml.match(/<url>[\s\S]*?<\/url>/g) || []
+    if (!/<\?xml/.test(xml)) { fail(url, 'missing XML declaration'); return [] }
+
+    let urlEntries = []
+    if (/<sitemapindex\b/i.test(xml)) {
+      const sitemapUrls = extractXmlTagValues(xml, 'loc')
+      if (!sitemapUrls.length) {
+        fail(url, 'sitemapindex has no <loc> entries')
+        return []
+      }
+      pass(url, `${sitemapUrls.length} sitemap chunk(s) listed`)
+
+      for (const sitemapUrl of sitemapUrls) {
+        try {
+          const { res: chunkRes, hops: chunkHops, finalUrl } = await fetchFollowing(sitemapUrl)
+          if (chunkRes.status !== 200) {
+            fail(sitemapUrl, `HTTP ${chunkRes.status} (final: ${finalUrl})`)
+            continue
+          }
+          if (chunkHops.length > 1) warn(sitemapUrl, `redirected ${chunkHops.length - 1}x → ${finalUrl}`)
+
+          const chunkXml = await chunkRes.text()
+          if (!/<urlset\b/i.test(chunkXml)) {
+            fail(sitemapUrl, 'not a valid <urlset> XML')
+            continue
+          }
+          const chunkEntries = chunkXml.match(/<url>[\s\S]*?<\/url>/g) || []
+          if (!chunkEntries.length) warn(sitemapUrl, 'chunk has no <url> entries')
+          else pass(sitemapUrl, `${chunkEntries.length} <url> entries`)
+          urlEntries.push(...chunkEntries)
+        } catch (e) {
+          fail(sitemapUrl, e.message)
+        }
+      }
+    } else if (/<urlset\b/i.test(xml)) {
+      urlEntries = xml.match(/<url>[\s\S]*?<\/url>/g) || []
+    } else {
+      fail(url, 'not a valid <sitemapindex> or <urlset> XML')
+      return []
+    }
+
+    if (!urlEntries.length) {
+      fail(url, 'no sitemap <url> entries found')
+      return []
+    }
+
     if (urlEntries.length < 100) fail(url, `only ${urlEntries.length} <url> entries (need >= 100)`)
-    else if (urlEntries.length < 1000) warn(url, `only ${urlEntries.length} <url> entries (expected ~2700)`)
-    else pass(url, `${urlEntries.length} <url> entries`)
+    else if (urlEntries.length < 1000) warn(url, `only ${urlEntries.length} <url> entries (expected >= 1000)`)
+    else pass(url, `${urlEntries.length} <url> entries across sitemap`)
 
     const hreflangCounts = new Map()
     let entriesWithAlternates = 0
@@ -178,8 +240,8 @@ async function checkSitemap() {
     else fail(url, 'no <xhtml:link rel="alternate"> entries found')
 
     const seenLocales = [...hreflangCounts.keys()].sort()
-    const missing = EXPECTED_LOCALES.filter((l) => !hreflangCounts.has(l))
-    if (missing.length === 0 && hreflangCounts.has('x-default')) pass(url, `hreflang covers all ${EXPECTED_LOCALES.length} locales + x-default`)
+    const missing = SITEMAP_HREFLANG_LOCALES.filter((l) => !hreflangCounts.has(l))
+    if (missing.length === 0 && hreflangCounts.has('x-default')) pass(url, `sitemap hreflang covers ${SITEMAP_HREFLANG_LOCALES.length} submitted locales + x-default`)
     else fail(url, `missing hreflang: ${missing.concat(hreflangCounts.has('x-default') ? [] : ['x-default']).join(',')}`)
 
     console.log(dim(`  hreflang codes seen (${seenLocales.length}): ${seenLocales.join(', ')}`))
@@ -210,8 +272,8 @@ async function checkPage(url, deepChecks = []) {
 
     // hreflang
     const alts = links.filter((l) => (l.rel || '').toLowerCase() === 'alternate' && l.hreflang)
-    if (alts.length >= EXPECTED_HREFLANG_COUNT) pass(url, `${alts.length} hreflang alternates`)
-    else fail(url, `only ${alts.length} hreflang alternates (need >= ${EXPECTED_HREFLANG_COUNT})`)
+    if (alts.length >= PAGE_HREFLANG_COUNT) pass(url, `${alts.length} hreflang alternates`)
+    else fail(url, `only ${alts.length} hreflang alternates (need >= ${PAGE_HREFLANG_COUNT})`)
     if (alts.some((l) => l.hreflang === 'x-default')) pass(url, 'hreflang x-default present')
     else fail(url, 'hreflang x-default missing')
 
@@ -257,9 +319,14 @@ const teamCheck = (url, { nodes }) => {
 const cityCheck = (url, { nodes }) => {
   const place = nodes.find((n) => {
     const t = n['@type']
-    return t === 'Place' || t === 'TouristAttraction' || (Array.isArray(t) && (t.includes('Place') || t.includes('TouristAttraction')))
+    return (
+      t === 'Place' ||
+      t === 'TouristAttraction' ||
+      t === 'TouristDestination' ||
+      (Array.isArray(t) && (t.includes('Place') || t.includes('TouristAttraction') || t.includes('TouristDestination')))
+    )
   })
-  if (!place) return fail(url, 'JSON-LD missing Place/TouristAttraction')
+  if (!place) return fail(url, 'JSON-LD missing Place/TouristAttraction/TouristDestination')
   pass(url, `City has ${place['@type']} node${place.geo ? ' with geo' : ' (no geo)'}`)
 }
 
@@ -330,6 +397,7 @@ async function main() {
     console.log('\n' + bold('Planned requests (dry-run, no network):'))
     console.log(`  GET ${BASE_URL}/robots.txt`)
     console.log(`  GET ${BASE_URL}/sitemap.xml`)
+    console.log(`  GET sitemap chunks listed by ${BASE_URL}/sitemap.xml`)
     for (const p of PAGES) console.log(`  GET ${p.url}`)
     process.exit(0)
   }

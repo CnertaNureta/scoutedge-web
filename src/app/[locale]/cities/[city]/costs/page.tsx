@@ -6,7 +6,7 @@ import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
 import AffiliateSlot from '@/components/monetization/AffiliateSlot'
 import { getAllCities, getCityBySlug } from '@/data/cities-data'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
 export const revalidate = 3600
@@ -73,10 +73,10 @@ export default async function CityCostsPage({ params }: CostsPageProps) {
     .slice(0, 3)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Trip Costs', url: `https://kickoracle.com/cities/${slug}/costs` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Trip Costs', url: canonicalForLocale(locale, `/cities/${slug}/costs`) },
   ])
 
   return (

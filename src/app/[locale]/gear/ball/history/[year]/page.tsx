@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import Badge from '@/components/ui/Badge'
 import GlassCard from '@/components/ui/GlassCard'
@@ -69,15 +69,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BallHistoryPage({ params }: Props) {
-  const { year } = await params
+  const { locale, year } = await params
   const ball = BALL_MAP.get(year)
   if (!ball) notFound()
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Gear', url: 'https://kickoracle.com/gear' },
-    { name: 'Match Balls', url: 'https://kickoracle.com/gear/ball' },
-    { name: `${ball.name} (${year})`, url: `https://kickoracle.com/gear/ball/history/${year}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Gear', url: canonicalForLocale(locale, '/gear') },
+    { name: 'Match Balls', url: canonicalForLocale(locale, '/gear/ball') },
+    { name: `${ball.name} (${year})`, url: canonicalForLocale(locale, `/gear/ball/history/${year}`) },
   ])
 
   const idx = WORLD_CUP_BALLS.findIndex((b) => String(b.year) === year)

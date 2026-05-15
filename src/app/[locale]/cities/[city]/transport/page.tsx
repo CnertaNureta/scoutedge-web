@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -128,7 +128,7 @@ function TipCard({ icon, title, children }: { icon: string; title: string; child
 /* ---------- Page ---------- */
 
 export default async function CityTransportPage({ params }: TransportPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -141,10 +141,10 @@ export default async function CityTransportPage({ params }: TransportPageProps) 
   const transitApps = TRANSIT_APP_TIPS[city.countryCode] ?? TRANSIT_APP_TIPS.US
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Transport', url: `https://kickoracle.com/cities/${slug}/transport` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Transport', url: canonicalForLocale(locale, `/cities/${slug}/transport`) },
   ])
 
   const airportCodes = city.transport.airportCode.split('/')

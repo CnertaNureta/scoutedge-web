@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { getCityBySlug } from '@/data/cities-data'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getAllVenues, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { MatchFixture, Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -245,10 +245,10 @@ export default async function CitySchedulePage({ params }: SchedulePageProps) {
   const matchCount = enrichedFixtures.length
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Schedule', url: `https://kickoracle.com/cities/${slug}/schedule` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Schedule', url: canonicalForLocale(locale, `/cities/${slug}/schedule`) },
   ])
 
   return (

@@ -11,6 +11,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import ChemistryBar from '@/components/ui/ChemistryBar'
 import { OG_LOCALES, canonicalForLocale, breadcrumbJsonLd, jsonLdGraph } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 
 interface PageProps {
   params: Promise<{ locale: string; group: string }>
@@ -44,7 +45,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: `World Cup 2026 Group ${group} | KickOracle`,
       description: `AI analysis of Group ${group}: ${teamNames}.`,
     },
-    alternates: { canonical: canonicalForLocale(locale, `/groups/${group}`) },
+    alternates: buildAlternates(locale, `/groups/${group}`),
   }
 }
 
@@ -123,7 +124,7 @@ export default async function GroupPage({ params }: PageProps) {
     hasPart: teams.map((t) => ({
       '@type': 'SportsTeam',
       name: t.name,
-      url: `https://kickoracle.com/teams/${t.slug}`,
+      url: canonicalForLocale(locale, `/teams/${t.slug}`),
     })),
   }
 

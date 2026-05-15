@@ -121,8 +121,7 @@
     "footballTerms": "Футбольные термины",
     "home": "Главная",
     "predict": "Прогноз",
-    "cities": "Города",
-    "pricing": "Тарифы"
+    "cities": "Города"
   },
   "footer": {
     "tagline": "ИИ-платформа прогнозов и аналитики для Чемпионата мира 2026. Независимый анализ, командная химия и прогнозы для всех 48 сборных.",
@@ -772,7 +771,9 @@
     "isPlaying": "Сыграет ли {name}?",
     "fullProfileOn": "Полный профиль на {team}",
     "teamSquad": "{flag} Состав {team}",
-    "allTeams": "Все сборные"
+    "allTeams": "Все сборные",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Трекер состава",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "очень безопасно",
     "safetySafe": "безопасно",
     "safetyModerate": "умеренно",
-    "safetyCaution": "осторожно"
+    "safetyCaution": "осторожно",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Гид болельщика",
@@ -1691,5 +1694,9 @@
     "groupRank": "Группа {group} · #{rank}",
     "playoff": "Плей-офф",
     "chemistry": "Химия"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

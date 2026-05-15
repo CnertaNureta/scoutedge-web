@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 
-// Service-worker fallback — not meaningful to crawl. Keep follow=true so any
-// internal links still pass PageRank.
+// Auth-gated daily challenges. User-specific state and login wall — exclude
+// from search index but keep follow=true so PageRank flows through internal
+// links to public surfaces.
 export async function generateMetadata({
   params,
 }: {
@@ -10,11 +11,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   return {
-    alternates: buildAlternates(locale, '/offline'),
+    alternates: buildAlternates(locale, '/challenges'),
     robots: { index: false, follow: true },
   }
 }
 
-export default function OfflineLayout({ children }: { children: React.ReactNode }) {
+export default function ChallengesLayout({ children }: { children: React.ReactNode }) {
   return children
 }

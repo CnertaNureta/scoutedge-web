@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getCityBySlug, type HostCity } from '@/data/cities-data'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -115,7 +115,7 @@ function BookingTip({ title, text }: { title: string; text: string }) {
 /* ---------- Page ---------- */
 
 export default async function CityHotelsPage({ params }: HotelPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -124,10 +124,10 @@ export default async function CityHotelsPage({ params }: HotelPageProps) {
   const isCanada = city.countryCode === 'CA'
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Hotels', url: `https://kickoracle.com/cities/${slug}/hotels` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Hotels', url: canonicalForLocale(locale, `/cities/${slug}/hotels`) },
   ])
 
   const tippingNote = isMexico

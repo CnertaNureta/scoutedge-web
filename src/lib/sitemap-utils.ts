@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { LOCALE_CONFIGS, SUPPORTED_LOCALES } from '@/i18n/locales'
+import { LOCALE_CONFIGS, SUPPORTED_LOCALES, type Locale } from '@/i18n/locales'
 import { WORLD_CUP_SEO_PAGES } from '@/data/world-cup-seo-pages'
 import { HOST_CITIES } from '@/data/cities-data'
 import { TEAMS } from '@/data/teams-meta'
@@ -11,6 +11,16 @@ import { getAllPosts } from '@/lib/blog-service'
 
 export const SITE_BASE_URL = 'https://kickoracle.com'
 export const SITEMAP_CHUNK_SIZE = 2500
+
+/**
+ * Subset of locales actually submitted to Google in the sitemap. We render and
+ * link all 19 supported locales for users, but only submit the 5 with the
+ * highest indexing priority to keep crawl budget focused — the rest live
+ * behind hreflang + the language switcher and can be added once indexing
+ * stabilizes. Crawl-budget rationale: every locale multiplies sitemap size by
+ * 19, which exceeded what Google was willing to crawl for a launching site.
+ */
+export const SITEMAP_LOCALES: readonly Locale[] = ['en', 'zh', 'es', 'pt', 'ar']
 
 type SitemapEntry = MetadataRoute.Sitemap[number]
 type ChangeFrequency = NonNullable<SitemapEntry['changeFrequency']>
@@ -81,7 +91,6 @@ const TOOL_PATHS: SitemapPath[] = [
   { path: '/quiz', changeFrequency: 'weekly', priority: 0.5 },
   { path: '/simulator', changeFrequency: 'weekly', priority: 0.5 },
   { path: '/fan-card', changeFrequency: 'monthly', priority: 0.45 },
-  { path: '/challenges', changeFrequency: 'weekly', priority: 0.45 },
   { path: '/gear', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/gear/jerseys', changeFrequency: 'monthly', priority: 0.45 },
   { path: '/gear/ball', changeFrequency: 'monthly', priority: 0.45 },
@@ -89,7 +98,6 @@ const TOOL_PATHS: SitemapPath[] = [
   { path: '/stickers', changeFrequency: 'monthly', priority: 0.45 },
   { path: '/stickers/tracker', changeFrequency: 'monthly', priority: 0.4 },
   { path: '/stickers/cost-calculator', changeFrequency: 'monthly', priority: 0.4 },
-  { path: '/points', changeFrequency: 'weekly', priority: 0.4 },
 ]
 
 /**
@@ -100,6 +108,8 @@ const TOOL_PATHS: SitemapPath[] = [
 export const NOINDEX_PATHS: readonly string[] = [
   '/dashboard',
   '/dashboard/api',
+  '/challenges',
+  '/points',
   '/predict',
   '/subscribe',
   '/share',
@@ -406,8 +416,11 @@ function localizedUrl(locale: string, path: string): string {
 }
 
 function localizedAlternates(path: string): Record<string, string> {
+  // Sitemap-level alternates list only the locales we actively submit. Pages
+  // still emit page-level hreflang for the full SUPPORTED_LOCALES set so the
+  // language switcher and Google's per-page language signals stay intact.
   const out: Record<string, string> = { 'x-default': localizedUrl('en', path) }
-  for (const loc of SUPPORTED_LOCALES) {
+  for (const loc of SITEMAP_LOCALES) {
     const cfg = LOCALE_CONFIGS[loc]
     out[cfg.hreflang] = localizedUrl(loc, path)
   }
@@ -417,7 +430,7 @@ function localizedAlternates(path: string): Record<string, string> {
 function localizedEntries(path: string, opts: EntryOpts): MetadataRoute.Sitemap {
   const lastModified = opts.lastModified ?? new Date()
   const alternates = localizedAlternates(path)
-  return SUPPORTED_LOCALES.map((locale) => ({
+  return SITEMAP_LOCALES.map((locale) => ({
     url: localizedUrl(locale, path),
     lastModified,
     changeFrequency: opts.changeFrequency,

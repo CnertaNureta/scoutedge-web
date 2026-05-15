@@ -3,7 +3,8 @@ import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getAllCities, getCitiesByCountry, type HostCity } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale, itemListJsonLd, jsonLdGraph, faqPageJsonLd } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -25,19 +26,24 @@ const SAFETY_KEYS: Record<HostCity['safety']['level'], 'safetyVerySafe' | 'safet
   caution: 'safetyCaution',
 }
 
-export const metadata: Metadata = {
-  title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
-  description:
-    'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico. Hotels, transport, match schedules, and travel tips.',
-  keywords:
-    'World Cup 2026 host cities, World Cup 2026 venues, World Cup 2026 stadiums, World Cup 2026 travel guide',
-  alternates: { canonical: 'https://kickoracle.com/cities' },
-  ...buildOGMeta({
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/cities')
+  return {
     title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
     description:
-      'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico.',
-    url: 'https://kickoracle.com/cities',
-  }),
+      'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico. Hotels, transport, match schedules, and travel tips.',
+    keywords:
+      'World Cup 2026 host cities, World Cup 2026 venues, World Cup 2026 stadiums, World Cup 2026 travel guide',
+    alternates,
+    ...buildOGMeta({
+      title: 'World Cup 2026 Host Cities — Fan Guide to All 16 Venues',
+      description:
+        'Complete fan guide to all 16 World Cup 2026 host cities across the USA, Canada, and Mexico.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 function SafetyBadge({ level, label }: { level: HostCity['safety']['level']; label: string }) {
@@ -131,7 +137,8 @@ function CityCard({
   )
 }
 
-export default async function CitiesPage() {
+export default async function CitiesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   const t = await getTranslations('citiesPage')
   const allCities = getAllCities()
   const venues = getAllVenues()
@@ -150,20 +157,20 @@ export default async function CitiesPage() {
   }
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
   ])
 
   const citiesList = itemListJsonLd(
     allCities.map((c) => ({
       name: c.name,
-      url: `https://kickoracle.com/cities/${c.slug}`,
+      url: canonicalForLocale(locale, `/cities/${c.slug}`),
       description: `${c.state}, ${c.country} — World Cup 2026 host city`,
     })),
     {
       name: 'World Cup 2026 — Host Cities',
       description: 'All 16 host cities across the United States, Canada, and Mexico for the 2026 FIFA World Cup.',
-      url: 'https://kickoracle.com/cities',
+      url: canonicalForLocale(locale, '/cities'),
     }
   )
 

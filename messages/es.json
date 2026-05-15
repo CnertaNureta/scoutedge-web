@@ -121,8 +121,7 @@
     "footballTerms": "Términos de Fútbol",
     "home": "Inicio",
     "predict": "Predecir",
-    "cities": "Ciudades",
-    "pricing": "Precios"
+    "cities": "Ciudades"
   },
   "footer": {
     "tagline": "Plataforma de predicciones e inteligencia impulsada por IA para la Copa del Mundo 2026. Análisis independiente, química de equipo e insights predictivos para las 48 selecciones.",
@@ -772,7 +771,9 @@
     "isPlaying": "¿Juega {name}?",
     "fullProfileOn": "Perfil completo en {team}",
     "teamSquad": "{flag} {team} Plantilla",
-    "allTeams": "Todas las selecciones"
+    "allTeams": "Todas las selecciones",
+    "metaTitle": "{name} Mundial 2026 — Perfil, Estadísticas y Predicciones",
+    "metaDescription": "{name} ({position}) — convocado por {team}, juega en {club}. Estadísticas, informe de scouting e inteligencia IA del Mundial 2026."
   },
   "playerStatusPage": {
     "badge": "Seguimiento de Plantilla",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "muy seguro",
     "safetySafe": "seguro",
     "safetyModerate": "moderado",
-    "safetyCaution": "precaución"
+    "safetyCaution": "precaución",
+    "metaTitle": "{city} Mundial 2026 — Guía de la Ciudad Anfitriona",
+    "metaDescription": "Guía de {city}, ciudad anfitriona del Mundial 2026 en {country}. Estadios, transporte, hoteles, seguridad y calendario de partidos."
   },
   "travelPage": {
     "heroBadge": "Guía de aficionado",
@@ -1690,5 +1693,9 @@
     "groupRank": "Grupo {group} · #{rank}",
     "playoff": "Repechaje",
     "chemistry": "Química"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} Mundial 2026 — Plantilla, Análisis y Predicciones",
+    "metaDescription": "Análisis IA de la campaña de {team} en el Mundial 2026. Grupo {group}, FIFA #{rank}. Plantilla, calendario, índice de química y probabilidad de victoria."
   }
 }

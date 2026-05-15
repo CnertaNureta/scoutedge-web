@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import { resolvePlayerStatus, STATUS_CONFIG, type PlayerStatus } from '@/lib/player-status'
 import Badge from '@/components/ui/Badge'
@@ -72,12 +72,12 @@ export default async function IsPlayingPage({ params }: Props) {
   const teamFlag = team?.flag ?? ''
   const resolved = resolvePlayerStatus(player)
   const config = STATUS_CONFIG[resolved.status]
-  const url = `https://kickoracle.com/players/is-playing/${slug}`
+  const url = canonicalForLocale(locale, `/players/is-playing/${slug}`)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Players', url: 'https://kickoracle.com/teams' },
-    { name: teamName, url: `https://kickoracle.com/teams/${player.teamSlug}` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Players', url: canonicalForLocale(locale, '/teams') },
+    { name: teamName, url: canonicalForLocale(locale, `/teams/${player.teamSlug}`) },
     { name: `Is ${player.name} Playing?`, url },
   ])
 

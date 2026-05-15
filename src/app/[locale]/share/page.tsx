@@ -1,24 +1,30 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import { getAllTeams } from '@/lib/data-service'
 import { TOP_CONTENDERS } from '@/data/prediction-matches'
 import ShareCardClient from './ShareCardClient'
 
-export const metadata: Metadata = {
-  title: 'Share Your World Cup 2026 Champion Pick | KickOracle',
-  description:
-    'Generate a shareable card for your World Cup 2026 champion prediction. Compare against AI win probabilities and challenge your friends on social media.',
-  keywords:
-    'World Cup 2026 share card, World Cup 2026 champion prediction, share World Cup pick, World Cup 2026 social share',
-  alternates: { canonical: 'https://kickoracle.com/share' },
-  robots: { index: false, follow: true },
-  ...buildOGMeta({
-    title: 'Share Your World Cup 2026 Champion Pick',
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const alternates = buildAlternates(locale, '/share')
+  return {
+    title: 'Share Your World Cup 2026 Champion Pick | KickOracle',
     description:
-      'Generate a shareable card and challenge your friends with your World Cup 2026 champion prediction.',
-    url: 'https://kickoracle.com/share',
-  }),
+      'Generate a shareable card for your World Cup 2026 champion prediction. Compare against AI win probabilities and challenge your friends on social media.',
+    keywords:
+      'World Cup 2026 share card, World Cup 2026 champion prediction, share World Cup pick, World Cup 2026 social share',
+    alternates,
+    robots: { index: false, follow: true },
+    ...buildOGMeta({
+      title: 'Share Your World Cup 2026 Champion Pick',
+      description:
+        'Generate a shareable card and challenge your friends with your World Cup 2026 champion prediction.',
+      url: alternates.canonical,
+      locale,
+    }),
+  }
 }
 
 export default async function SharePage() {

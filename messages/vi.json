@@ -121,8 +121,7 @@
     "footballTerms": "Thuật ngữ bóng đá",
     "home": "Trang chủ",
     "predict": "Dự đoán",
-    "cities": "Thành phố",
-    "pricing": "Bảng giá"
+    "cities": "Thành phố"
   },
   "footer": {
     "tagline": "Nền tảng dự đoán và phân tích World Cup 2026 bằng AI. Phân tích độc lập, hòa hợp đội hình và nhận định dự đoán cho cả 48 đội tuyển quốc gia.",
@@ -772,7 +771,9 @@
     "isPlaying": "{name} có thi đấu?",
     "fullProfileOn": "Hồ sơ đầy đủ tại {team}",
     "teamSquad": "{flag} Đội hình {team}",
-    "allTeams": "Tất cả đội tuyển"
+    "allTeams": "Tất cả đội tuyển",
+    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
+    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
   },
   "playerStatusPage": {
     "badge": "Theo dõi đội hình",
@@ -1079,7 +1080,9 @@
     "safetyVerySafe": "rất an toàn",
     "safetySafe": "an toàn",
     "safetyModerate": "trung bình",
-    "safetyCaution": "thận trọng"
+    "safetyCaution": "thận trọng",
+    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
+    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
   },
   "travelPage": {
     "heroBadge": "Hướng dẫn CĐV",
@@ -1690,5 +1693,9 @@
     "groupRank": "Bảng {group} · #{rank}",
     "playoff": "Play-off",
     "chemistry": "Hòa hợp"
+  },
+  "teamDetailPage": {
+    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
+    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
   }
 }

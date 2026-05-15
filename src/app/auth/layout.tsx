@@ -1,4 +1,11 @@
+import type { Metadata } from 'next'
 import { Providers } from '../providers'
+
+// Login / register / password-recovery / OAuth callback. None of these belong
+// in SERPs. Keep follow=true so any internal links still pass PageRank.
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+}
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (

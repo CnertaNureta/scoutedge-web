@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import Badge from '@/components/ui/Badge'
 import { getAllTeams } from '@/lib/data-service'
 import StickerTracker from './StickerTracker'
+import { canonicalForLocale } from '@/lib/og-utils'
 
 type Props = { params: Promise<{ locale: string }> }
 
@@ -19,7 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function StickerTrackerPage() {
+export default async function StickerTrackerPage({ params }: Props) {
+  const { locale } = await params
   const t = await getTranslations('stickerTrackerPage')
   const teams = getAllTeams().map((tm) => ({
     slug: tm.slug,
@@ -32,9 +34,9 @@ export default async function StickerTrackerPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com' },
-      { '@type': 'ListItem', position: 2, name: 'Stickers', item: 'https://kickoracle.com/stickers' },
-      { '@type': 'ListItem', position: 3, name: 'Tracker', item: 'https://kickoracle.com/stickers/tracker' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
+      { '@type': 'ListItem', position: 2, name: 'Stickers', item: canonicalForLocale(locale, '/stickers') },
+      { '@type': 'ListItem', position: 3, name: 'Tracker', item: canonicalForLocale(locale, '/stickers/tracker') },
     ],
   }
 

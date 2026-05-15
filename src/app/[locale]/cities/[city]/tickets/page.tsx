@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getCityBySlug } from '@/data/cities-data'
 import { getAllVenues } from '@/lib/data-service'
-import { buildOGMeta, breadcrumbJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import type { Venue } from '@/lib/types'
 import GlassCard from '@/components/ui/GlassCard'
@@ -324,7 +324,7 @@ function VenueCapacityCard({ venue }: { venue: Venue }) {
 /* ---------- Page ---------- */
 
 export default async function CityTicketsPage({ params }: TicketsPageProps) {
-  const { city: slug } = await params
+  const { locale, city: slug } = await params
   const city = getCityBySlug(slug)
   if (!city) notFound()
 
@@ -337,10 +337,10 @@ export default async function CityTicketsPage({ params }: TicketsPageProps) {
   const totalCapacity = cityVenues.reduce((sum, v) => sum + v.capacity, 0)
 
   const breadcrumbs = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://kickoracle.com' },
-    { name: 'Host Cities', url: 'https://kickoracle.com/cities' },
-    { name: city.name, url: `https://kickoracle.com/cities/${slug}` },
-    { name: 'Tickets', url: `https://kickoracle.com/cities/${slug}/tickets` },
+    { name: 'Home', url: canonicalForLocale(locale, '/') },
+    { name: 'Host Cities', url: canonicalForLocale(locale, '/cities') },
+    { name: city.name, url: canonicalForLocale(locale, `/cities/${slug}`) },
+    { name: 'Tickets', url: canonicalForLocale(locale, `/cities/${slug}/tickets`) },
   ])
 
   return (

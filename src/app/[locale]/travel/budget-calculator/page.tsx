@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useMemo } from 'react'
+import { useLocale } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
 import { HOST_CITIES, type HostCity } from '@/data/cities-data'
+import { canonicalForLocale } from '@/lib/og-utils'
 
 const TICKET_PRICES: Record<string, number> = {
   'Group stage': 80,
@@ -39,6 +41,7 @@ function formatUSD(amount: number): string {
 }
 
 export default function BudgetCalculatorPage() {
+  const locale = useLocale()
   const [citySlug, setCitySlug] = useState(HOST_CITIES[0].slug)
   const [days, setDays] = useState(7)
   const [accomLevel, setAccomLevel] = useState<'budget' | 'moderate' | 'luxury'>('moderate')
@@ -351,13 +354,13 @@ export default function BudgetCalculatorPage() {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
             itemListElement: [
-              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kickoracle.com/' },
-              { '@type': 'ListItem', position: 2, name: 'Travel', item: 'https://kickoracle.com/travel/' },
+              { '@type': 'ListItem', position: 1, name: 'Home', item: canonicalForLocale(locale, '/') },
+              { '@type': 'ListItem', position: 2, name: 'Travel', item: canonicalForLocale(locale, '/travel') },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Budget Calculator',
-                item: 'https://kickoracle.com/travel/budget-calculator/',
+                item: canonicalForLocale(locale, '/travel/budget-calculator'),
               },
             ],
           }),
