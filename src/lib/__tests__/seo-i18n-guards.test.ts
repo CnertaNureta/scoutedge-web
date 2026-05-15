@@ -235,4 +235,12 @@ describe('localized structured-data URL guard', () => {
       expect(source).toContain('robots: { index: false, follow: true }')
     }
   })
+
+  it('keeps sitemap match detail pages canonicalized per locale', () => {
+    const source = read('src/app/[locale]/matches/live/[matchId]/page.tsx')
+
+    expect(source).toContain("buildAlternates(locale, `/matches/live/${matchId}`)")
+    expect(source).toContain('alternates,')
+    expect(source).toContain('url: alternates.canonical')
+  })
 })
