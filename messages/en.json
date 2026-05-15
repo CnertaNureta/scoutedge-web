@@ -2471,5 +2471,14 @@
       "manageable": "A couple of credible threats — rotate around them and move on.",
       "fragile": "Multiple high-impact risks stacked — the lineup is brittle this week."
     }
+  },
+  "formCurve": {
+    "ariaLabelTemplate": "6-month form curve for {entity}: trending {direction}",
+    "trendUp": "up",
+    "trendFlat": "flat",
+    "trendDown": "down",
+    "deltaPositive": "+{value}",
+    "deltaNegative": "−{value}",
+    "monthsLabel": "{count}mo"
   }
 }

@@ -2093,5 +2093,14 @@
       "manageable": "存在几处可信威胁——绕开它们继续推进即可。",
       "fragile": "多处高影响风险叠加——本周阵容偏脆。"
     }
+  },
+  "formCurve": {
+    "ariaLabelTemplate": "{entity} 6 个月状态曲线：趋势 {direction}",
+    "trendUp": "上行",
+    "trendFlat": "平稳",
+    "trendDown": "下行",
+    "deltaPositive": "+{value}",
+    "deltaNegative": "−{value}",
+    "monthsLabel": "{count} 个月"
   }
 }
