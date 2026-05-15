@@ -21,6 +21,7 @@ import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import MarketModelSpread from '@/components/team/MarketModelSpread'
+import RiskRegister from '@/components/team/RiskRegister'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -170,6 +171,14 @@ export default async function TeamPage({ params }: PageProps) {
           <div className="mx-14 border-t border-white/[0.08]" />
         </>
       )}
+
+      {/* Squad Risk Register — top-5 fitness/selection/tactical concerns, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <RiskRegister team={team} players={players} />
+      </Paywall>
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
 
       {/* Head Coach */}
       {coach && (

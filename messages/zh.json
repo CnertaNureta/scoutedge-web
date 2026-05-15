@@ -1976,5 +1976,27 @@
       "modelLow": "盘口已计入我们模型未认可的上行空间。",
       "modest": "价差有限——可参与，但本周并非主菜。"
     }
+  },
+  "riskRegister": {
+    "title": "阵容风险登记",
+    "subtitle": "伤病、选人与战术风险 Top 5",
+    "indexLabel": "序号",
+    "severityLabel": "严重度",
+    "noteLabel": "备注",
+    "noFurtherRisks": "暂无其他重大风险",
+    "riskTypes": {
+      "fitness": "伤病",
+      "selection": "选人",
+      "tactical": "战术"
+    },
+    "severity": {
+      "high": "高",
+      "medium": "中"
+    },
+    "verdict": {
+      "controlled": "风险登记表整体平稳——每条线都能照常使用。",
+      "manageable": "存在几处可信威胁——绕开它们继续推进即可。",
+      "fragile": "多处高影响风险叠加——本周阵容偏脆。"
+    }
   }
 }

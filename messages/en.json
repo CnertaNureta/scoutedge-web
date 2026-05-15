@@ -2354,5 +2354,27 @@
       "quiet": "Low chatter, neutral tone — flying under the radar.",
       "mixed": "Polarized noise — narrative cuts both ways."
     }
+  },
+  "riskRegister": {
+    "title": "Squad Risk Register",
+    "subtitle": "Top-5 fitness, selection, and tactical concerns",
+    "indexLabel": "No.",
+    "severityLabel": "Severity",
+    "noteLabel": "Note",
+    "noFurtherRisks": "No further material risks",
+    "riskTypes": {
+      "fitness": "Fitness",
+      "selection": "Selection",
+      "tactical": "Tactical"
+    },
+    "severity": {
+      "high": "High",
+      "medium": "Medium"
+    },
+    "verdict": {
+      "controlled": "Risk ledger is calm — every line is playable as drawn.",
+      "manageable": "A couple of credible threats — rotate around them and move on.",
+      "fragile": "Multiple high-impact risks stacked — the lineup is brittle this week."
+    }
   }
 }
