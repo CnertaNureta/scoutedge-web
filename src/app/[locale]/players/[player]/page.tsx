@@ -13,6 +13,7 @@ import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
 import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
+import SocialBuzzCard from '@/components/player/SocialBuzzCard'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
 export const revalidate = 3600
@@ -191,6 +192,10 @@ export default async function PlayerPage({ params }: Props) {
 
       {team && (
         <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
+      )}
+
+      {team && (
+        <SocialBuzzCard player={player} team={team} />
       )}
 
       {/* Fitness & Intelligence */}

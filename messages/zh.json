@@ -1935,5 +1935,19 @@
       "viable": "具备出线实力，但优势比签运图所示更薄。",
       "limited": "天花板大致止步十六强，需要早期方差才能更进一步。"
     }
+  },
+  "socialBuzz": {
+    "title": "社交热度",
+    "subtitle": "赛前社交舆情脉搏",
+    "buzzLabel": "热度指数",
+    "sentimentLabel": "情绪",
+    "deltaLabel": "7 日变化",
+    "noChatter": "未捕捉到声量",
+    "verdict": {
+      "tailwind": "正向顺风——舆论站在他这一边。",
+      "headwind": "声量大且不友好——是压力管理课题。",
+      "quiet": "声量低、情绪中性——低调潜行。",
+      "mixed": "两极化噪声——叙事双向作用。"
+    }
   }
 }

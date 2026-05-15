@@ -2313,5 +2313,19 @@
       "viable": "Knockout viable, but the edge is thinner than the bracket suggests.",
       "limited": "Round-of-16 ceiling — needs early variance to advance further."
     }
+  },
+  "socialBuzz": {
+    "title": "Social Buzz",
+    "subtitle": "Pre-tournament social pulse",
+    "buzzLabel": "Buzz Score",
+    "sentimentLabel": "Sentiment",
+    "deltaLabel": "7-Day Delta",
+    "noChatter": "No chatter detected",
+    "verdict": {
+      "tailwind": "Riding a positive tailwind — narrative working in his favor.",
+      "headwind": "Crowd is loud and unfriendly — pressure-management story.",
+      "quiet": "Low chatter, neutral tone — flying under the radar.",
+      "mixed": "Polarized noise — narrative cuts both ways."
+    }
   }
 }
