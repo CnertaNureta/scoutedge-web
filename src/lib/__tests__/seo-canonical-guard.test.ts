@@ -53,9 +53,16 @@ vi.mock('next-intl/server', () => {
 // ---------------------------------------------------------------------------
 // Fixture helper
 // ---------------------------------------------------------------------------
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function getMeta(generate: any, params: Record<string, string | string[]>): Promise<Metadata> {
-  return generate({ params: Promise.resolve(params) }) as Promise<Metadata>
+type MetadataParams = Record<string, string | string[]>
+type GenerateMetadataFn<TParams extends MetadataParams> = (input: {
+  params: Promise<TParams>
+}) => Promise<Metadata> | Metadata
+
+async function getMeta<TParams extends MetadataParams>(
+  generate: GenerateMetadataFn<TParams>,
+  params: TParams
+): Promise<Metadata> {
+  return generate({ params: Promise.resolve(params) })
 }
 
 // ---------------------------------------------------------------------------
