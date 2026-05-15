@@ -40,7 +40,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `Live: ${fixture.homeTeamSlug.replace(/-/g, ' ')} vs ${fixture.awayTeamSlug.replace(/-/g, ' ')} | World Cup 2026`
   const description = `Live predictions, real-time stats, and interactive leaderboard for ${fixture.venue}, ${fixture.city}. Group ${fixture.group}, ${fixture.round}.`
-  const alternates = buildAlternates(locale, `/matches/live/${matchId}`)
+  const canonicalMatchId = fixtureToMatchId(fixture)
+  const alternates = buildAlternates(locale, `/matches/live/${canonicalMatchId}`)
 
   return {
     title,
@@ -55,6 +56,7 @@ export default async function LiveMatchPage({ params }: PageProps) {
   const fixture = resolveFixture(matchId)
 
   if (!fixture) notFound()
+  const canonicalMatchId = fixtureToMatchId(fixture)
 
   const { teamsBySlug } = await getMatchesBoardData()
   const homeTeam = teamsBySlug[fixture.homeTeamSlug]
@@ -77,7 +79,7 @@ export default async function LiveMatchPage({ params }: PageProps) {
     { name: 'Matches', url: canonicalForLocale(locale, '/matches') },
     {
       name: `${homeTeam.name} vs ${awayTeam.name}`,
-      url: canonicalForLocale(locale, `/matches/live/${matchId}`),
+      url: canonicalForLocale(locale, `/matches/live/${canonicalMatchId}`),
     },
   ])
 
