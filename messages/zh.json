@@ -1949,5 +1949,32 @@
       "quiet": "声量低、情绪中性——低调潜行。",
       "mixed": "两极化噪声——叙事双向作用。"
     }
+  },
+  "marketModelSpread": {
+    "title": "盘口 vs 模型偏离",
+    "subtitle": "博彩共识与我方概率的对照",
+    "marketLabel": "盘口 %",
+    "modelLabel": "模型 %",
+    "edgeLabel": "价差",
+    "movementLabel": "盘面走向",
+    "signalStrengthLabel": "信号强度",
+    "sourcesLabel": "共识来源",
+    "movement": {
+      "shortening": "收紧",
+      "drifting": "走宽",
+      "stable": "稳定"
+    },
+    "signalStrength": {
+      "strong": "强",
+      "moderate": "中",
+      "weak": "弱",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "盘口与模型一致——无价差可打。",
+      "modelHigh": "模型对夺冠权益的评估高于盘口共识。",
+      "modelLow": "盘口已计入我们模型未认可的上行空间。",
+      "modest": "价差有限——可参与，但本周并非主菜。"
+    }
   }
 }

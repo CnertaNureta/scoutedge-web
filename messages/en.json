@@ -2314,6 +2314,33 @@
       "limited": "Round-of-16 ceiling — needs early variance to advance further."
     }
   },
+  "marketModelSpread": {
+    "title": "Market vs Model Spread",
+    "subtitle": "Books versus our probability tape",
+    "marketLabel": "Market %",
+    "modelLabel": "Model %",
+    "edgeLabel": "Edge",
+    "movementLabel": "Tape Movement",
+    "signalStrengthLabel": "Signal Strength",
+    "sourcesLabel": "Consensus Sources",
+    "movement": {
+      "shortening": "Shortening",
+      "drifting": "Drifting",
+      "stable": "Stable"
+    },
+    "signalStrength": {
+      "strong": "Strong",
+      "moderate": "Moderate",
+      "weak": "Weak",
+      "none": "—"
+    },
+    "verdict": {
+      "aligned": "Books and model agree — no edge to play.",
+      "modelHigh": "Model sees more title equity than the consensus tape.",
+      "modelLow": "Books are pricing in upside our model doesn't share.",
+      "modest": "Modest edge — playable but not the headliner of the week."
+    }
+  },
   "socialBuzz": {
     "title": "Social Buzz",
     "subtitle": "Pre-tournament social pulse",

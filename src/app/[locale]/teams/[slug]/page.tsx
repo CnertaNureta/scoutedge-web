@@ -20,6 +20,7 @@ import CoachProfileComponent from '@/components/team/CoachProfile'
 import TeamCard from '@/components/team/TeamCard'
 import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
+import MarketModelSpread from '@/components/team/MarketModelSpread'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -159,6 +160,16 @@ export default async function TeamPage({ params }: PageProps) {
 
       {/* Section rule */}
       <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* Market vs Model Spread — books vs us edge module, gated */}
+      {marketIntel && (
+        <>
+          <Paywall contentType="prediction" scope={slug} previewLines={6}>
+            <MarketModelSpread team={team} marketIntel={marketIntel} />
+          </Paywall>
+          <div className="mx-14 border-t border-white/[0.08]" />
+        </>
+      )}
 
       {/* Head Coach */}
       {coach && (
