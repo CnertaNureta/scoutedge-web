@@ -331,7 +331,9 @@
     "featuredCrossGroup": "주요 교차 조별 대진",
     "compareAny": "아무 두 팀이나 비교",
     "compareAnyDesc": "48개 팀 중에서 {count}개 가능한 대진을 비교하세요.",
-    "browseMatchups": "전체 {count}개 대진 A—Z 보기"
+    "browseMatchups": "전체 {count}개 대진 A—Z 보기",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "5분마다 업데이트",
@@ -772,8 +774,8 @@
     "fullProfileOn": "{team} 전체 프로필",
     "teamSquad": "{flag} {team} 스쿼드",
     "allTeams": "모든 팀",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} 월드컵 2026 — 프로필·스탯·예측",
+    "metaDescription": "{name}({position}). 소속 {club}, {team} 대표팀 발탁. 월드컵 2026 스탯, 스카우팅 리포트, AI 인사이트."
   },
   "playerStatusPage": {
     "badge": "스쿼드 트래커",
@@ -1081,8 +1083,8 @@
     "safetySafe": "안전",
     "safetyModerate": "보통",
     "safetyCaution": "주의",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} 월드컵 2026 — 개최 도시 여행 가이드",
+    "metaDescription": "{country}의 월드컵 2026 개최 도시 {city} 가이드. 경기장, 교통, 호텔, 치안, 경기 일정 정보."
   },
   "travelPage": {
     "heroBadge": "팬 가이드",
@@ -1695,7 +1697,7 @@
     "chemistry": "케미스트리"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} 월드컵 2026 — 스쿼드·분석·예측",
+    "metaDescription": "AI가 분석한 {team}의 월드컵 2026. {group}조, FIFA 랭킹 {rank}위. 스쿼드, 일정, 팀 케미스트리, 우승 확률까지."
   }
 }

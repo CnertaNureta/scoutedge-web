@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Kiemelt csoportközi párosítások",
     "compareAny": "Hasonlíts össze bármely két válogatottat",
     "compareAnyDesc": "Válassz mind a 48 válogatott közül a(z) {count} lehetséges párosítás összehasonlításához.",
-    "browseMatchups": "Mind a(z) {count} párosítás A—Z"
+    "browseMatchups": "Mind a(z) {count} párosítás A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "5 percenként frissítve",
@@ -772,8 +774,8 @@
     "fullProfileOn": "Teljes profil a {team} oldalon",
     "teamSquad": "{flag} {team} keret",
     "allTeams": "Összes válogatott",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} a 2026-os vb-n — profil, statisztika és előrejelzések",
+    "metaDescription": "{name} ({position}), a {club} játékosa és a(z) {team} keretének tagja. 2026-os vb-statisztikák, scouting jelentés és AI-elemzés."
   },
   "playerStatusPage": {
     "badge": "Keretfigyelő",
@@ -1081,8 +1083,8 @@
     "safetySafe": "biztonságos",
     "safetyModerate": "mérsékelt",
     "safetyCaution": "óvatosság",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — a 2026-os vb házigazda városa: útikalauz",
+    "metaDescription": "Útikalauz {city}-hez, a 2026-os vb {country} területén lévő házigazda városához. Stadionok, közlekedés, szállás, biztonság és menetrend."
   },
   "travelPage": {
     "heroBadge": "Szurkolói útmutató",
@@ -1695,7 +1697,7 @@
     "chemistry": "Csapatkémia"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} a 2026-os vb-n — keret, elemzés és előrejelzések",
+    "metaDescription": "AI-elemzés {team} 2026-os világbajnoki szerepléséről. {group} csoport, FIFA-helyezés: {rank}. Keret, menetrend, csapatkémia és győzelmi esély."
   }
 }

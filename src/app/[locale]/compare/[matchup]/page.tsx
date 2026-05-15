@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { getAllMatchupSlugs, getHeadToHead } from '@/lib/compare-utils'
 import { getTeamBySlug } from '@/lib/data-service'
 import { getH2H } from '@/data/h2h-history'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { HOST_CITIES } from '@/data/cities-data'
-import { buildOGMeta, canonicalForLocale, sportsEventJsonLd } from '@/lib/og-utils'
+import { buildOGMeta, sportsEventJsonLd } from '@/lib/og-utils'
 import { buildAlternates } from '@/lib/seo/build-alternates'
 import GlassCard from '@/components/ui/GlassCard'
 import Badge from '@/components/ui/Badge'
@@ -30,16 +31,25 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const nameA = teamA?.name ?? parts[0]
   const nameB = teamB?.name ?? parts[1]
 
-  const title = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
-  const description = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
-  const url = canonicalForLocale(locale, `/compare/${matchup}`)
+  const enTitle = `${nameA} vs ${nameB}: World Cup 2026 Head-to-Head Comparison`
+  const enDescription = `AI-powered comparison of ${nameA} vs ${nameB} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis.`
+
+  let title = enTitle
+  let description = enDescription
+  if (locale !== 'en') {
+    const tMeta = await getTranslations({ locale, namespace: 'comparePage' })
+    title = tMeta('metaTitle', { home: nameA, away: nameB })
+    description = tMeta('metaDescription', { home: nameA, away: nameB })
+  }
+
+  const alternates = buildAlternates(locale, `/compare/${matchup}`)
 
   return {
     title,
     description,
     keywords: `${nameA} vs ${nameB}, ${nameA} vs ${nameB} World Cup 2026, World Cup 2026 prediction, ${nameA} World Cup 2026, ${nameB} World Cup 2026`,
-    alternates: buildAlternates(locale, `/compare/${matchup}`),
-    ...buildOGMeta({ title, description, url, locale, type: 'article' }),
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale, type: 'article' }),
   }
 }
 

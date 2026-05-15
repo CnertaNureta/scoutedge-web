@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Enfrentamientos Cruzados Destacados",
     "compareAny": "Compara Cualquier Par de Equipos",
     "compareAnyDesc": "Elige entre las 48 selecciones para comparar cualquiera de los {count} enfrentamientos posibles.",
-    "browseMatchups": "Ver los {count} Enfrentamientos A—Z"
+    "browseMatchups": "Ver los {count} Enfrentamientos A—Z",
+    "metaTitle": "{home} vs {away}: Comparación cara a cara del Mundial 2026",
+    "metaDescription": "Comparación con IA de {home} vs {away} en la Copa Mundial FIFA 2026. Probabilidades de victoria, estadísticas de plantilla, índices de química, duelos clave y análisis táctico."
   },
   "oddsPage": {
     "badge": "Actualizado Cada 5 min",

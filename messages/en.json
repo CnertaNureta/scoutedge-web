@@ -596,7 +596,9 @@
     "featuredCrossGroup": "Featured Cross-Group Matchups",
     "compareAny": "Compare Any Two Teams",
     "compareAnyDesc": "Choose from all 48 teams to compare any of the {count} possible matchups.",
-    "browseMatchups": "Browse All {count} Matchups A—Z"
+    "browseMatchups": "Browse All {count} Matchups A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "Updated Every 5 min",

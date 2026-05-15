@@ -331,7 +331,9 @@
     "featuredCrossGroup": "Wyróżnione Zestawienia Międzygrupowe",
     "compareAny": "Porównaj Dowolne Dwie Drużyny",
     "compareAnyDesc": "Wybierz spośród wszystkich 48 reprezentacji, aby porównać dowolne z {count} możliwych zestawień.",
-    "browseMatchups": "Przeglądaj Wszystkie {count} Zestawienia A—Z"
+    "browseMatchups": "Przeglądaj Wszystkie {count} Zestawienia A—Z",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "Aktualizacja co 5 min",
@@ -772,8 +774,8 @@
     "fullProfileOn": "Pełny profil w {team}",
     "teamSquad": "{flag} Kadra {team}",
     "allTeams": "Wszystkie reprezentacje",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} na MŚ 2026 — profil, statystyki i prognozy",
+    "metaDescription": "{name} ({position}) gra w {club} i znalazł się w kadrze {team}. Statystyki MŚ 2026, raport skautingowy i analiza AI."
   },
   "playerStatusPage": {
     "badge": "Śledzenie Kadry",
@@ -1081,8 +1083,8 @@
     "safetySafe": "bezpiecznie",
     "safetyModerate": "umiarkowanie",
     "safetyCaution": "ostrożność",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} — miasto gospodarz MŚ 2026: przewodnik turystyczny",
+    "metaDescription": "Przewodnik po {city}, mieście gospodarzu MŚ 2026 w kraju {country}. Stadiony, transport, hotele, bezpieczeństwo i terminarz meczów."
   },
   "travelPage": {
     "heroBadge": "Przewodnik kibica",
@@ -1695,7 +1697,7 @@
     "chemistry": "Chemia"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} na Mistrzostwach Świata 2026 — kadra, analiza i prognozy",
+    "metaDescription": "Analiza AI występu {team} na MŚ 2026. Grupa {group}, miejsce w rankingu FIFA: {rank}. Kadra, terminarz, zgranie i szansa na zwycięstwo."
   }
 }

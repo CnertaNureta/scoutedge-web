@@ -331,7 +331,9 @@
     "featuredCrossGroup": "注目のグループ間対戦",
     "compareAny": "任意の2チームを比較",
     "compareAnyDesc": "48チームから選んで{count}通りの対戦を比較。",
-    "browseMatchups": "全{count}対戦をA—Z順で見る"
+    "browseMatchups": "全{count}対戦をA—Z順で見る",
+    "metaTitle": "{home} vs {away}: World Cup 2026 Head-to-Head Comparison",
+    "metaDescription": "AI-powered comparison of {home} vs {away} at the 2026 FIFA World Cup. Win probabilities, squad stats, chemistry indexes, key player matchups, and tactical analysis."
   },
   "oddsPage": {
     "badge": "5分ごとに更新",
@@ -772,8 +774,8 @@
     "fullProfileOn": "{team}での詳細プロフィール",
     "teamSquad": "{flag} {team} スカッド",
     "allTeams": "全チーム",
-    "metaTitle": "{name} World Cup 2026 — Profile, Stats & Predictions",
-    "metaDescription": "{name} ({position}) — {team} squad member, plays for {club}. World Cup 2026 stats, scouting report, and AI intelligence."
+    "metaTitle": "{name} ワールドカップ2026 — プロフィール・スタッツ・予想",
+    "metaDescription": "{name}（{position}）。所属は{club}、W杯2026では{team}代表入り。スタッツ、スカウティングレポート、AI分析を掲載。"
   },
   "playerStatusPage": {
     "badge": "スカッドトラッカー",
@@ -1081,8 +1083,8 @@
     "safetySafe": "安全",
     "safetyModerate": "普通",
     "safetyCaution": "注意",
-    "metaTitle": "{city} World Cup 2026 — Host City Travel Guide",
-    "metaDescription": "Guide to {city}, World Cup 2026 host city in {country}. Stadiums, transport, hotels, safety, and match schedule."
+    "metaTitle": "{city} ワールドカップ2026 — 開催都市トラベルガイド",
+    "metaDescription": "W杯2026開催都市・{city}（{country}）のガイド。スタジアム、交通、ホテル、治安、試合日程を網羅。"
   },
   "travelPage": {
     "heroBadge": "ファンガイド",
@@ -1695,7 +1697,7 @@
     "chemistry": "ケミストリー"
   },
   "teamDetailPage": {
-    "metaTitle": "{team} World Cup 2026 — Squad, Analysis & Predictions",
-    "metaDescription": "AI analysis of {team}'s World Cup 2026 campaign. Group {group}, FIFA #{rank}. Squad, schedule, chemistry index, and win probability."
+    "metaTitle": "{team} ワールドカップ2026 — メンバー・分析・予想",
+    "metaDescription": "{team}のW杯2026をAIが徹底分析。グループ{group}、FIFAランク{rank}位。メンバー、日程、チーム連携、勝利確率まで。"
   }
 }
