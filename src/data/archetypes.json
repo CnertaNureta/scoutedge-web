@@ -1,0 +1,278 @@
+[
+  {
+    "id": "tiki-taka-passing-machine",
+    "name": "Tiki-Taka Passing Machine",
+    "matchAliases": ["tiki-taka", "tiki taka", "passing machine", "possession-based", "possession based", "positional play"],
+    "historicalReferences": [
+      { "team": "Spain", "year": 2010, "finish": "Champions" },
+      { "team": "Spain", "year": 2008, "finish": "Champions (Euro)" },
+      { "team": "Spain", "year": 2012, "finish": "Champions (Euro)" }
+    ],
+    "baselineFinish": "Semifinals",
+    "successRate": 0.42,
+    "strengths": [
+      "Elite ball retention strangles opponents out of rhythm",
+      "Defensive structure inherits from possession",
+      "Composed press triggers in midfield turnovers"
+    ],
+    "cautions": [
+      "Vulnerable to vertical counter-pressing",
+      "Can stall against a disciplined deep block",
+      "Cycle-dependent on a generational midfield core"
+    ],
+    "summary": "Possession-heavy sides that build through short passing, positional rotations, and patient midfield control. Wins through suffocation, not transition."
+  },
+  {
+    "id": "counter-attacking-specialist",
+    "name": "Counter-Attacking Specialist",
+    "matchAliases": ["counter-attack", "counter attack", "counter-attacking", "counterattacking", "transition team"],
+    "historicalReferences": [
+      { "team": "Italy", "year": 2006, "finish": "Champions" },
+      { "team": "Portugal", "year": 2016, "finish": "Champions (Euro)" },
+      { "team": "Greece", "year": 2004, "finish": "Champions (Euro)" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.34,
+    "strengths": [
+      "Lethal transition speed turns one chance into a goal",
+      "Compact mid-block forces opponents into mistakes",
+      "Two reliable forwards capable of running 60 metres"
+    ],
+    "cautions": [
+      "Struggles when forced to break down a packed defence",
+      "Tournament heat reduces sprint capacity by week three",
+      "One injury to the outlet striker collapses the model"
+    ],
+    "summary": "Pragmatic sides that cede possession, absorb pressure, and strike on the break. Tournament football's perennially underrated archetype."
+  },
+  {
+    "id": "high-press-aggressor",
+    "name": "High-Press Aggressor",
+    "matchAliases": ["high-press", "high press", "gegenpress", "pressing team", "front-foot"],
+    "historicalReferences": [
+      { "team": "Germany", "year": 2014, "finish": "Champions" },
+      { "team": "Spain", "year": 2010, "finish": "Champions" },
+      { "team": "Argentina", "year": 2022, "finish": "Champions" }
+    ],
+    "baselineFinish": "Semifinals",
+    "successRate": 0.45,
+    "strengths": [
+      "Wins the ball 35 metres from goal — shortest distance to score",
+      "Forces top-tier opponents into low-quality clearances",
+      "Compresses the pitch and dictates pace"
+    ],
+    "cautions": [
+      "Press resistance is the cheat code that breaks it",
+      "Massively fitness-dependent — fades in extra time",
+      "Set-pieces conceded behind the line become open chances"
+    ],
+    "summary": "Front-foot sides that hunt the ball in the opposition's half, compress space, and convert turnovers into shots. Defines modern tournament football."
+  },
+  {
+    "id": "defensive-catenaccio",
+    "name": "Defensive Catenaccio",
+    "matchAliases": ["catenaccio", "defensive", "defence-first", "deep block", "low-block"],
+    "historicalReferences": [
+      { "team": "Italy", "year": 1982, "finish": "Champions" },
+      { "team": "Italy", "year": 2006, "finish": "Champions" },
+      { "team": "Greece", "year": 2004, "finish": "Champions (Euro)" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.31,
+    "strengths": [
+      "Concedes the fewest expected goals in the tournament",
+      "Comfortable defending one-goal leads for 80 minutes",
+      "Goalkeeper and centre-back pairing is best-in-class"
+    ],
+    "cautions": [
+      "Must convert limited chances — striker form is mission-critical",
+      "Modern referees punish the tactical foul tax",
+      "Penalty shootouts become the realistic endgame"
+    ],
+    "summary": "Defence-first sides that strangle games to 0-0 and decide tournaments with one set-piece or one moment of individual brilliance. Old-school but enduring."
+  },
+  {
+    "id": "total-football",
+    "name": "Total Football",
+    "matchAliases": ["total football", "totaalvoetbal", "fluid positions", "rotational"],
+    "historicalReferences": [
+      { "team": "Netherlands", "year": 1974, "finish": "Runners-up" },
+      { "team": "Netherlands", "year": 1978, "finish": "Runners-up" },
+      { "team": "Netherlands", "year": 2010, "finish": "Runners-up" }
+    ],
+    "baselineFinish": "Semifinals",
+    "successRate": 0.36,
+    "strengths": [
+      "Every outfielder is comfortable in every zone",
+      "Positional rotations dissolve traditional matchups",
+      "Aesthetic dominance often translates to belief"
+    ],
+    "cautions": [
+      "Famously trophy-poor relative to the talent it produces",
+      "Internal politics surface under tournament pressure",
+      "One disciplined opponent can break the rotation"
+    ],
+    "summary": "The beautiful-game blueprint: fluid, rotational, technically gifted sides where every player attacks and every player defends. Often runners-up — rarely champions."
+  },
+  {
+    "id": "samba-flair",
+    "name": "Samba Flair",
+    "matchAliases": ["samba", "flair", "individual brilliance", "carnival football"],
+    "historicalReferences": [
+      { "team": "Brazil", "year": 2002, "finish": "Champions" },
+      { "team": "Brazil", "year": 1970, "finish": "Champions" },
+      { "team": "Brazil", "year": 1958, "finish": "Champions" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.38,
+    "strengths": [
+      "Two or three individual moments win knockout games",
+      "Front-line creativity untouched by tactical structure",
+      "Brand and aura intimidate group-stage opponents"
+    ],
+    "cautions": [
+      "Defensive shape can crack against organised European sides",
+      "Star culture risks fragmenting a dressing room",
+      "Heat-dependent — Brazil-style flair fades in cooler climates"
+    ],
+    "summary": "Star-led sides leaning on virtuoso individual moments — dribbles, free-kicks, audacious finishes. The original tournament cheat code when the front line is on form."
+  },
+  {
+    "id": "physical-long-ball",
+    "name": "Physical Long-Ball",
+    "matchAliases": ["long ball", "long-ball", "direct play", "physical", "target man"],
+    "historicalReferences": [
+      { "team": "England", "year": 1990, "finish": "Semifinals" },
+      { "team": "Iceland", "year": 2016, "finish": "Quarterfinals (Euro)" },
+      { "team": "Wales", "year": 2016, "finish": "Semifinals (Euro)" }
+    ],
+    "baselineFinish": "Round of 16",
+    "successRate": 0.22,
+    "strengths": [
+      "Set-piece and second-ball superiority",
+      "Hard to outwork in physical duels",
+      "Limited build-up reduces turnover risk in own half"
+    ],
+    "cautions": [
+      "Modern technical sides exploit the long-ball lottery",
+      "Caps the ceiling — rarely beats elite midfields twice",
+      "Yellow-card management becomes critical in knockouts"
+    ],
+    "summary": "Direct, physical sides that skip the midfield, attack set-pieces, and out-muscle opponents. Tournament dark-horse template — high floor, low ceiling."
+  },
+  {
+    "id": "dark-horse-spoiler",
+    "name": "Dark-Horse Spoiler",
+    "matchAliases": ["dark horse", "dark-horse", "spoiler", "underdog", "giant-killer"],
+    "historicalReferences": [
+      { "team": "South Korea", "year": 2002, "finish": "Semifinals" },
+      { "team": "Croatia", "year": 2018, "finish": "Runners-up" },
+      { "team": "Morocco", "year": 2022, "finish": "Semifinals" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.28,
+    "strengths": [
+      "Tactical flexibility — can switch shapes mid-tournament",
+      "Underrated technically and emotionally over-prepared",
+      "Goalkeeper and set-pieces punch well above weight"
+    ],
+    "cautions": [
+      "One knockout slip ends the entire run",
+      "Squad depth thins quickly through cards and fatigue",
+      "Spotlight pressure intensifies after the first upset"
+    ],
+    "summary": "Mid-tier nations that catch fire — well-drilled defensively, lethal on transitions, and powered by belief. The bracket-buster archetype."
+  },
+  {
+    "id": "tactical-pragmatists",
+    "name": "Tactical Pragmatists",
+    "matchAliases": ["pragmatic", "tactical pragmatist", "balanced", "modern tournament"],
+    "historicalReferences": [
+      { "team": "France", "year": 2018, "finish": "Champions" },
+      { "team": "France", "year": 2022, "finish": "Runners-up" },
+      { "team": "Spain", "year": 2024, "finish": "Champions (Euro)" }
+    ],
+    "baselineFinish": "Semifinals",
+    "successRate": 0.41,
+    "strengths": [
+      "Shape and intensity dialled to the opponent each match",
+      "Elite individual talent across all four lines",
+      "Comfortable winning ugly, winning pretty, winning on penalties"
+    ],
+    "cautions": [
+      "Risks looking passive in group stage and falling behind early",
+      "Star-management is a season-long project",
+      "Tournament identity is sometimes opaque to its own fans"
+    ],
+    "summary": "Mode-shifting sides with elite talent and no tactical ego — they play to the opponent, the scoreline, and the temperature. Modern champions look like this."
+  },
+  {
+    "id": "mid-block-disciplinarians",
+    "name": "Mid-Block Disciplinarians",
+    "matchAliases": ["mid-block", "mid block", "disciplined defence", "compact 4-4-2", "shape-first"],
+    "historicalReferences": [
+      { "team": "Germany", "year": 2006, "finish": "Third Place" },
+      { "team": "Germany", "year": 2010, "finish": "Third Place" },
+      { "team": "Switzerland", "year": 2024, "finish": "Quarterfinals (Euro)" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.29,
+    "strengths": [
+      "Defensive shape rarely breaks under tournament pressure",
+      "Mid-block triggers reliable counter springs",
+      "Squad culture is process-driven, low-drama"
+    ],
+    "cautions": [
+      "Lacks an A+ knockout-stage difference-maker",
+      "Tactical fouls add up in two-legged scenarios",
+      "Can be over-coached against tournament outliers"
+    ],
+    "summary": "Compact, drilled, disciplined sides that defend in a tight mid-block and counter through their best two attackers. Reliable to the semis, rarely past them."
+  },
+  {
+    "id": "wing-play-dynamos",
+    "name": "Wing-Play Dynamos",
+    "matchAliases": ["wing play", "wing-play", "wide attack", "wingers", "flank-heavy"],
+    "historicalReferences": [
+      { "team": "Argentina", "year": 1986, "finish": "Champions" },
+      { "team": "Portugal", "year": 2006, "finish": "Fourth Place" },
+      { "team": "France", "year": 1998, "finish": "Champions" }
+    ],
+    "baselineFinish": "Quarterfinals",
+    "successRate": 0.33,
+    "strengths": [
+      "Wide overloads punish narrow defensive blocks",
+      "Cross-and-finish chains generate consistent xG",
+      "Two-footed wingers are nightmare 1v1 matchups"
+    ],
+    "cautions": [
+      "Striker dependency — empty-net finishers required",
+      "Sides defending the byline neutralise the threat",
+      "Fullback workload spikes injury risk by week three"
+    ],
+    "summary": "Width-first sides that overload the flanks, stretch back-fours, and feed a clinical box-finisher. Classic World Cup blueprint when the wide players are world-class."
+  },
+  {
+    "id": "rebuilding-generation",
+    "name": "Rebuilding Generation",
+    "matchAliases": ["rebuild", "rebuilding", "transition", "new generation", "young squad"],
+    "historicalReferences": [
+      { "team": "Germany", "year": 2018, "finish": "Group Stage" },
+      { "team": "Spain", "year": 2018, "finish": "Round of 16" },
+      { "team": "Argentina", "year": 2018, "finish": "Round of 16" }
+    ],
+    "baselineFinish": "Group Stage",
+    "successRate": 0.18,
+    "strengths": [
+      "Upside scenario is genuinely uncapped",
+      "Squad chemistry has time to compound for 2030",
+      "Less tactical baggage — willing to try shape changes"
+    ],
+    "cautions": [
+      "Inexperience visible in tournament moments",
+      "Coach-player trust still being built",
+      "Group of Death exposes the depth chart fast"
+    ],
+    "summary": "Squads mid-transition — new spine, new manager, generational handover. Tournament is a learning lap; the real campaign is four years away."
+  }
+]

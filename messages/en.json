@@ -2387,6 +2387,43 @@
       "empty": "Quiet desk — no signals on file yet."
     }
   },
+  "differentiator": {
+    "title": "What Makes Them Different",
+    "subtitle": "The one trait that defines them",
+    "whyLabel": "Why opponents struggle",
+    "statsLabel": "Anchor Stats",
+    "positionTraits": {
+      "fw_box_crasher": "Box-crashing finisher",
+      "fw_wide_creator": "Wide creator",
+      "mid_metronome": "Tempo metronome",
+      "mid_press_resistant": "Press-resistant deep-lying playmaker",
+      "def_aerial": "Aerial commander",
+      "def_sweeper": "Build-up sweeper",
+      "gk_sweeper": "Sweeper-keeper",
+      "gk_shotstopper": "Shot-stopper specialist"
+    },
+    "verdict": {
+      "studyTape": "Worth studying his tape before any matchup involving him."
+    }
+  },
+  "archetypeDossier": {
+    "title": "Archetype Dossier",
+    "subtitle": "Historical pattern match — strengths, cautions, baseline ceiling",
+    "archetypeLabel": "Archetype",
+    "summaryLabel": "Pattern Summary",
+    "strengthsLabel": "Strengths",
+    "cautionsLabel": "Cautions",
+    "historyLabel": "Historical References",
+    "baselineLabel": "Baseline Ceiling",
+    "successRateLabel": "Pattern Success Rate",
+    "fromLabel": "Derived from",
+    "verdict": {
+      "ceilingTitle": "Title-tier archetype — when the pattern fires, the trophy is in reach.",
+      "ceilingDeepRun": "Deep-run archetype — semis or quarters is the historical landing zone.",
+      "ceilingKnockouts": "Knockout-stage archetype — one good draw away from making it interesting.",
+      "ceilingGroup": "Group-stage archetype — the campaign is a learning lap for the next cycle."
+    }
+  },
   "vulnerabilityMatrix": {
     "title": "Vulnerability Matrix",
     "subtitle": "6-axis tactical gap analysis vs group rivals",

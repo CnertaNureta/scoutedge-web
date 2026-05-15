@@ -23,6 +23,7 @@ import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import MarketModelSpread from '@/components/team/MarketModelSpread'
 import RiskRegister from '@/components/team/RiskRegister'
 import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
+import ArchetypeDossier from '@/components/team/ArchetypeDossier'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -214,6 +215,14 @@ export default async function TeamPage({ params }: PageProps) {
         )}
         <div className="mx-14 border-t border-white/[0.08]" />
         <IntelligenceReport team={team} />
+      </Paywall>
+
+      {/* Section rule */}
+      <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* Archetype Dossier — historical pattern match with references, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <ArchetypeDossier team={team} />
       </Paywall>
 
       {/* FAQ Section */}

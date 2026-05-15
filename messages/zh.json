@@ -1982,6 +1982,25 @@
       "empty": "暂无声响——目前没有归档信号。"
     }
   },
+  "differentiator": {
+    "title": "他与众不同之处",
+    "subtitle": "定义他的那一个特质",
+    "whyLabel": "对手为何难应对",
+    "statsLabel": "锚定数据",
+    "positionTraits": {
+      "fw_box_crasher": "禁区冲击型终结者",
+      "fw_wide_creator": "边路创造者",
+      "mid_metronome": "节拍器型组织核心",
+      "mid_press_resistant": "抗压型后腰组织者",
+      "def_aerial": "高空指挥官",
+      "def_sweeper": "组织型清道夫",
+      "gk_sweeper": "出击型门将",
+      "gk_shotstopper": "扑救专家"
+    },
+    "verdict": {
+      "studyTape": "在任何与他相关的对位之前，都值得研究他的录像。"
+    }
+  },
   "marketModelSpread": {
     "title": "盘口 vs 模型偏离",
     "subtitle": "博彩共识与我方概率的对照",
@@ -2007,6 +2026,24 @@
       "modelHigh": "模型对夺冠权益的评估高于盘口共识。",
       "modelLow": "盘口已计入我们模型未认可的上行空间。",
       "modest": "价差有限——可参与，但本周并非主菜。"
+    }
+  },
+  "archetypeDossier": {
+    "title": "原型档案",
+    "subtitle": "历史模式匹配——优势、警示与基准上限",
+    "archetypeLabel": "原型",
+    "summaryLabel": "模式概览",
+    "strengthsLabel": "优势",
+    "cautionsLabel": "警示",
+    "historyLabel": "历史参照",
+    "baselineLabel": "基准上限",
+    "successRateLabel": "模式成功率",
+    "fromLabel": "源自",
+    "verdict": {
+      "ceilingTitle": "夺冠级原型——一旦点火，奖杯触手可及。",
+      "ceilingDeepRun": "深入级原型——半决赛或四强是历史落点。",
+      "ceilingKnockouts": "淘汰赛原型——抽签运好一点就能搅局。",
+      "ceilingGroup": "小组赛原型——本届是为下一周期热身。"
     }
   },
   "vulnerabilityMatrix": {
