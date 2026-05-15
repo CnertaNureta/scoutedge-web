@@ -2352,7 +2352,8 @@
       "tailwind": "Riding a positive tailwind — narrative working in his favor.",
       "headwind": "Crowd is loud and unfriendly — pressure-management story.",
       "quiet": "Low chatter, neutral tone — flying under the radar.",
-      "mixed": "Polarized noise — narrative cuts both ways."
+      "mixed": "Polarized noise — narrative cuts both ways.",
+      "noChatter": "No social signal yet — narrative still to be written."
     }
   },
   "signalLedger": {
