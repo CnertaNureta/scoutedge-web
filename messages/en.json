@@ -1244,6 +1244,25 @@
       "bench": "Outside the projected starting picture — squad slot itself is at risk."
     }
   },
+  "matchProjection": {
+    "heading": "Match Projection Table",
+    "subtitle": "Role · Minutes · Threat Tier — Next Six Fixtures",
+    "scoutVerdict": "Projected role and minutes for {player} across the next {count} fixtures — read the threat tier before you commit to a captain.",
+    "columns": {
+      "opponent": "Opponent",
+      "role": "Projected Role",
+      "minutes": "Minutes %",
+      "threat": "Threat"
+    },
+    "threatTier": {
+      "S": "S · Match-winner",
+      "A": "A · High impact",
+      "B": "B · Steady",
+      "C": "C · Rotation"
+    },
+    "keyMatchupTemplate": "Key matchup — {matchup}",
+    "emptyState": "No upcoming fixtures within projection horizon — checking back after group draw finalizes."
+  },
   "blog": {
     "minRead": "{time} min read"
   },
@@ -1569,6 +1588,26 @@
     "archetypeNote": "Past World Cup team with closest style match",
     "aiSourceAttribution": "AI analysis based on 50,000+ data points",
     "ariaQuickReference": "Team quick reference"
+  },
+  "titlePath": {
+    "heading": "Title Path Probability Tree",
+    "subtitle": "Model vs market — round by round",
+    "stageHeader": "Stage",
+    "modelHeader": "Model",
+    "marketHeader": "Market",
+    "edgeHeader": "Edge",
+    "stageGroup": "Survive Group",
+    "stageR16": "Round of 16",
+    "stageQF": "Quarter-Final",
+    "stageSF": "Semi-Final",
+    "stageFinal": "Final",
+    "stageWin": "Lift Trophy",
+    "verdict": "{team}'s sharpest edge is at the {stage} stage — model carries a {edge} gap to the market.",
+    "verdictFallback": "{team} trades flat with the market across every round — no usable mispricing yet.",
+    "scoutSignature": "Kick Oracle Desk",
+    "archive": "Archive {code}",
+    "confidenceHigh": "Confidence · Model signal live",
+    "confidenceLow": "Confidence · Market shadow only"
   },
   "search": {
     "buttonPlaceholder": "Search teams...",
@@ -2394,6 +2433,31 @@
       "empty": "Quiet desk — no signals on file yet."
     }
   },
+  "workload": {
+    "heading": "Workload Watch",
+    "subtitle": "12-month rolling minutes, games & national-team load",
+    "scoutVerdict": "{player}'s 12-month workload reads {status} — manage minutes accordingly.",
+    "sparklineLabel": "Minutes by month",
+    "totalMinutesLabel": "Rolling minutes",
+    "totalGamesLabel": "Games",
+    "nationalTeamWindowsLabel": "NT windows",
+    "statusLabel": "Status",
+    "statusFresh": "Fresh",
+    "statusManaged": "Managed",
+    "statusAmber": "Amber zone",
+    "statusRed": "Overloaded",
+    "amberZoneBadge": "Amber zone · {minutes} mins",
+    "injuryFlagLabel": "Injury flag",
+    "ariaLabelTemplate": "{player} 12-month workload: {minutes} minutes across {games} games"
+  },
+  "roleHeatmap": {
+    "heading": "Role & Heatmap",
+    "subtitle": "Projected touch zones and tactical role tags",
+    "scoutVerdict": "{player} projects as a {role} — that's where this dossier expects the heat.",
+    "roleTagsLabel": "Tactical role tags",
+    "primaryZoneLabel": "Primary zone",
+    "pitchAriaLabel": "Projected pitch heatmap for {player} ({role}). Primary activity zone: {zone}."
+  },
   "differentiator": {
     "title": "What Makes Them Different",
     "subtitle": "The one trait that defines them",
@@ -2486,5 +2550,30 @@
     "deltaPositive": "+{value}",
     "deltaNegative": "−{value}",
     "monthsLabel": "{count}mo"
+  },
+  "agePeak": {
+    "heading": "Age & Peak Window",
+    "subtitle": "Position-grouped peak band analysis",
+    "scoutVerdict": "{team} squad reads as {verdict} against position-specific peak bands.",
+    "positionLabels": {
+      "GK": "Goalkeepers",
+      "CB": "Centre-backs",
+      "FB": "Full-backs",
+      "DM": "Defensive midfielders",
+      "CM": "Central midfielders",
+      "AM": "Attacking midfielders",
+      "W": "Wingers",
+      "ST": "Strikers"
+    },
+    "peakingLabel": "peaking",
+    "ascendingLabel": "ascending",
+    "decliningLabel": "declining",
+    "mixedLabel": "mixed",
+    "inPeakCount": "In peak band",
+    "outsidePeakCount": "Outside peak band",
+    "inPeakShort": "in peak",
+    "outsidePeakShort": "outside",
+    "avgAgeLabel": "AVG",
+    "emptyState": "No squad data available"
   }
 }

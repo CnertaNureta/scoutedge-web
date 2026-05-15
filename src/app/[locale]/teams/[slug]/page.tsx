@@ -21,8 +21,10 @@ import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import MarketModelSpread from '@/components/team/MarketModelSpread'
 import RiskRegister from '@/components/team/RiskRegister'
+import AgePeakWindow from '@/components/team/AgePeakWindow'
 import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
 import ArchetypeDossier from '@/components/team/ArchetypeDossier'
+import TitlePathProbabilityTree from '@/components/team/TitlePathProbabilityTree'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -196,6 +198,9 @@ export default async function TeamPage({ params }: PageProps) {
         </Paywall>
         <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
+        <div className="mx-14 border-t border-white/[0.08]" />
+        {/* T9 — Age & peak window per position */}
+        <AgePeakWindow team={team} players={players} />
         {worldCupHistory && (
           <>
             <div className="mx-14 border-t border-white/[0.08]" />
@@ -203,6 +208,7 @@ export default async function TeamPage({ params }: PageProps) {
           </>
         )}
         <div className="mx-14 border-t border-white/[0.08]" />
+        <TitlePathProbabilityTree team={team} marketIntel={marketIntel} />
         <IntelligenceReport team={team} />
       </Paywall>
 

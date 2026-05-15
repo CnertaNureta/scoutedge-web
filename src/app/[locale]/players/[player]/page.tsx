@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
-import { getAllPlayers, getTeamBySlug } from '@/lib/data-service'
+import { getAllPlayers, getTeamBySlug, getFixturesByTeam } from '@/lib/data-service'
 import { buildOGMeta, breadcrumbJsonLd, personJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
 import { playerDescriptionEn } from '@/data/seo-meta'
 import { resolvePlayerStatus, STATUS_CONFIG } from '@/lib/player-status'
@@ -11,8 +11,11 @@ import GlassCard from '@/components/ui/GlassCard'
 import SectionHeader from '@/components/ui/SectionHeader'
 import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
 import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
+import MatchProjectionTable from '@/components/player/MatchProjectionTable'
 import SocialBuzzCard from '@/components/player/SocialBuzzCard'
 import SignalLedger from '@/components/player/SignalLedger'
+import WorkloadWatch from '@/components/player/WorkloadWatch'
+import RoleHeatmap from '@/components/player/RoleHeatmap'
 import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 
@@ -89,6 +92,7 @@ export default async function PlayerPage({ params }: Props) {
   const t = await getTranslations('playerPage')
   const team = getTeamBySlug(player.teamSlug)
   const playerIntel = getPlayerIntelBySlug(player.teamSlug, player.slug)
+  const teamFixtures = getFixturesByTeam(player.teamSlug)
   const teamName = team?.name ?? player.teamSlug.replace(/-/g, ' ')
   const teamFlag = team?.flag ?? ''
   const resolved = resolvePlayerStatus(player)
@@ -178,11 +182,23 @@ export default async function PlayerPage({ params }: Props) {
       )}
 
       {team && (
+        <MatchProjectionTable player={player} team={team} fixtures={teamFixtures} />
+      )}
+
+      {team && (
         <SocialBuzzCard player={player} team={team} />
       )}
 
       {team && (
         <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
+      )}
+
+      {team && (
+        <WorkloadWatch player={player} team={team} />
+      )}
+
+      {team && (
+        <RoleHeatmap player={player} team={team} />
       )}
 
       {team && (

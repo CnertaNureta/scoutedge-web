@@ -957,6 +957,25 @@
       "bench": "处于首发阵容预测之外——大名单本身也存在风险。"
     }
   },
+  "matchProjection": {
+    "heading": "出场预测表",
+    "subtitle": "角色 · 出场时间 · 威胁等级——未来六场比赛",
+    "scoutVerdict": "{player} 在未来 {count} 场比赛中的角色与出场时间预测——挑队长前先看威胁等级。",
+    "columns": {
+      "opponent": "对手",
+      "role": "预测角色",
+      "minutes": "出场比例",
+      "threat": "威胁"
+    },
+    "threatTier": {
+      "S": "S · 决胜级",
+      "A": "A · 高影响力",
+      "B": "B · 稳定输出",
+      "C": "C · 轮换级"
+    },
+    "keyMatchupTemplate": "关键对位——{matchup}",
+    "emptyState": "暂无可投射的比赛——抽签确定后会重新计算。"
+  },
   "blog": {
     "minRead": "{time}分钟阅读"
   },
@@ -1259,6 +1278,26 @@
     "archetypeNote": "风格最相近的过往世界杯球队",
     "aiSourceAttribution": "AI 分析基于 50,000+ 数据点",
     "ariaQuickReference": "球队速览"
+  },
+  "titlePath": {
+    "heading": "夺冠概率路径树",
+    "subtitle": "模型 vs 市场 — 逐轮对比",
+    "stageHeader": "阶段",
+    "modelHeader": "模型",
+    "marketHeader": "市场",
+    "edgeHeader": "价差",
+    "stageGroup": "小组出线",
+    "stageR16": "十六强",
+    "stageQF": "八强",
+    "stageSF": "四强",
+    "stageFinal": "决赛",
+    "stageWin": "捧杯",
+    "verdict": "{team} 的最大模型边际出现在 {stage}，模型与市场存在 {edge} 的价差。",
+    "verdictFallback": "{team} 在所有阶段都与市场持平 — 暂无可利用的错价。",
+    "scoutSignature": "Kick Oracle 编辑部",
+    "archive": "档案 {code}",
+    "confidenceHigh": "置信度 · 模型信号已激活",
+    "confidenceLow": "置信度 · 仅市场影子"
   },
   "search": {
     "buttonPlaceholder": "搜索球队…",
@@ -1989,6 +2028,31 @@
       "empty": "暂无声响——目前没有归档信号。"
     }
   },
+  "workload": {
+    "heading": "负荷监测",
+    "subtitle": "近 12 个月滚动出场分钟、场次与国家队窗口",
+    "scoutVerdict": "{player} 近 12 个月负荷读作{status}——按此管理出场分钟。",
+    "sparklineLabel": "按月分钟数",
+    "totalMinutesLabel": "滚动分钟",
+    "totalGamesLabel": "场次",
+    "nationalTeamWindowsLabel": "国家队窗口",
+    "statusLabel": "状态",
+    "statusFresh": "充足",
+    "statusManaged": "可控",
+    "statusAmber": "警戒区",
+    "statusRed": "超负荷",
+    "amberZoneBadge": "警戒区 · {minutes} 分钟",
+    "injuryFlagLabel": "伤病预警",
+    "ariaLabelTemplate": "{player} 12 个月负荷：{games} 场共 {minutes} 分钟"
+  },
+  "roleHeatmap": {
+    "heading": "角色与热点图",
+    "subtitle": "预测触球区域与战术角色标签",
+    "scoutVerdict": "{player} 投射为 {role}——这就是档案预期的热点。",
+    "roleTagsLabel": "战术角色标签",
+    "primaryZoneLabel": "主要活动区",
+    "pitchAriaLabel": "{player}（{role}）的预测球场热点图。主要活动区：{zone}。"
+  },
   "differentiator": {
     "title": "他与众不同之处",
     "subtitle": "定义他的那一个特质",
@@ -2108,5 +2172,30 @@
     "deltaPositive": "+{value}",
     "deltaNegative": "−{value}",
     "monthsLabel": "{count} 个月"
+  },
+  "agePeak": {
+    "heading": "巅峰年龄窗口",
+    "subtitle": "按位置分组的巅峰区间分析",
+    "scoutVerdict": "{team} 阵容相对于各位置巅峰区间表现为 {verdict}。",
+    "positionLabels": {
+      "GK": "门将",
+      "CB": "中后卫",
+      "FB": "边后卫",
+      "DM": "后腰",
+      "CM": "中场",
+      "AM": "前腰",
+      "W": "边锋",
+      "ST": "中锋"
+    },
+    "peakingLabel": "巅峰期",
+    "ascendingLabel": "上升期",
+    "decliningLabel": "下滑期",
+    "mixedLabel": "混合",
+    "inPeakCount": "处于巅峰区间",
+    "outsidePeakCount": "处于巅峰区间外",
+    "inPeakShort": "在峰值",
+    "outsidePeakShort": "在区外",
+    "avgAgeLabel": "均龄",
+    "emptyState": "暂无阵容数据"
   }
 }
