@@ -207,6 +207,7 @@ describe('localized structured-data URL guard', () => {
       'src/app/[locale]/travel/page.tsx',
       'src/app/[locale]/travel/tickets/page.tsx',
       'src/app/[locale]/travel/visa/page.tsx',
+      'src/components/layout/Breadcrumbs.tsx',
     ]
 
     const failures = files.filter((file) =>

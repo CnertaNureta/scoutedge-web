@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation'
-import { breadcrumbJsonLd } from '@/lib/og-utils'
+import { getLocale } from 'next-intl/server'
+import { breadcrumbJsonLd, canonicalForLocale } from '@/lib/og-utils'
 
 export interface Crumb {
   /** Visible label */
@@ -23,12 +24,13 @@ interface BreadcrumbsProps {
  * The first crumb should always be Home (`/`); the last item is the
  * current page and renders as plain text (not a link) with aria-current.
  */
-export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
+export default async function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
   if (items.length === 0) return null
 
+  const locale = await getLocale()
   const schemaItems = items.map((c) => ({
     name: c.name,
-    url: `https://kickoracle.com${c.href}`,
+    url: canonicalForLocale(locale, c.href),
   }))
 
   return (
