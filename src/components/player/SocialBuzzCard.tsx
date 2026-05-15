@@ -72,8 +72,12 @@ function countPlatforms(profile: PlayerSocialProfile | undefined): number {
   return count
 }
 
-function mostRecentPostDate(posts: PlayerSocialProfile['recentPosts']): string | undefined {
+function mostRecentPostDate(
+  posts: PlayerSocialProfile['recentPosts'],
+  now: Date = new Date(),
+): string | undefined {
   if (!posts || posts.length === 0) return undefined
+  const nowTime = now.getTime()
   let latestTime = -Infinity
   let latest: string | undefined
   for (const post of posts) {
@@ -82,6 +86,9 @@ function mostRecentPostDate(posts: PlayerSocialProfile['recentPosts']): string |
       latestTime = t
       latest = post.date
     }
+  }
+  if (latest && Number.isFinite(nowTime) && latestTime > nowTime) {
+    return now.toISOString()
   }
   return latest
 }
@@ -101,7 +108,10 @@ function getVerdict(buzz: number, sentiment: number, hasData: boolean): BuzzVerd
  * Pure compute function — exported for unit testing.
  * Aggregates a PlayerSocialProfile into buzz, sentiment, delta, and verdict.
  */
-export function computeBuzzSummary(social: PlayerSocialProfile | undefined): BuzzSummary {
+export function computeBuzzSummary(
+  social: PlayerSocialProfile | undefined,
+  now: Date = new Date(),
+): BuzzSummary {
   if (!social) {
     return {
       buzz: 0,
@@ -110,7 +120,7 @@ export function computeBuzzSummary(social: PlayerSocialProfile | undefined): Buz
       verdictKey: 'noChatter',
       topPosts: [],
       platformCount: 0,
-      lastUpdatedAt: new Date().toISOString(),
+      lastUpdatedAt: now.toISOString(),
     }
   }
 
@@ -123,7 +133,7 @@ export function computeBuzzSummary(social: PlayerSocialProfile | undefined): Buz
   const topPosts = (social.recentPosts ?? []).slice(0, 3)
   const platformCount = countPlatforms(social)
   const lastUpdatedAt =
-    mostRecentPostDate(social.recentPosts) ?? new Date().toISOString()
+    mostRecentPostDate(social.recentPosts, now) ?? now.toISOString()
 
   return {
     buzz,

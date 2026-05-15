@@ -1,6 +1,8 @@
-import { describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { computeMatchProjection } from '../match-projection'
 import type { MatchFixture, Player, Team } from '@/lib/types'
+
+const NOW = new Date('2026-06-01T00:00:00Z')
 
 function makePlayer(overrides: Partial<Player> = {}): Player {
   return {
@@ -65,6 +67,15 @@ function makeFixture(
 }
 
 describe('computeMatchProjection', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+    vi.setSystemTime(NOW)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
   it('caps at the next 6 upcoming fixtures', () => {
     const player = makePlayer()
     const team = makeTeam()
@@ -93,6 +104,14 @@ describe('computeMatchProjection', () => {
     expect(high.rows[0].projectedMinutesPct).toBeLessThan(
       low.rows[0].projectedMinutesPct,
     )
+  })
+
+  it('returns translation keys for projected roles instead of display copy', () => {
+    const result = computeMatchProjection(makePlayer({ position: 'FWD' }), makeTeam(), [
+      makeFixture(1),
+    ])
+
+    expect(result.rows[0].projectedRole).toBe('boxCrasher')
   })
 
   it('scales threat tier monotonically with player rating', () => {
@@ -240,5 +259,18 @@ describe('computeMatchProjection', () => {
       'opp-mid',
       'opp-late',
     ])
+  })
+
+  it('filters already-played fixtures before slicing projections', () => {
+    const team = makeTeam()
+    const fixtures: MatchFixture[] = [
+      makeFixture(1, { kickoffUtc: '2026-05-20T18:00:00Z', awayTeamSlug: 'opp-past' }),
+      makeFixture(2, { kickoffUtc: '2026-06-02T18:00:00Z', awayTeamSlug: 'opp-next' }),
+      makeFixture(3, { kickoffUtc: '2026-06-05T18:00:00Z', awayTeamSlug: 'opp-later' }),
+    ]
+
+    const result = computeMatchProjection(makePlayer(), team, fixtures)
+
+    expect(result.rows.map((r) => r.opponentSlug)).toEqual(['opp-next', 'opp-later'])
   })
 })

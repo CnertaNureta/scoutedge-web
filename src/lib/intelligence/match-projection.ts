@@ -1,13 +1,22 @@
 import type { MatchFixture, Player, Team } from '@/lib/types'
 
 export type ThreatTier = 'S' | 'A' | 'B' | 'C'
+export type ProjectedRoleKey =
+  | 'sweeperKeeper'
+  | 'shotStopper'
+  | 'ballPlayingCb'
+  | 'defensiveAnchor'
+  | 'deepLyingPlaymaker'
+  | 'boxToBoxEngine'
+  | 'boxCrasher'
+  | 'invertedWinger'
 
 export interface MatchProjectionRow {
   fixtureId: string
   opponentSlug: string
   opponentName: string
   opponentFlag?: string
-  projectedRole: string
+  projectedRole: ProjectedRoleKey
   projectedMinutesPct: number
   threatTier: ThreatTier
   keyMatchupNote?: string
@@ -47,11 +56,14 @@ const WEAK_OPPONENT_FIFA_RANK_MIN = 45
 const KEY_MATCHUP_RATING_MIN = 82
 const KEY_MATCHUP_OPPONENT_RANK_MAX = 20
 
-const ROLE_BY_POSITION_TEMPLATE: Record<Player['position'], { primary: string; alt: string }> = {
-  GK: { primary: 'Sweeper-Keeper', alt: 'Shot-Stopper' },
-  DEF: { primary: 'Ball-Playing CB', alt: 'Defensive Anchor' },
-  MID: { primary: 'Deep-Lying Playmaker', alt: 'Box-to-Box Engine' },
-  FWD: { primary: 'Box Crasher', alt: 'Inverted Winger' },
+const ROLE_BY_POSITION_TEMPLATE: Record<
+  Player['position'],
+  { primary: ProjectedRoleKey; alt: ProjectedRoleKey }
+> = {
+  GK: { primary: 'sweeperKeeper', alt: 'shotStopper' },
+  DEF: { primary: 'ballPlayingCb', alt: 'defensiveAnchor' },
+  MID: { primary: 'deepLyingPlaymaker', alt: 'boxToBoxEngine' },
+  FWD: { primary: 'boxCrasher', alt: 'invertedWinger' },
 }
 
 function clamp(value: number, min: number, max: number): number {
@@ -75,7 +87,7 @@ function teamRatingFromFixture(
   return 0
 }
 
-function projectRole(player: Player): string {
+function projectRole(player: Player): ProjectedRoleKey {
   const template = ROLE_BY_POSITION_TEMPLATE[player.position]
   if (player.position === 'FWD') {
     const goalRatio = player.goals / Math.max(1, player.caps)
@@ -175,16 +187,22 @@ export function computeMatchProjection(
   team: Team,
   fixtures: MatchFixture[],
   opponents: Team[] = [],
+  now: Date = new Date(),
 ): MatchProjectionBreakdown {
   if (!fixtures || fixtures.length === 0) {
     return { rows: [], signalCount: 0, sourceCount: 0 }
   }
 
   const teamIndex = buildTeamIndex(opponents)
+  const nowTime = now.getTime()
 
   const upcoming = [...fixtures]
     .filter(
-      (f) => f.homeTeamSlug === team.slug || f.awayTeamSlug === team.slug,
+      (f) => {
+        if (f.homeTeamSlug !== team.slug && f.awayTeamSlug !== team.slug) return false
+        const kickoffTime = new Date(f.kickoffUtc).getTime()
+        return Number.isFinite(kickoffTime) && kickoffTime >= nowTime
+      },
     )
     .sort(
       (a, b) =>

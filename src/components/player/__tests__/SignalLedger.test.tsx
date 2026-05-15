@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { computeSignalSummary } from '../SignalLedger'
+import { computeSignalSummary, formatSignalRelative } from '../SignalLedger'
 import type { PlayerSignal } from '@/lib/types'
 
 const NOW = new Date('2026-05-15T12:00:00Z')
@@ -114,5 +114,11 @@ describe('computeSignalSummary', () => {
     const result = computeSignalSummary(signals, NOW)
     // (1 + 0) / 2 = 0.5
     expect(result.avgConfidence).toBe(0.5)
+  })
+
+  it('formats relative signal timestamps through Intl for the active locale', () => {
+    expect(formatSignalRelative('2026-05-15T00:00:00.000Z', 'en', NOW)).toBe('today')
+    expect(formatSignalRelative('2026-05-14T00:00:00.000Z', 'zh', NOW)).toContain('昨天')
+    expect(formatSignalRelative('2026-05-13T00:00:00.000Z', 'en', NOW)).not.toBe('2d')
   })
 })

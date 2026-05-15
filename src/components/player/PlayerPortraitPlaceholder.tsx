@@ -1,3 +1,6 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
 import type { Player, Team } from '@/lib/types'
 import { getTeamColors } from '@/lib/team-colors'
 import { BRAND } from '@/lib/brand-tokens'
@@ -77,17 +80,20 @@ function PositionIcon({ position, color }: PositionIconProps) {
   )
 }
 
-function positionLabel(position: Player['position']): string {
-  if (position === 'GK') return 'Goalkeeper'
-  if (position === 'DEF') return 'Defender'
-  if (position === 'MID') return 'Midfielder'
-  return 'Forward'
+function positionLabelKey(
+  position: Player['position'],
+): 'positionGK' | 'positionDEF' | 'positionMID' | 'positionFWD' {
+  if (position === 'GK') return 'positionGK'
+  if (position === 'DEF') return 'positionDEF'
+  if (position === 'MID') return 'positionMID'
+  return 'positionFWD'
 }
 
 export default function PlayerPortraitPlaceholder({
   player,
   team,
 }: PlayerPortraitPlaceholderProps) {
+  const t = useTranslations('playerPage')
   const colors = getTeamColors(team.slug)
   const monogram = getMonogram(player.name)
   const teamStamp = getTeamStamp(team.slug)
@@ -138,7 +144,7 @@ export default function PlayerPortraitPlaceholder({
             style={{ background: colors.glow }}
           />
           <span className="font-label text-[9px] uppercase tracking-widest text-on-surface-variant">
-            Awaiting Portrait
+            {t('portraitPending')}
           </span>
         </div>
 
@@ -165,10 +171,10 @@ export default function PlayerPortraitPlaceholder({
           <div className="mt-4 flex items-center gap-2">
             <PositionIcon position={player.position} color={colors.glow} />
             <span
-              className="font-label text-[10px] font-semibold uppercase tracking-[0.2em]"
-              style={{ color: colors.glow }}
-            >
-              {positionLabel(player.position)}
+            className="font-label text-[10px] font-semibold uppercase tracking-[0.2em]"
+            style={{ color: colors.glow }}
+          >
+              {t(positionLabelKey(player.position))}
             </span>
           </div>
 
@@ -188,7 +194,7 @@ export default function PlayerPortraitPlaceholder({
 
         <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between font-mono text-[9px] uppercase tracking-widest text-on-surface-variant/60">
           <span>#{player.number.toString().padStart(2, '0')}</span>
-          <span style={{ color: `${colors.glow}99` }}>DOSSIER ACTIVE</span>
+          <span style={{ color: `${colors.glow}99` }}>{t('dossierActive')}</span>
         </div>
 
         <div

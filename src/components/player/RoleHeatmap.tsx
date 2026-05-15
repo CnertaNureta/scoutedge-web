@@ -45,26 +45,34 @@ function buildDossierId(teamSlug: string, playerSlug: string): string {
   return `SCT-${teamPart}-P7-${playerPart}-ROLE-HEATMAP-2026`
 }
 
-function describePrimaryZone(zone: string): string {
+function primaryZoneTranslationKeys(zone: string): {
+  row: 'topWing' | 'bottomWing' | 'centralChannel'
+  col:
+    | 'ownDefensiveThird'
+    | 'deepBuildUp'
+    | 'midfieldThird'
+    | 'attackingThird'
+    | 'finalThirdBoxEdge'
+} {
   const match = /^r(\d+)c(\d+)$/.exec(zone)
-  if (!match) return 'central midfield'
+  if (!match) return { row: 'centralChannel', col: 'midfieldThird' }
   const row = Number(match[1])
   const col = Number(match[2])
 
   const rowName =
-    row <= 1 ? 'top wing' : row >= 4 ? 'bottom wing' : 'central channel'
+    row <= 1 ? 'topWing' : row >= 4 ? 'bottomWing' : 'centralChannel'
   const colName =
     col <= 1
-      ? 'own defensive third'
+      ? 'ownDefensiveThird'
       : col <= 3
-        ? 'deep build-up area'
+        ? 'deepBuildUp'
         : col <= 5
-          ? 'midfield third'
+          ? 'midfieldThird'
           : col <= 7
-            ? 'attacking third'
-            : 'final third box edge'
+            ? 'attackingThird'
+            : 'finalThirdBoxEdge'
 
-  return `${rowName}, ${colName}`
+  return { row: rowName, col: colName }
 }
 
 interface PitchLinesProps {
@@ -194,7 +202,11 @@ export default async function RoleHeatmap({ player, team }: RoleHeatmapProps) {
   const dossierId = buildDossierId(team.slug, player.slug)
   const heatmap = computeRoleHeatmap(player, team)
   const primaryRoleTag = heatmap.roleTags[0] ?? player.position
-  const zoneDescription = describePrimaryZone(heatmap.primaryZone)
+  const zoneKeys = primaryZoneTranslationKeys(heatmap.primaryZone)
+  const zoneDescription = t('primaryZones.description', {
+    row: t(`primaryZones.rows.${zoneKeys.row}`),
+    col: t(`primaryZones.cols.${zoneKeys.col}`),
+  })
 
   return (
     <section className="max-w-[1440px] mx-auto px-6 mb-16">

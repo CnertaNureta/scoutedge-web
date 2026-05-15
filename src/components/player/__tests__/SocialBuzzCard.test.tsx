@@ -2,6 +2,8 @@ import { describe, expect, it } from 'vitest'
 import { computeBuzzSummary } from '../SocialBuzzCard'
 import type { PlayerSocialProfile } from '@/data/player-social'
 
+const NOW = new Date('2026-05-15T12:00:00Z')
+
 function makeSocial(overrides: Partial<PlayerSocialProfile> = {}): PlayerSocialProfile {
   return {
     playerSlug: 'test-player',
@@ -163,5 +165,19 @@ describe('computeBuzzSummary', () => {
       }),
     )
     expect(result.topPosts.length).toBe(3)
+  })
+
+  it('clamps future-dated post metadata to the current refresh time', () => {
+    const result = computeBuzzSummary(
+      makeSocial({
+        recentPosts: [
+          { date: '2026-05-30', platform: 'A', summary: 'Future', sentiment: 'positive', engagement: '1' },
+          { date: '2026-05-10', platform: 'B', summary: 'Past', sentiment: 'neutral', engagement: '1' },
+        ],
+      }),
+      NOW,
+    )
+
+    expect(result.lastUpdatedAt).toBe(NOW.toISOString())
   })
 })

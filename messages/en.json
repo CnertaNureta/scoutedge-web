@@ -1069,6 +1069,8 @@
     "positionDEF": "Defender",
     "positionMID": "Midfielder",
     "positionFWD": "Forward",
+    "portraitPending": "Awaiting Portrait",
+    "dossierActive": "Dossier Active",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · Age {age}",
     "wc2026Status": "WC 2026: {label}",
@@ -1259,6 +1261,16 @@
       "A": "A · High impact",
       "B": "B · Steady",
       "C": "C · Rotation"
+    },
+    "roles": {
+      "sweeperKeeper": "Sweeper-keeper",
+      "shotStopper": "Shot-stopper",
+      "ballPlayingCb": "Ball-playing CB",
+      "defensiveAnchor": "Defensive anchor",
+      "deepLyingPlaymaker": "Deep-lying playmaker",
+      "boxToBoxEngine": "Box-to-box engine",
+      "boxCrasher": "Box crasher",
+      "invertedWinger": "Inverted winger"
     },
     "keyMatchupTemplate": "Key matchup — {matchup}",
     "emptyState": "No upcoming fixtures within projection horizon — checking back after group draw finalizes."
@@ -2474,7 +2486,22 @@
     "scoutVerdict": "{player} projects as a {role} — that's where this dossier expects the heat.",
     "roleTagsLabel": "Tactical role tags",
     "primaryZoneLabel": "Primary zone",
-    "pitchAriaLabel": "Projected pitch heatmap for {player} ({role}). Primary activity zone: {zone}."
+    "pitchAriaLabel": "Projected pitch heatmap for {player} ({role}). Primary activity zone: {zone}.",
+    "primaryZones": {
+      "description": "{row}, {col}",
+      "rows": {
+        "topWing": "top wing",
+        "bottomWing": "bottom wing",
+        "centralChannel": "central channel"
+      },
+      "cols": {
+        "ownDefensiveThird": "own defensive third",
+        "deepBuildUp": "deep build-up area",
+        "midfieldThird": "midfield third",
+        "attackingThird": "attacking third",
+        "finalThirdBoxEdge": "final third box edge"
+      }
+    }
   },
   "differentiator": {
     "title": "What Makes Them Different",

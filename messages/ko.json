@@ -763,6 +763,8 @@
     "positionDEF": "수비수",
     "positionMID": "미드필더",
     "positionFWD": "공격수",
+    "portraitPending": "초상 이미지 대기 중",
+    "dossierActive": "분석 파일 활성",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age}세",
     "wc2026Status": "2026 월드컵: {label}",

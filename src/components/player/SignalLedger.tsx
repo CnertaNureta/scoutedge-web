@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import type { Player, PlayerIntelRecord, PlayerSignal, Team } from '@/lib/types'
 import IntelligenceModule from '@/components/ui/IntelligenceModule'
 import Badge from '@/components/ui/Badge'
@@ -206,19 +206,26 @@ function signalWeight(signal: PlayerSignal): number {
   return confidence
 }
 
-function formatRelative(input: string | undefined, now: Date = new Date()): string {
+export function formatSignalRelative(
+  input: string | undefined,
+  locale: string,
+  now: Date = new Date(),
+): string {
   if (!input) return ''
   const d = new Date(input)
   if (Number.isNaN(d.getTime())) return ''
   const diffMs = d.getTime() - now.getTime()
-  const absDays = Math.abs(Math.round(diffMs / 86_400_000))
-  if (absDays === 0) return 'today'
-  if (absDays === 1) return '1d'
-  if (absDays < 30) return `${absDays}d`
-  const months = Math.round(absDays / 30)
-  if (months < 12) return `${months}mo`
-  const years = Math.round(absDays / 365)
-  return `${years}y`
+  const diffDays = Math.round(diffMs / 86_400_000)
+  const absDays = Math.abs(diffDays)
+  const formatter = new Intl.RelativeTimeFormat(locale, {
+    numeric: 'auto',
+    style: 'narrow',
+  })
+  if (absDays === 0) return formatter.format(0, 'day')
+  if (absDays < 30) return formatter.format(diffDays, 'day')
+  const diffMonths = Math.round(diffDays / 30)
+  if (Math.abs(diffMonths) < 12) return formatter.format(diffMonths, 'month')
+  return formatter.format(Math.round(diffDays / 365), 'year')
 }
 
 interface SparklineProps {
@@ -267,6 +274,7 @@ interface SignalLedgerProps {
 
 export default async function SignalLedger({ player, team, playerIntel }: SignalLedgerProps) {
   const t = await getTranslations('signalLedger')
+  const locale = await getLocale()
 
   const accentColor = POSITION_HEX[player.position] ?? BRAND.primary
   const dossierId = buildDossierId(team.slug, player.slug)
@@ -357,7 +365,7 @@ export default async function SignalLedger({ player, team, playerIntel }: Signal
                         <ChemistryBar value={confidence} showValue={false} size="sm" />
                         {signal.happenedAt && (
                           <span className="font-mono text-[10px] text-on-surface-variant/70">
-                            {formatRelative(signal.happenedAt)}
+                            {formatSignalRelative(signal.happenedAt, locale)}
                           </span>
                         )}
                       </div>

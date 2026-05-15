@@ -33,7 +33,8 @@ interface ProjectionRowProps {
   accentColor: string
   threatLabel: string
   minutesLabel: string
-  roleLabel: string
+  roleColumnLabel: string
+  projectedRoleLabel: string
   opponentLabel: string
   threatHeaderLabel: string
   keyMatchupTemplate: string
@@ -44,7 +45,8 @@ function ProjectionRow({
   accentColor,
   threatLabel,
   minutesLabel,
-  roleLabel,
+  roleColumnLabel,
+  projectedRoleLabel,
   opponentLabel,
   threatHeaderLabel,
   keyMatchupTemplate,
@@ -73,13 +75,13 @@ function ProjectionRow({
 
       <div className="flex items-center justify-between md:block">
         <span className="font-label text-[10px] text-on-surface-variant uppercase tracking-widest md:hidden">
-          {roleLabel}
+          {roleColumnLabel}
         </span>
         <span
           className="font-body text-sm md:text-base"
           style={{ color: accentColor }}
         >
-          {row.projectedRole}
+          {projectedRoleLabel}
         </span>
       </div>
 
@@ -183,7 +185,8 @@ export default async function MatchProjectionTable({
                   accentColor={accentColor}
                   threatLabel={t(`threatTier.${row.threatTier}`)}
                   minutesLabel={t('columns.minutes')}
-                  roleLabel={t('columns.role')}
+                  roleColumnLabel={t('columns.role')}
+                  projectedRoleLabel={t(`roles.${row.projectedRole}`)}
                   opponentLabel={t('columns.opponent')}
                   threatHeaderLabel={t('columns.threat')}
                   keyMatchupTemplate={t('keyMatchupTemplate')}

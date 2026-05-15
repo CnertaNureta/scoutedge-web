@@ -762,6 +762,8 @@
     "positionDEF": "后卫",
     "positionMID": "中场",
     "positionFWD": "前锋",
+    "portraitPending": "等待头像",
+    "dossierActive": "档案启用",
     "metaSubtitle": "{flag} {team} · #{number}",
     "clubAndAge": "{club} · {age}岁",
     "wc2026Status": "2026世界杯：{label}",
@@ -972,6 +974,16 @@
       "A": "A · 高影响力",
       "B": "B · 稳定输出",
       "C": "C · 轮换级"
+    },
+    "roles": {
+      "sweeperKeeper": "清道夫门将",
+      "shotStopper": "扑救型门将",
+      "ballPlayingCb": "出球中卫",
+      "defensiveAnchor": "防线支点",
+      "deepLyingPlaymaker": "后场组织核心",
+      "boxToBoxEngine": "全能推进器",
+      "boxCrasher": "禁区冲击手",
+      "invertedWinger": "内切边锋"
     },
     "keyMatchupTemplate": "关键对位——{matchup}",
     "emptyState": "暂无可投射的比赛——抽签确定后会重新计算。"
@@ -2069,7 +2081,22 @@
     "scoutVerdict": "{player} 投射为 {role}——这就是档案预期的热点。",
     "roleTagsLabel": "战术角色标签",
     "primaryZoneLabel": "主要活动区",
-    "pitchAriaLabel": "{player}（{role}）的预测球场热点图。主要活动区：{zone}。"
+    "pitchAriaLabel": "{player}（{role}）的预测球场热点图。主要活动区：{zone}。",
+    "primaryZones": {
+      "description": "{row}，{col}",
+      "rows": {
+        "topWing": "上侧边路",
+        "bottomWing": "下侧边路",
+        "centralChannel": "中路通道"
+      },
+      "cols": {
+        "ownDefensiveThird": "本方防守三区",
+        "deepBuildUp": "后场组织区",
+        "midfieldThird": "中场三区",
+        "attackingThird": "进攻三区",
+        "finalThirdBoxEdge": "前场禁区边缘"
+      }
+    }
   },
   "differentiator": {
     "title": "他与众不同之处",
