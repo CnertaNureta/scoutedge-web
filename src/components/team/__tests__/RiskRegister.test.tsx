@@ -118,13 +118,19 @@ describe('computeSquadRisks', () => {
     expect(result.totalRiskCount).toBe(3)
   })
 
-  it('does not emit medium tactical risk (only high is collected)', () => {
+  it('emits medium tactical risk with medium severity and score', () => {
     const players = [makePlayer('a')]
     const intelByKey: Record<string, PlayerIntelRecord> = {
       a: makeIntel('a', { tactical_risk: 'medium', tactical_note: 'monitored' }),
     }
     const result = computeSquadRisks(players, (p) => intelByKey[p.slug])
-    expect(result.totalRiskCount).toBe(0)
+    expect(result.totalRiskCount).toBe(1)
+    expect(result.topRisks[0]).toMatchObject({
+      type: 'tactical',
+      severity: 'medium',
+      note: 'monitored',
+      score: 6,
+    })
   })
 
   it('skips players whose intel lookup returns undefined', () => {

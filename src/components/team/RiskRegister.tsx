@@ -99,6 +99,14 @@ export function computeSquadRisks(
         note: intel.tactical_note,
         score: HIGH_SCORE,
       })
+    } else if (intel.tactical_risk === 'medium') {
+      risks.push({
+        player,
+        type: 'tactical',
+        severity: 'medium',
+        note: intel.tactical_note,
+        score: MEDIUM_SCORE,
+      })
     }
   }
 
