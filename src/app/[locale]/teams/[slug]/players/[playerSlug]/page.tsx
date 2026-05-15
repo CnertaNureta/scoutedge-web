@@ -18,6 +18,7 @@ import PlayerScoutGrade from '@/components/player/PlayerScoutGrade'
 import SelectionProbabilityCard from '@/components/player/SelectionProbabilityCard'
 import SocialBuzzCard from '@/components/player/SocialBuzzCard'
 import SignalLedger from '@/components/player/SignalLedger'
+import DifferentiatorCard from '@/components/player/DifferentiatorCard'
 import PlayerArticle from '@/components/player/PlayerArticle'
 import { getPlayerIntelBySlug } from '@/lib/player-intel-service'
 import SectionHeader from '@/components/ui/SectionHeader'
@@ -140,6 +141,7 @@ export default async function PlayerPage({ params }: PageProps) {
       <SelectionProbabilityCard player={player} team={team} playerIntel={playerIntel} />
       <SocialBuzzCard player={player} team={team} />
       <SignalLedger player={player} team={team} playerIntel={playerIntel ?? null} />
+      <DifferentiatorCard player={player} team={team} />
       <PlayerIntel player={player} />
       <PlayerArticle player={player} team={team} autoLinkEntities={autoLinkEntities} />
 
