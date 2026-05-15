@@ -1950,6 +1950,38 @@
       "mixed": "两极化噪声——叙事双向作用。"
     }
   },
+  "signalLedger": {
+    "title": "信号置信度账本",
+    "subtitle": "按置信度加权的信号时间线",
+    "confidenceLabel": "置信",
+    "viewAllSignals": "查看全部 {count} 条信号",
+    "emptyState": "暂无该球员的信号记录。",
+    "sparkline7d": "7 日信号量",
+    "sourceTypes": {
+      "profile": "档案",
+      "social": "社媒",
+      "derived": "推断",
+      "press": "媒体"
+    },
+    "categories": {
+      "fitness": "体能",
+      "morale": "士气",
+      "tactical": "战术"
+    },
+    "sentiment": {
+      "positive": "正面",
+      "negative": "负面",
+      "neutral": "中性",
+      "mixed": "复杂"
+    },
+    "verdict": {
+      "signalRich": "信号密集且指向明确——高确信度判断。",
+      "warningSignal": "高确信信号亮红灯——视为警告。",
+      "lowConfidence": "信号基础薄弱——在加注前需要更多输入。",
+      "mixedRead": "确信度稳定但信号相互矛盾——结合情境判断。",
+      "empty": "暂无声响——目前没有归档信号。"
+    }
+  },
   "marketModelSpread": {
     "title": "盘口 vs 模型偏离",
     "subtitle": "博彩共识与我方概率的对照",
@@ -1975,6 +2007,31 @@
       "modelHigh": "模型对夺冠权益的评估高于盘口共识。",
       "modelLow": "盘口已计入我们模型未认可的上行空间。",
       "modest": "价差有限——可参与，但本周并非主菜。"
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "弱点矩阵",
+    "subtitle": "与小组对手的 6 维战术差距",
+    "axisHeader": "维度",
+    "vsLabel": "对阵",
+    "onLabel": "于",
+    "legendPositive": "正值 = 优势",
+    "legendNegative": "负值 = 弱点",
+    "biggestGapLabel": "最大弱点",
+    "noOpponents": "暂无小组对手可供对比。",
+    "axes": {
+      "atk": "进攻",
+      "mid": "中场",
+      "def": "防守",
+      "chm": "默契",
+      "exp": "经验",
+      "fit": "状态"
+    },
+    "verdict": {
+      "dominant": "全维度领先——小组内无对手构成实质威胁。",
+      "balanced": "整体平衡——存在一两处可调度的薄弱点。",
+      "exposed": "多维度暴露——对手有清晰的发力点。",
+      "outclassed": "战术板上被压制——本小组将是生存赛。"
     }
   },
   "riskRegister": {

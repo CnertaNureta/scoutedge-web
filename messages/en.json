@@ -2355,6 +2355,63 @@
       "mixed": "Polarized noise — narrative cuts both ways."
     }
   },
+  "signalLedger": {
+    "title": "Signal Confidence Ledger",
+    "subtitle": "Confidence-weighted signal timeline",
+    "confidenceLabel": "Conf.",
+    "viewAllSignals": "View all {count} signals",
+    "emptyState": "No signals captured for this player yet.",
+    "sparkline7d": "7-Day Signal Volume",
+    "sourceTypes": {
+      "profile": "Profile",
+      "social": "Social",
+      "derived": "Derived",
+      "press": "Press"
+    },
+    "categories": {
+      "fitness": "Fitness",
+      "morale": "Morale",
+      "tactical": "Tactical"
+    },
+    "sentiment": {
+      "positive": "Positive",
+      "negative": "Negative",
+      "neutral": "Neutral",
+      "mixed": "Mixed"
+    },
+    "verdict": {
+      "signalRich": "Signal-rich and pointing the right way — high conviction read.",
+      "warningSignal": "High-confidence signals are flashing red — treat as a warning.",
+      "lowConfidence": "Weak signal base — the dossier needs more inputs before we lean in.",
+      "mixedRead": "Confidence is solid but the signals contradict — read on context.",
+      "empty": "Quiet desk — no signals on file yet."
+    }
+  },
+  "vulnerabilityMatrix": {
+    "title": "Vulnerability Matrix",
+    "subtitle": "6-axis tactical gap analysis vs group rivals",
+    "axisHeader": "Axis",
+    "vsLabel": "vs",
+    "onLabel": "on",
+    "legendPositive": "Positive = edge",
+    "legendNegative": "Negative = weakness",
+    "biggestGapLabel": "Largest weakness",
+    "noOpponents": "No group rivals available to compare yet.",
+    "axes": {
+      "atk": "ATK",
+      "mid": "MID",
+      "def": "DEF",
+      "chm": "CHM",
+      "exp": "EXP",
+      "fit": "FIT"
+    },
+    "verdict": {
+      "dominant": "Dominant on every axis — no group rival profiles a credible threat.",
+      "balanced": "Balanced ledger — one or two soft spots to rotate around.",
+      "exposed": "Exposed across multiple axes — rivals have clear levers to pull.",
+      "outclassed": "Outclassed on the tactical board — the group is a survival exercise."
+    }
+  },
   "riskRegister": {
     "title": "Squad Risk Register",
     "subtitle": "Top-5 fitness, selection, and tactical concerns",

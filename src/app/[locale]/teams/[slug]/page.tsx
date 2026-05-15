@@ -22,6 +22,7 @@ import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import MarketModelSpread from '@/components/team/MarketModelSpread'
 import RiskRegister from '@/components/team/RiskRegister'
+import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
 import GlassCard from '@/components/ui/GlassCard'
 import Paywall from '@/components/monetization/Paywall'
 import Breadcrumbs from '@/components/layout/Breadcrumbs'
@@ -195,6 +196,14 @@ export default async function TeamPage({ params }: PageProps) {
 
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <TacticalDNA team={team} players={players} />
+        <div className="mx-14 border-t border-white/[0.08]" />
+        <Paywall contentType="team" scope={slug} previewLines={6}>
+          <VulnerabilityMatrix
+            team={team}
+            players={players}
+            opponents={groupTeams}
+          />
+        </Paywall>
         <div className="mx-14 border-t border-white/[0.08]" />
         <SquadDepth players={players} />
         {worldCupHistory && (
