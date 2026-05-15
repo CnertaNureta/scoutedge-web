@@ -58,8 +58,15 @@ describe('sitemap coverage', () => {
 
     // Detail pages we explicitly want indexed
     expect(urls).toContain(localizedUrl('en', '/teams/argentina'))
+    expect(urls).toContain(localizedUrl('en', '/matches/live/mexico-vs-south-africa-a'))
     expect(urls).toContain(localizedUrl('en', '/cities/new-york'))
     expect(urls).toContain(localizedUrl('en', '/groups/a'))
+  })
+
+  it('excludes unresolved match pages that would 404', () => {
+    const urls = getSitemapEntries().map((entry) => entry.url)
+
+    expect(urls.some((url) => url.includes('/matches/live/') && url.includes('tbd-'))).toBe(false)
   })
 
   it('excludes user-state and legal routes via NOINDEX_PATHS', () => {

@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { MATCH_FIXTURES } from '@/data/match-fixtures'
 import { getMatchesBoardData } from '@/lib/site-data'
-import { sportsEventJsonLd, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale } from '@/lib/og-utils'
+import { sportsEventJsonLd, breadcrumbJsonLd, jsonLdGraph, canonicalForLocale, buildOGMeta } from '@/lib/og-utils'
+import { buildAlternates } from '@/lib/seo/build-alternates'
 import LiveMatchClient from './LiveMatchClient'
 
 interface PageProps {
@@ -33,14 +34,19 @@ function resolveFixture(matchId: string): (typeof MATCH_FIXTURES)[number] | unde
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { matchId } = await params
+  const { locale, matchId } = await params
   const fixture = resolveFixture(matchId)
   if (!fixture) return { title: 'Match Not Found' }
 
   const title = `Live: ${fixture.homeTeamSlug.replace(/-/g, ' ')} vs ${fixture.awayTeamSlug.replace(/-/g, ' ')} | World Cup 2026`
+  const description = `Live predictions, real-time stats, and interactive leaderboard for ${fixture.venue}, ${fixture.city}. Group ${fixture.group}, ${fixture.round}.`
+  const alternates = buildAlternates(locale, `/matches/live/${matchId}`)
+
   return {
     title,
-    description: `Live predictions, real-time stats, and interactive leaderboard for ${fixture.venue}, ${fixture.city}. Group ${fixture.group}, ${fixture.round}.`,
+    description,
+    alternates,
+    ...buildOGMeta({ title, description, url: alternates.canonical, locale }),
   }
 }
 
