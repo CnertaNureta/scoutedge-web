@@ -22,6 +22,7 @@ import IntelligenceReport from '@/components/team/IntelligenceReport'
 import ScoutEdgeScoreModule from '@/components/team/ScoutEdgeScore'
 import MarketModelSpread from '@/components/team/MarketModelSpread'
 import RiskRegister from '@/components/team/RiskRegister'
+import PressBoxBrief from '@/components/team/PressBoxBrief'
 import AgePeakWindow from '@/components/team/AgePeakWindow'
 import VulnerabilityMatrix from '@/components/team/VulnerabilityMatrix'
 import ArchetypeDossier from '@/components/team/ArchetypeDossier'
@@ -170,6 +171,13 @@ export default async function TeamPage({ params }: PageProps) {
       {/* Squad Risk Register — top-5 fitness/selection/tactical concerns, gated */}
       <Paywall contentType="team" scope={slug} previewLines={6}>
         <RiskRegister team={team} players={players} />
+      </Paywall>
+
+      <div className="mx-14 border-t border-white/[0.08]" />
+
+      {/* T10 — Press Box Weekly Brief: hand-tuned 4-bullet desk note, gated */}
+      <Paywall contentType="team" scope={slug} previewLines={6}>
+        <PressBoxBrief team={team} players={players} marketIntel={marketIntel} />
       </Paywall>
 
       {/* Section rule */}

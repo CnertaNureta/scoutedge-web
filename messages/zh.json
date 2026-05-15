@@ -2328,5 +2328,26 @@
     "statsBestPerformance": "最佳表现",
     "statsBestLabel": "对阵 {opponent} · {rating}",
     "statsFadeCount": "低迷次数"
+  },
+  "pressBoxBrief": {
+    "heading": "新闻席每周简报",
+    "subtitle": "情报台奉上的四条本周要点",
+    "weekLabel": "第{week}周 · 2026",
+    "signOff": "— Kick Oracle 情报台",
+    "stubFootnote": "本期为人工调校简报；完整的 LLM 周报节奏将在第三阶段后续上线。",
+    "bulletTemplates": {
+      "spine": "{team} 带着稳定的中轴进入比赛日 — {archetype} 的判读依然成立。",
+      "banker": "{topScorer}（{topScorerGoals} 球）是这支球队最接近稳胆的存在。",
+      "archetype": "{archetype} 的原型一再出现在录像里 — 这支队伍非常守型。",
+      "moraleEdge": "队内士气 {morale} — 多数桌面仍按平均值定价，悄然成势。",
+      "stabilityHinge": "稳定指数 {stability}：轮换空间确有，但枢纽球员决定走势。",
+      "coachLens": "{coach} 依旧围绕 {signalPlayer} 安排进攻 — 留意肋部空间。",
+      "ranking": "FIFA 第 {ranking} 名低估了这支队伍在客场所做的事。",
+      "groupRoad": "{group} 组的走线仍要经过 {team} — 控住中段三分之一，就控住整周。",
+      "marketEdge": "模型对盘口的优势约为 {edgePct}（参考 {bookSource} 报价）— 顺势博弈。",
+      "rotationRisk": "轮换风险才是真问题 — {coach} 对 {signalPlayer} 已倚重至非首发不可。",
+      "finishingSignal": "{topScorer} 是终结信号：机会到他脚下，结果通常随之而来。",
+      "tempo": "节奏决定一切 — 当 {team} 把控开局二十分钟，往往也把控整场比赛。"
+    }
   }
 }

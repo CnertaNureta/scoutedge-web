@@ -2706,5 +2706,26 @@
     "statsBestPerformance": "Best Performance",
     "statsBestLabel": "vs {opponent} · {rating}",
     "statsFadeCount": "Fade Count"
+  },
+  "pressBoxBrief": {
+    "heading": "Press Box Weekly Brief",
+    "subtitle": "Four-bullet weekly intelligence from the desk",
+    "weekLabel": "WK{week} · 2026",
+    "signOff": "— Kick Oracle Desk",
+    "stubFootnote": "Hand-tuned weekly brief — full LLM-generated cadence arrives in Phase 3 follow-up.",
+    "bulletTemplates": {
+      "spine": "{team} carry a settled spine into matchday — the {archetype} read still tracks.",
+      "banker": "{topScorer} ({topScorerGoals} goals) is the closest thing this side has to a banker.",
+      "archetype": "The {archetype} archetype keeps showing up in the tape — this team plays to type.",
+      "moraleEdge": "Camp morale sits at {morale} — a quiet edge most desks are still pricing flat.",
+      "stabilityHinge": "Stability index {stability}: rotation room is real, but the hinge players matter.",
+      "coachLens": "{coach} keeps shaping the run-of-play around {signalPlayer} — watch the half-spaces.",
+      "ranking": "FIFA #{ranking} undersells what this group has done on the road.",
+      "groupRoad": "Group {group} road still runs through {team} — control the middle thirds, control the week.",
+      "marketEdge": "Model edge vs the books is roughly {edgePct} on the {bookSource} number — fade the drift.",
+      "rotationRisk": "Rotation risk is the quiet story — {coach} has trusted {signalPlayer} too long not to start.",
+      "finishingSignal": "{topScorer} is the finishing signal: when chances land for them, the result usually follows.",
+      "tempo": "Tempo holds the verdict — when {team} dictate the first 20, they tend to dictate the night."
+    }
   }
 }
